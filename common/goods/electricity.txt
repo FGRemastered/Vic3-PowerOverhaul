@@ -1,0 +1,9 @@
+# Power can now be traded - Hurray! Don't ask how that works.
+electricity = {
+	texture = "gfx/interface/icons/goods_icons/electricity.dds"
+	cost = 30
+	category = staple
+	prestige_factor = 5
+	consumption_tax_cost = 200
+	convoy_cost_multiplier = 0
+}
