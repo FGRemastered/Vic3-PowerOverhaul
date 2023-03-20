@@ -1,0 +1,212 @@
+# Train Automation
+# Default
+pm_road_carts = {
+	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
+	# Nothing. This is the default.
+}
+pm_steam_rail_transport = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10	
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_coal_add				= 3
+		}
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}
+pm_electric_rail_transport = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_electricity_add		= 1
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}
+pm_diesel_rail_transport = {
+	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
+	pollution_generation = 15
+	unlocking_technologies = { compression_ignition }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_oil_add				= 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}
+# Coal Mine
+pm_steam_rail_transport_building_coal_mine = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10	
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_output_coal_add			= -3
+		}
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}
+# Logging Camps
+pm_log_carts = {
+	texture = "gfx/interface/icons/production_method_icons/log_carts.dds"
+	pollution_generation = 15
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_transportation_add	= 8
+			building_input_electricity_add		= 1.5
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -1500
+		}
+	}
+}
+
+pm_diesel_log_carts = {
+	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
+	pollution_generation = 15
+	unlocking_technologies = { compression_ignition }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 8
+			building_input_oil_add				= 2.5
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -1500
+		}
+	}
+}
+# Oil Rigs
+pm_tanker_cars = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10
+	unlocking_technologies = { steel_railway_cars }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_transportation_add	= 10
+			building_input_coal_add				= 6
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -2000
+		}
+	}
+}
+
+pm_electric_tanker_cars = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 10
+			building_input_electricity_add		= 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -2000
+		}
+	}
+}
+
+pm_diesel_tanker_cars = {
+	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
+	pollution_generation = 15
+	unlocking_technologies = { compression_ignition }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 10
+			# output goods
+			building_output_oil_add				= -4
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -2000
+		}
+	}
+}
+# Power plant
+pm_steam_rail_transport_power_plant = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10	
+	unlocking_technologies = { railways }
+	unlocking_production_methods = { # If you have nothing to transport, this makes little sense.
+		pm_coal-fired_plant
+		pm_oil-fired_plant
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_coal_add				= 3
+		}
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+	}
+}
+pm_electric_rail_transport_power_plant = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	unlocking_production_methods = { # If you have nothing to transport, this makes little sense.
+		pm_coal-fired_plant
+		pm_oil-fired_plant
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_output_electricity_add		= -1
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -2000
+		}
+	}
+}
+pm_diesel_rail_transport_power_plant = {
+	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
+	pollution_generation = 15
+	unlocking_technologies = { compression_ignition }
+	unlocking_production_methods = { # If you have nothing to transport, this makes little sense.
+		pm_coal-fired_plant
+		pm_oil-fired_plant
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_oil_add				= 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -2000
+		}
+	}
+}

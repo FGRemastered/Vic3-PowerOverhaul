@@ -1,0 +1,100 @@
+ban_tobacco = {
+	is_shown = {
+		exists = market
+		market.owner = root
+		any_primary_culture = { has_discrimination_trait = german_speaking }
+		NOT = { is_banning_goods = g:tobacco }
+	}
+
+	possible = {
+		any_primary_culture = { has_discrimination_trait = german_speaking }
+		exists = market	
+	}
+
+	when_taken = {
+		add_banned_goods = g:tobacco
+		add_modifier = {
+			name = tobacco_ban_authority
+		}
+	}
+	
+    ai_chance = {
+        base = 0
+		modifier = 
+		{
+			add = 10
+			trigger = { authority >= 200 }
+		}
+		modifier =
+		{
+			add = 10
+			trigger =
+			{
+				any_interest_group = 
+				{
+					limit = 
+					{
+						OR = 
+						{
+							is_being_bolstered = yes
+							is_in_government = yes
+						}
+						OR =
+						{
+							leader = { has_ideology = ideology_fascist }
+							is_interest_group_type = ig_petty_bourgeoisie
+						}
+					}
+				}
+			}
+		}
+    }	
+}
+
+remove_tobacco_ban = {
+	is_shown = {
+		is_banning_goods = g:tobacco
+		exists = market
+		market.owner = root
+	}
+
+	possible = {
+		always = yes
+	}
+
+	when_taken = {
+		remove_banned_goods = g:tobacco
+		remove_modifier = tobacco_ban_authority
+	}
+	
+   ai_chance = {
+      base = 0
+		modifier = {
+			trigger = { authority < 50 }
+			add = 10
+		}
+		modifier =
+		{
+			trigger =
+			{
+				any_interest_group = 
+				{
+					limit = 
+					{
+						OR = 
+						{
+							is_being_bolstered = yes
+							is_in_government = yes
+						}
+						OR =
+						{
+							leader = { has_ideology = ideology_fascist }
+							is_interest_group_type = ig_petty_bourgeoisie
+						}
+					}
+				}
+			}
+			add = -20
+		}
+   }	
+}

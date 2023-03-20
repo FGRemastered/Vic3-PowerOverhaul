@@ -1,0 +1,170 @@
+pm_steel = {
+	texture = "gfx/interface/icons/production_method_icons/unused/steel_tools.dds"	# This is unused for some reason...
+	unlocking_technologies = {
+		mechanical_tools
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_wood_add = 30
+			building_input_steel_add = 20
+			
+			# output goods
+			building_output_tools_add = 80
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 3000
+			building_employment_machinists_add = 1000
+			building_employment_engineers_add = 500
+		}
+	}
+}
+
+pm_early_machine_tools = {
+	texture = "gfx/interface/icons/production_method_icons/electric_saw_mills.dds"
+	unlocking_technologies = { pneumatic_tools }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 20	# x-40	= -800
+			building_input_steel_add			= 30	# x-50	=-1500
+			building_input_electricity_add		=  5	# x-30	= -150
+			building_input_oil_add				=  5	# x-40	= -200
+			# output goods								#		=-2650
+			building_output_tools_add			= 150	# x+40	=+6000
+		}												#		=+3350
+		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
+		level_scaled = {
+			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
+			building_employment_machinists_add	= 1000	# x-1.5	=-1500
+			building_employment_engineers_add	= 500	# x-3.0	=-1500
+		}												#		=-6000 (-3000)
+	}													#		=-2650 (+350)
+}
+
+pm_machine_tools = {
+	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 30	# x-40	= -1200
+			building_input_steel_add			= 50	# x-50	= -2500
+			building_input_electricity_add		= 10	# x-30	=  -300
+			building_input_oil_add				= 10	# x-40	=  -400
+			# output goods								#		= -4400
+			building_output_tools_add			= 300	# x+40	=+12000
+		}												#		= +7600
+		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
+		level_scaled = {
+			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
+			building_employment_machinists_add	= 1500	# x-1.5	=-2250
+			building_employment_engineers_add	= 500	# x-3.0	=-1500
+		}												#		=-6750 (-3750)
+	}													#		= +850 (+3850)
+}
+
+pm_privately_owned_building_tooling_workshops = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	unlocking_production_methods = {
+		pm_pig_iron
+		pm_steel
+		pm_early_machine_tools
+		pm_machine_tools
+	}
+
+	disallowing_laws = {
+		law_command_economy
+		law_council_republic
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add = 100
+		}
+		unscaled = {
+			building_capitalists_shares_add = 5
+		}
+	}
+}
+
+pm_publicly_traded_building_tooling_workshops = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+
+	unlocking_production_methods = {
+		pm_pig_iron
+		pm_steel
+		pm_early_machine_tools
+		pm_machine_tools
+	}
+	
+	disallowing_laws = {
+		law_command_economy
+		law_council_republic
+	}
+
+	unlocking_technologies = {
+		mutual_funds
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add = 150
+		}
+		unscaled = {
+			building_capitalists_shares_add = 5
+		}
+	}
+}
+
+# pm_government_run_building_tooling_workshops = {
+	# texture = "gfx/interface/icons/production_method_icons/government_run.dds"
+
+	# unlocking_production_methods = {
+		# pm_pig_iron
+		# pm_steel
+		# pm_early_machine_tools
+		# pm_machine_tools
+	# }
+	
+	# unlocking_laws = {
+		# law_command_economy
+	# }
+	
+	# building_modifiers = {
+		# level_scaled = {
+			# building_employment_bureaucrats_add = 150
+		# }
+		# unscaled = {
+			# building_bureaucrats_shares_add = 5
+		# }
+	# }
+# }
+
+pm_worker_cooperative_building_tooling_workshops = {
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
+
+	unlocking_production_methods = {
+		pm_pig_iron
+		pm_steel
+		pm_early_machine_tools
+		pm_machine_tools
+	}
+
+	unlocking_laws = {
+		law_council_republic
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_laborers_add = 100
+			building_employment_machinists_add = 100
+		}
+		unscaled = {
+			building_laborers_shares_add = 1
+			building_machinists_shares_add = 1
+		}
+	}
+}

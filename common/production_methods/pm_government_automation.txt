@@ -1,0 +1,207 @@
+
+pm_no_gov_automation = {
+	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
+	# Nothing. This is the default.
+}
+# Admin
+pm_steam_rail_transport_gov = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 1
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 0.5
+			building_input_coal_add				= 0.3
+		}
+
+		level_scaled = {
+			building_employment_clerks_add		= -1000
+		}
+	}
+}
+pm_electric_rail_transport_gov = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 0.5
+			building_input_electricity_add		= 0.1
+		}
+
+		level_scaled = {
+			building_employment_clerks_add		= -2000
+		}
+	}
+}
+pm_diesel_rail_transport_gov = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	unlocking_technologies = { compression_ignition }
+	pollution_generation = 3
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 0.5
+			building_input_oil_add				= 0.2
+		}
+
+		level_scaled = {
+			building_employment_clerks_add		= -2000
+		}
+	}
+}
+# University
+pm_steam_rail_transport_uni = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 1
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 1
+			building_input_coal_add				= 0.6
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -500
+		}
+	}
+}
+pm_electric_rail_transport_uni = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 1
+			building_input_electricity_add		= 0.2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -1000
+		}
+	}
+}
+pm_diesel_rail_transport_uni = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	unlocking_technologies = { compression_ignition }
+	pollution_generation = 3
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 1
+			building_input_oil_add				= 0.4
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -1000
+		}
+	}
+}
+# Construction
+pm_steam_rail_transport_construction = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_coal_add				= 3
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -2000
+		}
+	}
+}
+pm_electric_rail_transport_construction = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_electricity_add		= 1
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -3000
+		}
+	}
+}
+pm_diesel_rail_transport_construction = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	unlocking_technologies = { compression_ignition }
+	pollution_generation = 15
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_oil_add				= 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -3000
+		}
+	}
+}
+# Skyscraper
+pm_steam_rail_transport_sky = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	pollution_generation = 10
+	unlocking_technologies = { railways }
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_coal_add				= 3
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -1000
+		}
+	}
+}
+pm_electric_rail_transport_sky = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_electricity_add		= 1
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -1500
+		}
+	}
+}
+pm_diesel_rail_transport_sky = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	unlocking_technologies = { compression_ignition }
+	pollution_generation = 15
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods					
+			building_input_transportation_add	= 5
+			building_input_oil_add				= 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_clerks_add		= -1500
+		}
+	}
+}

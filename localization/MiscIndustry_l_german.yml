@@ -1,0 +1,12 @@
+﻿l_german:
+ pm_early_machine_tools:0 "Pneumatische Maschinenwerkzeuge"
+ pm_machine_tools:0 "Elektrische Maschinenwerkzeuge"
+ 
+ pm_basic_oxygen_process:0 "Linz-Donawitz Verfahren"
+ 
+ pm_early_automobile_production:0 "Handgekurbelte Automobile"
+ pm_electic_automobile_production:0 "Automobile mit Elektromotor"
+ pm_automobile_production:0 "Automobile mit Dieselmotor"
+ pm_automobile_priority:0 "Vorrang für Automobile"
+ 
+ pm_modern_aeroplane_production:0 "Moderne Flugzeuge"

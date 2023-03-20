@@ -1,0 +1,20 @@
+
+pmg_passenger_trains = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_passenger_trains
+		pm_wooden_passenger_carriages
+		pm_steel_passenger_carriages
+		pm_high_speed_rail
+	}
+}
+pmg_train_rails = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_normal_rails
+		pm_electric_rails
+		pm_rail_signals
+	}
+}

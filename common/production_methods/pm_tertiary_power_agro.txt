@@ -1,0 +1,102 @@
+	# Green Energy
+pm_no_green_power = { texture = "gfx/interface/icons/production_method_icons/no_automation.dds"	}
+
+pm_early_windpark = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	pollution_generation = -5
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  2 	# x-60	= -120
+			building_input_steel_add			=  1 	# x-50	=  -50
+			# output goods							 	#		= -170
+			building_output_electricity_add		= 10 	# x+30	= +300
+		}											 	#		= +130
+		
+		level_scaled = 
+		{
+			building_employment_machinsts_add 	= 20 	# x-1.5	=  -30
+			building_employment_engineers_add	=  5 	# x-3	=  -15
+		}											 	#		=  -45
+	}												 	#		=  +85
+}
+
+pm_large_windpark = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	pollution_generation = -10
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  4 	# x-60	= -240
+			building_input_steel_add			=  2 	# x-50	= -100
+			# output goods							 	#		= -340
+			building_output_electricity_add		= 20 	# x+30	= +600
+		}											 	#		= +260
+		
+		level_scaled = 
+		{
+			building_employment_machinsts_add 	= 40 	# x-1.5	=  -60
+			building_employment_engineers_add	= 10 	# x-3	=  -30
+		}											 	#		=  -90
+	}												 	#		= +170
+}
+
+pm_solar_windpark = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	pollution_generation = -20
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  5 	# x-60	= -300
+			building_input_steel_add			=  2 	# x-50	= -100
+			building_input_glass_add			=  1 	# x-40	= - 40
+			# output goods							 	#		= -440
+			building_output_electricity_add		= 25 	# x+30	= +750
+		}											 	#		= +310
+		unscaled = { building_production_mult	=-0.01 }	#	   -1%		# Plants and workers need time to adapt
+		level_scaled = 
+		{
+			building_employment_machinsts_add 	= 40 	# x-1.5	=  -60
+			building_employment_engineers_add	= 10 	# x-3	=  -30
+			building_employment_farmers_add		=-150	# x+1.5	= +225
+		}											 	#		= +135
+	}												 	#		=  +70
+}
+
+pm_large_solar_windpark = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	pollution_generation = -30
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			= 10 	# x-60	= -600
+			building_input_steel_add			=  2 	# x-50	= -100
+			building_input_glass_add			=  6 	# x-40	= -240
+			# output goods							 	#		= -940
+			building_output_electricity_add		= 50 	# x+30	=+1500
+		}											 	#		= +760
+		unscaled = { building_production_mult	= 1 }	#		  +100%		# Having shade is hugely beneficial for plant growth
+		level_scaled = 
+		{
+			building_employment_machinsts_add 	= 80 	# x-1.5	= -120
+			building_employment_engineers_add	= 20 	# x-3	= - 60
+			building_employment_farmers_add		=-300	# x+1.5	= +450
+		}											 	#		= +270
+	}												 	#		= +280
+}

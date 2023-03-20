@@ -1,0 +1,82 @@
+# There's absolutely no reason to have a separate one for each of them...
+pmg_train_automation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport
+		pm_electric_rail_transport
+		pm_diesel_rail_transport
+	}
+}
+pmg_train_automation_building_coal_mine = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport_building_coal_mine
+		pm_electric_rail_transport
+		pm_diesel_rail_transport
+	}
+}
+pmg_transportation_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport
+		pm_log_carts
+		pm_diesel_log_carts
+	}
+}
+pmg_transportation_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_tanker_cars
+		pm_electric_tanker_cars
+		pm_diesel_tanker_cars
+	}
+}
+pmg_train_automation_power_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport_power_plant
+		pm_electric_rail_transport_power_plant
+		pm_diesel_rail_transport_power_plant
+	}
+}
+pmg_train_automation_gov = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_gov_automation
+		pm_steam_rail_transport_gov
+		pm_electric_rail_transport_gov
+		pm_diesel_rail_transport_gov
+	}
+}
+pmg_train_automation_uni = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_gov_automation
+		pm_steam_rail_transport_uni
+		pm_electric_rail_transport_uni
+		pm_diesel_rail_transport_uni
+	}
+}
+pmg_train_automation_sky = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_gov_automation
+		pm_steam_rail_transport_sky
+		pm_electric_rail_transport_sky
+		pm_diesel_rail_transport_sky
+	}
+}
+pmg_train_automation_construction = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport_construction
+		pm_electric_rail_transport_construction
+		pm_diesel_rail_transport_construction
+	}
+}

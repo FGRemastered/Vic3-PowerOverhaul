@@ -1,0 +1,12 @@
+﻿l_english:
+ pm_early_machine_tools:0 "Pneumatic Machine Tools"
+ pm_machine_tools:0 "Electric Machine Tools"
+ 
+ pm_basic_oxygen_process:0 "Basic Oxygen Process"
+ 
+ pm_early_automobile_production:0 "Hand-Cranked Automobiles"
+ pm_electic_automobile_production:0 "Electric Automobiles"
+ pm_automobile_production:0 "Diesel-Powered Automobiles"
+ pm_automobile_priority:0 "Automobile Priority"
+ 
+ pm_modern_aeroplane_production:0 "Modern Aeroplanes"

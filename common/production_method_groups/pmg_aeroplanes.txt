@@ -1,0 +1,8 @@
+
+pmg_aeroplanes = {
+	texture = gfxinterfaceiconsgeneric_iconsmixed_icon_base.dds
+	production_methods = {
+		pm_aeroplane_production
+		pm_modern_aeroplane_production
+	}
+}

@@ -1,0 +1,84 @@
+# Railway
+# Personal Transport
+pm_high_speed_rail = {
+	texture = "gfx/interface/icons/production_method_icons/trains_diesel.dds"
+	pollution_generation = 10
+	unlocking_technologies = { compression_ignition }
+	unlocking_production_methods = {
+		pm_electric_trains
+		pm_diesel_trains
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_steel_add			= 5
+			building_input_engines_add			= 5
+			building_input_electricity_add		= 5
+			building_output_transportation_add	= 80
+			# building_output_services_add		= 20
+		}
+		level_scaled = {
+			building_employment_machinists_add	= -500
+		}
+	}
+	
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -10
+		}
+	}
+}
+# Rails
+pm_normal_rails = {
+	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	# No effect. This is the default.
+}
+pm_electric_rails = {
+	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
+	unlocking_technologies = { electric_railway }
+	unlocking_production_methods = {
+		pm_electric_trains
+		pm_diesel_trains
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_electricity_add		=    1
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -500
+			building_employment_machinists_add	= -500
+		}
+		unscaled = { building_railway_throughput_mult = 1 }
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 5
+		}
+	}
+}
+pm_rail_signals = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"
+	unlocking_technologies = { radio }
+	unlocking_production_methods = {
+		pm_electric_trains
+		pm_diesel_trains
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_electricity_add		= 2
+			building_input_telephones_add		= 1
+			building_input_radios_add			= 1
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1000
+			building_employment_machinists_add	=-1000
+			building_employment_clerks_add		=  100
+			building_employment_engeineers_add	=  100
+		}
+		unscaled = { building_railway_throughput_mult = 1.5 }
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 10
+		}
+	}
+}

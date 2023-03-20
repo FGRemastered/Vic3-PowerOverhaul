@@ -1,0 +1,58 @@
+# Agrictultural Secondary
+# Cold (Rye)
+pmg_secondary_farm_cold = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_secondary
+		pm_potatoes
+		pm_potatoes_enriched
+		pm_potatoes_fertilizer
+		pm_potatoes_chemical_fertilizer
+		pm_potatoes_auto
+		pm_apple_orchards
+		pm_apples_enriched
+		pm_apples_fertilizer
+		pm_apples_chemical_fertilizer
+		pm_apples_auto
+	}
+}
+# Temperate (Wheat & Maize)
+pmg_secondary_farm_temperate = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_secondary
+		pm_citrus_orchards
+		pm_citrus_enriched
+		pm_citrus_fertilizer
+		pm_citrus_chemical_fertilizer
+		pm_citrus_auto
+		pm_vineyards
+		pm_vineyards_enriched
+		pm_vineyards_fertilizer
+		pm_vineyards_chemical_fertilizer
+		pm_vineyards_auto
+	}
+}
+# Hot (Rice & Millet)
+pmg_secondary_farm_hot = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_secondary
+		pm_fig_orchards
+		pm_figs_enriched
+		pm_figs_fertilizer
+		pm_figs_chemical_fertilizer
+		pm_figs_auto
+	}
+}
+# Ranches
+pmg_slaughtering = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_open_air_stockyards
+		pm_butchering_tools
+		pm_slaughterhouses
+		pm_mechanized_slaughtering
+		pm_electrocution_slaughtering
+	}
+}

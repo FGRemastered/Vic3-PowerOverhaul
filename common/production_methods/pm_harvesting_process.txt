@@ -1,0 +1,16 @@
+
+pm_electric_tractors = {
+	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods								
+			building_input_electricity_add	= 1
+			building_input_engines_add		= 2
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -3000
+			building_employment_farmers_add		= -500
+		}
+	}
+}

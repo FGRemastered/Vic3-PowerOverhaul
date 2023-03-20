@@ -1,0 +1,357 @@
+# Agrictultural Secondary (4x Input : 3x Output)
+pm_no_secondary = {
+	texture = "gfx/interface/icons/production_method_icons/no_orchards.dds"
+}
+# Cold (Rye)
+# Potatoes
+pm_potatoes = {
+	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -20
+			building_output_liquor_add	= 15
+		}
+	}
+}
+pm_potatoes_enriched = {
+	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
+	unlocking_production_methods = {
+		pm_soil_enriching_farming
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -30
+			building_output_liquor_add	= 25
+		}
+	}
+}
+pm_potatoes_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
+	unlocking_production_methods = {
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -60
+			building_output_liquor_add	= 45
+		}
+	}
+}
+pm_potatoes_chemical_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
+	unlocking_production_methods = {
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -90
+			building_output_liquor_add	= 70
+		}
+	}
+}
+pm_potatoes_auto = {
+	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
+	unlocking_production_methods = {
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -140
+			building_output_liquor_add	= 105
+		}
+	}
+}
+# Apples (2:1 Fruit:Sugar)
+pm_apple_orchards = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -20
+			building_output_fruit_add	= 10
+			building_output_sugar_add	= 5
+		}
+	}
+}
+pm_apples_enriched = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_soil_enriching_farming
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -30
+			building_output_fruit_add	= 15
+			building_output_sugar_add	= 10
+		}
+	}
+}
+pm_apples_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -60
+			building_output_fruit_add	= 30
+			building_output_sugar_add	= 15
+		}
+	}
+}
+pm_apples_chemical_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -90
+			building_output_fruit_add	= 45
+			building_output_sugar_add	= 25
+		}
+	}
+}
+pm_apples_auto = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -140
+			building_output_fruit_add	= 70
+			building_output_sugar_add	= 35
+		}
+	}
+}
+# Temperate (Wheat & Maize)
+# Citrus Fruit (3:2 Fruit:Sugar)
+pm_citrus_orchards = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -20
+			building_output_fruit_add	= 9
+			building_output_sugar_add	= 6
+		}
+	}
+}
+pm_citrus_enriched = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_soil_enriching_farming
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -30
+			building_output_fruit_add	= 15
+			building_output_sugar_add	= 10
+		}
+	}
+}
+pm_citrus_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -60
+			building_output_fruit_add	= 27
+			building_output_sugar_add	= 18
+		}
+	}
+}
+pm_citrus_chemical_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -90
+			building_output_fruit_add	= 42
+			building_output_sugar_add	= 28
+		}
+	}
+}
+pm_citrus_auto = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -140
+			building_output_fruit_add	= 63
+			building_output_sugar_add	= 42
+		}
+	}
+}
+# Vineyards (2x Input : 1x Output)
+pm_vineyards = {
+	texture = "gfx/interface/icons/production_method_icons/vineyards.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add			= -20
+			building_output_wine_add			= 10
+			building_employment_shopkeepers_add	= 200
+		}
+	}
+}
+pm_vineyards_enriched = {
+	texture = "gfx/interface/icons/production_method_icons/vineyards.dds"
+	unlocking_production_methods = {
+		pm_soil_enriching_farming
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add			= -30
+			building_output_wine_add			= 15
+			building_employment_shopkeepers_add	= 300
+		}
+	}
+}
+pm_vineyards_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/vineyards.dds"
+	unlocking_production_methods = {
+		pm_fertilization
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add			= -60
+			building_output_wine_add			= 30
+			building_employment_shopkeepers_add	= 350
+		}
+	}
+}
+pm_vineyards_chemical_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/vineyards.dds"
+	unlocking_production_methods = {
+		pm_chemical_fertilizer
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add			= -90
+			building_output_wine_add			= 45
+			building_employment_shopkeepers_add	= 400
+		}
+	}
+}
+pm_vineyards_auto = {
+	texture = "gfx/interface/icons/production_method_icons/vineyards.dds"
+	unlocking_production_methods = {
+		pm_automatic_fertilization
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add			= -140
+			building_output_wine_add			= 70
+			building_employment_shopkeepers_add	= 500
+		}
+	}
+}
+# Hot (Rice & Millet)
+# Figs (2:3 Fruit:Sugar)
+pm_fig_orchards = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -15
+			building_output_fruit_add	= 6
+			building_output_sugar_add	= 9
+		}
+	}
+}
+pm_figs_enriched = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_soil_enriching_farming
+		pm_soil_enriching_farming_building_rice_farm
+		pm_fertilization
+		pm_fertilization_building_rice_farm
+		pm_chemical_fertilizer
+		pm_chemical_fertilizer_building_rice_farm
+		pm_automatic_fertilization
+		pm_automatic_fertilization_building_rice_farm
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -30
+			building_output_fruit_add	= 10
+			building_output_sugar_add	= 15
+		}
+	}
+}
+pm_figs_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_fertilization
+		pm_fertilization_building_rice_farm
+		pm_chemical_fertilizer
+		pm_chemical_fertilizer_building_rice_farm
+		pm_automatic_fertilization
+		pm_automatic_fertilization_building_rice_farm
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -60
+			building_output_fruit_add	= 18
+			building_output_sugar_add	= 27
+		}
+	}
+}
+pm_figs_chemical_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_chemical_fertilizer
+		pm_chemical_fertilizer_building_rice_farm
+		pm_automatic_fertilization
+		pm_automatic_fertilization_building_rice_farm
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -90
+			building_output_fruit_add	= 28
+			building_output_sugar_add	= 42
+		}
+	}
+}
+pm_figs_auto = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	unlocking_production_methods = {
+		pm_automatic_fertilization
+		pm_automatic_fertilization_building_rice_farm
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_grain_add	= -140
+			building_output_fruit_add	= 42
+			building_output_sugar_add	= 63
+		}
+	}
+}

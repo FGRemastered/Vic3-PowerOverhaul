@@ -1,0 +1,110 @@
+# Green Ranches
+pm_power_self_sufficient_ranch =	# Early wind turbines
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	pollution_generation = -5
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  2	# x-60	= -120
+			building_input_steel_add			=  1	# x-50	=  -50
+			building_input_iron_add				=  1	# x-40	=  -40
+			# output goods								#		= -210
+			building_output_electricity_add		=  9	# x+30	= +270
+		}												#		=   60
+		
+		level_scaled = 
+		{
+			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
+			building_employment_machinsts_add 	= 20	# x-1.5	=  -30
+			building_employment_engineers_add	=  5	# x-3	=  -15
+		}												#		=  -45	(+1755)
+	}													#		=  +15	(+1815)
+}
+
+pm_large_windpark_ranch = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	pollution_generation = -10
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  4	# x-60	= -240
+			building_input_steel_add			=  2	# x-50	= -100
+			building_input_iron_add				=  2	# x-40	=  -80
+			# output goods								#		= -420
+			building_output_electricity_add		= 18	# x+30	= +540
+		}												#		= +120
+		unscaled = { building_production_mult	=-0.05 }#		   -5%	# It scares the animals
+		level_scaled = 
+		{
+			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
+			building_employment_machinsts_add 	= 40	# x-1.5	=  -60
+			building_employment_engineers_add	= 10	# x-3	=  -30
+		}												#		=  -90	(+1710)
+	}													#		=  +30	(+1830)
+}
+
+pm_solar_windpark_ranch = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	pollution_generation = -20
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			=  5	# x-60	= -300
+			building_input_steel_add			=  2	# x-50	= -100
+			building_input_glass_add			=  1	# x-40	= - 40
+			building_input_iron_add				=  3	# x-40	= -120
+			# output goods								#		= -560
+			building_output_electricity_add		= 22	# x+30	= +660
+		}												#		= +100
+		unscaled = { building_production_mult	= 0.10 }# 		  +10%	# Free shelter!
+		level_scaled = 
+		{
+			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
+			building_employment_farmers_add		=-200	# x+1.5	= +300
+			building_employment_machinsts_add 	= 40	# x-1.5	=  -60
+			building_employment_engineers_add	= 10	# x-3	=  -30
+		}												#		= +210	(+2010)
+	}													#		= +310	(+2110)
+}
+
+pm_large_solar_windpark_ranch = 
+{
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	pollution_generation = -30
+	building_modifiers = 
+	{
+		workforce_scaled = 
+		{
+			# input goods
+			building_input_engines_add			= 10	# x-60	= -600
+			building_input_steel_add			=  2	# x-50	= -100
+			building_input_glass_add			=  6	# x-40	= -240
+			building_input_iron_add				=  3	# x-40	= -120
+			# output goods								#		=-1060
+			building_output_electricity_add		= 50	# x+30	=+1500
+		}												#		= +440
+		unscaled = { building_production_mult	= 0.20 }# 		  +20%	# Moar free shelter!
+		level_scaled = 
+		{
+			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
+			building_employment_farmers_add		=-500	# x+1.5	= +750
+			building_employment_machinsts_add 	= 80	# x-1.5	= -120
+			building_employment_engineers_add	= 20	# x-3	= - 60
+		}												#		= +570	(+2370)
+	}													#		=+1010	(+2810)
+}
+
+

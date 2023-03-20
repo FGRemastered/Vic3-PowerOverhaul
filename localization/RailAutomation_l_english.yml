@@ -1,0 +1,69 @@
+﻿l_english:
+ pm_electrified_trams:0 "Electrified Trams"
+ pm_extended_trams:0 "Extended Trams"
+ pm_high_speed_rail:0 "High Speed Rail"
+ 
+ pmg_train_rails:0 "Rail Types"
+ pm_normal_rails:0 "Rails"
+ pm_electric_rails:0 "Electric Rails"
+ pm_rail_signals:0 "Rail Signals"
+ 
+ pm_steam_rail_transport:0 "Steam-powered Rail Transportation"
+ pm_electric_rail_transport:0 "Electric Rail Transportation"
+ pm_diesel_rail_transport:0 "Oil-powered Rail Transportation"
+ 
+ pm_steam_rail_transport_building_coal_mine:0 "$pm_steam_rail_transport$"
+ 
+ pm_log_carts:0 "Electric Rail Log Carts"
+ pm_diesel_log_carts:0 "Oil-powered Log Carts"
+ 
+ pm_electric_tanker_cars:0 "Electric Tanker Cars"
+ pm_diesel_tanker_cars:0 "Oil-powered Tanker Cars"
+ 
+ pmg_train_automation_power_plant:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_power_plant:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_power_plant:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_power_plant:0 "$pm_diesel_rail_transport$"
+ 
+ pm_powered_lift_mine:0 "Electric Mine Elevator"
+ pm_oil_fired_lift_mine:0 "Oil-powered Mine Elevator"
+ 
+ pm_hardwood_saw_mills:0 "Hardwood Saw Mills"
+ pm_hardwood_electric_saw_mills:0 "Electric Hardwood Saw Mills"
+ 
+ pm_steam_powered_winch:0 "Steam-powered Winch"
+ pm_powered_winch:0 "Electric Winch"
+ pm_oil_fired_winch:0 "Oil-powered Winch"
+ pm_electric_chainsaws:0 "Electric Chainsaws"
+ pm_modern_chainsaws:0 "Modern Chainsaws"
+ 
+ pmg_train_automation_gov:0 "$pmg_train_automation$"
+ pm_no_gov_automation:0 "Foot Messengers"
+ pm_steam_rail_transport_gov:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_gov:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_gov:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_train_automation_uni:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_uni:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_uni:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_uni:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_train_automation_sky:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_sky:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_sky:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_sky:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_train_automation_construction:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_construction:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_construction:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_construction:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_construction_sector_bureaucrat_professionalism:0 "$pmg_government_administration_bureaucrat_professionalism$"
+ pm_hereditary_bureaucrats_construction:0 "$pm_hereditary_bureaucrats$"
+ pm_professional_bureaucrats_construction:0 "$pm_professional_bureaucrats$"
+ 
+ pmg_construction_sector_religious_administration:0 "$pmg_government_administration_religious_administration$"
+ pm_religious_bureaucrats_construction:0 "$pm_religious_bureaucrats$"
+ pm_secular_bureaucrats_construction:0 "$pm_secular_bureaucrats$"
+ 
+ pm_electricfied_bakery:0 "Electric Dough Rollers"

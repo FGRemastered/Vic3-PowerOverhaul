@@ -1,0 +1,31 @@
+
+pmg_steam_automation_building_coal_mine = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_steam_automation
+		pm_steam_donkey_building_coal_mine
+		pm_powered_lift_mine
+		pm_oil_fired_lift_mine
+	}
+}
+pmg_steam_automation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_steam_automation
+		pm_steam_donkey_mine
+		pm_powered_lift_mine
+		pm_oil_fired_lift_mine
+	}
+}
+pmg_equipment = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_equipment
+		pm_steam_powered_winch
+		pm_chainsaws
+		pm_powered_winch
+		pm_electric_chainsaws
+		pm_oil_fired_winch
+		pm_modern_chainsaws
+	}
+}
