@@ -1,0 +1,38 @@
+﻿#高級服
+
+pmg_luxury_building_textile_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxury_clothes
+		pm_craftsman_sewing
+		pm_craftsman_sewing_priority
+		pm_elastics
+		pm_elastics_priority
+	}
+}
+
+#高級家具
+
+pmg_luxury_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxuries
+		pm_luxury_furniture
+		pm_luxury_furniture_priority
+		pm_precision_tools
+		pm_precision_tools_priority
+	}
+}
+
+#磁器
+
+pmg_luxury_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_disabled_ceramics
+		pm_ceramics
+		pm_ceramics_priority
+		pm_bone_china
+		pm_bone_china_priority
+	}
+}

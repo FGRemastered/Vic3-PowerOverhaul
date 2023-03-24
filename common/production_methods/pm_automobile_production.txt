@@ -63,7 +63,7 @@ pm_automobile_production = {
 			building_input_rubber_add			= 10
 			building_input_oil_add				= 20
 			# output goods
-			building_output_engines_add			= -20
+			building_output_engines_add			= -15	# 20
 			building_output_automobiles_add		= 25
 		}		level_scaled = {
 			# employment
@@ -87,7 +87,7 @@ pm_automobile_priority = {	# 200%
 			building_input_oil_add				= 30
 			building_input_electricity_add		= 10
 			# output goods
-			building_output_engines_add			= -40
+			building_output_engines_add			= -30
 			building_output_automobiles_add		= 50
 		}		level_scaled = {
 			# employment

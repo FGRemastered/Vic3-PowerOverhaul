@@ -24,8 +24,8 @@ pmg_equipment = {
 		pm_steam_powered_winch
 		pm_chainsaws
 		pm_powered_winch
-		pm_electric_chainsaws
 		pm_oil_fired_winch
+		pm_electric_chainsaws
 		pm_modern_chainsaws
 	}
 }

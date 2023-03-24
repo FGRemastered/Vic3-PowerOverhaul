@@ -10,7 +10,6 @@ pmg_tertiary_agri_power =
 		pm_large_solar_windpark
 	}
 }
-
 pmg_fencing = 
 {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
@@ -25,7 +24,6 @@ pmg_fencing =
 		pm_large_solar_windpark_ranch
 	}
 }
-
 pmg_tertiary_offshore_power = 
 {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
@@ -35,5 +33,6 @@ pmg_tertiary_offshore_power =
 		pm_early_offshore_windpark
 		pm_offshore_windpark
 		pm_large_offshore_windpark
+		pm_huge_offshore_windpark
 	}
 }

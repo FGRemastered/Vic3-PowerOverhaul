@@ -1,4 +1,5 @@
-
+# Civilian Ships
+# Wood
 pm_basic_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/wooden_ships.dds"
 	
@@ -20,7 +21,6 @@ pm_basic_shipbuilding = {
 		}
 	}
 }
-
 pm_complex_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/reinforced_wooden_ships.dds"
 	unlocking_technologies = {
@@ -47,7 +47,7 @@ pm_complex_shipbuilding = {
 		}
 	}
 }
-
+# Steel
 pm_metal_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
 	
@@ -76,7 +76,6 @@ pm_metal_shipbuilding = {
 		}
 	}
 }
-
 pm_arc_welding_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_steam_ships.dds"
 	
@@ -105,11 +104,11 @@ pm_arc_welding_shipbuilding = {
 		}
 	}
 }
-
+# Military Ships
 pm_no_military_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/no_military_shipbuilding.dds"
 }
-
+# Wood
 pm_military_shipbuilding_wooden = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_wooden.dds"
 	
@@ -126,7 +125,6 @@ pm_military_shipbuilding_wooden = {
 		}
 	}
 }
-
 pm_military_shipbuilding_wooden_2 = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_wooden_2.dds"
 	
@@ -142,7 +140,7 @@ pm_military_shipbuilding_wooden_2 = {
 		}
 	}
 }			
-
+# Steel
 pm_military_shipbuilding_steam = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam.dds"
 	

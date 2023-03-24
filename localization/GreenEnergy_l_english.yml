@@ -7,10 +7,11 @@
  pm_large_solar_windpark:0 "Large Solar Fields and Wind Parks"
  
  pmg_tertiary_offshore_power:0 "Offshore Wind Parks"
- pm_no_offshore_windpark:0 "No Offshore Wind Parks"
- pm_early_offshore_windpark:0 "Early Offshore Wind Parks"
- pm_offshore_windpark:0 "Offshore Wind Parks"
- pm_large_offshore_windpark:0 "Large Offshore Wind Parks"
+ pm_no_offshore_windpark:0 "No $pmg_tertiary_offshore_power$"
+ pm_early_offshore_windpark:0 "Early $pmg_tertiary_offshore_power$"
+ pm_offshore_windpark:0 "$pmg_tertiary_offshore_power$"
+ pm_large_offshore_windpark:0 "Large $pmg_tertiary_offshore_power$"
+ pm_huge_offshore_windpark:0 "Huge $pmg_tertiary_offshore_power$"
  
  pm_power_self_sufficient_ranch:0 "Power self-sufficiency"
  pm_large_windpark_ranch:0 "Large Wind Parks"
@@ -66,6 +67,11 @@
  pm_automatic_fertilization_banana_plantation:0 "$pm_automatic_fertilization$"
  pm_automatic_fertilization_silk_plantation:0 "$pm_automatic_fertilization$"
  pm_automatic_fertilization_rubber_plantation:0 "$pm_automatic_fertilization$"
+ 
+ pmg_secondary:0 "Secondary"
+ pmg_secondary_farm_cold:0 "$pmg_secondary$"
+ pmg_secondary_farm_temperate:0 "$pmg_secondary$"
+ pmg_secondary_farm_hot:0 "$pmg_secondary$"
  
  pm_potatoes_enriched:0 "Soil Enriching Potato Farming"
  pm_potatoes_fertilizer:0 "Fertilized Potatoes"

@@ -7,10 +7,11 @@
  pm_large_solar_windpark:0 "Große Solarwindparks"
  
  pmg_tertiary_offshore_power:0 "Hochseewindparks"
- pm_no_offshore_windpark:0 "Keine Hochseewindparks"
- pm_early_offshore_windpark:0 "Einfache Hochseewindparks"
- pm_offshore_windpark:0 "Hochseewindparks"
- pm_large_offshore_windpark:0 "Große Hochseewindparks"
+ pm_no_offshore_windpark:0 "Keine $pmg_tertiary_offshore_power$"
+ pm_early_offshore_windpark:0 "Einfache $pmg_tertiary_offshore_power$"
+ pm_offshore_windpark:0 "$pmg_tertiary_offshore_power$"
+ pm_large_offshore_windpark:0 "Große $pmg_tertiary_offshore_power$"
+ pm_huge_offshore_windpark:0 "Riesige $pmg_tertiary_offshore_power$"
  
  pm_power_self_sufficient_ranch:0 "Stromselbstversorgung"
  pm_large_windpark_ranch:0 "Große Windparks"
@@ -66,6 +67,11 @@
  pm_automatic_fertilization_banana_plantation:0 "$pm_automatic_fertilization$"
  pm_automatic_fertilization_silk_plantation:0 "$pm_automatic_fertilization$"
  pm_automatic_fertilization_rubber_plantation:0 "$pm_automatic_fertilization$"
+ 
+ pmg_secondary:0 "Sekundär"
+ pmg_secondary_farm_cold:0 "$pmg_secondary$"
+ pmg_secondary_farm_temperate:0 "$pmg_secondary$"
+ pmg_secondary_farm_hot:0 "$pmg_secondary$"
  
  pm_potatoes_enriched:0 "Bodenanreichernder Kartoffelackerbau"
  pm_potatoes_fertilizer:0 "Gedüngter Kartoffelackerbau"

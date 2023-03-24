@@ -3,7 +3,7 @@
 pm_high_speed_rail = {
 	texture = "gfx/interface/icons/production_method_icons/trains_diesel.dds"
 	pollution_generation = 10
-	unlocking_technologies = { compression_ignition }
+	unlocking_technologies = { oil_turbine }
 	unlocking_production_methods = {
 		pm_electric_trains
 		pm_diesel_trains
@@ -12,7 +12,7 @@ pm_high_speed_rail = {
 		workforce_scaled = {
 			building_input_steel_add			= 5
 			building_input_engines_add			= 5
-			building_input_electricity_add		= 5
+			building_input_electricity_add		= 20
 			building_output_transportation_add	= 80
 			# building_output_services_add		= 20
 		}
@@ -20,7 +20,6 @@ pm_high_speed_rail = {
 			building_employment_machinists_add	= -500
 		}
 	}
-	
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -10

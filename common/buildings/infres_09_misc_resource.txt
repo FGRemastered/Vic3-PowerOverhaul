@@ -1,6 +1,23 @@
 ﻿building_infres_logging_camp = {
-	can_build = { owner = { is_player = yes } }
-	ai_value = 0
+	can_build_private = { 
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}  
+	}
+	can_build_government = { 
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		} 
+	}
+	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_x_logging
 	texture = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
@@ -89,8 +106,24 @@
 
 
 building_infres_oil_rig = {
-	can_build = { owner = { is_player = yes } }
-	ai_value = 0
+	can_build_private = { 
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}  
+	}
+	can_build_government = { 
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		} 
+	}
 	building_group = bg_infres_n_oil_extraction
 	texture = "gfx/interface/icons/building_icons/oil_rig.dds"
 	city_type = mine
