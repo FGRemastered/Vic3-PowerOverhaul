@@ -7,5 +7,5 @@ tobacco_ban_authority = {
 	interest_group_ig_devout_approval_add = 3
 	interest_group_ig_rural_folk_approval_add = 3
 	building_output_tobacco_mult = -1
-	state_mortality_mult = -0.02
+	state_mortality_mult = -0.05
 }
