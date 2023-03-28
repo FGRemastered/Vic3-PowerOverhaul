@@ -18,6 +18,9 @@
  pm_solar_windpark_ranch:0 "Solar Fields and Wind Parks"
  pm_large_solar_windpark_ranch:0 "Large Solar Fields and Wind Parks"
  
+ pm_solar_roofing:0 "Solar Roofing"
+ pm_air_scrubber:0 "Air Scrubber"
+ 
  pmg_harvesting_process_simple:0 "$pmg_harvesting_process$"
  pmg_harvesting_process_tractors:0 "$pmg_harvesting_process$"
  pm_electric_tractors:0 "Electric Tractors"

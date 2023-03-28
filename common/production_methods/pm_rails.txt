@@ -17,7 +17,9 @@ pm_high_speed_rail = {
 			# building_output_services_add		= 20
 		}
 		level_scaled = {
+			building_employment_clerks_add		= -500
 			building_employment_machinists_add	= -500
+			building_employment_shopkeepers_add = 100
 		}
 	}
 	state_modifiers = {

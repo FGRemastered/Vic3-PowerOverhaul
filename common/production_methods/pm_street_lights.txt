@@ -1,0 +1,49 @@
+# Self-sufficient street lighting
+pm_solar_roofing = {
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
+	unlocking_technologies = { electrical_capacitors }
+	unlocking_production_methods = {
+		pm_covered_markets
+		pm_arcades
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_engines_add			= 5		# 1:5 engines - electricity
+			building_input_glass_add			= 5		# 1:1 engines - glass
+			# output goods
+			building_output_services_add		= 50	# = 10 electricity
+			building_output_electricity_add		= 15	# 5*5-10 = 15
+		}
+		level_scaled = {
+			building_employment_machinsts_add 	= 40
+			building_employment_engineers_add	= 10
+		}
+	}
+}
+
+pm_air_scrubber = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	pollution_generation = -5							# 1:1 Pollution - Coal
+	unlocking_technologies = { compression_ignition }
+	unlocking_production_methods = {
+		pm_covered_markets
+		pm_arcades
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_engines_add			= 10	# 1:5 engines - electricity
+			building_input_glass_add			= 10	# 1:1 engines - glass
+			building_input_tools_add			= 5		# Oil processing - Don't ask how screwdrivers make oil.
+			# output goods
+			building_output_services_add		= 50	# = 10 electricity
+			building_output_electricity_add		= 30	# 5*10 => 50-10 => 40
+			building_output_oil_add				= 5		# Coal * (Electricity / 10) = Oil => 5*(10/10) = 5
+		}
+		level_scaled = {
+			building_employment_machinsts_add 	= 80
+			building_employment_engineers_add	= 20
+		}
+	}
+}
