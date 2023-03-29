@@ -19,7 +19,7 @@ pm_power_self_sufficient_ranch =	# Early wind turbines
 		level_scaled = 
 		{
 			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
-			building_employment_machinsts_add 	= 20	# x-1.5	=  -30
+			building_employment_machinists_add 	= 20	# x-1.5	=  -30
 			building_employment_engineers_add	=  5	# x-3	=  -15
 		}												#		=  -45	(+1755)
 	}													#		=  +15	(+1815)
@@ -45,7 +45,7 @@ pm_large_windpark_ranch =
 		level_scaled = 
 		{
 			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
-			building_employment_machinsts_add 	= 40	# x-1.5	=  -60
+			building_employment_machinists_add 	= 40	# x-1.5	=  -60
 			building_employment_engineers_add	= 10	# x-3	=  -30
 		}												#		=  -90	(+1710)
 	}													#		=  +30	(+1830)
@@ -73,7 +73,7 @@ pm_solar_windpark_ranch =
 		{
 			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
 			building_employment_farmers_add		=-200	# x+1.5	= +300
-			building_employment_machinsts_add 	= 40	# x-1.5	=  -60
+			building_employment_machinists_add 	= 40	# x-1.5	=  -60
 			building_employment_engineers_add	= 10	# x-3	=  -30
 		}												#		= +210	(+2010)
 	}													#		= +310	(+2110)
@@ -101,7 +101,7 @@ pm_large_solar_windpark_ranch =
 		{
 			building_employment_laborers_add	=-1800	#(x+1	=+1800)	# Ignore this
 			building_employment_farmers_add		=-500	# x+1.5	= +750
-			building_employment_machinsts_add 	= 80	# x-1.5	= -120
+			building_employment_machinists_add 	= 80	# x-1.5	= -120
 			building_employment_engineers_add	= 20	# x-3	= - 60
 		}												#		= +570	(+2370)
 	}													#		=+1010	(+2810)

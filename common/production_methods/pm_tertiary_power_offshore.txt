@@ -19,7 +19,7 @@ pm_early_offshore_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	=	 80 # x-1.5	= -120
+			building_employment_machinists_add 	=	 80 # x-1.5	= -120
 			building_employment_engineers_add	=	 20 # x-3	=  -60
 		}												#		= -180
 	}													#		= +200
@@ -42,7 +42,7 @@ pm_offshore_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	=	120 # x-1.5	= -180
+			building_employment_machinists_add 	=	120 # x-1.5	= -180
 			building_employment_engineers_add	=	 30 # x-3	=  -90
 		}												#		= -270
 	}													#		= +680
@@ -65,7 +65,7 @@ pm_large_offshore_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	=	200 # x-1.5	= -300
+			building_employment_machinists_add 	=	200 # x-1.5	= -300
 			building_employment_engineers_add	=	 50 # x-3	= -150
 		}												#		= -450
 	}													#		=+1450
@@ -88,7 +88,7 @@ pm_huge_offshore_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	=	400 # x-1.5	= -600
+			building_employment_machinists_add 	=	400 # x-1.5	= -600
 			building_employment_engineers_add	=	100 # x-3	= -300
 		}												#		= -900
 	}													#		=+2900

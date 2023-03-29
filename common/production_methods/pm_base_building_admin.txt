@@ -14,9 +14,7 @@ pm_simple_organization = {
 	building_modifiers = {
 		level_scaled = {
 			building_employment_clerks_add		= 2750	# ~10:1
-			building_employment_bureaucrats_add	= 250
-			building_employment_clergymen_add	= 250
-			building_employment_aristocrats_add	= 250
+			building_employment_bureaucrats_add	= -250
 		}
 	}		
 }		
@@ -35,13 +33,11 @@ pm_horizontal_drawer_cabinets = {
 	}	
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add = 10
+			building_input_paper_add		= 10
 		}
 		level_scaled = {
 			building_employment_clerks_add		= 2500	# 3:1
 			building_employment_bureaucrats_add	= 500
-			building_employment_clergymen_add	= 500
-			building_employment_aristocrats_add	= 500
 		}
 	}		
 }
@@ -60,13 +56,11 @@ pm_vertical_filing_cabinets = {
 	}	
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add = 20
+			building_input_paper_add		= 20
 		}
 		level_scaled = {
 			building_employment_clerks_add		= 2000	# 2:1
-			building_employment_bureaucrats_add	= 1000
-			building_employment_clergymen_add	= 1000
-			building_employment_aristocrats_add	= 1000
+			building_employment_bureaucrats_add	= 500
 		}
 	}	
 }
@@ -85,57 +79,55 @@ pm_switch_boards = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add = 20
-			building_input_telephones_add = 5
+			building_input_paper_add 		= 20
+			building_input_telephones_add	= 5
 		}
 		level_scaled = {
 			building_employment_clerks_add		= 1500	# 1:1
-			building_employment_bureaucrats_add	= 1500
-			building_employment_clergymen_add	= 1500
-			building_employment_aristocrats_add	= 1500
+			building_employment_bureaucrats_add	= 1000
 		}
 	}	
 }
-pm_hereditary_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
-	unlocking_laws = { law_hereditary_bureaucrats }
-	building_modifiers = {
-		unscaled = {
-			building_employment_aristocrats_mult	= 0.5
-			building_employment_bureaucrats_mult	= 0.5
-		}
-	}			
-}
-pm_professional_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
-	disallowing_laws = { law_hereditary_bureaucrats }	
-	building_modifiers = {
-		unscaled = {
-			building_employment_aristocrats_mult	= 0
-			building_employment_bureaucrats_mult	= 1
-		}
-	}			
-}	
-pm_secular_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"
-	disallowing_laws = { law_state_religion }
-	building_modifiers = {
-		unscaled = {
-			building_employment_clergymen_mult		= 0
-			building_employment_bureaucrats_mult	= 1
-		}
-	}			
-}
-pm_religious_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
-	disallowing_laws = { law_total_separation }	
-	building_modifiers = {
-		unscaled = {
-			building_employment_clergymen_mult		= 0.5
-			building_employment_bureaucrats_mult	= 0.5
-		}
-	}			
-}
+# pm_hereditary_bureaucrats = {
+	# texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
+	# unlocking_laws = { law_hereditary_bureaucrats }
+	# building_modifiers = {
+		# unscaled = {
+			# building_employment_aristocrats_mult	= 0.5
+			# building_employment_bureaucrats_mult	= 0.5
+		# }
+	# }			
+# }
+# pm_professional_bureaucrats = {
+	# texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
+	# disallowing_laws = { law_hereditary_bureaucrats }	
+	# building_modifiers = {
+		# unscaled = {
+			# building_employment_aristocrats_mult	= -1
+			# building_employment_bureaucrats_mult	= 0
+		# }
+	# }			
+# }	
+# pm_secular_bureaucrats = {
+	# texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"
+	# disallowing_laws = { law_state_religion }
+	# building_modifiers = {
+		# unscaled = {
+			# building_employment_clergymen_mult		= -1
+			# building_employment_bureaucrats_mult	= 0
+		# }
+	# }			
+# }
+# pm_religious_bureaucrats = {
+	# texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+	# disallowing_laws = { law_total_separation }	
+	# building_modifiers = {
+		# unscaled = {
+			# building_employment_clergymen_mult		= -0.5
+			# building_employment_bureaucrats_mult	= -0.5
+		# }
+	# }			
+# }
 # Skyscrapers
 pm_simple_organization_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
@@ -153,14 +145,11 @@ pm_simple_organization_skyscraper = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add	= 10 # 0
+			building_input_paper_add		= 10 # 0
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_clerks_add		= 4500	# 10:1
-			building_employment_bureaucrats_add	= 500
-			building_employment_clergymen_add	= 500
-			building_employment_aristocrats_add	= 500
 		}
 	}		
 }		
@@ -178,18 +167,16 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 		workforce_scaled = {
 			state_tax_capacity_add	= 15 # 10
 			building_government_administration_throughput_mult	= 0.20
-		}		
+		}
 	}	
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add	= 20 # 10
+			building_input_paper_add		= 20 # 10
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_clerks_add		= 4000	# 4:1
-			building_employment_bureaucrats_add	= 1000
-			building_employment_clergymen_add	= 1000
-			building_employment_aristocrats_add	= 1000
+			building_employment_bureaucrats_add	= 500
 		}
 	}	
 }
@@ -205,20 +192,18 @@ pm_vertical_filing_cabinets_skyscraper = {
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_tax_capacity_add	= 25 # 15
+			state_tax_capacity_add		= 25 # 15
 			building_government_administration_throughput_mult	= 0.25
 		}		
 	}	
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add	= 25 # 20
+			building_input_paper_add		= 25 # 20
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_clerks_add		= 3500	# ~2:1
-			building_employment_bureaucrats_add	= 1500
-			building_employment_clergymen_add	= 1500
-			building_employment_aristocrats_add	= 1500
+			building_employment_bureaucrats_add	= 1000
 		}
 	}	
 }
@@ -229,26 +214,24 @@ pm_switch_boards_skyscraper = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add	= 150 # 100
+			building_government_administration_throughput_mult	= 0.30
 			country_trade_route_quantity_mult					= 0.30
 		}
 	}
 	state_modifiers = {
 		workforce_scaled = {
 			state_tax_capacity_add	= 75 # 50
-			building_government_administration_throughput_mult	= 0.30
 		}		
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_paper_add	= 40 # 20
+			building_input_paper_add		= 40 # 20
 			building_input_telephones_add	= 10 # 5
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_clerks_add		= 2500	# 1:1
-			building_employment_bureaucrats_add	= 2500
-			building_employment_clergymen_add	= 2500
-			building_employment_aristocrats_add	= 2500
+			building_employment_bureaucrats_add	= 2000
 		}
 	}	
 }

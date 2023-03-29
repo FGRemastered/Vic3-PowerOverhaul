@@ -19,7 +19,7 @@ pm_early_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	= 20 	# x-1.5	=  -30
+			building_employment_machinists_add 	= 20 	# x-1.5	=  -30
 			building_employment_engineers_add	=  5 	# x-3	=  -15
 		}											 	#		=  -45
 	}												 	#		=  +85
@@ -43,7 +43,7 @@ pm_large_windpark =
 		
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	= 40 	# x-1.5	=  -60
+			building_employment_machinists_add 	= 40 	# x-1.5	=  -60
 			building_employment_engineers_add	= 10 	# x-3	=  -30
 		}											 	#		=  -90
 	}												 	#		= +170
@@ -68,7 +68,7 @@ pm_solar_windpark =
 		unscaled = { building_production_mult	=-0.01 }	#	   -1%		# Plants and workers need time to adapt
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	= 40 	# x-1.5	=  -60
+			building_employment_machinists_add 	= 40 	# x-1.5	=  -60
 			building_employment_engineers_add	= 10 	# x-3	=  -30
 			building_employment_farmers_add		=-150	# x+1.5	= +225
 		}											 	#		= +135
@@ -94,7 +94,7 @@ pm_large_solar_windpark =
 		unscaled = { building_production_mult	= 1 }	#		  +100%		# Having shade is hugely beneficial for plant growth
 		level_scaled = 
 		{
-			building_employment_machinsts_add 	= 80 	# x-1.5	= -120
+			building_employment_machinists_add 	= 80 	# x-1.5	= -120
 			building_employment_engineers_add	= 20 	# x-3	= - 60
 			building_employment_farmers_add		=-300	# x+1.5	= +450
 		}											 	#		= +270
