@@ -1,0 +1,211 @@
+# Engines
+pm_steam_engines = {
+	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
+	pollution_generation = 10
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 30
+			# output goods
+			building_output_engines_add			= 40
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 2500
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_electric_engines = {
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
+	pollution_generation = 5
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 40
+			building_input_electricity_add		= 30
+			# output goods
+			building_output_engines_add			= 80
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 2000
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 1000
+		}
+	}
+}
+pm_diesel_engines = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	pollution_generation = 10
+	unlocking_technologies = { compression_ignition }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 50
+			building_input_oil_add				= 50
+			# output goods
+			building_output_engines_add			= 120
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1500
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 1500
+		}
+	}
+}
+pm_hybrid_electric_engines = {
+	texture = "gfx/interface/icons/production_method_icons/unused/base4.dds"
+	pollution_generation = 10
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 80
+			building_input_electricity_add		= 30
+			building_input_oil_add				= 50
+			# output goods
+			building_output_engines_add			= 200
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 2000
+		}
+	}
+}
+pm_jet_engines = {
+	texture = "gfx/interface/icons/production_method_icons/unused/base5.dds"
+	pollution_generation = 20
+	unlocking_technologies = { oil_turbine }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 150
+			building_input_electricity_add		= 50
+			building_input_oil_add				= 100
+			# output goods
+			building_output_engines_add			= 300
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 3000
+		}
+	}
+}
+pm_jet_electric_engines = {
+	texture = "gfx/interface/icons/production_method_icons/unused/base6.dds"
+	pollution_generation = 25
+	unlocking_technologies = { mobile_armor }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 200
+			building_input_electricity_add		= 100
+			building_input_oil_add				= 150
+			# output goods
+			building_output_engines_add			= 500
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 5000
+		}
+	}
+}
+# Automobiles
+pm_automobiles_disabled = {
+	texture = "gfx/interface/icons/production_method_icons/no_automobiles.dds"
+	# Why build car when can have train?
+}
+pm_early_automobile_production = {		# 20%
+	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
+	pollution_generation = 2
+	unlocking_technologies = { combustion_engine }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 2
+			building_input_oil_add				= 4
+			# output goods
+			building_output_engines_add			= -4
+			building_output_automobiles_add		= 5
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 200
+			building_employment_engineers_add	= 100
+		}
+	}
+}
+pm_electic_automobile_production = {	# 50%
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
+	pollution_generation = 1
+	unlocking_technologies = { electric_railway }
+	unlocking_production_methods = { 
+		pm_electric_engines
+		pm_diesel_engines
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 5
+			building_input_oil_add				= 3
+			building_input_electricity_add		= 7
+			# output goods
+			building_output_engines_add			= -8
+			building_output_automobiles_add		= 12
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 500
+			building_employment_engineers_add	= 250
+		}
+	}
+}
+pm_automobile_production = {			# 100%
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	pollution_generation = 10
+	unlocking_technologies = { compression_ignition }
+	unlocking_production_methods = { 
+		pm_electric_engines
+		pm_diesel_engines
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 10
+			building_input_oil_add				= 20
+			# output goods
+			building_output_engines_add			= -15	# 20
+			building_output_automobiles_add		= 25
+		}		level_scaled = {
+			# employment
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_automobile_priority = {				# 200%
+	texture = "gfx/interface/icons/production_method_icons/unused/refining4.dds"
+	pollution_generation = 20
+	unlocking_technologies = { arc_welding }
+	unlocking_production_methods = { 
+		pm_electric_engines
+		pm_diesel_engines
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_rubber_add			= 20
+			building_input_oil_add				= 30
+			building_input_electricity_add		= 10
+			# output goods
+			building_output_engines_add			= -30
+			building_output_automobiles_add		= 50
+		}		level_scaled = {
+			# employment
+			building_employment_machinists_add	= 2000
+			building_employment_engineers_add	= 1000
+		}
+	}
+}

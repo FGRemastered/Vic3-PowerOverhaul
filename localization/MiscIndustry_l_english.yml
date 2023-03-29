@@ -4,9 +4,13 @@
  
  pm_basic_oxygen_process:0 "Basic Oxygen Process"
  
+ pm_hybrid_electric_engines:0 "Diesel-Electric Engines"
+ pm_jet_engines:0 "Jet Engines"
+ pm_jet_electric_engines:0 "Electric Jet Engines"
+ 
  pm_early_automobile_production:0 "Hand-Cranked Automobiles"
  pm_electic_automobile_production:0 "Electric Automobiles"
  pm_automobile_production:0 "Diesel-Powered Automobiles"
- pm_automobile_priority:0 "Automobile Priority"
+ pm_automobile_priority:0 "Luxury Cars"
  
  pm_modern_aeroplane_production:0 "Modern Aeroplanes"

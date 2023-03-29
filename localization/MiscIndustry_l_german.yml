@@ -4,9 +4,13 @@
  
  pm_basic_oxygen_process:0 "Linz-Donawitz Verfahren"
  
+ pm_hybrid_electric_engines:0 "Dieselelektrische Motoren"
+ pm_jet_engines:0 "Düsentriebwerke"
+ pm_jet_electric_engines:0 "Elektrische Düsentriebwerke"
+  
  pm_early_automobile_production:0 "Handgekurbelte Automobile"
  pm_electic_automobile_production:0 "Automobile mit Elektromotor"
  pm_automobile_production:0 "Automobile mit Dieselmotor"
- pm_automobile_priority:0 "Vorrang für Automobile"
+ pm_automobile_priority:0 "Luxusautos"
  
  pm_modern_aeroplane_production:0 "Moderne Flugzeuge"

@@ -1,3 +1,35 @@
+# Street Lights
+pm_no_street_lighting = {
+	texture = "gfx/interface/icons/production_method_icons/no_street_lighting.dds"
+}	
+pm_gas_streetlights = {
+	texture = "gfx/interface/icons/production_method_icons/gas_streetlights.dds"
+	unlocking_technologies = { shaft_mining }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_coal_add				= 10
+			building_output_services_add		= 30
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 400
+			building_employment_engineers_add	= 100
+		}
+	}
+}		
+pm_electric_streetlights = {
+	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
+	unlocking_technologies = { electrical_generation }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_electricity_add		= 10
+			building_output_services_add		= 50
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 200
+			building_employment_engineers_add	= 50
+		}
+	}
+}
 # Self-sufficient street lighting
 pm_solar_roofing = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
@@ -9,22 +41,22 @@ pm_solar_roofing = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			= 5		# 1:5 engines - electricity
-			building_input_glass_add			= 5		# 1:1 engines - glass
+			building_input_engines_add			=  3	# 1:5 engines - electricity
+			building_input_glass_add			=  3	# 1:1 engines - glass
 			# output goods
 			building_output_services_add		= 50	# = 10 electricity
-			building_output_electricity_add		= 15	# 5*5-10 = 15
+			building_output_electricity_add		=  5	# 3*5-10 = 5
 		}
 		level_scaled = {
-			building_employment_machinsts_add 	= 40
-			building_employment_engineers_add	= 10
+			building_employment_machinists_add 	= 200
+			building_employment_engineers_add	= 100
 		}
 	}
 }
 
 pm_air_scrubber = {
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
-	pollution_generation = -5							# 1:1 Pollution - Coal
+	pollution_generation = -10							# 1:1 Pollution - Coal
 	unlocking_technologies = { compression_ignition }
 	unlocking_production_methods = {
 		pm_covered_markets
@@ -33,17 +65,17 @@ pm_air_scrubber = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			= 10	# 1:5 engines - electricity
-			building_input_glass_add			= 10	# 1:1 engines - glass
-			building_input_tools_add			= 5		# Oil processing - Don't ask how screwdrivers make oil.
+			building_input_engines_add			=  5	# 1:5 engines - electricity
+			building_input_glass_add			=  5	# 1:1 engines - glass
+			building_input_tools_add			=  5	# Oil processing - Don't ask how screwdrivers make oil.
 			# output goods
-			building_output_services_add		= 50	# = 10 electricity
-			building_output_electricity_add		= 30	# 5*10 => 50-10 => 40
-			building_output_oil_add				= 5		# Coal * (Electricity / 10) = Oil => 5*(10/10) = 5
+			building_output_services_add		= 50	# = 5 electricity
+			building_output_electricity_add		= 10	# 5*5 => 25-5 => 20
+			building_output_oil_add				= 10	# Coal * (Electricity / 10) = Oil => 10*(10/10) = 10
 		}
 		level_scaled = {
-			building_employment_machinsts_add 	= 80
-			building_employment_engineers_add	= 20
+			building_employment_machinists_add 	= 400
+			building_employment_engineers_add	= 200
 		}
 	}
 }
