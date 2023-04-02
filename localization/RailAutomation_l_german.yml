@@ -74,3 +74,10 @@
  pm_secular_bureaucrats_construction:0 "$pm_secular_bureaucrats$"
  
  pm_electricfied_bakery:0 "Brotbackautomaten"
+ 
+ pm_simple_organization_skyscraper:0 "$pm_simple_organization$"
+ pm_horizontal_drawer_cabinets_skyscraper:0 "$pm_horizontal_drawer_cabinets$"
+ pm_vertical_filing_cabinets_skyscraper:0 "$pm_vertical_filing_cabinets$"
+ pm_switch_boards_skyscraper:0 "$pm_switch_boards$"
+ 
+ government_run_decision:0 "Industrienationalisierung"

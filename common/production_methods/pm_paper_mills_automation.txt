@@ -1,0 +1,18 @@
+
+pm_assembly_lines_building_paper_mills = {
+	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
+	pollution_generation = 15
+	unlocking_technologies = { conveyors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add			= 5
+			building_input_oil_add				= 5
+			building_input_electricity_add		= 5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -3000
+			building_employment_machinists_add	= -500
+		}
+	}
+}
