@@ -1,11 +1,13 @@
 ﻿l_german:
  pm_electrified_trams:0 "Elektrische Straßenbahnen"
  pm_extended_trams:0 "Erweitertes Straßenbahnnetz"
+ 
  pm_high_speed_rail:0 "Hochgeschwindigkeitszüge"
  
  pmg_train_rails:0 "Schienentypen"
  pm_normal_rails:0 "Schienen"
  pm_electric_rails:0 "Oberleitungen"
+ pm_resistive_breaks:0 "Magnetbremsen"
  pm_rail_signals:0 "Zugsignale"
  
  pm_steam_rail_transport:0 "Dampfbetriebener Eisenbahntransport"
@@ -56,6 +58,12 @@
  pm_steam_rail_transport_construction:0 "$pm_steam_rail_transport$"
  pm_electric_rail_transport_construction:0 "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_construction:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_train_automation_port:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_port:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_port:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_port:0 "$pm_diesel_rail_transport$"
+ pm_modern_port_rail_transport:0 "Zugintegration"
  
  pmg_construction_sector_bureaucrat_professionalism:0 "$pmg_government_administration_bureaucrat_professionalism$"
  pm_hereditary_bureaucrats_construction:0 "$pm_hereditary_bureaucrats$"

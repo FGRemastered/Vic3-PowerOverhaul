@@ -1,4 +1,4 @@
-
+# Automation Equipment
 pm_no_steam_automation = {
 	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
 }
@@ -7,7 +7,6 @@ pm_steam_donkey_mine = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	pollution_generation = 5
 	unlocking_technologies = { steam_donkey }
-		
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
@@ -19,11 +18,9 @@ pm_steam_donkey_mine = {
 		}
 	}
 }
-
 pm_powered_lift_mine = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electrical_capacitors }
-		
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
@@ -32,14 +29,13 @@ pm_powered_lift_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -1000
+			building_employment_machinists_add 	=  -500
 		}
 	}
 }
-
 pm_oil_fired_lift_mine = {
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
-		
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
@@ -48,6 +44,7 @@ pm_oil_fired_lift_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -1000
+			building_employment_machinists_add 	=  -500
 		}
 	}
 }
@@ -56,7 +53,6 @@ pm_steam_donkey_building_coal_mine = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	pollution_generation = 5
 	unlocking_technologies = { steam_donkey }
-		
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
@@ -73,7 +69,6 @@ pm_steam_powered_winch = {
 	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
 	pollution_generation = 5
 	unlocking_technologies = { steam_donkey }
-		
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -105,7 +100,7 @@ pm_chainsaws = {
 }
 pm_powered_winch = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -133,7 +128,7 @@ pm_oil_fired_winch = {
 }
 pm_electric_chainsaws = {
 	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods

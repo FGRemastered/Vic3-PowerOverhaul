@@ -44,6 +44,16 @@ pmg_train_automation_power_plant = {
 		pm_diesel_rail_transport_power_plant
 	}
 }
+pmg_train_automation_port = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport_port
+		pm_electric_rail_transport_port
+		pm_diesel_rail_transport_port
+		pm_modern_port_rail_transport
+	}
+}
 pmg_train_automation_gov = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {

@@ -1,11 +1,13 @@
 ﻿l_english:
  pm_electrified_trams:0 "Electrified Trams"
  pm_extended_trams:0 "Extended Trams"
+ 
  pm_high_speed_rail:0 "High Speed Rail"
  
  pmg_train_rails:0 "Rail Types"
  pm_normal_rails:0 "Rails"
  pm_electric_rails:0 "Electric Rails"
+ pm_resistive_breaks:0 "Resistive Breaks"
  pm_rail_signals:0 "Rail Signals"
  
  pm_steam_rail_transport:0 "Steam-powered Rail Transportation"
@@ -57,6 +59,12 @@
  pm_steam_rail_transport_construction:0 "$pm_steam_rail_transport$"
  pm_electric_rail_transport_construction:0 "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_construction:0 "$pm_diesel_rail_transport$"
+ 
+ pmg_train_automation_port:0 "$pmg_train_automation$"
+ pm_steam_rail_transport_port:0 "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_port:0 "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_port:0 "$pm_diesel_rail_transport$"
+ pm_modern_port_rail_transport:0 "Direct Train Loading"
  
  pmg_construction_sector_bureaucrat_professionalism:0 "$pmg_government_administration_bureaucrat_professionalism$"
  pm_hereditary_bureaucrats_construction:0 "$pm_hereditary_bureaucrats$"

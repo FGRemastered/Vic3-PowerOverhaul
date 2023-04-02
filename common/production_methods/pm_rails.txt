@@ -3,23 +3,28 @@
 pm_high_speed_rail = {
 	texture = "gfx/interface/icons/production_method_icons/trains_diesel.dds"
 	pollution_generation = 10
-	unlocking_technologies = { oil_turbine }
+	unlocking_technologies = { 
+		arc_welding
+		oil_turbine
+	}
 	unlocking_production_methods = {
 		pm_electric_trains
 		pm_diesel_trains
 	}
 	building_modifiers = {
 		workforce_scaled = {
+			# input goods
 			building_input_steel_add			= 5
 			building_input_engines_add			= 5
 			building_input_electricity_add		= 20
+			# output goods
 			building_output_transportation_add	= 80
 			# building_output_services_add		= 20
 		}
 		level_scaled = {
-			building_employment_clerks_add		= -500
 			building_employment_machinists_add	= -500
-			building_employment_shopkeepers_add = 100
+			building_employment_clerks_add		= -750
+			building_employment_shopkeepers_add =  100
 		}
 	}
 	state_modifiers = {
@@ -31,6 +36,7 @@ pm_high_speed_rail = {
 # Rails
 pm_normal_rails = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
+	is_default = yes
 	# No effect. This is the default.
 }
 pm_electric_rails = {
@@ -56,8 +62,31 @@ pm_electric_rails = {
 		}
 	}
 }
+pm_resistive_breaks = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"
+	unlocking_technologies = { telephone }
+	unlocking_production_methods = {
+		pm_electric_trains
+		pm_diesel_trains
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_output_electricity_add		=    1	# 2-1 = 1
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1000
+			building_employment_machinists_add	= -500
+		}
+		unscaled = { building_railway_throughput_mult = 1.5 }
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 5
+		}
+	}
+}
 pm_rail_signals = {
-	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"
 	unlocking_technologies = { radio }
 	unlocking_production_methods = {
 		pm_electric_trains
@@ -65,17 +94,17 @@ pm_rail_signals = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_electricity_add		= 2
-			building_input_telephones_add		= 1
-			building_input_radios_add			= 1
+			building_output_electricity_add		= 2		# 3-1 = 2
+			building_input_telephones_add		= 1		# 2*0.5 = 1
+			building_input_radios_add			= 1		# 2*0.5 = 1
 		}
 		level_scaled = {
-			building_employment_laborers_add	=-1000
+			building_employment_laborers_add	=-1500
 			building_employment_machinists_add	=-1000
 			building_employment_clerks_add		=  100
 			building_employment_engeineers_add	=  100
 		}
-		unscaled = { building_railway_throughput_mult = 1.5 }
+		unscaled = { building_railway_throughput_mult = 2 }
 	}
 	state_modifiers = {
 		workforce_scaled = {

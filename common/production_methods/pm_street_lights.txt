@@ -33,7 +33,7 @@ pm_electric_streetlights = {
 # Self-sufficient street lighting
 pm_solar_roofing = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	unlocking_production_methods = {
 		pm_covered_markets
 		pm_arcades
@@ -42,7 +42,7 @@ pm_solar_roofing = {
 		workforce_scaled = {
 			# input goods
 			building_input_engines_add			=  3	# 1:5 engines - electricity
-			building_input_glass_add			=  3	# 1:1 engines - glass
+			# building_input_glass_add			=  3	# 1:1 engines - glass
 			# output goods
 			building_output_services_add		= 50	# = 10 electricity
 			building_output_electricity_add		=  5	# 3*5-10 = 5
@@ -66,7 +66,7 @@ pm_air_scrubber = {
 		workforce_scaled = {
 			# input goods
 			building_input_engines_add			=  5	# 1:5 engines - electricity
-			building_input_glass_add			=  5	# 1:1 engines - glass
+			# building_input_glass_add			=  5	# 1:1 engines - glass
 			building_input_tools_add			=  5	# Oil processing - Don't ask how screwdrivers make oil.
 			# output goods
 			building_output_services_add		= 50	# = 5 electricity
