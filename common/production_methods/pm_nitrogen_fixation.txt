@@ -12,8 +12,7 @@ pm_nitrogen_fixation = {
 			building_output_fertilizer_add	= 250
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 1000
-			building_employment_machinists_add	= 2000
+			building_employment_machinists_add	= 2500
 			building_employment_engineers_add	= 1500
 		}
 	}
