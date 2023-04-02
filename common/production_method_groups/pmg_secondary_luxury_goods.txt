@@ -1,5 +1,4 @@
-﻿#高級服
-
+﻿# Luxury Goods
 pmg_luxury_building_textile_mills = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
@@ -10,9 +9,6 @@ pmg_luxury_building_textile_mills = {
 		pm_elastics_priority
 	}
 }
-
-#高級家具
-
 pmg_luxury_building_furniture_manufacturies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
@@ -23,9 +19,6 @@ pmg_luxury_building_furniture_manufacturies = {
 		pm_precision_tools_priority
 	}
 }
-
-#磁器
-
 pmg_luxury_building_glassworks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {

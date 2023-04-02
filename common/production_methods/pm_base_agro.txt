@@ -76,10 +76,7 @@ pm_chemical_fertilizer = {
 pm_automatic_fertilization = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	pollution_generation = 5
-	unlocking_technologies = { 
-		nitrogen_fixation
-		pumpjacks
-	}
+	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -174,10 +171,7 @@ pm_chemical_fertilizer_building_rice_farm = {
 pm_automatic_fertilization_building_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	pollution_generation = 5
-	unlocking_technologies = { 
-		nitrogen_fixation
-		pumpjacks
-	}
+	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods

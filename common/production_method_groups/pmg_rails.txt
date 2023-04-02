@@ -2,7 +2,6 @@
 pmg_passenger_trains = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
-
 	production_methods = {
 		pm_no_passenger_trains
 		pm_wooden_passenger_carriages
@@ -15,6 +14,7 @@ pmg_train_rails = {
 	production_methods = {
 		pm_normal_rails
 		pm_electric_rails
+		pm_resistive_breaks
 		pm_rail_signals
 	}
 }

@@ -90,14 +90,14 @@ pm_jet_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 3000
+			building_employment_engineers_add	= 2000
 		}
 	}
 }
 pm_jet_electric_engines = {
 	texture = "gfx/interface/icons/production_method_icons/unused/base6.dds"
 	pollution_generation = 25
-	unlocking_technologies = { mobile_armor }
+	unlocking_technologies = { oil_turbine }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -110,7 +110,7 @@ pm_jet_electric_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 5000
+			building_employment_engineers_add	= 2500
 		}
 	}
 }
@@ -132,10 +132,10 @@ pm_early_automobile_production = {		# 20%
 			building_output_engines_add			= -4
 			building_output_automobiles_add		= 5
 		}
-		level_scaled = {
-			building_employment_machinists_add	= 200
-			building_employment_engineers_add	= 100
-		}
+		# level_scaled = {
+			# building_employment_machinists_add	= 200
+			# building_employment_engineers_add	= 100
+		# }
 	}
 }
 pm_electic_automobile_production = {	# 50%
@@ -145,6 +145,9 @@ pm_electic_automobile_production = {	# 50%
 	unlocking_production_methods = { 
 		pm_electric_engines
 		pm_diesel_engines
+		pm_hybrid_electric_engines
+		pm_jet_engines
+		pm_jet_electric_engines
 	}
 	building_modifiers = {
 		workforce_scaled = {
@@ -156,10 +159,10 @@ pm_electic_automobile_production = {	# 50%
 			building_output_engines_add			= -8
 			building_output_automobiles_add		= 12
 		}
-		level_scaled = {
-			building_employment_machinists_add	= 500
-			building_employment_engineers_add	= 250
-		}
+		# level_scaled = {
+			# building_employment_machinists_add	= 500
+			# building_employment_engineers_add	= 250
+		# }
 	}
 }
 pm_automobile_production = {			# 100%
@@ -169,6 +172,9 @@ pm_automobile_production = {			# 100%
 	unlocking_production_methods = { 
 		pm_electric_engines
 		pm_diesel_engines
+		pm_hybrid_electric_engines
+		pm_jet_engines
+		pm_jet_electric_engines
 	}
 	building_modifiers = {
 		workforce_scaled = {
@@ -178,11 +184,11 @@ pm_automobile_production = {			# 100%
 			# output goods
 			building_output_engines_add			= -15	# 20
 			building_output_automobiles_add		= 25
-		}		level_scaled = {
-			# employment
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 500
-		}
+		}		
+		# level_scaled = {
+			# building_employment_machinists_add	= 1000
+			# building_employment_engineers_add	= 500
+		# }
 	}
 }
 pm_automobile_priority = {				# 200%
@@ -192,6 +198,9 @@ pm_automobile_priority = {				# 200%
 	unlocking_production_methods = { 
 		pm_electric_engines
 		pm_diesel_engines
+		pm_hybrid_electric_engines
+		pm_jet_engines
+		pm_jet_electric_engines
 	}
 	building_modifiers = {
 		workforce_scaled = {
@@ -202,10 +211,10 @@ pm_automobile_priority = {				# 200%
 			# output goods
 			building_output_engines_add			= -30
 			building_output_automobiles_add		= 50
-		}		level_scaled = {
-			# employment
-			building_employment_machinists_add	= 2000
-			building_employment_engineers_add	= 1000
-		}
+		}		
+		# level_scaled = {
+			# building_employment_machinists_add	= 2000
+			# building_employment_engineers_add	= 1000
+		# }
 	}
 }
