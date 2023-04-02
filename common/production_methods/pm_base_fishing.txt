@@ -1,7 +1,7 @@
 # Fishing
 pm_electric_fishing_boats = {
 	texture = "gfx/interface/icons/production_method_icons/steam_trawlers.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			# input
@@ -103,7 +103,7 @@ pm_worker_cooperative_building_fishing_wharf = {
 # Whaling
 pm_electic_whaling_ships = {
 	texture = "gfx/interface/icons/production_method_icons/steam_whaling_ships.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			# input

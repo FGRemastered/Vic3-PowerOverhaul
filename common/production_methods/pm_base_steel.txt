@@ -81,7 +81,7 @@ pm_electric_arc_process = {
 pm_basic_oxygen_process = { # Linz-Donawitz
 	texture = "gfx/interface/icons/production_method_icons/electric_arc_process.dds"
 	pollution_generation = 30
-	unlocking_technologies = { oil_turbine }
+	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -94,8 +94,8 @@ pm_basic_oxygen_process = { # Linz-Donawitz
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1250
+			building_employment_machinists_add	= 750
+			building_employment_engineers_add	= 750
 		}
 	}
 }
