@@ -1,7 +1,4 @@
-﻿l_english:
- pm_electrified_trams:0 "Electrified Trams"
- pm_extended_trams:0 "Extended Trams"
- 
+﻿l_english: 
  pm_high_speed_rail:0 "High Speed Rail"
  
  pmg_train_rails:0 "Rail Types"
@@ -80,5 +77,14 @@
  pm_horizontal_drawer_cabinets_skyscraper:0 "$pm_horizontal_drawer_cabinets$"
  pm_vertical_filing_cabinets_skyscraper:0 "$pm_vertical_filing_cabinets$"
  pm_switch_boards_skyscraper:0 "$pm_switch_boards$"
+ 
+ pm_extended_trams:0 "Extended Trams"
+ 
+ pmg_cash_register:0 "Cash Register"
+ pm_no_cash_register:0 "Cashier"
+ pm_cash_register:0 "Cash Register"
+ pm_electric_cash_register:0 "Electric Cash Register"
+
+ pm_tourist_attraction_urban_clergy:0 "Tourist Attractions"
  
  government_run_decision:0 "Nationalise the Industry"

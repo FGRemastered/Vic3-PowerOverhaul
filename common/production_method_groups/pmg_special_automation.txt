@@ -16,3 +16,12 @@ pmg_automation_building_paper_mills = {
 		pm_assembly_lines_building_paper_mills
 	}
 }
+pmg_automation_building_synthetics_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_synthetics_plants
+		pm_rotary_valve_engine_building_synthetics_plants
+		pm_assembly_lines_building_synthetics_plants
+	}
+}
