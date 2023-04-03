@@ -18,3 +18,12 @@
  pm_electric_derricks:0 "Elektroladebäume"
  
  pm_assembly_lines_building_paper_mills:0 "Montagebänder"
+ 
+ pm_double_dye_production:0 "Erweiterte Farbstoffproduktion"
+ pm_parallel_rayon:0 "Parallelproduktion"
+ pm_rayon_focus:0 "Rayonpriorität"
+ 
+ pmg_automation_building_synthetics_plants:0 "Automation"
+ pm_watertube_boiler_building_synthetics_plants:0 "$pm_watertube_boiler_building_motor_industry$"
+ pm_rotary_valve_engine_building_synthetics_plants:0 "$pm_rotary_valve_engine_building_motor_industry$"
+ pm_assembly_lines_building_synthetics_plants:0 "$pm_assembly_lines_building_motor_industry$"

@@ -18,3 +18,12 @@
  pm_electric_derricks:0 "Electric Oil Derricks"
  
  pm_assembly_lines_building_paper_mills:0 "Assembly Lines"
+ 
+ pm_double_dye_production:0 "Double Dye Production"
+ pm_parallel_rayon:0 "Parallel Production"
+ pm_rayon_focus:0 "Focus on Rayon"
+ 
+ pmg_automation_building_synthetics_plants:0 "Automation"
+ pm_watertube_boiler_building_synthetics_plants:0 "$pm_watertube_boiler_building_motor_industry$"
+ pm_rotary_valve_engine_building_synthetics_plants:0 "$pm_rotary_valve_engine_building_motor_industry$"
+ pm_assembly_lines_building_synthetics_plants:0 "$pm_assembly_lines_building_motor_industry$"

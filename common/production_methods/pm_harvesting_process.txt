@@ -20,7 +20,7 @@ pm_steam_threshers = {
 	unlocking_technologies = { threshing_machine }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods													
+			# input goods					
 			building_input_tools_add = 2	
 			building_input_coal_add = 4
 		}
@@ -35,7 +35,7 @@ pm_tractors = {
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods								
+			# input goods
 			building_input_coal_add = 5 
 			building_input_engines_add = 2
 		}
@@ -50,7 +50,7 @@ pm_compression_ignition_tractors = {
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods								
+			# input goods
 			building_input_oil_add = 3
 			building_input_engines_add = 2
 		}
@@ -64,7 +64,7 @@ pm_electric_tractors = {
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods								
+			# input goods
 			building_input_electricity_add	= 1
 			building_input_engines_add		= 2
 		}

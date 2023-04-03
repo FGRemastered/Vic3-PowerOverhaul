@@ -1,0 +1,91 @@
+# Dye
+pm_dye_production = {
+	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
+	pollution_generation = 5
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_sulfur_add		= 20
+			building_input_fertilizer_add	= 30
+			# output goods
+			building_output_dye_add			= 80
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1000
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 1500
+		}
+	}
+}
+pm_double_dye_production = {
+	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
+	pollution_generation = 10
+	unlocking_technologies = { nitrogen_fixation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_sulfur_add		= 40
+			building_input_fertilizer_add	= 60
+			# output goods
+			building_output_dye_add			= 160
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 1000
+			building_employment_machinists_add	= 2000
+			building_employment_engineers_add	= 2000
+		}
+	}
+}
+# Silk
+pm_parallel_rayon = {
+	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+	unlocking_technologies = { art_silk }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_wood_add				= 40
+			building_input_sulfur_add			= 10
+			building_input_fertilizer_add		= 15
+			# output goods
+			building_output_silk_add			= 40
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_rayon = {
+	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+	unlocking_technologies = { art_silk }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_wood_add		= 40
+			building_output_dye_add		= -40
+			# output goods
+			building_output_silk_add	= 40
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_rayon_focus = {
+	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+	unlocking_technologies = { nitrogen_fixation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_wood_add		= 80
+			building_output_dye_add		= -80
+			# output goods
+			building_output_silk_add	= 80
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
