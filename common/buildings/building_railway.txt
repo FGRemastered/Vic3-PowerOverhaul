@@ -15,8 +15,7 @@ building_railway = {
 			cash_reserves_ratio > 0.5
 			is_subsidized = yes
 		}
-		OR =
-		{
+		OR = {
 			state.market_access < 1
 			state.market = { mg:transportation = { market_goods_delta < 0 } } # I tried to check for the state's local market, but I can't find it.
 		}

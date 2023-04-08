@@ -6,4 +6,5 @@ electricity = {
 	prestige_factor = 5
 	consumption_tax_cost = 200
 	convoy_cost_multiplier = 0
+	traded_quantity	= 25
 }

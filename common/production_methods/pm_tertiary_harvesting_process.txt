@@ -7,10 +7,10 @@ pm_tools = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_tools_add = 1
+			building_input_tools_add	= 1
 		}
 		level_scaled = {
-			building_employment_laborers_add = -500
+			building_employment_laborers_add	= -500
 		}
 	}
 }
@@ -21,11 +21,11 @@ pm_steam_threshers = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_tools_add = 2	
-			building_input_coal_add = 4
+			building_input_tools_add	= 2	
+			building_input_coal_add		= 4
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add	= -1500
 		}
 	}
 }
@@ -36,11 +36,11 @@ pm_tractors = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_coal_add = 5 
-			building_input_engines_add = 2
+			building_input_coal_add		= 5 
+			building_input_engines_add	= 2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2500
+			building_employment_laborers_add	= -2500
 		}
 	}
 }
@@ -51,11 +51,11 @@ pm_compression_ignition_tractors = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_oil_add = 3
-			building_input_engines_add = 2
+			building_input_oil_add		= 3
+			building_input_engines_add	= 2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -3000
+			building_employment_laborers_add	= -3000
 		}
 	}
 }
@@ -65,7 +65,7 @@ pm_electric_tractors = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_electricity_add	= 1
+			building_input_electricity_add	= 3
 			building_input_engines_add		= 2
 		}
 		level_scaled = {

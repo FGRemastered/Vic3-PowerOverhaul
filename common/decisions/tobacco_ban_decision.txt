@@ -1,46 +1,47 @@
 ban_tobacco = {
 	is_shown = {
 		exists = market
-		market.owner = root
 		any_primary_culture = { has_discrimination_trait = german_speaking }
 		NOT = { is_banning_goods = g:tobacco }
 	}
-
 	possible = {
 		any_primary_culture = { has_discrimination_trait = german_speaking }
 		exists = market	
+		market.owner = root
 	}
-
 	when_taken = {
-		add_banned_goods = g:tobacco
-		add_modifier = {
-			name = tobacco_ban_authority
+		market = {
+			every_scope_country = {
+				limit = { NOT = { is_banning_goods = g:tobacco } }
+				add_banned_goods = g:tobacco
+				add_modifier = { name = tobacco_ban_authority }
+			}
+			every_scope_state = {
+				limit = { has_building = building_tobacco_plantation }
+				remove_building = building_tobacco_plantation
+			}
+			every_scope_state = {
+				limit = { has_building = building_infres_tobacco_plantation }
+				remove_building = building_infres_tobacco_plantation
+			}
 		}
 	}
-	
     ai_chance = {
         base = 0
-		modifier = 
-		{
+		modifier = {
 			add = 10
 			trigger = { authority >= 200 }
 		}
-		modifier =
-		{
+		modifier = {
 			add = 10
-			trigger =
-			{
-				any_interest_group = 
-				{
-					limit = 
-					{
-						OR = 
-						{
+			trigger = {
+				any_interest_group = {
+					limit = {
+						OR = {
 							is_being_bolstered = yes
 							is_in_government = yes
 						}
-						OR =
-						{
+						OR = {
 							leader = { has_ideology = ideology_fascist }
 							is_interest_group_type = ig_petty_bourgeoisie
 						}
@@ -50,44 +51,38 @@ ban_tobacco = {
 		}
     }	
 }
-
 remove_tobacco_ban = {
 	is_shown = {
 		is_banning_goods = g:tobacco
 		exists = market
+	}
+	possible = {
 		market.owner = root
 	}
-
-	possible = {
-		always = yes
-	}
-
 	when_taken = {
-		remove_banned_goods = g:tobacco
-		remove_modifier = tobacco_ban_authority
+		market = {
+			every_scope_country = {
+				limit = { is_banning_goods = g:tobacco }
+				remove_banned_goods = g:tobacco
+				remove_modifier = tobacco_ban_authority
+			}
+		}
 	}
-	
    ai_chance = {
       base = 0
 		modifier = {
 			trigger = { authority < 50 }
 			add = 10
 		}
-		modifier =
-		{
-			trigger =
-			{
-				any_interest_group = 
-				{
-					limit = 
-					{
-						OR = 
-						{
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					limit = {
+						OR = {
 							is_being_bolstered = yes
 							is_in_government = yes
 						}
-						OR =
-						{
+						OR = {
 							leader = { has_ideology = ideology_fascist }
 							is_interest_group_type = ig_petty_bourgeoisie
 						}

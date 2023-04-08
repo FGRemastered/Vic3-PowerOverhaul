@@ -8,7 +8,7 @@ pm_dye_production = {
 			building_input_sulfur_add		= 20
 			building_input_fertilizer_add	= 30
 			# output goods
-			building_output_dye_add			= 80
+			building_output_dye_add			= 100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
@@ -27,7 +27,7 @@ pm_double_dye_production = {
 			building_input_sulfur_add		= 40
 			building_input_fertilizer_add	= 60
 			# output goods
-			building_output_dye_add			= 160
+			building_output_dye_add			= 200
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
@@ -62,7 +62,7 @@ pm_rayon = {
 		workforce_scaled = {
 			# input goods
 			building_input_wood_add		= 40
-			building_output_dye_add		= -40
+			building_output_dye_add		=-40
 			# output goods
 			building_output_silk_add	= 40
 		}
@@ -78,10 +78,10 @@ pm_rayon_focus = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_wood_add		= 80
-			building_output_dye_add		= -80
+			building_input_wood_add		= 100
+			building_output_dye_add		=-100
 			# output goods
-			building_output_silk_add	= 80
+			building_output_silk_add	= 100
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 500

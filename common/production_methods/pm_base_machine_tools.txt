@@ -1,26 +1,21 @@
 pm_steel = {
 	texture = "gfx/interface/icons/production_method_icons/unused/steel_tools.dds"	# This is unused for some reason...
-	unlocking_technologies = {
-		mechanical_tools
-	}
+	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_wood_add = 30
-			building_input_steel_add = 20
-			
+			building_input_wood_add				= 30
+			building_input_steel_add			= 20
 			# output goods
-			building_output_tools_add = 80
+			building_output_tools_add			= 80
 		}
-
 		level_scaled = {
-			building_employment_laborers_add = 3000
-			building_employment_machinists_add = 1000
-			building_employment_engineers_add = 500
+			building_employment_laborers_add	= 3000
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 500
 		}
 	}
 }
-
 pm_early_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/electric_saw_mills.dds"
 	unlocking_technologies = { pneumatic_tools }
@@ -42,7 +37,6 @@ pm_early_machine_tools = {
 		}												#		=-6000 (-3000)
 	}													#		=-2650 (+350)
 }
-
 pm_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
 	unlocking_technologies = { arc_welding }
@@ -64,107 +58,66 @@ pm_machine_tools = {
 		}												#		=-6750 (-3750)
 	}													#		= +850 (+3850)
 }
-
 pm_privately_owned_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
-
 	unlocking_production_methods = {
 		pm_pig_iron
 		pm_steel
 		pm_early_machine_tools
 		pm_machine_tools
 	}
-
 	disallowing_laws = {
 		law_command_economy
 		law_council_republic
 	}
-
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 100
-		}
-		unscaled = {
-			building_capitalists_shares_add = 5
-		}
+		level_scaled = { building_employment_capitalists_add	= 100 }
+		unscaled = { building_capitalists_shares_add			=  10 }
 	}
 }
-
 pm_publicly_traded_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
-
 	unlocking_production_methods = {
 		pm_pig_iron
 		pm_steel
 		pm_early_machine_tools
 		pm_machine_tools
 	}
-	
 	disallowing_laws = {
 		law_command_economy
 		law_council_republic
 	}
-
-	unlocking_technologies = {
-		mutual_funds
-	}
-
+	unlocking_technologies = { mutual_funds }
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 150
-		}
-		unscaled = {
-			building_capitalists_shares_add = 5
-		}
+		level_scaled = { building_employment_capitalists_add	= 150 }
+		unscaled = { building_capitalists_shares_add			=  10 }
 	}
 }
-
 # pm_government_run_building_tooling_workshops = {
 	# texture = "gfx/interface/icons/production_method_icons/government_run.dds"
-
 	# unlocking_production_methods = {
 		# pm_pig_iron
 		# pm_steel
 		# pm_early_machine_tools
 		# pm_machine_tools
 	# }
-	
-	# unlocking_laws = {
-		# law_command_economy
-	# }
-	
+	# unlocking_laws = { law_command_economy }
 	# building_modifiers = {
-		# level_scaled = {
-			# building_employment_bureaucrats_add = 150
-		# }
-		# unscaled = {
-			# building_bureaucrats_shares_add = 5
-		# }
+		# level_scaled = { building_employment_bureaucrats_add	= 100 }
+		# unscaled = { building_government_shares_add			=   1 }
 	# }
 # }
-
 pm_worker_cooperative_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
-
 	unlocking_production_methods = {
 		pm_pig_iron
 		pm_steel
 		pm_early_machine_tools
 		pm_machine_tools
 	}
-
-	unlocking_laws = {
-		law_council_republic
-	}
-
+	unlocking_laws = { law_cooperative_ownership }
 	building_modifiers = {
-		level_scaled = {
-			building_employment_laborers_add = 100
-			building_employment_machinists_add = 100
-		}
-		unscaled = {
-			building_laborers_shares_add = 1
-			building_machinists_shares_add = 1
-		}
+		level_scaled = { building_employment_shopkeepers_add	= 100 }
+		unscaled = { building_workforce_shares_add				=   1 }
 	}
 }

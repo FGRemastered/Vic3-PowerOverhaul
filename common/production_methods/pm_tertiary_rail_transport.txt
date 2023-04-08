@@ -76,7 +76,7 @@ pm_log_carts = {
 			building_input_electricity_add		= 1.5
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add = -2000
 		}
 	}
 }
@@ -92,7 +92,7 @@ pm_diesel_log_carts = {
 			building_input_oil_add				= 1.5
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add = -2000
 		}
 	}
 }
