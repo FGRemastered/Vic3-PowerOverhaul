@@ -1,0 +1,176 @@
+﻿# Canals
+# Mode of Operation
+pm_canal = {
+	texture = "gfx/interface/icons/production_method_icons/canals.dds"
+	country_modifiers = {
+		workforce_scaled = { country_prestige_add	= 100 }
+	}
+	building_modifiers = {
+		level_scaled = { building_employment_clerks_add	= 1000 }
+	}
+}
+pm_canal_tolls = {
+	texture = "gfx/interface/icons/production_method_icons/canals_minting.dds"
+	unlocking_technologies = { central_banking }
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add				= 100
+			country_minting_add					= 1000
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			#input goods
+			building_input_paper_add			= 5
+		}
+		level_scaled = {
+			building_employment_clerks_add		= 1500
+			building_employment_machinists_add	=-500
+		}
+	}
+}
+pm_canal_telephones = {
+	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
+	pollution_generation = 50
+	unlocking_technologies = { central_planning }
+	country_modifiers = {
+		workforce_scaled = { country_prestige_add	= 150 }
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			#input goods
+			building_input_paper_add			= 5
+			building_input_telephones_add		= 5
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add	= 500
+			building_employment_machinists_add	=-1000
+		}
+	}
+}
+# Power
+pm_canal_steam = {
+	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
+	pollution_generation = 50
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add			= 50
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			#input goods
+			building_input_tools_add			= 10
+			building_input_engines_add			= 30
+			building_input_coal_add				= 100
+			# output goods
+			building_output_services_add		= 50
+			building_output_transportation_add	= 50
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 1500
+		}
+	}
+}
+pm_canal_eletric = {
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
+	unlocking_technologies = { electric_railway }
+	country_modifiers = {
+		workforce_scaled = { country_prestige_add	= 50 }
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add			= 100
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			#input goods
+			building_input_tools_add			= 20
+			building_input_engines_add			= 50
+			building_input_electricity_add		= 50
+			# output goods
+			building_output_services_add		= 200
+			building_output_transportation_add	= 200
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 2000
+		}
+	}
+}
+pm_canal_oil = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	pollution_generation = 30
+	unlocking_technologies = { compression_ignition }
+	country_modifiers = {
+		workforce_scaled = { country_prestige_add	= 50 }
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add			= 100
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			#input goods
+			building_input_tools_add			= 20
+			building_input_engines_add			= 50
+			building_input_oil_add				= 50
+			# output goods
+			building_output_services_add		= 200
+			building_output_transportation_add	= 200
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 2000
+		}
+	}
+}
+# Ownership
+pm_privately_owned_building_canal = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+	unlocking_laws = { law_laissez_faire }
+	building_modifiers = {
+		level_scaled = { building_employment_capitalists_add	= 500 }
+		unscaled = { building_capitalists_shares_add			=   1 }
+	}
+}
+pm_publicly_traded_building_canal = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+	disallowing_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+	unlocking_technologies = { mutual_funds }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add	= 800
+			building_employment_bureaucrats_add	= 200
+		}
+		unscaled = {
+			building_capitalists_shares_add		= 4
+			building_government_shares_add		= 1
+		}
+	}
+}
+pm_government_run_building_canal = {
+	texture = "gfx/interface/icons/production_method_icons/government_run.dds"
+	is_default = yes
+	building_modifiers = {
+		level_scaled = { building_employment_bureaucrats_add	= 500 }
+		unscaled = { building_government_shares_add				=   1 }
+	}
+}
+pm_worker_cooperative_building_canal = {
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
+	unlocking_laws = { law_cooperative_ownership }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_shopkeepers_add	= 400
+			building_employment_bureaucrats_add	= 100
+		}
+		unscaled = {
+			building_workforce_shares_add		= 4
+			building_government_shares_add		= 1
+		}
+	}
+}
