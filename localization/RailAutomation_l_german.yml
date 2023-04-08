@@ -87,4 +87,17 @@
 
  pm_tourist_attraction_urban_clergy:0 "Touristenattraktionen"
  
+ pm_canal_tolls:0 "Mautstelle"
+ pm_canal_telephones:0 "Telefonvermittlung"
+ pmg_canal_engines:0 "Pumpen"
+ pm_canal_steam:0 "Dampfbetriebene Pumpen"
+ pm_canal_eletric:0 "Elektropumpen"
+ pm_canal_oil:0 "Ölbetriebene Pumpen"
+ 
+ pmg_ownership_capital_building_canal:0 "$pmg_ownership$"
+ pm_privately_owned_building_canal:0 "$pm_privately_owned$"
+ pm_publicly_traded_building_canal:0 "$pm_publicly_traded$"
+ pm_government_run_building_canal:0 "$pm_government_run$"
+ pm_worker_cooperative_building_canal:0 "$pm_worker_cooperative$"
+ 
  government_run_decision:0 "Industrienationalisierung"

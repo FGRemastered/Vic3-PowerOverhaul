@@ -1,29 +1,59 @@
 ﻿l_english:
- pm_early_machine_tools:0 "Pneumatic Machine Tools"
- pm_machine_tools:0 "Electric Machine Tools"
+ pm_early_machine_tools: "Pneumatic Machine Tools"
+ pm_machine_tools: "Electric Machine Tools"
  
- pm_basic_oxygen_process:0 "Basic Oxygen Process"
+ pm_craftsman_sewing_priority: "Craftsman Sewing Priority"
+ pm_elastics_priority: "Elastics Priority"
+
+ pm_luxury_furniture_priority: "Luxury Furniture Priority"
+ pm_precision_tools_priority: "Precision Tools Priority"
+
+ pm_ceramics_priority: "Ceramics Priority"
+ pm_bone_china_priority: "Bone China Priority"
  
- pm_hybrid_electric_engines:0 "Diesel-Electric Engines"
- pm_jet_engines:0 "Jet Engines"
- pm_jet_electric_engines:0 "Electric Jet Engines"
+ pm_basic_oxygen_process: "Basic Oxygen Process"
  
- pm_early_automobile_production:0 "Hand-Cranked Automobiles"
- pm_electic_automobile_production:0 "Electric Automobiles"
- pm_automobile_production:0 "Diesel-Powered Automobiles"
- pm_automobile_priority:0 "Luxury Cars"
+ pm_hybrid_electric_engines: "Diesel-Electric Engines"
+ pm_jet_engines: "Jet Engines"
+ pm_jet_electric_engines: "Electric Jet Engines"
  
- pm_modern_aeroplane_production:0 "Modern Aeroplanes"
+ pm_early_automobile_production: "Hand-Cranked Automobiles"
+ pm_electic_automobile_production: "Electric Automobiles"
+ pm_automobile_production: "Diesel-Powered Automobiles"
+ pm_automobile_priority: "Luxury Cars"
  
- pm_electric_derricks:0 "Electric Oil Derricks"
+ pm_modern_aeroplane_production: "Modern Aeroplanes"
  
- pm_assembly_lines_building_paper_mills:0 "Assembly Lines"
+ pm_electric_derricks: "Electric Oil Derricks"
  
- pm_double_dye_production:0 "Double Dye Production"
- pm_parallel_rayon:0 "Parallel Production"
- pm_rayon_focus:0 "Focus on Rayon"
+ pm_assembly_lines_building_paper_mills: "Assembly Lines"
  
- pmg_automation_building_synthetics_plants:0 "Automation"
- pm_watertube_boiler_building_synthetics_plants:0 "$pm_watertube_boiler_building_motor_industry$"
- pm_rotary_valve_engine_building_synthetics_plants:0 "$pm_rotary_valve_engine_building_motor_industry$"
- pm_assembly_lines_building_synthetics_plants:0 "$pm_assembly_lines_building_motor_industry$"
+ pm_double_dye_production: "Double Dye Production"
+ pm_parallel_rayon: "Parallel Production"
+ pm_rayon_focus: "Focus on Rayon"
+ 
+ pmg_automation_building_synthetics_plants: "Automation"
+ pm_watertube_boiler_building_synthetics_plants: "$pm_watertube_boiler_building_motor_industry$"
+ pm_rotary_valve_engine_building_synthetics_plants: "$pm_rotary_valve_engine_building_motor_industry$"
+ pm_assembly_lines_building_synthetics_plants: "$pm_assembly_lines_building_motor_industry$"
+ 
+ pmg_automation_building_chemical_plants: "Automation"
+ pm_watertube_boiler_building_chemical_plants: "$pm_watertube_boiler_building_motor_industry$"
+ pm_rotary_valve_engine_building_chemical_plants: "$pm_rotary_valve_engine_building_motor_industry$"
+ pm_assembly_lines_building_chemical_plants: "$pm_assembly_lines_building_motor_industry$"
+ 
+ pm_assembly_lines_building_steel_mills: "$pm_assembly_lines_building_motor_industry$"
+ 
+ pm_electric_pump_building_mine: "Electric Pump"
+ pm_electric_pump_building_coal_mine: "$pm_electric_pump_building_mine$"
+ pm_electric_pump_building_iron_mine: "$pm_electric_pump_building_mine$"
+ pm_electric_pump_building_lead_mine: "$pm_electric_pump_building_mine$"
+ pm_electric_pump_building_sulfur_mine: "$pm_electric_pump_building_mine$"
+ pm_electric_pump_building_gold_mine: "$pm_electric_pump_building_mine$"
+ 
+ pmg_ownership_capital_building_mine: $pmg_ownership$"
+ pm_merchant_guilds_building_mine: "$pm_merchant_guilds$"
+ pm_privately_owned_building_mine: "$pm_privately_owned$"
+ pm_publicly_traded_building_mine: "$pm_publicly_traded$"
+ pm_government_run_building_mine: "$pm_government_run$"
+ pm_worker_cooperative_building_mine: "$pm_worker_cooperative$"

@@ -18,7 +18,12 @@ pm_automated_bakery = {
 pm_electricfied_bakery = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { dough_rollers }
+	unlocking_production_methods = { 
+		pm_sweeteners
+		pm_baking_powder
+	}
 	building_modifiers = {
+		unscaled = { building_food_industry_throughput_mult = 1 }
 		workforce_scaled = {
 			# input goods
 			building_input_tools_add			= 10		# x-40	=-400
@@ -44,7 +49,6 @@ pm_mechanized_looms = {
 		}
 	}
 }
-
 pm_automatic_power_looms = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
 	unlocking_technologies = { electrical_capacitors }
@@ -67,9 +71,9 @@ pm_assembly_lines_building_paper_mills = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_tools_add			= 5
-			building_input_oil_add				= 5
-			building_input_electricity_add		= 5
+			building_input_tools_add			= 10
+			building_input_oil_add				= 10
+			building_input_electricity_add		= 10
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -3000
@@ -123,6 +127,71 @@ pm_assembly_lines_building_synthetics_plants = {
 		level_scaled = {
 			building_employment_laborers_add	= -1000
 			building_employment_machinists_add	= -1000
+		}
+	}
+}
+# Steel
+pm_assembly_lines_building_steel_mills = {
+	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
+	pollution_generation = 15
+	unlocking_technologies = { conveyors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add			= 10
+			building_input_oil_add				= 5
+			building_input_electricity_add		= 5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -2000
+			building_employment_machinists_add	= -1000
+		}
+	}
+}
+# Chemical Plants
+pm_watertube_boiler_building_chemical_plants = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	pollution_generation = 5
+	unlocking_technologies = { watertube_boiler }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add			= 5
+			building_input_coal_add				= 5
+		}
+		level_scaled = {
+			building_employment_machinists_add	= -500
+		}
+	}
+}
+pm_rotary_valve_engine_building_chemical_plants = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	pollution_generation = 10
+	unlocking_technologies = { rotary_valve_engine }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add			= 5
+			building_input_coal_add				= 10
+		}
+		level_scaled = {
+			building_employment_machinists_add	= -1000
+		}
+	}
+}
+pm_assembly_lines_building_chemical_plants = {
+	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
+	pollution_generation = 15
+	unlocking_technologies = { conveyors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add			= 5
+			building_input_oil_add				= 3
+			building_input_electricity_add		= 3
+		}
+		level_scaled = {
+			building_employment_machinists_add	= -1500
 		}
 	}
 }

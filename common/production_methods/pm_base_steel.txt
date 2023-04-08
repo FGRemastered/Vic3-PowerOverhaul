@@ -94,8 +94,27 @@ pm_basic_oxygen_process = { # Linz-Donawitz
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 750
-			building_employment_engineers_add	= 750
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 1000
 		}
+	}
+}
+# Ownership
+pm_publicly_traded_building_steel_mills = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+	unlocking_production_methods = {
+		pm_bessemer_process
+		pm_open_hearth_process
+		pm_electric_arc_process
+		pm_basic_oxygen_process
+	}
+	disallowing_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+	unlocking_technologies = { mutual_funds }
+	building_modifiers = {
+		level_scaled = { building_employment_capitalists_add = 150 }
+		unscaled = { building_capitalists_shares_add		 =  10 }
 	}
 }
