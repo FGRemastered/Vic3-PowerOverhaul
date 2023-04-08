@@ -1,7 +1,7 @@
 # Fishing
 pm_electric_fishing_boats = {
 	texture = "gfx/interface/icons/production_method_icons/steam_trawlers.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
 			# input
@@ -17,6 +17,7 @@ pm_electric_fishing_boats = {
 		}
 	}
 }
+# Ownership
 pm_privately_owned_building_fishing_wharf = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 	unlocking_production_methods = {				
@@ -52,12 +53,8 @@ pm_publicly_traded_building_fishing_wharf = {
 		mutual_funds
 	}
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 150
-		}
-		unscaled = {
-			building_capitalists_shares_add = 10
-		}
+		level_scaled = { building_employment_capitalists_add 	= 150 }
+		unscaled = { building_capitalists_shares_add 			=  10 }
 	}
 }
 # pm_government_run_building_fishing_wharf = {
@@ -67,19 +64,10 @@ pm_publicly_traded_building_fishing_wharf = {
 		# pm_steam_trawlers
 		# pm_electric_fishing_boats
 	# }
-	# unlocking_laws = {
-		# law_command_economy
-		# law_interventionism
-	# }
+	# unlocking_laws = { law_command_economy }
 	# building_modifiers = {
-		# level_scaled = {
-			# building_employment_bureaucrats_add	= 60
-			# building_employment_capitalists_add	= 90
-		# }
-		# unscaled = {
-			# building_government_shares_add	= 2
-			# building_capitalists_shares_add	= 3
-		# }
+		# level_scaled = { building_employment_bureaucrats_add	= 100 }
+		# unscaled = { building_government_shares_add				=   1 }
 	# }
 # }
 pm_worker_cooperative_building_fishing_wharf = {
@@ -92,18 +80,14 @@ pm_worker_cooperative_building_fishing_wharf = {
 		law_cooperative_ownership
 	}
 	building_modifiers = {
-		level_scaled = {
-			building_employment_shopkeepers_add = 250
-		}
-		unscaled = {
-			building_workforce_shares_add = 1
-		}
+		level_scaled = { building_employment_shopkeepers_add	= 250 }
+		unscaled = { building_workforce_shares_add 				=   1 }
 	}
 }
 # Whaling
 pm_electic_whaling_ships = {
 	texture = "gfx/interface/icons/production_method_icons/steam_whaling_ships.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
 			# input
@@ -124,6 +108,7 @@ pm_electic_whaling_ships = {
 		}
 	}
 }
+# Ownership
 pm_privately_owned_building_whaling_station = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 	unlocking_production_methods = {
@@ -136,15 +121,10 @@ pm_privately_owned_building_whaling_station = {
 		law_cooperative_ownership
 	}
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 100
-		}
-		unscaled = {
-			building_capitalists_shares_add = 10
-		}
+		level_scaled = { building_employment_capitalists_add = 100 }
+		unscaled = { building_capitalists_shares_add		 =  10 }
 	}
 }
-
 pm_publicly_traded_building_whaling_station = {
 	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
 	unlocking_production_methods = {
@@ -156,57 +136,33 @@ pm_publicly_traded_building_whaling_station = {
 		law_command_economy
 		law_cooperative_ownership
 	}
-	unlocking_technologies = {
-		mutual_funds
-	}
+	unlocking_technologies = { mutual_funds }
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add = 150
-		}
-		unscaled = {
-			building_capitalists_shares_add = 10
-		}
+		level_scaled = { building_employment_capitalists_add = 150 }
+		unscaled = { building_capitalists_shares_add		 =  10 }
 	}
 }
-
 # pm_government_run_building_whaling_station = {
 	# texture = "gfx/interface/icons/production_method_icons/government_run.dds"
-
 	# unlocking_production_methods = {
 		# pm_steam_whaling_ships
 		# pm_electic_whaling_ships
 	# }
-	# unlocking_laws = {
-		# law_command_economy
-		# law_interventionism
-	# }
+	# unlocking_laws = { law_command_economy }
 	# building_modifiers = {
-		# level_scaled = {
-			# building_employment_bureaucrats_add	= 60
-			# building_employment_capitalists_add	= 90
-		# }
-		# unscaled = {
-			# building_government_shares_add	= 2
-			# building_capitalists_shares_add	= 3
-		# }
+		# level_scaled = { building_employment_bureaucrats_add	= 100 }
+		# unscaled = { building_government_shares_add				=   1 }
 	# }
 # }
-
 pm_worker_cooperative_building_whaling_station = {
 	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
 	unlocking_production_methods = {
 		pm_steam_whaling_ships
 		pm_electic_whaling_ships
 	}
-	unlocking_laws = {
-		law_cooperative_ownership
-	}
+	unlocking_laws = { law_cooperative_ownership }
 	building_modifiers = {
-		level_scaled = {
-			building_employment_shopkeepers_add = 250
-		}
-		unscaled = {
-			building_workforce_shares_add = 1
-		}
+		level_scaled = { building_employment_shopkeepers_add = 250 }
+		unscaled = { building_workforce_shares_add			 =   1 }
 	}
 }
