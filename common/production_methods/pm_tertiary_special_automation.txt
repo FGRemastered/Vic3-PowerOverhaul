@@ -160,6 +160,7 @@ pm_watertube_boiler_building_chemical_plants = {
 			building_input_coal_add				= 5
 		}
 		level_scaled = {
+			building_employment_laborers_add	= -1000
 			building_employment_machinists_add	= -500
 		}
 	}
@@ -175,6 +176,7 @@ pm_rotary_valve_engine_building_chemical_plants = {
 			building_input_coal_add				= 10
 		}
 		level_scaled = {
+			building_employment_laborers_add	= -1000
 			building_employment_machinists_add	= -1000
 		}
 	}
@@ -191,6 +193,7 @@ pm_assembly_lines_building_chemical_plants = {
 			building_input_electricity_add		= 3
 		}
 		level_scaled = {
+			building_employment_laborers_add	= -1000
 			building_employment_machinists_add	= -1500
 		}
 	}
