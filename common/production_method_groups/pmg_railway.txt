@@ -1,4 +1,14 @@
 
+pmg_base_building_railway = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_steam_trains
+		pm_electric_trains
+		pm_diesel_trains
+		pm_maglev_trains
+	}
+}
 pmg_passenger_trains = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
