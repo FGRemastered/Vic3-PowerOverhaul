@@ -15,14 +15,14 @@ ban_tobacco = {
 				limit = { NOT = { is_banning_goods = g:tobacco } }
 				add_banned_goods = g:tobacco
 				add_modifier = { name = tobacco_ban_authority }
-			}
-			every_scope_state = {
-				limit = { has_building = building_tobacco_plantation }
-				remove_building = building_tobacco_plantation
-			}
-			every_scope_state = {
-				limit = { has_building = building_infres_tobacco_plantation }
-				remove_building = building_infres_tobacco_plantation
+				every_scope_state = {
+					limit = { has_building = building_tobacco_plantation }
+					remove_building = building_tobacco_plantation
+				}
+				every_scope_state = {
+					limit = { has_building = building_infres_tobacco_plantation }
+					remove_building = building_infres_tobacco_plantation
+				}
 			}
 		}
 	}
