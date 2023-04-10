@@ -198,3 +198,53 @@ pm_assembly_lines_building_chemical_plants = {
 		}
 	}
 }
+# War Machine Industry
+pm_watertube_boiler_building_war_machine_industry = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	pollution_generation = 5
+	unlocking_technologies = { watertube_boiler }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add	= 5
+			building_input_coal_add		= 5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -500
+			building_employment_machinists_add	= -500
+		}
+	}
+}
+pm_rotary_valve_engine_building_war_machine_industry = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	pollution_generation = 10
+	unlocking_technologies = { rotary_valve_engine }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add	= 5
+			building_input_coal_add		= 10
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -1000
+			building_employment_machinists_add	= -500
+		}
+	}
+}
+pm_assembly_lines_building_war_machine_industry = {
+	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
+	pollution_generation = 15
+	unlocking_technologies = { conveyors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add		= 5
+			building_input_oil_add			= 5
+			building_input_electricity_add	= 5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -1500
+			building_employment_machinists_add	= -500
+		}
+	}
+}

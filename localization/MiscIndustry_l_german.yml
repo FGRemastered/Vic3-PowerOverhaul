@@ -2,6 +2,9 @@
  pm_early_machine_tools: "Pneumatische Maschinenwerkzeuge"
  pm_machine_tools: "Elektrische Maschinenwerkzeuge"
  
+ pm_double_telephones: "Doppelte $pm_telephones$"
+ pm_double_radios: "Doppelte $pm_radios$"
+ 
  pm_craftsman_sewing_priority: "Priorität für $pm_craftsman_sewing$"
  pm_elastics_priority: "Priorität für $pm_elastics$"
 
@@ -23,6 +26,7 @@
  pm_automobile_priority: "Luxusautos"
  
  pm_modern_aeroplane_production: "Moderne Flugzeuge"
+ pm_modern_tank_production: "Modern Panzer"
  
  pm_electric_derricks: "Elektroladebäume"
  
@@ -41,6 +45,11 @@
  pm_watertube_boiler_building_chemical_plants: "$pm_watertube_boiler_building_motor_industry$"
  pm_rotary_valve_engine_building_chemical_plants: "$pm_rotary_valve_engine_building_motor_industry$"
  pm_assembly_lines_building_chemical_plants: "$pm_assembly_lines_building_motor_industry$"
+ 
+ pmg_automation_building_war_machine_industry: "Automation"
+ pm_watertube_boiler_building_war_machine_industry: "$pm_watertube_boiler_building_motor_industry$"
+ pm_rotary_valve_engine_building_war_machine_industry: "$pm_rotary_valve_engine_building_motor_industry$"
+ pm_assembly_lines_building_war_machine_industry: "$pm_assembly_lines_building_motor_industry$"
  
  pm_assembly_lines_building_steel_mills: "$pm_assembly_lines_building_motor_industry$"
  
