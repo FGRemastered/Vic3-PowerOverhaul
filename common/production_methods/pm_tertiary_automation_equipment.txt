@@ -76,7 +76,7 @@ pm_steam_powered_winch = {
 			building_input_coal_add				= 6
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -2000
+			building_employment_laborers_add	=-2000
 		}
 	}
 }
@@ -92,7 +92,7 @@ pm_chainsaws = {
 			building_input_oil_add				= 10
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -3000
+			building_employment_laborers_add	=-3000
 			building_employment_machinists_add	= 400
 			building_employment_engineers_add	= 200
 		}
@@ -108,7 +108,7 @@ pm_powered_winch = {
 			building_input_electricity_add		= 4
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -3000
+			building_employment_laborers_add	=-3000
 		}
 	}
 }
@@ -122,7 +122,7 @@ pm_oil_fired_winch = {
 			building_input_oil_add				= 4
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -3000
+			building_employment_laborers_add	=-3000
 		}
 	}
 }
@@ -132,12 +132,13 @@ pm_electric_chainsaws = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_tools_add			= 15
+			building_input_tools_add			= 10
 			building_input_engines_add			= 2
-			building_input_electricity_add		= 5
+			building_input_electricity_add		= 3
+			building_input_oil_add				= 3
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -4000
+			building_employment_laborers_add	=-4000
 			building_employment_machinists_add	= 400
 			building_employment_engineers_add	= 200
 		}
@@ -149,12 +150,12 @@ pm_modern_chainsaws = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_tools_add			= 15
+			building_input_tools_add			= 10
 			building_input_engines_add			= 2
-			building_input_oil_add				= 5
+			building_input_oil_add				= 10
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -4000
+			building_employment_laborers_add	=-4000
 			building_employment_machinists_add	= 400
 			building_employment_engineers_add	= 200
 		}

@@ -43,6 +43,15 @@ pmg_automation_building_chemical_plants = {
 		pm_assembly_lines_building_chemical_plants
 	}
 }
+pmg_automation_building_arms_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_arms_industry
+		pm_rotary_valve_engine_building_arms_industry
+		pm_assembly_lines_building_arms_industry
+	}
+}
 pmg_automation_building_war_machine_industry = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
