@@ -28,7 +28,7 @@ pm_bessemer_process = { # Thomas
 			building_input_coal_add			= 30
 			# output goods
 			building_output_steel_add		= 90
-			building_output_fertilizer_add	= 10
+			building_output_sulfur_add		= 10
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 3000
@@ -48,7 +48,7 @@ pm_open_hearth_process = { # Siemens-Martin
 			building_input_coal_add			= 30
 			# output goods
 			building_output_steel_add		= 120
-			building_output_fertilizer_add	= 30
+			building_output_sulfur_add		= 30
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
@@ -69,7 +69,7 @@ pm_electric_arc_process = {
 			building_input_electricity_add	= 30
 			# output goods
 			building_output_steel_add		= 150
-			building_output_fertilizer_add	= 50
+			building_output_sulfur_add		= 50
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
@@ -90,7 +90,7 @@ pm_basic_oxygen_process = { # Linz-Donawitz
 			building_input_electricity_add	= 50
 			# output goods
 			building_output_steel_add		= 300
-			building_output_fertilizer_add	= 100
+			building_output_sulfur_add		= 100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000

@@ -17,7 +17,7 @@ pm_steel = {
 	}
 }
 pm_early_machine_tools = {
-	texture = "gfx/interface/icons/production_method_icons/electric_saw_mills.dds"
+	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
 	unlocking_technologies = { pneumatic_tools }
 	building_modifiers = {
 		workforce_scaled = {
@@ -32,10 +32,10 @@ pm_early_machine_tools = {
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {
 			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
-			building_employment_machinists_add	= 1000	# x-1.5	=-1500
+			building_employment_machinists_add	= 750	# x-1.5	=-1125
 			building_employment_engineers_add	= 500	# x-3.0	=-1500
-		}												#		=-6000 (-3000)
-	}													#		=-2650 (+350)
+		}												#		=-5625 (-2625)
+	}													#		=-2275 (+725)
 }
 pm_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
@@ -53,10 +53,10 @@ pm_machine_tools = {
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {
 			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
-			building_employment_machinists_add	= 1500	# x-1.5	=-2250
-			building_employment_engineers_add	= 500	# x-3.0	=-1500
-		}												#		=-6750 (-3750)
-	}													#		= +850 (+3850)
+			building_employment_machinists_add	=  500	# x-1.5	= -750
+			building_employment_engineers_add	=  500	# x-3.0	=-1500
+		}												#		=-5250 (-2250)
+	}													#		=+2350 (+5350)
 }
 pm_privately_owned_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
