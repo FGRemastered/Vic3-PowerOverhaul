@@ -15,7 +15,7 @@ pm_steam_rail_transport = {
 			building_input_coal_add				= 2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1000
+			building_employment_laborers_add	= -1000
 		}
 	}
 }
@@ -29,7 +29,7 @@ pm_electric_rail_transport = {
 			building_input_electricity_add		= 1
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1000
+			building_employment_laborers_add	= -1000
 		}
 	}
 }
@@ -44,7 +44,7 @@ pm_diesel_rail_transport = {
 			building_input_oil_add				= 1
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1000
+			building_employment_laborers_add	= -1000
 		}
 	}
 }
@@ -61,10 +61,11 @@ pm_steam_rail_transport_building_coal_mine = {
 			building_output_coal_add			= -2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1000
+			building_employment_laborers_add	= -1000
 		}
 	}
 }
+# Misc Resources
 # Logging Camps
 pm_log_carts = {
 	texture = "gfx/interface/icons/production_method_icons/log_carts.dds"
@@ -76,7 +77,7 @@ pm_log_carts = {
 			building_input_electricity_add		= 1.5
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
@@ -92,7 +93,7 @@ pm_diesel_log_carts = {
 			building_input_oil_add				= 1.5
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
@@ -107,7 +108,7 @@ pm_tanker_cars = {
 			building_input_coal_add				= 4
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
@@ -122,7 +123,7 @@ pm_electric_tanker_cars = {
 			building_input_electricity_add		= 2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
@@ -133,16 +134,61 @@ pm_diesel_tanker_cars = {
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods					
+			# input goods
 			building_input_transportation_add	= 10
 			# output goods
 			building_output_oil_add				= -2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
+# Refrigerated Transport
+pm_unrefrigerated = {
+	texture = "gfx/interface/icons/production_method_icons/no_refrigeration.dds"
+}
+# Livestock
+pm_refrigerated_storage_building_livestock_ranch = {
+	texture = "gfx/interface/icons/production_method_icons/refrigerated_storage.dds"
+	unlocking_technologies = { pasteurization }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_electricity_add		= 2
+		}
+		level_scaled = {
+			building_employment_laborers_add	=  -600
+		}
+	}
+}
+pm_refrigerated_rail_cars_building_livestock_ranch = {
+	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_electricity_add		= 4
+			building_input_transportation_add	= 3
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -1200
+		}
+	}
+}
+pm_flash_freezing_building_livestock_ranch = {
+	texture = "gfx/interface/icons/production_method_icons/flash_refrigerated.dds"
+	unlocking_technologies = { flash_freezing }
+	building_modifiers = {
+		workforce_scaled = {
+			# input
+			building_input_electricity_add		= 7
+			building_input_transportation_add	= 5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -1800
+		}
+	}
+}
+# Heavy Industry
 # Power plant
 pm_steam_rail_transport_power_plant = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
@@ -159,7 +205,7 @@ pm_steam_rail_transport_power_plant = {
 			building_input_coal_add				= 2
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1000
+			building_employment_laborers_add	= -1000
 		}
 	}
 }
@@ -177,7 +223,7 @@ pm_electric_rail_transport_power_plant = {
 			building_output_electricity_add		= -1
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
@@ -196,7 +242,7 @@ pm_diesel_rail_transport_power_plant = {
 			building_input_oil_add				= 1
 		}
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add	= -2000
 		}
 	}
 }
