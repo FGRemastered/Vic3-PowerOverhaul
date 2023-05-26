@@ -1,5 +1,8 @@
 ﻿l_english:
+ pm_watertube_boiler_steam_trains: "Water-tube Boiler Steam Trains"
+ pm_rotary_valve_steam_trains: "Rotary Valve Engine Trains"
  pm_diesel_electric_trains: "Diesel-Electric Trains"
+ pm_jet_electric_trains: "Diesel-Electric Jet Trains"
  pm_maglev_trains: "Magnetic Levitation Trains"
  
  pm_high_speed_rail: "High Speed Rail"
@@ -104,6 +107,4 @@
  pm_publicly_traded_building_canal: "$pm_publicly_traded$"
  pm_government_run_building_canal: "$pm_government_run$"
  pm_worker_cooperative_building_canal: "$pm_worker_cooperative$"
- 
- government_run_decision: "Nationalise the Industry"
  

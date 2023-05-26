@@ -1,5 +1,8 @@
 ﻿l_german:
- pm_diesel_electric_trains: "Dieselelektrische Bahn"
+ pm_watertube_boiler_steam_trains: "Dampfzüge mit Wasserrohrkessel"
+ pm_rotary_valve_steam_trains: "Drehventilmotorzüge"
+ pm_diesel_electric_trains: "Dieselelektrische Züge"
+ pm_jet_electric_trains: "Elektrische Düsenzüge"
  pm_maglev_trains: "Magnetschwebebahnen"
  
  pm_high_speed_rail: "Hochgeschwindigkeitszüge"
@@ -103,5 +106,3 @@
  pm_publicly_traded_building_canal: "$pm_publicly_traded$"
  pm_government_run_building_canal: "$pm_government_run$"
  pm_worker_cooperative_building_canal: "$pm_worker_cooperative$"
- 
- government_run_decision: "Industrienationalisierung"
