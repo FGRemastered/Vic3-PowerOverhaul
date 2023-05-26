@@ -16,6 +16,8 @@
  
  pm_basic_oxygen_process: "Basic Oxygen Process"
  
+ pm_watertube_boiler_steam_engines: "Water-tube Boiler Steam Engines"
+ pm_rotary_valve_engines: "Rotary Valve Steam Engines"
  pm_hybrid_electric_engines: "Diesel-Electric Engines"
  pm_jet_engines: "Jet Engines"
  pm_jet_electric_engines: "Electric Jet Engines"
@@ -25,6 +27,9 @@
  pm_automobile_production: "Diesel-Powered Automobiles"
  pm_automobile_priority: "Luxury Cars"
  
+ pm_machine_pistols: "Machine Pistols"
+ pm_blowback_loaders: "Blowback Loaders"
+ 
  pm_modern_aeroplane_production: "Modern Aeroplanes"
  pm_modern_tank_production: "Modern Tanks"
  
@@ -32,9 +37,11 @@
  
  pm_assembly_lines_building_paper_mills: "Assembly Lines"
  
- pm_double_dye_production: "Double Dye Production"
- pm_parallel_rayon: "Parallel Production"
- pm_rayon_focus: "Focus on Rayon"
+ pm_double_dye_production: "Improved Dye Production"
+ pm_parallel_rayon: "Parallel Rayon Production"
+ pm_improved_rayon: "Improved Rayon Process"
+ 
+ pm_continous_bleached_paper: "Continously Bleached Paper"
  
  pmg_automation: "Automation"
  pm_watertube_boiler: "Water-tube Boiler"
@@ -78,8 +85,8 @@
  pm_electric_pump_building_gold_mine: "$pm_electric_pump_building_mine$"
  
  pmg_ownership_capital_building_mine: "$pmg_ownership$"
- pm_merchant_guilds_building_mine: "$pm_merchant_guilds$"
- pm_privately_owned_building_mine: "$pm_privately_owned$"
- pm_publicly_traded_building_mine: "$pm_publicly_traded$"
- pm_government_run_building_mine: "$pm_government_run$"
- pm_worker_cooperative_building_mine: "$pm_worker_cooperative$"
+ pm_merchant_guilds_mine: "$pm_merchant_guilds$"
+ pm_privately_owned_mine: "$pm_privately_owned$"
+ pm_publicly_traded_mine: "$pm_publicly_traded$"
+ pm_government_run_mine: "$pm_government_run$"
+ pm_worker_cooperative_mine: "$pm_worker_cooperative$"

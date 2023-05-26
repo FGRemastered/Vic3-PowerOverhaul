@@ -1,7 +1,7 @@
-# Infinite Farms
+# Infinite Resource Buildings
+# Farms
 building_infres_rye_farm = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -13,22 +13,21 @@ building_infres_rye_farm = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_f_rye_farms
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/rye_farm.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_rye_farm
-		pmg_secondary_building_rye_farm
+		pmg_secondary_farm_cold
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
 		pmg_ownership_land_building_rye_farm
@@ -36,10 +35,8 @@ building_infres_rye_farm = {
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_rye
 }
-
 building_infres_wheat_farm = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -51,22 +48,21 @@ building_infres_wheat_farm = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_f_wheat_farms
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/wheat_farm.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_wheat_farm
-		pmg_secondary_building_wheat_farm
+		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
 		pmg_ownership_land_building_wheat_farm
@@ -74,10 +70,8 @@ building_infres_wheat_farm = {
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_wheat
 }
-
 building_infres_rice_farm = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -89,22 +83,21 @@ building_infres_rice_farm = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_f_rice_farms
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/rice_farm.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_rice_farm
-		pmg_secondary_building_rice_farm
+		pmg_secondary_farm_hot
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
 		pmg_ownership_land_building_rice_farm
@@ -112,10 +105,8 @@ building_infres_rice_farm = {
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_rice
 }
-
 building_infres_maize_farm = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -127,22 +118,21 @@ building_infres_maize_farm = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_f_maize_farms
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/maize_farm.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_maize_farm
-		pmg_secondary_building_maize_farm
+		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
 		pmg_ownership_land_building_maize_farm
@@ -150,10 +140,8 @@ building_infres_maize_farm = {
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_maize
 }
-
 building_infres_millet_farm = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -165,22 +153,21 @@ building_infres_millet_farm = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_f_millet_farms
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/millet_farm.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_millet_farm
-		pmg_secondary_building_millet_farm
+		pmg_secondary_farm_hot
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
 		pmg_ownership_land_building_millet_farm
@@ -188,10 +175,9 @@ building_infres_millet_farm = {
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_millet
 }
-# Ranch
+# Ranches
 building_infres_livestock_ranch = {
-	can_build_private = 
-	{
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -203,21 +189,21 @@ building_infres_livestock_ranch = {
 			}
 		}  
 	}
-	can_build_government = 
-	{
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_g_livestock_ranches
+	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
 	city_type = farm
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_livestock_ranch
+		pmg_slaughtering
 		pmg_fencing
 		pmg_refrigeration_building_livestock_ranch
 		pmg_ownership_land_building_livestock_ranch
@@ -225,108 +211,9 @@ building_infres_livestock_ranch = {
 	required_construction = construction_cost_low
 	terrain_manipulator = pasture
 }
-# Infinite Fishing
-building_infres_fishing_wharf = {
-	can_build_private = 
-	{
-		OR = {
-			AND = {
-				owner = { is_player = yes }
-				has_game_rule = infres_private_construction_allowed
-			}
-			AND = {
-				has_game_rule = infres_player_and_ai_allowed
-				has_game_rule = infres_private_construction_allowed
-			}
-		}
-		error_check = {
-			severity = fail
-			is_sea_adjacent = yes
-		}
-	}
-	can_build_government = 
-	{
-		OR = {
-			owner = { is_player = yes }
-			has_game_rule = infres_player_and_ai_allowed
-		}
-		error_check = {
-			severity = fail
-			is_sea_adjacent = yes
-		}
-	}
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_y_fishing
-	texture = "gfx/interface/icons/building_icons/fishing_wharf.dds"
-	city_type = port
-	required_construction = construction_cost_low
-
-	production_method_groups = {
-		pmg_base_building_fishing_wharf
-		pmg_tertiary_offshore_power
-		pmg_refrigeration_building_fishing_wharf
-		pmg_ownership_capital_building_fishing_wharf
-	}
-}
-
-building_infres_whaling_station = {
-	can_build_private = 
-	{
-		OR = {
-			AND = {
-				owner = { is_player = yes }
-				has_game_rule = infres_private_construction_allowed
-			}
-			AND = {
-				has_game_rule = infres_player_and_ai_allowed
-				has_game_rule = infres_private_construction_allowed
-			}
-		}
-		error_check = {
-			severity = fail
-			is_sea_adjacent = yes
-		}
-	}
-	can_build_government = 
-	{
-		OR = {
-			owner = { is_player = yes }
-			has_game_rule = infres_player_and_ai_allowed
-		}
-		error_check = {
-			severity = fail
-			is_sea_adjacent = yes
-		}
-	}
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_y_whaling
-	texture = "gfx/interface/icons/building_icons/whaling_station.dds"
-	city_type = port
-	required_construction = construction_cost_low
-	
-	unlocking_technologies = {
-		navigation
-	}
-
-	production_method_groups = {
-		pmg_base_building_whaling_station
-		pmg_tertiary_offshore_power
-		pmg_refrigeration_building_whaling_station
-		pmg_ownership_capital_building_whaling_station
-	}
-	
-	can_build = {
-		owner = { is_player = yes }
-		error_check = {
-			severity = fail
-			is_sea_adjacent = yes
-		}
-	}
-}
-# Infinite Plantations
-building_infres_coffee_plantation = {
-	can_build_private = 
-	{ 
+# Logging
+building_infres_logging_camp = {
+	can_build_private = { 
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -338,23 +225,170 @@ building_infres_coffee_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = { 
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_coffee_plantations
+	building_group = bg_infinite_logging
+	texture = "gfx/interface/icons/building_icons/logging_camp.dds"
+	city_type = wood
+	required_construction = construction_cost_low
+	terrain_manipulator = forestry
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_base_building_logging_camp
+		pmg_hardwood
+		pmg_equipment
+		pmg_transportation_building_logging_camp
+		pmg_ownership_capital_building_logging_camp
+	}
+}
+building_infres_rubber_plantation = {
+	can_build_private = {
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}  
+	}
+	can_build_government = {
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		} 
+	}
+	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
+	building_group = bg_infinite_rubber
+	texture = "gfx/interface/icons/building_icons/rubber_lodge.dds"
+	required_construction = construction_cost_low
+	terrain_manipulator = forestry
+	unlocking_technologies = { rubber_mastication }
+	city_type = wood
+	levels_per_mesh = 5
+	production_method_groups = {
+		pmg_base_building_rubber_plantation
+		pmg_equipment	# Rubber is closer to Logging than anything else
+		pmg_tertiary_agri_power
+		pmg_train_automation
+		pmg_ownership_land_building_rubber_plantation
+	}
+}
+# Infinite Fishing
+building_infres_fishing_wharf = {
+	can_build_private = {
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}
+		error_check = {
+			severity = fail
+			is_sea_adjacent = yes
+		}
+	}
+	can_build_government = {
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		}
+		error_check = {
+			severity = fail
+			is_sea_adjacent = yes
+		}
+	}
+	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
+	building_group = bg_infinite_fishing
+	texture = "gfx/interface/icons/building_icons/fishing_wharf.dds"
+	city_type = port
+	required_construction = construction_cost_low 
+	production_method_groups = {
+		pmg_base_building_fishing_wharf
+		pmg_tertiary_offshore_power
+		pmg_refrigeration_building_fishing_wharf
+		pmg_ownership_capital_building_fishing_wharf
+	}
+}
+building_infres_whaling_station = {
+	can_build_private = {
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}
+		error_check = {
+			severity = fail
+			is_sea_adjacent = yes
+		}
+	}
+	can_build_government = {
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		}
+		error_check = {
+			severity = fail
+			is_sea_adjacent = yes
+		}
+	}
+	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
+	building_group = bg_infinite_whaling
+	texture = "gfx/interface/icons/building_icons/whaling_station.dds"
+	city_type = port
+	required_construction = construction_cost_low
+	unlocking_technologies = { navigation }
+	production_method_groups = {
+		pmg_base_building_whaling_station
+		pmg_tertiary_offshore_power
+		pmg_refrigeration_building_whaling_station
+		pmg_ownership_capital_building_whaling_station
+	}
+}
+# Infinite Plantations
+building_infres_coffee_plantation = {
+	can_build_private = {
+		OR = {
+			AND = {
+				owner = { is_player = yes }
+				has_game_rule = infres_private_construction_allowed
+			}
+			AND = {
+				has_game_rule = infres_player_and_ai_allowed
+				has_game_rule = infres_private_construction_allowed
+			}
+		}  
+	}
+	can_build_government = {
+		OR = {
+			owner = { is_player = yes }
+			has_game_rule = infres_player_and_ai_allowed
+		} 
+	}
+	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/coffee_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_coffee_plantation
 		pmg_harvesting_process_tractors
@@ -363,10 +397,8 @@ building_infres_coffee_plantation = {
 		pmg_ownership_land_building_coffee_plantation
 	}
 }
-
 building_infres_cotton_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -378,23 +410,19 @@ building_infres_cotton_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_cotton_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-
 	production_method_groups = {
 		pmg_base_building_cotton_plantation
 		pmg_harvesting_process_tractors
@@ -403,10 +431,8 @@ building_infres_cotton_plantation = {
 		pmg_ownership_land_building_cotton_plantation
 	}
 }
-
 building_infres_dye_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -418,23 +444,19 @@ building_infres_dye_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_dye_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/dye_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_dye_plantation
 		pmg_harvesting_process_tractors
@@ -443,10 +465,8 @@ building_infres_dye_plantation = {
 		pmg_ownership_land_building_dye_plantation
 	}
 }
-
 building_infres_opium_plantation = {
-	can_build_private = 
-	{
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -462,8 +482,7 @@ building_infres_opium_plantation = {
 			owner = { NOT = { is_banning_goods = g:opium } }
 		}
 	}
-	can_build_government = 
-	{
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
@@ -474,15 +493,12 @@ building_infres_opium_plantation = {
 		}
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_opium_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/opium_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_opium_plantation
 		pmg_harvesting_process_tractors
@@ -491,10 +507,8 @@ building_infres_opium_plantation = {
 		pmg_ownership_land_building_opium_plantation
 	}
 }
-
 building_infres_tea_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -506,23 +520,19 @@ building_infres_tea_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_tea_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/tea_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_tea_plantation
 		pmg_harvesting_process_tractors
@@ -531,10 +541,8 @@ building_infres_tea_plantation = {
 		pmg_ownership_land_building_tea_plantation
 	}
 }
-
 building_infres_tobacco_plantation = {
-	can_build_private = 
-	{
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -550,8 +558,7 @@ building_infres_tobacco_plantation = {
 			owner = { NOT = { is_banning_goods = g:tobacco } }
 		}
 	}
-	can_build_government = 
-	{
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
@@ -562,15 +569,12 @@ building_infres_tobacco_plantation = {
 		}
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_tobacco_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_tobacco_plantation
 		pmg_harvesting_process_tractors
@@ -579,10 +583,8 @@ building_infres_tobacco_plantation = {
 		pmg_ownership_land_building_tobacco_plantation
 	}
 }
-
 building_infres_sugar_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -594,23 +596,19 @@ building_infres_sugar_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_sugar_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/sugar_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-	
 	city_type = farm
 	levels_per_mesh = 5
-
 	production_method_groups = {
 		pmg_base_building_sugar_plantation
 		pmg_harvesting_process_tractors
@@ -619,10 +617,8 @@ building_infres_sugar_plantation = {
 		pmg_ownership_land_building_sugar_plantation
 	}
 }
-
 building_infres_banana_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -634,23 +630,19 @@ building_infres_banana_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_banana_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/banana_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_banana_plantation
 		pmg_harvesting_process_simple
@@ -659,10 +651,8 @@ building_infres_banana_plantation = {
 		pmg_ownership_land_building_banana_plantation
 	}
 }
-
 building_infres_silk_plantation = {
-	can_build_private = 
-	{ 
+	can_build_private = {
 		OR = {
 			AND = {
 				owner = { is_player = yes }
@@ -674,72 +664,24 @@ building_infres_silk_plantation = {
 			}
 		}  
 	}
-	can_build_government = 
-	{ 
+	can_build_government = {
 		OR = {
 			owner = { is_player = yes }
 			has_game_rule = infres_player_and_ai_allowed
 		} 
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_silk_plantations
+	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/silk_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
-	levels_per_mesh = 5
-
+	levels_per_mesh = 5 
 	production_method_groups = {
 		pmg_base_building_silk_plantation
 		pmg_harvesting_process_simple
 		pmg_tertiary_agri_power
 		pmg_train_automation
 		pmg_ownership_land_building_silk_plantation
-	}
-}
-# Rubber is special for some reason
-building_infres_rubber_plantation = {
-	can_build_private = 
-	{ 
-		OR = {
-			AND = {
-				owner = { is_player = yes }
-				has_game_rule = infres_private_construction_allowed
-			}
-			AND = {
-				has_game_rule = infres_player_and_ai_allowed
-				has_game_rule = infres_private_construction_allowed
-			}
-		}  
-	}
-	can_build_government = 
-	{ 
-		OR = {
-			owner = { is_player = yes }
-			has_game_rule = infres_player_and_ai_allowed
-		} 
-	}
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_p_rubber
-	texture = "gfx/interface/icons/building_icons/rubber_lodge.dds"
-	required_construction = construction_cost_low
-	
-	terrain_manipulator = forestry
-
-	unlocking_technologies = {
-		rubber_mastication
-	}
-
-	city_type = wood
-	levels_per_mesh = 5
-	
-	production_method_groups = {
-		pmg_base_building_rubber_plantation
-		pmg_equipment	# Rubber is closer to Logging than anything else
-		pmg_tertiary_agri_power
-		pmg_train_automation
-		pmg_ownership_land_building_rubber_plantation
 	}
 }

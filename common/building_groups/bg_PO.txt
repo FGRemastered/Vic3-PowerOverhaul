@@ -1,0 +1,200 @@
+# Agriculture
+bg_agriculture = {
+	category = rural
+	lens = agriculture
+	economy_of_scale = yes
+	can_use_slaves = yes
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	should_auto_expand = { default_auto_expand_rule = yes }
+	economy_of_scale_ai_factor = 2.0
+}
+bg_finite_agriculture = {
+	parent_group = bg_agriculture
+	land_usage = rural
+}
+bg_rye_farms = {
+	parent_group = bg_finite_agriculture
+	default_building = building_rye_farm
+	cash_reserves_max = 25000
+}
+bg_wheat_farms = {
+	parent_group = bg_finite_agriculture
+	default_building = building_wheat_farm
+	cash_reserves_max = 25000
+}
+bg_rice_farms = {
+	parent_group = bg_finite_agriculture
+	default_building = building_rice_farm
+	cash_reserves_max = 25000
+}
+bg_maize_farms = {
+	parent_group = bg_finite_agriculture
+	default_building = building_maize_farm
+	cash_reserves_max = 25000
+}
+bg_millet_farms = {
+	parent_group = bg_finite_agriculture
+	default_building = building_millet_farm
+	cash_reserves_max = 25000
+}
+bg_subsistence_agriculture = {
+	parent_group = bg_finite_agriculture
+	always_possible = yes
+	auto_place_buildings = yes
+	is_subsistence = yes
+	default_building = building_subsistence_farms
+	fired_pops_become_radical = no
+	hires_unemployed_only = yes
+}
+bg_infinite_agriculture = {
+	parent_group = bg_agriculture
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+}
+# Ranching
+bg_ranching = {
+	parent_group = bg_finite_agriculture
+}
+# Plantations
+bg_plantations = {
+	category = rural
+	economy_of_scale = yes
+	lens = plantation
+	can_use_slaves = yes
+	cash_reserves_max = 25000
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	should_auto_expand = { default_auto_expand_rule = yes }
+	economy_of_scale_ai_factor = 2.0
+}
+bg_finite_plantations = {
+	parent_group = bg_plantations
+	land_usage = rural
+}
+bg_coffee_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_coffee_plantation
+}
+bg_cotton_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_cotton_plantation
+}
+bg_silk_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_silk_plantation
+}
+bg_dye_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_dye_plantation
+}
+bg_opium_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_opium_plantation
+}
+bg_tea_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_tea_plantation
+}
+bg_tobacco_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_tobacco_plantation
+}
+bg_sugar_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_sugar_plantation
+}
+bg_banana_plantations = {
+	parent_group = bg_finite_plantations
+	default_building = building_banana_plantation
+}
+bg_infinite_plantations = {
+	parent_group = bg_plantations
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+}
+# Mining
+bg_mining = {
+	category = rural
+	economy_of_scale = yes
+	can_use_slaves = yes
+	lens = mine
+	cash_reserves_max = 25000
+	urbanization = 10
+	infrastructure_usage_per_level = 2
+	should_auto_expand = { default_auto_expand_rule = yes }
+	economy_of_scale_ai_factor = 3.0
+}
+bg_finite_mining = {
+	parent_group = bg_mining
+	capped_by_resources = yes
+}
+bg_gold_fields = {
+	parent_group = bg_finite_mining
+	can_use_slaves = no
+	auto_place_buildings = yes
+	discoverable_resource = yes
+	depletable_resource = yes
+	pays_taxes = no
+	default_building = building_gold_fields
+	fired_pops_become_radical = no
+}
+bg_gold_mining = {
+	parent_group = bg_finite_mining
+	default_building = building_gold_mine
+}
+bg_coal_mining = {
+	parent_group = bg_finite_mining
+	default_building = building_coal_mine
+}
+bg_iron_mining = {
+	parent_group = bg_finite_mining
+	default_building = building_iron_mine
+}
+bg_lead_mining = {
+	parent_group = bg_finite_mining
+	default_building = building_lead_mine
+}
+bg_sulfur_mining = {
+	parent_group = bg_finite_mining
+	default_building = building_sulfur_mine
+}
+bg_infinite_mining = {
+	parent_group = bg_mining
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+}
+# Misc Resources
+# Logging
+bg_infinite_logging = {
+	parent_group = bg_logging
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+	default_building = building_infres_logging_camp
+}
+bg_infinite_rubber = {
+	parent_group = bg_rubber
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+	default_building = building_infres_rubber_plantation
+}
+# Fishing
+bg_infinite_fishing = {
+	parent_group = bg_fishing
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+	default_building = building_infres_fishing_wharf
+}
+bg_infinite_whaling = {
+	parent_group = bg_whaling
+	always_possible = yes
+	capped_by_resources = no
+	fired_pops_become_radical = no
+	default_building = building_infres_whaling_station
+}
