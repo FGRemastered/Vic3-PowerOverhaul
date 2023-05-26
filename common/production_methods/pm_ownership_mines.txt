@@ -1,5 +1,5 @@
 # Ownership
-pm_merchant_guilds_building_mine = {
+pm_merchant_guilds_mine = {
 	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
 	unlocking_production_methods = {
 		pm_picks_and_shovels_building_coal_mine
@@ -17,7 +17,7 @@ pm_merchant_guilds_building_mine = {
 		unscaled = { building_shopkeepers_shares_add			=  10 }
 	}
 }
-pm_privately_owned_building_mine = {
+pm_privately_owned_mine = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 	unlocking_production_methods = {
 		# Coal
@@ -50,7 +50,7 @@ pm_privately_owned_building_mine = {
 		unscaled = { building_government_shares_add				=  10 }
 	}
 }
-pm_publicly_traded_building_mine = {
+pm_publicly_traded_mine = {
 	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
 	unlocking_production_methods = {
 		# Coal
@@ -84,7 +84,7 @@ pm_publicly_traded_building_mine = {
 		unscaled = { building_government_shares_add				=  10 }
 	}
 }
-# pm_government_run_building_mine = {
+# pm_government_run_mine = {
 	# texture = "gfx/interface/icons/production_method_icons/government_run.dds"
 	# unlocking_laws = { law_command_economy }
 	# building_modifiers = {
@@ -92,7 +92,7 @@ pm_publicly_traded_building_mine = {
 		# unscaled = { building_government_shares_add				=   1 }
 	# }
 # }
-pm_worker_cooperative_building_mine = {
+pm_worker_cooperative_mine = {
 	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
 	unlocking_production_methods = {
 		# Coal

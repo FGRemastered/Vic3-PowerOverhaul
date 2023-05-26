@@ -1,0 +1,98 @@
+# Green Energy
+# Subsistence
+pm_early_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	pollution_generation = -5
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	1 engine : 5 power
+			building_input_engines_add			=   2	# x-60	= -120
+			building_input_wood_add				=   2	# x-20	=  -40
+			# output goods							 	#		= -160
+			building_output_electricity_add		=  10	# x+30	= +300
+		}											 	#		= +140
+		level_scaled = {
+			building_employment_machinists_add 	=  20	# x-1.5	=  -30
+			building_employment_engineers_add	=   5	# x-3	=  -15
+		}											 	#		=  -45
+	}												 	#		=  +95
+}
+pm_large_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	pollution_generation = -10
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	2 engines : 1 steel	|	1 engine : 5 power
+			building_input_engines_add			=   4	# x-60	= -240
+			building_input_steel_add			=   2	# x-50	= -100
+			# output goods							 	#		= -340
+			building_output_electricity_add		=  20	# x+30	= +600
+		}											 	#		= +260
+		level_scaled = {
+			building_employment_machinists_add 	=  40	# x-1.5	=  -60
+			building_employment_engineers_add	=  10	# x-3	=  -30
+		}											 	#		=  -90
+	}												 	#		= +170
+}
+pm_solar_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { electric_railway }
+	pollution_generation = -20
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
+			building_input_engines_add			=  10	# x-60	= -600
+			building_input_steel_add			=   4	# x-50	= -200
+			building_input_glass_add			=   2	# x-40	= - 80
+			# output goods							 	#		= -880
+			building_output_electricity_add		=  50	# x+30	=+1500
+		}											 	#		= +620
+		unscaled = { building_production_mult	=-0.01 }	#	   -1%		# Plants and workers need time to adapt
+		level_scaled = {
+			building_employment_machinists_add 	=  80	# x-1.5	= -120
+			building_employment_engineers_add	=  20	# x-3	=  -60
+		}											 	#		=  +45
+	}												 	#		= +665
+}
+pm_large_solar_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	pollution_generation = -30
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
+			building_input_engines_add			=  20	# x-60	=-1200
+			building_input_steel_add			=   5	# x-50	= -250
+			building_input_glass_add			=  10	# x-40	= -400
+			# output goods							 	#		=-1850
+			building_output_electricity_add		= 100	# x+30	=+3000
+		}											 	#		=+1250
+		unscaled = { building_production_mult	= 1 }	#		 +100%		# Having shade is hugely beneficial for plant growth
+		level_scaled = {
+			building_employment_machinists_add 	= 200	# x-1.5	= -240
+			building_employment_engineers_add	=  50	# x-3	= -120
+		}											 	#		=  +90
+	}												 	#		=+1340
+}
+pm_huge_solar_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
+	unlocking_technologies = { arc_welding }
+	pollution_generation = -30
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
+			building_input_engines_add			=  30	# x-60	=-1800
+			building_input_steel_add			=  10	# x-50	= -500
+			building_input_glass_add			=  10	# x-40	= -400
+			# output goods								#		=-2700
+			building_output_electricity_add		= 150	# x+30	=+4500
+		}											 	#		=+1800
+		unscaled = { building_production_mult	= 1 }	#		 +100%		# Having shade is hugely beneficial for plant growth
+		level_scaled = {
+			building_employment_machinists_add 	=	400 # x-1.5	= -600
+			building_employment_engineers_add	=	100 # x-3	= -300
+		}												#		= -900
+	}													#		= +900
+}

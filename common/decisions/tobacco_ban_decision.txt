@@ -1,3 +1,4 @@
+# Ban
 ban_tobacco = {
 	is_shown = {
 		exists = market
@@ -22,6 +23,13 @@ ban_tobacco = {
 				every_scope_state = {
 					limit = { has_building = building_infres_tobacco_plantation }
 					remove_building = building_infres_tobacco_plantation
+				}
+				every_primary_culture = { 
+					limit = { 
+						# has_discrimination_trait = german_speaking
+						has_cultural_obsession = tobacco
+					} 
+					remove_cultural_obsession = tobacco
 				}
 			}
 		}
@@ -51,6 +59,73 @@ ban_tobacco = {
 		}
     }	
 }
+# Renew
+ban_tobacco_again = {
+	is_shown = {
+		is_banning_goods = g:tobacco
+		exists = market
+	}
+	possible = {
+		market.owner = root
+		is_banning_goods = g:tobacco
+		market = {
+			OR = {
+				any_scope_country = { NOT = { is_banning_goods = g:tobacco } }
+				any_scope_country = { any_scope_state = { has_building = building_tobacco_plantation } }
+				any_scope_country = { any_scope_state = { has_building = building_infres_tobacco_plantation } }
+			}
+		}
+	}
+	when_taken = {
+		market = {
+			every_scope_country = {
+				limit = { NOT = { is_banning_goods = g:tobacco } }
+				add_banned_goods = g:tobacco
+				add_modifier = { name = tobacco_ban_authority }
+				every_scope_state = {
+					limit = { has_building = building_tobacco_plantation }
+					remove_building = building_tobacco_plantation
+				}
+				every_scope_state = {
+					limit = { has_building = building_infres_tobacco_plantation }
+					remove_building = building_infres_tobacco_plantation
+				}
+				every_primary_culture = { 
+					limit = { 
+						# has_discrimination_trait = german_speaking
+						has_cultural_obsession = tobacco
+					} 
+					remove_cultural_obsession = tobacco
+				}
+			}
+		}
+	}
+    ai_chance = {
+        base = 0
+		modifier = {
+			add = 10
+			trigger = { authority >= 200 }
+		}
+		modifier = {
+			add = 10
+			trigger = {
+				any_interest_group = {
+					limit = {
+						OR = {
+							is_being_bolstered = yes
+							is_in_government = yes
+						}
+						OR = {
+							leader = { has_ideology = ideology_fascist }
+							is_interest_group_type = ig_petty_bourgeoisie
+						}
+					}
+				}
+			}
+		}
+    }	
+}
+# Rescind
 remove_tobacco_ban = {
 	is_shown = {
 		is_banning_goods = g:tobacco
