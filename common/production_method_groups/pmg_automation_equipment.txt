@@ -22,9 +22,9 @@ pmg_equipment = {
 	production_methods = {
 		pm_no_equipment
 		pm_steam_powered_winch
-		pm_chainsaws
 		pm_powered_winch
 		pm_oil_fired_winch
+		pm_chainsaws
 		pm_electric_chainsaws
 		pm_modern_chainsaws
 	}

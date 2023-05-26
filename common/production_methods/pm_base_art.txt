@@ -45,7 +45,7 @@ pm_film_art = {
 			building_input_tools_add		= 5		# x-40	=-200
 			building_input_electricity_add	= 2		# x-30	= -60
 			# output goods							#		=-410
-			building_output_fine_art_add	= 5		# x200	=1000 
+			building_output_fine_art_add	= 10	# x200	=2000 
 		}					
-	}												#		= 590
+	}												#		=1590
 }	

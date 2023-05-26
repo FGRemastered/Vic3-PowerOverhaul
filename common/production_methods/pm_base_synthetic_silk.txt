@@ -1,3 +1,4 @@
+# Synthetics Plant
 # Dye
 pm_dye_production = {
 	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
@@ -13,7 +14,8 @@ pm_dye_production = {
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1500
+			building_employment_engineers_add	= 1000
+			building_employment_academics_add	= 500
 		}
 	}
 }
@@ -27,12 +29,13 @@ pm_double_dye_production = {
 			building_input_sulfur_add		= 40
 			building_input_fertilizer_add	= 60
 			# output goods
-			building_output_dye_add			= 200
+			building_output_dye_add			= 300
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_machinists_add	= 2000
-			building_employment_engineers_add	= 2000
+			building_employment_engineers_add	= 1500
+			building_employment_academics_add	= 500
 		}
 	}
 }
@@ -47,7 +50,7 @@ pm_parallel_rayon = {
 			building_input_sulfur_add			= 10
 			building_input_fertilizer_add		= 15
 			# output goods
-			building_output_silk_add			= 40
+			building_output_silk_add			= 60
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 500
@@ -64,7 +67,7 @@ pm_rayon = {
 			building_input_wood_add		= 40
 			building_output_dye_add		=-40
 			# output goods
-			building_output_silk_add	= 40
+			building_output_silk_add	= 60
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 500
@@ -72,8 +75,8 @@ pm_rayon = {
 		}
 	}
 }
-pm_rayon_focus = {
-	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+pm_improved_rayon = {
+	texture = "gfx/interface/icons/production_method_icons/elastics.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
 		workforce_scaled = {
@@ -81,7 +84,7 @@ pm_rayon_focus = {
 			building_input_wood_add		= 100
 			building_output_dye_add		=-100
 			# output goods
-			building_output_silk_add	= 100
+			building_output_silk_add	= 200
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 500

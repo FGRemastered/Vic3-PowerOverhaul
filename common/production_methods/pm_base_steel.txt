@@ -94,8 +94,9 @@ pm_basic_oxygen_process = { # Linz-Donawitz
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	= 500
+			building_employment_academics_add	= 500
 		}
 	}
 }

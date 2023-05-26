@@ -1,3 +1,4 @@
+# Motor Industry
 # Engines
 pm_steam_engines = {
 	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
@@ -8,6 +9,44 @@ pm_steam_engines = {
 			building_input_steel_add			= 30
 			# output goods
 			building_output_engines_add			= 40
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 2500
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_watertube_boiler_steam_engines = {
+	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
+	pollution_generation = 15
+	unlocking_technologies = { watertube_boiler }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 35
+			building_input_coal_add				= 5
+			# output goods
+			building_output_engines_add			= 50
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 2500
+			building_employment_machinists_add	= 1500
+			building_employment_engineers_add	= 500
+		}
+	}
+}
+pm_rotary_valve_engines = {
+	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
+	pollution_generation = 20
+	unlocking_technologies = { rotary_valve_engine }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_steel_add			= 40
+			building_input_coal_add				= 10
+			# output goods
+			building_output_engines_add			= 60
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
@@ -50,7 +89,7 @@ pm_diesel_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1500
+			building_employment_engineers_add	= 1000
 		}
 	}
 }
@@ -70,7 +109,8 @@ pm_hybrid_electric_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 2000
+			building_employment_engineers_add	= 1000
+			building_employment_academics_add	= 250
 		}
 	}
 }
@@ -90,7 +130,8 @@ pm_jet_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 2000
+			building_employment_engineers_add	= 1000
+			building_employment_academics_add	= 500
 		}
 	}
 }
@@ -110,7 +151,8 @@ pm_jet_electric_engines = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500
 			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 2500
+			building_employment_engineers_add	= 1000
+			building_employment_academics_add	= 750
 		}
 	}
 }
@@ -129,7 +171,7 @@ pm_early_automobile_production = {		# 20%
 			building_input_rubber_add			= 2
 			building_input_oil_add				= 4
 			# output goods
-			building_output_engines_add			= -4
+			building_output_engines_add			= -3
 			building_output_automobiles_add		= 5
 		}
 		# level_scaled = {
@@ -156,7 +198,7 @@ pm_electic_automobile_production = {	# 50%
 			building_input_oil_add				= 3
 			building_input_electricity_add		= 7
 			# output goods
-			building_output_engines_add			= -8
+			building_output_engines_add			= -6
 			building_output_automobiles_add		= 12
 		}
 		# level_scaled = {

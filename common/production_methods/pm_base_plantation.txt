@@ -8,7 +8,7 @@ pm_soil_enriching_farming_coffee_plantation = {
 			# input goods
 			building_input_fertilizer_add	= 25	
 			# output goods
-			building_output_coffee_add	= 40
+			building_output_coffee_add		= 40
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000

@@ -355,3 +355,22 @@ pm_figs_auto = {
 		}
 	}
 }
+# Ranches - Slaughtering
+pm_electrocution_slaughtering = {
+	texture = "gfx/interface/icons/production_method_icons/mechanized_slaughtering.dds"
+	pollution_generation = 15
+	unlocking_technologies = { electrical_capacitors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			building_input_tools_add 			= 15
+			building_input_electricity_add		= 5
+			# output goods
+			building_output_meat_add			= 50
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -300
+			building_employment_clergymen_add	= -100
+		}
+	}
+}

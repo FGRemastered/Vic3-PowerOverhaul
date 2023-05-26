@@ -6,7 +6,7 @@ building_subsistence_farms = {
 	production_method_groups = {
 		pmg_base_building_subsistence_farms
 		pmg_home_workshops_building_subsistence_farms
-		pmg_tertiary_agri_power
+		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_farms
 		pmg_ownership_building_subsistence
 	}
@@ -24,7 +24,7 @@ building_subsistence_orchards = {
 	production_method_groups = {
 		pmg_base_building_subsistence_orchards
 		pmg_home_workshops_building_subsistence_orchards
-		pmg_tertiary_agri_power
+		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_orchards
 		pmg_ownership_building_subsistence
 	}
@@ -42,7 +42,7 @@ building_subsistence_pastures = {
 	production_method_groups = {
 		pmg_base_building_subsistence_pastures
 		pmg_home_workshops_building_subsistence_pastures
-		pmg_tertiary_agri_power
+		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_pastures
 		pmg_ownership_building_subsistence
 	}
@@ -78,7 +78,7 @@ building_subsistence_rice_paddies = {
 	production_method_groups = {
 		pmg_base_building_subsistence_rice_paddies
 		pmg_home_workshops_building_subsistence_rice_paddies
-		pmg_tertiary_agri_power
+		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_rice_paddies
 		pmg_ownership_building_subsistence
 	}

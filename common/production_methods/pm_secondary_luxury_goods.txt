@@ -130,7 +130,7 @@ pm_luxury_furniture_priority = {
 			building_input_hardwood_add				=  20
 			building_input_wood_add					= -20
 			# output goods
-			building_output_furniture_add			= -45
+			building_output_furniture_add			= -40
 			building_output_luxury_furniture_add	=  40
 		}
 		level_scaled = {
@@ -166,7 +166,7 @@ pm_precision_tools_priority = {
 			building_input_tools_add				=  20
 			building_input_wood_add					= -40
 			# output goods
-			building_output_furniture_add			= -45
+			building_output_furniture_add			= -40
 			building_output_luxury_furniture_add	=  80
 		}
 		level_scaled = {

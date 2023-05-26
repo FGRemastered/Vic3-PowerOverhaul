@@ -73,15 +73,14 @@ pm_log_carts = {
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_transportation_add	= 8
-			building_input_electricity_add		= 1.5
+			building_input_transportation_add	= 10
+			building_input_electricity_add		= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
 		}
 	}
 }
-
 pm_diesel_log_carts = {
 	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
 	pollution_generation = 15
@@ -89,8 +88,8 @@ pm_diesel_log_carts = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 8
-			building_input_oil_add				= 1.5
+			building_input_transportation_add	= 10
+			building_input_oil_add				= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -112,7 +111,6 @@ pm_tanker_cars = {
 		}
 	}
 }
-
 pm_electric_tanker_cars = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { electric_railway }
@@ -127,7 +125,6 @@ pm_electric_tanker_cars = {
 		}
 	}
 }
-
 pm_diesel_tanker_cars = {
 	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
 	pollution_generation = 15
@@ -154,10 +151,10 @@ pm_refrigerated_storage_building_livestock_ranch = {
 	unlocking_technologies = { pasteurization }
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_electricity_add		= 2
+			building_input_electricity_add		= 3
 		}
 		level_scaled = {
-			building_employment_laborers_add	=  -600
+			building_employment_laborers_add	= -600
 		}
 	}
 }
@@ -166,7 +163,7 @@ pm_refrigerated_rail_cars_building_livestock_ranch = {
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_electricity_add		= 4
+			building_input_electricity_add		= 6
 			building_input_transportation_add	= 3
 		}
 		level_scaled = {
@@ -180,7 +177,7 @@ pm_flash_freezing_building_livestock_ranch = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input
-			building_input_electricity_add		= 7
+			building_input_electricity_add		= 9
 			building_input_transportation_add	= 5
 		}
 		level_scaled = {
@@ -219,8 +216,8 @@ pm_electric_rail_transport_power_plant = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_output_electricity_add		= -1
+			building_input_transportation_add	= 10
+			building_output_electricity_add		= -2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -238,8 +235,8 @@ pm_diesel_rail_transport_power_plant = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_oil_add				= 1
+			building_input_transportation_add	= 10
+			building_input_oil_add				= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -258,8 +255,8 @@ pm_steam_rail_transport_port = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_coal_add				= 2
+			building_input_transportation_add	= 10
+			building_input_coal_add				= 4
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -276,8 +273,8 @@ pm_electric_rail_transport_port = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_electricity_add		= 1
+			building_input_transportation_add	= 10
+			building_input_electricity_add		= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -295,8 +292,8 @@ pm_diesel_rail_transport_port = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_oil_add				= 1
+			building_input_transportation_add	= 10
+			building_input_oil_add				= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -304,14 +301,14 @@ pm_diesel_rail_transport_port = {
 	}
 }
 pm_modern_port_rail_transport = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { arc_welding }
+	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
+	unlocking_technologies = { flash_freezing }
 	unlocking_production_methods = { pm_modern_port }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods					
+			# input goods
 			building_input_transportation_add	= 5
-			building_input_electricity_add		= 1
+			building_input_electricity_add		= 2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -750
@@ -332,8 +329,8 @@ pm_steam_rail_transport_gov = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 0.5
-			building_input_coal_add				= 0.2
+			building_input_transportation_add	= 1
+			building_input_coal_add				= 0.4
 		}
 		level_scaled = {
 			building_employment_clerks_add		= -1000
@@ -346,8 +343,8 @@ pm_electric_rail_transport_gov = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 0.5
-			building_input_electricity_add		= 0.1
+			building_input_transportation_add	= 1.5
+			building_input_electricity_add		= 0.2
 		}
 		level_scaled = {
 			building_employment_clerks_add		= -1500
@@ -361,8 +358,8 @@ pm_diesel_rail_transport_gov = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 0.5
-			building_input_oil_add				= 0.1
+			building_input_transportation_add	= 1.5
+			building_input_oil_add				= 0.2
 		}
 		level_scaled = {
 			building_employment_clerks_add		= -1500
@@ -377,7 +374,7 @@ pm_steam_rail_transport_uni = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 1
+			building_input_transportation_add	= 1.5
 			building_input_coal_add				= 0.4
 		}
 		level_scaled = {
@@ -392,7 +389,7 @@ pm_electric_rail_transport_uni = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 1
+			building_input_transportation_add	= 2
 			building_input_electricity_add		= 0.2
 		}
 		level_scaled = {
@@ -408,7 +405,7 @@ pm_diesel_rail_transport_uni = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 1
+			building_input_transportation_add	= 2
 			building_input_oil_add				= 0.2
 		}
 		level_scaled = {
@@ -425,8 +422,8 @@ pm_steam_rail_transport_construction = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_coal_add				= 2
+			building_input_transportation_add	= 10
+			building_input_coal_add				= 8
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -2000
@@ -439,8 +436,8 @@ pm_electric_rail_transport_construction = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_electricity_add		= 1
+			building_input_transportation_add	= 15
+			building_input_electricity_add		= 6
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -3000
@@ -454,8 +451,8 @@ pm_diesel_rail_transport_construction = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
-			building_input_oil_add				= 1
+			building_input_transportation_add	= 15
+			building_input_oil_add				= 6
 		}
 		level_scaled = {
 			building_employment_laborers_add	= -3000
@@ -485,7 +482,7 @@ pm_electric_rail_transport_sky = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
+			building_input_transportation_add	= 7
 			building_input_electricity_add		= 1
 		}
 		level_scaled = {
@@ -501,7 +498,7 @@ pm_diesel_rail_transport_sky = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods					
-			building_input_transportation_add	= 5
+			building_input_transportation_add	= 7
 			building_input_oil_add				= 1
 		}
 		level_scaled = {
