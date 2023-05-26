@@ -3,9 +3,12 @@ pmg_base_building_railway = {
 	ai_selection = most_productive
 	production_methods = {
 		pm_steam_trains
+		pm_watertube_boiler_steam_trains
+		pm_rotary_valve_steam_trains
 		pm_electric_trains
 		pm_diesel_trains
 		pm_diesel_electric_trains
+		pm_jet_electric_trains
 		pm_maglev_trains
 	}
 }
