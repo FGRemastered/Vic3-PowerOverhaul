@@ -99,7 +99,10 @@ pm_professional_bureaucrats_construction = {
 }
 pm_religious_bureaucrats_construction = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
-	disallowing_laws = { law_total_separation }	
+	disallowing_laws = {
+		law_total_separation
+		law_state_atheism
+	}
 	building_modifiers = {
 		level_scaled = {
 			building_employment_clergymen_add	= 250

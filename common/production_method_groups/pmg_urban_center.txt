@@ -30,6 +30,6 @@ pmg_urban_clergy = {
 	production_methods = {
 		pm_state_urban_clergy
 		pm_free_urban_clergy
-		pm_tourist_attraction_urban_clergy
+		pm_no_urban_clergy
 	}
 }

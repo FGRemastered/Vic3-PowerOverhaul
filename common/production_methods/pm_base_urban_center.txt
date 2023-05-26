@@ -127,6 +127,7 @@ pm_solar_roofing = {
 			building_employment_machinists_add 	= 100
 			building_employment_engineers_add	= 100
 		}
+		unscaled = { building_engineers_shares_add	= 1 }
 	}
 }
 pm_air_scrubber = {
@@ -152,6 +153,7 @@ pm_air_scrubber = {
 			building_employment_machinists_add 	= 200
 			building_employment_engineers_add	= 200
 		}
+		unscaled = { building_engineers_shares_add	= 2 }
 	}
 }
 # Public transit
@@ -238,15 +240,14 @@ pm_electric_cash_register = {
 	}
 }
 # Urban Clergy
-pm_tourist_attraction_urban_clergy = {
-	texture = "gfx/interface/icons/production_method_icons/tourist_attraction_urban_clergy.dds"
-	disallowing_laws = {
-		law_state_religion
-		law_freedom_of_conscience
-		law_theocracy
-	}	
+pm_no_urban_clergy = {
+	texture = "gfx/interface/icons/production_method_icons/state_atheism.dds" 
+	unlocking_laws = { law_state_atheism }	
 	building_modifiers = {
-		level_scaled = { building_employment_clerks_add	= 200 }	
-		unscaled = { building_clerks_shares_add			=   2 }
+		level_scaled = {
+			building_employment_clerks_add				= 150
+			building_employment_bureaucrats_add			= 50
+		}
+		unscaled = { building_bureaucrats_shares_add	=   2 }
 	}
 }
