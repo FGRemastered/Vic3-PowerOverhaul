@@ -1,20 +1,17 @@
-pmg_tertiary_agri_power = 
-{
+pmg_tertiary_agri_power = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
-	production_methods = 
-	{
+	production_methods = {
 		pm_no_green_power
 		pm_early_windpark
 		pm_large_windpark
 		pm_solar_windpark
 		pm_large_solar_windpark
+		pm_huge_solar_windpark
 	}
 }
-pmg_fencing = 
-{
+pmg_fencing = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
-	production_methods = 
-	{
+	production_methods = {
 		pm_standard_fences
 		pm_barbed_wire_fences
 		pm_electric_fencing
@@ -22,17 +19,28 @@ pmg_fencing =
 		pm_large_windpark_ranch
 		pm_solar_windpark_ranch
 		pm_large_solar_windpark_ranch
+		pm_huge_solar_windpark_ranch
 	}
 }
-pmg_tertiary_offshore_power = 
-{
+pmg_tertiary_offshore_power = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
-	production_methods = 
-	{
+	production_methods = {
 		pm_no_offshore_windpark
+		pm_on_shore_windpark
 		pm_early_offshore_windpark
 		pm_offshore_windpark
 		pm_large_offshore_windpark
 		pm_huge_offshore_windpark
+	}
+}
+pmg_tertiary_agri_power_subsistence = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_green_power
+		pm_early_windpark_subsistence
+		pm_large_windpark_subsistence
+		pm_solar_windpark_subsistence
+		pm_large_solar_windpark_subsistence
+		pm_huge_solar_windpark_subsistence
 	}
 }
