@@ -10,16 +10,23 @@ building_railway = {
 	}
 	required_construction = construction_cost_high
 	ai_value = 2000 # Railways are important
-	should_auto_expand = { 
+	should_auto_expand = {
 		OR = {
-			cash_reserves_ratio > 0.5
+			cash_reserves_ratio > 0.95
 			is_subsidized = yes
 		}
 		OR = {
-			state.market_access < 1
-			state.market = { mg:transportation = { market_goods_delta < 0 } } # I tried to check for the state's local market, but I can't find it.
+			# state.market_access < 1
+			state.relative_infrastructure < 1
+			AND = {
+				weekly_profit		> 0
+				cash_reserves_ratio	> 0.95
+			}
+			state = { sg:transportation = { state_goods_pricier > 0.5 } }
 		}
-		occupancy > 0.9 # Don't try to expand unless sufficient employment
-		# owner.construction_queue_duration < max_autoexpand_queue_weeks
+		occupancy > 0.98 # Don't try to expand unless sufficient employment
+		NOT = { is_under_construction = yes }
+		state = { NOT = { is_isolated_from_market = yes } }	# Needs to be this way.
+		building_has_goods_shortage = no
 	}
 }

@@ -31,10 +31,14 @@
  pm_solar_roofing: "Solar Roofing"
  pm_air_scrubber: "Air Scrubber"
  
+ pmg_ownership_agriculture: "$pmg_ownership$"
+ pmg_ownership_plantation: "$pmg_ownership$"
+ 
  pmg_harvesting_process_simple: "$pmg_harvesting_process$"
  pmg_harvesting_process_tractors: "$pmg_harvesting_process$"
  pm_electric_tractors: "Electric Tractors"
  
+ pm_soil_enriching_farming_vineyard_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_coffee_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_cotton_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_dye_plantation: "$pm_soil_enriching_farming$"
@@ -46,6 +50,7 @@
  pm_soil_enriching_farming_silk_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_rubber_plantation: "$pm_soil_enriching_farming$"
  
+ pm_fertilization_vineyard_plantation: "$pm_fertilization$"
  pm_fertilization_coffee_plantation: "$pm_fertilization$"
  pm_fertilization_cotton_plantation: "$pm_fertilization$"
  pm_fertilization_dye_plantation: "$pm_fertilization$"
@@ -57,6 +62,7 @@
  pm_fertilization_silk_plantation: "$pm_fertilization$"
  pm_fertilization_rubber_plantation: "$pm_fertilization$"
 
+ pm_chemical_fertilizer_vineyard_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_coffee_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_cotton_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_dye_plantation: "$pm_chemical_fertilizer$"
@@ -70,6 +76,7 @@
  
  pm_automatic_fertilization: "Automatic Fertilization"
  pm_automatic_fertilization_building_rice_farm: "$pm_automatic_fertilization$"
+ pm_automatic_fertilization_vineyard_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_coffee_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_cotton_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_dye_plantation: "$pm_automatic_fertilization$"
@@ -101,10 +108,10 @@
  pm_citrus_chemical_fertilizer: "Chem-Fertilized $pm_citrus_orchards$"
  pm_citrus_auto: "Auto-Fertilized $pm_citrus_orchards$"
  
- pm_vineyards_enriched: "Enriched $pm_vineyards$"
- pm_vineyards_fertilizer: "Fertilized $pm_vineyards$"
- pm_vineyards_chemical_fertilizer: "Chem-Fertilized $pm_vineyards$"
- pm_vineyards_auto: "Auto-Fertilized $pm_vineyards$"
+ pm_secondary_vineyards_enriched: "Enriched $pm_secondary_vineyards$"
+ pm_secondary_vineyards_fertilizer: "Fertilized $pm_secondary_vineyards$"
+ pm_secondary_vineyards_chemical_fertilizer: "Chem-Fertilized $pm_secondary_vineyards$"
+ pm_secondary_vineyards_auto: "Auto-Fertilized $pm_secondary_vineyards$"
  
  pm_figs_enriched: "Enriched $pm_fig_orchards$"
  pm_figs_fertilizer: "Fertilized $pm_fig_orchards$"
@@ -117,6 +124,48 @@
  pm_electrocution_slaughtering: "Electrocution-Slaughtering"
  pm_electrocution_slaughtering_ranch: "$pm_electrocution_slaughtering$"
  
+ pmg_base_building_generic_subsistence: "$pm_base$"
+ default_building_generic_subsistence: "$pm_default$"
+ pm_enriched_generic_subsistence: "$pm_soil_enriching_farming$"
+ pm_fertilized_generic_subsistence: "$pm_fertilization$"
+ pm_chem_fertilized_generic_subsistence: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_generic_subsistence: "$pm_automatic_fertilization$"
+ 
+ pm_enriched_subsistence_farms: "$pm_soil_enriching_farming$"
+ pm_fertilized_subsistence_farms: "$pm_fertilization$"
+ pm_chem_fertilized_subsistence_farms: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_subsistence_farms: "$pm_automatic_fertilization$"
+ 
+ pm_enriched_subsistence_orchards: "$pm_soil_enriching_farming$"
+ pm_fertilized_subsistence_orchards: "$pm_fertilization$"
+ pm_chem_fertilized_subsistence_orchards: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_subsistence_orchards: "$pm_automatic_fertilization$"
+ 
+ pm_enriched_subsistence_pastures: "$pm_soil_enriching_farming$"
+ pm_fertilized_subsistence_pastures: "$pm_fertilization$"
+ pm_chem_fertilized_subsistence_pastures: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_subsistence_pastures: "$pm_automatic_fertilization$"
+ 
+ pm_enriched_subsistence_fishing_villages: "$pm_soil_enriching_farming$"
+ pm_fertilized_subsistence_fishing_villages: "$pm_fertilization$"
+ pm_chem_fertilized_subsistence_fishing_villages: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_subsistence_fishing_villages: "$pm_automatic_fertilization$"
+ 
+ pm_enriched_subsistence_rice_paddies: "$pm_soil_enriching_farming$"
+ pm_fertilized_subsistence_rice_paddies: "$pm_fertilization$"
+ pm_chem_fertilized_subsistence_rice_paddies: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_subsistence_rice_paddies: "$pm_automatic_fertilization$"
+ 
+ pm_home_workshops: "Home Workshops"
+ pm_lathe_home_workshops: "Lathe $pm_home_workshops$"
+ pm_mechanized_home_workshops: "Mechanized $pm_home_workshops$"
+ pm_electric_home_workshops: "Electric $pm_home_workshops$"
+ 
+ pm_home_workshops_building_subsistence_rice_paddies: "$pm_home_workshops$"
+ pm_lathe_home_workshops_building_subsistence_rice_paddies: "$pm_lathe_home_workshops$"
+ pm_mechanized_home_workshops_building_subsistence_rice_paddies: "$pm_mechanized_home_workshops$"
+ pm_electric_home_workshops_building_subsistence_rice_paddies: "$pm_electric_home_workshops$"
+ 
  pm_electric_fishing_boats: "Electric Fishing Boats"
  pm_electic_whaling_ships: "Electric Whaling Ships"
  
@@ -128,8 +177,30 @@
  ban_tobacco_again: "Renew ban on Tobacco"
  ban_tobacco_again_desc: "Renew ban on Tobacco"
  
+ building_generic_subsistence: "Autark Farms"
+ building_generic_subsistence_lens_option: "Expand $building_generic_subsistence$"
+ building_infres_generic_subsistence: "Inf. Autark Farms"
+ building_infres_generic_subsistence_lens_option: "Expand $building_infres_generic_subsistence$"
+ building_infres_subsistence_farms: "Inf. Subs. Farms"
+ building_infres_subsistence_farms_lens_option: "Expand $building_infres_subsistence_farms$"
+ building_infres_subsistence_orchards: "Inf. Subs. Orchards"
+ building_infres_subsistence_orchards_lens_option: "Expand $building_infres_subsistence_orchards$"
+ building_infres_subsistence_pastures: "Inf. Subs. Pastures"
+ building_infres_subsistence_pastures_lens_option: "Expand $building_infres_subsistence_pastures$"
+ building_infres_subsistence_fishing_villages: "Inf. Subs. Fishing Villages"
+ building_infres_subsistence_fishing_villages_lens_option: "Expand $building_infres_subsistence_fishing_villages$"
+ building_infres_subsistence_rice_paddies: "Inf. Subs. Rice Paddies"
+ building_infres_subsistence_rice_paddies_lens_option: "Expand $building_infres_subsistence_rice_paddies$"
  
+ pm_centralised_subsistence: "Centralised Subsistence"
+ pm_centralised_subsistence_1: "$pm_centralised_subsistence$ 1"
+ pm_centralised_subsistence_2: "$pm_centralised_subsistence$ 2"
+ pm_centralised_subsistence_3: "$pm_centralised_subsistence$ 3"
+ pm_centralised_subsistence_4: "$pm_centralised_subsistence$ 4"
+ pm_centralised_subsistence_5: "$pm_centralised_subsistence$ 5"
  
- 
- 
- 
+ pm_centralised_double_subsistence_1: "$pm_centralised_subsistence$ 1"
+ pm_centralised_double_subsistence_2: "$pm_centralised_subsistence$ 2"
+ pm_centralised_double_subsistence_3: "$pm_centralised_subsistence$ 3"
+ pm_centralised_double_subsistence_4: "$pm_centralised_subsistence$ 4"
+ pm_centralised_double_subsistence_5: "$pm_centralised_subsistence$ 5"

@@ -1,0 +1,8 @@
+﻿l_english:
+ build_railways: "Build railways"
+ build_railways_desc: "Adds just enough railways everywhere to ensure full market access"
+ build_railways_tooltip: "Click to build more railways"
+ 
+ build_administrations: "Build government administrations"
+ build_administrations_desc: "Adds just enough government administrations everywhere to ensure taxation capacity"
+ build_administrations_tooltip: "Click to build more government administrations"

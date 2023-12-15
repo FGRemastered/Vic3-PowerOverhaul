@@ -12,6 +12,5 @@ pmg_synthetic_silk = {
 		pm_no_artificial_fibers
 		pm_parallel_rayon
 		pm_rayon
-		pm_improved_rayon
 	}
 }

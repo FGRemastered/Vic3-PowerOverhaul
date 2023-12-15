@@ -1,5 +1,4 @@
 ﻿############ GOVERNMENT BUILDINGS
-
 building_infres_port = {
 	building_group = bg_public_infrastructure
 	city_type = port
@@ -11,6 +10,7 @@ building_infres_port = {
 	production_method_groups = {
 		pmg_base_building_port
 		pmg_train_automation_port
+		pmg_tertiary_offshore_power
 	}
 	required_construction = construction_cost_medium
 	terrain_manipulator = urban_port
@@ -21,14 +21,30 @@ building_infres_port = {
 			is_coastal = yes
 		}
 	}
-	can_build_private = {
-		AND = {
-			owner = { is_player = yes }
-			has_game_rule = infres_private_construction_allowed
+	can_build_private = { always = no }	# Government building
+	should_auto_expand = {
+		OR = {
+			AND = {
+				state.market_access < 1
+				OR = {															# Placeholder for land adjacency
+					is_capital = yes
+					owner = { NOT = { has_technology_researched = railways } }
+				}
+			}
+			AND = {
+				owner = { num_convoys_available < num_convoys_required }
+				THIS.state = { is_incorporated = yes }
+			}
 		}
-		error_check = {
-			severity = fail
-			is_coastal = yes
+		occupancy = 1
+		building_has_goods_shortage = no
+		NOT = {
+			THIS.state = {
+				any_scope_building = {
+					filter = { is_building_type = building_port }
+					can_queue_building_levels > 0
+				}
+			}
 		}
 	}
 }

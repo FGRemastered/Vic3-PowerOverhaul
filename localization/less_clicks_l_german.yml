@@ -1,0 +1,8 @@
+﻿l_english:
+ build_railways: "Eisenbahnen bauen"
+ build_railways_desc: "Baue das Eisenbahnnetzwerk aus um sicherzustellen dass der Bedarf and Infrastruktur überall gedeckt ist."
+ build_railways_tooltip: "Eisenbahnen ausbauen"
+ 
+ build_administrations: "Verwaltung bauen"
+ build_administrations_desc: "Erweitere die Verwaltung um die Steuereinnahmen zu sichern."
+ build_administrations_tooltip: "Verwaltung ausbauen"

@@ -11,7 +11,7 @@ building_rye_farm = {
 		pmg_secondary_farm_cold
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
-		pmg_ownership_land_building_rye_farm
+		pmg_ownership_agriculture
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_rye
@@ -28,7 +28,7 @@ building_wheat_farm = {
 		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
-		pmg_ownership_land_building_wheat_farm
+		pmg_ownership_agriculture
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_wheat
@@ -45,7 +45,7 @@ building_rice_farm = {
 		pmg_secondary_farm_hot
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
-		pmg_ownership_land_building_rice_farm
+		pmg_ownership_agriculture
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_rice
@@ -62,7 +62,7 @@ building_maize_farm = {
 		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
-		pmg_ownership_land_building_maize_farm
+		pmg_ownership_agriculture
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_maize
@@ -79,7 +79,7 @@ building_millet_farm = {
 		pmg_secondary_farm_hot
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
-		pmg_ownership_land_building_millet_farm
+		pmg_ownership_agriculture
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = farmland_millet
@@ -93,12 +93,30 @@ building_livestock_ranch = {
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
 		pmg_base_building_livestock_ranch
-		pmg_slaughtering
+		pmg_sheep_ranch
 		pmg_fencing
 		pmg_refrigeration_building_livestock_ranch
-		pmg_ownership_land_building_livestock_ranch
+		pmg_ownership_agriculture
 	}
-
 	required_construction = construction_cost_low
 	terrain_manipulator = pasture
+}
+# Autarky farms
+building_generic_subsistence = {
+	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	building_group = bg_generic_subsistence
+	unlocking_technologies = { enclosure }
+	production_method_groups = {
+		pmg_base_building_generic_subsistence
+		pmg_home_workshops_building_subsistence_rice_paddies	# Double Size
+		pmg_tertiary_agri_power_subsistence
+		pmg_serfdom_building_subsistence_rice_paddies			# Double size
+		pmg_ownership_building_subsistence
+	}
+	min_raise_to_hire	= 0
+	urbanization		= 1
+	required_construction = 50	# Half of the construction_cost_very_low
+	slaves_role = peasants
+	can_build_private		= { can_private_construction	= yes }
+	can_build_government	= { can_gov_construction		= yes }
 }

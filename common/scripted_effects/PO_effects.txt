@@ -1,148 +1,45 @@
-
+# Choo-Choo motherf*cker
 make_railways = {
 	every_scope_state = {
 		if = {
 			limit = { state_infrastructure_balance < 0 }
 			if = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_railway } } }
-				create_building = {
-					building = building_railway
-					level = 1
-				}
+				create_building = { building = building_railway level = 1 }
 				set_variable = must_destroy_building
-			}
-			else = {
-				set_variable = {
-					name = must_destroy_building
-					value = no
-				}
+				else = { set_variable = { name = must_destroy_building value = no } }
 			}
 			if = {
 				limit = { any_scope_building = { is_building_type = building_railway } }
 				set_variable = {
 					name = infra_per_railroad
 					value = {
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_steam_trains
-								}
-							}
-							value = 20
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_watertube_boiler_steam_trains
-								}
-							}
-							value = 25
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_rotary_valve_steam_trains
-								}
-							}
-							value = 30
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_electric_trains
-								}		
-							}
-							value = 50
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_diesel_trains
-								}		
-							}
-							value = 60
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_diesel_electric_trains
-								}		
-							}
-							value = 80
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_jet_electric_trains
-								}		
-							}
-							value = 100
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_maglev_trains
-								}		
-							}
-							value = 120
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									OR = {
-										has_active_production_method = pm_wooden_passenger_carriages
-										has_active_production_method = pm_steel_passenger_carriages
-									}
-								}
-							}
-							add = -5
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_high_speed_rail
-								}
-							}
-							add = -10
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									OR = {
-										has_active_production_method = pm_electric_rails
-										has_active_production_method = pm_resistive_breaks
-									}
-								}
-							}
-							add = 5
-						}
-						if = {
-							limit = {
-								any_scope_building = {
-									is_building_type = building_railway
-									has_active_production_method = pm_rail_signals
-								}
-							}
-							add = 10
-						}
+						# Base
+						if		= { limit = { NOT = { has_building = building_railway } }																					value		=  20 }	# Fallback for when you don't have any railway at all
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_early_trains } }					value		=  20 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains } }					value		=  25 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_rotary_valve_steam_trains } }	value		=  30 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_trains } }				value		=  50 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_trains } }				value		=  60 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_electric_trains } }		value		=  80 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_jet_electric_trains } }			value		= 100 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_maglev_trains } }				value		= 150 }
+						# Passengers
+						if		= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_wooden_passenger_carriages } }	subtract	=   5 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steel_passenger_carriages } }	subtract	=   5 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_high_speed_rail } }				subtract	=  10 }
+						# Rails
+						if		= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_normal_rails } }					add			=   5 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_rails } }				add			=  10 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_resistive_breaks } }				add			=  10 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_rail_signals } }					add			=  20 }
 					}
 				}
 			}
-			if = {
-				limit = { var:must_destroy_building = yes }
-				remove_building = building_railway
-			}
+			# if = {
+				# limit = { var:must_destroy_building = yes }
+				# remove_building = building_railway
+			# }
 			set_variable = {
 				name = missing_railways
 				value = {
@@ -152,6 +49,10 @@ make_railways = {
 						add = var:infra_per_railroad
 						subtract = 0.5 # add infra_per_railroad - 0.5 to ensure ceiling at divison
 						divide = var:infra_per_railroad
+					}
+					if = {
+						limit = { any_scope_building = { is_building_type = building_railway occupancy < 0.95 occupancy > 0 } }
+						multiply = 0
 					}
 				}
 			}
@@ -165,3 +66,168 @@ make_railways = {
 		}
 	}
 }
+make_ports = {
+	every_scope_state = {
+		if = {
+			limit = { state_infrastructure_balance < 0 }
+			if = {
+				limit = { NOT = { any_scope_building = { is_building_type = building_port } } }
+				create_building = { building = building_port level = 1 }
+				set_variable = must_destroy_building
+			}
+			else = { set_variable = { name = must_destroy_building value = no } }
+			if = {
+				limit = { any_scope_building = { is_building_type = building_port } }
+				set_variable = {
+					name = infra_per_port
+					value = {
+						if		= { limit = { any_scope_building = { is_building_type = building_port has_active_production_method = pm_anchorage } }		value =  5 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_port has_active_production_method = pm_basic_port } }		value = 10 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_port has_active_production_method = pm_industrial_port } } value = 15 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_port has_active_production_method = pm_modern_port } }		value = 25 }
+					}
+				}
+			}
+			# if = {
+				# limit = { var:must_destroy_building = yes }
+				# remove_building = building_port
+			# }
+			set_variable = {
+				name = missing_ports
+				value = {
+					add = {
+						value = state_infrastructure_balance
+						multiply = -1
+						add = var:infra_per_port
+						subtract = 0.5 # add infra_per_port - 0.5 to ensure ceiling at divison
+						divide = var:infra_per_port
+					}
+				}
+			}
+			if = {
+				limit = {
+					var:missing_ports > 0
+					any_scope_building = {
+						is_building_type = building_port
+						can_queue_building_levels >= var:missing_ports
+					}
+				}
+				while = {
+					count = var:missing_ports
+					start_building_construction = building_port
+				}
+			}
+		}
+	}
+}
+make_admins = {
+	if = { limit = { has_law = law_type:law_appointed_bureaucrats } set_variable = has_law_appointed_bureaucrats }
+	else = { set_variable = { name = has_law_appointed_bureaucrats value = no } }
+	every_scope_state = {
+		set_variable = {
+			name = tax_capacity_balance
+			value = { add = { value = tax_capacity subtract = tax_capacity_usage } }
+		}
+		if = {
+			limit = {
+				OR = {
+					is_incorporated = yes
+					incorporation_progress > 0
+				}
+				var:tax_capacity_balance < 0
+			}
+			if = {
+				limit = { NOT = { any_scope_building = { is_building_type = building_government_administration } } }
+				create_building = { building = building_government_administration level = 1 }
+				set_variable = must_destroy_building
+			}
+			else = { set_variable = { name = must_destroy_building value = no } }
+			set_variable = {
+				name = tax_capacity_per_building
+				value = {
+					if		= { limit = { is_production_method_active = { building_type = building_government_administration production_method = pm_simple_organization } }			value =  5 }
+					else_if	= { limit = { is_production_method_active = { building_type = building_government_administration production_method = pm_horizontal_drawer_cabinets } }	value = 10 }
+					else_if	= { limit = { is_production_method_active = { building_type = building_government_administration production_method = pm_vertical_filing_cabinets } }	value = 15 }
+					else_if	= { limit = { is_production_method_active = { building_type = building_government_administration production_method = pm_switch_boards } }				value = 30 }
+				}
+			}
+			if = {
+				limit = { var:must_destroy_building = yes }
+				remove_building = building_government_administration
+			}
+			set_variable = {
+				name = missing_buildings
+				value = {
+					add = {
+						value = var:tax_capacity_balance
+						multiply = -1
+						add = var:tax_capacity_per_building
+						subtract = 1 # add tax_capacity_per_building - 1 to make division round up
+						divide = var:tax_capacity_per_building
+					}
+				}
+			}
+			if = {
+				limit = { var:missing_buildings > 0 }
+				if = {
+					limit = { prev.var:has_law_appointed_bureaucrats = yes }
+					# appointed_bureaucrats add extra 25% more taxation so we need 20% less buildings for same effect
+					# missing_buildings = ceil(missing_buildings/1.25)
+					change_variable = {
+						name = missing_buildings
+						add = 1.24 # add 1.24 - 0.01 to ensure ceiling
+						multiply = 0.8
+					}
+				}
+				while = {
+					count = var:missing_buildings
+					start_building_construction = building_government_administration
+				}
+			}
+		}
+	}
+}
+effect_tobacco_ban = {
+	market = {
+		every_scope_country = {
+			limit = { NOT = { is_banning_goods = g:tobacco } }
+			add_banned_goods = g:tobacco
+			add_modifier = { name = tobacco_ban_authority }
+		}
+		every_scope_country = {
+			limit = {
+				OR = {
+					any_scope_building = { is_building_type = building_tobacco_plantation }
+					any_scope_building = { is_building_type = building_infres_tobacco_plantation }
+				}
+			}
+			every_scope_state = { limit = { has_building = building_tobacco_plantation }		remove_building = building_tobacco_plantation }
+			every_scope_state = { limit = { has_building = building_infres_tobacco_plantation }	remove_building = building_infres_tobacco_plantation }
+		}
+		every_scope_country = {
+			limit = { any_primary_culture = { has_cultural_obsession = tobacco } }
+			every_primary_culture = {
+				limit = { has_cultural_obsession = tobacco }
+				remove_cultural_obsession = tobacco
+			}
+		}
+	}
+}
+effect_remove_tobacco_ban = {
+	market = {
+		every_scope_country = {
+			limit = { is_banning_goods = g:tobacco }
+			remove_banned_goods = g:tobacco
+			remove_modifier = tobacco_ban_authority
+		}
+	}
+}
+# Fallback
+# if	= {
+	# limit = {
+		# OR = {
+			# NOT = { has_building = building_railway }	# Fallback for when you don't have any railway at all
+			# any_scope_building = { is_building_type = building_railway has_active_production_method = pm_early_trains } }
+		# }
+	# value = 20
+# }

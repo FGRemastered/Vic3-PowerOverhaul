@@ -49,6 +49,17 @@ pmg_base_building_rice_farm = {
 		pm_automatic_fertilization_building_rice_farm
 	}
 }
+# Ranches
+pmg_base_building_livestock_ranch = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_open_air_stockyards
+		pm_butchering_tools
+		pm_slaughterhouses
+		pm_mechanized_slaughtering
+		pm_electrocution_slaughtering
+	}
+}
 # Ranching
 # pmg_base_building_livestock_ranch = {
 	# texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
@@ -59,5 +70,15 @@ pmg_base_building_rice_farm = {
 		# pm_slaughterhouses_ranch
 		# pm_mechanized_slaughtering_ranch
 		# pm_electrocution_slaughtering_ranch
+	# }
+# }
+# pmg_ownership_agriculture = {
+	# texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	# production_methods = {
+		# pm_privately_owned
+		# pm_publicly_traded
+		# pm_homesteading
+		# pm_government_run
+		# pm_worker_cooperative_farm
 	# }
 # }

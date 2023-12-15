@@ -1,0 +1,18 @@
+
+pmg_secondary_synth_oil_rubber = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_synth_oil
+		pm_coal_gasification
+		pm_synth_oil
+		pm_synth_oil_rubber
+		pm_synth_oil_rubber_priority
+		pm_synth_oil_rubber_only
+		# pm_improved_synth_oil
+		pm_improved_synth_oil_rubber
+		pm_improved_synth_oil_rubber_priority
+		# pm_advanced_synth_oil
+		pm_advanced_synth_oil_rubber
+		pm_advanced_synth_oil_rubber_priority
+	}
+}

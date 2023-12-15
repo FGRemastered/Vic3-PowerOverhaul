@@ -26,11 +26,11 @@ pmg_secondary_farm_temperate = {
 		pm_citrus_fertilizer
 		pm_citrus_chemical_fertilizer
 		pm_citrus_auto
-		pm_vineyards
-		pm_vineyards_enriched
-		pm_vineyards_fertilizer
-		pm_vineyards_chemical_fertilizer
-		pm_vineyards_auto
+		# pm_vineyards
+		# pm_vineyards_enriched
+		# pm_vineyards_fertilizer
+		# pm_vineyards_chemical_fertilizer
+		# pm_vineyards_auto
 	}
 }
 # Hot (Rice & Millet)
@@ -43,16 +43,5 @@ pmg_secondary_farm_hot = {
 		pm_figs_fertilizer
 		pm_figs_chemical_fertilizer
 		pm_figs_auto
-	}
-}
-# Ranches
-pmg_slaughtering = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-	production_methods = {
-		pm_open_air_stockyards
-		pm_butchering_tools
-		pm_slaughterhouses
-		pm_mechanized_slaughtering
-		pm_electrocution_slaughtering
 	}
 }

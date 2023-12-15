@@ -10,30 +10,7 @@ ban_tobacco = {
 		exists = market	
 		market.owner = root
 	}
-	when_taken = {
-		market = {
-			every_scope_country = {
-				limit = { NOT = { is_banning_goods = g:tobacco } }
-				add_banned_goods = g:tobacco
-				add_modifier = { name = tobacco_ban_authority }
-				every_scope_state = {
-					limit = { has_building = building_tobacco_plantation }
-					remove_building = building_tobacco_plantation
-				}
-				every_scope_state = {
-					limit = { has_building = building_infres_tobacco_plantation }
-					remove_building = building_infres_tobacco_plantation
-				}
-				every_primary_culture = { 
-					limit = { 
-						# has_discrimination_trait = german_speaking
-						has_cultural_obsession = tobacco
-					} 
-					remove_cultural_obsession = tobacco
-				}
-			}
-		}
-	}
+	when_taken = { effect_tobacco_ban = yes }
     ai_chance = {
         base = 0
 		modifier = {
@@ -76,30 +53,7 @@ ban_tobacco_again = {
 			}
 		}
 	}
-	when_taken = {
-		market = {
-			every_scope_country = {
-				limit = { NOT = { is_banning_goods = g:tobacco } }
-				add_banned_goods = g:tobacco
-				add_modifier = { name = tobacco_ban_authority }
-				every_scope_state = {
-					limit = { has_building = building_tobacco_plantation }
-					remove_building = building_tobacco_plantation
-				}
-				every_scope_state = {
-					limit = { has_building = building_infres_tobacco_plantation }
-					remove_building = building_infres_tobacco_plantation
-				}
-				every_primary_culture = { 
-					limit = { 
-						# has_discrimination_trait = german_speaking
-						has_cultural_obsession = tobacco
-					} 
-					remove_cultural_obsession = tobacco
-				}
-			}
-		}
-	}
+	when_taken = { effect_tobacco_ban = yes }
     ai_chance = {
         base = 0
 		modifier = {
@@ -131,18 +85,8 @@ remove_tobacco_ban = {
 		is_banning_goods = g:tobacco
 		exists = market
 	}
-	possible = {
-		market.owner = root
-	}
-	when_taken = {
-		market = {
-			every_scope_country = {
-				limit = { is_banning_goods = g:tobacco }
-				remove_banned_goods = g:tobacco
-				remove_modifier = tobacco_ban_authority
-			}
-		}
-	}
+	possible = { market.owner = root }
+	when_taken = { effect_remove_tobacco_ban = yes }
    ai_chance = {
       base = 0
 		modifier = {

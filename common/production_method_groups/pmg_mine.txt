@@ -50,16 +50,25 @@ pmg_mining_equipment_building_gold_mine = {
 	}
 }
 # Explosives
-# pmg_explosives_building_mine = {	# PDX forgot to add multiplicative production output modifiers
-	# texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# production_methods = {
-		# pm_no_explosives
-		# pm_nitroglycerin_building_mine
-		# pm_dynamite_building_mine
-	# }
-# }
+pmg_explosives_building_mine = {	# PDX forgot to add multiplicative production output modifiers
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_no_explosives
+		pm_nitroglycerin_building_mine
+		pm_dynamite_building_mine
+	}
+}
+# Oil Derricks
+pmg_base_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_steam_derricks
+		pm_combustion_derricks
+		pm_electric_derricks
+	}
+}
 #Ownership
-pmg_ownership_capital_building_mine = {
+pmg_ownership_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
 		pm_merchant_guilds_mine

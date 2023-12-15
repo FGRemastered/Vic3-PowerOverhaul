@@ -1,3 +1,53 @@
+bg_infrastructure = {
+	category = development
+	always_possible = yes
+	lens = infrastructure
+	stateregion_max_level = yes
+	economy_of_scale_ai_factor = 1.5
+	can_use_slaves = yes
+	hiring_rate = 1.0
+}
+bg_canals = {
+	parent_group = bg_infrastructure
+	lens = special
+	inheritable_construction = yes
+	is_government_funded = yes
+	# subsidized = yes
+	urbanization = 100
+	hiring_rate = 1.0
+}
+bg_military = {
+	category = development
+	always_possible = yes
+	is_military = yes
+	is_government_funded = yes
+	infrastructure_usage_per_level = 0.2
+	lens = military
+	urbanization = 2
+	# new
+	can_use_slaves = yes
+	slaves_role = soldiers
+}
+bg_army = {
+	parent_group = bg_military
+	# new
+	can_use_slaves = yes
+	slaves_role = soldiers
+}
+bg_conscription = {
+	parent_group = bg_army
+	urbanization = 0
+	fired_pops_become_radical = no
+	# new
+	can_use_slaves = yes
+	slaves_role = soldiers
+}
+bg_navy = {
+	parent_group = bg_military
+	# new
+	can_use_slaves = yes
+	slaves_role = soldiers
+}
 # Agriculture
 bg_agriculture = {
 	category = rural
@@ -8,50 +58,77 @@ bg_agriculture = {
 	infrastructure_usage_per_level = 1
 	should_auto_expand = { default_auto_expand_rule = yes }
 	economy_of_scale_ai_factor = 2.0
+	cash_reserves_max = 25000
 }
 bg_finite_agriculture = {
 	parent_group = bg_agriculture
 	land_usage = rural
 }
+bg_generic_subsistence = {
+	parent_group = bg_finite_agriculture
+	always_possible = yes
+	is_subsistence = no		# This is important.
+	cash_reserves_max = 100000
+	hiring_rate = 1.0
+	infrastructure_usage_per_level = 0.2
+	default_building = building_generic_subsistence
+}
 bg_rye_farms = {
 	parent_group = bg_finite_agriculture
 	default_building = building_rye_farm
-	cash_reserves_max = 25000
 }
 bg_wheat_farms = {
 	parent_group = bg_finite_agriculture
 	default_building = building_wheat_farm
-	cash_reserves_max = 25000
 }
 bg_rice_farms = {
 	parent_group = bg_finite_agriculture
 	default_building = building_rice_farm
-	cash_reserves_max = 25000
 }
 bg_maize_farms = {
 	parent_group = bg_finite_agriculture
 	default_building = building_maize_farm
-	cash_reserves_max = 25000
 }
 bg_millet_farms = {
 	parent_group = bg_finite_agriculture
 	default_building = building_millet_farm
-	cash_reserves_max = 25000
 }
 bg_subsistence_agriculture = {
 	parent_group = bg_finite_agriculture
 	always_possible = yes
 	auto_place_buildings = yes
 	is_subsistence = yes
+	cash_reserves_max = 1000000
 	default_building = building_subsistence_farms
 	fired_pops_become_radical = no
 	hires_unemployed_only = yes
+	hiring_rate = 1.0
 }
 bg_infinite_agriculture = {
 	parent_group = bg_agriculture
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
+	hiring_rate = 1.0
+}
+bg_infinite_subsistence_agriculture = {
+	parent_group = bg_infinite_agriculture
+	is_subsistence = no		# This is important.
+	infrastructure_usage_per_level = 0.2
+	cash_reserves_max = 100000
+	urbanization = 0
+	default_building = building_infres_generic_subsistence
+	hires_unemployed_only = yes
+	hiring_rate = 1.0
+	should_auto_expand = {
+		OR = {
+			cash_reserves_ratio > 0.5
+			is_subsidized = yes
+		}
+		weekly_profit			> 0
+		occupancy				> 0.95
+		state.market_access		> 0.9
+	}
 }
 # Ranching
 bg_ranching = {
@@ -114,6 +191,7 @@ bg_infinite_plantations = {
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
+	hiring_rate = 1.0
 }
 # Mining
 bg_mining = {
@@ -166,6 +244,7 @@ bg_infinite_mining = {
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
+	hiring_rate = 1.0
 }
 # Misc Resources
 # Logging
@@ -174,14 +253,18 @@ bg_infinite_logging = {
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
+	can_use_slaves = yes
 	default_building = building_infres_logging_camp
+	hiring_rate = 1.0
 }
 bg_infinite_rubber = {
 	parent_group = bg_rubber
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
+	can_use_slaves = yes
 	default_building = building_infres_rubber_plantation
+	hiring_rate = 1.0
 }
 # Fishing
 bg_infinite_fishing = {
@@ -190,6 +273,7 @@ bg_infinite_fishing = {
 	capped_by_resources = no
 	fired_pops_become_radical = no
 	default_building = building_infres_fishing_wharf
+	hiring_rate = 1.0
 }
 bg_infinite_whaling = {
 	parent_group = bg_whaling
@@ -197,4 +281,5 @@ bg_infinite_whaling = {
 	capped_by_resources = no
 	fired_pops_become_radical = no
 	default_building = building_infres_whaling_station
+	hiring_rate = 1.0
 }

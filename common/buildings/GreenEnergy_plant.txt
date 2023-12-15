@@ -1,80 +1,78 @@
-﻿############# PLANTATIONS
-
+﻿building_vineyard_plantation = {
+	building_group = bg_vineyard_plantations
+	texture = "gfx/interface/icons/building_icons/vineyards.dds"
+	required_construction = construction_cost_low
+	unlocking_technologies = { enclosure }
+	city_type = farm
+	levels_per_mesh = 5
+	production_method_groups = {
+		pmg_base_building_vineyard_plantation
+		pmg_harvesting_process_tractors
+		pmg_tertiary_agri_power
+		pmg_train_automation
+		pmg_ownership_plantation
+	}
+}
+############# PLANTATIONS
 building_coffee_plantation = {
 	building_group = bg_coffee_plantations
 	texture = "gfx/interface/icons/building_icons/coffee_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_coffee_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_coffee_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_cotton_plantation = {
 	building_group = bg_cotton_plantations
 	texture = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-
 	production_method_groups = {
 		pmg_base_building_cotton_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_cotton_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_dye_plantation = {
 	building_group = bg_dye_plantations
 	texture = "gfx/interface/icons/building_icons/dye_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_dye_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_dye_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_opium_plantation = {
 	building_group = bg_opium_plantations
 	texture = "gfx/interface/icons/building_icons/opium_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_opium_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_opium_plantation
+		pmg_ownership_plantation
 	}
-	
 	can_build_government = {
 		error_check = {
 			severity = fail
@@ -88,42 +86,34 @@ building_opium_plantation = {
 		}
 	}
 }
-
 building_tea_plantation = {
 	building_group = bg_tea_plantations
 	texture = "gfx/interface/icons/building_icons/tea_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_tea_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_tea_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_tobacco_plantation = {
 	building_group = bg_tobacco_plantations
 	texture = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-
 	city_type = farm
 	levels_per_mesh = 5
-	
 	production_method_groups = {
 		pmg_base_building_tobacco_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_tobacco_plantation
+		pmg_ownership_plantation
 	}
 	can_build_government = {
 		error_check = {
@@ -138,26 +128,21 @@ building_tobacco_plantation = {
 		}
 	}
 }
-
 building_sugar_plantation = {
 	building_group = bg_sugar_plantations
 	texture = "gfx/interface/icons/building_icons/sugar_plantation.dds"
 	required_construction = construction_cost_low
-
 	unlocking_technologies = { enclosure }
-	
 	city_type = farm
 	levels_per_mesh = 5
-
 	production_method_groups = {
 		pmg_base_building_sugar_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_sugar_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_banana_plantation = {
 	building_group = bg_banana_plantations
 	texture = "gfx/interface/icons/building_icons/banana_plantation.dds"
@@ -167,13 +152,12 @@ building_banana_plantation = {
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_banana_plantation
-		pmg_harvesting_process_simple
+		pmg_equipment	# Fruit is closer to Logging than anything else
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_banana_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_silk_plantation = {
 	building_group = bg_silk_plantations
 	texture = "gfx/interface/icons/building_icons/silk_plantation.dds"
@@ -186,10 +170,9 @@ building_silk_plantation = {
 		pmg_harvesting_process_simple
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_silk_plantation
+		pmg_ownership_plantation
 	}
 }
-
 building_rubber_plantation = {
 	building_group = bg_rubber
 	texture = "gfx/interface/icons/building_icons/rubber_lodge.dds"
@@ -203,6 +186,6 @@ building_rubber_plantation = {
 		pmg_equipment	# Rubber is closer to Logging than anything else
 		pmg_tertiary_agri_power
 		pmg_train_automation
-		pmg_ownership_land_building_rubber_plantation
+		pmg_ownership_plantation
 	}
 }

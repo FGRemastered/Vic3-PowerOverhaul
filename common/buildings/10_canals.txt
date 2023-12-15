@@ -5,6 +5,7 @@
 	expandable = no
 	downsizeable = no
 	unique = yes
+	port = yes
 	required_construction = construction_cost_canal
 	entity_not_constructed = { }
 	entity_under_construction = { "canal_suezcanal_under_construction_01_entity" }
@@ -27,6 +28,7 @@ building_panama_canal = {
 	expandable = no
 	downsizeable = no
 	unique = yes
+	port = yes
 	required_construction = construction_cost_canal
 	entity_not_constructed = { }
 	entity_under_construction = { "canal_panamacanal_under_construction_01_entity" }
@@ -39,6 +41,25 @@ building_panama_canal = {
 	production_method_groups = {
 		pmg_canal
 		pmg_canal_engines
+		pmg_ownership_capital_building_canal
+	}
+}
+building_euro_tunnel = {
+	building_group = bg_canals
+	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+	canal = euro_tunnel
+	expandable = no
+	downsizeable = no
+	unique = yes
+	required_construction = construction_cost_canal
+	entity_not_constructed = { }
+	entity_under_construction = { }
+	entity_constructed = { }
+	production_method_groups = {
+		pmg_base_tunnel
+		pmg_base_building_railway
+		pmg_passenger_trains
+		pmg_train_rails
 		pmg_ownership_capital_building_canal
 	}
 }

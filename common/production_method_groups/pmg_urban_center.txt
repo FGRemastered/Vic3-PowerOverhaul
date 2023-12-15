@@ -1,5 +1,6 @@
 pmg_street_lighting = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	# ai_selection = most_productive
 	production_methods = {
 		pm_no_street_lighting
 		pm_gas_streetlights
@@ -18,7 +19,7 @@ pmg_public_transport = {
 	}
 }
 pmg_cash_register = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_no_cash_register
 		pm_cash_register

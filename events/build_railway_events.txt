@@ -1,8 +1,0 @@
-namespace = build_railways_events
-
-build_railways_events.1 = {
-	type = country_event
-	hidden = yes
-	trigger = { always = yes }
-	immediate = { make_railways = yes }
-}

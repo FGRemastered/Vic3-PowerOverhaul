@@ -1,0 +1,11 @@
+
+pmg_secondary_charcoal = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_charcoal
+		pm_charcoal
+		pm_hardwood_coking
+		pm_secondary_basic_oxygen_process
+		pm_secondary_carbon_capture
+	}
+}

@@ -1,9 +1,12 @@
 ﻿l_english:
+ company_edeka: "EDEKA"
  pm_early_machine_tools: "Pneumatic Machine Tools"
  pm_machine_tools: "Electric Machine Tools"
  
- pm_double_telephones: "Double $pm_telephones$"
- pm_double_radios: "Double $pm_radios$"
+ pm_telephones: "Telephone Production"
+ pm_double_telephones: "Improved $pm_telephones$"
+ pm_radios: "AM Radio Production"
+ pm_double_radios: "FM Radio Production"
  
  pm_craftsman_sewing_priority: "Craftsman Sewing Priority"
  pm_elastics_priority: "Elastics Priority"
@@ -15,6 +18,17 @@
  pm_bone_china_priority: "Bone China Priority"
  
  pm_basic_oxygen_process: "Basic Oxygen Process"
+ pm_carbon_capture_steel_process: "Improved $pm_electric_arc_process$"
+ 
+ pmg_secondary_charcoal: "Carbon Source"
+ pmg_secondary_charcoal_oil: "$pmg_secondary_charcoal$"
+ pm_no_charcoal: "No Charcoal"
+ pm_charcoal: "Charcoal (Softwood)"
+ pm_hardwood_coking: "Charcoal (Hardwood)"
+ pm_secondary_basic_oxygen_process: "$pm_basic_oxygen_process$"
+ pm_secondary_biofuel: "Biofuel"
+ pm_secondary_carbon_capture: "Carbon Capture"
+ pm_secondary_carbon_capture_oil: "$pm_secondary_carbon_capture$"
  
  pm_watertube_boiler_steam_engines: "Water-tube Boiler Steam Engines"
  pm_rotary_valve_engines: "Rotary Valve Steam Engines"
@@ -22,9 +36,9 @@
  pm_jet_engines: "Jet Engines"
  pm_jet_electric_engines: "Electric Jet Engines"
  
- pm_early_automobile_production: "Hand-Cranked Automobiles"
+ pm_automobile_production: "Combustion Engine Automobiles"
  pm_electic_automobile_production: "Electric Automobiles"
- pm_automobile_production: "Diesel-Powered Automobiles"
+ pm_diesel_automobile_production: "Diesel-Powered Automobiles"
  pm_automobile_priority: "Luxury Cars"
  
  pm_machine_pistols: "Machine Pistols"
@@ -39,7 +53,6 @@
  
  pm_double_dye_production: "Improved Dye Production"
  pm_parallel_rayon: "Parallel Rayon Production"
- pm_improved_rayon: "Improved Rayon Process"
  
  pm_continous_bleached_paper: "Continously Bleached Paper"
  
@@ -84,7 +97,7 @@
  pm_electric_pump_building_sulfur_mine: "$pm_electric_pump_building_mine$"
  pm_electric_pump_building_gold_mine: "$pm_electric_pump_building_mine$"
  
- pmg_ownership_capital_building_mine: "$pmg_ownership$"
+ pmg_ownership_mine: "$pmg_ownership$"
  pm_merchant_guilds_mine: "$pm_merchant_guilds$"
  pm_privately_owned_mine: "$pm_privately_owned$"
  pm_publicly_traded_mine: "$pm_publicly_traded$"

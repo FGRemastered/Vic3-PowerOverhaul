@@ -1,0 +1,8 @@
+﻿l_turkish:
+ build_railways: "Altyapılar İnşa Et"
+ build_railways_desc: "Pazara tam erişim sağlamak için her yere yeterli sayıda demiryolu ekler"
+ build_railways_tooltip: "Daha fazla demiryolu inşa etmek için tıklayın"
+ 
+ build_administrations: "Devlet Yönetim Binaları İnşa Et"
+ build_administrations_desc: "Vergilendirme kapasitesini sağlamak için her yere yeterli sayıda devlet yönetim binası ekler"
+ build_administrations_tooltip: "Daha fazla devlet yönetim binası kurmak için tıklayın"

@@ -1,0 +1,12 @@
+﻿build_railways = {
+    is_shown = { exists = yes }
+	possible = { has_technology_researched = railways }
+    when_taken = { make_railways = yes }
+    ai_chance = { base = 0 }
+}
+build_administrations = {
+    is_shown = { exists = yes }
+    possible = { has_technology_researched = tech_bureaucracy }
+    when_taken = { make_admins = yes }
+    ai_chance = { base = 0 }
+}

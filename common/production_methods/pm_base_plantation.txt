@@ -1,4 +1,72 @@
 # Plantation default pms
+# Wine
+pm_soil_enriching_farming_vineyard_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	unlocking_technologies = { intensive_agriculture }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add		=   25	
+			# output goods
+			goods_output_wine_add			=   40
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_farmers_add		= 1250
+		}
+	}
+}
+pm_fertilization_vineyard_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	unlocking_technologies = { improved_fertilizer }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add		=   40
+			# output goods
+			goods_output_wine_add			=   70
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_farmers_add		= 1250
+		}
+	}
+}
+pm_chemical_fertilizer_vineyard_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	unlocking_technologies = { nitrogen_fixation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add		=   55
+			# output goods
+			goods_output_wine_add			=   80
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_farmers_add		= 1250
+		}
+	}
+}
+pm_automatic_fertilization_vineyard_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+	unlocking_technologies = { mechanized_farming }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add		=   55
+			goods_input_engines_add			=    5
+			# output goods
+			goods_output_wine_add			=  100
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
+		}
+	}
+}
 # Coffee
 pm_soil_enriching_farming_coffee_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -6,14 +74,13 @@ pm_soil_enriching_farming_coffee_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 25	
+			goods_input_fertilizer_add	= 25	
 			# output goods
-			building_output_coffee_add		= 40
+			goods_output_coffee_add		= 40
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -23,14 +90,13 @@ pm_fertilization_coffee_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_coffee_add		= 70
+			goods_output_coffee_add		= 70
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -40,33 +106,32 @@ pm_chemical_fertilizer_coffee_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
+			goods_input_fertilizer_add	= 55
 			# output goods
-			building_output_coffee_add		= 80
+			goods_output_coffee_add		= 80
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_coffee_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 55
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_coffee_add		= 100
+			goods_output_coffee_add		= 100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -77,14 +142,13 @@ pm_soil_enriching_farming_cotton_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 20
+			goods_input_fertilizer_add	= 20
 			# output goods
-			building_output_fabric_add		= 80
+			goods_output_fabric_add		= 80
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -94,14 +158,13 @@ pm_fertilization_cotton_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 30
+			goods_input_fertilizer_add	= 30
 			# output goods
-			building_output_fabric_add		= 100
+			goods_output_fabric_add		= 100
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -111,33 +174,32 @@ pm_chemical_fertilizer_cotton_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_fabric_add		= 120
+			goods_output_fabric_add		= 120
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_cotton_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 40
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_fabric_add		= 180
+			goods_output_fabric_add		= 180
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -148,14 +210,13 @@ pm_soil_enriching_farming_dye_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 25
+			goods_input_fertilizer_add	= 25
 			# output goods
-			building_output_dye_add			= 50
+			goods_output_dye_add			= 50
 		}
 		level_scaled = {	
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -165,14 +226,13 @@ pm_fertilization_dye_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_dye_add			= 62.5
+			goods_output_dye_add			= 62.5
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -182,33 +242,32 @@ pm_chemical_fertilizer_dye_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
+			goods_input_fertilizer_add	= 55
 			# output goods
-			building_output_dye_add			= 75
+			goods_output_dye_add			= 75
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_dye_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 55
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_dye_add			= 100
+			goods_output_dye_add			= 100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -219,14 +278,13 @@ pm_soil_enriching_farming_opium_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 25
+			goods_input_fertilizer_add	= 25
 			# output goods
-			building_output_opium_add		= 40
+			goods_output_opium_add		= 40
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -236,14 +294,13 @@ pm_fertilization_opium_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_opium_add		= 70
+			goods_output_opium_add		= 70
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -253,33 +310,32 @@ pm_chemical_fertilizer_opium_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
+			goods_input_fertilizer_add	= 55
 			# output goods
-			building_output_opium_add		= 80
+			goods_output_opium_add		= 80
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_opium_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 55
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_opium_add		= 110
+			goods_output_opium_add		= 110
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -290,14 +346,13 @@ pm_soil_enriching_farming_tea_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 25
+			goods_input_fertilizer_add	= 25
 			# output goods
-			building_output_tea_add			= 40
+			goods_output_tea_add			= 40
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -307,14 +362,13 @@ pm_fertilization_tea_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_tea_add			= 50
+			goods_output_tea_add			= 50
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -324,33 +378,32 @@ pm_chemical_fertilizer_tea_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
+			goods_input_fertilizer_add	= 55
 			# output goods
-			building_output_tea_add			= 60
+			goods_output_tea_add			= 60
 		}
 		level_scaled = {	
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_tea_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 55
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_tea_add			= 80
+			goods_output_tea_add			= 80
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -361,14 +414,13 @@ pm_soil_enriching_farming_tobacco_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 25
+			goods_input_fertilizer_add	= 25
 			# output goods
-			building_output_tobacco_add		= 50
+			goods_output_tobacco_add		= 50
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -378,14 +430,13 @@ pm_fertilization_tobacco_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_tobacco_add		= 62.5
+			goods_output_tobacco_add		= 62.5
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -395,33 +446,32 @@ pm_chemical_fertilizer_tobacco_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
+			goods_input_fertilizer_add	= 55
 			# output goods
-			building_output_tobacco_add		= 75
+			goods_output_tobacco_add		= 75
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_tobacco_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 55
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 55
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_tobacco_add		= 100
+			goods_output_tobacco_add		= 100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -432,14 +482,13 @@ pm_soil_enriching_farming_sugar_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 22
+			goods_input_fertilizer_add	= 22
 			# output goods
-			building_output_sugar_add		= 60
+			goods_output_sugar_add		= 60
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -449,14 +498,13 @@ pm_fertilization_sugar_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 35
+			goods_input_fertilizer_add	= 35
 			# output goods
-			building_output_sugar_add		= 75
+			goods_output_sugar_add		= 75
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -466,51 +514,61 @@ pm_chemical_fertilizer_sugar_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 48.5
+			goods_input_fertilizer_add	= 48.5
 			# output goods
-			building_output_sugar_add		= 90
+			goods_output_sugar_add		= 90
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_sugar_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 50
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 50
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_sugar_add		= 120
+			goods_output_sugar_add		= 120
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
 # Fruit - Banana
+default_building_banana_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_fruit_add		= 30
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 5000
+			building_employment_farmers_add		= 1000
+		}
+	}
+}
 pm_soil_enriching_farming_banana_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 22
+			goods_input_fertilizer_add	= 22
 			# output goods
-			building_output_fruit_add		= 60	
+			goods_output_fruit_add		= 60	
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_farmers_add		= 750
 		}
 	}
 }
@@ -520,14 +578,13 @@ pm_fertilization_banana_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 35
+			goods_input_fertilizer_add	= 35
 			# output goods
-			building_output_fruit_add		= 75
+			goods_output_fruit_add		= 75
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_farmers_add		= 500
 		}
 	}
 }
@@ -537,33 +594,31 @@ pm_chemical_fertilizer_banana_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 48.5
+			goods_input_fertilizer_add	= 48.5
 			# output goods
-			building_output_fruit_add		= 90
+			goods_output_fruit_add		= 90
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_farmers_add		= 250
 		}
 	}
 }
 pm_automatic_fertilization_banana_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 50
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 50
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_fruit_add		= 120
+			goods_output_fruit_add		= 120
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_laborers_add	= 5000	# Rail Transport is -1000 again
+			building_employment_farmers_add		= 100
 		}
 	}
 }
@@ -574,14 +629,13 @@ pm_soil_enriching_farming_silk_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 20
+			goods_input_fertilizer_add	= 20
 			# output goods
-			building_output_silk_add		= 40
+			goods_output_silk_add		= 40
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -591,14 +645,13 @@ pm_fertilization_silk_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 30
+			goods_input_fertilizer_add	= 30
 			# output goods
-			building_output_silk_add		= 50
+			goods_output_silk_add		= 50
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
@@ -608,33 +661,32 @@ pm_chemical_fertilizer_silk_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_silk_add		= 60
+			goods_output_silk_add		= 60
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
+			building_employment_laborers_add	= 4000
 			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
 		}
 	}
 }
 pm_automatic_fertilization_silk_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add	= 40
+			goods_input_engines_add		= 5
 			# output goods
-			building_output_silk_add		= 80
+			goods_output_silk_add		= 80
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_machinsts_add	=  500
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -644,13 +696,12 @@ default_building_rubber_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# output goods
-			building_output_rubber_add		= 30
-			building_output_wood_add		= 30
+			goods_output_rubber_add		= 30
+			goods_output_wood_add		= 15
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000
-			building_employment_farmers_add		= 800
-			building_employment_clergymen_add	= 100
+			building_employment_farmers_add		= 1000
 		}
 	}
 }
@@ -660,15 +711,14 @@ pm_soil_enriching_farming_rubber_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 20
+			goods_input_fertilizer_add	= 20
 			# output goods
-			building_output_rubber_add		= 60
-			building_output_wood_add		= 60
+			goods_output_rubber_add		= 60
+			goods_output_wood_add		= 30
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 6000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_laborers_add	= 5000
+			building_employment_farmers_add		=  750
 		}
 	}
 }
@@ -678,16 +728,15 @@ pm_fertilization_rubber_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 30
+			goods_input_fertilizer_add	= 30
 			# output goods
-			building_output_rubber_add		= 75
-			building_output_wood_add		= 60
-			building_output_hardwood_add	= 15
+			goods_output_rubber_add		= 75
+			goods_output_wood_add		= 30
+			goods_output_hardwood_add	=  7.5
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 6000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_laborers_add	= 5000
+			building_employment_farmers_add		=  500
 		}
 	}
 }
@@ -697,37 +746,35 @@ pm_chemical_fertilizer_rubber_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
+			goods_input_fertilizer_add	= 40
 			# output goods
-			building_output_rubber_add		= 90
-			building_output_wood_add		= 65
-			building_output_hardwood_add	= 15
+			goods_output_rubber_add		= 90
+			goods_output_wood_add		= 30
+			goods_output_hardwood_add	= 15
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 6000
-			building_employment_farmers_add		= 1250
-			building_employment_clergymen_add	= 100
+			building_employment_laborers_add	= 5000
+			building_employment_farmers_add		=  250
 		}
 	}
 }
 pm_automatic_fertilization_rubber_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	pollution_generation = 5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_fertilizer_add	= 40
-			building_input_engines_add		= 5
+			goods_input_fertilizer_add		= 40
+			goods_input_engines_add			= 5
 			# output goods
-			building_output_rubber_add		= 120
-			building_output_wood_add		= 100
-			building_output_hardwood_add	= 20
+			goods_output_rubber_add			= 120
+			goods_output_wood_add			=  45
+			goods_output_hardwood_add		=  20
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000	# Rail Transport is -1000 again
-			building_employment_farmers_add		= 900
-			building_employment_clergymen_add	= 100
+			building_employment_farmers_add		=  100
 		}
 	}
 }

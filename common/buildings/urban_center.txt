@@ -17,6 +17,24 @@ building_urban_center = {
 	downsizeable = no
 	terrain_manipulator = urban_city
 }
+building_arts_academy = {
+	building_group = bg_arts
+	city_type = city
+	levels_per_mesh = 5
+	unlocking_technologies = { romanticism }
+	production_method_groups = {
+		pmg_base_building_arts_academy
+		pmg_ownership_building_arts_academy
+	}
+	texture = "gfx/interface/icons/building_icons/building_arts_academy.dds"
+	required_construction = construction_cost_high
+	possible = {
+		error_check = {
+			severity = fail
+			is_incorporated = yes
+		}
+	}
+}
 building_power_plant = {
 	building_group = bg_power
 	texture = "gfx/interface/icons/building_icons/power_plant.dds"
@@ -29,4 +47,18 @@ building_power_plant = {
 		pmg_ownership_capital_building_power_plant
 	}
 	required_construction = construction_cost_very_high
+	should_auto_expand = {
+		# NOT = { is_under_construction = yes }
+		OR = {
+			cash_reserves_ratio > 0.95
+			is_subsidized = yes
+		}
+		OR = {
+			weekly_profit		> 0
+			state = { sg:electricity = { state_goods_pricier > 0.5 } }
+		}
+		state.market_access	> 0.9
+		occupancy			> 0.95
+		building_has_goods_shortage = no
+	}
 }

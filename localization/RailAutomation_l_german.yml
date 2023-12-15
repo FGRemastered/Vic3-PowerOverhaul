@@ -4,103 +4,112 @@
  pm_diesel_electric_trains: "Dieselelektrische Züge"
  pm_jet_electric_trains: "Elektrische Düsenzüge"
  pm_maglev_trains: "Magnetschwebebahnen"
- 
+
  pm_high_speed_rail: "Hochgeschwindigkeitszüge"
- 
+
  pmg_train_rails: "Schienentypen"
  pm_normal_rails: "Schienen"
  pm_electric_rails: "Oberleitungen"
  pm_resistive_breaks: "Magnetbremsen"
  pm_rail_signals: "Zugsignale"
- 
+
  pm_steam_rail_transport: "Dampfbetriebener Eisenbahntransport"
  pm_electric_rail_transport: "Strombetriebener Eisenbahntransport"
  pm_diesel_rail_transport: "Ölbetriebener Eisenbahntransport"
- 
+
  pm_steam_rail_transport_building_coal_mine: "$pm_steam_rail_transport$"
- 
+
  pm_log_carts: "Strombetriebene Baumstammwaggons"
  pm_diesel_log_carts: "Ölbetriebene Baumstammwaggons"
- 
+
  pm_electric_tanker_cars: "Strombetriebene Tankwagen"
  pm_diesel_tanker_cars: "Ölbetriebene Tankwagen"
- 
+
  pm_flash_freezing_building_livestock_ranch: "Schockfrosten"
- 
+
  pmg_train_automation_power_plant: "$pmg_train_automation$"
  pm_steam_rail_transport_power_plant: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_power_plant: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_power_plant: "$pm_diesel_rail_transport$"
- 
+
+ pmg_train_automation_shipyards: "$pmg_train_automation$"
+ pm_steam_rail_transport_shipyards: "$pm_steam_rail_transport$"
+ pm_electric_rail_transport_shipyards: "$pm_electric_rail_transport$"
+ pm_diesel_rail_transport_shipyards: "$pm_diesel_rail_transport$"
+
  pm_powered_lift_mine: "Strombetriebener Mienenaufzug"
  pm_oil_fired_lift_mine: "Ölbetriebener Mienenaufzug"
- 
+
+ pm_no_softwood: "Vorrang für Hartholzproduktion"
+
  pm_hardwood_saw_mills: "Hartholzsägewerk"
  pm_hardwood_electric_saw_mills: "Elektrisches Hartholzsägewerk"
+
  pm_steam_powered_winch: "Dampfbetriebene Winde"
  pm_powered_winch: "Strombetriebene Winde"
  pm_oil_fired_winch: "Ölbetriebene Winde"
  pm_electric_chainsaws: "Elektrische Kettensägen"
  pm_modern_chainsaws: "Moderne Kettensägen"
- 
+
  pmg_train_automation_gov: "$pmg_train_automation$"
  pm_no_gov_automation: "Fußboten"
  pm_steam_rail_transport_gov: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_gov: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_gov: "$pm_diesel_rail_transport$"
- 
+
  pmg_train_automation_uni: "$pmg_train_automation$"
  pm_steam_rail_transport_uni: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_uni: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_uni: "$pm_diesel_rail_transport$"
- 
+
  pmg_train_automation_sky: "$pmg_train_automation$"
  pm_steam_rail_transport_sky: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_sky: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_sky: "$pm_diesel_rail_transport$"
- 
+
  pmg_train_automation_construction: "$pmg_train_automation$"
  pm_steam_rail_transport_construction: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_construction: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_construction: "$pm_diesel_rail_transport$"
- 
+
  pmg_train_automation_port: "$pmg_train_automation$"
  pm_steam_rail_transport_port: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_port: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_port: "$pm_diesel_rail_transport$"
  pm_modern_port_rail_transport: "Zugintegration"
- 
+
  pmg_construction_sector_bureaucrat_professionalism: "$pmg_government_administration_bureaucrat_professionalism$"
  pm_hereditary_bureaucrats_construction: "$pm_hereditary_bureaucrats$"
  pm_professional_bureaucrats_construction: "$pm_professional_bureaucrats$"
- 
+
  pmg_construction_sector_religious_administration: "$pmg_government_administration_religious_administration$"
  pm_religious_bureaucrats_construction: "$pm_religious_bureaucrats$"
  pm_secular_bureaucrats_construction: "$pm_secular_bureaucrats$"
- 
+
  pm_electricfied_bakery: "Brotbackautomaten"
- 
+
  pm_simple_organization_skyscraper: "$pm_simple_organization$"
  pm_horizontal_drawer_cabinets_skyscraper: "$pm_horizontal_drawer_cabinets$"
  pm_vertical_filing_cabinets_skyscraper: "$pm_vertical_filing_cabinets$"
  pm_switch_boards_skyscraper: "$pm_switch_boards$"
- 
- pm_extended_trams: "Erweitertes Straßenbahnnetz"
- 
+
+ pm_extended_trams: "U-bahnen"
+
  pmg_cash_register: "Abrechnung"
  pm_no_cash_register: "Kassierer"
  pm_cash_register: "Mechanische Kasse"
  pm_electric_cash_register: "Elektrische Kasse"
 
  pm_tourist_attraction_urban_clergy: "Touristenattraktionen"
- 
+
  pm_canal_tolls: "Mautstelle"
  pm_canal_telephones: "Telefonvermittlung"
  pmg_canal_engines: "Pumpen"
+ pm_canal_manual_labour: "Manuelle Pumpen"
  pm_canal_steam: "Dampfbetriebene Pumpen"
  pm_canal_eletric: "Elektropumpen"
  pm_canal_oil: "Ölbetriebene Pumpen"
- 
+
  pmg_ownership_capital_building_canal: "$pmg_ownership$"
  pm_privately_owned_building_canal: "$pm_privately_owned$"
  pm_publicly_traded_building_canal: "$pm_publicly_traded$"

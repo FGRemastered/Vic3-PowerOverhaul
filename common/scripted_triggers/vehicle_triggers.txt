@@ -1,0 +1,145 @@
+#################################################################
+#####				ROUTE GRAPHICS TRIGGERS					#####
+#################################################################
+gfx_car_condition_trigger = {
+	scope:state = {
+		market = { mg:automobiles = { market_goods_sell_orders >= 10 } }
+	}
+}
+gfx_truck_condition_trigger = {
+	scope:state = {
+		OR = {
+			any_scope_building = { has_active_production_method = pm_public_motor_carriages }
+			any_scope_building = { has_active_production_method = pm_extended_trams }
+		}
+	}
+}
+gfx_tracktor_condition_trigger = {
+	has_technology_researched = mechanized_farming
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_tractors
+				has_active_production_method = pm_compression_ignition_tractors
+				has_active_production_method = pm_electric_tractors
+			}
+		}
+	}
+}
+#################################################################
+#####				TRADE TRAIN TRIGGERS					#####
+#################################################################
+gfx_steam_locomotive_trigger = {
+	scope:state = {
+		OR = {
+			any_scope_building = { has_active_production_method = pm_early_trains }
+			any_scope_building = { has_active_production_method = pm_steam_trains }
+			any_scope_building = { has_active_production_method = pm_watertube_boiler_steam_trains }
+			any_scope_building = { has_active_production_method = pm_rotary_valve_steam_trains }
+		}
+	}
+}
+gfx_electrical_locomotive_trigger = {
+	scope:state = {
+		OR = {
+			any_scope_building = { has_active_production_method = pm_electric_trains }
+			any_scope_building = { has_active_production_method = pm_maglev_trains }
+		}
+	}
+}
+gfx_diesel_locomotive_trigger = {
+	scope:state = {
+		OR = {
+			any_scope_building = { has_active_production_method = pm_diesel_trains }
+			any_scope_building = { has_active_production_method = pm_diesel_electric_trains }
+			any_scope_building = { has_active_production_method = pm_jet_electric_trains }
+		}
+	}
+}
+gfx_passanger_train_trigger = {
+	scope:state = {
+		market = { mg:transportation = { market_goods_sell_orders > 20 } }
+	}
+}
+gfx_mining_train_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_coal_mine
+			has_building = building_iron_mine
+			has_building = building_sulfur_mine
+			has_building = building_steel_mills
+			
+			has_building = building_infres_coal_mine
+			has_building = building_infres_iron_mine
+			has_building = building_infres_sulfur_mine
+		}
+	}
+}
+gfx_coal_mine_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_coal_mine
+			has_building = building_infres_coal_mine
+		}
+	}
+}
+gfx_iron_mine_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_iron_mine
+			has_building = building_infres_iron_mine
+		}
+	}
+}
+gfx_lead_mine_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_lead_mine
+			has_building = building_infres_lead_mine
+		}
+	}
+}
+gfx_sulfur_mine_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_sulfur_mine
+			has_building = building_infres_sulfur_mine
+		}
+	}
+}
+gfx_forestry_train_trigger = {
+	scope:state = {
+		OR = {
+			has_building = building_logging_camp
+			has_building = building_infres_logging_camp
+			has_building = building_rubber_plantation
+			has_building = building_infres_rubber_plantation
+		}
+	}
+}
+gfx_softwood_trigger = {
+	any_scope_building = {
+		OR = {
+			has_active_production_method = pm_no_hardwood
+			has_active_production_method = default_building_rubber_plantation
+			has_active_production_method = pm_soil_enriching_farming_rubber_plantation
+			has_active_production_method = pm_fertilization_rubber_plantation
+			has_active_production_method = pm_chemical_fertilizer_rubber_plantation
+			has_active_production_method = pm_automatic_fertilization_rubber_plantation
+		}
+	}
+}
+gfx_hardwood_trigger = {
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_hardwood
+				has_active_production_method = pm_hardwood_saw_mills
+				has_active_production_method = pm_hardwood_electric_saw_mills
+				has_active_production_method = pm_fertilization_rubber_plantation
+				has_active_production_method = pm_chemical_fertilizer_rubber_plantation
+				has_active_production_method = pm_automatic_fertilization_rubber_plantation
+			}
+		}
+	}
+}

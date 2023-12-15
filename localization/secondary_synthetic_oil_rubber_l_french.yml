@@ -1,0 +1,18 @@
+﻿l_french:
+ pmg_secondary_synth_oil_rubber: "Synthetic Oil"
+ 
+ pm_no_synth_oil: "Disabled"
+ pm_coal_gas: "Coal Gasification"
+ 
+ pm_synth_oil: "Synthetic Oil Production"
+ pm_synth_oil_rubber: "Synthetic Rubber"
+ pm_synth_oil_rubber_priority: "Synthetic Rubber Focus"
+ pm_synth_oil_rubber_only: "Only Synthetic Rubber"
+ 
+ pm_improved_synth_oil: "Improved Synthetic Oil Production"
+ pm_improved_synth_oil_rubber: "Buna"
+ pm_improved_synth_oil_rubber_priority: "Focus on Buna"
+ 
+ pm_advanced_synth_oil: "Advanced Synthetic Oil Production"
+ pm_advanced_synth_oil_rubber: "Neoprene"
+ pm_advanced_synth_oil_rubber_priority: "Focus on Neoprene"

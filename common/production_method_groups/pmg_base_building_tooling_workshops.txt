@@ -4,6 +4,7 @@ pmg_base_building_tooling_workshops = {
 		pm_crude_tools
 		pm_pig_iron
 		pm_steel
+		pm_rubber_grips
 		pm_early_machine_tools
 		pm_machine_tools
 	}

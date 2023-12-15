@@ -1,0 +1,56 @@
+﻿l_english:
+ building_infres_vineyard_plantation: "Inf. $building_vineyard_plantation$"
+ building_infres_banana_plantation: "Inf. $building_banana_plantation$"
+ building_infres_coffee_plantation: "Inf. $building_coffee_plantation$"
+ building_infres_cotton_plantation: "Inf. $building_cotton_plantation$"
+ building_infres_dye_plantation: "Inf. $building_dye_plantation$"
+ building_infres_opium_plantation: "Inf. $building_opium_plantation$"
+ building_infres_rubber_plantation: "Inf. $building_rubber_plantation$"
+ building_infres_silk_plantation: "Inf. $building_silk_plantation$"
+ building_infres_sugar_plantation: "Inf. $building_sugar_plantation$"
+ building_infres_tea_plantation: "Inf. $building_tea_plantation$"
+ building_infres_tobacco_plantation: "Inf. $building_tobacco_plantation$"
+
+ building_infres_maize_farm: "Inf. $building_maize_farm$"
+ building_infres_millet_farm: "Inf. $building_millet_farm$"
+ building_infres_rice_farm: "Inf. $building_rice_farm$"
+ building_infres_rye_farm: "Inf. $building_rye_farm$"
+ building_infres_wheat_farm: "Inf. $building_wheat_farm$"
+ building_infres_livestock_ranch: "Inf. $building_livestock_ranch$"
+
+ building_infres_coal_mine: "Inf. $building_coal_mine$"
+ building_infres_gold_mine: "Inf. $building_gold_mine$"
+ building_infres_iron_mine: "Inf. $building_iron_mine$"
+ building_infres_lead_mine: "Inf. $building_lead_mine$"
+ building_infres_sulfur_mine: "Inf. $building_sulfur_mine$"
+ building_infres_oil_rig: "Inf. $building_oil_rig$"
+
+ building_infres_logging_camp: "Inf. $building_logging_camp$"
+ building_infres_fishing_wharf: "Inf. $building_fishing_wharf$"
+ building_infres_whaling_station: "Inf. $building_whaling_station$"
+
+ building_infres_naval_base: "Inf. $building_naval_base$"
+ building_infres_port: "Inf. $building_port$"
+ building_infres_barracks: "Inf. $building_barracks$"
+ building_infres_construction_sector: "Inf. $building_construction_sector$"
+
+ modifier_country_subsidies_bg_infres_agriculture: "Can Subsidize $bg_infres_agriculture$"
+ modifier_country_subsidies_bg_infres_agriculture_desc: "Legal permission to enact government subsidies of $bg_infres_agriculture$"
+
+ modifier_country_subsidies_bg_infres_ranching: "Can Subsidize $bg_infres_ranching$"
+ modifier_country_subsidies_bg_infres_ranching_desc: "Legal permission to enact government subsidies of $bg_infres_ranching$"
+
+ modifier_country_subsidies_bg_infres_plantations: "Can Subsidize $bg_infres_plantations$"
+ modifier_country_subsidies_bg_infres_plantations_desc: "Legal permission to enact government subsidies of $bg_infres_plantations$"
+
+ rule_infres_allows_ai_to_build: "IRB: Allowed to build Infinite Resource Buildings"
+ setting_infres_player_only: "Player Only"
+ setting_infres_player_and_ai_allowed: "Player & AI"
+ setting_infres_player_only_desc: "Only allows the Player to build Infinite Resource Buildings"
+ setting_infres_player_and_ai_allowed_desc: "Allows the Player and AI to build Infinite Resource Buildings"
+
+ rule_infres_allow_private_construction: "IRB: Allow A.I. to build Infinite Resource Buildings"
+ setting_infres_private_construction_allowed: "Autonomous Investment allowed"
+ setting_infres_private_construction_not_allowed: "Autonomous Investment not allowed"
+ setting_infres_private_construction_allowed_desc: "Allows the Autonomous Investment to build Infinite Resource Buildings"
+ setting_infres_private_construction_not_allowed_desc: "Disallows the Autonomous Investment to build Infinite Resource Buildings"

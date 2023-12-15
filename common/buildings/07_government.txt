@@ -10,6 +10,7 @@ building_port = {
 	production_method_groups = {
 		pmg_base_building_port
 		pmg_train_automation_port
+		pmg_tertiary_offshore_power
 	}
 	required_construction = construction_cost_medium
 	terrain_manipulator = urban_port
@@ -18,6 +19,20 @@ building_port = {
 			severity = fail
 			is_coastal = yes
 		}
+	}
+	should_auto_expand = {
+		OR = {
+			AND = {
+				state.market_access < 1
+				owner = { NOT = { has_technology_researched = railways } } # Placeholder for land adjacency
+			}
+			AND = {
+				owner = { num_convoys_available < num_convoys_required }
+				THIS.state = { is_incorporated = yes }
+			}
+		}
+		occupancy = 1
+		building_has_goods_shortage = no
 	}
 }
 building_government_administration = {
@@ -31,12 +46,25 @@ building_government_administration = {
 		pmg_government_administration_bureaucrat_professionalism
 		pmg_government_administration_religious_administration
 	}
-	should_auto_expand = { 
-		occupancy > 0.9
-		state.tax_capacity < state.tax_capacity_usage
+	should_auto_expand = {
+		occupancy > 0.95
+		OR = {
+			state.tax_capacity < state.tax_capacity_usage
+			AND = {
+				THIS.STATE = {
+					OR = {
+						is_capital = yes
+						any_scope_building = { is_building_type = building_skyscraper }
+					}
+				}
+				OR = {
+					owner = { bureaucracy <= 0 }
+					owner = { approaching_bureaucracy_shortage = yes }
+				}
+			}
+		}
 		building_has_goods_shortage = no
-		state.market_access > 0.8
-		# owner.construction_queue_duration < 100
+		state.market_access > 0.9
 	}
 	texture = "gfx/interface/icons/building_icons/building_government_administration.dds"
 	required_construction = construction_cost_medium

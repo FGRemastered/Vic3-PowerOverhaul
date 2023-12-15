@@ -3,14 +3,14 @@ pm_no_offshore_windpark = { texture = "gfx/interface/icons/production_method_ico
 pm_on_shore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }
-	pollution_generation = -5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			=   1	# x-60	=  -60
-			building_input_wood_add				=   1	# x-20	=  -20
+			goods_input_engines_add			=   1	# x-60	=  -60
+			goods_input_wood_add				=   1	# x-20	=  -20
 			# output goods							 	#		=  -80
-			building_output_electricity_add		=  10	# x+30	= +300
+			goods_output_electricity_add		=  10	# x+30	= +300
 		}											 	#		= +220
 		level_scaled = {
 			building_employment_machinists_add 	=  20	# x-1.5	=  -30
@@ -21,14 +21,14 @@ pm_on_shore_windpark = {
 pm_early_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_capacitors }
-	pollution_generation = -5
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			=	  2 # x-60	= -120
-			building_input_steel_add			=	  2 # x-50	= -100
+			goods_input_engines_add			=	  2 # x-60	= -120
+			goods_input_steel_add			=	  2 # x-50	= -100
 			# output goods								#		= -220
-			building_output_electricity_add		=	 20 # x+30	= +600
+			goods_output_electricity_add		=	 20 # x+30	= +600
 		}												#		= +380
 		level_scaled = {
 			building_employment_machinists_add 	=	 80 # x-1.5	= -120
@@ -39,14 +39,14 @@ pm_early_offshore_windpark = {
 pm_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
 	unlocking_technologies = { electric_railway }
-	pollution_generation = -10
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			=	  5 # x-60	= -300
-			building_input_steel_add			=	  5 # x-50	= -250
+			goods_input_engines_add			=	  5 # x-60	= -300
+			goods_input_steel_add			=	  5 # x-50	= -250
 			# output goods								#		= -550
-			building_output_electricity_add		=	 50 # x+30	=+1500
+			goods_output_electricity_add		=	 50 # x+30	=+1500
 		}												#		= +950
 		level_scaled = {
 			building_employment_machinists_add 	=	120 # x-1.5	= -180
@@ -57,14 +57,14 @@ pm_offshore_windpark = {
 pm_large_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
-	pollution_generation = -15
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-20 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			=	 10 # x-60	= -600
-			building_input_steel_add			=	 10 # x-50	= -500
+			goods_input_engines_add			=	 10 # x-60	= -600
+			goods_input_steel_add			=	 10 # x-50	= -500
 			# output goods								#		=-1100
-			building_output_electricity_add		=	100 # x+30	=+3000
+			goods_output_electricity_add		=	100 # x+30	=+3000
 		}												#		=+1900
 		level_scaled = {
 			building_employment_machinists_add 	=	200 # x-1.5	= -300
@@ -75,14 +75,14 @@ pm_large_offshore_windpark = {
 pm_huge_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
-	pollution_generation = -25
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-25 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_engines_add			=	 20 # x-60	=-1200
-			building_input_steel_add			=	 20 # x-50	=-1000
+			goods_input_engines_add			=	 20 # x-60	=-1200
+			goods_input_steel_add			=	 20 # x-50	=-1000
 			# output goods								 #		=-2200
-			building_output_electricity_add		=	200 # x+30	=+6000
+			goods_output_electricity_add		=	200 # x+30	=+6000
 		}											 	#		=+3800
 		level_scaled = {
 			building_employment_machinists_add 	=	400 # x-1.5	= -600
