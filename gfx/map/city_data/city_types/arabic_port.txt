@@ -49,7 +49,6 @@
 	building_naval_base = {"arabic_port_navalbase_01_mesh"}
 	building_shipyards = {}
 	building_military_shipyards = {}
-
 	# Infres
 	building_infres_fishing_wharf = {}
 	building_infres_whaling_station = {}

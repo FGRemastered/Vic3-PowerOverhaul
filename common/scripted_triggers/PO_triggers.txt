@@ -1,5 +1,24 @@
-
+# Rules for infinite buildings
 can_private_construction = {
+	OR = {
+		AND = {
+			OR = {
+				owner = { is_player = yes }
+				owner = {
+					any_overlord_or_above = { is_player = yes }
+					is_country_type = colonial
+					is_subject = yes	# Not Customs Union
+				}
+			}
+			has_game_rule = infres_private_construction_allowed
+		}
+		AND = {
+			has_game_rule = infres_player_and_ai_allowed
+			has_game_rule = infres_private_construction_allowed
+		}
+	}
+}
+can_private_construction_res = {
 	OR = {
 		AND = {
 			owner = { is_player = yes }
@@ -9,11 +28,26 @@ can_private_construction = {
 			has_game_rule = infres_player_and_ai_allowed
 			has_game_rule = infres_private_construction_allowed
 		}
-	} 
+	}
 }
 can_gov_construction = {
 	OR = {
 		owner = { is_player = yes }
+		owner = {
+			any_overlord_or_above = { is_player = yes }
+			is_country_type = colonial
+			is_subject = yes	# Not Customs Union
+		}
+		has_game_rule = infres_player_and_ai_allowed
+	}
+}
+can_gov_construction_res = {
+	OR = {
+		owner = { is_player = yes }
+		# owner = {
+			# any_overlord_or_above = { is_player = yes }
+			# is_country_type = colonial
+		# }
 		has_game_rule = infres_player_and_ai_allowed
 	}
 }

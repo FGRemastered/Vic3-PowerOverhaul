@@ -1,0 +1,23 @@
+﻿l_english:
+ building_charcoal_burner: "Charcoal Plant"
+ building_charocal_burner_option: "Expand $building_charcoal_burner$"
+ 
+ pmg_base_charcoal:0 "$pm_base$"
+ pm_charcoal_kiln_building_charcoal_burner: "Charcoal Kiln"
+ pm_combustion_chamber_building_charcoal_burner: "Combustion Chamber"
+ pm_machine_coal_building_charcoal_burner: "Machine Coal"
+ 
+ pmg_secondary_charcoal_filters: "Filtering"
+ pm_unfiltered: "Unfiltered"
+ pm_dust_separation_building_charcoal_burner: "Dust Separation"
+ pm_chemical_refining_building_charcoal_burner: "Chemical Processing"
+ pm_environmental_refining_building_charcoal_burner: "Exological Processing"
+ pm_carbon_capture_building_charcoal_burner: "$pm_secondary_carbon_capture$"
+ 
+ pmg_automation_building_charcoal_burner: "$pmg_automation$"
+ pm_watertube_boiler_building_charcoal_burner: "$pm_watertube_boiler$"
+ pm_rotary_valve_engine_building_charcoal_burner: "$pm_rotary_valve_engine$"
+ pm_assembly_lines_building_charcoal_burner: "$pm_assembly_lines$"
+ 
+ pmg_ownership_capital_building_charcoal_burner: "$pmg_ownership$"
+ pm_privately_owned_building_charcoal_burner: "$pm_privately_owned$"

@@ -4,7 +4,7 @@ building_subsistence_farms = {
 	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_farms
-		pmg_home_workshops_building_subsistence_farms
+		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_farms
 		pmg_ownership_building_subsistence
@@ -20,7 +20,7 @@ building_subsistence_orchards = {
 	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_orchards
-		pmg_home_workshops_building_subsistence_orchards
+		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_orchards
 		pmg_ownership_building_subsistence
@@ -36,7 +36,7 @@ building_subsistence_pastures = {
 	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_pastures
-		pmg_home_workshops_building_subsistence_pastures
+		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
 		pmg_serfdom_building_subsistence_pastures
 		pmg_ownership_building_subsistence
@@ -52,7 +52,7 @@ building_subsistence_fishing_villages = {
 	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_fishing_villages
-		pmg_home_workshops_building_subsistence_fishing_villages
+		pmg_home_workshops
 		pmg_tertiary_offshore_power
 		pmg_serfdom_building_subsistence_fishing_villages
 		pmg_ownership_building_subsistence

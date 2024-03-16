@@ -114,7 +114,7 @@ je_steam_engines = {
 				}
 			}
 		}
-		
+
 	}
 	on_complete = { trigger_event = { id = production_tech_events.700 } }
 	timeout = 3650
@@ -136,7 +136,7 @@ je_atmospheric_engine = {
 				is_building_type = building_iron_mine
 				is_building_type = building_sulfur_mine
 				is_building_type = building_lead_mine
-						
+
 				is_building_type = building_infres_iron_mine
 				is_building_type = building_infres_coal_mine
 				is_building_type = building_infres_lead_mine
@@ -154,7 +154,7 @@ je_atmospheric_engine = {
 					is_building_type = building_iron_mine
 					is_building_type = building_sulfur_mine
 					is_building_type = building_lead_mine
-						
+
 					is_building_type = building_infres_iron_mine
 					is_building_type = building_infres_coal_mine
 					is_building_type = building_infres_lead_mine
@@ -201,7 +201,7 @@ je_dynamite = {
 				is_building_type = building_coal_mine
 				is_building_type = building_lead_mine
 				is_building_type = building_sulfur_mine
-				
+
 				is_building_type = building_infres_iron_mine
 				is_building_type = building_infres_coal_mine
 				is_building_type = building_infres_lead_mine
@@ -228,7 +228,7 @@ je_dynamite = {
 						is_building_type = building_coal_mine
 						is_building_type = building_lead_mine
 						is_building_type = building_sulfur_mine
-						
+
 						is_building_type = building_infres_iron_mine
 						is_building_type = building_infres_coal_mine
 						is_building_type = building_infres_lead_mine
@@ -396,7 +396,7 @@ je_railroads = {
 				    has_active_production_method = pm_rail_transport_building_logging_camp
 				    has_active_production_method = pm_rail_transport_building_oil_rig
 				    has_active_production_method = pm_tanker_cars		# New
-					
+
                 }
 				occupancy >= 0.75
 			}
@@ -415,7 +415,7 @@ je_railroads = {
 						is_building_type = building_sugar_plantation
 						is_building_type = building_rubber_plantation
 						is_building_type = building_banana_plantation
-						
+
 						is_building_type = building_infres_vineyard_plantation
 						is_building_type = building_infres_coffee_plantation
 						is_building_type = building_infres_cotton_plantation
@@ -642,5 +642,59 @@ je_film = {
 		set_variable = film_je_done
 		trigger_event = { id = camera_film_pm_events.2 }
 	}
+	timeout = 3650
+}
+# Public Trading
+je_mutual_funds = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_variable = mutual_funds_je_done }
+		has_technology_researched = central_banking
+	}
+	possible = { has_technology_researched = mutual_funds }
+	complete = {
+		any_scope_building = {
+			filter = {
+				custom_tooltip = {
+					text = is_production_building_tt
+					is_production_building = yes
+				}
+			}
+			percent >= 0.75
+			hidden_trigger = {
+				OR = {
+				    has_active_production_method = pm_publicly_traded_building_textile_mills
+				    has_active_production_method = pm_publicly_traded_building_furniture_manufacturies
+				    has_active_production_method = pm_publicly_traded_building_glassworks
+				    has_active_production_method = pm_publicly_traded_building_tooling_workshops
+				    has_active_production_method = pm_publicly_traded_building_paper_mills
+				    has_active_production_method = pm_publicly_traded_building_shipyards
+				    has_active_production_method = pm_publicly_traded_building_arms_industry
+				    has_active_production_method = pm_publicly_traded_building_artillery_foundries
+				    has_active_production_method = pm_publicly_traded
+				    has_active_production_method = pm_publicly_traded_industry
+				    has_active_production_method = pm_publicly_traded_building_logging_camp
+				    has_active_production_method = pm_publicly_traded_building_fishing_wharf
+				    has_active_production_method = pm_publicly_traded_building_whaling_station
+				    has_active_production_method = pm_publicly_traded_building_oil_rig
+				    has_active_production_method = pm_publicly_traded_building_coal_mine
+				    has_active_production_method = pm_publicly_traded_building_iron_mine
+				    has_active_production_method = pm_publicly_traded_building_lead_mine
+				    has_active_production_method = pm_publicly_traded_building_sulfur_mine
+	            }
+	        }
+	        custom_tooltip = has_activated_public_trading
+			cash_reserves_ratio >= 0.5
+			weekly_profit > 0
+			# occupancy >= 0.75
+		}
+	}
+	on_complete = {
+		trigger_event = { id = society_tech_events.105 }
+		set_variable = { name = mutual_funds_je_done }
+	}
+
 	timeout = 3650
 }

@@ -23,6 +23,7 @@ pmg_transportation_building_logging_camp = {
 		pm_road_carts
 		pm_steam_rail_transport
 		pm_log_carts
+		pm_electric_log_carts
 		pm_diesel_log_carts
 	}
 }

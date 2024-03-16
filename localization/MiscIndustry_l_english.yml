@@ -1,4 +1,8 @@
 ﻿l_english:
+ bg_military_industry: "Military Industry"
+ bg_light_military_industry: "Light $bg_military_industry$"
+ bg_heavy_military_industry: "Heavy $bg_military_industry$"
+
  company_edeka: "EDEKA"
  pm_early_machine_tools: "Pneumatic Machine Tools"
  pm_machine_tools: "Electric Machine Tools"
@@ -53,6 +57,8 @@
  
  pm_double_dye_production: "Improved Dye Production"
  pm_parallel_rayon: "Parallel Rayon Production"
+ pm_rayon_dye_focus: "Rayon Production with Dye focus"
+ pm_rayon_silk_focus: "Rayon Production with Silk focus"
  
  pm_continous_bleached_paper: "Continously Bleached Paper"
  

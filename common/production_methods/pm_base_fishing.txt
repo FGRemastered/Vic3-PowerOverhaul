@@ -21,7 +21,7 @@ pm_electric_fishing_boats = {
 # Ownership
 pm_privately_owned_building_fishing_wharf = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
-	unlocking_production_methods = {				
+	unlocking_production_methods = {
 		pm_fishing_trawlers
 		pm_steam_trawlers
 		pm_electric_fishing_boats
@@ -144,7 +144,7 @@ pm_publicly_traded_building_whaling_station = {
 		pm_wooden_whaling_ships
 		pm_steam_whaling_ships
 		pm_electic_whaling_ships
-	}	
+	}
 	disallowing_laws = {
 		law_command_economy
 		law_cooperative_ownership

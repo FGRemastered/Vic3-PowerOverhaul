@@ -1,0 +1,44 @@
+pmg_base_charcoal = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_charcoal_kiln_building_charcoal_burner
+		pm_combustion_chamber_building_charcoal_burner
+		pm_machine_coal_building_charcoal_burner
+	}
+}
+pmg_secondary_charcoal_filters = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_unfiltered
+		pm_dust_separation_building_charcoal_burner
+		pm_chemical_refining_building_charcoal_burner
+		pm_environmental_refining_building_charcoal_burner
+		pm_carbon_capture_building_charcoal_burner
+	}
+}
+pmg_automation_building_charcoal_burner = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_charcoal_burner
+		pm_rotary_valve_engine_building_charcoal_burner
+		pm_assembly_lines_building_charcoal_burner
+	}
+}
+pmg_ownership_capital_building_charcoal_burner = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds
+		pm_privately_owned_building_charcoal_burner
+		pm_publicly_traded_industry
+		pm_sovereign_owned_hereditary
+		pm_sovereign_owned_clergy
+		pm_sovereign_owned_hereditary_secular
+		pm_sovereign_owned_bureaucrats
+		pm_sovereign_owned_academics
+		pm_sovereign_owned_engineers
+		pm_sovereign_owned_officers
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}

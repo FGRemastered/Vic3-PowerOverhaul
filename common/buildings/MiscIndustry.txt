@@ -1,42 +1,4 @@
 # Here be Industry
-building_shipyards = {
-	building_group = bg_light_industry
-	texture = "gfx/interface/icons/building_icons/shipyards.dds"
-	city_type = port
-	unlocking_technologies = { navigation }
-	production_method_groups = {
-		pmg_base_building_shipyards
-		pmg_tertiary_offshore_power
-		pmg_train_automation_shipyards
-		pmg_ownership_capital_building_shipyards
-	}
-	required_construction = construction_cost_high
-	possible = {
-		error_check = {
-			severity = fail
-			is_coastal = yes
-		}
-	}
-}
-building_military_shipyards = {
-	building_group = bg_military_shipyards
-	texture = "gfx/interface/icons/building_icons/military_shipyards.dds"
-	city_type = port
-	unlocking_technologies = { navigation }
-	production_method_groups = {
-		pmg_military_base
-		pmg_tertiary_offshore_power
-		pmg_train_automation_shipyards
-		pmg_ownership_capital_building_shipyards
-	}
-	required_construction = construction_cost_high
-	possible = {
-		error_check = {
-			severity = fail
-			is_coastal = yes
-		}
-	}	
-}
 building_electrics_industry = {
 	building_group = bg_heavy_industry
 	texture = "gfx/interface/icons/building_icons/electrics_industry.dds"
@@ -53,12 +15,62 @@ building_electrics_industry = {
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }
+building_shipyards = {
+	building_group = bg_shipyards
+	texture = "gfx/interface/icons/building_icons/shipyards.dds"
+	city_type = port
+	unlocking_technologies = { navigation }
+	production_method_groups = {
+		pmg_base_building_shipyards
+		pmg_tertiary_offshore_power
+		pmg_train_automation_shipyards
+		pmg_ownership_capital_building_shipyards
+	}
+	required_construction = construction_cost_high
+	can_build_private = {
+		error_check = {
+			severity = fail
+			OR = {
+				is_capital = yes
+				has_building = building_shipyards
+			}
+		}
+	}
+	possible = {
+		error_check = { severity = fail is_sea_adjacent = yes }
+	}
+}
+building_military_shipyards = {
+	building_group = bg_military_shipyards
+	texture = "gfx/interface/icons/building_icons/military_shipyards.dds"
+	city_type = port
+	unlocking_technologies = { navigation }
+	production_method_groups = {
+		pmg_military_base
+		pmg_tertiary_offshore_power
+		pmg_train_automation_shipyards
+		pmg_ownership_military_industry
+	}
+	required_construction = construction_cost_high
+	can_build_private = {
+		error_check = {
+			severity = fail
+			OR = {
+				is_capital = yes
+				has_building = building_military_shipyards
+			}
+		}
+	}
+	possible = {
+		error_check = { severity = fail is_coastal = yes }
+	}
+}
 building_arms_industry = {
-	building_group = bg_light_industry
+	building_group = bg_light_military_industry
 	texture = "gfx/interface/icons/building_icons/arms_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
@@ -68,24 +80,41 @@ building_arms_industry = {
 		pmg_automation_building_arms_industry
 		pmg_ownership_military_industry
 	}
-	required_construction = construction_cost_very_high
+	can_build_private = {
+		error_check = {
+			severity = fail
+			OR = {
+				is_capital = yes
+				has_building = building_arms_industry
+			}
+		}
+	}
+	required_construction = construction_cost_high
 }
 building_artillery_foundries = {
-	building_group = bg_light_industry
+	building_group = bg_light_military_industry
 	texture = "gfx/interface/icons/building_icons/artillery_foundry.dds"
 	city_type = city
 	levels_per_mesh = 5
-	unlocking_technologies = { gunsmithing }
+	unlocking_technologies = { artillery }
 	production_method_groups = {
 		pmg_foundries
 		pmg_automation_building_arms_industry
 		pmg_ownership_military_industry
 	}
-	
+	can_build_private = {
+		error_check = {
+			severity = fail
+			OR = {
+				is_capital = yes
+				has_building = building_artillery_foundries
+			}
+		}
+	}
 	required_construction = construction_cost_high
 }
-building_munition_plants = {												# Unchanged - Reordered
-	building_group = bg_heavy_industry
+building_munition_plants = {
+	building_group = bg_heavy_military_industry
 	texture = "gfx/interface/icons/building_icons/munition_plants.dds"
 	city_type = city
 	levels_per_mesh = 5
@@ -96,15 +125,24 @@ building_munition_plants = {												# Unchanged - Reordered
 		pmg_ownership_military_industry
 	}
 	required_construction = construction_cost_very_high
+	can_build_private = {
+		error_check = {
+			severity = fail
+			OR = {
+				is_capital = yes
+				has_building = building_munition_plants
+			}
+		}
+	}
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }
 building_war_machine_industry = {
-	building_group = bg_heavy_industry
+	building_group = bg_heavy_military_industry
 	texture = "gfx/interface/icons/building_icons/vehicles_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
@@ -119,30 +157,19 @@ building_war_machine_industry = {
 		pmg_ownership_military_industry
 	}
 	required_construction = construction_cost_very_high
-	possible = {
+	can_build_private = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			OR = {
+				is_capital = yes
+				has_building = building_war_machine_industry
+			}
 		}
 	}
-}
-building_synthetics_plants = {
-	building_group = bg_heavy_industry
-	texture = "gfx/interface/icons/building_icons/synthetics_plants.dds"
-	city_type = city
-	levels_per_mesh = 5
-	unlocking_technologies = { aniline }
-	production_method_groups = {
-		pmg_synthetic_dyes
-		pmg_synthetic_silk
-		pmg_automation_building_synthetics_plants
-		pmg_ownership_capital_building_synthetics_plants
-	}
-	required_construction = construction_cost_high
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }
@@ -161,7 +188,7 @@ building_chemical_plants = {
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }
@@ -176,11 +203,11 @@ building_explosives_factory = {
 		pmg_automation_building_chemical_plants
 		pmg_ownership_capital_building_chemical_plants
 	}
-	required_construction = construction_cost_very_high
+	required_construction = construction_cost_high
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }
@@ -200,7 +227,27 @@ building_steel_mills = {
 	possible = {
 		error_check = {
 			severity = fail
-			this = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
+		}
+	}
+}
+building_synthetics_plants = {
+	building_group = bg_heavy_industry
+	texture = "gfx/interface/icons/building_icons/synthetics_plants.dds"
+	city_type = city
+	levels_per_mesh = 5
+	unlocking_technologies = { aniline }
+	production_method_groups = {
+		pmg_synthetic_dyes
+		pmg_synthetic_silk
+		pmg_automation_building_synthetics_plants
+		pmg_ownership_capital_building_synthetics_plants
+	}
+	required_construction = construction_cost_high
+	possible = {
+		error_check = {
+			severity = fail
+			THIS = { owner = { NOT = { has_law = law_type:law_industry_banned } } }
 		}
 	}
 }

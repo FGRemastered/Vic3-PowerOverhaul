@@ -1,6 +1,6 @@
 # Paper
 pm_pulp_pressing = {
-	texture = "gfx/interface/icons/production_method_icons/pulp_pressing.dds"			
+	texture = "gfx/interface/icons/production_method_icons/pulp_pressing.dds"
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -27,7 +27,7 @@ pm_sulfite_pulping = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000
-			building_employment_machinists_add	= 500				
+			building_employment_machinists_add	= 500
 		}
 	}
 }

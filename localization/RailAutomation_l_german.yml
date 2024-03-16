@@ -19,7 +19,7 @@
 
  pm_steam_rail_transport_building_coal_mine: "$pm_steam_rail_transport$"
 
- pm_log_carts: "Strombetriebene Baumstammwaggons"
+ pm_electric_log_carts: "Strombetriebene Baumstammwaggons"
  pm_diesel_log_carts: "Ölbetriebene Baumstammwaggons"
 
  pm_electric_tanker_cars: "Strombetriebene Tankwagen"
@@ -87,11 +87,15 @@
  pm_secular_bureaucrats_construction: "$pm_secular_bureaucrats$"
 
  pm_electricfied_bakery: "Brotbackautomaten"
+ pm_electric_bottle_blowers: "Electrische Flaschenbläser"
 
  pm_simple_organization_skyscraper: "$pm_simple_organization$"
  pm_horizontal_drawer_cabinets_skyscraper: "$pm_horizontal_drawer_cabinets$"
  pm_vertical_filing_cabinets_skyscraper: "$pm_vertical_filing_cabinets$"
  pm_switch_boards_skyscraper: "$pm_switch_boards$"
+
+ pm_military_admininistration: "Militärverwaltung"
+ pm_military_admininistration_construction: "$pm_military_admininistration$"
 
  pm_extended_trams: "U-bahnen"
 

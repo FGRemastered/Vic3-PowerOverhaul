@@ -126,7 +126,6 @@ building_infres_logging_camp = {
 	required_construction = construction_cost_low
 	terrain_manipulator = forestry
 	levels_per_mesh = 5
-
 	production_method_groups = {
 		pmg_base_building_logging_camp
 		pmg_hardwood
@@ -136,8 +135,8 @@ building_infres_logging_camp = {
 	}
 }
 building_infres_rubber_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { can_private_construction_res= yes }
+	can_build_government	= { can_gov_construction_res	= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_rubber
 	texture = "gfx/interface/icons/building_icons/rubber_lodge.dds"

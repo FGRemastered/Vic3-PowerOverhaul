@@ -10,3 +10,45 @@ build_administrations = {
     when_taken = { make_admins = yes }
     ai_chance = { base = 0 }
 }
+# build_powerplants = {
+    # is_shown = { has_technology_researched = rotary_valve_engine }
+	# possible = { has_technology_researched = electrical_generation }
+    # when_taken = { make_powerplants = yes }
+    # ai_chance = { base = 0 }
+# }
+decision_watertube_boiler_switch = {
+    is_shown = { NOT = { has_technology_researched = rotary_valve_engine } }
+	possible = { has_technology_researched = watertube_boiler }
+    when_taken = { effect_watertube_boiler_switch = yes }
+    ai_chance = { base = 0 }
+}
+decision_rotary_valve_engine_switch = {
+    is_shown = { NOT = { has_technology_researched = conveyors } }
+	possible = { has_technology_researched = rotary_valve_engine }
+    when_taken = { effect_rotary_valve_engine_switch = yes }
+    ai_chance = { base = 0 }
+}
+decision_assembly_lines_switch = {
+    is_shown = { exists = yes }
+	possible = { has_technology_researched = conveyors }
+    when_taken = { effect_assembly_lines_switch = yes }
+    ai_chance = { base = 0 }
+}
+decision_steam_transport_switch = {
+    is_shown = { NOT = { has_technology_researched = compression_ignition } }
+	possible = { has_technology_researched = railways }
+    when_taken = { effect_steam_transport_switch = yes }
+    ai_chance = { base = 0 }
+}
+decision_electric_transport_switch = {
+    is_shown = { exists = yes }
+	possible = { has_technology_researched = electric_railway }
+    when_taken = { effect_electric_transport_switch = yes }
+    ai_chance = { base = 0 }
+}
+decision_diesel_transport_switch = {
+    is_shown = { has_technology_researched = electric_railway }
+	possible = { has_technology_researched = compression_ignition }
+    when_taken = { effect_diesel_transport_switch = yes }
+    ai_chance = { base = 0 }
+}

@@ -1,4 +1,8 @@
 ﻿l_german:
+ bg_military_industry: "Militärindustrie"
+ bg_light_military_industry: "Leichte $bg_military_industry$"
+ bg_heavy_military_industry: "Schwere $bg_military_industry$"
+
  company_edeka: "EDEKA"
  pm_early_machine_tools: "Pneumatische Maschinenwerkzeuge"
  pm_machine_tools: "Elektrische Maschinenwerkzeuge"
@@ -52,8 +56,10 @@
  
  pm_double_dye_production: "Verbesserte Farbstoffproduktion"
  pm_parallel_rayon: "Parallele Kunstseideproduktion"
+ pm_rayon_dye_focus: "Kunstseideproduktion mit Farbstofffokus"
+ pm_rayon_silk_focus: "Fokus auf Kunstseideproduktion"
  
- pm_continous_bleached_paper: "Kontinuierliche Stoffaufbereitung"
+ pm_continous_bleached_paper: "Holzfreies Papier" # "Kontinuierliche Stoffaufbereitung"
  
  pmg_automation: "Automation"
  pm_watertube_boiler: "Wasserrohrkessel"

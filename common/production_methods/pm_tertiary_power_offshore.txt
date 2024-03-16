@@ -3,90 +3,89 @@ pm_no_offshore_windpark = { texture = "gfx/interface/icons/production_method_ico
 pm_on_shore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			goods_input_engines_add			=   1	# x-60	=  -60
-			goods_input_wood_add				=   1	# x-20	=  -20
-			# output goods							 	#		=  -80
-			goods_output_electricity_add		=  10	# x+30	= +300
-		}											 	#		= +220
+			# input goods	-	1 engine : 5 power
+			goods_input_engines_add				=    2	# x-60	= -120
+			goods_input_wood_add				=    2	# x-20	=  -40
+			# output goods							 	#		= -160
+			goods_output_electricity_add		=   10	# x+30	= +300
+		}											 	#		= +140
 		level_scaled = {
-			building_employment_machinists_add 	=  20	# x-1.5	=  -30
-			building_employment_engineers_add	=   5	# x-3	=  -15
-		}											 	#		=  -45
-	}
+			building_employment_machinists_add 	=   50	# x-1.5	=  -75
+		}
+	}													#		=  +65
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 }
 pm_early_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_capacitors }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			goods_input_engines_add			=	  2 # x-60	= -120
-			goods_input_steel_add			=	  2 # x-50	= -100
+			# input goods	-	1 engine : 10 power
+			goods_input_engines_add				=    2	# x-60	= -120
+			goods_input_steel_add				=    2	# x-50	= -100
 			# output goods								#		= -220
-			goods_output_electricity_add		=	 20 # x+30	= +600
+			goods_output_electricity_add		=   20	# x+30	= +600
 		}												#		= +380
 		level_scaled = {
-			building_employment_machinists_add 	=	 80 # x-1.5	= -120
-			building_employment_engineers_add	=	 20 # x-3	=  -60
-		}												#		= -180
-	}													#		= +200
+			building_employment_machinists_add 	=   50	# x-1.5	=  -75
+			building_employment_engineers_add	=   50	# x-3	= -150
+		}												#		= -225
+	}													#		= +155
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 }
 pm_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
 	unlocking_technologies = { electric_railway }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			=	  5 # x-60	= -300
-			goods_input_steel_add			=	  5 # x-50	= -250
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    5	# x-50	= -250
 			# output goods								#		= -550
-			goods_output_electricity_add		=	 50 # x+30	=+1500
+			goods_output_electricity_add		=   50	# x+30	=+1500
 		}												#		= +950
 		level_scaled = {
-			building_employment_machinists_add 	=	120 # x-1.5	= -180
-			building_employment_engineers_add	=	 30 # x-3	=  -90
-		}												#		= -270
-	}													#		= +680
+			building_employment_machinists_add 	=  100	# x-1.5	= -150
+			building_employment_engineers_add	=   50	# x-3	= -150
+		}												#		= -300
+	}													#		= +650
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
 }
 pm_large_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-20 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			=	 10 # x-60	= -600
-			goods_input_steel_add			=	 10 # x-50	= -500
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=   10	# x-50	= -500
 			# output goods								#		=-1100
-			goods_output_electricity_add		=	100 # x+30	=+3000
+			goods_output_electricity_add		=  100	# x+30	=+3000
 		}												#		=+1900
 		level_scaled = {
-			building_employment_machinists_add 	=	200 # x-1.5	= -300
-			building_employment_engineers_add	=	 50 # x-3	= -150
+			building_employment_machinists_add 	=  200	# x-1.5	= -300
+			building_employment_engineers_add	=   50	# x-3	= -150
 		}												#		= -450
 	}													#		=+1450
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-20 } }
 }
 pm_huge_offshore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-25 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			=	 20 # x-60	=-1200
-			goods_input_steel_add			=	 20 # x-50	=-1000
-			# output goods								 #		=-2200
-			goods_output_electricity_add		=	200 # x+30	=+6000
+			goods_input_engines_add				=	20	# x-60	=-1200
+			goods_input_steel_add				=	20	# x-50	=-1000
+			# output goods								#		=-2200
+			goods_output_electricity_add		=  200	# x+30	=+6000
 		}											 	#		=+3800
 		level_scaled = {
-			building_employment_machinists_add 	=	400 # x-1.5	= -600
-			building_employment_engineers_add	=	100 # x-3	= -300
+			building_employment_machinists_add 	=  400	# x-1.5	= -600
+			building_employment_engineers_add	=  100	# x-3	= -300
 		}												#		= -900
 	}													#		=+2900
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-25 } }
 }

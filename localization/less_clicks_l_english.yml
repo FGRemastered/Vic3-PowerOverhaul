@@ -1,8 +1,36 @@
 ﻿l_english:
- build_railways: "Build railways"
+ build_railways: "Build Railways"
  build_railways_desc: "Adds just enough railways everywhere to ensure full market access"
  build_railways_tooltip: "Click to build more railways"
  
- build_administrations: "Build government administrations"
+ build_administrations: "Build Government Administrations"
  build_administrations_desc: "Adds just enough government administrations everywhere to ensure taxation capacity"
  build_administrations_tooltip: "Click to build more government administrations"
+
+ build_powerplants: "Build Power Plants"
+ build_powerplants_desc: "Adds just enough power plants everywhere to ensure full market access"
+ build_powerplants_tooltip: "Click to build more power plants"
+ 
+ decision_watertube_boiler_switch: "Switch to Watertube Boiler"
+ decision_watertube_boiler_switch_desc: "Switch all buildings to their variant of the Watertube Boiler"
+ decision_watertube_boiler_switch_tooltip: "Click to switch to Watertube Boiler"
+ 
+ decision_rotary_valve_engine_switch: "Switch to Rotary Valve Engine"
+ decision_rotary_valve_engine_switch_desc: "Switch all buildings to their variant of the Rotary Valve Engine"
+ decision_rotary_valve_engine_switch_tooltip: "Click to switch to Rotary Valve Engine"
+ 
+ decision_assembly_lines_switch: "Switch to Assembly Lines"
+ decision_assembly_lines_switch_desc: "Switch all buildings to their variant of the Assembly Lines"
+ decision_assembly_lines_switch_tooltip: "Click to switch to Assembly Lines"
+ 
+ decision_steam_transport_switch: "Switch to Steam Transport"
+ decision_steam_transport_switch_desc: "Switch all buildings to their variant of Steam Transport"
+ decision_steam_transport_switch_tooltip: "Click to switch to Steam Transport"
+ 
+ decision_electric_transport_switch: "Switch to Electric Transport"
+ decision_electric_transport_switch_desc: "Switch all buildings to their variant of Electric Transport"
+ decision_electric_transport_switch_tooltip: "Click to switch to Electric Transport"
+ 
+ decision_diesel_transport_switch: "Switch to Diesel Transport"
+ decision_diesel_transport_switch_desc: "Switch all buildings to their variant of Diesel Transport"
+ decision_diesel_transport_switch_tooltip: "Click to switch to Diesel Transport"

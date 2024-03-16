@@ -19,11 +19,10 @@ state_trait_terra_rossa = {
 state_trait_bremerhaven = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
 	modifier = {
-		building_group_bg_fishing_throughput_add			= 0.25
-		building_shipyards_throughput_add					= 0.25
-		building_military_shipyards_throughput_add			= 0.25
-		state_building_port_max_level_add					= 10
-		state_building_naval_base_max_level_add				= 20
+		building_shipyards_throughput_add					= 0.3
+		building_military_shipyards_throughput_add			= 0.3
+		state_building_port_max_level_add					= 20
+		state_building_naval_base_max_level_add				= 40	# 100 total
 	}
 }
 state_trait_black_forest = {
@@ -86,7 +85,6 @@ state_trait_oder_river = {
 }
 state_trait_danube_river = {
 	icon = "gfx/interface/icons/state_trait_icons/river.dds"
-	
 	modifier = {
 		state_infrastructure_add							= 30
 		state_market_access_price_impact					= 0.05
@@ -109,7 +107,6 @@ state_trait_krka_falls = {
 }
 state_trait_ural_mountains = {
 	icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
-	
 	modifier = {
 		building_group_bg_mining_throughput_add				= 0.30
 		state_construction_mult								=-0.15
@@ -143,5 +140,72 @@ state_trait_terra_roxa = {
 	modifier = {
 		building_group_bg_coffee_plantations_throughput_add	= 0.1
 		building_infres_coffee_plantation_throughput_add	= 0.1
+	}
+}
+state_trait_trondhjemsfjorden = {
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.25
+		building_military_shipyards_throughput_add			= 0.25
+		state_building_port_max_level_add					= 5
+		state_building_naval_base_max_level_add				= 20
+		goods_output_electricity_mult						= 0.25
+	}
+}
+state_trait_hardangerfjorden = {
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.25
+		building_military_shipyards_throughput_add			= 0.25
+		state_building_port_max_level_add					= 5
+		state_building_naval_base_max_level_add				= 20
+		goods_output_electricity_mult						= 0.25
+	}
+}
+state_trait_christianiafjorden = {
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.25
+		building_military_shipyards_throughput_add			= 0.25
+		state_building_port_max_level_add					= 3
+		state_building_naval_base_max_level_add				= 10
+		goods_output_electricity_mult						= 0.25
+	}
+}
+state_trait_london_docklands = {
+	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.3
+		building_military_shipyards_throughput_add			= 0.3
+		state_building_port_max_level_add					= 20
+		state_building_naval_base_max_level_add				= 40	# 100 total
+	}
+}
+state_trait_seto_inland_sea = {
+	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.3
+		building_military_shipyards_throughput_add			= 0.3
+		state_building_port_max_level_add					= 20
+		state_building_naval_base_max_level_add				= 40	# 100 total
+	}
+}
+state_trait_scottish_highlands = {
+	icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
+	modifier = {
+		state_infrastructure_mult							=-0.1
+		state_construction_mult								=-0.1
+		building_group_bg_agriculture_throughput_add		=-0.1
+		building_group_bg_ranching_throughput_add			= 0.1
+		goods_output_electricity_mult						= 0.1
+	}
+}
+state_trait_golden_horn_bay = {
+	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
+	modifier = {
+		building_shipyards_throughput_add					= 0.3
+		building_military_shipyards_throughput_add			= 0.3
+		state_building_port_max_level_add					= 20
+		state_building_naval_base_max_level_add				= 40	# 100 total
 	}
 }

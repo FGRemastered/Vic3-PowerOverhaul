@@ -4,39 +4,38 @@ pm_no_charcoal = {
 }
 pm_charcoal = {	# This doesn't break even. Only activate this when you don't have coal.
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 	building_modifiers = {
 		workforce_scaled = {	# Realistic would be 100:30 but that's too inefficient to ever use
 			# input goods
-			goods_input_wood_add				=  60	# x-20	=-1200
+			goods_input_wood_add				=  50	# x-20	=-1000
 		}
 		unscaled = {
 			goods_input_coal_mult				=-1.333	# x+30	=  900
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 }
 pm_hardwood_coking = {	# This doesn't break even. Only activate this when you don't have coal.
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 	building_modifiers = {
 		workforce_scaled = {	# Realistic would be 100:30 but that's too inefficient to ever use
 			# input goods
-			goods_input_hardwood_add			=  30	# x-40	=-1200
+			goods_input_hardwood_add			=  25	# x-40	=-1000
 		}
 		unscaled = {
 			goods_input_coal_mult				=-1.333	# x+30	=  900
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 }
 # Steel
 pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }	# not as smelly
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_oil_add					=  20	# x-40	= -800
+			goods_input_oil_add					=  25	# x-40	=-1000
 		}
 		level_scaled = {
 			building_employment_engineers_add	=-500	# x+3	= 1500
@@ -49,27 +48,28 @@ pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 			goods_output_sulfur_mult			= 1.0	# x+50	=  250
 		}
 	}													#		= 4350
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }	# not as smelly
 }
 pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Process
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-60 } }	# very not smelly
-	required_input_goods = electricity
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_electricity_add			= 125	# x-40	=-5000
+			goods_input_electricity_add			=  75	# x-30	=-2250	# 125
 		}
 		level_scaled = {
-			building_employment_engineers_add	=-500	# x+3	= 1500
-			building_employment_academics_add	= 250	# x-4	=-1000
-		}
+			building_employment_engineers_add	=-500	# x+3	= 1500 /50 * 15 =  450
+			building_employment_academics_add	= 250	# x-4	=-1000 /50 * 15 = -300
+		}												#		= +500			= +150
 		unscaled = {
 			goods_input_coal_mult				=-1.0	# x+30	=  900
 			goods_input_iron_mult				= 1.0	# x-40	=-4000
 			goods_output_steel_mult				= 1.0	# x+50	= 7500
 			goods_output_sulfur_mult			= 1.0	# x+50	=  250
 		}
-	}													#		= 2440	# Intentionally half as good as Linz-Donawitz
+	}													#		= 4440 			= 2250	# Intentionally half as good as Linz-Donawitz - Now slightly better
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-60 } }	# very not smelly
+	required_input_goods = electricity
 }
 # Oil
 pm_secondary_biofuel = {
@@ -77,25 +77,25 @@ pm_secondary_biofuel = {
 	unlocking_technologies = { pneumatic_tools }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_grain_add				= 175	# x-20	=-3500
+			goods_input_grain_add				=  75	# x-20	=-1500	# 175
 		}
 		unscaled = {
 			goods_input_coal_mult				=-1.0	# x+30	= 1800
 		}
-	}													#		=-1700
+	}													#		= +300
 }
 pm_secondary_carbon_capture_oil = { # Future tech
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-240 } }	# very not smelly
-	required_input_goods = electricity
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			= 160	# x-40	=-6400
+			goods_input_electricity_add			=  30	# x-30	= -900	# 60	# Realistic would be ~200000 per unit, but this is more reasonable.
 		}
 		unscaled = {
-			goods_input_coal_mult				=-1.0	# x+30	= 3600
+			goods_input_coal_mult				=-1.0	# x+30	=  900
 		}
-	}													#		=-4400
+	}													#		=    0
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }	# very not smelly
+	required_input_goods = electricity
 }

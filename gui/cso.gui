@@ -1,6 +1,6 @@
 # Buttons for toggling the list view in the state overview (Unused atm)
 types cso_button_icons
-{	
+{
     type button_icon_up_action = button_icon_round_action
 	{
 		blockoverride "sound" {

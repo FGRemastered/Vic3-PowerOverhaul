@@ -49,6 +49,7 @@
 	building_paper_mills = {"african_manufactory_02_mesh"}
 	building_chemical_plants = {"african_colonial_manufactory_01_mesh"}
 	building_steel_mills = {"african_manufactory_01_mesh"}
+	# building_charcoal_burner = {"african_manufactory_01_mesh"}
 	building_arms_industry = {"african_colonial_manufactory_03_mesh"}
 	building_artillery_foundries = {"african_colonial_manufactory_03_mesh"}
 	building_war_machine_industry = {"war_machines_manufactory_01_mesh"}

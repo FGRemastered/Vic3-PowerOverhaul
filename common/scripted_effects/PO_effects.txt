@@ -15,7 +15,8 @@ make_railways = {
 					name = infra_per_railroad
 					value = {
 						# Base
-						if		= { limit = { NOT = { has_building = building_railway } }																					value		=  20 }	# Fallback for when you don't have any railway at all
+						# if		= { limit = { NOT = { has_building = building_railway } }																					value		=  20 }
+						# Fallback for when you don't have any railway at all - Nonsense since we always build one first
 						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_early_trains } }					value		=  20 }
 						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains } }					value		=  25 }
 						else_if	= { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_rotary_valve_steam_trains } }	value		=  30 }
@@ -36,10 +37,7 @@ make_railways = {
 					}
 				}
 			}
-			# if = {
-				# limit = { var:must_destroy_building = yes }
-				# remove_building = building_railway
-			# }
+			if = { limit = { var:must_destroy_building = yes } remove_building = building_railway }
 			set_variable = {
 				name = missing_railways
 				value = {
@@ -52,7 +50,7 @@ make_railways = {
 					}
 					if = {
 						limit = { any_scope_building = { is_building_type = building_railway occupancy < 0.95 occupancy > 0 } }
-						multiply = 0
+						multiply = 0.0
 					}
 				}
 			}
@@ -88,10 +86,7 @@ make_ports = {
 					}
 				}
 			}
-			# if = {
-				# limit = { var:must_destroy_building = yes }
-				# remove_building = building_port
-			# }
+			if = { limit = { var:must_destroy_building = yes } remove_building = building_port }
 			set_variable = {
 				name = missing_ports
 				value = {
@@ -151,10 +146,7 @@ make_admins = {
 					else_if	= { limit = { is_production_method_active = { building_type = building_government_administration production_method = pm_switch_boards } }				value = 30 }
 				}
 			}
-			if = {
-				limit = { var:must_destroy_building = yes }
-				remove_building = building_government_administration
-			}
+			if = { limit = { var:must_destroy_building = yes } remove_building = building_government_administration }
 			set_variable = {
 				name = missing_buildings
 				value = {
@@ -182,6 +174,59 @@ make_admins = {
 				while = {
 					count = var:missing_buildings
 					start_building_construction = building_government_administration
+				}
+			}
+		}
+	}
+}
+# Spicy Lightning
+make_powerplants = {
+	every_scope_state = {
+		if = {
+			limit = { sg:electricity = { state_goods_delta < 1 } }
+			if = {
+				limit = { NOT = { any_scope_building = { is_building_type = building_power_plant } } }
+				create_building = { building = building_power_plant level = 1 }
+				set_variable = must_destroy_building
+				else = { set_variable = { name = must_destroy_building value = no } }
+			}
+			if = {
+				limit = { any_scope_building = { is_building_type = building_power_plant } }
+				set_variable = {
+					name = power_per_plant
+					value = {
+						if		= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_hydroelectric_plant } }					value		= 100 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_coal-fired_plant } }						value		= 150 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_oil-fired_plant } }						value		= 200 }
+						if		= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_steam_rail_transport_power_plant		} }						multiply	= 1.5 }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_electric_rail_transport_power_plant	} }	subtract	=   2	multiply	= 2   }
+						else_if	= { limit = { any_scope_building = { is_building_type = building_power_plant has_active_production_method = pm_diesel_rail_transport_power_plant 	} }						multiply	= 2   }
+					}
+				}
+			}
+			if = { limit = { var:must_destroy_building = yes } remove_building = building_power_plant }
+			set_variable = {
+				name = missing_powerplants
+				value = {
+					value = 0
+					sg:electricity = { add = state_goods_delta }
+					multiply = -1
+					add = {
+						add = var:power_per_plant
+						subtract = 0.5					# add power_per_plant - 0.5 to ensure ceiling at divison
+						divide = var:power_per_plant
+					}
+					if = {
+						limit = { any_scope_building = { is_building_type = building_power_plant occupancy < 0.95 occupancy > 0 } }
+						multiply = 0
+					}
+				}
+			}
+			if = {
+				limit = { var:missing_powerplants > 0 }
+				while = {
+					count = var:missing_powerplants
+					start_building_construction = building_power_plant
 				}
 			}
 		}
@@ -221,6 +266,63 @@ effect_remove_tobacco_ban = {
 			remove_modifier = tobacco_ban_authority
 		}
 	}
+}
+effect_default_import_export = {	# set_tariffs_no_priority	set_tariffs_export_priority	set_tariffs_import_priority
+	# Military
+	set_tariffs_export_priority	= g:ammunition
+	set_tariffs_export_priority	= g:small_arms
+	set_tariffs_export_priority	= g:artillery
+	set_tariffs_export_priority	= g:aeroplanes
+	set_tariffs_export_priority	= g:tanks
+	set_tariffs_export_priority	= g:manowars
+	set_tariffs_export_priority	= g:ironclads
+	# Staple
+	set_tariffs_export_priority	= g:fabric
+	set_tariffs_export_priority	= g:wood
+	set_tariffs_export_priority	= g:groceries
+	set_tariffs_export_priority	= g:clothes
+	set_tariffs_export_priority	= g:furniture
+	set_tariffs_export_priority	= g:paper
+	# Industrial
+	set_tariffs_export_priority	= g:clippers
+	set_tariffs_export_priority	= g:steamers
+	set_tariffs_export_priority	= g:silk
+	set_tariffs_export_priority	= g:dye
+	set_tariffs_export_priority	= g:sulfur
+	set_tariffs_export_priority	= g:coal
+	set_tariffs_import_priority	= g:iron
+	set_tariffs_import_priority	= g:lead
+	set_tariffs_export_priority	= g:hardwood
+	if = {
+		limit = { has_technology_researched = plastics }
+		set_tariffs_export_priority			= g:rubber
+	}
+	else = { set_tariffs_import_priority	= g:rubber }
+	set_tariffs_export_priority	= g:oil
+	set_tariffs_export_priority	= g:engines
+	# set_tariffs_no_priority		= g:steel
+	# set_tariffs_no_priority		= g:glass
+	set_tariffs_export_priority	= g:fertilizer
+	set_tariffs_export_priority	= g:explosives
+	set_tariffs_export_priority	= g:explosives
+	set_tariffs_export_priority	= g:tools
+	# Luxury
+	set_tariffs_export_priority	= g:porcelain
+	set_tariffs_export_priority	= g:luxury_clothes
+	set_tariffs_export_priority	= g:luxury_furniture
+	set_tariffs_export_priority	= g:meat
+	set_tariffs_export_priority	= g:fruit
+	set_tariffs_export_priority	= g:sugar
+	set_tariffs_export_priority	= g:liquor
+	set_tariffs_export_priority	= g:wine
+	set_tariffs_export_priority	= g:tea
+	set_tariffs_export_priority	= g:coffee
+	set_tariffs_export_priority	= g:tobacco
+	set_tariffs_export_priority	= g:opium
+	set_tariffs_export_priority	= g:automobiles
+	set_tariffs_export_priority	= g:telephones
+	set_tariffs_export_priority	= g:radios
+	set_tariffs_export_priority	= g:fine_art
 }
 # Fallback
 # if	= {

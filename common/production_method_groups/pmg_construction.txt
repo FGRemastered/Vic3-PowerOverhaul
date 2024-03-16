@@ -6,6 +6,7 @@ pmg_construction_sector_bureaucrat_professionalism = {
 	production_methods = {
 		pm_hereditary_bureaucrats_construction
 		pm_professional_bureaucrats_construction
+		pm_military_admininistration_construction
 	}
 }
 pmg_construction_sector_religious_administration = {

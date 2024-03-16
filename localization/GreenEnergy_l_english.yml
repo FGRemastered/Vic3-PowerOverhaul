@@ -38,6 +38,9 @@
  pmg_harvesting_process_tractors: "$pmg_harvesting_process$"
  pm_electric_tractors: "Electric Tractors"
  
+ pm_simple_farming_rice_farm: "$pm_simple_farming$"
+ 
+ pm_soil_enriching_farming_rice_farm: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_vineyard_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_coffee_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_cotton_plantation: "$pm_soil_enriching_farming$"
@@ -50,6 +53,7 @@
  pm_soil_enriching_farming_silk_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_rubber_plantation: "$pm_soil_enriching_farming$"
  
+ pm_fertilization_rice_farm: "$pm_fertilization$"
  pm_fertilization_vineyard_plantation: "$pm_fertilization$"
  pm_fertilization_coffee_plantation: "$pm_fertilization$"
  pm_fertilization_cotton_plantation: "$pm_fertilization$"
@@ -62,6 +66,7 @@
  pm_fertilization_silk_plantation: "$pm_fertilization$"
  pm_fertilization_rubber_plantation: "$pm_fertilization$"
 
+ pm_chemical_fertilizer_rice_farm: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_vineyard_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_coffee_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_cotton_plantation: "$pm_chemical_fertilizer$"
@@ -75,7 +80,7 @@
  pm_chemical_fertilizer_rubber_plantation: "$pm_chemical_fertilizer$"
  
  pm_automatic_fertilization: "Automatic Fertilization"
- pm_automatic_fertilization_building_rice_farm: "$pm_automatic_fertilization$"
+ pm_automatic_fertilization_rice_farm: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_vineyard_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_coffee_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_cotton_plantation: "$pm_automatic_fertilization$"

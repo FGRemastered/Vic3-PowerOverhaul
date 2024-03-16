@@ -42,11 +42,11 @@ pmg_base_building_millet_farm = {
 pmg_base_building_rice_farm = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_simple_farming_building_rice_farm
-		pm_soil_enriching_farming_building_rice_farm
-		pm_fertilization_building_rice_farm
-		pm_chemical_fertilizer_building_rice_farm
-		pm_automatic_fertilization_building_rice_farm
+		pm_simple_farming_rice_farm
+		pm_soil_enriching_farming_rice_farm
+		pm_fertilization_rice_farm
+		pm_chemical_fertilizer_rice_farm
+		pm_automatic_fertilization_rice_farm
 	}
 }
 # Ranches

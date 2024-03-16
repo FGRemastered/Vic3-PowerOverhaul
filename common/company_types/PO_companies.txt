@@ -1,4 +1,34 @@
-
+# Preußische Staatseisenbahnen
+company_prussian_state_railways = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_kpev.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	flavored_company = yes
+	building_types = {
+		building_railway
+		building_motor_industry
+	}
+	potential = {
+		OR = {
+			c:PRU ?= this
+			was_formed_from = PRU
+		}
+	}
+	possible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_north_germany
+				region = sr:region_south_germany
+			}
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 6
+		}
+	}
+	prosperity_modifier = {
+		military_formation_movement_speed_mult = 0.2
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
 # Rheinische Metallwaaren- und Maschinenfabrik Aktiengesellschaft
 company_rheinmetall = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_rheinmetall.dds"
@@ -25,7 +55,7 @@ company_rheinmetall = {
 				}
 			}
 		}
-	}		
+	}
 	possible = {
 		any_scope_state = {
 			OR = {
@@ -47,16 +77,14 @@ company_rheinmetall = {
 		has_technology_researched = automatic_machine_guns
 	}
 	prosperity_modifier = {
+		unit_army_defense_mult = 0.05
 		unit_combat_unit_type_shrapnel_artillery_offense_mult	= 0.1
 		unit_combat_unit_type_siege_artillery_offense_mult		= 0.1
 		unit_combat_unit_type_heavy_tank_offense_mult			= 0.1	# Added
 		unit_combat_unit_type_light_tank_offense_mult			= 0.1	# Added
 		unit_combat_unit_type_mechanized_infantry_offense_mult	= 0.1	# Added
-		unit_army_defense_mult = 0.05
 	}
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}	
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
 # Einkaufsgenossenschaft deutscher Kolonialwarenhändler
 company_edeka = {
@@ -64,11 +92,12 @@ company_edeka = {
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
 	flavored_company = yes
 	building_types = {
+		# Industry
 		building_food_industry
 		building_textile_mills
 		building_furniture_manufacturies
 		building_glassworks
-		
+		# Plantations
 		building_sugar_plantation
 		building_vineyard_plantation
 		building_coffee_plantation
@@ -78,8 +107,8 @@ company_edeka = {
 		building_dye_plantation
 		building_silk_plantation
 		building_tobacco_plantation
-		building_bananna_plantation
-		
+		building_banana_plantation
+		# Inf. Plantations
 		building_infres_sugar_plantation
 		building_infres_vineyard_plantation
 		building_infres_coffee_plantation
@@ -89,41 +118,41 @@ company_edeka = {
 		building_infres_dye_plantation
 		building_infres_silk_plantation
 		building_infres_tobacco_plantation
-		building_infres_bananna_plantation
+		building_infres_banana_plantation
 	}
 	potential = { has_interest_marker_in_region = region_north_germany }
-	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_BRANDENBURG } } }		
+	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_BRANDENBURG } } }
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_BRANDENBURG
 			is_incorporated = yes
 			any_scope_building = {
-				building_food_industry
+				is_building_type = building_food_industry
 				level >= 5
 			}
 		}
-		any_state_region = {
-			filter = {
-				OR = {
-					region = sr:region_nile_basin
-					region = sr:region_ethiopia
-					region = sr:region_north_africa
-					region = sr:region_senegal
-					region = sr:region_niger
-					region = sr:region_congo
-					region = sr:region_southern_africa
-					region = sr:region_zanj
-				}
-			}
-			any_scope_state = {
-				owner = {
-					OR = {
-						THIS = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
-		}
+		# any_state_region = {
+			# filter = {
+				# OR = {
+					# region = sr:region_nile_basin
+					# region = sr:region_ethiopia
+					# region = sr:region_north_africa
+					# region = sr:region_senegal
+					# region = sr:region_niger
+					# region = sr:region_congo
+					# region = sr:region_southern_africa
+					# region = sr:region_zanj
+				# }
+			# }
+			# any_scope_state = {
+				# owner = {
+					# OR = {
+						# THIS = ROOT
+						# is_subject_of = ROOT
+					# }
+				# }
+			# }
+		# }
 		has_technology_researched = corporate_charters
 	}
 	prosperity_modifier = {
@@ -132,7 +161,121 @@ company_edeka = {
 		state_radicals_from_sol_change_mult		=-0.1
 		unit_supply_consumption_mult			=-0.05
 	}
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}	
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# BASF
+company_basf = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_basf.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	flavored_company = yes
+	building_types = {
+		building_chemical_plants
+		building_explosives_factory		# PDX forgot this - Added
+		building_synthetics_plants
+		building_synthetic_oil_plants	# Added
+	}
+	potential = { has_interest_marker_in_region = region_south_germany }
+	attainable = {
+		hidden_trigger = { any_scope_state = { state_region = s:STATE_BADEN } }		# Hide attainable if it's always fulfilled by possible
+	}
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BADEN
+			is_incorporated = yes
+			OR = {
+				any_scope_building = { is_building_type = building_synthetics_plants	level >= 10 }
+				any_scope_building = { is_building_type = building_synthetic_oil_plants	level >= 10 }
+			}
+		}
+	}
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.1
+		building_group_bg_oil_extraction_throughput_add = 0.05
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# United Company of Merchants of England Trading to the East Indies
+company_east_india_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/gb_eic.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	flavored_company = yes
+	building_types = {
+		building_tea_plantation
+		building_tobacco_plantation
+		building_opium_plantation
+		building_infres_tea_plantation
+		building_infres_tobacco_plantation
+		building_infres_opium_plantation
+	}
+	potential = { c:BIC ?= this }
+	possible = {
+		c:BIC ?= this
+		any_scope_state = {
+			OR = {
+				region = sr:region_north_india
+				region = sr:region_south_india
+			}
+			any_scope_building = {
+				OR = {
+					is_building_type = building_tea_plantation
+					is_building_type = building_tobacco_plantation
+					is_building_type = building_opium_plantation
+				}
+				level >= 10
+			}
+			count >= 4
+		}
+		OR = {
+			has_law = law_type:law_mercantilism
+			has_law = law_type:law_protectionism
+		}
+	}
+	prosperity_modifier = {
+		country_convoys_capacity_mult = 0.2
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# Mitsubishi
+company_mitsubishi = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsubishi.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	flavored_company = yes
+	building_types = {  
+		building_shipyards
+		building_military_shipyards
+		building_coal_mine
+		building_infres_coal_mine
+		building_charcoal_burner
+		building_motor_industry
+	}
+	potential = {
+		country_has_primary_culture = cu:japanese
+	}
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_shipyards
+					is_building_type = building_military_shipyards
+					is_building_type = building_motor_industry
+					is_building_type = building_coal_mine
+				}
+				level >= 3
+			}
+		}
+		has_technology_researched = ironclad_tech
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = meiji_restoration_complete
+		}
+	}
+	prosperity_modifier = {
+		building_shipyards_throughput_add				= 0.1
+		building_military_shipyards_throughput_add		= 0.1
+		building_war_machine_industry_throughput_add	= 0.1
+		interest_group_ig_industrialists_approval_add	= 2
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }

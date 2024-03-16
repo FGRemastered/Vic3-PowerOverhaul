@@ -1,0 +1,76 @@
+# Modifers for use in other files
+# Input
+# Linear
+goods_input_furniture_add							= { good = no	percent = no }
+goods_input_services_add							= { good = no	percent = no }	# Does not exist for some reason.
+goods_input_fine_art_add							= { good = no	percent = no }
+goods_input_luxury_clothes_add						= { good = no	percent = no }
+goods_input_luxury_furniture_add					= { good = no	percent = no }
+goods_input_porcelain_add							= { good = no	percent = no }
+# Multiplicative
+goods_input_electricity_mult						= { good = no	percent = yes }
+goods_input_grain_mult								= { good = no	percent = yes }
+goods_input_coal_mult								= { good = no	percent = yes }
+goods_input_iron_mult								= { good = no	percent = yes }
+goods_input_wood_mult								= { good = no	percent = yes }
+goods_input_hardwood_mult							= { good = no	percent = yes }
+goods_input_sulfur_mult								= { good = no	percent = yes }
+goods_input_rubber_mult								= { good = no	percent = yes }
+goods_input_silk_mult								= { good = no	percent = yes }
+goods_input_fertilizer_mult							= { good = no	percent = yes }
+# Output
+goods_output_grain_mult								= { good = yes	percent = yes }
+goods_output_fish_mult								= { good = yes	percent = yes }
+goods_output_fruit_mult								= { good = yes	percent = yes }
+goods_output_meat_mult								= { good = yes	percent = yes }
+goods_output_sugar_mult								= { good = yes	percent = yes }
+goods_output_groceries_mult							= { good = yes	percent = yes }
+goods_output_liquor_mult							= { good = yes	percent = yes }
+goods_output_fabric_mult							= { good = yes	percent = yes }
+goods_output_wood_mult								= { good = yes	percent = yes }
+goods_output_hardwood_mult							= { good = yes	percent = yes }
+goods_output_coal_mult								= { good = yes	percent = yes }
+goods_output_iron_mult								= { good = yes	percent = yes }
+goods_output_lead_mult								= { good = yes	percent = yes }
+goods_output_sulfur_mult							= { good = yes	percent = yes }
+goods_output_gold_mult								= { good = yes	percent = yes }
+goods_output_oil_mult								= { good = yes	percent = yes }
+goods_output_rubber_mult							= { good = yes	percent = yes }
+goods_output_steel_mult								= { good = yes	percent = yes }
+goods_output_tobacco_mult							= { good = yes	percent = yes }	# I prefer chemical warfare to tobacco.
+goods_output_automobiles_mult						= { good = yes	percent = yes }
+goods_output_dye_mult								= { good = yes	percent = yes }
+goods_output_silk_mult								= { good = yes	percent = yes }
+goods_output_tanks_mult								= { good = yes	percent = yes }
+goods_output_luxury_clothes_mult					= { good = yes	percent = yes }
+goods_output_luxury_furniture_mult					= { good = yes	percent = yes }
+goods_output_services_mult							= { good = yes	percent = yes }
+goods_output_transportation_mult					= { good = yes	percent = yes }
+# Buildings
+building_infres_silk_plantation_throughput_add		= { good = yes	percent = yes }	# Sericulture
+building_infres_cotton_plantation_throughput_add	= { good = yes	percent = yes }	# Cotton Gin
+building_infres_sugar_plantation_throughput_add		= { good = yes	percent = yes }	# Sugar Coast	(Brazil)
+building_infres_coffee_plantation_throughput_add	= { good = yes	percent = yes }	# Coffee River	(Brazil)
+# Building Groups
+building_group_bg_arts_throughput_add				= { good = yes	percent = yes }
+building_group_bg_trade_throughput_add				= { good = yes	percent = yes }
+# Pops
+building_slaves_birthrate_mult						= { good = yes	percent = yes }	# Localised, but not initialised
+building_peasants_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_laborers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_machinists_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_clergymen_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_clerks_birthrate_mult						= { good = yes	percent = yes }	# Localised, but not initialised
+building_soldiers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_shopkeepers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_farmers_birthrate_mult						= { good = yes	percent = yes }	# Localised, but not initialised
+building_engineers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_bureaucrats_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_academics_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_officers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_capitalists_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_aristocrats_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+# State
+state_building_barracks_max_level_mult				= { good = yes	percent = yes }
+country_birthrate_from_grain_consumption_mult		= { good = yes	percent = yes }
+country_birthrate_from_groceries_consumption_mult	= { good = yes	percent = yes }

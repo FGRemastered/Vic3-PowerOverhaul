@@ -15,34 +15,35 @@ building_infres_port = {
 	required_construction = construction_cost_medium
 	terrain_manipulator = urban_port
 	can_build_government = {
-		owner = { is_player = yes }
-		error_check = {
-			severity = fail
-			is_coastal = yes
-		}
+		can_gov_construction						= yes
+		error_check = { severity = fail	is_coastal	= yes }
 	}
 	can_build_private = { always = no }	# Government building
 	should_auto_expand = {
 		OR = {
 			AND = {
-				state.market_access < 1
+				state = { market_access < 1 }
 				OR = {															# Placeholder for land adjacency
-					is_capital = yes
+					state = { is_capital = yes }
 					owner = { NOT = { has_technology_researched = railways } }
 				}
 			}
 			AND = {
 				owner = { num_convoys_available < num_convoys_required }
-				THIS.state = { is_incorporated = yes }
+				state = { is_incorporated = yes }
+			}
+			AND = {
+				weekly_profit > 0
+				state = { sg:transportation = { state_goods_pricier > 0.5 } }
 			}
 		}
 		occupancy = 1
 		building_has_goods_shortage = no
 		NOT = {
-			THIS.state = {
+			state = {
 				any_scope_building = {
 					filter = { is_building_type = building_port }
-					can_queue_building_levels > 0
+					can_queue_building_levels = 1	# Can only be "="
 				}
 			}
 		}

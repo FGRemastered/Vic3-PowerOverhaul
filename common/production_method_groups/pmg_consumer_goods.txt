@@ -1,4 +1,16 @@
-﻿# Luxury Goods
+﻿# Consumer Goods
+# Canning
+pmg_canning = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_disabled_canning
+		pm_cannery
+		pm_cannery_fish
+		pm_vacuum_canning
+	}
+}
+# Luxury Goods
+# Clothes
 pmg_luxury_building_textile_mills = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
@@ -9,6 +21,7 @@ pmg_luxury_building_textile_mills = {
 		pm_elastics_priority
 	}
 }
+# Furniture
 pmg_luxury_building_furniture_manufacturies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
@@ -19,6 +32,7 @@ pmg_luxury_building_furniture_manufacturies = {
 		pm_precision_tools_priority
 	}
 }
+# Ceramics
 pmg_luxury_building_glassworks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {

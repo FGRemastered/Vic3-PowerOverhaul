@@ -6,18 +6,17 @@ pm_power_self_sufficient_ranch = {	# Early wind turbines
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			=  2	# x-60	= -120
-			goods_input_wood_add				=  2 	# x-20	=  -40
-			goods_input_iron_add				=  3	# x-40	= -120	# Ignore this
-			# output goods								#		= -170 (-290)
-			goods_output_electricity_add		=  9	# x+30	= +270
-		}												#		=  110 (-10)
+			goods_input_engines_add				=    2	# x-60	= -120
+			goods_input_wood_add				=    4 	# x-20	=  -80
+			goods_input_iron_add				=    3	# x-40	= -120	# Ignore this
+			# output goods								#		= -200 (-320)
+			goods_output_electricity_add		=    9	# x+30	= +270
+		}												#		=   70 (-130)
 		level_scaled = {
 			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_machinists_add 	= 20	# x-1.5	=  -30
-			building_employment_engineers_add	=  5	# x-3	=  -15
-		}												#		=  -45	(+1755)
-	}													#		=  +65	(+1745)
+			building_employment_machinists_add 	=   50	# x-1.5	=  -75
+		}												#		=  -75	(+1425)
+	}													#		=  +65	(+1295)
 }
 pm_large_windpark_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
@@ -26,19 +25,17 @@ pm_large_windpark_ranch = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			=  4	# x-60	= -240
-			goods_input_steel_add			=  2	# x-50	= -100
-			goods_input_iron_add				=  3	# x-40	= -120	# Ignore this
-			# output goods								#		= -420
-			goods_output_electricity_add		= 18	# x+30	= +540
-		}												#		= +120
+			goods_input_engines_add				=    4	# x-60	= -240
+			goods_input_steel_add				=    3	# x-50	= -150	# +1 from fencing
+			# output goods								#		= -390
+			goods_output_electricity_add		=   18	# x+30	= +540
+		}												#		= +150
 		unscaled = { building_production_mult	=-0.05 }#		   -5%	# It scares the animals
 		level_scaled = {
 			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_machinists_add 	= 40	# x-1.5	=  -60
-			building_employment_engineers_add	= 10	# x-3	=  -30
-		}												#		=  -90	(+1710)
-	}													#		=  +30	(+1830)
+			building_employment_machinists_add 	=  100	# x-1.5	= -150
+		}												#		= -150	(+1350)
+	}													#		=    0	(+1650)
 }
 pm_solar_windpark_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
@@ -47,65 +44,62 @@ pm_solar_windpark_ranch = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			= 10	# x-60	= -600
-			goods_input_steel_add			=  4	# x-50	= -200
-			goods_input_glass_add			=  2	# x-40	= - 80
-			goods_input_iron_add				=  3	# x-40	= -120	# Ignore this
-			# output goods								#		= -880	(-1000)
-			goods_output_electricity_add		= 47	# x+30	=+1410
-		}												#		=  -20	(+100)
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=    5	# x-50	= -250	# +1 from fencing
+			goods_input_glass_add				=    2	# x-40	=  -80
+			# output goods								#		= -930
+			goods_output_electricity_add		=   47	# x+30	=+1410
+		}												#		= +480
 		unscaled = { building_production_mult	= 0.10 }# 		  +10%	# Free shelter!
 		level_scaled = {
 			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_farmers_add		=-200	# x+1.5	= +300
-			building_employment_machinists_add 	= 80	# x-1.5	= -120
-			building_employment_engineers_add	= 20	# x-3	=  -60
-		}												#		= +120	(+1920)
-	}													#		= +310	(+2110)
+			building_employment_farmers_add		= -200	# x+2	= +400
+			building_employment_machinists_add 	=  100	# x-1.5	= -150
+			building_employment_engineers_add	=   50	# x-3	= -150
+		}												#		= +100 (+1600)
+	}													#		= +580 (+2080)
 }
-pm_large_solar_windpark_ranch = {
+pm_large_solar_windpark_ranch = {				# Improved
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add			= 20	# x-60	=-1200
-			goods_input_steel_add			=  4	# x-50	= -200
-			goods_input_glass_add			= 12	# x-40	= -480
-			goods_input_iron_add				=  3	# x-40	= -120	# Ignore this
-			# output goods								#		=-1880
-			goods_output_electricity_add		= 97	# x+30	=+2910
-		}												#		=+1130
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_steel_add				=    5	# x-50	= -250	# +1 from fencing
+			goods_input_glass_add				=   12	# x-40	= -480
+			# output goods								#		=-1930
+			goods_output_electricity_add		=   97	# x+30	=+2910
+		}												#		= +980
 		unscaled = { building_production_mult	= 0.20 }# 		  +20%	# Moar free shelter!
 		level_scaled = {
 			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
 			building_employment_farmers_add		= -500	# x+2	=+1000
-			building_employment_machinists_add 	=  160	# x-1.5	= -240
-			building_employment_engineers_add	=   40	# x-3	= -120
-		}												#		= +390	(+2190)
-	}													#		=+1520	(+3200)
+			building_employment_machinists_add 	=  200	# x-1.5	= -250
+			building_employment_engineers_add	=   50	# x-3	= -150
+		}												#		= +600	(+2100)
+	}													#		=+1580	(+3080)
 }
-pm_huge_solar_windpark_ranch = {
+pm_huge_solar_windpark_ranch = {				# Advanced
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
-			goods_input_engines_add			=	30	# x-60	=-1800
-			goods_input_steel_add			=	10	# x-50	= -500
-			goods_input_glass_add			=   10	# x-40	= -400
-			goods_input_iron_add				=    3	# x-40	= -120	# Ignore this
+			goods_input_engines_add				=	30	# x-60	=-1800
+			goods_input_steel_add				=	10	# x-50	= -500
+			goods_input_glass_add				=   10	# x-40	= -400
 			# output goods								#		=-2700
-			goods_output_electricity_add		=  147	# x+30	=+4500
-		}											 	#		=+1800
+			goods_output_electricity_add		=  147	# x+30	=+4410
+		}											 	#		=+1710
 		unscaled = { building_production_mult	= 0.20 }# 		  +20%	# Moar free shelter!
 		level_scaled = {
 			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
 			building_employment_farmers_add		= -500	# x+2	=+1000
 			building_employment_machinists_add 	=  400	# x-1.5	= -600
 			building_employment_engineers_add	=  100	# x-3	= -300
-		}												#		= -900
-	}													#		= +900
+		}												#		= +100 (+1600)
+	}													#		=+1810 (+3310)
 }

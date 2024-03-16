@@ -1,4 +1,4 @@
-
+# Automation Equipment
 pmg_steam_automation_building_coal_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
@@ -27,5 +27,24 @@ pmg_equipment = {
 		pm_chainsaws
 		pm_electric_chainsaws
 		pm_modern_chainsaws
+	}
+}
+# Harvesting methods
+pmg_harvesting_process_simple = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_tools_disabled
+		pm_tools
+	}
+}
+pmg_harvesting_process_tractors = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_tools_disabled
+		pm_tools
+		pm_steam_threshers
+		pm_tractors
+		pm_compression_ignition_tractors
+		pm_electric_tractors
 	}
 }

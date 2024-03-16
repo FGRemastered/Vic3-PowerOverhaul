@@ -66,44 +66,11 @@ pmg_base_building_subsistence_rice_paddies = {
 	}
 }
 # Home Workshops
-pmg_home_workshops_building_subsistence_farms = {
+pmg_home_workshops = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_home_workshops_no_building_subsistence_farms
-		pm_home_workshops
-		pm_lathe_home_workshops
-		pm_mechanized_home_workshops
-		pm_electric_home_workshops
-	}
-}
-pmg_home_workshops_building_subsistence_orchards = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_home_workshops_no_building_subsistence_orchards
-		pm_home_workshops
-		pm_lathe_home_workshops
-		pm_mechanized_home_workshops
-		pm_electric_home_workshops
-	}
-}
-pmg_home_workshops_building_subsistence_pastures = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_home_workshops_no_building_subsistence_pastures
-		pm_home_workshops
-		pm_lathe_home_workshops
-		pm_mechanized_home_workshops
-		pm_electric_home_workshops
-	}
-}
-pmg_home_workshops_building_subsistence_fishing_villages = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_home_workshops_no_building_subsistence_fishing_villages
+		pm_home_workshops_no
 		pm_home_workshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
@@ -114,7 +81,7 @@ pmg_home_workshops_building_subsistence_rice_paddies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_home_workshops_no_building_subsistence_rice_paddies
+		pm_home_workshops_no
 		pm_home_workshops_building_subsistence_rice_paddies
 		pm_lathe_home_workshops_building_subsistence_rice_paddies
 		pm_mechanized_home_workshops_building_subsistence_rice_paddies
@@ -137,7 +104,7 @@ pmg_serfdom_building_subsistence_farms = {
 pmg_serfdom_building_subsistence_orchards = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_serfdom_building_subsistence_orchards
+		pm_serfdom
 		pm_serfdom_no
 		pm_centralised_subsistence_1
 		pm_centralised_subsistence_2
@@ -149,7 +116,7 @@ pmg_serfdom_building_subsistence_orchards = {
 pmg_serfdom_building_subsistence_pastures = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_serfdom_building_subsistence_pastures
+		pm_serfdom
 		pm_serfdom_no
 		pm_centralised_subsistence_1
 		pm_centralised_subsistence_2
@@ -161,7 +128,7 @@ pmg_serfdom_building_subsistence_pastures = {
 pmg_serfdom_building_subsistence_fishing_villages = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_serfdom_building_subsistence_fishing_villages
+		pm_serfdom
 		pm_serfdom_no
 		pm_centralised_subsistence_1
 		pm_centralised_subsistence_2
@@ -173,7 +140,7 @@ pmg_serfdom_building_subsistence_fishing_villages = {
 pmg_serfdom_building_subsistence_rice_paddies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_serfdom_building_subsistence_rice_paddies
+		pm_serfdom
 		pm_serfdom_no
 		pm_centralised_double_subsistence_1
 		pm_centralised_double_subsistence_2

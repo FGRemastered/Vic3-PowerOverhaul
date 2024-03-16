@@ -4,10 +4,10 @@ pm_steel = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   35
-			goods_input_steel_add			=   25
+			goods_input_hardwood_add			=   20
+			goods_input_steel_add				=   30
 			# output goods
-			goods_output_tools_add			=  100
+			goods_output_tools_add				=  100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 3500
@@ -40,11 +40,11 @@ pm_early_machine_tools = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_rubber_add			=  20	# x-40	= -800
-			goods_input_steel_add			=  30	# x-50	=-1500
-			goods_input_oil_add				=  10	# x-40	= -200
+			goods_input_rubber_add				=   20	# x-40	= -800
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_oil_add					=   10	# x-40	= -200
 			# output goods								#		=-2650
-			goods_output_tools_add			= 150	# x+40	=+6000
+			goods_output_tools_add				=  150	# x+40	=+6000
 		}												#		=+3350
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {
@@ -61,11 +61,11 @@ pm_machine_tools = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_rubber_add			=  30	# x-40	= -1200
-			goods_input_steel_add			=  50	# x-50	= -2500
-			goods_input_electricity_add		=  20	# x-30	=  -300
+			goods_input_rubber_add				=   30	# x-40	= -1200
+			goods_input_steel_add				=   50	# x-50	= -2500
+			goods_input_electricity_add			=   20	# x-30	=  -300
 			# output goods								#		= -4400
-			goods_output_tools_add			= 300	# x+40	=+12000
+			goods_output_tools_add				=  300	# x+40	=+12000
 		}												#		= +7600
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {

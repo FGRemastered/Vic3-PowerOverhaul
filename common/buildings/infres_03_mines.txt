@@ -75,9 +75,9 @@ building_infres_sulfur_mine = {
 	}
 }
 building_infres_gold_mine = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
+	can_build_private		= { can_private_construction_res= yes }
+	can_build_government	= { can_gov_construction_res	= yes }
+	ai_value = 0 # Make AI not build this at all
 	building_group = bg_infinite_mining
 	texture = "gfx/interface/icons/building_icons/gold_mine.dds"
 	city_type = mine
@@ -94,8 +94,9 @@ building_infres_gold_mine = {
 	}
 }
 building_infres_oil_rig = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { can_private_construction_res= yes }
+	can_build_government	= { can_gov_construction_res	= yes }
+	ai_value = 0 # Make AI not build this at all
 	building_group = bg_infinite_mining
 	texture = "gfx/interface/icons/building_icons/oil_rig.dds"
 	city_type = mine

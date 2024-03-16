@@ -1,0 +1,277 @@
+# Production
+sericulture = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	can_research = no
+	modifier = {
+		building_silk_plantation_throughput_add				= 0.25
+		building_infres_silk_plantation_throughput_add		= 0.25	# New
+	}
+	ai_weight = { value = 1 }
+}
+cotton_gin = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
+	category = production
+	modifier = {
+		building_cotton_plantation_throughput_add			= 0.25
+		building_infres_cotton_plantation_throughput_add	= 0.25	# New
+	}
+	unlocking_technologies = { manufacturies }
+	ai_weight = { value = 1 }
+}
+shift_work = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/shift_work.dds"
+	category = production
+	modifier = {
+		building_economy_of_scale_level_cap_add				= 20
+	}
+	unlocking_technologies = {
+		mechanized_workshops
+		electrical_generation	# Added - Makes little sense before electric light
+	}
+	ai_weight = { value = 1 }
+}
+mechanized_farming = {
+	# Unlocks Tractors PM in Rye Farms, Wheat Farms, Millet Farms
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	category = production
+	unlocking_technologies = {	
+		threshing_machine
+		nitrogen_fixation
+	}
+	ai_weight = {
+		value = 1
+		if = {
+			limit = { 
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion 
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 1
+		}	
+	}
+}
+nitrogen_fixation = {
+	# Unlocks Nitrogen Fixation PM in Chemical Plants
+	# Unlocks Chemical Fertilizer PM in Rye, Wheat, Rice, Maize, Millet Farms
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/nitrogen_fixation.dds"
+	category = production
+	unlocking_technologies = { improved_fertilizer }
+	modifier = {													# Added
+		country_birthrate_from_grain_consumption_mult		= 0.5
+		country_birthrate_from_groceries_consumption_mult	= 0.4
+	}
+	ai_weight = { value = 1 }
+}
+telephone = {
+	# Unlocks Electrics Industry building
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/telephone.dds"
+	category = production
+	unlocking_technologies = {
+		shift_work
+		electrical_capacitors	# Changed
+	}
+	modifier = {
+		country_max_declared_interests_add = 1
+	}
+	ai_weight = { value = 1 }
+}
+dough_rollers = {
+	# Unlocks the Automated Bakery PM in Food Industries
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/rollers.dds"
+	category = production
+	unlocking_technologies = {
+		conveyors
+		automatic_bottle_blowers
+	}
+	ai_weight = { value = 1 }
+}
+arc_welding = {
+	# Unlocks Arc Welding Shipbuilding PM in Shipyards
+	# Unlocks Very Fast PM in Construction Camps
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
+	category = production
+	unlocking_technologies = {
+		electric_arc_process
+		pneumatic_tools
+	}
+	modifier = {
+		building_group_bg_heavy_industry_throughput_add		= 0.10	# New
+	}
+	ai_weight = { value = 1 }
+}
+# Military
+line_infantry = {
+	# Unlocks Line Infantry PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/line_infantry.dds"
+	category = military
+	unlocking_technologies = {
+		mandatory_service
+		gunsmithing		# New
+		military_drill
+	}
+	ai_weight = { value = 2 }	# Important tech in general
+}
+shell_gun = {
+	# Unlocks Explosive Shell Artillery Production PM in Arms Industries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = military
+	unlocking_technologies = {
+		artillery
+		percussion_cap	# Same as Rifling
+	}
+	ai_weight = { value = 1 }
+}
+nco_training = {
+	# Unlocks Advanced Officer Training PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/nco_training.dds"
+	category = military
+	unlocking_technologies = {
+		military_statistics
+		defense_in_depth	# Changed
+		# stormtroopers		# Added - Removed - Makes the tech tree look weird
+	}
+	ai_weight = { value = 2 }	# Important tech in general
+}
+stormtroopers = {
+	# Unlocks Infiltrators PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
+	category = military
+	unlocking_technologies = {
+		automatic_machine_guns	# Changed
+		wargaming
+		trench_works
+	}
+	# modifier = {
+		# unit_kill_rate_add = 0.05
+		# unit_army_offense_mult = 0.1
+		# unit_combat_unit_type_trench_infantry_offense_add		= 5
+		# unit_combat_unit_type_squad_infantry_offense_add		= 5
+		# unit_combat_unit_type_mechanized_infantry_offense_add	= 5
+	# }
+	ai_weight = { value = 1 }
+}
+flamethrowers = {
+	# Increases kill rate (lowers opponent survival rate)
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/flamethrowers.dds"
+	category = military
+	unlocking_technologies = {
+		defense_in_depth	# Changed
+		stormtroopers		# Changed
+	}
+	# modifier = {
+		# unit_kill_rate_add = 0.05
+	# }
+	ai_weight = { value = 1 }
+}
+chemical_warfare = {
+	# Unlocks Chemical Artillery PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/chemical_warfare.dds"
+	category = military
+	unlocking_technologies = {
+		defense_in_depth	# Changed
+		stormtroopers		# Changed
+	}
+	ai_weight = { value = 1 }
+}
+# self_propelled_torpedoes = {		# Better not to change that. Tech tree already looks weird enough
+	# # Unlocks Torpedo Boat PM in Naval Base
+	# era = era_3
+	# texture = "gfx/interface/icons/invention_icons/self_propelled_torpedoes.dds"
+	# category = military
+	# unlocking_technologies = {
+		# monitor_tech		# Changed
+		# jeune_ecole
+	# }
+	# ai_weight = { value = 1 }
+# }
+# Society
+stock_exchange = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
+	category = society
+	modifier = {
+		country_trade_route_cost_mult						=-0.25
+		state_market_access_price_impact					= 0.1
+		# country_trade_route_competitiveness_mult			= 0.25	# Removed in 1.6
+		# country_max_companies_add							= 1		# Removed in 1.6
+
+		state_academics_investment_pool_contribution_add	= 0.1	# new
+		state_officers_investment_pool_contribution_add		= 0.1	# new
+		state_engineers_investment_pool_contribution_add	= 0.1	# new
+		state_academics_investment_pool_efficiency_mult		= 0.25	# new
+		state_officers_investment_pool_efficiency_mult		= 0.25	# new
+		state_engineers_investment_pool_efficiency_mult		= 0.25	# new
+	}
+	unlocking_technologies = { international_trade }
+	ai_weight = { value = 1 }
+}
+postal_savings = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/postal_savings.dds"
+	category = society
+	modifier = {
+		state_farmers_investment_pool_efficiency_mult		= 0.15
+		state_shopkeepers_investment_pool_efficiency_mult	= 0.15
+		building_cash_reserves_mult							= 0.2
+
+		state_clergymen_investment_pool_contribution_add	= 0.05	# new
+		state_clergymen_investment_pool_efficiency_mult		= 0.15	# new
+		state_academics_investment_pool_efficiency_mult		= 0.25	# new
+		state_officers_investment_pool_efficiency_mult		= 0.25	# new
+		state_engineers_investment_pool_efficiency_mult		= 0.25	# new
+	}
+	unlocking_technologies = { stock_exchange }
+	ai_weight = { value = 1 }
+}
+mutual_funds = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/mutual_funds.dds"
+	category = society
+	modifier = {
+		country_minting_mult								= 0.1
+		country_loan_interest_rate_add						=-0.02
+
+		state_academics_investment_pool_efficiency_mult		= 0.25	# new
+		state_officers_investment_pool_efficiency_mult		= 0.25	# new
+		state_engineers_investment_pool_efficiency_mult		= 0.25	# new
+	}
+	unlocking_technologies = {
+		central_banking
+		postal_savings
+	}
+	ai_weight = { value = 1 }
+}
+international_exchange_standards = {
+	# #todo#! Does nothing at the moment
+	# Should increase trade power maybe
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/international_exchange_standards.dds"
+	category = society
+	modifier = {
+		country_minting_mult								= 0.1
+		country_loan_interest_rate_add						=-0.02
+
+		state_academics_investment_pool_efficiency_mult		= 0.25	# new
+		state_officers_investment_pool_efficiency_mult		= 0.25	# new
+		state_engineers_investment_pool_efficiency_mult		= 0.25	# new
+	}
+	unlocking_technologies = { mutual_funds }
+	ai_weight = { value = 1 }
+}

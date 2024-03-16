@@ -12,13 +12,13 @@ types building_item_types
 				size = { @improved_building_grid_panel_width 40 }
 				alpha = "[TransparentIfFalse(Building.IsActive)]"
 				onclick = "[InformationPanelBar.OpenBuildingDetailsPanel(Building.AccessSelf)]"
-			
+
 
 				flowcontainer = {
 					position = { 15 0 }
 					parentanchor = vcenter
 					spacing = 10
-				
+
 					textbox = {
 						block "text" {
 							text = ""
@@ -28,8 +28,8 @@ types building_item_types
 						default_format = "#title"
 						parentanchor = vcenter
 					}
-				
-					textbox = {		
+
+					textbox = {
 						tooltip = "[Building.GetEmploymentTooltip]"
 						align = left|nobaseline
 						autoresize = yes
@@ -38,7 +38,7 @@ types building_item_types
 						parentanchor = vcenter
 					}
 				}
-		
+
 				textbox = {
 					visible = "[And(And(Building.IsSelfFunded, Building.IsActive), Not(Building.IsSubsistenceBuilding))]"
 					text = "#v @money![Building.GetAverageAnnualEarningsPerEmployeeFormatted|1+]#!"
@@ -46,7 +46,7 @@ types building_item_types
 					align = right|nobaseline
 					parentanchor = right|vcenter
 					position = { -15 0 }
-			
+
 					tooltip = "TOOLTIP_BUILDING_PRODUCTIVITY"
 					tooltipwidget = {
 						GraphTooltip_Productivity = {}
@@ -114,7 +114,7 @@ types building_item_types
 								enabled = "[IsValid( Building.ToggleSubsidies )]"
 								onclick = "[Execute( Building.ToggleSubsidies )]"
 								tooltip = SUBSIDIZED_YES
-								
+
 								blockoverride "icon" {
 									texture = "gfx/interface/production_methods/subsidized.dds"
 								}
@@ -122,14 +122,14 @@ types building_item_types
 									size = { 80% 80% }
 								}
 							}
-							
+
 							button_icon_round_action = {
-								size = { 100% 100% }							
+								size = { 100% 100% }
 								visible = "[And(Building.GetBuildingType.CanBeSubsidized,Not(Building.IsSubsidized))]"
 								enabled = "[IsValid( Building.ToggleSubsidies )]"
 								onclick = "[Execute( Building.ToggleSubsidies )]"
 								tooltip = SUBSIDIZED_NO
-								
+
 								blockoverride "icon" {
 									texture = "gfx/interface/production_methods/subsidized_not.dds"
 								}
@@ -231,7 +231,7 @@ types building_item_types
 									widgetanchor = vcenter
 									tooltip = "TOOLTIP_BUILDING_EMPLOYMENT"
 								}
-							
+
 								textbox = {
 									text = " / [Building.GetEmployeeCap|1*]"
 									align = hcenter|nobaseline
@@ -291,12 +291,12 @@ types building_item_types
 						margin = { 13 5 }
 						elide = right
 						using = fontsize_small
-					}			
+					}
 				}
 
 				widget = {
 					size = { 135 135 }
-					
+
 					building_item_button = {
 						icon = {
 							visible = "[Building.IsBeingTutorialHighlighted]"
@@ -338,9 +338,9 @@ types building_item_types
 						onclick = "[Execute( Building.CancelConstruction )]"
 						using = tooltip_below
 					}
-					
+
 					### EXPAND BUTTON
-					
+
 					# ToggleAutoExpandButton
 					# ToggleSubsidiesButton
 					flowcontainer = {
@@ -364,7 +364,7 @@ types building_item_types
 								enabled = "[IsValid( Building.ToggleSubsidies )]"
 								onclick = "[Execute( Building.ToggleSubsidies )]"
 								tooltip = SUBSIDIZED_YES
-								
+
 								blockoverride "icon" {
 									texture = "gfx/interface/production_methods/subsidized.dds"
 								}
@@ -372,14 +372,14 @@ types building_item_types
 									size = { 80% 80% }
 								}
 							}
-							
+
 							button_icon_round_action = {
-								size = { 100% 100% }							
+								size = { 100% 100% }
 								visible = "[And(Building.GetBuildingType.CanBeSubsidized,Not(Building.IsSubsidized))]"
 								enabled = "[IsValid( Building.ToggleSubsidies )]"
 								onclick = "[Execute( Building.ToggleSubsidies )]"
 								tooltip = SUBSIDIZED_NO
-								
+
 								blockoverride "icon" {
 									texture = "gfx/interface/production_methods/subsidized_not.dds"
 								}
@@ -397,11 +397,11 @@ types building_item_types
 							visible = "[Not(IsPotential( Building.ToggleAutoExpand ))]"
 							size = { 29 29 }
 						}
-						
+
 						block "expand_button_placement" {
 							position = { -5 -5 }
 						}
-						
+
 						button_icon_plus_action = {
 							visible = "[Or( And( Not( Building.IsValid ), IsValid( Building.QueueConstruction ) ), Not(Building.HasReachedLevelCap) )]"
 							tooltip = "[Building.GetQueueConstructionTooltip]"
@@ -431,7 +431,7 @@ types building_item_types
 								autoresize = yes
 								minimumsize = { 23 27 }
 								margin_right = 6
-								
+
 								using = tooltip_above
 								tooltip = "TOOLTIP_BUILDING_PRODUCTIVITY"
 								tooltipwidget = {
@@ -442,7 +442,7 @@ types building_item_types
 									using = dark_area
 								}
 							}
-							
+
 							textbox = {
 							layoutpolicy_horizontal = expanding
 							alpha = "[TransparentIfFalse(Building.IsActive)]"
@@ -479,7 +479,7 @@ types building_item_types
 						visible = "[LessThan_CFixedPoint(Building.GetEmploymentPercentage, GetDefine('NGUI', 'BUILDING_CONSIDERED_FULLY_EMPLOYED'))]"
 						position = { 5 31 }
 						parentanchor = left
-						
+
 						### EMPLOYMENT WARNING
 						icon = {
 							visible = "[And(And(Not(Building.IsSubsistenceBuilding), Building.HasFailedHires), Building.IsActive)]"
@@ -493,7 +493,7 @@ types building_item_types
 							size = { 30 30 }
 							texture = "gfx/interface/icons/generic_icons/employment_not_full_hiring.dds"
 							tooltip = "TOOLTIP_BUILDING_HIRING"
-						}		
+						}
 					}
 
 					### LEVEL
@@ -507,7 +507,7 @@ types building_item_types
 						background = {
 							using = dark_area
 						}
-						
+
 						textbox = {
 							minimumsize = { -1 27 }
 							autoresize = yes
@@ -628,7 +628,7 @@ types building_item_types
 						}
 					}
 				}
-				
+
 				# Yearly Income
 				# Employee
 				widget = {
@@ -729,7 +729,7 @@ types building_item_types
 								widgetanchor = vcenter
 								tooltip = "TOOLTIP_BUILDING_EMPLOYMENT"
 							}
-							
+
 							textbox = {
 								text = " / [Building.GetEmployeeCap|1*]"
 								align = hcenter|nobaseline

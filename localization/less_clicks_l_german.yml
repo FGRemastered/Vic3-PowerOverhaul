@@ -6,3 +6,7 @@
  build_administrations: "Verwaltung bauen"
  build_administrations_desc: "Erweitere die Verwaltung um die Steuereinnahmen zu sichern."
  build_administrations_tooltip: "Verwaltung ausbauen"
+
+ build_powerplants: "Kraftwerke bauen"
+ build_powerplants_desc: "Baue Kraftwerke um die Stromversorgung zu gewährleisten"
+ build_powerplants_tooltip: "Kraftwerke ausbauen"

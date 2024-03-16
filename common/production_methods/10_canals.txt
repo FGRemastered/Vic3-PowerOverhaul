@@ -68,7 +68,9 @@ pm_canal_manual_labour = {
 		}
 	}
 	state_modifiers = {
+		level_scaled = { state_migration_pull_mult = 1 }
 		workforce_scaled = {
+			state_migration_pull_mult			=-0.75
 			state_infrastructure_add			=   20
 			state_pollution_generation_add		=    5
 		}
@@ -93,7 +95,9 @@ pm_canal_steam = {
 		}
 	}
 	state_modifiers = {
+		level_scaled = { state_migration_pull_mult = 1 }
 		workforce_scaled = {
+			state_migration_pull_mult			=-0.75
 			state_infrastructure_add			=   50
 			state_pollution_generation_add		=   10
 		}
@@ -123,7 +127,11 @@ pm_canal_eletric = {
 		}
 	}
 	state_modifiers = {
-		workforce_scaled = { state_infrastructure_add	= 100 }
+		level_scaled = { state_migration_pull_mult = 1 }
+		workforce_scaled = {
+			state_migration_pull_mult			=-0.75
+			state_infrastructure_add			= 100
+		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
@@ -136,7 +144,7 @@ pm_canal_eletric = {
 	}
 }
 pm_canal_oil = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition_tractors.dds"
+	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
@@ -150,7 +158,9 @@ pm_canal_oil = {
 		}
 	}
 	state_modifiers = {
+		level_scaled = { state_migration_pull_mult = 1 }
 		workforce_scaled = {
+			state_migration_pull_mult			=-0.75
 			state_infrastructure_add			=  100
 			state_pollution_generation_add		=   30
 		}

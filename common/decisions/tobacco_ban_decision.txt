@@ -7,7 +7,7 @@ ban_tobacco = {
 	}
 	possible = {
 		any_primary_culture = { has_discrimination_trait = german_speaking }
-		exists = market	
+		exists = market
 		market.owner = root
 	}
 	when_taken = { effect_tobacco_ban = yes }
@@ -34,7 +34,7 @@ ban_tobacco = {
 				}
 			}
 		}
-    }	
+    }
 }
 # Renew
 ban_tobacco_again = {
@@ -77,7 +77,7 @@ ban_tobacco_again = {
 				}
 			}
 		}
-    }	
+    }
 }
 # Rescind
 remove_tobacco_ban = {
@@ -110,5 +110,5 @@ remove_tobacco_ban = {
 			}
 			add = -20
 		}
-   }	
+   }
 }

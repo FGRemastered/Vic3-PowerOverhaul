@@ -1,0 +1,207 @@
+# Charcoal Plant
+# Base
+pm_charcoal_kiln_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/charcoal_kiln.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				=   40
+			# output goods
+			goods_output_coal_add				=   45
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 5000
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 50 } }	# Very stinky
+}
+pm_combustion_chamber_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/combustion_chamber.dds"
+	unlocking_technologies = { mechanical_tools }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				=   80
+			# output goods
+			goods_output_coal_add				=  100
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4500
+			building_employment_machinists_add	=  500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
+}
+pm_machine_coal_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/machine_coal.dds"
+	unlocking_technologies = { mechanized_workshops }
+	disallowing_laws = { law_industry_banned }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				=  120
+			goods_input_tools_add				=   15
+			# output goods
+			goods_output_coal_add				=  165
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+}
+# Refining
+pm_unfiltered = {
+	texture = "gfx/interface/icons/production_method_icons/no_filters.dds"
+}
+pm_dust_separation_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/dust_separation.dds"
+	unlocking_technologies = { distillation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			# output goods
+			goods_output_coal_add				=    5
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 1000
+		}
+	}
+}
+pm_chemical_refining_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/chemical_refining.dds"
+	unlocking_technologies = { fractional_distillation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_fabric_add				=   10
+			# output goods
+			goods_output_coal_add				=   15
+			goods_output_oil_add				=    5
+		}
+		level_scaled = {
+			building_employment_machinists_add	=  500
+			building_employment_engineers_add	=  500
+		}
+	}
+}
+pm_environmental_refining_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/environmental_refining.dds"
+	unlocking_technologies = { pneumatic_tools }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_fabric_add				=   10
+			goods_input_wood_add				=   10
+			# output goods
+			goods_output_coal_add				=   35
+			goods_output_oil_add				=   10
+		}
+		level_scaled = {
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= -5 } }
+}
+pm_carbon_capture_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
+	unlocking_technologies = { arc_welding }
+	unlocking_production_methods = { pm_machine_coal_building_charcoal_burner }
+	disallowing_laws = { law_industry_banned }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				= -120	# x-20	=+2400
+			goods_input_tools_add				=  -15	# x-40	= +600
+			goods_input_electricity_add			=  150	# x-30	=-4500
+			goods_input_engines_add				=   25	# x-60	=-1500
+			# output goods
+			goods_output_coal_add				=   85	# x+30	=+2250
+			goods_output_oil_add				=   25	# x+40	=+1000
+		}												#		= +250
+		level_scaled = {
+			building_employment_engineers_add	= 1000	# x-3	=-3000
+			building_employment_academics_add	=  500	# x-4	=-2000
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= -165 } }
+}
+# Automation
+pm_watertube_boiler_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	unlocking_technologies = { watertube_boiler }
+	disallowing_laws = { law_industry_banned }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add				=    5
+			goods_output_coal_add				=   -5
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+}
+pm_rotary_valve_engine_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	unlocking_technologies = { rotary_valve_engine }
+	disallowing_laws = { law_industry_banned }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add				=    5
+			goods_output_coal_add				=  -10
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-2000
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
+pm_assembly_lines_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
+	unlocking_technologies = { conveyors }
+	unlocking_production_methods = {
+		pm_chemical_refining_building_charcoal_burner
+		pm_environmental_refining_building_charcoal_burner
+		pm_carbon_capture_building_charcoal_burner
+	}
+	disallowing_laws = { law_industry_banned }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add				=   10
+			goods_input_electricity_add			=    5
+			goods_output_oil_add				=   -5
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-3000
+		}
+		unscaled = { building_throughput_add	= 0.5 }
+	}
+	required_input_goods = electricity
+}
+# Ownership
+pm_privately_owned_building_charcoal_burner = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+	unlocking_production_methods = {
+		pm_combustion_chamber_building_charcoal_burner
+		pm_machine_coal_building_charcoal_burner
+	}
+	disallowing_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_capitalists_add	=  100
+		}
+		unscaled = {
+			building_capitalists_shares_add		=   10
+		}
+	}
+}
