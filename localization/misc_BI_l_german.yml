@@ -1,0 +1,3 @@
+﻿l_german:
+ modifier_building_group_bg_rubber_throughput_add:0 "Gummiplantagen-[concept_throughput]"
+ modifier_building_group_bg_rubber_throughput_add_desc:0 "Ein Bonus oder Abzug auf den Durchsatz von Gummiplantagen."

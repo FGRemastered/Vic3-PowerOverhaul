@@ -111,8 +111,8 @@ pm_electric_home_workshops = {
 		level_scaled = { building_employment_engineers_add	= 250 }
 		unscaled = {
 			building_engineers_shares_add	= 2.5
-			goods_output_grain_mult			=-0.75
-			goods_output_fish_mult			=-0.75
+			goods_output_grain_mult			=-0.5
+			goods_output_fish_mult			=-0.5
 			goods_output_fruit_mult			=-0.5
 			goods_output_meat_mult			=-0.5
 			goods_output_sugar_mult			=-0.5
@@ -219,8 +219,8 @@ pm_electric_home_workshops_building_subsistence_rice_paddies = {
 		level_scaled = { building_employment_engineers_add	= 500 }
 		unscaled = {
 			building_engineers_shares_add	= 2.5
-			goods_output_grain_mult			=-0.75
-			goods_output_fish_mult			=-0.75
+			goods_output_grain_mult			=-0.5
+			goods_output_fish_mult			=-0.5
 			goods_output_fruit_mult			=-0.5
 			goods_output_meat_mult			=-0.5
 			goods_output_sugar_mult			=-0.5

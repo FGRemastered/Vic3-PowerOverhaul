@@ -1,0 +1,45 @@
+﻿l_english:
+ publicly_traded_decision: "Trade Publicly"
+ publicly_traded_decision_desc: "Activate $pm_publicly_traded$ in all buildings."
+ 
+ government_run_decision: "Nationalise the Industry"
+ government_run_decision_desc: "Turn over all ownership to the state by activating $pm_government_run$ in all buildings."
+ 
+ sovereign_owned_decision: "Claim Sovereign Ownership"
+ sovereign_owned_decision_desc: "Claim all buildings for the sovereign through englightened admininistrators."
+ sovereign_owned_bureaucrats_decision: "Claim Sovereign Ownership (Bureaucrats)"
+ sovereign_owned_bureaucrats_decision_desc: "Claim all buildings for the sovereign through loyal admininistrators."
+ sovereign_owned_clergy_decision: "Claim Sovereign Ownership (Clergy)"
+ sovereign_owned_clergy_decision_desc: "Claim all buildings for the sovereign through loyal admininistrators."
+ 
+ pmg_ownership_industry: "$pmg_ownership$"
+ 
+ pm_privately_owned_secular: "$pm_privately_owned$"
+ pm_privately_owned_secular_plantation: "$pm_privately_owned_plantation$"
+ 
+ pm_sovereign_owned_hereditary: "Sovereign-owned (Hereditary)"
+ pm_sovereign_owned_hereditary_secular: "$pm_sovereign_owned_hereditary$"
+ pm_sovereign_owned_clergy: "Sovereign-owned (Clergy)"
+ pm_sovereign_owned_bureaucrats: "Sovereign-owned"
+ pm_sovereign_owned_academics: "Sovereign-owned (Academics)"
+ pm_sovereign_owned_engineers: "Sovereign-owned (Engineers)"
+ pm_sovereign_owned_officers: "Sovereign-owned (Officers)"
+ pm_government_run_military_industry: "$pm_government_run$"
+ 
+ pmg_ownership_military_industry: "$pmg_ownership$"
+ 
+ pm_publicly_traded_industry: "$pm_publicly_traded$"
+ 
+ pmg_ownership_bg_fishing: "$pmg_ownership$"
+ pm_merchant_guilds_bg_fishing: "$pm_merchant_guilds$"
+ pm_privately_owned_bg_fishing: "$pm_privately_owned$"
+ pm_publicly_traded_bg_fishing: "$pm_publicly_traded$"
+ pm_government_run_bg_fishing: "$pm_government_run$"
+ pm_worker_cooperative_bg_fishing: "$pm_worker_cooperative$"
+ 
+ pm_trade_center_stock_exchange: "$stock_exchange$"
+ pm_trade_center_clergy: "$pm_sovereign_owned_clergy$"
+ pm_trade_center_bureacrats: "$pm_sovereign_owned_bureaucrats$"
+ pm_trade_center_academics: "$pm_sovereign_owned_academics$"
+ pm_trade_center_engineers: "$pm_sovereign_owned_engineers$"
+ pm_trade_center_officers: "$pm_sovereign_owned_officers$"

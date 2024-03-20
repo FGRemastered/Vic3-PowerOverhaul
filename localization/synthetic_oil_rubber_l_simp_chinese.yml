@@ -1,0 +1,24 @@
+﻿l_simp_chinese:
+ building_synthetic_oil_plants: "Synthetic Oil Plants"
+ building_synthetic_oil_plants_lens_option: "Expand $building_synthetic_oil_plants$"
+ 
+ pmg_base_building_synthetic_oil_plants: "Synthetic Oil"
+ pm_coal_gasification: "Coal Gasification"
+ pm_synth_oil_production: "Synthetic Oil Production"
+ pm_improved_synth_oil_production: "Improved Synthetic Oil Production"
+ pm_advanced_synth_oil_production: "Advanced Synthetic Oil Production"
+ 
+ pmg_secondary_building_synthetic_rubber_plants: "Synthetic Rubber"
+ pm_no_synth_rubber: "Focus on Oil Production"
+ pm_synth_rubber_production: "Synthetic Rubber"
+ pm_synth_rubber_focus: "Synthetic Rubber Focus"
+ pm_synth_rubber_priority: "Synthetic Rubber Priority"
+ pm_synth_rubber_only: "Only Synthetic Rubber"
+ pm_improved_synth_rubber_production: "Buna"
+ pm_improved_synth_rubber_priority: "Focus on Buna"
+ pm_advanced_synth_rubber_production: "Neoprene"
+ pm_advanced_synth_rubber_priority: "Focus on Neoprene"
+ 
+ pmg_tertiary_building_carbonization: "Charcoal"
+ pm_no_hardwood_carbonization: "No Charcoal"
+ pm_hardwood_carbonization: "Hardwood Carbonization"

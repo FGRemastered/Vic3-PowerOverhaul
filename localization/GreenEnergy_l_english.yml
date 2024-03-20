@@ -197,6 +197,8 @@
  building_infres_subsistence_rice_paddies: "Inf. Subs. Rice Paddies"
  building_infres_subsistence_rice_paddies_lens_option: "Expand $building_infres_subsistence_rice_paddies$"
  
+ pmg_serfdom: "$pm_serfdom$"
+ pm_freedom: "Freedom"
  pm_centralised_subsistence: "Centralised Subsistence"
  pm_centralised_subsistence_1: "$pm_centralised_subsistence$ 1"
  pm_centralised_subsistence_2: "$pm_centralised_subsistence$ 2"

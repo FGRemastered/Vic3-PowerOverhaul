@@ -86,10 +86,10 @@ effect_watertube_boiler_switch = {
 		building_type = building_steel_mills
 		production_method = pm_watertube_boiler_building_steel_mills
 	}
-	activate_production_method = {
-		building_type = building_motor_industry
-		production_method = pm_watertube_boiler_steam_engines
-	}
+	# activate_production_method = {
+		# building_type = building_motor_industry
+		# production_method = pm_watertube_boiler_steam_engines
+	# }
 	activate_production_method = {
 		building_type = building_motor_industry
 		production_method = pm_watertube_boiler_building_motor_industry
@@ -149,10 +149,10 @@ effect_rotary_valve_engine_switch = {
 		building_type = building_steel_mills
 		production_method = pm_rotary_valve_engine_building_steel_mills
 	}
-	activate_production_method = {
-		building_type = building_motor_industry
-		production_method = pm_rotary_valve_engines
-	}
+	# activate_production_method = {
+		# building_type = building_motor_industry
+		# production_method = pm_rotary_valve_engines
+	# }
 	activate_production_method = {
 		building_type = building_motor_industry
 		production_method = pm_rotary_valve_engine_building_motor_industry

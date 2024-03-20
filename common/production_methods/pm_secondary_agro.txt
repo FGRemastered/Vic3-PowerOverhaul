@@ -9,7 +9,7 @@ pm_potatoes = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_output_grain_add		= -20
-			goods_output_liquor_add		=  15
+			goods_output_sugar_add		=  15
 		}
 	}
 }
@@ -24,7 +24,7 @@ pm_potatoes_enriched = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_output_grain_add		= -30
-			goods_output_liquor_add		=  25
+			goods_output_sugar_add		=  25
 		}
 	}
 }
@@ -38,7 +38,7 @@ pm_potatoes_fertilizer = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_output_grain_add		= -60
-			goods_output_liquor_add		=  45
+			goods_output_sugar_add		=  45
 		}
 	}
 }
@@ -51,7 +51,7 @@ pm_potatoes_chemical_fertilizer = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_output_grain_add		= -90
-			goods_output_liquor_add		=  70
+			goods_output_sugar_add		=  70
 		}
 	}
 }
@@ -63,7 +63,7 @@ pm_potatoes_auto = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_output_grain_add		=-140
-			goods_output_liquor_add		= 105
+			goods_output_sugar_add		= 105
 		}
 	}
 }

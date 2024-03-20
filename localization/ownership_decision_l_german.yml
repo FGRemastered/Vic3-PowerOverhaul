@@ -1,0 +1,45 @@
+﻿l_german:
+ publicly_traded_decision: "An die Börse gehen"
+ publicly_traded_decision_desc: "Aktiviere $pm_publicly_traded$ in allen Werkstätten."
+ 
+ government_run_decision: "Industrienationalisierung"
+ government_run_decision_desc: "Nationalisiere die Industrie."
+ 
+ sovereign_owned_decision: "Souveräneigentum beanspruchen"
+ sovereign_owned_decision_desc: "Beanspruche sämtliche Industrie als Souveräneigentum, verwaltet durch aufgeklärte Admininistratoren."
+ sovereign_owned_bureaucrats_decision: "Souveräneigentum beanspruchen (Bürokratisch)"
+ sovereign_owned_bureaucrats_decision_desc: "Beanspruche sämtliche Industrie als Souveräneigentum, verwaltet durch loyale Admininistratoren."
+ sovereign_owned_clergy_decision: "Souveräneigentum beanspruchen (Klerkiker)"
+ sovereign_owned_clergy_decision_desc: "Beanspruche sämtliche Industrie als Souveräneigentum, verwaltet durch loyale Admininistratoren."
+ 
+ pmg_ownership_industry: "$pmg_ownership$"
+ 
+ pm_privately_owned_secular: "$pm_privately_owned$"
+ pm_privately_owned_secular_plantation: "$pm_privately_owned_plantation$"
+ 
+ pm_sovereign_owned_hereditary: "Souveräneigentum (Aristokratenverwaltung)"
+ pm_sovereign_owned_hereditary_secular: "$pm_sovereign_owned_hereditary$"
+ pm_sovereign_owned_clergy: "Souveräneigentum (Klerkikerverwaltung)"
+ pm_sovereign_owned_bureaucrats: "Souveräneigentum"
+ pm_sovereign_owned_academics: "Souveräneigentum (Akademikerverwaltung)"
+ pm_sovereign_owned_engineers: "Souveräneigentum (Ingenieursverwaltung)"
+ pm_sovereign_owned_officers: "Souveräneigentum (Militärverwaltung)"
+ pm_government_run_military_industry: "$pm_government_run$"
+ 
+ pmg_ownership_military_industry: "$pmg_ownership$"
+ 
+ pm_publicly_traded_industry: "$pm_publicly_traded$"
+ 
+ pmg_ownership_bg_fishing: "$pmg_ownership$"
+ pm_merchant_guilds_bg_fishing: "$pm_merchant_guilds$"
+ pm_privately_owned_bg_fishing: "$pm_privately_owned$"
+ pm_publicly_traded_bg_fishing: "$pm_publicly_traded$"
+ pm_government_run_bg_fishing: "$pm_government_run$"
+ pm_worker_cooperative_bg_fishing: "$pm_worker_cooperative$"
+ 
+ pm_trade_center_stock_exchange: "$stock_exchange$"
+ pm_trade_center_clergy: "$pm_sovereign_owned_clergy$"
+ pm_trade_center_bureacrats: "$pm_sovereign_owned_bureaucrats$"
+ pm_trade_center_academics: "$pm_sovereign_owned_academics$"
+ pm_trade_center_engineers: "$pm_sovereign_owned_engineers$"
+ pm_trade_center_officers: "$pm_sovereign_owned_officers$"

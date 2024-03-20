@@ -1,0 +1,254 @@
+﻿###################	Oil	###################
+pm_coal_gasification = {															# Inefficient, but better than nothing
+	texture = "gfx/interface/icons/production_method_icons/gas_streetlights.dds"
+	# unlocking_technologies = { distillation }		# Making oil from coal is easier than it may seem
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_coal_add					=   30	# x-30	= -1200	x4/3
+			goods_input_glass_add					=    5	# x-40	=  -200
+			# output goods							 		#		= -1400
+			goods_output_oil_add					=   60	# x+40	= +2400
+			goods_output_sulfur_add					=    2	# x+50	=  +100
+		}													#		= +1100
+		level_scaled = {
+			building_employment_laborers_add		= 2000	# x-1	= -2000
+			building_employment_machinists_add		=  500	# x-1.5	=  -750
+			building_employment_engineers_add		=  100	# x-3	=  -300
+		}													#		= -3050	/50 weeks * 10 SoL = -610
+		unscaled = {
+			goods_output_rubber_mult				=-0.5
+			goods_input_grain_mult					=-0.5
+			goods_input_coal_mult					= 0.333
+			goods_input_wood_mult					= 0.333
+			goods_input_hardwood_mult				= 0.333
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
+pm_synth_oil_production = {
+	texture = "gfx/interface/icons/production_method_icons/simple_oil_extraction.dds"
+	unlocking_technologies = { electrical_generation }	# No more advanced than its predecessor, just with a different power source
+	required_input_goods = electricity
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_coal_add					=   60	# x-30	= -1800
+			goods_input_tools_add					=   10	# x-40	=  -400
+			goods_input_glass_add					=   10	# x-40	=  -400
+			goods_input_electricity_add				=    5	# x-30	=  -300 x2
+			# output goods									#		= -2900
+			goods_output_oil_add					=  120	# x+40	= +4800
+			goods_output_sulfur_add					=   12	# x+50	=  +600	 1/10
+		}													#		= +2500
+		level_scaled = {
+			building_employment_laborers_add		= 2000	# x-1	= -2000
+			building_employment_machinists_add		=  500	# x-1.5	=  -750
+			building_employment_engineers_add		=  250	# x-3	=  -750
+			building_employment_academics_add		=  250	# x-4	= -1000
+		}													#		= -4500	/50 weeks * 10 SoL = -900
+		unscaled = {
+			goods_input_wood_mult					= 1.0
+			goods_input_hardwood_mult				= 1.0
+			goods_input_electricity_mult			= 1.0
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
+pm_improved_synth_oil_production = {
+	texture = "gfx/interface/icons/production_method_icons/combustion_derricks.dds"
+	unlocking_technologies = { nitrogen_fixation }		# Advancements in chemistry make this easier
+	required_input_goods = electricity
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_coal_add					=   80	# x-30	= -2400
+			goods_input_tools_add					=   20	# x-40	=  -800
+			goods_input_steel_add					=    5	# x-40	=  -200
+			goods_input_engines_add					=    5	# x-60	=  -300
+			goods_input_electricity_add				=    7.5# x-30	=  -600 x8/3
+			# output goods									#		= -4300
+			goods_output_oil_add					=  240	# x+40	= +9600
+			goods_output_sulfur_add					=   30	# x+50	= +1500	 1/8
+		}													#		= +6800
+		level_scaled = {
+			building_employment_laborers_add		= 2000	# x-1	= -2000
+			building_employment_machinists_add		=  500	# x-1.5	=  -750
+			building_employment_engineers_add		=  500	# x-3	= -1500
+			building_employment_academics_add		=  250	# x-4	= -1000
+		}													#		= -5250	/50 weeks * 10 SoL =-1050
+		unscaled = {
+			goods_output_rubber_mult				= 1.0
+			goods_input_grain_mult					= 1.0
+			goods_input_wood_mult					= 1.6667
+			goods_input_hardwood_mult				= 1.6667
+			goods_input_electricity_mult			= 1.6667
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
+}
+pm_advanced_synth_oil_production = {
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
+	unlocking_technologies = { chemical_warfare }		# Ze Warmachine requires fuel!
+	required_input_goods = electricity
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_coal_add					=  120	# x-30	= -3600
+			goods_input_tools_add					=   20	# x-40	=  -800
+			goods_input_steel_add					=   10	# x-40	=  -400
+			goods_input_engines_add					=    5	# x-60	=  -300
+			goods_input_electricity_add				=   10	# x-30	= -1200	x3
+			# output goods									#		= -6300
+			goods_output_oil_add					=  360	# x+40	=+14400
+			goods_output_sulfur_add					=   45	# x+50	= +2250	 1/8
+		}													#		=+10350
+		level_scaled = {
+			building_employment_laborers_add		= 2000	# x-1	= -2000
+			building_employment_machinists_add		=  500	# x-1.5	=  -750
+			building_employment_engineers_add		=  500	# x-3	= -1500
+			building_employment_academics_add		=  500	# x-4	= -2000
+		}													#		= -6250	/50 weeks * 10 SoL =-1250
+		unscaled = {
+			goods_output_rubber_mult				= 2.0
+			goods_input_grain_mult					= 2.0
+			goods_input_wood_mult					= 3.0
+			goods_input_hardwood_mult				= 3.0
+			goods_input_electricity_mult			= 3.0
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 30 } }
+}
+##################	Rubber	##################
+pm_no_synth_rubber = {	# No Rubber?!
+	texture = "gfx/interface/icons/production_method_icons/no_artificial_silk.dds"
+}
+# Regular
+pm_synth_rubber_production = {
+	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+	unlocking_technologies = { plastics }	# Requires advanced Oil processing knowledge
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_rubber_add			=  40
+		}
+		unscaled = {
+			goods_output_oil_mult			=-0.167
+			goods_output_sulfur_mult		=-0.333
+		}
+	}
+}
+pm_synth_rubber_focus = {
+	texture = "gfx/interface/icons/production_method_icons/elastics.dds"
+	unlocking_technologies = { plastics }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_rubber_add			=  80
+		}
+		unscaled = {
+			goods_output_oil_mult			=-0.333
+			goods_output_sulfur_mult		=-0.5
+		}
+	}
+}
+pm_synth_rubber_priority = {
+	texture = "gfx/interface/icons/production_method_icons/elastics2.dds"
+	unlocking_technologies = { plastics }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_rubber_add			= 120
+		}
+		unscaled = {
+			goods_output_oil_mult			=-0.5
+			goods_output_sulfur_mult		=-0.667
+		}
+	}
+}
+pm_synth_rubber_only = {
+	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation.dds"
+	unlocking_technologies = { plastics }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_rubber_add			= 240
+		}
+		unscaled = {
+			goods_output_oil_mult			=-1.0
+			goods_output_sulfur_mult		=-1.0
+		}
+	}
+}
+# # Improved
+# pm_improved_synth_rubber_production = {
+	# texture = "gfx/interface/icons/production_method_icons/rayon.dds"
+	# unlocking_technologies = { plastics }
+	# unlocking_production_methods = {
+		# pm_improved_synth_oil_production
+		# pm_advanced_synth_oil_production	# It may not be ideal, but it's better than no rubber at all
+	# }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_tools_add			= 20
+			# goods_input_electricity_add		= 40
+			# goods_output_oil_add			=-40
+			# goods_output_sulfur_add		=-20
+			# # output goods
+			# goods_output_rubber_add			= 120
+		# }
+	# }
+# }
+# pm_improved_synth_rubber_priority = {
+	# texture = "gfx/interface/icons/production_method_icons/elastics.dds"
+	# unlocking_technologies = { plastics }
+	# unlocking_production_methods = {
+		# pm_improved_synth_oil_production
+		# pm_advanced_synth_oil_production
+	# }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_tools_add			= 30
+			# goods_input_electricity_add		= 60
+			# goods_output_oil_add			=-80
+			# goods_output_sulfur_add		=-30
+			# # output goods
+			# goods_output_rubber_add			= 240
+		# }
+	# }
+# }
+# # Advanced
+# pm_advanced_synth_rubber_production = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_weapons_specialists.dds"
+	# unlocking_technologies = { chemical_warfare }
+	# unlocking_production_methods = {
+		# pm_advanced_synth_oil_production
+	# }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_tools_add			= 30
+			# goods_input_electricity_add		= 60
+			# goods_output_oil_add			=-20
+			# goods_output_sulfur_add		=-25
+			# # output goods
+			# goods_output_rubber_add			= 100
+		# }
+	# }
+# }
+# pm_advanced_synth_rubber_priority = {
+	# texture = "gfx/interface/icons/production_method_icons/unused/chemical_artillery.dds"
+	# unlocking_technologies = { chemical_warfare }
+	# unlocking_production_methods = {
+		# pm_advanced_synth_oil_production
+	# }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_tools_add			= 30
+			# goods_input_electricity_add		= 60
+			# goods_output_oil_add			=-40
+			# goods_output_sulfur_add		=-35
+			# # output goods
+			# goods_output_rubber_add			= 200
+		# }
+	# }
+# }

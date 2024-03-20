@@ -51,6 +51,7 @@ building_infres_silk_plantation_throughput_add		= { good = yes	percent = yes }	#
 building_infres_cotton_plantation_throughput_add	= { good = yes	percent = yes }	# Cotton Gin
 building_infres_sugar_plantation_throughput_add		= { good = yes	percent = yes }	# Sugar Coast	(Brazil)
 building_infres_coffee_plantation_throughput_add	= { good = yes	percent = yes }	# Coffee River	(Brazil)
+building_infres_tobacco_plantation_throughput_add	= { good = yes	percent = yes }	# Reconcavo		(Brazil)
 # Building Groups
 building_group_bg_arts_throughput_add				= { good = yes	percent = yes }
 building_group_bg_trade_throughput_add				= { good = yes	percent = yes }

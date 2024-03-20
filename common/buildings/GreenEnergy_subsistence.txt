@@ -6,7 +6,7 @@ building_subsistence_farms = {
 		pmg_base_building_subsistence_farms
 		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
-		pmg_serfdom_building_subsistence_farms
+		pmg_serfdom
 		pmg_ownership_building_subsistence
 	}
 	buildable = no
@@ -22,7 +22,7 @@ building_subsistence_orchards = {
 		pmg_base_building_subsistence_orchards
 		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
-		pmg_serfdom_building_subsistence_orchards
+		pmg_serfdom
 		pmg_ownership_building_subsistence
 	}
 	buildable = no
@@ -38,7 +38,7 @@ building_subsistence_pastures = {
 		pmg_base_building_subsistence_pastures
 		pmg_home_workshops
 		pmg_tertiary_agri_power_subsistence
-		pmg_serfdom_building_subsistence_pastures
+		pmg_serfdom
 		pmg_ownership_building_subsistence
 	}
 	buildable = no
@@ -54,7 +54,7 @@ building_subsistence_fishing_villages = {
 		pmg_base_building_subsistence_fishing_villages
 		pmg_home_workshops
 		pmg_tertiary_offshore_power
-		pmg_serfdom_building_subsistence_fishing_villages
+		pmg_serfdom
 		pmg_ownership_building_subsistence
 	}
 	buildable = no

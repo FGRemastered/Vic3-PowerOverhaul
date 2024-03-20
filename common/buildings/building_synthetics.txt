@@ -1,0 +1,17 @@
+﻿# Oil and Rubber plant
+building_synthetic_oil_plants = {
+	building_group = bg_heavy_industry
+	texture = "gfx/interface/icons/building_icons/synth_oil_plant.dds"
+	city_type = city
+	# levels_per_mesh = 1000000	# Don't have one, so pretend this doesn't exist.
+	levels_per_mesh = 5
+	unlocking_technologies = { distillation }
+	production_method_groups = {
+		pmg_base_building_synthetic_oil_plants
+		pmg_secondary_building_synthetic_rubber_plants
+		pmg_secondary_charcoal_oil
+		pmg_transportation_building_oil_rig
+		pmg_ownership_capital_building_synthetics_plants
+	}
+	required_construction = construction_cost_high
+}

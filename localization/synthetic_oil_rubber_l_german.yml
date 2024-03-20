@@ -1,0 +1,24 @@
+﻿l_german:
+ building_synthetic_oil_plants: "Synthetische Ölraffinerie"
+ building_synthetic_oil_plants_lens_option: "Erweitere $building_synthetic_oil_plants$"
+ 
+ pmg_base_building_synthetic_oil_plants: "Synthetische Ölproduktion"
+ pm_coal_gasification: "Kohlevergasung"
+ pm_synth_oil_production: "Fischer-Tropsch-Synthese"
+ pm_improved_synth_oil_production: "Verbesserte Kohleverflüssigung"
+ pm_advanced_synth_oil_production: "Fortschrittliche Kohleverflüssigung"
+ 
+ pmg_secondary_building_synthetic_rubber_plants: "Synthetische Gummiproduktion"
+ pm_no_synth_rubber: "Vorrang für Ölproduktion"
+ pm_synth_rubber_production: "Kautschuksynthese"
+ pm_synth_rubber_focus: "Fokus auf Kautschuksynthese"
+ pm_synth_rubber_priority: "Vorrang für Kautschuksynthese"
+ pm_synth_rubber_only: "Vollständige Kautschuksynthese"
+ pm_improved_synth_rubber_production: "Buna"
+ pm_improved_synth_rubber_priority: "Vorrang für Buna"
+ pm_advanced_synth_rubber_production: "Neopren"
+ pm_advanced_synth_rubber_priority: "Vorrang für Neopren"
+ 
+ pmg_tertiary_building_carbonization: "Holzkohle"
+ pm_no_hardwood_carbonization: "Keine Holzkohle"
+ pm_hardwood_carbonization: "Hartholzverkohlung"

@@ -29,7 +29,20 @@ pm_serfdom_no = {
 	}
 	disallowing_laws = { law_serfdom }
 	building_modifiers = {
-		unscaled = { building_subsistence_output_add = 4 }
+		unscaled = { building_subsistence_output_add	= 4 }
+	}
+}
+pm_freedom = {
+	texture = "gfx/interface/icons/production_method_icons/no_serfdom.dds"
+	unlocking_laws = {
+		law_tenant_farmers
+		law_commercialized_agriculture
+		law_homesteading
+		law_collectivized_agriculture
+	}
+	disallowing_laws = { law_serfdom }
+	building_modifiers = {
+		unscaled = { building_peasants_shares_add		= 1 }
 	}
 }
 pm_centralised_subsistence_1 = {
@@ -80,7 +93,7 @@ pm_centralised_subsistence_1 = {
 		}												#		=-5300
 		unscaled = {
 			building_throughput_add				= 0.05
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -128,7 +141,7 @@ pm_centralised_subsistence_2 = {
 		}												#		=-4800
 		unscaled = {
 			building_throughput_add				= 0.1
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -172,7 +185,7 @@ pm_centralised_subsistence_3 = {
 		}												#		=-1750
 		unscaled = {
 			building_throughput_add				= 0.25
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -211,7 +224,7 @@ pm_centralised_subsistence_4 = {
 		}												#		=  500
 		unscaled = {
 			building_throughput_add				= 0.5
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -304,7 +317,7 @@ pm_centralised_double_subsistence_1 = {
 		}												#		=-5300
 		unscaled = {
 			building_throughput_add				= 0.05
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -342,7 +355,7 @@ pm_centralised_double_subsistence_2 = {
 		}												#		=-4800
 		unscaled = {
 			building_throughput_add				= 0.1
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -379,7 +392,7 @@ pm_centralised_double_subsistence_3 = {
 		}												#		=-1750
 		unscaled = {
 			building_throughput_add				= 0.25
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}
@@ -414,7 +427,7 @@ pm_centralised_double_subsistence_4 = {
 		}												#		=  500
 		unscaled = {
 			building_throughput_add				= 0.5
-			building_peasants_shares_add		= 0.5
+			building_peasants_shares_add		= 1
 			building_subsistence_output_add		= 1
 		}
 	}

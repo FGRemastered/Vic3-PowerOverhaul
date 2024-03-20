@@ -1,4 +1,6 @@
 ﻿l_english:
+ modifier_building_group_bg_rubber_throughput_add:0 "Rubber Industry [concept_throughput]"
+ modifier_building_group_bg_rubber_throughput_add_desc:0 "A bonus or penalty to both input and output of the rubber plantations"
  # Input Add
  modifier_goods_input_furniture_add: "@furniture! $furniture$ input per level"
  modifier_goods_input_furniture_add_desc: "The amount of @furniture! $furniture$ consumed by buildings"
@@ -102,6 +104,8 @@
  modifier_building_infres_coffee_plantation_throughput_add_desc: "A bonus or penalty to both input and output of $building_infres_coffee_plantation$"
  modifier_building_infres_sugar_plantation_throughput_add: "$building_infres_sugar_plantation$ building [concept_throughput]"
  modifier_building_infres_sugar_plantation_throughput_add_desc: "A bonus or penalty to both input and output of $building_infres_sugar_plantation$"
+ modifier_building_infres_tobacco_plantation_throughput_add: "$building_infres_tobacco_plantation$ building [concept_throughput]"
+ modifier_building_infres_tobacco_plantation_throughput_add_desc: "A bonus or penalty to both input and output of $building_infres_tobacco_plantation$"
  # Building Group Modifiers
  modifier_building_group_bg_arts_throughput_add: "$bg_arts$ [concept_throughput]"
  modifier_building_group_bg_arts_throughput_add_desc: "A bonus or penalty to both input and output of $bg_arts$"
@@ -157,3 +161,4 @@
  modifier_character_extra_ten_percent_command_desc: "Increases $modifier_character_command_limit_mult$ by +10%"
  
  zeppelins_modifier: "Universal Airships"
+ state_trait_pearl_harbor: "Pearl Harbor"
