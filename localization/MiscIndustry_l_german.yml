@@ -4,6 +4,7 @@
  bg_heavy_military_industry: "Schwere $bg_military_industry$"
 
  company_edeka: "EDEKA"
+ pm_hardwood_tools: "$hardwood$ $tools$"
  pm_early_machine_tools: "Pneumatische Maschinenwerkzeuge"
  pm_machine_tools: "Elektrische Maschinenwerkzeuge"
  
@@ -94,6 +95,13 @@
  pmg_explosives_building_mine: "Sprengstoffe"
  pm_nitroglycerin_building_mine: "Nitroglyzerin"
  pm_dynamite_building_mine: "Dynamit"
+ 
+ pm_rotary_valve_pump_building_mine: "Drehventilmotorpumpe"
+ pm_rotary_valve_pump_building_coal_mine: "$pm_rotary_valve_pump_building_mine$"
+ pm_rotary_valve_pump_building_iron_mine: "$pm_rotary_valve_pump_building_mine$"
+ pm_rotary_valve_pump_building_lead_mine: "$pm_rotary_valve_pump_building_mine$"
+ pm_rotary_valve_pump_building_sulfur_mine: "$pm_rotary_valve_pump_building_mine$"
+ pm_rotary_valve_pump_building_gold_mine: "$pm_rotary_valve_pump_building_mine$"
  
  pm_electric_pump_building_mine: "Elektropumpe"
  pm_electric_pump_building_coal_mine: "$pm_electric_pump_building_mine$"

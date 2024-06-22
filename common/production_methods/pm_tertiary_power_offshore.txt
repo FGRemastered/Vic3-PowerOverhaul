@@ -1,5 +1,8 @@
 # Offshore Power
-pm_no_offshore_windpark = { texture = "gfx/interface/icons/production_method_icons/no_automation.dds" }
+pm_no_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+	ai_value = 0
+}
 pm_on_shore_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }

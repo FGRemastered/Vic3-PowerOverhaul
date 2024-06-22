@@ -24,7 +24,7 @@ pm_market_squares = {
 			goods_output_services_add					=   50
 		}
 		level_scaled = {
-			building_employment_laborers_add			= 3000
+			building_employment_laborers_add			= 2500
 			building_employment_clerks_add				= 1000
 			building_employment_shopkeepers_add			=  900	# +100
 		}
@@ -42,16 +42,14 @@ pm_covered_markets = {
 			goods_output_services_add					=   75
 		}
 		level_scaled = {
-			building_employment_laborers_add			= 2500
+			building_employment_laborers_add			= 2000
 			building_employment_clerks_add				= 2000
 			building_employment_shopkeepers_add			=  300	# +200
-			building_employment_capitalists_add			=  500
-			building_employment_aristocrats_add			=  500
+			building_employment_capitalists_add			=  250
 		}
 		unscaled = {
 			building_shopkeepers_shares_add				=    2
 			building_capitalists_shares_add				=    3
-			building_aristocrats_shares_add				=    5
 		}
 	}
 	ai_value = 5000
@@ -69,12 +67,12 @@ pm_arcades = {
 			building_employment_laborers_add			= 2000
 			building_employment_clerks_add				= 2000
 			building_employment_shopkeepers_add			=   50	# +200
-			building_employment_capitalists_add			=  750
-			building_employment_aristocrats_add			=  500
+			building_employment_capitalists_add			=  150	#  250
+			building_employment_aristocrats_add			=  100	#  250
 		}
 		unscaled = {
-			building_capitalists_shares_add				=    8
-			building_aristocrats_shares_add				=    5
+			building_capitalists_shares_add				=    4	# 8
+			building_aristocrats_shares_add				=    4	# 5
 		}
 	}
 	ai_value = 10000
@@ -131,7 +129,7 @@ pm_electric_streetlights = {
 # Self-sufficient street lighting
 pm_solar_roofing = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { telephone }
+	unlocking_technologies = { electric_railway }
 	city_lights_color_index = 2							# Needs to match city_graphics_data.settings color array
 	unlocking_production_methods = {
 		pm_covered_markets
@@ -143,7 +141,7 @@ pm_solar_roofing = {
 			goods_input_engines_add					=   3	# 1:5 engines - electricity
 			# goods_input_glass_add					=   3	# 1:1 engines - glass
 			# output goods
-			goods_output_electricity_add			=   5	# 3*5-10 = 5
+			goods_output_electricity_add			=  10	# 3*5-5 = 10
 		}
 		level_scaled = {
 			building_employment_machinists_add 		= 100
@@ -181,8 +179,7 @@ pm_air_scrubber = {
 			goods_output_oil_add					=  10	# Coal * (Electricity / 10) = Oil => 10*(10/10) = 10
 		}
 		level_scaled = {
-			building_employment_machinists_add 		= 200
-			building_employment_engineers_add		= 200
+			building_employment_engineers_add		= 100
 		}
 		unscaled = {
 			building_engineers_shares_add			=   5
@@ -203,7 +200,6 @@ pm_no_public_transport = {
 }
 pm_public_trams = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
-	required_input_goods = transportation
 	unlocking_technologies = { railways }
 	building_modifiers = {
 		workforce_scaled = {
@@ -212,7 +208,7 @@ pm_public_trams = {
 		}
 		level_scaled = {
 			building_employment_laborers_add		=-1000
-			building_employment_machinists_add	 	=  100
+			building_employment_machinists_add	 	=  500
 		}
 		unscaled = { goods_output_services_mult		= 0.2 }
 	}
@@ -222,15 +218,12 @@ pm_public_trams = {
 			state_pollution_generation_add			= 5
 		}
 	}
+	required_input_goods = transportation
 	ai_value = 10000
 }
 pm_public_motor_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/public_motor_carriages.dds"
-	required_input_goods = transportation
-	unlocking_technologies = {
-		combustion_engine
-		electric_railway
-	}
+	unlocking_global_technologies = { combustion_engine electrical_capacitors }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_transportation_add			=  3	# x30	= 120
@@ -239,7 +232,7 @@ pm_public_motor_carriages = {
 		}													#		= 140
 		level_scaled = {
 			building_employment_laborers_add		=-1500
-			building_employment_machinists_add 		=  300
+			building_employment_machinists_add 		=  500
 		}
 		unscaled = { goods_output_services_mult		= 0.3 }
 	}
@@ -249,11 +242,12 @@ pm_public_motor_carriages = {
 			state_pollution_generation_add			= 10
 		}
 	}
+	required_input_goods = transportation
+	required_input_goods = automobiles
 	ai_value = 30000
 }
 pm_extended_trams = {	# Subways
 	texture = "gfx/interface/icons/production_method_icons/public_trams.dds"
-	required_input_goods = transportation
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
@@ -274,6 +268,8 @@ pm_extended_trams = {	# Subways
 			state_pollution_generation_add			=  5
 		}
 	}
+	required_input_goods = transportation
+	required_input_goods = automobiles
 	ai_value = 100000
 }
 # Cash Register
@@ -296,16 +292,15 @@ pm_cash_register = {
 }
 pm_electric_cash_register = {
 	texture = "gfx/interface/icons/production_method_icons/electric_cash_register.dds"
-	required_input_goods = electricity
-	unlocking_technologies = { electrical_capacitors }
+	# unlocking_technologies = { electrical_capacitors }
 	unlocking_production_methods = {
-		pm_covered_markets
-		pm_arcades
+		pm_solar_roofing
+		pm_air_scrubber
 	}
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add						=    1
-			# goods_input_electricity_add					=    1	# Replaced by need to access power
+			goods_output_electricity_add				=   -1
 		}
 		level_scaled = {
 			building_employment_clerks_add				=-2000
@@ -313,6 +308,7 @@ pm_electric_cash_register = {
 		}
 		unscaled = { building_shopkeepers_shares_add	=    2 }
 	}
+	required_input_goods = electricity
 }
 # Urban Clergy
 pm_state_urban_clergy = {

@@ -4,9 +4,10 @@ pm_wooden_buildings = {
 	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_fabric_add				= 25
-			goods_input_wood_add				= 75
-		}
+			goods_input_fabric_add				=   25	# x-20	= -500
+			goods_input_wood_add				=   75	# x-20	=-1500
+			goods_output_services_add			=  2.5	# x+30	=  +75
+		}												#		=-2000
 		level_scaled = {
 			building_employment_laborers_add	= 4000
 		}
@@ -15,27 +16,48 @@ pm_wooden_buildings = {
 	state_modifiers		= { workforce_scaled = { state_construction_mult	= 0.005 } }
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 2.5 } }
 }
-
+pm_hardwood_frame_buildings = {	# Almost-sidegrade to Iron-Frame for countries with little to no iron deposits.
+	texture = "gfx/interface/icons/production_method_icons/saw_mills.dds"
+	unlocking_technologies = { urban_planning }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add				=   40	# x-20	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
+			goods_input_hardwood_add			=   50	# x-40	=-2000
+			goods_input_tools_add				=   10	# x-40	=-1000
+			goods_output_services_add			=  4.5	# x+30	= +150
+		}												#		=-4200
+		level_scaled = {
+			building_employment_laborers_add	= 3500
+			building_employment_machinists_add	=  250
+			building_employment_engineers_add	=  250
+		}
+		unscaled = { building_laborers_mortality_mult = 0.1 }
+	}
+	state_modifiers		= { workforce_scaled = { state_construction_mult	= 0.01 } }
+	country_modifiers	= { workforce_scaled = { country_construction_add	= 4.5 } }
+}
 pm_iron_frame_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/iron_frame_buildings.dds"
 	unlocking_technologies = { urban_planning }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_wood_add				=   40
-			goods_input_fabric_add				=   20
-			goods_input_iron_add				=   50
-			goods_input_tools_add				=   10
-		}
+			goods_input_wood_add				=   40	# x-20	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
+			goods_input_iron_add				=   50	# x-40	=-2000
+			goods_input_tools_add				=   10	# x-40	=-1000
+			goods_output_services_add			=    5	# x+30	= +150
+		}												#		=-4200
 		level_scaled = {
-			building_employment_laborers_add	= 3750
+			building_employment_laborers_add	= 3500
 			building_employment_machinists_add	=  250
+			building_employment_engineers_add	=  250
 		}
 		unscaled = { building_laborers_mortality_mult = 0.1 }
 	}
 	state_modifiers		= { workforce_scaled = { state_construction_mult	= 0.01 } }
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 5 } }
 }
-
 pm_steel_frame_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/steel_frame_buildings.dds"
 	unlocking_technologies = { steel_frame_buildings }
@@ -45,17 +67,18 @@ pm_steel_frame_buildings = {
 			goods_input_glass_add				=   40
 			goods_input_explosives_add			=   10
 			goods_input_tools_add				=   20
+			goods_output_services_add			=   10	# x+30	= +300
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 3250
-			building_employment_machinists_add	=  750
+			building_employment_machinists_add	=  500
+			building_employment_engineers_add	=  250
 		}
 		unscaled = { building_laborers_mortality_mult = 0.1 }
 	}
 	state_modifiers		= { workforce_scaled = { state_construction_mult	= 0.02 } }
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 10 } }
 }
-
 pm_arc_welded_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_buildings.dds"
 	unlocking_technologies = { arc_welding }
@@ -66,47 +89,48 @@ pm_arc_welded_buildings = {
 			goods_input_explosives_add			=   20
 			goods_input_tools_add				=   40
 			goods_input_electricity_add			=   40
+			goods_output_services_add			=   25	# x+30	= +750
 		} 
 		level_scaled = {
 			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	=  750
-			building_employment_engineers_add	=  250
+			building_employment_machinists_add	=  500
+			building_employment_engineers_add	=  500
 		}
 		unscaled = { building_laborers_mortality_mult = 0.1 }
 	}
 	state_modifiers		= { workforce_scaled = { state_construction_mult	= 0.05 } }
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 25 } }
+	required_input_goods = electricity
 }
 # Professtionalism
 pm_hereditary_bureaucrats_construction = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
-	unlocking_laws = { law_hereditary_bureaucrats }
+	# unlocking_laws = { law_hereditary_bureaucrats }	# You can always go back to this.
 	building_modifiers = {
 		level_scaled = {
 			building_employment_aristocrats_add	= 250
 			building_employment_bureaucrats_add	= 250
 		}
-	}			
+	}
+	ai_value = 0
 }
 pm_professional_bureaucrats_construction = {
 	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
-	disallowing_laws = { law_hereditary_bureaucrats }	
+	disallowing_laws = { law_hereditary_bureaucrats }
 	building_modifiers = {
 		level_scaled = {
 			building_employment_bureaucrats_add	= 500
 		}
-	}			
-}
-pm_military_admininistration_construction = {
-	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
-	disallowing_laws = {
-		law_no_police
-		law_national_militia
 	}
+	is_default = yes
+}
+pm_academic_admininistration_construction = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
+	unlocking_laws = { law_appointed_bureaucrats }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_officers_add	=  250
 			building_employment_bureaucrats_add	=  250
+			building_employment_academics_add	=  250
 		}
 		unscaled = { building_throughput_add	= 0.10 }
 	}
@@ -114,15 +138,55 @@ pm_military_admininistration_construction = {
 		unscaled = { state_construction_mult	= 0.05 }
 	}
 }
-pm_religious_bureaucrats_construction = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+pm_military_admininistration_construction = {
+	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
 	disallowing_laws = {
-		law_total_separation
-		law_state_atheism
+		law_no_police
+		law_national_militia
+		law_elected_bureaucrats
 	}
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add	= 250
+			building_employment_bureaucrats_add	=  250
+			building_employment_officers_add	=  250
+		}
+		unscaled = { building_throughput_add	= 0.10 }
+	}
+	state_modifiers = {
+		unscaled = { state_construction_mult	= 0.05 }
+	}
+}
+pm_central_planned_construction = {
+	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
+	unlocking_technologies = { central_planning }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_telephones_add							=    5
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add					=  250
+		}
+		unscaled = {
+			building_throughput_add								= 0.10
+			building_employment_clergymen_mult					=   -1
+			building_employment_clerks_mult						=   -1
+		}
+	}
+	state_modifiers = {
+		unscaled = { state_construction_mult					= 0.05 }
+	}
+	# country_modifiers = {
+		# workforce_scaled = { country_bureaucracy_add			=  -10 }
+	# }
+	required_input_goods = telephones
+}
+pm_religious_bureaucrats_construction = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+	disallowing_laws = { law_total_separation law_state_atheism }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add	= 250	# More expensive
+			building_employment_clerks_add		= 250
 		}
 	}			
 }
@@ -134,4 +198,4 @@ pm_secular_bureaucrats_construction = {
 			building_employment_clerks_add		= 500
 		}
 	}			
-}		
+}

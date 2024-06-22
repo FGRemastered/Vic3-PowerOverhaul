@@ -6,7 +6,8 @@ pm_telephones = {
 			# input goods
 			goods_input_iron_add				=   20
 			goods_input_rubber_add				=   20
-			goods_input_lead_add				=   20
+			goods_input_hardwood_add			=   10
+			goods_input_lead_add				=   10
 			goods_input_tools_add				=   10
 			# output goods
 			goods_output_telephones_add			=   60
@@ -24,9 +25,10 @@ pm_double_telephones = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_iron_add				=   40
+			goods_input_steel_add				=   20
 			goods_input_rubber_add				=   40
-			goods_input_lead_add				=   40
+			goods_input_hardwood_add			=   20
+			goods_input_glass_add				=   20
 			goods_input_tools_add				=   10
 			# output goods
 			goods_output_telephones_add			=  120

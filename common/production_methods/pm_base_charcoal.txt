@@ -63,6 +63,7 @@ pm_dust_separation_building_charcoal_burner = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=    5
+			goods_input_fabric_add				=    5
 			# output goods
 			goods_output_coal_add				=    5
 		}
@@ -81,7 +82,7 @@ pm_chemical_refining_building_charcoal_burner = {
 			goods_input_fabric_add				=   10
 			# output goods
 			goods_output_coal_add				=   15
-			goods_output_oil_add				=    5
+			goods_output_sulfur_add				=    5
 		}
 		level_scaled = {
 			building_employment_machinists_add	=  500
@@ -100,7 +101,7 @@ pm_environmental_refining_building_charcoal_burner = {
 			goods_input_wood_add				=   10
 			# output goods
 			goods_output_coal_add				=   35
-			goods_output_oil_add				=   10
+			goods_output_sulfur_add				=   10
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 1000
@@ -110,10 +111,10 @@ pm_environmental_refining_building_charcoal_burner = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= -5 } }
 }
 pm_carbon_capture_building_charcoal_burner = {
-	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
+	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
 	unlocking_technologies = { arc_welding }
-	unlocking_production_methods = { pm_machine_coal_building_charcoal_burner }
 	disallowing_laws = { law_industry_banned }
+	unlocking_production_methods = { pm_machine_coal_building_charcoal_burner }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -123,7 +124,7 @@ pm_carbon_capture_building_charcoal_burner = {
 			goods_input_engines_add				=   25	# x-60	=-1500
 			# output goods
 			goods_output_coal_add				=   85	# x+30	=+2250
-			goods_output_oil_add				=   25	# x+40	=+1000
+			goods_output_sulfur_add				=   25	# x+50	=+1250
 		}												#		= +250
 		level_scaled = {
 			building_employment_engineers_add	= 1000	# x-3	=-3000
@@ -166,17 +167,17 @@ pm_rotary_valve_engine_building_charcoal_burner = {
 pm_assembly_lines_building_charcoal_burner = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 	unlocking_technologies = { conveyors }
-	unlocking_production_methods = {
-		pm_chemical_refining_building_charcoal_burner
-		pm_environmental_refining_building_charcoal_burner
-		pm_carbon_capture_building_charcoal_burner
-	}
+	# unlocking_production_methods = {
+		# pm_chemical_refining_building_charcoal_burner
+		# pm_environmental_refining_building_charcoal_burner
+		# pm_carbon_capture_building_charcoal_burner
+	# }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=   10
 			goods_input_electricity_add			=    5
-			goods_output_oil_add				=   -5
+			goods_input_oil_add					=    5
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-3000

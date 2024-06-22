@@ -13,6 +13,8 @@ default_building_subsistence_farms = {
 		}											#		= 95
 		level_scaled = { building_employment_peasants_add	= 4750 }
 	}
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -10 } }
+	ai_value = 0
 }
 pm_enriched_subsistence_farms = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -30,9 +32,16 @@ pm_enriched_subsistence_farms = {	#x1.5
 			goods_output_wood_add			= 3		# x+20	=  60
 			goods_output_services_add		= 3		# x+30	=  90
 		}											#		=+135
-		level_scaled = { building_employment_peasants_add	= 6000 }	# +25%
+		level_scaled = { building_employment_peasants_add	= 7250 }	# +50%
 	}
-	ai_value = 1000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -20 } }
+	ai_value = 2000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
+		# }
+	# }
 }
 pm_fertilized_subsistence_farms = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -52,7 +61,14 @@ pm_fertilized_subsistence_farms = {		#x3
 		}											#		=+290
 		level_scaled = { building_employment_peasants_add	= 9750 }	# +100%
 	}
-	ai_value = 2000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -30 } }
+	ai_value = 30000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
+		# }
+	# }
 }
 pm_chem_fertilized_subsistence_farms = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -70,9 +86,16 @@ pm_chem_fertilized_subsistence_farms = {		#x4.5
 			goods_output_wood_add			=  9	# x+20	= 180
 			goods_output_services_add		=  9	# x+30	= 270
 		}											#		=+495
-		level_scaled = { building_employment_peasants_add	=13500 }	# +175%
+		level_scaled = { building_employment_peasants_add	=14750 }	# +200%
 	}
-	ai_value = 5000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -50 } }
+	ai_value = 500000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
+		# }
+	# }
 }
 pm_auto_fertilized_subsistence_farms = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -91,17 +114,19 @@ pm_auto_fertilized_subsistence_farms = {		#x7.5
 			goods_output_wood_add			= 15	# x+20	= 300
 			goods_output_services_add		= 25	# x+30	= 750
 		}											#		=+685
-		level_scaled = { building_employment_peasants_add	=18500 }	# +275%
+		level_scaled = { building_employment_peasants_add	=21250 }	# +350%
 		unscaled	 = {
 			building_peasants_birthrate_mult 				= 1 	# Now that they needn't care for their plants they can do other things...
 			building_laborers_birthrate_mult 				= 1
 			building_farmers_birthrate_mult 				= 1
+			building_birth_rate_mult 		 				= 1
 		}
 	}
 	state_modifiers = {
-		unscaled = { state_migration_pull_mult				= 0.05 }
+		unscaled		= { state_migration_pull_mult		= 0.05 }
+		level_scaled	= { state_pollution_generation_add	=-100	}
 	}
-	ai_value = 10000
+	ai_value = 1000000
 }
 # Orchards
 default_building_subsistence_orchards = {
@@ -118,6 +143,8 @@ default_building_subsistence_orchards = {
 		}											#		= 95
 		level_scaled = { building_employment_peasants_add	= 4750 }
 	}
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -10 } }
+	ai_value = 0
 }
 pm_enriched_subsistence_orchards = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -136,9 +163,16 @@ pm_enriched_subsistence_orchards = {	#x1.5
 			goods_output_wood_add			= 4.5	# x+20	=  90
 			goods_output_services_add		= 3		# x+30	=  90
 		}											#		=+145
-		level_scaled = { building_employment_peasants_add	= 6000 }	# +25%
+		level_scaled = { building_employment_peasants_add	= 7250 }	# +50%
 	}
-	ai_value = 1000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -20 } }
+	ai_value = 2000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
+		# }
+	# }
 }
 pm_fertilized_subsistence_orchards = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -159,7 +193,14 @@ pm_fertilized_subsistence_orchards = {		#x3
 		}											#		=+290
 		level_scaled = { building_employment_peasants_add	= 9750 }	# +100%
 	}
-	ai_value = 2000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -30 } }
+	ai_value = 30000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
+		# }
+	# }
 }
 pm_chem_fertilized_subsistence_orchards = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -178,9 +219,16 @@ pm_chem_fertilized_subsistence_orchards = {		#x4.5
 			goods_output_wood_add			= 13.5	# x+20	= 270
 			goods_output_services_add		= 9		# x+30	= 270
 		}											#		=+495
-		level_scaled = { building_employment_peasants_add	=13500 }	# +175%
+		level_scaled = { building_employment_peasants_add	=14750 }	# +200%
 	}
-	ai_value = 5000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -50 } }
+	ai_value = 500000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
+		# }
+	# }
 }
 pm_auto_fertilized_subsistence_orchards = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -200,17 +248,19 @@ pm_auto_fertilized_subsistence_orchards = {		#x7.5
 			goods_output_wood_add			= 25	# x+20	= 500
 			goods_output_services_add		= 25	# x+30	= 750
 		}											#		=+810
-		level_scaled = { building_employment_peasants_add	=18500 }	# +275%
+		level_scaled = { building_employment_peasants_add	=21250 }	# +350%
 		unscaled	 = {
 			building_peasants_birthrate_mult 				= 1 	# Now that they needn't care for their plants they can do other things...
 			building_laborers_birthrate_mult 				= 1
 			building_farmers_birthrate_mult 				= 1
+			building_birth_rate_mult 		 				= 1
 		}
 	}
 	state_modifiers = {
-		unscaled = { state_migration_pull_mult				= 0.05 }
+		unscaled		= { state_migration_pull_mult		= 0.05 }
+		level_scaled	= { state_pollution_generation_add	=-100	}
 	}
-	ai_value = 10000
+	ai_value = 1000000
 }
 # Pastures/Ranches
 default_building_subsistence_pastures = {
@@ -227,6 +277,8 @@ default_building_subsistence_pastures = {
 		}											#		= 95
 		level_scaled = { building_employment_peasants_add	= 4750 }
 	}
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -10 } }
+	ai_value = 0
 }
 pm_enriched_subsistence_pastures = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -245,9 +297,16 @@ pm_enriched_subsistence_pastures = {	#x1.5
 			goods_output_wood_add			= 1.5	# x+20	=  30
 			goods_output_services_add		= 3		# x+30	=  90
 		}											#		=+145
-		level_scaled = { building_employment_peasants_add	= 6000 }	# +25%
+		level_scaled = { building_employment_peasants_add	= 7250 }	# +50%
 	}
-	ai_value = 1000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -20 } }
+	ai_value = 2000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
+		# }
+	# }
 }
 pm_fertilized_subsistence_pastures = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -268,7 +327,14 @@ pm_fertilized_subsistence_pastures = {		#x3
 		}											#		=+290
 		level_scaled = { building_employment_peasants_add	= 9750 }	# +100%
 	}
-	ai_value = 2000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -30 } }
+	ai_value = 30000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
+		# }
+	# }
 }
 pm_chem_fertilized_subsistence_pastures = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -287,9 +353,16 @@ pm_chem_fertilized_subsistence_pastures = {		#x4.5
 			goods_output_wood_add			= 4.5	# x+20	=  90
 			goods_output_services_add		= 9		# x+30	= 270
 		}											#		=+495
-		level_scaled = { building_employment_peasants_add	=13500 }	# +175%
+		level_scaled = { building_employment_peasants_add	=14750 }	# +200%
 	}
-	ai_value = 5000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -50 } }
+	ai_value = 500000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
+		# }
+	# }
 }
 pm_auto_fertilized_subsistence_pastures = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -308,17 +381,19 @@ pm_auto_fertilized_subsistence_pastures = {		#x7.5
 			goods_output_wood_add			= 7.5	# x+20	= 150
 			goods_output_services_add		= 25	# x+30	= 750
 		}											#		=+810
-		level_scaled = { building_employment_peasants_add	=18500 }	# +275%
+		level_scaled = { building_employment_peasants_add	=21250 }	# +350%
 		unscaled	 = {
 			building_peasants_birthrate_mult 				= 1 	# Now that they needn't care for their plants they can do other things...
 			building_laborers_birthrate_mult 				= 1
 			building_farmers_birthrate_mult 				= 1
+			building_birth_rate_mult 		 				= 1
 		}
 	}
 	state_modifiers = {
-		unscaled = { state_migration_pull_mult				= 0.05 }
+		unscaled		= { state_migration_pull_mult		= 0.05 }
+		level_scaled	= { state_pollution_generation_add	=-100	}
 	}
-	ai_value = 10000
+	ai_value = 1000000
 }
 # Fishing
 default_building_subsistence_fishing_villages = {										# I am very aware that this makes little to no sense, but humor me for the sake of balance pls.
@@ -335,6 +410,8 @@ default_building_subsistence_fishing_villages = {										# I am very aware tha
 		}											#		= 95
 		level_scaled = { building_employment_peasants_add	= 4750 }
 	}
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -10 } }
+	ai_value = 0
 }
 pm_enriched_subsistence_fishing_villages = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -353,9 +430,16 @@ pm_enriched_subsistence_fishing_villages = {	#x1.5
 			goods_output_wood_add			= 4.5	# x+20	=  90
 			goods_output_services_add		= 3		# x+30	=  90
 		}											#		=+145
-		level_scaled = { building_employment_peasants_add	= 6000 }	# +25%
+		level_scaled = { building_employment_peasants_add	= 7250 }	# +50%
 	}
-	ai_value = 1000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -20 } }
+	ai_value = 2000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
+		# }
+	# }
 }
 pm_fertilized_subsistence_fishing_villages = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -376,7 +460,14 @@ pm_fertilized_subsistence_fishing_villages = {		#x3
 		}											#		=+290
 		level_scaled = { building_employment_peasants_add	= 9750 }	# +100%
 	}
-	ai_value = 2000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -30 } }
+	ai_value = 30000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
+		# }
+	# }
 }
 pm_chem_fertilized_subsistence_fishing_villages = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -395,9 +486,16 @@ pm_chem_fertilized_subsistence_fishing_villages = {		#x4.5
 			goods_output_wood_add			= 13.5	# x+20	= 270
 			goods_output_services_add		=  9	# x+30	= 270
 		}											#		=+495
-		level_scaled = { building_employment_peasants_add	=13500 }	# +175%
+		level_scaled = { building_employment_peasants_add	=14750 }	# +200%
 	}
-	ai_value = 5000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -50 } }
+	ai_value = 500000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
+		# }
+	# }
 }
 pm_auto_fertilized_subsistence_fishing_villages = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -417,17 +515,19 @@ pm_auto_fertilized_subsistence_fishing_villages = {		#x7.5
 			goods_output_wood_add			= 25	# x+20	= 500
 			goods_output_services_add		= 25	# x+30	= 750
 		}											#		=+810
-		level_scaled = { building_employment_peasants_add	=18500 }	# +275%
+		level_scaled = { building_employment_peasants_add	=21250 }	# +350%
 		unscaled	 = {
 			building_peasants_birthrate_mult 				= 1 	# Now that they needn't care for their plants they can do other things...
 			building_laborers_birthrate_mult 				= 1
 			building_farmers_birthrate_mult 				= 1
+			building_birth_rate_mult 		 				= 1
 		}
 	}
 	state_modifiers = {
-		unscaled = { state_migration_pull_mult				= 0.05 }
+		unscaled		= { state_migration_pull_mult		= 0.05 }
+		level_scaled	= { state_pollution_generation_add	=-100	}
 	}
-	ai_value = 10000
+	ai_value = 1000000
 }
 # Welcome to the Rice fields motherf***er
 default_building_subsistence_rice_paddies = {										# All values below are doubled compared to the base farms at the start.
@@ -443,6 +543,8 @@ default_building_subsistence_rice_paddies = {										# All values below are do
 		}											#		=190
 		level_scaled = { building_employment_peasants_add	= 9750 }
 	}
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -10 } }
+	ai_value = 0
 }
 pm_enriched_subsistence_rice_paddies = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -460,9 +562,16 @@ pm_enriched_subsistence_rice_paddies = {	#x1.5
 			goods_output_wood_add			= 6		# x+20	= 120
 			goods_output_services_add		= 6		# x+30	= 180
 		}											#		=+155
-		level_scaled = { building_employment_peasants_add	=12250 }	# +25%
+		level_scaled = { building_employment_peasants_add	=14750 }	# +50%
 	}
-	ai_value = 1000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -20 } }
+	ai_value = 2000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
+		# }
+	# }
 }
 pm_fertilized_subsistence_rice_paddies = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -480,9 +589,16 @@ pm_fertilized_subsistence_rice_paddies = {		#x3
 			goods_output_wood_add			= 12	# x+20	= 240
 			goods_output_services_add		= 12	# x+30	= 360
 		}											#		=+330
-		level_scaled = { building_employment_peasants_add	=20000 }	# +100%
+		level_scaled = { building_employment_peasants_add	=19750 }	# +100%
 	}
-	ai_value = 2000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -30 } }
+	ai_value = 30000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
+		# }
+	# }
 }
 pm_chem_fertilized_subsistence_rice_paddies = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -500,9 +616,16 @@ pm_chem_fertilized_subsistence_rice_paddies = {		#x4.5
 			goods_output_wood_add			= 18	# x+20	= 360
 			goods_output_services_add		= 18	# x+30	= 540
 		}											#		=+615
-		level_scaled = { building_employment_peasants_add	=27250 }	# +175%
+		level_scaled = { building_employment_peasants_add	=29750 }	# +200%
 	}
-	ai_value = 5000
+	state_modifiers = { level_scaled = { state_pollution_generation_add	= -50 } }
+	ai_value = 500000
+	# ai_value = {
+		# value = {
+			# value = 100000
+			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
+		# }
+	# }
 }
 pm_auto_fertilized_subsistence_rice_paddies = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -521,33 +644,17 @@ pm_auto_fertilized_subsistence_rice_paddies = {		#x7.5
 			goods_output_wood_add			= 30	# x+20	= 600
 			goods_output_services_add		= 50	# x+30	=1500
 		}											#		=+985
-		level_scaled = { building_employment_peasants_add	=37250 }	# +275%
+		level_scaled = { building_employment_peasants_add	=44750 }	# +350%
 		unscaled	 = {
 			building_peasants_birthrate_mult 				= 1 	# Now that they needn't care for their plants they can do other things...
 			building_laborers_birthrate_mult 				= 1
 			building_farmers_birthrate_mult 				= 1
+			building_birth_rate_mult 		 				= 1
 		}
 	}
 	state_modifiers = {
-		unscaled = { state_migration_pull_mult				= 0.05 }
+		unscaled		= { state_migration_pull_mult		= 0.05 }
+		level_scaled	= { state_pollution_generation_add	=-100	}
 	}
-	ai_value = 10000
+	ai_value = 1000000
 }
-# Ownership
-# pm_homesteading_building_subsistence = {
-	# texture = "gfx/interface/icons/production_method_icons/homesteading.dds" 
-	# unlocking_laws = { law_homesteading }
-	# building_modifiers = { 
-		# level_scaled = {
-			# building_employment_clergymen_add	= 150
-			# building_employment_aristocrats_add	= 25
-			# building_employment_peasants_add	= 75
-		# }
-		# unscaled = {
-			# building_aristocrats_shares_add		= 10
-			# building_clergymen_shares_add		= 2
-			# # building_peasants_shares_add		= 3
-			# building_workforce_shares_add		= 3
-		# }
-	# }
-# }

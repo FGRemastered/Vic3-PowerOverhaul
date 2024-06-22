@@ -72,7 +72,6 @@ pm_automatic_fertilization = {
 			goods_output_grain_add				=  210
 		}
 		level_scaled = {
-			# earnings
 			building_employment_laborers_add	= 3000
 			building_employment_machinsts_add	=  500
 			building_employment_farmers_add		= 1000

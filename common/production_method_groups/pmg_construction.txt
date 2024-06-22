@@ -1,18 +1,28 @@
-
+pmg_base_building_construction_sector = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_wooden_buildings
+		pm_hardwood_frame_buildings
+		pm_iron_frame_buildings
+		pm_steel_frame_buildings
+		pm_arc_welded_buildings
+	}
+}
 pmg_construction_sector_bureaucrat_professionalism = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
-
 	production_methods = {
 		pm_hereditary_bureaucrats_construction
 		pm_professional_bureaucrats_construction
+		pm_academic_admininistration_construction
 		pm_military_admininistration_construction
+		pm_central_planned_construction
 	}
 }
 pmg_construction_sector_religious_administration = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
-
 	production_methods = {
 		pm_religious_bureaucrats_construction
 		pm_secular_bureaucrats_construction

@@ -46,7 +46,9 @@ pmg_ownership_agriculture = {
 		pm_privately_owned
 		pm_privately_owned_secular
 		pm_publicly_traded
+		pm_publicly_traded_secular
 		pm_homesteading
+		pm_homesteading_secular
 		pm_sovereign_owned_hereditary
 		pm_sovereign_owned_clergy
 		pm_sovereign_owned_hereditary_secular
@@ -64,6 +66,7 @@ pmg_ownership_plantation = {
 		pm_privately_owned_plantation
 		pm_privately_owned_secular_plantation
 		pm_publicly_traded_plantation
+		pm_publicly_traded_secular_plantation
 		pm_sovereign_owned_hereditary
 		pm_sovereign_owned_clergy
 		pm_sovereign_owned_hereditary_secular
@@ -95,7 +98,7 @@ pmg_ownership_building_subsistence = {
 pmg_ownership_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_mine
+		pm_merchant_guilds
 		pm_privately_owned_mine
 		pm_publicly_traded_mine
 		pm_sovereign_owned_hereditary
@@ -113,7 +116,7 @@ pmg_ownership_mine = {
 pmg_ownership_capital_building_logging_camp = {								# pmg_ownership_bg_logging
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_logging_camp
+		pm_merchant_guilds
 		pm_privately_owned_building_logging_camp
 		pm_publicly_traded_building_logging_camp
 		pm_sovereign_owned_hereditary
@@ -130,7 +133,7 @@ pmg_ownership_capital_building_logging_camp = {								# pmg_ownership_bg_loggin
 pmg_ownership_bg_fishing = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_bg_fishing
+		pm_merchant_guilds
 		pm_privately_owned_bg_fishing
 		pm_publicly_traded_bg_fishing
 		pm_sovereign_owned_hereditary
@@ -200,6 +203,7 @@ pmg_ownership_building_trade_center = {
 		pm_trade_center_merchant_guilds
 		pm_trade_center_privately_owned
 		pm_trade_center_stock_exchange
+		pm_trade_center_hereditary
 		pm_trade_center_clergy
 		pm_trade_center_bureacrats
 		pm_trade_center_academics
@@ -212,7 +216,7 @@ pmg_ownership_building_trade_center = {
 pmg_ownership_capital_building_food_industry = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_food_industry
+		pm_merchant_guilds
 		pm_privately_owned_building_food_industry
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -223,13 +227,13 @@ pmg_ownership_capital_building_food_industry = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_industry
-		pm_worker_cooperative_building_food_industry
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_textile_mills = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_textile_mills
+		pm_merchant_guilds
 		pm_privately_owned_building_textile_mills
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -240,13 +244,13 @@ pmg_ownership_capital_building_textile_mills = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_building_textile_mills
-		pm_worker_cooperative_building_textile_mills
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_furniture_manufacturies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_furniture_manufacturies
+		pm_merchant_guilds
 		pm_privately_owned_building_furniture_manufacturies
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -257,13 +261,13 @@ pmg_ownership_capital_building_furniture_manufacturies = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_building_furniture_manufacturies
-		pm_worker_cooperative_building_furniture_manufacturies
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_tooling_workshops = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_tooling_workshops
+		pm_merchant_guilds
 		pm_privately_owned_building_tooling_workshops
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -274,13 +278,13 @@ pmg_ownership_capital_building_tooling_workshops = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_industry
-		pm_worker_cooperative_building_tooling_workshops
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_glassworks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_glassworks
+		pm_merchant_guilds
 		pm_privately_owned_building_glassworks
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -291,13 +295,13 @@ pmg_ownership_capital_building_glassworks = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_industry
-		pm_worker_cooperative_building_glassworks
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_paper_mills = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	production_methods = {
-		pm_merchant_guilds_building_paper_mills
+		pm_merchant_guilds
 		pm_privately_owned_building_paper_mills
 		pm_publicly_traded_industry
 		pm_sovereign_owned_hereditary
@@ -389,7 +393,7 @@ pmg_ownership_capital_building_shipyards = {
 		pm_sovereign_owned_engineers
 		pm_sovereign_owned_officers
 		pm_government_run_military_industry
-		pm_worker_cooperative_building_shipyards
+		pm_worker_cooperative_industry
 	}
 }
 pmg_ownership_capital_building_electrics_industry = {
