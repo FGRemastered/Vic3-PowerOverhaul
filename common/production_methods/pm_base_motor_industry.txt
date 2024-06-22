@@ -99,7 +99,7 @@ pm_hybrid_electric_engines = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_lead_add				=   20
+			goods_input_lead_add				=   10
 			goods_input_steel_add				=   60
 			goods_input_electricity_add			=   30
 			goods_input_oil_add					=   50
@@ -125,8 +125,7 @@ pm_jet_engines = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_lead_add				=   25
-			goods_input_steel_add				=   75
+			goods_input_steel_add				=  100
 			goods_input_electricity_add			=   50
 			goods_input_oil_add					=  100
 			# output goods
@@ -152,12 +151,12 @@ pm_jet_electric_engines = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_lead_add				=   50
-			goods_input_steel_add				=   75
+			goods_input_lead_add				=   25
+			goods_input_steel_add				=  125
 			goods_input_electricity_add			=   75
 			goods_input_oil_add					=   75
 			# output goods
-			goods_output_engines_add			=  500
+			goods_output_engines_add			=  450
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1500
@@ -173,16 +172,12 @@ pm_jet_electric_engines = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
 # Automobiles
-pm_automobiles_disabled = {
+pm_automobiles_disabled = {	# Why build car when can have train?
 	texture = "gfx/interface/icons/production_method_icons/no_automobiles.dds"
-	# Why build car when can have train?
 }
 pm_automobile_production = {		# 20%
 	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
-	unlocking_technologies = {
-		combustion_engine
-		electric_railway
-	}
+	unlocking_technologies = { combustion_engine }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -198,7 +193,7 @@ pm_automobile_production = {		# 20%
 }
 pm_electic_automobile_production = {	# 40%
 	texture = "gfx/interface/icons/production_method_icons/electric_automobiles.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { electrical_capacitors }
 	required_input_goods = electricity
 	building_modifiers = {
 		workforce_scaled = {

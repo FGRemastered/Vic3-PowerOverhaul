@@ -30,10 +30,11 @@ pm_electricfied_bakery = {
 			goods_input_electricity_add			= 2			# x-30	= -60
 		}													#		=-460
 		level_scaled = {
-			building_employment_laborers_add	=-3500		# x1	=+3500
-			building_employment_machinists_add	= -500		# x1.5	= +750
-		}													# /52	=  +81
-	}
+			building_employment_laborers_add	=-3500		# x1	=+3500	= 700
+			building_employment_machinists_add	= -500		# x1.5	= +750	= 150
+			building_employment_engineers_add	=  500		# x3	=-1500	=-300 
+		}													#				=+550
+	}														#				=  90
 	required_input_goods = electricity
 }														# Breaks even at 6.8 annual wage
 # Textile Mills
@@ -152,7 +153,6 @@ pm_rotary_valve_engine_building_tooling_workshops = {
 }
 pm_assembly_lines_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -166,11 +166,11 @@ pm_assembly_lines_building_tooling_workshops = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+	required_input_goods = electricity
 }
 # Paper Mills
 pm_assembly_lines_building_paper_mills = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -185,6 +185,7 @@ pm_assembly_lines_building_paper_mills = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Chemical Plants
 pm_watertube_boiler_building_chemical_plants = {
@@ -223,7 +224,6 @@ pm_rotary_valve_engine_building_chemical_plants = {
 }
 pm_assembly_lines_building_chemical_plants = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -239,6 +239,7 @@ pm_assembly_lines_building_chemical_plants = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Dyeworks
 pm_watertube_boiler_building_synthetics_plants = {
@@ -276,7 +277,6 @@ pm_rotary_valve_engine_building_synthetics_plants = {
 }
 pm_assembly_lines_building_synthetics_plants = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -292,6 +292,7 @@ pm_assembly_lines_building_synthetics_plants = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Steel
 pm_watertube_boiler_building_steel_mills = {
@@ -324,7 +325,6 @@ pm_rotary_valve_engine_building_steel_mills = {
 }
 pm_assembly_lines_building_steel_mills = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -340,11 +340,11 @@ pm_assembly_lines_building_steel_mills = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Motor Industry
 pm_assembly_lines_building_motor_industry = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	building_modifiers = {
 		workforce_scaled = {
@@ -360,6 +360,7 @@ pm_assembly_lines_building_motor_industry = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Arms Industry
 pm_watertube_boiler_building_arms_industry = {
@@ -398,7 +399,6 @@ pm_rotary_valve_engine_building_arms_industry = {
 }
 pm_assembly_lines_building_arms_industry = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -414,6 +414,7 @@ pm_assembly_lines_building_arms_industry = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # Munitions Plans
 pm_watertube_boiler_building_munition_plants = {
@@ -451,7 +452,6 @@ pm_rotary_valve_engine_building_munition_plants = {
 }
 pm_assembly_lines_building_munition_plants = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -467,6 +467,7 @@ pm_assembly_lines_building_munition_plants = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }
 # War Machine Industry
 pm_watertube_boiler_building_war_machine_industry = {
@@ -507,7 +508,6 @@ pm_rotary_valve_engine_building_war_machine_industry = {
 }
 pm_assembly_lines_building_war_machine_industry = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
@@ -524,4 +524,5 @@ pm_assembly_lines_building_war_machine_industry = {
 		unscaled = { building_throughput_add	= 0.5 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = electricity
 }

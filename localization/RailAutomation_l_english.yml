@@ -94,8 +94,13 @@
  pm_vertical_filing_cabinets_skyscraper: "$pm_vertical_filing_cabinets$"
  pm_switch_boards_skyscraper: "$pm_switch_boards$"
 
+ pm_academic_admininistration: "Academic Administration"
+ pm_academic_admininistration_construction: "$pm_academic_admininistration$"
  pm_military_admininistration: "Military Administration"
  pm_military_admininistration_construction: "$pm_military_admininistration$"
+ pm_central_planned_construction: "Central Planning Department"
+ 
+ pm_independent_academia: "Independent Academia"
 
  pm_extended_trams: "Subways"
 

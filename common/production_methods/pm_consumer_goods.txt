@@ -247,6 +247,7 @@ pm_craftsman_sewing = {
 			goods_output_luxury_clothes_add		=  20
 		}
 	}
+	required_input_goods = silk
 }
 pm_craftsman_sewing_priority = {
 	texture = "gfx/interface/icons/production_method_icons/craftsman_sewing2.dds"
@@ -261,6 +262,7 @@ pm_craftsman_sewing_priority = {
 			goods_output_luxury_clothes_add		=  40
 		}
 	}
+	required_input_goods = silk
 }
 pm_elastics = {
 	texture = "gfx/interface/icons/production_method_icons/elastics.dds"
@@ -277,6 +279,8 @@ pm_elastics = {
 			goods_output_luxury_clothes_add		=  60
 		}
 	}
+	required_input_goods = silk
+	required_input_goods = rubber
 }
 pm_elastics_priority = {
 	texture = "gfx/interface/icons/production_method_icons/elastics2.dds"
@@ -293,6 +297,8 @@ pm_elastics_priority = {
 			goods_output_luxury_clothes_add		=  80
 		}
 	}
+	required_input_goods = silk
+	required_input_goods = rubber
 }
 # Furniture
 pm_handcrafted_furniture = {
@@ -401,6 +407,7 @@ pm_precision_tools = {
 			goods_output_luxury_furniture_add		=  60
 		}
 	}
+	required_input_goods = silk
 }
 pm_precision_tools_priority = {
 	texture = "gfx/interface/icons/production_method_icons/precision_tools2.dds"
@@ -418,6 +425,7 @@ pm_precision_tools_priority = {
 			goods_output_luxury_furniture_add		=  80
 		}
 	}
+	required_input_goods = silk
 }
 # Glass
 pm_forest_glass = {
@@ -426,8 +434,10 @@ pm_forest_glass = {
 		workforce_scaled = {
 			# input goods
 			goods_input_wood_add				=   30
+			goods_input_dye_add					=    4
 			# output goods
-			goods_output_glass_add				=   30
+			goods_output_glass_add				=   30	# x+40	= 1200
+			goods_output_porcelain_add			=   15	# x+70	= 1050
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500
@@ -436,32 +446,35 @@ pm_forest_glass = {
 }		
 pm_leaded_glass = {
 	texture = "gfx/interface/icons/production_method_icons/leaded_glass.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	unlocking_technologies = { lathe }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_wood_add				=   20
 			goods_input_lead_add				=   10
+			goods_input_dye_add					=    5
 			# output goods
-			goods_output_glass_add				=   40
+			goods_output_glass_add				=   40	# x+40	= 1600
+			goods_output_porcelain_add			=   20	# x+70	= 1400
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000
 			building_employment_machinists_add	=  500
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 pm_crystal_glass = {
 	texture = "gfx/interface/icons/production_method_icons/crystal_glass.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	unlocking_technologies = { crystal_glass }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_lead_add				=   35
+			goods_input_dye_add					=   10
 			# output goods
-			goods_output_glass_add				=   70
+			goods_output_glass_add				=   70	# x+40	= 2800
+			goods_output_porcelain_add			=   40	# x+70	= 2800
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 3000
@@ -469,18 +482,20 @@ pm_crystal_glass = {
 			building_employment_engineers_add	=  500
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 pm_houseware_plastics = {
 	texture = "gfx/interface/icons/production_method_icons/houseware_plastics.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 	unlocking_technologies = { plastics }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_oil_add					=   50
-			goods_input_lead_add				=   35
+			goods_input_lead_add				=   25
+			goods_input_dye_add					=   25
 			# output goods
-			goods_output_glass_add				=  170
+			goods_output_glass_add				=  175	# x+40	= 7000
+			goods_output_porcelain_add			=  100	# x+70	= 7000
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
@@ -488,31 +503,53 @@ pm_houseware_plastics = {
 			building_employment_engineers_add	=  750
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 }
 # Ceramics
+pm_disabled_ceramics = {
+	texture = "gfx/interface/icons/production_method_icons/no_ceramics.dds"
+	building_modifiers = {
+		unscaled = {
+			goods_output_porcelain_mult			=-1
+			goods_input_dye_mult				=-1
+		}
+	}
+}
 pm_ceramics = {
 	texture = "gfx/interface/icons/production_method_icons/ceramics.dds"
 	building_modifiers = {
+		# workforce_scaled = {
+			# goods_input_wood_add				= 10
+			# goods_input_dye_add					=  5
+			# goods_input_services_add			=  5
+			# goods_output_porcelain_add			= 25
+		# }
 		workforce_scaled = {
-			# input goods
-			goods_input_wood_add				= 10
-			goods_input_dye_add					=  5
-			goods_input_services_add			=  5
-			# output goods
-			goods_output_porcelain_add			= 25
+			goods_input_services_add			=    5
+		}
+		unscaled = {
+			goods_output_glass_mult				=-0.25
+			goods_output_porcelain_mult			=-0.50
+			goods_input_dye_mult				=-0.50
 		}
 	}
 }
 pm_ceramics_priority = {
 	texture = "gfx/interface/icons/production_method_icons/ceramics2.dds"
 	building_modifiers = {
+		# workforce_scaled = {
+			# goods_input_wood_add				= 20
+			# goods_input_dye_add					= 10
+			# goods_input_services_add			= 10
+			# goods_output_porcelain_add			=  50
+		# }
 		workforce_scaled = {
-			# input goods
-			goods_input_wood_add				= 20
-			goods_input_dye_add					= 10
-			goods_input_services_add			= 10
-			# output goods
-			goods_output_porcelain_add			=  50
+			goods_input_services_add			=   10
+		}
+		unscaled = {
+			goods_output_glass_mult				=-0.50
+			goods_output_porcelain_mult			=-0.25
+			goods_input_dye_mult				=-0.25
 		}
 	}
 }
@@ -520,29 +557,38 @@ pm_bone_china = {
 	texture = "gfx/interface/icons/production_method_icons/bone_china.dds"
 	unlocking_technologies = { chemical_bleaching }
 	building_modifiers = {
+		# workforce_scaled = {
+			# goods_input_wood_add				= 15
+			# goods_input_lead_add				=  5
+			# goods_input_dye_add					= 10
+			# goods_input_services_add			= 15
+			# goods_output_porcelain_add			= 60
+		# }
 		workforce_scaled = {
-			# input goods
-			goods_input_wood_add				= 15
-			goods_input_lead_add				=  5
-			goods_input_dye_add					= 10
-			goods_input_services_add			= 15
-			# output goods
-			goods_output_porcelain_add			= 60
+			goods_input_services_add			=    5
 		}
-	}														
+		unscaled = {
+			goods_output_porcelain_mult			=-0.25
+			goods_input_dye_mult				=-0.25
+		}
+	}
 }
 pm_bone_china_priority = {
 	texture = "gfx/interface/icons/production_method_icons/bone_china2.dds"
 	unlocking_technologies = { chemical_bleaching }
 	building_modifiers = {
+		# workforce_scaled = {
+			# goods_input_wood_add				= 25
+			# goods_input_lead_add				=  5
+			# goods_input_dye_add					= 15
+			# goods_input_services_add			= 20
+			# goods_output_porcelain_add			= 90
+		# }
 		workforce_scaled = {
-			# input goods
-			goods_input_wood_add				= 25
-			goods_input_lead_add				=  5
-			goods_input_dye_add					= 15
-			goods_input_services_add			= 20
-			# output goods
-			goods_output_porcelain_add			= 90
+			goods_input_services_add			=  10
+		}
+		unscaled = {
+			goods_output_glass_mult				=-0.25
 		}
 	}
 }

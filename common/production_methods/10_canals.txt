@@ -53,6 +53,7 @@ pm_canal_telephones = {
 		}
 		unscaled = { goods_output_services_mult	= 0.25 }
 	}
+	required_input_goods = telephones
 }
 # Power
 pm_canal_manual_labour = {
@@ -80,7 +81,7 @@ pm_canal_manual_labour = {
 		}
 	}
 	country_modifiers = {
-		workforce_scaled	= { country_convoys_capacity_add	= 250 }
+		workforce_scaled	= { country_convoys_capacity_add	= 500 }
 		unscaled			= { goods_output_transportation_mult= 0.05 }
 	}
 }
@@ -112,7 +113,7 @@ pm_canal_steam = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_convoys_capacity_add		=  500
+			country_convoys_capacity_add		= 2500
 		}
 		unscaled = {
 			goods_output_transportation_mult	= 0.10
@@ -121,7 +122,6 @@ pm_canal_steam = {
 }
 pm_canal_eletric = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
-	required_input_goods = electricity
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
@@ -147,13 +147,14 @@ pm_canal_eletric = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_prestige_add				= 50
-			country_convoys_capacity_add		= 1000
+			country_prestige_add				=   50
+			country_convoys_capacity_add		= 5000
 		}
 		unscaled = {
 			goods_output_transportation_mult	= 0.25
 		}
 	}
+	required_input_goods = electricity
 }
 pm_canal_oil = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
@@ -183,8 +184,8 @@ pm_canal_oil = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_prestige_add				= 50
-			country_convoys_capacity_add		= 1000
+			country_prestige_add				=   50
+			country_convoys_capacity_add		= 5000
 		}
 		unscaled = {
 			goods_output_transportation_mult	= 0.25
