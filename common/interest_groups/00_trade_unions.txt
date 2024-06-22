@@ -1,0 +1,281 @@
+﻿ig_trade_unions = {
+	color = hsv{ 0 0.56 0.58 }
+	texture = "gfx/interface/icons/ig_icons/trade_unions.dds"
+	layer = "revolution_dynamic_trade_unions"
+	index = 7
+	ideologies = {
+		ideology_anti_slavery	# Moved so it gets overridden by the others
+		ideology_proletarian
+		ideology_egalitarian
+		ideology_populist
+	}
+	enable = { always = yes }
+	# Deprecated; use on_enable effect to assign traits instead
+	traits = {
+		ig_trait_solidarity
+		ig_trait_industrial_organizers
+		ig_trait_work_to_rule
+	}
+	on_enable = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					has_dlc_feature = voice_of_the_people_content
+					owner = { c:FRA ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_work_to_rule
+				set_ig_trait = ig_trait:ig_trait_industrial_organizers
+				set_ig_trait = ig_trait:ig_trait_bourse_du_travail
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_work_to_rule
+				set_ig_trait = ig_trait:ig_trait_industrial_organizers
+				set_ig_trait = ig_trait:ig_trait_solidarity
+			}
+		}
+		### Socialism
+		if = {
+			limit = { has_technology_researched = socialism }
+			ig:ig_trade_unions = { add_ideology = ideology_socialist }
+		}
+		### Feminism
+		if = {
+			limit = { has_technology_researched = feminism }
+			every_interest_group = {
+				limit = { has_ideology = ideology:ideology_egalitarian }
+				remove_ideology = ideology_egalitarian
+				add_ideology = ideology_egalitarian_modern
+			}
+		}
+	}
+	on_disable = {}
+	on_character_ig_membership = {}
+	pop_potential = {
+		NOR = {
+			is_pop_type = aristocrats
+			is_pop_type = capitalists
+			is_pop_type = shopkeepers
+			is_pop_type = officers
+		}
+		OR = {
+			AND = {
+				custom_tooltip = {
+					text = owner_has_modern_agriculture_tt
+					owner = {
+						OR = {
+							has_law = law_type:law_commercialized_agriculture
+							has_law = law_type:law_collectivized_agriculture
+						}
+					}
+				}
+				strata = poor
+				# NOR = {
+					# pop_employment_building_group = bg_subsistence_agriculture
+					# pop_employment_building_group = bg_subsistence_ranching
+				# }
+			}
+			NOR = {
+				pop_employment_building_group = bg_agriculture
+				pop_employment_building_group = bg_ranching
+				pop_employment_building_group = bg_plantations
+			}
+		}
+	}
+	pop_weight = {
+		value = 0
+		add = {
+			desc = "URBAN_POP"
+			if = {
+				limit = {
+					NOR = {
+						pop_employment_building_group = bg_agriculture
+						pop_employment_building_group = bg_ranching
+						pop_employment_building_group = bg_plantations
+					}
+				}
+				value = 50
+				if = {
+					limit = { strata = middle }
+					divide = 2
+				}
+			}
+		}
+		add = {
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = { is_pop_type = machinists }
+				value = 100
+			}
+		}
+		add = {
+			desc = "POP_LABORERS"
+			if = {
+				limit = { is_pop_type = laborers }
+				value = 50
+			}
+		}
+		add = {	# Added
+			desc = "POP_PEASANTS"
+			if = {
+				limit = { is_pop_type = peasants }
+				value = 50
+				if = {	# Added
+					limit = {
+						OR = {
+							pop_employment_building_group = bg_generic_subsistence
+							pop_employment_building_group = bg_infinite_subsistence_agriculture
+						}
+					}
+					multiply = 2
+				}
+			}
+		}
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
+		multiply = {
+			desc = "NO_LABOR_MOVEMENT"
+			value = 1.0
+			if = {
+				limit = { owner = { NOT = { has_technology_researched = labor_movement } } }
+				value = 0.5
+			}
+		}
+		multiply = {
+			desc = "NO_EGALITARIANISM"
+			value = 1.0
+			if = {
+				limit = { owner = { NOT = { has_technology_researched = egalitarianism } } }
+				value = 0.5
+			}
+		}
+		multiply = {
+			desc = "decentralized_power"
+			value = 1.0
+			if = {
+				limit = { owner = { is_country_type = decentralized } }
+				value = 0.0
+			}
+		}
+		if = {
+			limit = { scope:interest_group = { is_in_government = yes } }
+			multiply = {
+				desc = "IN_GOVERNMENT_ATTRACTION"
+				value = 1
+				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
+				min = 0
+			}
+		}
+		if = {
+			limit = { scope:interest_group = { is_in_government = yes } }
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = { scope:interest_group = { is_in_government = no } }
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
+			}
+		}
+	}
+	monarch_weight = {
+		value = 0.1 # this is just inherently unlikely
+		if = {	# Monarch is not likely to adopt a marginal IG
+			limit = { is_marginal = yes }
+			multiply = { value = 0.1 }
+		}
+		if = {	# Monarch is more likely to adopt a Powerful IG
+			limit = { is_powerful = yes }
+			multiply = { value = 2 }
+		}
+		if = {	# More likely with Worker's Protections
+			limit = { owner = { has_law = law_type:law_worker_protections } }
+			multiply = { value = 2 }
+		}
+		if = {	# Impossible with No Workers Rights
+			limit = { owner = { has_law = law_type:law_no_workers_rights } }
+			multiply = { value = 0 }
+		}
+	}
+	agitator_weight = {
+		value = 1.0	# Agitators more likely to come from populist IG's rather than elitist
+		if = {		# Agitators will never be part of a marginalized IG
+			limit = { owner.ig:ig_trade_unions = { is_marginal = yes } }
+			multiply = { value = 0 }
+		}
+	}
+	commander_weight = { value = 0.5 }
+	noble_chance = { value = 0.1 }
+	female_commander_chance = {
+		value = 0.0
+		if = {
+			limit = { owner = { has_law = law_type:law_women_own_property } }
+			add = { value = 0.05 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			add = { value = 0.2 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			add = { value = 0.4 }
+		}
+	}
+	female_politician_chance = {
+		value = 0.0
+		if = {
+			limit = { owner = { has_law = law_type:law_women_own_property } }
+			add = { value = 0.1 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			add = { value = 0.25 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			add = { value = 0.5 }
+		}
+	}
+	female_agitator_chance = {
+		value = 0.0
+		if = {
+			limit = { owner = { has_law = law_type:law_no_womens_rights } }
+			add = { value = 0.05 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_women_own_property } }
+			add = { value = 0.1 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			add = { value = 0.25 }
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			add = { value = 0.5 }
+		}
+	}
+	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes
+		value = 0.25
+		if = {
+			limit = { exists = scope:character }	# scope:character is the most popular commander in the IG
+			multiply = { value = 1 add = scope:character.popularity min = 0 }
+		}
+	}
+}

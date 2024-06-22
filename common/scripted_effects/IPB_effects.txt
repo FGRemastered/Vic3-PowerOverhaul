@@ -1,0 +1,33 @@
+﻿# This effect is used in history/zz_IPB_global
+effect_republican_paternalistic = {
+	c:LAN ?= {
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+	c:LIB ?= {
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+	c:SWI ?= {
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+	c:TRN ?= {
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+	c:ORA ?= {
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+	}
+}

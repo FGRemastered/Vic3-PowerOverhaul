@@ -1,0 +1,400 @@
+decree_violent_suppression = {
+	texture = "gfx/interface/icons/decree/decree_violent_suppression.dds"
+	unlocking_technologies = { standing_army }
+	valid = {
+		OR = {
+			is_incorporated = no
+			owner = { NOT = { has_law = law_type:law_guaranteed_liberties } }
+			owner = { has_law = law_type:law_militarized_police }
+		}
+		turmoil >= 0.2
+	}
+	modifier = {
+		state_turmoil_effects_mult		=-0.5
+		state_mortality_turmoil_mult	= 0.02
+	}
+	cost = 100
+	ai_weight = {
+		value = 100
+		if = {
+			limit = { turmoil >= 0.5 }
+			add = 100
+		}
+		if = {
+			limit = { turmoil >= 0.75 }
+			add = 100
+		}
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_progressive_agenda
+					}
+				}
+			}
+			multiply = 0.5
+		}
+	}
+}
+decree_emergency_relief = {
+	texture = "gfx/interface/icons/decree/decree_emergency_relief.dds"
+	unlocking_technologies = { centralization }
+	modifier = {
+		state_welfare_payments_add				= 0.50
+		building_minimum_wage_mult				= 0.25	# New
+		state_radicals_from_sol_change_mult		=-0.10	# New
+		state_loyalists_from_sol_change_mult	= 0.20	# New
+	}
+	cost = 50
+	ai_weight = {
+		value = 0
+		if = {
+			limit = { average_sol < average_expected_sol }
+			add = 100
+		}
+		if = {
+			limit = { turmoil >= 0.5 }
+			add = 100
+		}
+		else_if = {
+			limit = { turmoil >= 0.4 }
+			add = 80
+		}
+		else_if = {
+			limit = { turmoil >= 0.3 }
+			add = 60
+		}
+		else_if = {
+			limit = { turmoil >= 0.2 }
+			add = 40
+		}
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_nationalist_agenda
+						has_strategy = ai_strategy_reactionary_agenda
+					}
+				}
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = { scope:country = { has_any_secessionists_possible = yes } }
+			multiply = 2
+		}
+	}
+}
+decree_promote_national_values = {
+	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"
+	unlocking_technologies = { centralization }
+	valid = {
+		OR = {
+			has_assimilating_pops	= yes
+			has_converting_pops		= yes
+		}
+	}
+	modifier = {
+		state_assimilation_mult		= 9	# Changed
+		state_conversion_mult		= 9	# Changed
+	}
+	cost = 50
+	ai_weight = {
+		value = 0
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_reactionary_agenda
+						has_strategy = ai_strategy_maintain_mandate_of_heaven
+					}
+				}
+			}
+			add = 100
+		}
+		if = {
+			limit = { scope:country = { has_strategy = ai_strategy_nationalist_agenda } }
+			add = 200
+		}
+		if = {
+			limit = { state_population < 100000 }
+			multiply = 0
+		}
+		else_if = {
+			limit = { state_population < 300000 }
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_reactionary_agenda
+						has_strategy = ai_strategy_conservative_agenda
+						has_strategy = ai_strategy_maintain_mandate_of_heaven
+					}
+				}
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+					}
+				}
+			}
+			multiply = 1.5
+		}
+	}
+}
+decree_greener_grass_campaign = {
+	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
+	valid = {
+		is_isolated_from_market = no
+		state_unemployment_rate <= 0.2	# New
+	}
+	modifier = { state_migration_pull_mult = 5.0 }	# Changed
+	unlocking_technologies = { romanticism }
+	cost = 100
+	ai_weight = {
+		value = 0
+		if = {
+			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.75 } }
+			add = 50
+		}
+		if = {
+			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.50 } }
+			add = 50
+		}
+		if = {
+			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.25 } }
+			add = 50
+		}
+		# vv New
+		if = {
+			limit = { state_unemployment_rate < 0.025 }
+			add = 10
+		}
+		if = {
+			limit = { state_unemployment_rate < 0.020 }
+			add = 20
+		}
+		if = {
+			limit = { state_unemployment_rate < 0.010 }
+			add = 40
+		}
+		if = {
+			limit = { state_unemployment_rate < 0.005 }
+			add = 50
+		}
+		# ^^ New
+		if = {
+			limit = {
+				is_incorporated = no
+				scope:country = {
+					NOR = {												# Already gives a hefty migration bonus
+						has_law = law_type:law_frontier_colonization	# PDX forgot about this one
+						has_law = law_type:law_colonial_resettlement
+					}
+				}
+			}
+			multiply = 2.0
+		}
+		if = {
+			limit = { state_unemployment_rate >= 0.25  }
+			multiply = 0
+		}
+	}
+}
+decree_encourage_manufacturing_industry = {
+	texture = "gfx/interface/icons/decree/decree_encourage_manufacturing_industry.dds"
+	unlocking_technologies = { manufacturies }
+	valid = {
+		NOR = {
+			has_decree = decree_encourage_agricultural_industry
+			has_decree = decree_encourage_resource_industry
+		}
+	}
+	modifier = {
+		building_group_bg_manufacturing_throughput_add	= 0.3	# 20% -> 30%
+		building_group_bg_service_throughput_add		= 0.3	# 20% -> 30%
+		# New
+		building_group_bg_arts_throughput_add			= 0.3
+		building_group_bg_trade_throughput_add			= 0.3
+		state_infrastructure_from_population_add		= 1
+		state_infrastructure_from_population_max_add	= 20
+		state_construction_mult							= 0.10
+	}
+	cost = 100
+	ai_weight = {
+		value = 0
+		if = {
+			limit = { any_scope_building = { is_building_group = bg_manufacturing } }
+			add = 50
+		}
+		if = {
+			limit = { any_scope_building = { is_building_group = bg_manufacturing count >= 3 } }
+			add = 50
+		}
+		if = {
+			limit = { any_scope_building = { is_building_group = bg_manufacturing count >= 5 } }
+			add = 50
+		}
+		if = {
+			limit = { scope:country = { has_strategy = ai_strategy_industrial_expansion } }
+			multiply = 1.5
+		}
+	}
+}
+decree_encourage_agricultural_industry = {
+	texture = "gfx/interface/icons/decree/decree_encourage_agricultural_industry.dds"
+	unlocking_technologies = { enclosure }
+	valid = {
+		NOR = {
+			has_decree = decree_encourage_manufacturing_industry
+			has_decree = decree_encourage_resource_industry
+		}
+	}
+	modifier = {
+		building_group_bg_agriculture_throughput_add	= 0.3	# 20% -> 30%
+		building_group_bg_ranching_throughput_add		= 0.3	# 20% -> 30%
+		building_group_bg_plantations_throughput_add	= 0.3	# 20% -> 30%
+		# New
+		state_infrastructure_from_population_add		= 1
+		state_infrastructure_from_population_max_add	= 20
+		state_construction_mult							= 0.10
+	}
+	cost = 100
+	ai_weight = {
+		value = 0
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_ranching
+						is_building_group = bg_plantations
+					}
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_ranching
+						is_building_group = bg_plantations
+					}
+					count >= 3
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_ranching
+						is_building_group = bg_plantations
+					}
+					count >= 5
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				scope:country = {
+					OR = {
+						has_strategy = ai_strategy_plantation_economy
+						has_strategy = ai_strategy_agricultural_expansion
+					}
+				}
+			}
+			multiply = 1.5
+		}
+	}
+}
+decree_encourage_resource_industry = {
+	texture = "gfx/interface/icons/decree/decree_encourage_resource_industry.dds"
+	unlocking_technologies = { shaft_mining }
+	valid = {
+		NOR = {
+			has_decree = decree_encourage_manufacturing_industry
+			has_decree = decree_encourage_agricultural_industry
+		}
+	}
+	modifier = {
+		building_group_bg_mining_throughput_add				= 0.3	# 20% -> 30%
+		building_group_bg_logging_throughput_add			= 0.3	# 20% -> 30%
+		building_group_bg_rubber_throughput_add				= 0.3	# 20% -> 30%
+		building_group_bg_fishing_throughput_add			= 0.3	# 20% -> 30%
+		building_group_bg_whaling_throughput_add			= 0.3	# 20% -> 30%
+		building_group_bg_oil_extraction_throughput_add		= 0.3	# 20% -> 30%
+		# New
+		state_infrastructure_from_population_add			= 1
+		state_infrastructure_from_population_max_add		= 20
+		state_construction_mult								= 0.10
+	}
+	cost = 100
+	ai_weight = {
+		value = 0
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 3
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 5
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = { scope:country = { has_strategy = ai_strategy_resource_expansion } }
+			multiply = 1.5
+		}
+	}
+}

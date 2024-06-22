@@ -662,27 +662,18 @@ je_mutual_funds = {
 					is_production_building = yes
 				}
 			}
-			percent >= 0.75
+			percent >= 0.5	# Changed
 			hidden_trigger = {
 				OR = {
-				    has_active_production_method = pm_publicly_traded_building_textile_mills
-				    has_active_production_method = pm_publicly_traded_building_furniture_manufacturies
-				    has_active_production_method = pm_publicly_traded_building_glassworks
-				    has_active_production_method = pm_publicly_traded_building_tooling_workshops
-				    has_active_production_method = pm_publicly_traded_building_paper_mills
-				    has_active_production_method = pm_publicly_traded_building_shipyards
-				    has_active_production_method = pm_publicly_traded_building_arms_industry
-				    has_active_production_method = pm_publicly_traded_building_artillery_foundries
+				    has_active_production_method = pm_publicly_traded_building_logging_camp
+					# New
 				    has_active_production_method = pm_publicly_traded
 				    has_active_production_method = pm_publicly_traded_industry
-				    has_active_production_method = pm_publicly_traded_building_logging_camp
-				    has_active_production_method = pm_publicly_traded_building_fishing_wharf
-				    has_active_production_method = pm_publicly_traded_building_whaling_station
-				    has_active_production_method = pm_publicly_traded_building_oil_rig
-				    has_active_production_method = pm_publicly_traded_building_coal_mine
-				    has_active_production_method = pm_publicly_traded_building_iron_mine
-				    has_active_production_method = pm_publicly_traded_building_lead_mine
-				    has_active_production_method = pm_publicly_traded_building_sulfur_mine
+				    has_active_production_method = pm_publicly_traded_bg_fishing
+					# Screw this.
+				    has_active_production_method = pm_sovereign_owned_academics
+				    has_active_production_method = pm_sovereign_owned_engineers
+				    has_active_production_method = pm_sovereign_owned_officers
 	            }
 	        }
 	        custom_tooltip = has_activated_public_trading
@@ -695,6 +686,5 @@ je_mutual_funds = {
 		trigger_event = { id = society_tech_events.105 }
 		set_variable = { name = mutual_funds_je_done }
 	}
-
 	timeout = 3650
 }

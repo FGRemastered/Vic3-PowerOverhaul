@@ -1,0 +1,226 @@
+
+grant_command_to_ruler = {
+	icon = "gfx/interface/character_panel/grant_command.dds"
+	clicksound = "event:/SFX/UI/Military/command_grant"
+	potential = {
+		OR = {
+			is_ruler = yes
+			is_heir = yes		# Added
+		}
+		NOR = {
+			has_role = general
+			has_role = admiral
+		}
+		owner = scope:actor
+	}
+	possible = {
+		# age >= define:NCharacters|ADULT_AGE
+		NOT = { has_trait = trait_child }		# Changed
+		OR = {
+			is_female = no
+			has_trait = immortal
+			owner = { has_law = law_type:law_women_in_the_workplace }
+			owner = { has_law = law_type:law_womens_suffrage }
+		}
+		owner = { ruler_can_have_command = yes }
+		exists = owner.capital.land_hq
+	}
+	effect = { add_character_role = general }
+	ai_chance = {
+		value = 5
+		if = {
+			limit = { NOT = { owner = { any_scope_general = { exists = yes } } } }
+			add = 25
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						is_diplomatic_play_committed_participant = yes
+						is_at_war = yes
+					}
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = { is_interest_group_type = ig_armed_forces }
+			add = 25
+		}
+		if = {
+			limit = { owner = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
+			add = 50
+		}
+	}
+}
+remove_command_from_ruler = {
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/UI/Military/command_remove"
+	potential = {
+		OR = {
+			is_ruler = yes
+			is_heir = yes		# Added
+		}
+		has_role = general
+		owner = scope:actor
+	}
+	possible = { commander_military_formation = { is_mobilized = no } }
+	effect = { remove_character_role = general }
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				owner = {
+					any_scope_general = {
+						exists = yes
+						NOT = { this = owner.ruler }
+					}
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = { NOT = { owner = { is_at_war = yes } } }
+			add = 25
+		}
+		if = {
+			limit = { is_interest_group_type = ig_armed_forces }
+			add = -50
+		}
+	}
+}
+retire_commander = {
+	# icon = ""
+	clicksound = "event:/SFX/UI/Military/commander_retire"
+	potential = {
+		owner = scope:actor
+		is_commander = yes
+		is_ruler = no
+		is_heir = no		# Added
+	}
+	possible = {
+		is_ruler = no
+		is_heir = no		# Added
+		interest_group = { is_insurrectionary = no }
+		commander_is_available = yes
+	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = { has_role = general }
+				remove_character_role = general
+			}
+			if = {
+				limit = { has_role = admiral }
+				remove_character_role = admiral
+			}
+		}
+		interest_group = {
+			add_modifier = {
+				name = retired_commander_interest_group_impact
+				multiplier = {
+					value = root.popularity
+					divide = 100
+					add = 1
+					min = 1
+					multiply = root.commander_rank
+					round = 1
+				}
+				years = 5
+				is_decaying = yes
+			}
+		}
+	}
+	show_confirmation_box = yes
+	ai_chance = {
+		value = -50
+		if = {
+			limit = { popularity <= -50 }
+			add = 25
+		}
+		if = {
+			limit = { popularity <= -75 }
+			add = 25
+		}
+		if = {
+			limit = { age >= 75 }
+			add = 50
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = psychological_affliction
+					has_trait = syphilis
+					has_trait = wounded
+					has_trait = kidney_stones
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = alcoholic
+					has_trait = cocaine_addiction
+					has_trait = opium_addiction
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				has_trait = shellshocked
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = trench_rat
+					has_trait = stalwart_defender
+					has_trait = defense_in_depth_specialist
+				}
+			}
+			add = -100
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = expert_convoy_raider
+					has_trait = expert_artillery_commander
+					has_trait = expert_offensive_planner
+					has_trait = expert_defensive_strategist
+					has_trait = expert_naval_commander
+				}
+			}
+			add = -75
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = experienced_convoy_raider
+					has_trait = experienced_artillery_commander
+					has_trait = experienced_offensive_planner
+					has_trait = experienced_defensive_strategist
+					has_trait = experienced_naval_commander
+				}
+			}
+			add = -50
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						is_diplomatic_play_committed_participant = yes
+						is_at_war = yes
+					}
+				}
+			}
+			add = -50
+		}
+		if = {
+			limit = { owner = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
+			add = -150
+		}
+	}
+}

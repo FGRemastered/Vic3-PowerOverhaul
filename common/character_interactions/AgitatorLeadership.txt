@@ -1,0 +1,71 @@
+grant_leadership_to_agitator = {
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/DLC/1.3_ip1/UI/agitator_promote"
+	potential = {
+		has_dlc_feature = agitators
+		has_role = agitator
+		owner = scope:actor
+	}
+	possible = {
+		interest_group = { is_in_government = yes }
+		# character_is_discriminated = no
+		NOT = { culture = { culture_is_discriminated_in = scope:actor } }
+		trigger_if = {
+			limit = { scope:actor ?= { has_law = law_type:law_state_religion } }
+			religion = scope:actor.religion
+		}
+		trigger_if = {
+			limit = { scope:actor ?= { has_law = law_type:law_freedom_of_conscience } }
+			religion = { shares_heritage_trait_with_state_religion = scope:actor }
+		}
+		OR = {
+			is_female = no
+			scope:actor = { has_law = law_type:law_women_in_the_workplace }
+			scope:actor = { has_law = law_type:law_womens_suffrage }
+		}
+	}
+	effect = {
+		remove_character_role = agitator
+		add_character_role = politician
+		custom_tooltip = {
+			text = make_agitator_ig_leader_tt
+			set_as_interest_group_leader = yes
+		}
+		# hidden_effect = {
+			# if = {
+				# limit = {
+					# scope:actor = { has_law = law_type:law_state_atheism }
+					# NOR = {
+						# is_interest_group_type = ig_devout
+						# religion = rel:atheist
+					# }
+				# }
+				# change_character_religion = rel:atheist
+			# }
+		# }
+	}
+	cooldown = { months = normal_modifier_time }
+	ai_chance = {
+		value = -50
+		if = {
+			limit = { popularity > interest_group.leader.popularity }
+			add = 25
+		}
+		if = {
+			limit = { interest_group.leader.popularity <= -50 }
+			add = 50
+		}
+		if = {
+			limit = { interest_group.leader.popularity >= 50 }
+			add = -50
+		}
+		if = {
+			limit = { interest_group = { ig_approval <= 0 } }
+			add = 25
+		}
+		if = {
+			limit = { this.ideology = owner.ruler.ideology }
+			add = 50
+		}
+	}
+}

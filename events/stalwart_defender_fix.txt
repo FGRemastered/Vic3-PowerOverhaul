@@ -1,0 +1,104 @@
+namespace = military_tech_events
+# Automatic Machine Guns
+military_tech_events.402 = {
+	type = country_event
+	placement = ROOT
+	title = military_tech_events.402.t
+	desc = military_tech_events.402.d
+	flavor = military_tech_events.402.f
+	duration = 3
+	event_image = { video = "europenorthamerica_before_the_battle" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = {} # triggered by machine guns JE
+	immediate = {
+		random_scope_war = {
+			limit = {
+				any_scope_front = {
+					any_scope_general = {
+						owner = ROOT
+						this.commander_military_formation = { has_mobilization_option = mobilization_option:mobilization_option_machinegunners }
+					}
+				}
+			}
+			save_scope_as = machine_gun_war
+			random_scope_front = {
+				limit = {
+					any_scope_general = {
+						owner = ROOT
+						this.commander_military_formation = { has_mobilization_option = mobilization_option:mobilization_option_machinegunners }
+					}
+				}
+				random_scope_general = {
+					limit = {
+						owner = ROOT
+						this.commander_military_formation = { has_mobilization_option = mobilization_option:mobilization_option_machinegunners }
+					}
+					save_scope_as = machine_gun_general
+				}
+			}
+			random_country = {
+				limit = { has_war_with = ROOT }
+				save_scope_as = machine_gun_enemy
+			}
+		}
+	}
+	option = { # the enemy does have machine guns
+		name = military_tech_events.402.a
+		default_option = yes
+		trigger = { scope:machine_gun_enemy = { has_technology_researched = automatic_machine_guns } }	# This option is available if the enemy has machine guns researched
+		scope:machine_gun_general = {
+			add_modifier = {
+				name = machine_gun_expertise_low
+				months = short_modifier_time
+			}
+		}
+	}
+	option = { # the enemy does not have machine guns
+		name = military_tech_events.402.b
+		trigger = { scope:machine_gun_enemy = { NOT = { has_technology_researched = automatic_machine_guns } } }	# This option is available if the enemy does not have machine guns researched
+		scope:machine_gun_general = {
+			add_modifier = {
+				name = machine_gun_expertise_high
+				months = short_modifier_time
+			}
+		}
+	}
+	option = { # the general becomes adept at defensive warfare
+		name = military_tech_events.402.c
+		trigger = {
+			scope:machine_gun_general = {
+				OR = {
+					NOT = { has_trait = stalwart_defender }
+					AND = {
+						NOT = { has_trait = trench_rat }
+						owner = { has_technology_researched = defense_in_depth }
+					}
+				}
+				NOT = { has_trait = defense_in_depth_specialist }
+			}
+		}
+		if = {
+			limit = {
+				scope:machine_gun_general = { has_trait = trench_rat }
+				has_technology_researched = defense_in_depth
+			}
+			scope:machine_gun_general = {
+				remove_trait = trench_rat
+				add_trait = defense_in_depth_specialist
+			}
+		}
+		else_if = {
+			limit = {
+				scope:machine_gun_general = { has_trait = stalwart_defender }
+			}
+			scope:machine_gun_general = {
+				remove_trait = stalwart_defender
+				add_trait = trench_rat
+			}
+		}
+		else = {
+			scope:machine_gun_general = { add_trait = stalwart_defender }
+		}
+	}
+}

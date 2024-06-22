@@ -1,4 +1,3 @@
-
 pmg_base_building_skyscraper = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
@@ -15,6 +14,16 @@ pmg_government_administration_bureaucrat_professionalism = {
 	production_methods = {
 		pm_hereditary_bureaucrats
 		pm_professional_bureaucrats
+		pm_academic_admininistration
 		pm_military_admininistration
+	}
+}
+pmg_university_academia = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_religious_academia
+		pm_secular_academia
+		pm_independent_academia
 	}
 }

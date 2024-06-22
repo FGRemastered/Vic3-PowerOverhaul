@@ -1,0 +1,243 @@
+namespace = plague
+# The plague arrives
+plague.1 = {
+	type = country_event
+	placement = scope:plague_origin_state
+	title = plague.1.t
+	desc = plague.1.d
+	flavor = plague.1.f
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	duration = 3
+	trigger = {
+		NOT = { has_global_variable = spanish_flu }
+		country_rank >= rank_value:major_power
+		NOT = { institution_investment_level = { institution = institution_health_system value >= 3 } }
+		any_scope_state = {
+			is_incorporated = yes
+			OR = {
+				is_production_method_active = { building_type = building_railway production_method = pm_electric_trains }
+				is_production_method_active = { building_type = building_railway production_method = pm_diesel_trains }
+				is_production_method_active = { building_type = building_railway production_method = pm_diesel_electric_trains }
+				is_production_method_active = { building_type = building_railway production_method = pm_jet_electric_trains }
+				is_production_method_active = { building_type = building_railway production_method = pm_maglev_trains }
+			}
+		}
+	}
+	immediate = {
+		set_global_variable = { name = spanish_flu }
+		set_variable = { name = plague_originator }
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				OR = {
+					is_production_method_active = { building_type = building_railway production_method = pm_electric_trains }
+					is_production_method_active = { building_type = building_railway production_method = pm_diesel_trains }
+					is_production_method_active = { building_type = building_railway production_method = pm_diesel_electric_trains }
+					is_production_method_active = { building_type = building_railway production_method = pm_jet_electric_trains }
+					is_production_method_active = { building_type = building_railway production_method = pm_maglev_trains }
+				}
+			}
+			save_scope_as = plague_origin_state
+			set_variable = plague_originator_state
+			randomize_plague_level_effect = yes
+		}
+	}
+	option = {
+		name = plague.1.a
+		default_option = yes
+		scope:plague_origin_state = { add_plague_modifier_effect = yes }
+		custom_tooltip = plague_decisions_available.tt
+		hidden_effect = {
+			every_country = {
+				limit = { NOT = { this = ROOT } is_player = yes }
+				trigger_event = { id = plague.4 }
+			}
+		}
+		add_journal_entry = { type = je_spanish_flu }
+	}
+}
+# Determine your plague response - close businesses, social distancing, or nothing
+plague.5 = {
+	type = country_event
+	placement = ROOT
+	title = plague.5.t
+	desc = plague.5.d
+	flavor = plague.5.f
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	duration = 3
+	trigger = {}	# triggered by plague decision
+	immediate = {
+		random_country = {
+			limit = { has_variable = plague_originator }
+			save_scope_as = plague_originator_country
+		}
+	}
+	option = { # lockdown!
+		name = plague.5.a
+		custom_tooltip = plague_lockdown.tt # states much less likely to get more waves
+		set_variable = { name = plague_lockdown }
+		every_scope_state = {
+			limit = { has_modifier = plague_modifier }
+			if = { limit = { has_modifier = plague_measures_mod }	remove_modifier = plague_measures_mod	}
+			if = { limit = { has_modifier = plague_lockdown_mod }	remove_modifier = plague_lockdown_mod	}	# Added - Remove old before adding new - Stacks otherwise
+			if = { limit = { has_variable = plague_measures }		remove_variable = plague_measures		}
+			add_modifier = { name = plague_lockdown_mod months = 6 }											# Changed - Remove first, add after
+		}
+	}
+	option = { # social distancing and masks
+		name = plague.5.b
+		default_option = yes
+		custom_tooltip = plague_measures.tt # states less likely to get more waves
+		set_variable = { name = plague_measures }
+		every_scope_state = {
+			limit = { has_modifier = plague_modifier }
+			if = { limit = { has_modifier = plague_measures_mod }	remove_modifier = plague_measures_mod	}	# Added - Remove old before adding new - Stacks otherwise
+			if = { limit = { has_modifier = plague_lockdown_mod }	remove_modifier = plague_lockdown_mod	}
+			if = { limit = { has_variable = plague_lockdown }		remove_variable = plague_lockdown		}
+			add_modifier = { name = plague_measures_mod months = 6 }											# Changed - Remove first, add after
+		}
+	}
+	option = { # think about the economy!
+		name = plague.5.c
+		custom_tooltip = plague_no_response.tt # states will always get more waves
+		remove_variable = plague_measures
+		remove_variable = plague_lockdown
+		every_scope_state = {
+			limit = {
+				OR = {
+					has_modifier = plague_lockdown_mod
+					has_modifier = plague_measures_mod
+				}
+			}
+			remove_modifier = plague_lockdown_mod
+			remove_modifier = plague_measures_mod
+		}
+	}
+}
+# Poverty and evictions
+plague.8 = {
+	type = country_event
+	placement = scope:plague_poverty_state
+	title = plague.8.t
+	desc = plague.8.d
+	flavor = plague.8.f
+	event_image = { video = "europenorthamerica_rich_and_poor" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	duration = 3
+	trigger = {
+		any_scope_state = {
+			is_incorporated = yes
+			has_modifier = plague_modifier
+			OR = {
+				has_modifier = plague_lockdown_mod
+				has_modifier = plague_measures_mod
+			}
+			state_unemployment_rate >= 0.2
+		}
+		NOT = { has_variable = plague_poverty_timer }
+	}
+	immediate = {
+		set_variable = { name = plague_poverty_timer months = 12 }
+		random_country = {
+			limit = { has_variable = plague_originator }
+			save_scope_as = plague_originator_country
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				has_modifier = plague_modifier
+				OR = {
+					has_modifier = plague_lockdown_mod
+					has_modifier = plague_measures_mod
+				}
+				state_unemployment_rate >= 0.2
+			}
+			save_scope_as = plague_poverty_state
+		}
+		ig:ig_landowners = { save_scope_as = landowner_ig }
+	}
+	cancellation_trigger = { has_variable = spanish_flu_over }
+	option = { # rent freeze and eviction ban
+		name = plague.8.a
+		scope:landowner_ig = {
+			add_modifier = { name = plague_eviction_ban months = 12 }
+		}
+		if = {
+			limit = { any_interest_group = { leader = { has_ideology = ideology:ideology_anarchist } } }
+			every_interest_group = {
+				limit = { has_ideology = ideology:ideology_anarchist }
+				add_modifier = plague_eviction_ban_anarchist
+			}
+		}
+	}
+	option = { # Rely on social security
+		name = plague.8.b
+		trigger = { institution_investment_level = { institution = institution_social_security value >= 3 } }	# Changed
+		highlighted_option = yes
+		add_modifier = { name = plague_welfare_cost months = 12 }
+		if = {
+			limit = {
+				any_interest_group = {
+					leader = {
+						OR = {	# Cannot simplify, there is no common ground between all these.
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_social_democrat
+						}
+					}
+				}
+			}
+			every_interest_group = {
+				limit = {
+					leader = {
+						OR = {	# Cannot simplify, there is no common ground between all these.
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_social_democrat
+						}
+					}
+				}
+				add_modifier = { name = plague_welfare_reliance months = 12 }
+			}
+		}
+	}
+	option = { # We don't care about poor people
+		name = plague.8.c
+		default_option = yes
+		scope:plague_poverty_state = {
+			add_radicals_in_state = { value = medium_radicals strata = poor }
+		}
+		if = {
+			limit = {
+				any_interest_group = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_social_democrat
+							has_ideology = ideology:ideology_anarchist
+						}
+					}
+				}
+			}
+			every_interest_group = {
+				limit = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_social_democrat
+							has_ideology = ideology:ideology_anarchist
+						}
+					}
+				}
+				add_modifier = { name = plague_no_poverty_measures months = 12 }
+			}
+		}
+	}
+}

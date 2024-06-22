@@ -444,3 +444,78 @@ pm_events.5 = {
 		default_option = yes
 	}
 }
+namespace = production_tech_events
+production_tech_events.402 = {
+	type = country_event
+	placement = scope:power_plant_state
+	event_image = { video = "unspecific_gears_pistons" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+	title = production_tech_events.402.t
+	desc = production_tech_events.402.d
+	flavor = production_tech_events.402.f
+	immediate = {
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					is_building_type = building_power_plant
+					occupancy > 0.75
+					cash_reserves_ratio > 0.25
+					level >= 5
+				}
+			}
+			save_scope_as = power_plant_state
+			random_scope_building = {
+				limit = {
+					is_building_type = building_power_plant
+					occupancy > 0.75
+					cash_reserves_ratio > 0.25
+					level >= 5
+				}
+				save_scope_as = power_plant_building
+			}
+		}
+		if = {
+			limit = { can_research = electrical_capacitors }
+			add_technology_researched = electrical_capacitors
+		}
+	}
+	option = {
+		name = production_tech_events.402.a
+		default_option = yes
+		scope:power_plant_state = {
+			add_modifier = {
+				name = electrical_power_production_modifier
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = production_tech_events.402.b
+		trigger = {
+			NOT = { has_technology_researched = electric_railway }
+			has_technology_researched = steel_railway_cars
+			can_research = electric_railway
+		}
+		add_technology_progress = { progress = 6000 technology = electric_railway }
+	}
+
+	option = {
+		name = production_tech_events.402.c
+		trigger = {
+			NOT = { has_technology_researched = steam_turbine }
+			can_research = steam_turbine
+		}
+		add_technology_progress = { progress = 6000 technology = steam_turbine }
+	}
+
+	option = {
+		name = production_tech_events.402.e
+		trigger = {
+			NOT = { has_technology_researched = shift_work }
+			can_research = shift_work
+		}
+		add_technology_progress = { progress = 6000 technology = shift_work }	# Increased - Now Era 4 tech
+	}
+}
