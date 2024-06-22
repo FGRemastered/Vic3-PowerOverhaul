@@ -22,5 +22,4 @@
 			}
 		}
 	}
-	s:STATE_HAWAIIAN_ISLANDS = { add_state_trait = state_trait_pearl_harbor }
 }

@@ -1,0 +1,1328 @@
+﻿# Colony Buttons
+je_colonial_administration_button_senegal = {
+	name = "je_colonial_administration_button_senegal"
+	desc = "je_colonial_administration_button_senegal_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_senegal }
+			any_subject_or_below = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = senegal_subject_var } }
+			any_subject_or_below = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_senegal
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_senegal	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_senegal	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = senegal_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = senegal_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_senegal } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_senegal } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = senegal_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = senegal_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = senegal_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_niger = {
+	name = "je_colonial_administration_button_niger"
+	desc = "je_colonial_administration_button_niger_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_niger }
+			any_subject_or_below = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = niger_subject_var } }
+			any_subject_or_below = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_niger
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_niger	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_niger	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = niger_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = niger_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_niger } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_niger } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = niger_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = niger_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = niger_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_ethiopia = {
+	name = "je_colonial_administration_button_ethiopia"
+	desc = "je_colonial_administration_button_ethiopia_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_ethiopia }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = ethiopia_subject_var } }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		any_scope_state = { region = sr:region_ethiopia }
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = ethiopia_subject_var } }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_ethiopia
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_ethiopia	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_ethiopia	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = ethiopia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = ethiopia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_ethiopia } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_ethiopia } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = ethiopia_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = ethiopia_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = ethiopia_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_zanj = {
+	name = "je_colonial_administration_button_zanj"
+	desc = "je_colonial_administration_button_zanj_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_zanj }
+			any_subject_or_below = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = zanj_subject_var } }
+			any_subject_or_below = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_zanj
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_zanj	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_zanj	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = zanj_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = zanj_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_zanj } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_zanj } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = zanj_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = zanj_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = zanj_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_southern_africa = {
+	name = "je_colonial_administration_button_southern_africa"
+	desc = "je_colonial_administration_button_southern_africa_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_southern_africa }
+			any_subject_or_below = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = southern_africa_subject_var } }
+			any_subject_or_below = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_southern_africa
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_southern_africa	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_southern_africa	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = southern_africa_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = southern_africa_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_southern_africa } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_southern_africa } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = southern_africa_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = southern_africa_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = southern_africa_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_congo = {
+	name = "je_colonial_administration_button_congo"
+	desc = "je_colonial_administration_button_congo_desc"
+	visible = {
+		country_is_in_africa = no
+		OR = {
+			any_scope_state = { region = sr:region_congo }
+			any_subject_or_below = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = congo_subject_var } }
+			any_subject_or_below = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_congo
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_congo	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_congo	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = congo_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = congo_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_congo } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_congo } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = congo_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = congo_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = congo_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_indonesia = {
+	name = "je_colonial_administration_button_indonesia"
+	desc = "je_colonial_administration_button_indonesia_desc"
+	visible = {
+		country_is_in_southeast_asia = no
+		OR = {
+			any_scope_state = { region = sr:region_indonesia }
+			any_subject_or_below = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = indonesia_subject_var } }
+			any_subject_or_below = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_indonesia	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_indonesia	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = indonesia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = indonesia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_indonesia } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_indonesia } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = indonesia_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = indonesia_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = indonesia_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_indochina = {
+	name = "je_colonial_administration_button_indochina"
+	desc = "je_colonial_administration_button_indochina_desc"
+	visible = {
+		country_is_in_southeast_asia = no
+		OR = {
+			any_scope_state = { region = sr:region_indochina }
+			any_subject_or_below = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = indochina_subject_var } }
+			any_subject_or_below = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_indochina
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_indochina	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_indochina	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = indochina_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = indochina_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_indochina } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_indochina } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = indochina_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = indochina_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = indochina_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_arabic = {
+	name = "je_colonial_administration_button_arabic"
+	desc = "je_colonial_administration_button_arabic_desc"
+	visible = {
+		country_is_in_middle_east = no
+		OR = {
+			any_scope_state = { region = sr:region_arabic }
+			any_subject_or_below = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = arabic_subject_var } }
+			any_subject_or_below = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_arabic
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { region = sr:region_arabic	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { region = sr:region_arabic	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = arabic_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = arabic_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { region = sr:region_arabic } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { region = sr:region_arabic } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = arabic_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = arabic_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = arabic_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_india = {
+	name = "je_colonial_administration_button_india"
+	desc = "je_colonial_administration_button_india_desc"
+	visible = {
+		country_is_in_india = no
+		OR = {
+			any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india } }
+			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = india_subject_var } }
+			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			OR = { region = sr:region_north_india region = sr:region_south_india }
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { OR = { region = sr:region_north_india region = sr:region_south_india }	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { OR = { region = sr:region_north_india region = sr:region_south_india }	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = india_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = india_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { OR = { region = sr:region_north_india region = sr:region_south_india } } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { OR = { region = sr:region_north_india region = sr:region_south_india } } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = india_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = india_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = india_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+je_colonial_administration_button_china = {
+	name = "je_colonial_administration_button_china"
+	desc = "je_colonial_administration_button_china_desc"
+	visible = {
+		country_is_in_china = no
+		OR = {
+			any_scope_state = { trigger_chinese_state = yes }
+			any_subject_or_below = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = china_subject_var } }
+			any_subject_or_below = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		NOT = { THIS = c:RUS }	# They historically take Outer Manchuria, but should not form a puppet China because of that.
+		any_scope_state = {
+			trigger_chinese_state = yes
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		if = {
+			limit = { any_scope_state		= { trigger_chinese_state = yes	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { trigger_chinese_state = yes	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+		}
+		else_if = {
+			limit = { any_subject_or_below = { has_variable = china_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
+			random_country = { limit = { has_variable = china_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		}
+		else = { random_scope_state = { limit = { trigger_chinese_state = yes } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { trigger_chinese_state = yes } set_variable = state_to_cede }
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = china_subject_var
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					has_variable = china_subject_var
+					is_subject_of = ROOT
+					NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }
+				}
+				every_scope_state = { set_variable = state_to_cede }
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = { has_variable = state_to_cede }
+			on_created = { 
+				set_variable = china_subject_var
+				set_variable = { name = newly_formed_colonial_nation_var months = 3 }
+				every_scope_state = { remove_variable = state_to_cede }
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_presidential_republic
+			}
+		}
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+# Expand Colonial Administration
+je_colonial_administration_button_expand_senegal = {
+	name = "je_colonial_administration_button_expand_senegal"
+	desc = "je_colonial_administration_button_expand_senegal_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = senegal_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_senegal	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = senegal_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_senegal	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_senegal is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = senegal_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } }  }
+				save_scope_as = senegal_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = senegal_subject_var
+					NOT = { THIS = scope:senegal_subject_scope }
+				}
+				save_scope_as = senegal_subject_scope_2
+			}
+			scope:senegal_subject_scope = { annex = scope:senegal_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_niger = {
+	name = "je_colonial_administration_button_expand_niger"
+	desc = "je_colonial_administration_button_expand_niger_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = niger_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_niger	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = niger_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_niger	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_niger is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = niger_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = niger_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = niger_subject_var
+					NOT = { THIS = scope:niger_subject_scope }
+				}
+				save_scope_as = niger_subject_scope_2
+			}
+			scope:niger_subject_scope = { annex = scope:niger_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_ethiopia = {
+	name = "je_colonial_administration_button_expand_ethiopia"
+	desc = "je_colonial_administration_button_expand_ethiopia_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = ethiopia_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = ethiopia_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_ethiopia is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = ethiopia_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = ethiopia_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = ethiopia_subject_var
+					NOT = { THIS = scope:ethiopia_subject_scope }
+				}
+				save_scope_as = ethiopia_subject_scope_2
+			}
+			scope:ethiopia_subject_scope = { annex = scope:ethiopia_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_zanj = {
+	name = "je_colonial_administration_button_expand_zanj"
+	desc = "je_colonial_administration_button_expand_zanj_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = zanj_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_zanj	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = zanj_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_zanj	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_zanj is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = zanj_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = zanj_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = zanj_subject_var
+					NOT = { THIS = scope:zanj_subject_scope }
+				}
+				save_scope_as = zanj_subject_scope_2
+			}
+			scope:zanj_subject_scope = { annex = scope:zanj_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_southern_africa = {
+	name = "je_colonial_administration_button_expand_southern_africa"
+	desc = "je_colonial_administration_button_expand_southern_africa_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = southern_africa_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = southern_africa_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_southern_africa is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = southern_africa_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = southern_africa_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = southern_africa_subject_var
+					NOT = { THIS = scope:southern_africa_subject_scope }
+				}
+				save_scope_as = southern_africa_subject_scope_2
+			}
+			scope:southern_africa_subject_scope = { annex = scope:southern_africa_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_congo = {
+	name = "je_colonial_administration_button_expand_congo"
+	desc = "je_colonial_administration_button_expand_congo_desc"
+	visible = {
+		country_is_in_africa = no
+		any_subject_or_below = { has_variable = congo_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_congo	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = congo_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_congo	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_congo is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = congo_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = congo_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = congo_subject_var
+					NOT = { THIS = scope:congo_subject_scope }
+				}
+				save_scope_as = congo_subject_scope_2
+			}
+			scope:congo_subject_scope = { annex = scope:congo_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_indonesia = {
+	name = "je_colonial_administration_button_expand_indonesia"
+	desc = "je_colonial_administration_button_expand_indonesia_desc"
+	visible = {
+		country_is_in_southeast_asia = no
+		any_subject_or_below = { has_variable = indonesia_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_indonesia	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = indonesia_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_indonesia	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_indonesia is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = indonesia_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = indonesia_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = indonesia_subject_var
+					NOT = { THIS = scope:indonesia_subject_scope }
+				}
+				save_scope_as = indonesia_subject_scope_2
+			}
+			scope:indonesia_subject_scope = { annex = scope:indonesia_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_indochina = {
+	name = "je_colonial_administration_button_expand_indochina"
+	desc = "je_colonial_administration_button_expand_indochina_desc"
+	visible = {
+		country_is_in_southeast_asia = no
+		any_subject_or_below = { has_variable = indochina_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_indochina	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = indochina_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_indochina	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_indochina is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = indochina_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = indochina_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = indochina_subject_var
+					NOT = { THIS = scope:indochina_subject_scope }
+				}
+				save_scope_as = indochina_subject_scope_2
+			}
+			scope:indochina_subject_scope = { annex = scope:indochina_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_arabic = {
+	name = "je_colonial_administration_button_expand_arabic"
+	desc = "je_colonial_administration_button_expand_arabic_desc"
+	visible = {
+		country_is_in_middle_east = no
+		any_subject_or_below = { has_variable = arabic_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { region = sr:region_arabic	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = arabic_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { region = sr:region_arabic	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { region = sr:region_arabic is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = arabic_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = arabic_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = arabic_subject_var
+					NOT = { THIS = scope:arabic_subject_scope }
+				}
+				save_scope_as = arabic_subject_scope_2
+			}
+			scope:arabic_subject_scope = { annex = scope:arabic_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_india = {
+	name = "je_colonial_administration_button_expand_india"
+	desc = "je_colonial_administration_button_expand_india_desc"
+	visible = {
+		country_is_in_india = no
+		any_subject_or_below = { has_variable = india_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india }	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = india_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india }	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { OR = { region = sr:region_north_india region = sr:region_south_india } is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = india_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = india_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = india_subject_var
+					NOT = { THIS = scope:india_subject_scope }
+				}
+				save_scope_as = india_subject_scope_2
+			}
+			scope:india_subject_scope = { annex = scope:india_subject_scope_2 }
+		}
+	}
+}
+je_colonial_administration_button_expand_china = {
+	name = "je_colonial_administration_button_expand_china"
+	desc = "je_colonial_administration_button_expand_china_desc"
+	visible = {
+		country_is_in_china = no
+		any_subject_or_below = { has_variable = china_subject_var }
+	}
+	possible = {
+		OR = {
+			any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = china_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { base = 100 }
+	effect = {
+		custom_tooltip = { text = transfer_stuff_to_subject_tt }
+		random_subject_or_below = {
+			limit = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = { any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no } }
+			every_scope_state = {
+				limit = { trigger_chinese_state = yes is_under_colonization = no }
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = { any_subject_or_below = { has_variable = china_subject_var	count >= 2 } }
+			random_subject_or_below = {
+				limit = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+				save_scope_as = china_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = china_subject_var
+					NOT = { THIS = scope:china_subject_scope }
+				}
+				save_scope_as = china_subject_scope_2
+			}
+			scope:china_subject_scope = { annex = scope:china_subject_scope_2 }
+		}
+	}
+}
