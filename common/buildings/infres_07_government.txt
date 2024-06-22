@@ -15,7 +15,7 @@ building_infres_port = {
 	required_construction = construction_cost_medium
 	terrain_manipulator = urban_port
 	can_build_government = {
-		can_gov_construction						= yes
+		trigger_gov_construction						= yes
 		error_check = { severity = fail	is_coastal	= yes }
 	}
 	can_build_private = { always = no }	# Government building
@@ -30,6 +30,14 @@ building_infres_port = {
 			}
 			AND = {
 				owner = { num_convoys_available < num_convoys_required }
+				state = { is_incorporated = yes }
+			}
+			trigger_if = {
+				limit = { owner = { is_subject = yes } }
+				custom_tooltip = {
+					text = "OVERLORD has insufficient convoys"
+					owner.OVERLORD = { num_convoys_available < num_convoys_required }
+				}
 				state = { is_incorporated = yes }
 			}
 			AND = {

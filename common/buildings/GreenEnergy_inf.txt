@@ -1,8 +1,32 @@
 # Infinite Resource Buildings
+# Subsistence
+building_infres_generic_subsistence = {
+	unlocking_technologies = { enclosure }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
+	building_group = bg_infinite_subsistence_agriculture
+	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	production_method_groups = {
+		pmg_base_building_generic_subsistence
+		pmg_home_workshops_building_subsistence_rice_paddies	# Double Size
+		pmg_tertiary_agri_power
+		pmg_serfdom_building_subsistence_rice_paddies			# Double size
+		pmg_ownership_agriculture
+	}
+	min_raise_to_hire		=-1
+	required_construction	= 50	# Half of construction_cost_very_low
+	slaves_role				= peasants
+}
 # Farms
 building_infres_rye_farm = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/rye_farm.dds"
@@ -20,8 +44,14 @@ building_infres_rye_farm = {
 	terrain_manipulator = farmland_rye
 }
 building_infres_wheat_farm = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/wheat_farm.dds"
@@ -39,8 +69,14 @@ building_infres_wheat_farm = {
 	terrain_manipulator = farmland_wheat
 }
 building_infres_rice_farm = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/rice_farm.dds"
@@ -58,8 +94,14 @@ building_infres_rice_farm = {
 	terrain_manipulator = farmland_rice
 }
 building_infres_maize_farm = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/maize_farm.dds"
@@ -77,8 +119,14 @@ building_infres_maize_farm = {
 	terrain_manipulator = farmland_maize
 }
 building_infres_millet_farm = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/millet_farm.dds"
@@ -97,8 +145,14 @@ building_infres_millet_farm = {
 }
 # Ranches
 building_infres_livestock_ranch = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private = {
+		trigger_private_construction	= yes
+		trigger_no_autarky_farms		= yes
+	}
+	can_build_government = {
+		trigger_gov_construction		= yes
+		trigger_no_autarky_farms		= yes
+	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_agriculture
 	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
@@ -117,8 +171,8 @@ building_infres_livestock_ranch = {
 }
 # Logging
 building_infres_logging_camp = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_logging
 	texture = "gfx/interface/icons/building_icons/logging_camp.dds"
@@ -135,8 +189,8 @@ building_infres_logging_camp = {
 	}
 }
 building_infres_rubber_plantation = {
-	can_build_private		= { can_private_construction_res= yes }
-	can_build_government	= { can_gov_construction_res	= yes }
+	can_build_private		= { trigger_private_construction_res= yes }
+	can_build_government	= { trigger_gov_construction_res	= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_rubber
 	texture = "gfx/interface/icons/building_icons/rubber_lodge.dds"
@@ -156,11 +210,11 @@ building_infres_rubber_plantation = {
 # Infinite Fishing
 building_infres_fishing_wharf = {
 	can_build_private = {
-		can_private_construction	= yes
+		trigger_private_construction	= yes
 		error_check = { severity = fail is_sea_adjacent = yes }
 	}
 	can_build_government = {
-		can_gov_construction		= yes
+		trigger_gov_construction		= yes
 		error_check = { severity = fail is_sea_adjacent = yes }
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
@@ -177,11 +231,11 @@ building_infres_fishing_wharf = {
 }
 building_infres_whaling_station = {
 	can_build_private = {
-		can_private_construction	= yes
+		trigger_private_construction	= yes
 		error_check = { severity = fail is_sea_adjacent = yes }
 	}
 	can_build_government = {
-		can_gov_construction		= yes
+		trigger_gov_construction		= yes
 		error_check = { severity = fail is_sea_adjacent = yes }
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
@@ -199,8 +253,8 @@ building_infres_whaling_station = {
 }
 # Infinite Plantations
 building_infres_vineyard_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/vineyards.dds"
@@ -217,8 +271,8 @@ building_infres_vineyard_plantation = {
 	}
 }
 building_infres_coffee_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/coffee_plantation.dds"
@@ -235,8 +289,8 @@ building_infres_coffee_plantation = {
 	}
 }
 building_infres_cotton_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/cotton_plantation.dds"
@@ -253,8 +307,8 @@ building_infres_cotton_plantation = {
 	}
 }
 building_infres_dye_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/dye_plantation.dds"
@@ -272,30 +326,12 @@ building_infres_dye_plantation = {
 }
 building_infres_opium_plantation = {
 	can_build_private = {
-		OR = {
-			AND = {
-				owner = { is_player = yes }
-				has_game_rule = infres_private_construction_allowed
-			}
-			AND = {
-				has_game_rule = infres_player_and_ai_allowed
-				has_game_rule = infres_private_construction_allowed
-			}
-		}
-		error_check = {
-			severity = fail
-			owner = { NOT = { is_banning_goods = g:opium } }
-		}
+		trigger_private_construction	= yes
+		error_check = { severity = fail	owner = { NOT = { is_banning_goods = g:opium } } }
 	}
 	can_build_government = {
-		OR = {
-			owner = { is_player = yes }
-			has_game_rule = infres_player_and_ai_allowed
-		}
-		error_check = {
-			severity = fail
-			owner = { NOT = { is_banning_goods = g:opium } }
-		}
+		trigger_gov_construction		= yes
+		error_check = { severity = fail	owner = { NOT = { is_banning_goods = g:opium } } }
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
@@ -313,8 +349,8 @@ building_infres_opium_plantation = {
 	}
 }
 building_infres_tea_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/tea_plantation.dds"
@@ -332,30 +368,12 @@ building_infres_tea_plantation = {
 }
 building_infres_tobacco_plantation = {
 	can_build_private = {
-		OR = {
-			AND = {
-				owner = { is_player = yes }
-				has_game_rule = infres_private_construction_allowed
-			}
-			AND = {
-				has_game_rule = infres_player_and_ai_allowed
-				has_game_rule = infres_private_construction_allowed
-			}
-		}
-		error_check = {
-			severity = fail
-			owner = { NOT = { is_banning_goods = g:tobacco } }
-		}
+		trigger_private_construction	= yes
+		error_check = { severity = fail	owner = { NOT = { is_banning_goods = g:tobacco } } }
 	}
 	can_build_government = {
-		OR = {
-			owner = { is_player = yes }
-			has_game_rule = infres_player_and_ai_allowed
-		}
-		error_check = {
-			severity = fail
-			owner = { NOT = { is_banning_goods = g:tobacco } }
-		}
+		trigger_gov_construction		= yes
+		error_check = { severity = fail	owner = { NOT = { is_banning_goods = g:tobacco } } }
 	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
@@ -373,8 +391,8 @@ building_infres_tobacco_plantation = {
 	}
 }
 building_infres_sugar_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/sugar_plantation.dds"
@@ -391,8 +409,8 @@ building_infres_sugar_plantation = {
 	}
 }
 building_infres_banana_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/banana_plantation.dds"
@@ -409,8 +427,8 @@ building_infres_banana_plantation = {
 	}
 }
 building_infres_silk_plantation = {
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_plantations
 	texture = "gfx/interface/icons/building_icons/silk_plantation.dds"

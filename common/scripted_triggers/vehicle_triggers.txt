@@ -22,6 +22,10 @@ gfx_tracktor_condition_trigger = {
 				has_active_production_method = pm_tractors
 				has_active_production_method = pm_compression_ignition_tractors
 				has_active_production_method = pm_electric_tractors
+				
+				has_active_production_method = pm_tractors_subsistence
+				has_active_production_method = pm_compression_ignition_tractors_subsistence
+				has_active_production_method = pm_electric_tractors_subsistence
 			}
 		}
 	}
@@ -29,13 +33,11 @@ gfx_tracktor_condition_trigger = {
 #################################################################
 #####				TRADE TRAIN TRIGGERS					#####
 #################################################################
-
 gfx_experimental_locomotive_trigger = { scope:state = { any_scope_building = { has_active_production_method = pm_early_trains } } }
 gfx_steam_locomotive_trigger = {
 	scope:state = {
 		OR = {
-			any_scope_building = { has_active_production_method = pm_steam_trains }
-			any_scope_building = { has_active_production_method = pm_watertube_boiler_steam_trains }	# Deprecated, but I'll keep it here for potential future use.
+			any_scope_building = { has_active_production_method = pm_steam_trains }	# pm_watertube_boiler_steam_trains - Deprecated, but I'll keep it here for potential future use.
 			any_scope_building = { has_active_production_method = pm_rotary_valve_steam_trains }
 		}
 	}
@@ -57,7 +59,7 @@ gfx_diesel_locomotive_trigger = {
 		}
 	}
 }
-gfx_passanger_train_trigger = {
+gfx_passanger_train_trigger = {	# PDX' typo, not mine.
 	scope:state = {
 		market = { mg:transportation = { market_goods_sell_orders > 20 } }
 	}
@@ -69,6 +71,7 @@ gfx_mining_train_trigger = {
 			has_building = building_iron_mine
 			has_building = building_sulfur_mine
 			has_building = building_steel_mills
+			has_building = building_charcoal_burner
 
 			has_building = building_infres_coal_mine
 			has_building = building_infres_iron_mine
@@ -79,6 +82,7 @@ gfx_mining_train_trigger = {
 gfx_coal_mine_trigger = {
 	scope:state = {
 		OR = {
+			has_building = building_charcoal_burner
 			has_building = building_coal_mine
 			has_building = building_infres_coal_mine
 		}
@@ -112,8 +116,8 @@ gfx_forestry_train_trigger = {
 	scope:state = {
 		OR = {
 			has_building = building_logging_camp
-			has_building = building_infres_logging_camp
 			has_building = building_rubber_plantation
+			has_building = building_infres_logging_camp
 			has_building = building_infres_rubber_plantation
 		}
 	}
@@ -121,7 +125,9 @@ gfx_forestry_train_trigger = {
 gfx_softwood_trigger = {
 	any_scope_building = {
 		OR = {
-			has_active_production_method = pm_no_hardwood
+			has_active_production_method = pm_simple_forestry
+			has_active_production_method = pm_saw_mills
+			has_active_production_method = pm_electric_saw_mills
 			has_active_production_method = default_building_rubber_plantation
 			has_active_production_method = pm_soil_enriching_farming_rubber_plantation
 			has_active_production_method = pm_fertilization_rubber_plantation

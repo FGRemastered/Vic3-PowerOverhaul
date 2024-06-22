@@ -1,4 +1,24 @@
 ﻿# This file contains the agriculture and fishing buildings
+# Autarky farms
+building_generic_subsistence = {
+	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	building_group = bg_generic_subsistence
+	unlocking_technologies = { enclosure }
+	production_method_groups = {
+		pmg_base_building_generic_subsistence
+		pmg_home_workshops_building_subsistence_rice_paddies	# Double Size
+		pmg_tertiary_agri_power_subsistence
+		pmg_serfdom_building_subsistence_rice_paddies			# Double size
+		pmg_ownership_agriculture
+	}
+	min_raise_to_hire		=-1
+	urbanization			= 1
+	required_construction	= 50		# Half of construction_cost_very_low
+	ai_value				= 100000	# If you can, this is the most valuable building in existance.
+	slaves_role = peasants
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
+}
 # Farms
 building_rye_farm = {
 	building_group = bg_rye_farms
@@ -100,24 +120,4 @@ building_livestock_ranch = {
 	}
 	required_construction = construction_cost_low
 	terrain_manipulator = pasture
-}
-# Autarky farms
-building_generic_subsistence = {
-	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
-	building_group = bg_generic_subsistence
-	unlocking_technologies = { enclosure }
-	production_method_groups = {
-		pmg_base_building_generic_subsistence
-		pmg_home_workshops_building_subsistence_rice_paddies	# Double Size
-		pmg_tertiary_agri_power
-		pmg_serfdom_building_subsistence_rice_paddies			# Double size
-		pmg_ownership_agriculture
-	}
-	min_raise_to_hire		= 0
-	urbanization			= 1
-	required_construction	= 50		# Half of construction_cost_very_low
-	ai_value				= 100000	# If you can, this is the most valuable building in existance.
-	slaves_role = peasants
-	can_build_private		= { can_private_construction	= yes }
-	can_build_government	= { can_gov_construction		= yes }
 }

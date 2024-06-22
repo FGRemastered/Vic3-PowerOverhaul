@@ -1,5 +1,5 @@
 # Rules for infinite buildings
-can_private_construction = {
+trigger_private_construction = {
 	OR = {
 		AND = {
 			OR = {
@@ -18,7 +18,7 @@ can_private_construction = {
 		}
 	}
 }
-can_private_construction_res = {
+trigger_private_construction_res = {
 	OR = {
 		AND = {
 			owner = { is_player = yes }
@@ -30,24 +30,354 @@ can_private_construction_res = {
 		}
 	}
 }
-can_gov_construction = {
+trigger_gov_construction = {
 	OR = {
 		owner = { is_player = yes }
 		owner = {
 			any_overlord_or_above = { is_player = yes }
-			is_country_type = colonial
+			# is_country_type = colonial
 			is_subject = yes	# Not Customs Union
 		}
 		has_game_rule = infres_player_and_ai_allowed
 	}
 }
-can_gov_construction_res = {
+trigger_gov_construction_res = {
 	OR = {
 		owner = { is_player = yes }
-		# owner = {
-			# any_overlord_or_above = { is_player = yes }
-			# is_country_type = colonial
-		# }
 		has_game_rule = infres_player_and_ai_allowed
 	}
+}
+trigger_no_autarky_farms = {
+	error_check = {
+		severity = fail
+		NOR = { 
+			any_scope_building = { is_building_type = building_generic_subsistence }
+			any_scope_building = { is_building_type = building_infres_generic_subsistence }
+		}
+	}
+}
+trigger_incorporated_or_incorporating = {
+	OR = {
+		is_incorporated = yes
+		incorporation_progress > 0
+	}
+}
+trigger_inhospitable_terrain = {
+	OR = {
+		has_state_trait = state_trait_the_great_basin_desert
+		has_state_trait = state_trait_atacama_desert
+		has_state_trait = state_trait_sahara_desert
+		has_state_trait = state_trait_sahel
+		has_state_trait = state_trait_arabian_desert
+		has_state_trait = state_trait_gobi_desert
+		has_state_trait = state_trait_australian_desert
+		has_state_trait = state_trait_siberian_terrain
+		has_state_trait = state_trait_northern_canadian_terrain
+		has_state_trait = state_trait_tihamah	# Arabian Desert + Mountains
+	}
+}
+trigger_chinese_state = {	# any_scope_state left out intentionally to make it more versatile.
+	OR = {
+		region = sr:region_north_china
+		region = sr:region_south_china
+		AND = {
+			region = sr:region_manchuria
+			state_region = { NOT = { is_homeland = cu:korean } }
+		}
+		AND = {
+			region = sr:region_himalayas
+			state_region = { NOT = { is_homeland = cu:nepali } }
+		}
+		AND = {	# It's easier to group them together than to make another admin - Also, historically accurate.
+			region = sr:region_central_asia
+			state_region = { is_homeland = cu:uighur }
+		}
+	}
+}
+trigger_seed_plantations = {
+	has_technology_researched = enclosure
+	any_scope_state = {
+		trigger_inhospitable_terrain = no
+		is_treaty_port = no
+		OR = {
+			NOT = { any_scope_building = { is_building_type = building_infres_generic_subsistence } }
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }
+				owner = { any_primary_culture = { has_cultural_obsession = sugar } }
+			}
+			NOT = { any_scope_building = { is_building_type = building_infres_vineyard_plantation } }
+			NOT = { any_scope_building = { is_building_type = building_infres_coffee_plantation } }
+			NOT = { any_scope_building = { is_building_type = building_infres_tea_plantation } }
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_infres_dye_plantation } }
+				NOT = { owner = { has_technology_researched = aniline } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_infres_silk_plantation } }
+				NOT = { owner = { has_technology_researched = art_silk } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_infres_opium_plantation } }
+				NOT = { owner = { is_banning_goods = g:opium } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_infres_tobacco_plantation } }
+				NOT = { owner = { is_banning_goods = g:tobacco } }
+			}
+		}
+	}
+}
+trigger_seed_resorces = {
+	any_scope_state = {
+		OR = {
+			AND = {
+				has_potential_resource = bg_logging
+				NOT = { any_scope_building = { is_building_type = building_logging_camp } }
+			}
+			AND = {
+				has_potential_resource = bg_gold_mining
+				NOT = { any_scope_building = { is_building_type = building_gold_mine } }
+				owner = { has_technology_researched = prospecting }
+			}
+			AND = {
+				has_potential_resource = bg_coal_mining
+				NOT = { any_scope_building = { is_building_type = building_coal_mine } }
+				owner = { has_technology_researched = shaft_mining }
+			}
+			AND = {
+				has_potential_resource = bg_iron_mining
+				NOT = { any_scope_building = { is_building_type = building_iron_mine } }
+				owner = { has_technology_researched = shaft_mining }
+			}
+			AND = {
+				has_potential_resource = bg_lead_mining
+				NOT = { any_scope_building = { is_building_type = building_lead_mine } }
+				owner = { has_technology_researched = shaft_mining }
+			}
+			AND = {
+				has_potential_resource = bg_sulfur_mining
+				NOT = { any_scope_building = { is_building_type = building_sulfur_mine } }
+				owner = { has_technology_researched = shaft_mining }
+			}
+			AND = {
+				has_potential_resource = bg_rubber
+				NOT = { any_scope_building = { is_building_type = building_rubber_plantation } }
+				owner = { has_technology_researched = rubber_mastication }
+			}
+			AND = {
+				has_potential_resource = bg_oil_extraction
+				NOT = { any_scope_building = { is_building_type = building_oil_rig } }
+				owner = { has_technology_researched = pumpjacks }
+			}
+			AND = {
+				is_coastal = yes
+				has_potential_resource = bg_fishing
+				NOT = { any_scope_building = { is_building_type = building_fishing_wharf } }
+			}
+			AND = {
+				is_coastal = yes
+				has_potential_resource = bg_whaling
+				NOT = { any_scope_building = { is_building_type = building_whaling_station } }
+				owner = { has_technology_researched = navigation }
+			}
+		}
+	}
+}
+trigger_seed_industry = {
+	has_technology_researched = manufacturies
+	any_scope_state = {
+		trigger_incorporated_or_incorporating = yes
+		OR = {
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_tooling_workshops } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_glassworks } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_textile_mills } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_furniture_manufacturies } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_paper_mills } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_food_industry } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_charcoal_burner } }
+				owner = { has_technology_researched = manufacturies }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_steel_mills } }
+				owner = { has_technology_researched = steelworking }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_chemical_plants } }
+				owner = { has_technology_researched = intensive_agriculture }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+				owner = { has_technology_researched = intensive_agriculture }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_synthetic_oil_plants } }
+				owner = { has_technology_researched = distillation }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_motor_industry } }
+				owner = { has_technology_researched = atmospheric_engine }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_synthetics_plants } }
+				owner = { has_technology_researched = aniline }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_electrics_industry } }
+				owner = { has_technology_researched = telephone }
+				NOT = { owner = { has_law = law_type:law_industry_banned } }
+			}
+		}
+	}
+}
+trigger_seed_military_industry = {
+	has_technology_researched = manufacturies
+	capital = {
+		OR = {
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_arms_industry } }
+				owner = { has_technology_researched = gunsmithing }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_artillery_foundries } }
+				owner = { has_technology_researched = artillery }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_munition_plants } }
+				owner = { has_technology_researched = percussion_cap }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_war_machine_industry } }
+				owner = { OR = { has_technology_researched = military_aviation has_technology_researched = carrier_tech } }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_shipyards } }
+				owner = { has_technology_researched = navigation }
+				is_coastal = yes
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_military_shipyards } }
+				owner = { has_technology_researched = navigation }
+				is_coastal = yes
+			}
+		}
+	}
+}
+trigger_seed_infrastructure = {
+	any_scope_state = {
+		OR = {
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_government_administration } }
+				owner = { has_technology_researched = tech_bureaucracy }
+				trigger_incorporated_or_incorporating = yes
+			}
+			AND = {
+				is_coastal = yes
+				NOT = { any_scope_building = { is_building_type = building_port } }
+				owner = { has_technology_researched = navigation }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_railway } }
+				owner = { has_technology_researched = railways }
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_power_plant } }
+				owner = { has_technology_researched = electrical_generation }
+			}
+		}
+	}
+}
+trigger_build_industry_state = {
+	trigger_incorporated_or_incorporating = yes
+	OR = {
+		AND = {
+			var:tools_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:glass_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:textile_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:furniture_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:paper_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:food_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:charcoal_target > 0
+			owner = { has_technology_researched = manufacturies }
+		}
+		AND = {
+			var:steel_target > 0
+			owner = { has_technology_researched = steelworking }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+		AND = {
+			var:fertilizer_target > 0
+			owner = { has_technology_researched = intensive_agriculture }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+		AND = {
+			var:explosives_target > 0
+			owner = { has_technology_researched = intensive_agriculture }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+		AND = {
+			var:synth_oil_target > 0
+			owner = { has_technology_researched = distillation }
+		}
+		AND = {
+			var:motor_target > 0
+			owner = { has_technology_researched = atmospheric_engine }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+		AND = {
+			var:synth_dye_target > 0
+			owner = { has_technology_researched = aniline }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+		AND = {
+			var:electronics_target > 0
+			owner = { has_technology_researched = telephone }
+			NOT = { owner = { has_law = law_type:law_industry_banned } }
+		}
+	}
+}
+trigger_build_industry = {
+	has_technology_researched = manufacturies
+	any_scope_state = { trigger_build_industry_state = yes }
 }
