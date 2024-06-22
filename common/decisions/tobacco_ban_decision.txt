@@ -8,7 +8,7 @@ ban_tobacco = {
 	possible = {
 		any_primary_culture = { has_discrimination_trait = german_speaking }
 		exists = market
-		market.owner = root
+		market.owner = ROOT
 	}
 	when_taken = { effect_tobacco_ban = yes }
     ai_chance = {
@@ -43,11 +43,12 @@ ban_tobacco_again = {
 		exists = market
 	}
 	possible = {
-		market.owner = root
+		market.owner = ROOT
 		is_banning_goods = g:tobacco
 		market = {
 			OR = {
 				any_scope_country = { NOT = { is_banning_goods = g:tobacco } }
+				any_scope_country = { any_primary_culture = { has_cultural_obsession = tobacco } }
 				any_scope_country = { any_scope_state = { has_building = building_tobacco_plantation } }
 				any_scope_country = { any_scope_state = { has_building = building_infres_tobacco_plantation } }
 			}
@@ -85,10 +86,10 @@ remove_tobacco_ban = {
 		is_banning_goods = g:tobacco
 		exists = market
 	}
-	possible = { market.owner = root }
+	possible = { market.owner = ROOT }
 	when_taken = { effect_remove_tobacco_ban = yes }
-   ai_chance = {
-      base = 0
+	ai_chance = {
+		base = 0
 		modifier = {
 			trigger = { authority < 50 }
 			add = 10

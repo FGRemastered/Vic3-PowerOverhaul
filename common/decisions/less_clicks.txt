@@ -1,54 +1,96 @@
-﻿build_railways = {
+﻿decision_pm_switch = {
     is_shown = { exists = yes }
-	possible = { has_technology_researched = railways }
-    when_taken = { make_railways = yes }
+    when_taken = { trigger_event = { id = pm_switch.1 popup = yes } }
     ai_chance = { base = 0 }
 }
-build_administrations = {
-    is_shown = { exists = yes }
-    possible = { has_technology_researched = tech_bureaucracy }
-    when_taken = { make_admins = yes }
-    ai_chance = { base = 0 }
-}
+# build_railways = {
+    # is_shown = { exists = yes }
+	# possible = { has_technology_researched = railways }
+    # when_taken = { effect_make_railways = yes }
+    # ai_chance = { base = 0 }
+# }
+# build_administrations = {
+    # is_shown = { exists = yes }
+    # possible = { has_technology_researched = tech_bureaucracy }
+    # when_taken = { effect_make_admins = yes }
+    # ai_chance = { base = 0 }
+# }
 # build_powerplants = {
     # is_shown = { has_technology_researched = rotary_valve_engine }
 	# possible = { has_technology_researched = electrical_generation }
-    # when_taken = { make_powerplants = yes }
+    # when_taken = { effect_make_powerplants = yes }
     # ai_chance = { base = 0 }
 # }
-decision_watertube_boiler_switch = {
-    is_shown = { NOT = { has_technology_researched = rotary_valve_engine } }
-	possible = { has_technology_researched = watertube_boiler }
-    when_taken = { effect_watertube_boiler_switch = yes }
-    ai_chance = { base = 0 }
-}
-decision_rotary_valve_engine_switch = {
-    is_shown = { NOT = { has_technology_researched = conveyors } }
-	possible = { has_technology_researched = rotary_valve_engine }
-    when_taken = { effect_rotary_valve_engine_switch = yes }
-    ai_chance = { base = 0 }
-}
-decision_assembly_lines_switch = {
-    is_shown = { exists = yes }
-	possible = { has_technology_researched = conveyors }
-    when_taken = { effect_assembly_lines_switch = yes }
-    ai_chance = { base = 0 }
-}
-decision_steam_transport_switch = {
-    is_shown = { NOT = { has_technology_researched = compression_ignition } }
-	possible = { has_technology_researched = railways }
-    when_taken = { effect_steam_transport_switch = yes }
-    ai_chance = { base = 0 }
-}
-decision_electric_transport_switch = {
-    is_shown = { exists = yes }
-	possible = { has_technology_researched = electric_railway }
-    when_taken = { effect_electric_transport_switch = yes }
-    ai_chance = { base = 0 }
-}
-decision_diesel_transport_switch = {
-    is_shown = { has_technology_researched = electric_railway }
-	possible = { has_technology_researched = compression_ignition }
-    when_taken = { effect_diesel_transport_switch = yes }
-    ai_chance = { base = 0 }
-}
+# decision_watertube_boiler_switch = {
+    # is_shown = { NOT = { has_technology_researched = rotary_valve_engine } }
+	# possible = { has_technology_researched = watertube_boiler }
+    # when_taken = { effect_watertube_boiler_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# decision_rotary_valve_engine_switch = {
+    # is_shown = { NOT = { has_technology_researched = conveyors } }
+	# possible = { has_technology_researched = rotary_valve_engine }
+    # when_taken = { effect_rotary_valve_engine_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# decision_assembly_lines_switch = {
+    # is_shown = { exists = yes }
+	# possible = { has_technology_researched = conveyors }
+    # when_taken = { effect_assembly_lines_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# decision_steam_transport_switch = {
+    # is_shown = { NOT = { has_technology_researched = compression_ignition } }
+	# possible = { has_technology_researched = railways }
+    # when_taken = { effect_steam_transport_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# decision_electric_transport_switch = {
+    # is_shown = { exists = yes }
+	# possible = { has_technology_researched = electric_railway }
+    # when_taken = { effect_electric_transport_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# decision_diesel_transport_switch = {
+    # is_shown = { has_technology_researched = electric_railway }
+	# possible = { has_technology_researched = compression_ignition }
+    # when_taken = { effect_diesel_transport_switch = yes }
+    # ai_chance = { base = 0 }
+# }
+# government_run_decision = {
+	# is_shown = {
+		# OR = {
+			# has_law = law_type:law_interventionism
+			# has_law = law_type:law_command_economy
+		# }
+		# is_player = yes
+	# }
+	# possible = {
+		# OR = {
+			# has_law = law_type:law_interventionism
+			# has_law = law_type:law_command_economy
+		# }
+		# is_player = yes
+	# }
+	# when_taken = { effect_government_run = yes }	# See scripted_effects
+# }
+# publicly_traded_decision = {
+	# is_shown = { has_technology_researched = mutual_funds }
+	# possible = { is_player = yes }
+	# when_taken = { effect_publicly_traded = yes }	# See scripted_effects
+# }
+# sovereign_owned_decision = {
+	# is_shown = { has_technology_researched = stock_exchange }
+	# possible = { is_player = yes }
+	# when_taken = { effect_sovereign_owned = yes }	# See scripted_effects
+# }
+# sovereign_owned_bureaucrats_decision = {
+	# is_shown = { NOR = { has_law = law_type:law_state_religion has_law = law_type:law_technocracy } }
+	# possible = { is_player = yes }
+	# when_taken = { effect_sovereign_owned_bureaucrats = yes }	# See scripted_effects
+# }
+# sovereign_owned_clergy_decision = {
+	# is_shown = { NOR = { has_law = law_type:law_total_separation has_law = law_type:law_state_atheism } }
+	# possible = { is_player = yes }
+	# when_taken = { effect_sovereign_owned_clergy = yes }	# See scripted_effects
+# }
