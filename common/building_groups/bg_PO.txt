@@ -181,6 +181,7 @@ bg_generic_subsistence = {
 	parent_group = bg_finite_agriculture
 	always_possible = yes
 	is_subsistence = no		# This is important.
+	ignores_productivity_when_hiring = yes
 	cash_reserves_max = 100000
 	max_hiring_rate = 1.0
 	infrastructure_usage_per_level = 0.2
