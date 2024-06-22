@@ -26,12 +26,12 @@ mining_production_modifier = {
 }
 modifier_character_extra_ten_percent_command = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	character_command_limit_mult = 0.1
+	character_command_limit_mult						= 0.1
 }
 antireligious_policies = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	state_conversion_mult	= 1
-	tax_heathen_add			= 0.5	# New
+	state_conversion_mult								= 1
+	tax_heathen_add										= 0.5	# New
 }
 zeppelins_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
@@ -40,4 +40,14 @@ zeppelins_modifier = {
 	interest_group_ig_petty_bourgeoisie_approval_add	= 1
 	interest_group_ig_industrialists_approval_add		= 1
 	interest_group_ig_armed_forces_approval_add			= 1
+}
+modifier_prevent_subject_civil_war = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	political_movement_radicalism_mult					=-10
+	country_must_have_movement_to_enact_laws			= yes	# Added
+}
+automobile_regulations = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_motor_industry_throughput_add				=-0.1
+	country_authority_mult								= 0.1
 }

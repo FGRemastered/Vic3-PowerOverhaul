@@ -27,6 +27,14 @@ building_port = {
 				owner = { num_convoys_available < num_convoys_required }
 				state = { is_incorporated = yes }
 			}
+			trigger_if = {
+				limit = { owner = { is_subject = yes } }
+				custom_tooltip = {
+					text = "OVERLORD has insufficient convoys"
+					owner.OVERLORD = { num_convoys_available < num_convoys_required }
+				}
+				state = { is_incorporated = yes }
+			}
 			AND = {
 				weekly_profit > 0
 				state = { sg:transportation = { state_goods_pricier > 0.5 } }
@@ -56,6 +64,7 @@ building_government_administration = {
 					OR = {
 						is_capital = yes
 						any_scope_building = { is_building_type = building_skyscraper }
+						any_scope_building = { is_building_type = building_white_house }
 					}
 				}
 				OR = {

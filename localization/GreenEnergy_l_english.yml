@@ -34,9 +34,16 @@
  pmg_ownership_agriculture: "$pmg_ownership$"
  pmg_ownership_plantation: "$pmg_ownership$"
  
+ pm_hardwood_frame_buildings: "$hardwood$-Frame Buildings"
+ 
  pmg_harvesting_process_simple: "$pmg_harvesting_process$"
  pmg_harvesting_process_tractors: "$pmg_harvesting_process$"
  pm_electric_tractors: "Electric Tractors"
+ pm_tools_subsistence: "$pm_tools$"
+ pm_steam_threshers_subsistence: "$pm_steam_threshers$"
+ pm_tractors_subsistence: "$pm_tractors$"
+ pm_compression_ignition_tractors_subsistence: "$pm_compression_ignition_tractors$"
+ pm_electric_tractors_subsistence: "$pm_electric_tractors$"
  
  pm_simple_farming_rice_farm: "$pm_simple_farming$"
  

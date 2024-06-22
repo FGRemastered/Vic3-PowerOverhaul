@@ -7,6 +7,8 @@ goods_input_fine_art_add							= { good = no	percent = no }
 goods_input_luxury_clothes_add						= { good = no	percent = no }
 goods_input_luxury_furniture_add					= { good = no	percent = no }
 goods_input_porcelain_add							= { good = no	percent = no }
+goods_input_tea_add									= { good = no	percent = no }
+goods_input_coffee_add								= { good = no	percent = no }
 # Multiplicative
 goods_input_electricity_mult						= { good = no	percent = yes }
 goods_input_grain_mult								= { good = no	percent = yes }
@@ -16,8 +18,20 @@ goods_input_wood_mult								= { good = no	percent = yes }
 goods_input_hardwood_mult							= { good = no	percent = yes }
 goods_input_sulfur_mult								= { good = no	percent = yes }
 goods_input_rubber_mult								= { good = no	percent = yes }
+goods_input_dye_mult								= { good = no	percent = yes }
 goods_input_silk_mult								= { good = no	percent = yes }
 goods_input_fertilizer_mult							= { good = no	percent = yes }
+goods_input_explosives_mult							= { good = no	percent = yes }
+goods_input_clippers_mult							= { good = no	percent = yes }
+goods_input_steamers_mult							= { good = no	percent = yes }
+goods_input_groceries_mult							= { good = no	percent = yes	num_decimals = 0 }
+goods_input_fabric_mult								= { good = no	percent = yes	num_decimals = 0 }
+goods_input_tools_mult								= { good = no	percent = yes	num_decimals = 0 }
+goods_input_sugar_mult								= { good = no	percent = yes	num_decimals = 0 }
+goods_input_liquor_mult								= { good = no	percent = yes	num_decimals = 0 }
+goods_input_tobacco_mult							= { good = no	percent = yes	num_decimals = 0 }
+goods_input_opium_mult								= { good = no	percent = yes	num_decimals = 0 }
+goods_input_automobiles_mult						= { good = no	percent = yes	num_decimals = 0 }
 # Output
 goods_output_grain_mult								= { good = yes	percent = yes }
 goods_output_fish_mult								= { good = yes	percent = yes }
@@ -44,6 +58,8 @@ goods_output_silk_mult								= { good = yes	percent = yes }
 goods_output_tanks_mult								= { good = yes	percent = yes }
 goods_output_luxury_clothes_mult					= { good = yes	percent = yes }
 goods_output_luxury_furniture_mult					= { good = yes	percent = yes }
+goods_output_glass_mult								= { good = yes	percent = yes }
+goods_output_porcelain_mult							= { good = yes	percent = yes }
 goods_output_services_mult							= { good = yes	percent = yes }
 goods_output_transportation_mult					= { good = yes	percent = yes }
 # Buildings
@@ -71,6 +87,7 @@ building_academics_birthrate_mult					= { good = yes	percent = yes }	# Localised
 building_officers_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
 building_capitalists_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
 building_aristocrats_birthrate_mult					= { good = yes	percent = yes }	# Localised, but not initialised
+building_birth_rate_mult							= { good = yes	percent = yes }
 # State
 state_building_barracks_max_level_mult				= { good = yes	percent = yes }
 country_birthrate_from_grain_consumption_mult		= { good = yes	percent = yes }

@@ -12,10 +12,18 @@
  sovereign_owned_clergy_decision: "Claim Sovereign Ownership (Clergy)"
  sovereign_owned_clergy_decision_desc: "Claim all buildings for the sovereign through loyal admininistrators."
  
+ pm_switch_sovereign_owned_bureaucrats: "Claim Sovereign Ownership (@bureaucrats!)"
+ pm_switch_sovereign_owned_clergy: "Claim Sovereign Ownership (@clergymen!)"
+ pm_switch_sovereign_owned: "Claim Sovereign Ownership (@engineers!@academics!@officers!)"
+ pm_switch_trade_publicly: "Trade Publicly (@capitalists!)"
+ 
  pmg_ownership_industry: "$pmg_ownership$"
  
  pm_privately_owned_secular: "$pm_privately_owned$"
  pm_privately_owned_secular_plantation: "$pm_privately_owned_plantation$"
+ pm_publicly_traded_secular: "$pm_publicly_traded$"
+ pm_publicly_traded_secular_plantation: "$pm_publicly_traded$"
+ pm_homesteading_secular: "$pm_homesteading$"
  
  pm_sovereign_owned_hereditary: "Sovereign-owned (Hereditary)"
  pm_sovereign_owned_hereditary_secular: "$pm_sovereign_owned_hereditary$"
@@ -38,6 +46,7 @@
  pm_worker_cooperative_bg_fishing: "$pm_worker_cooperative$"
  
  pm_trade_center_stock_exchange: "$stock_exchange$"
+ pm_trade_center_hereditary: "$pm_sovereign_owned_hereditary$"
  pm_trade_center_clergy: "$pm_sovereign_owned_clergy$"
  pm_trade_center_bureacrats: "$pm_sovereign_owned_bureaucrats$"
  pm_trade_center_academics: "$pm_sovereign_owned_academics$"

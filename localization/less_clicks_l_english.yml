@@ -1,4 +1,8 @@
 ﻿l_english:
+ decision_pm_switch: "PM Selection"
+ decision_pm_switch_desc: "Open the pm selection menu"
+ decision_pm_switch_tooltip: "Click to open the pm selection menu"
+ 
  build_railways: "Build Railways"
  build_railways_desc: "Adds just enough railways everywhere to ensure full market access"
  build_railways_tooltip: "Click to build more railways"
