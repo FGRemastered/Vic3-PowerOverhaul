@@ -299,13 +299,11 @@ passenger_train = {
 #################################################################
 mining_train = {
 	valid_spline_styles = { "railroad" }
-
 	speed = 1.0
 	min_caravan_distance = 15.0
 	routes_to_caravans_ratio = 0.2
 	max_count = 30
 	max_path_length = 5
-
 	route_entities = {
 		# Engine
 		planet_locomotive_01 = {
@@ -315,7 +313,7 @@ mining_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -326,7 +324,7 @@ mining_train = {
 			possible = {
 				gfx_has_german_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -337,7 +335,7 @@ mining_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -348,7 +346,7 @@ mining_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -359,7 +357,7 @@ mining_train = {
 			possible = {
 				gfx_has_russian_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -370,7 +368,7 @@ mining_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -381,7 +379,7 @@ mining_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -392,7 +390,7 @@ mining_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -403,7 +401,7 @@ mining_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -414,7 +412,7 @@ mining_train = {
 			possible = {
 				gfx_has_german_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -425,7 +423,7 @@ mining_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -436,7 +434,7 @@ mining_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -447,7 +445,7 @@ mining_train = {
 			possible = {
 				gfx_has_russian_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -458,7 +456,7 @@ mining_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -469,7 +467,7 @@ mining_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -481,7 +479,7 @@ mining_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -492,7 +490,7 @@ mining_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -503,7 +501,7 @@ mining_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -514,7 +512,7 @@ mining_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -525,7 +523,7 @@ mining_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -535,7 +533,7 @@ mining_train = {
 			entity_length = 1.85
 			possible = {
 				gfx_electrical_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -545,7 +543,7 @@ mining_train = {
 			entity_length = 2.1
 			possible = {
 				gfx_diesel_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_mining_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -742,7 +740,7 @@ forestry_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -753,7 +751,7 @@ forestry_train = {
 			possible = {
 				gfx_has_german_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -764,7 +762,7 @@ forestry_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -775,7 +773,7 @@ forestry_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -786,7 +784,7 @@ forestry_train = {
 			possible = {
 				gfx_has_russian_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -797,7 +795,7 @@ forestry_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -808,7 +806,7 @@ forestry_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_experimental_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -819,7 +817,7 @@ forestry_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -830,7 +828,7 @@ forestry_train = {
 			possible = {
 				gfx_has_british_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -841,7 +839,7 @@ forestry_train = {
 			possible = {
 				gfx_has_german_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -852,7 +850,7 @@ forestry_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -863,7 +861,7 @@ forestry_train = {
 			possible = {
 				gfx_has_french_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -874,7 +872,7 @@ forestry_train = {
 			possible = {
 				gfx_has_russian_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -885,7 +883,7 @@ forestry_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -896,7 +894,7 @@ forestry_train = {
 			possible = {
 				gfx_has_american_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -908,7 +906,7 @@ forestry_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -919,7 +917,7 @@ forestry_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -930,7 +928,7 @@ forestry_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -941,7 +939,7 @@ forestry_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -952,7 +950,7 @@ forestry_train = {
 			possible = {
 				gfx_has_no_culture_trains_trigger = yes
 				gfx_steam_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -962,7 +960,7 @@ forestry_train = {
 			entity_length = 1.85
 			possible = {
 				gfx_electrical_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
@@ -972,7 +970,7 @@ forestry_train = {
 			entity_length = 2.1
 			possible = {
 				gfx_diesel_locomotive_trigger = yes
-				gfx_passanger_train_trigger = yes
+				gfx_forestry_train_trigger = yes
 			}
 			count = { value = 1 }
 		}
