@@ -823,15 +823,7 @@ types production_methods
 							spacing = 5
 
 							icon = {
-								visible = "[And(Building.ShouldShowAsUnableToHire,Building.HasFailedHires)]"
-								size = { 28 28 }
-								texture = "gfx/interface/icons/generic_icons/employment_not_full.dds"
-								parentanchor = vcenter
-								tooltip = "NOT_FULLY_EMPLOYED"
-							}
-
-							icon = {
-								visible = "[And(Building.ShouldShowAsUnableToHire,Not(Building.HasFailedHires))]"
+								visible = "[Building.ShouldShowAsUnableToHire]"
 								size = { 28 28 }
 								texture = "gfx/interface/icons/generic_icons/employment_not_full.dds"
 								parentanchor = vcenter
@@ -843,7 +835,7 @@ types production_methods
 								size = { 28 28 }
 								texture = "gfx/interface/icons/generic_icons/employment_not_hiring.dds"
 								parentanchor = vcenter
-								tooltip = "NOT_FULLY_EMPLOYED"
+								tooltip = "NOT_HIRING"
 							}
 							
 							icon = {
@@ -1049,7 +1041,6 @@ types production_methods
 							### CANCEL CONSTRUCTION
 							button_icon_minus_action = {
 								size = { 30 30 }
-						  
 								parentanchor = vcenter
 								tooltip = "[Building.GetCancelConstructionTooltip]"
 								visible = "[IsValid( Building.CancelConstruction )]"
@@ -1083,7 +1074,7 @@ types production_methods
 								tooltip = "[Building.GetQueueConstructionTooltip]"
 								onclick = "[Execute( Building.QueueConstruction )]"
 								enabled = "[IsValid( Building.QueueConstruction )]"
-								visible = "[And(Building.GetOwner.IsLocalPlayer, Building.IsExpandable)]"
+								visible = "[And(And(Building.GetOwner.IsLocalPlayer, Building.IsExpandable), Not(BuildingType.IsMilitaryBuilding))]"
 							}
 						}
 
