@@ -89,79 +89,6 @@ pm_switch_boards = {
 	}
 	required_input_goods = telephones
 }
-pm_academic_admininistration = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
-	unlocking_laws = { law_appointed_bureaucrats }
-	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add	=  250
-			building_employment_academics_add	=  250
-		}
-		unscaled = { building_throughput_add	= 0.10 }
-	}
-	state_modifiers = {
-		unscaled = { state_education_access_add	= 0.10 }
-	}
-}
-pm_military_admininistration = {
-	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
-	disallowing_laws = {
-		law_no_police
-		law_national_militia
-		law_elected_bureaucrats
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add	=  250
-			building_employment_officers_add	=  250
-		}
-		unscaled = { building_throughput_add	= 0.10 }
-	}
-	state_modifiers = {
-		unscaled = { state_turmoil_effects_mult	=-0.05 }
-	}
-}
-pm_hereditary_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
-	# unlocking_laws = { law_hereditary_bureaucrats }	# You can always go back to this.
-	building_modifiers = {
-		level_scaled = {
-			building_employment_aristocrats_add = 250
-			building_employment_bureaucrats_add = 250
-		}
-	}
-	ai_value = 0
-}
-# pm_professional_bureaucrats = {
-	# texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
-	# disallowing_laws = { law_hereditary_bureaucrats }
-	# building_modifiers = {
-		# unscaled = {
-			# building_employment_aristocrats_mult	= -1
-			# building_employment_bureaucrats_mult	= 0
-		# }
-	# }
-# }
-# pm_secular_bureaucrats = {
-	# texture = "gfx/interface/icons/production_method_icons/ownership_bureaucrats.dds"
-	# disallowing_laws = { law_state_religion }
-	# building_modifiers = {
-		# unscaled = {
-			# building_employment_clergymen_mult		= -1
-			# building_employment_bureaucrats_mult	= 0
-		# }
-	# }
-# }
-# pm_religious_bureaucrats = {
-	# texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
-	# disallowing_laws = { law_total_separation }
-	# building_modifiers = {
-		# unscaled = {
-			# building_employment_clergymen_mult		= -0.5
-			# building_employment_bureaucrats_mult	= -0.5
-		# }
-	# }
-# }
 # Skyscrapers
 pm_simple_organization_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
@@ -186,6 +113,8 @@ pm_simple_organization_skyscraper = {
 		workforce_scaled = {
 			country_bureaucracy_add								=   50	# 35
 			country_trade_route_quantity_mult					= 0.10
+			country_improve_relations_speed_mult				= 0.10
+			country_damage_relations_speed_mult					= 0.10
 		}
 	}
 }
@@ -214,6 +143,8 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 		workforce_scaled = {
 			country_bureaucracy_add								=   75	# 50
 			country_trade_route_quantity_mult					= 0.20
+			country_improve_relations_speed_mult				= 0.20
+			country_damage_relations_speed_mult					= 0.20
 		}
 	}
 }
@@ -242,6 +173,8 @@ pm_vertical_filing_cabinets_skyscraper = {
 		workforce_scaled = {
 			country_bureaucracy_add								=  100	# 65
 			country_trade_route_quantity_mult					= 0.25
+			country_improve_relations_speed_mult				= 0.25
+			country_damage_relations_speed_mult					= 0.25
 		}
 	}
 }
@@ -267,6 +200,8 @@ pm_switch_boards_skyscraper = {
 			building_railway_throughput_add						= 0.30
 			building_paper_mills_throughput_add					= 0.30
 			country_trade_route_quantity_mult					= 0.30
+			country_improve_relations_speed_mult				= 0.30
+			country_damage_relations_speed_mult					= 0.30
 		}
 	}
 	required_input_goods = telephones
@@ -388,6 +323,100 @@ pm_analytical_philosophy_department = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add		=    4
+		}
+	}
+}
+# Professionalism
+pm_hereditary_bureaucrats = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
+	# unlocking_laws = { law_hereditary_bureaucrats }	# Removed - You can always go back to this.
+	building_modifiers = {
+		level_scaled = {
+			building_employment_aristocrats_add = 250
+			building_employment_bureaucrats_add = 250
+		}
+	}
+	ai_value = 0	# Added
+}
+pm_professional_bureaucrats = {
+	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
+	disallowing_laws = { law_hereditary_bureaucrats }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add = 500
+		}
+	}
+	is_default = yes	# Added
+}	
+pm_academic_admininistration = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
+	unlocking_laws = { law_appointed_bureaucrats }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add	=  250
+			building_employment_academics_add	=  250
+		}
+		unscaled = { building_throughput_add	= 0.10 }
+	}
+	state_modifiers = {
+		throughput_scaled = { state_education_access_add	= 0.10 }
+	}
+}
+pm_military_admininistration = {
+	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
+	disallowing_laws = {
+		law_no_police
+		law_national_militia
+		law_elected_bureaucrats
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add	=  250
+			building_employment_officers_add	=  250
+		}
+		unscaled = { building_throughput_add	= 0.10 }
+	}
+	state_modifiers = {
+		throughput_scaled = {
+			state_turmoil_effects_mult			=-0.05
+			battle_offense_owned_province_mult	= 0.10
+			battle_defense_owned_province_mult	= 0.10
+		}
+	}
+}
+pm_academic_admininistration_skyscraper = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
+	unlocking_laws = { law_appointed_bureaucrats }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add	=  250
+			building_employment_academics_add	=  250
+		}
+		unscaled = { building_throughput_add	= 0.10 }
+	}
+	country_modifiers = {
+		throughput_scaled = { state_education_access_add	= 0.10 }
+	}
+}
+pm_military_admininistration_skyscraper = {
+	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
+	disallowing_laws = {
+		law_no_police
+		law_national_militia
+		law_elected_bureaucrats
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add	=  250
+			building_employment_officers_add	=  250
+		}
+		unscaled = { building_throughput_add	= 0.10 }
+	}
+	country_modifiers = {
+		throughput_scaled = {
+			state_turmoil_effects_mult			=-0.05
+			battle_offense_owned_province_mult	= 0.10
+			battle_defense_owned_province_mult	= 0.10
 		}
 	}
 }

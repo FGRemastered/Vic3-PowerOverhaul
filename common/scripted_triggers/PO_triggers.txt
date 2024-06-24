@@ -73,7 +73,8 @@ trigger_inhospitable_terrain = {
 		has_state_trait = state_trait_australian_desert
 		has_state_trait = state_trait_siberian_terrain
 		has_state_trait = state_trait_northern_canadian_terrain
-		has_state_trait = state_trait_tihamah	# Arabian Desert + Mountains
+		has_state_trait = state_trait_tihamah		# Arabian Desert + Mountains
+		has_state_trait = state_trait_gran_chaco	# South American Wasteland west of the Pampas
 	}
 }
 trigger_chinese_state = {	# any_scope_state left out intentionally to make it more versatile.
@@ -309,6 +310,63 @@ trigger_seed_infrastructure = {
 			}
 		}
 	}
+}
+trigger_build_resources_state = {
+	OR = {
+		AND = {
+			has_potential_resource = bg_logging
+			any_scope_building = { is_building_type = building_logging_camp			can_queue_building_levels = 1 }	# Rubber is a subgroup of Logging
+		}
+		AND = {
+			has_potential_resource = bg_gold_mining
+			any_scope_building = { is_building_group = building_gold_mine			can_queue_building_levels = 1 }
+			owner = { has_technology_researched = prospecting }
+		}
+		AND = {
+			has_potential_resource = bg_coal_mining
+			any_scope_building = { is_building_group = bg_coal_mining				can_queue_building_levels = 1 }
+			owner = { has_technology_researched = shaft_mining }
+		}
+		AND = {
+			has_potential_resource = bg_iron_mining
+			any_scope_building = { is_building_group = building_iron_mine			can_queue_building_levels = 1 }
+			owner = { has_technology_researched = shaft_mining }
+		}
+		AND = {
+			has_potential_resource = bg_lead_mining
+			any_scope_building = { is_building_group = bg_lead_mining				can_queue_building_levels = 1 }
+			owner = { has_technology_researched = shaft_mining }
+		}
+		AND = {
+			has_potential_resource = bg_sulfur_mining
+			any_scope_building = { is_building_group = bg_sulfur_mining				can_queue_building_levels = 1 }
+			owner = { has_technology_researched = shaft_mining }
+		}
+		AND = {
+			has_potential_resource = bg_rubber
+			any_scope_building = { is_building_group = bg_rubber					can_queue_building_levels = 1 }
+			owner = { has_technology_researched = rubber_mastication }
+		}
+		AND = {
+			has_potential_resource = bg_oil_extraction
+			any_scope_building = { is_building_group = bg_oil_extraction			can_queue_building_levels = 1 }
+			owner = { has_technology_researched = pumpjacks }
+		}
+		AND = {
+			has_potential_resource = bg_fishing
+			any_scope_building = { is_building_type = building_fishing_wharf		can_queue_building_levels = 1 }	# Whaling is a subgroup of Fishing
+			is_coastal = yes
+		}
+		AND = {
+			has_potential_resource = bg_whaling
+			any_scope_building = { is_building_type = building_whaling_station		can_queue_building_levels = 1 }
+			owner = { has_technology_researched = navigation }
+			is_coastal = yes
+		}
+	}
+}
+trigger_build_resources = {
+	any_scope_state = { trigger_build_resources_state = yes }
 }
 trigger_build_industry_state = {
 	trigger_incorporated_or_incorporating = yes

@@ -1,10 +1,10 @@
 # Infinite Resource Buildings
 # Subsistence
 building_infres_generic_subsistence = {
+	building_group = bg_infinite_subsistence_agriculture
 	unlocking_technologies = { enclosure }
 	can_build_private		= { trigger_private_construction	= yes }
 	can_build_government	= { trigger_gov_construction		= yes }
-	building_group = bg_infinite_subsistence_agriculture
 	texture = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	production_method_groups = {
 		pmg_base_building_generic_subsistence
@@ -13,7 +13,7 @@ building_infres_generic_subsistence = {
 		pmg_serfdom_building_subsistence_rice_paddies			# Double size
 		pmg_ownership_agriculture
 	}
-	min_raise_to_hire		=-1
+	min_raise_to_hire		= 0
 	required_construction	= 50	# Half of construction_cost_very_low
 	slaves_role				= peasants
 }

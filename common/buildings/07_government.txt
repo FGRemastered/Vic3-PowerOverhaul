@@ -105,7 +105,7 @@ building_skyscraper = {
 		pmg_base_building_skyscraper
 		pmg_airship_mooring_post
 		pmg_train_automation_sky
-		pmg_government_administration_bureaucrat_professionalism
+		pmg_skyscraper_bureaucrat_professionalism
 		pmg_government_administration_religious_administration
 	}
 	texture = "gfx/interface/icons/building_icons/skyscraper.dds"

@@ -94,10 +94,13 @@
  pm_vertical_filing_cabinets_skyscraper: "$pm_vertical_filing_cabinets$"
  pm_switch_boards_skyscraper: "$pm_switch_boards$"
 
+ pmg_skyscraper_bureaucrat_professionalism: "$pmg_government_administration_bureaucrat_professionalism$"
  pm_academic_admininistration: "Akademische Verwaltung"
  pm_academic_admininistration_construction: "$pm_academic_admininistration$"
+ pm_academic_admininistration_skyscraper: "$pm_academic_admininistration$"
  pm_military_admininistration: "Militärverwaltung"
  pm_military_admininistration_construction: "$pm_military_admininistration$"
+ pm_military_admininistration_skyscraper: "$pm_military_admininistration$"
  pm_central_planned_construction: "Zentralplanung"
  
  pm_independent_academia: "Unabhängige Akademiker"

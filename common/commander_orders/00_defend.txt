@@ -31,7 +31,7 @@ defend_dig_in = {
 		}
 	}
 	modifier = {
-		unit_defense_mult						= 0.15
+		unit_defense_mult						= 0.2	# Changed
 		unit_supply_consumption_mult			= 0.2
 		character_battle_condition_dug_in_mult	= 1
 	}
@@ -87,11 +87,12 @@ defend_desperate_charge = {
 		}
 	}
 	modifier = {
-		unit_kill_rate_add = 0.25
-		unit_morale_damage_mult = 0.15
-		battle_casualties_mult = 0.2
-		character_battle_condition_surprise_maneuver_mult = 0.5
-		character_battle_condition_aggressive_maneuver_mult = 0.5
+		unit_kill_rate_add									= 0.25
+		unit_morale_damage_mult								= 0.15
+		battle_casualties_mult								= 0.2
+		character_battle_condition_surprise_maneuver_mult	= 0.5
+		character_battle_condition_aggressive_maneuver_mult	= 0.5
+		unit_offense_mult									= 0.20	# Added
 	}
 	entity_animation = "defend"
 	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
@@ -111,8 +112,8 @@ defend_last_stand = {
 		}
 	}
 	modifier = {
-		battle_casualties_mult = 0.3
-		unit_defense_mult = 0.2
+		unit_defense_mult		= 0.25	# Changed
+		battle_casualties_mult	= 0.3
 	}
 	entity_animation = "defend"
 	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
@@ -158,11 +159,11 @@ defend_guerilla_warfare = {
 		}
 	}
 	modifier = {
-		unit_defense_mult = 0.1
-		unit_morale_loss_mult = 0.15
-		character_battle_condition_camouflaged_mult = 2
-		character_battle_condition_surprise_maneuver_mult = 1
-		unit_morale_loss_mult = 0.1
+		unit_defense_mult									= 0.3	# Changed
+		unit_morale_loss_mult								= 0.15
+		character_battle_condition_camouflaged_mult			= 2
+		character_battle_condition_surprise_maneuver_mult	= 1
+		unit_morale_loss_mult								= 0.1
 	#	unit_enemy_devastation_mult = 1 ## add enemy devastation mult
 	#   unit_enemy_ocupation_mult = 0.3 ## add a new trigger for reducing the amount of occupied territory gets
 	}

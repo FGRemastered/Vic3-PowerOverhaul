@@ -318,6 +318,29 @@ effect_make_powerplants = {
 		}
 	}
 }
+effect_seed_const = {
+	set_variable = {
+		name = const_to_build
+		value = 5
+	}
+	show_as_tooltip = {
+		every_scope_state = {
+			limit = { var:const_to_build > 0 }
+			while = {
+				count = var:const_to_build
+				start_building_construction = building_construction_sector
+			}
+		}
+	}
+	while = {	# Striped
+		limit = { any_scope_state = { var:const_to_build > 0 } }
+		every_scope_state = {
+			limit = { is_treaty_port = no var:const_to_build > 0 }	# NOT = { b:building_construction_sector = { is_under_construction = yes } }
+			start_building_construction = building_construction_sector
+			change_variable = { name = const_to_build subtract = 1 }
+		}
+	}
+}
 effect_calc_const = {
 	every_scope_state = {
 		limit = { is_treaty_port = no }
@@ -806,7 +829,7 @@ effect_spawn_peasants = {
 			limit = { var:peasantsToSpawn1M > 0 }
 			while = {
 				count = var:peasantsToSpawn1M
-				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 4000000 } }
+				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.50	size = 4000000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = east_asian_heritage } } }			create_pop	= {	culture = japanese		religion = shinto	pop_type = peasants	literacy_rate = 0.25	size = 4000000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = north_asian_heritage } } }			create_pop	= {	culture = siberian		religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 4000000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = central_asian_heritage } } }			create_pop	= {	culture = kazak			religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 4000000 } }
@@ -822,7 +845,7 @@ effect_spawn_peasants = {
 			limit = { var:peasantsToSpawnHundredk > 0 }
 			while = {
 				count = var:peasantsToSpawnHundredk
-				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 400000 } }
+				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.50	size = 400000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = east_asian_heritage } } }			create_pop	= {	culture = japanese		religion = shinto	pop_type = peasants	literacy_rate = 0.25	size = 400000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = north_asian_heritage } } }			create_pop	= {	culture = siberian		religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 400000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = central_asian_heritage } } }			create_pop	= {	culture = kazak			religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 400000 } }
@@ -838,7 +861,7 @@ effect_spawn_peasants = {
 			limit = { var:peasantsToSpawn > 0 }
 			while = {
 				count = var:peasantsToSpawn
-				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 40000 } }
+				if		= { limit = { owner = { any_primary_culture = { has_discrimination_trait = european_heritage } } }				create_pop	= {	culture = north_german	religion = atheist	pop_type = peasants	literacy_rate = 0.50	size = 40000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = east_asian_heritage } } }			create_pop	= {	culture = japanese		religion = shinto	pop_type = peasants	literacy_rate = 0.25	size = 40000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = north_asian_heritage } } }			create_pop	= {	culture = siberian		religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 40000 } }
 				else_if	= { limit = { owner = { any_primary_culture = { has_discrimination_trait = central_asian_heritage } } }			create_pop	= {	culture = kazak			religion = atheist	pop_type = peasants	literacy_rate = 0.25	size = 40000 } }
@@ -1373,6 +1396,32 @@ effect_build_resources_state = {
 	if = {
 		limit = { has_potential_resource = bg_whaling			any_scope_building = { is_building_type = building_whaling_station		can_queue_building_levels = 1 } owner = { has_technology_researched = navigation } is_coastal = yes }
 		start_building_construction = building_whaling_station
+	}
+}
+effect_build_resources = {
+	effect_seed_resources = yes
+	show_as_tooltip = {
+		every_scope_state = {
+			limit = { trigger_build_resources_state = yes }
+			while = {
+				limit = { trigger_build_resources_state = yes }
+				effect_build_resources_state = yes
+			}
+		}
+	}
+	while = {	# Striped
+		limit = { any_scope_state = { has_decree = decree_encourage_resource_industry trigger_build_resources_state = yes } }
+		every_scope_state = {
+			limit = { has_decree = decree_encourage_resource_industry }	# NOT = { b:building_construction_sector = { is_under_construction = yes } }
+			effect_build_resources_state = yes
+		}
+	}
+	while = {	# Striped
+		limit = { any_scope_state = { NOT = { has_decree = decree_encourage_resource_industry } trigger_build_resources_state = yes } }
+		every_scope_state = {
+			limit = { NOT = { has_decree = decree_encourage_resource_industry } }
+			effect_build_resources_state = yes
+		}
 	}
 }
 effect_delete_finite_agro_state = {

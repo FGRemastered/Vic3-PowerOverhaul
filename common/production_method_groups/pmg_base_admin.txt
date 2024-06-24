@@ -18,6 +18,16 @@ pmg_government_administration_bureaucrat_professionalism = {
 		pm_military_admininistration
 	}
 }
+pmg_skyscraper_bureaucrat_professionalism = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_hereditary_bureaucrats
+		pm_professional_bureaucrats
+		pm_academic_admininistration_skyscraper
+		pm_military_admininistration_skyscraper
+	}
+}
 pmg_university_academia = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
