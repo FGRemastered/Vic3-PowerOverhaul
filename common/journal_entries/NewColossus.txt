@@ -1,4 +1,4 @@
-# Path to Liberalism
+﻿# Path to Liberalism
 je_liberalism_1 = {
 	icon = "gfx/interface/icons/event_icons/event_election.dds"
 	group = je_group_internal_affairs
@@ -9,10 +9,7 @@ je_liberalism_1 = {
 	}
 	possible = {
 		any_interest_group = {
-			OR = {
-				is_being_bolstered = yes
-				is_in_government = yes
-			}
+			is_in_government = yes
 			OR = {
 				trigger_if = {
 					limit = { owner = { has_technology_researched = feminism } }

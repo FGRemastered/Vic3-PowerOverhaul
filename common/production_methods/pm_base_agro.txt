@@ -4,12 +4,12 @@ pm_simple_farming = {
 	building_modifiers = {
 		workforce_scaled = {
 			# output goods
-			goods_output_grain_add				=   30
+			goods_output_grain_add				=   20	# x+20	=  400
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 4000
-			building_employment_farmers_add		= 1000
-		}
+			building_employment_laborers_add	= 4000	# x-.02	=  -80
+			building_employment_farmers_add		= 1000	# x-.04	=  -40
+		}												#		= -120	=> Stops breaking even at SoL
 	}
 }
 pm_soil_enriching_farming = {
@@ -18,14 +18,14 @@ pm_soil_enriching_farming = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=    5
+			goods_input_fertilizer_add			=    5	# x-30	= -150
 			# output goods
-			goods_output_grain_add				=   50
-		}
+			goods_output_grain_add				=   30	# x+20	=  600
+		}												#		= +450
 		level_scaled = {
-			building_employment_laborers_add	= 3750
-			building_employment_farmers_add		= 1000
-		}
+			building_employment_laborers_add	= 3500	# x-.02	=  -70
+			building_employment_farmers_add		= 1000	# x-.04	=  -40
+		}												#		= -115	=> Stops breaking even at SoL
 	}
 }
 pm_fertilization = {
@@ -34,15 +34,16 @@ pm_fertilization = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   15
+			goods_input_fertilizer_add			=   15	# x-30	= -450
 			# output goods
-			goods_output_grain_add				=   90
-		}
+			goods_output_grain_add				=   45	# x+20	=  900
+		}												#		= +450
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_farmers_add		= 1000
-		}
+			building_employment_laborers_add	= 3500	# x-.02	=  -70
+			building_employment_farmers_add		= 1000	# x-.04	=  -40
+		}												#		= -110	=> Stops breaking even at SoL
 	}
+	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.05 } }
 }
 pm_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -50,15 +51,16 @@ pm_chemical_fertilizer = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   40
+			goods_input_fertilizer_add			=   25	# x-30	= -750
 			# output goods
-			goods_output_grain_add				=  140
-		}
+			goods_output_grain_add				=   70	# x+20	= 1400
+		}												#		= +650
 		level_scaled = {
-			building_employment_laborers_add	= 3250
-			building_employment_farmers_add		= 1250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_farmers_add		= 1000	# x-.04	=  -40
+		}												#		= -105	=> Stops breaking even at SoL
 	}
+	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.10 } }
 }
 pm_automatic_fertilization = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -66,16 +68,16 @@ pm_automatic_fertilization = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   40
-			goods_input_engines_add				=    5
+			goods_input_fertilizer_add			=   25	# x-30	= -750
+			goods_input_engines_add				=    5	# x-60	= -300
 			# output goods
-			goods_output_grain_add				=  210
-		}
+			goods_output_grain_add				=  105	# x+20	= 2100
+		}												#		=+1050
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinsts_add	=  500
-			building_employment_farmers_add		= 1000
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=  -60
+			building_employment_machinists_add	=  500	# x-.03	=  -15
+			building_employment_farmers_add		= 1000	# x-.04	=  -40
+		}												#		= -115	=> Stops breaking even at SoL
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=    5 } }
 }
@@ -85,11 +87,15 @@ pm_simple_farming_rice_farm = {
 	building_modifiers = {
 		workforce_scaled = {
 			# output goods
-			goods_output_grain_add				=   40
+			goods_output_grain_add				=   40	# x+20	=  800
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000
-			building_employment_farmers_add		= 1000
+			building_employment_laborers_add	= 4000	# x-.02	= -160
+			building_employment_farmers_add		= 1000	# x-.04	=  -80
+		}												#		= -240	=> Stops breaking even at SoL
+		unscaled = {
+			building_employment_laborers_mult	=    1
+			building_employment_farmers_mult	=    1
 		}
 	}
 }
@@ -99,13 +105,17 @@ pm_soil_enriching_farming_rice_farm = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   20
+			goods_input_fertilizer_add			=   10	# x-30	= -300
 			# output goods
-			goods_output_grain_add				=   80
+			goods_output_grain_add				=   60	# x+20	= 1200
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 4500
-			building_employment_farmers_add		= 1000
+			building_employment_laborers_add	= 3500	# x-.02	= -140
+			building_employment_farmers_add		= 1000	# x-.04	=  -80
+		}												#		= -230	=> Stops breaking even at SoL
+		unscaled = {
+			building_employment_laborers_mult	=    1
+			building_employment_farmers_mult	=    1
 		}
 	}
 }
@@ -115,15 +125,20 @@ pm_fertilization_rice_farm = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   40
+			goods_input_fertilizer_add			=   30	# x-30	= -900
 			# output goods
-			goods_output_grain_add				=  160
-		}
+			goods_output_grain_add				=   90	# x+20	= 1800
+		}												#		=  900
 		level_scaled = {
-			building_employment_laborers_add	= 4000
-			building_employment_farmers_add		= 1000
+			building_employment_laborers_add	= 3500	# x-.02	= -140
+			building_employment_farmers_add		= 1000	# x-.04	=  -80
+		}												#		= -220	=> Stops breaking even at SoL  4.1
+		unscaled = {
+			building_employment_laborers_mult	=    1
+			building_employment_farmers_mult	=    1
 		}
 	}
+	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.05 } }
 }
 pm_chemical_fertilizer_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -131,15 +146,20 @@ pm_chemical_fertilizer_rice_farm = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   80
+			goods_input_fertilizer_add			=   50	# x-30	=-1500
 			# output goods
-			goods_output_grain_add				=  240
-		}
+			goods_output_grain_add				=  140	# x+20	= 2800
+		}												#		= 1300
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_farmers_add		= 1250
+			building_employment_laborers_add	= 3000	# x-.02	= -120
+			building_employment_farmers_add		= 1000	# x-.04	=  -80
+		}												#		= -210	=> Stops breaking even at SoL 6.19
+		unscaled = {
+			building_employment_laborers_mult	=    1
+			building_employment_farmers_mult	=    1
 		}
 	}
+	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.10 } }
 }
 pm_automatic_fertilization_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -147,27 +167,51 @@ pm_automatic_fertilization_rice_farm = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add			=   80
-			goods_input_engines_add				=    5
+			goods_input_fertilizer_add			=   50	# x-30	=-1500
+			goods_input_engines_add				=    5	# x-60	= -300
 			# output goods
-			goods_output_grain_add				=  420
-		}
+			goods_output_grain_add				=  210	# x+20	= 4200
+		}												#		= 2400
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinsts_add	=  500
-			building_employment_farmers_add		=  500
+			building_employment_laborers_add	= 2500	# x-.02	= -100
+			building_employment_machinists_add	=  500	# x-.03	=  -15	# At this point they are equal
+			building_employment_farmers_add		= 1000	# x-.04	=  -80
+		}												#		= -215	=> Stops breaking even at SoL 11.16
+		unscaled = {
+			building_employment_laborers_mult	=    1
+			building_employment_farmers_mult	=    1
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=    5 } }
 }
 # Ranches - Slaughtering
-pm_electrocution_slaughtering = {
+pm_mechanized_slaughtering = {
+	texture = "gfx/interface/icons/production_method_icons/mechanized_slaughtering.dds"	
+	unlocking_technologies = { mechanized_farming }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=   10
+			goods_input_coal_add				=    5
+			# output goods
+			goods_output_meat_add				=   45
+		}
+		level_scaled = {
+			building_employment_laborers_add	= 3000	# Changed - Becomes negative otherwise
+			building_employment_machinists_add	= 1000
+			building_employment_farmers_add		= 1750
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=   15 } }
+}
+pm_electrocution_slaughtering = {	# New
 	texture = "gfx/interface/icons/production_method_icons/mechanized_slaughtering.dds"
+	unlocking_global_technologies = { mechanized_farming }
 	unlocking_technologies = { electrical_capacitors }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add 				=   15
+			goods_input_tools_add 				=   10
 			goods_input_electricity_add			=    5
 			# output goods
 			goods_output_meat_add				=   90
@@ -175,9 +219,9 @@ pm_electrocution_slaughtering = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 3000
-			building_employment_farmers_add		=  900
-			building_employment_machinists_add	=  100
+			building_employment_machinists_add	=  500
+			building_employment_farmers_add		= 2000
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=   15 } }
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=   25 } }
 }

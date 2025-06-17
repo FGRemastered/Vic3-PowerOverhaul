@@ -16,15 +16,6 @@ pmg_canal_engines = {
 		pm_canal_oil
 	}
 }
-pmg_ownership_capital_building_canal = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
-	production_methods = {
-		pm_privately_owned_building_canal
-		pm_publicly_traded_building_canal
-		pm_government_run_building_canal
-		pm_worker_cooperative_building_canal
-	}
-}
 pmg_base_tunnel = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = { pm_tunnel }

@@ -18,12 +18,22 @@ pmg_government_administration_bureaucrat_professionalism = {
 		pm_military_admininistration
 	}
 }
+pmg_government_administration_religious_administration = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_religious_bureaucrats
+		pm_secular_bureaucrats
+		pm_atheist_admininistration
+	}
+}
 pmg_skyscraper_bureaucrat_professionalism = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_hereditary_bureaucrats
-		pm_professional_bureaucrats
+		pm_hereditary_bureaucrats_skyscraper
+		pm_religious_bureaucrats_skyscraper
+		pm_professional_bureaucrats_skyscraper
 		pm_academic_admininistration_skyscraper
 		pm_military_admininistration_skyscraper
 	}
@@ -35,5 +45,13 @@ pmg_university_academia = {
 		pm_religious_academia
 		pm_secular_academia
 		pm_independent_academia
+	}
+}
+pmg_secondary_building_power_bloc_statue = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_no_secondary_building_power_bloc_statue
+		pm_radio_tower
 	}
 }

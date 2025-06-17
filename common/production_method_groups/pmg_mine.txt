@@ -73,14 +73,3 @@ pmg_base_building_oil_rig = {
 		pm_electric_derricks
 	}
 }
-# # Ownership
-# pmg_ownership_mine = {
-	# texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
-	# production_methods = {
-		# pm_merchant_guilds_mine
-		# pm_privately_owned_mine
-		# pm_publicly_traded_mine
-		# pm_government_run_mine
-		# pm_worker_cooperative_mine
-	# }
-# }

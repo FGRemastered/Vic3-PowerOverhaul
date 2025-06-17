@@ -1,0 +1,419 @@
+p0xus_rwd_annex_africa = {
+	every_state = {
+		limit = {
+			OR = {
+				region = sr:region_nile_basin
+				region = sr:region_north_africa
+				region = sr:region_senegal
+				region = sr:region_niger
+				region = sr:region_congo
+				region = sr:region_southern_africa
+				region = sr:region_zanj
+				region = sr:region_ethiopia
+			}
+		}
+		set_state_owner = c:RWD
+	}
+}
+p0xus_root_annex_africa = {
+		every_state = {
+			limit = {
+				OR = {
+					region = sr:region_nile_basin
+					region = sr:region_north_africa
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj
+					region = sr:region_ethiopia
+				}
+			}
+			set_state_owner = ROOT
+		}
+}
+p0xus_african_culture_set = {
+	p0xus_african_culture_conversion_homelands = yes
+	p0xus_african_culture_conversion_pops = yes
+}
+p0xus_annex_egypt_trigger = {
+	if = {
+		limit = { exists = c:EGY }
+		trigger_event = { id = african_unification.4 popup = yes }
+	}
+}
+p0xus_african_culture_conversion_homelands = {
+	hidden_effect = {
+		every_state_region = {
+			limit = {
+				OR = {
+					region = sr:region_nile_basin
+					region = sr:region_ethiopia
+					region = sr:region_north_africa
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj
+				}
+			}	# Doesn't work with a switch, since a state can have more than one homeland
+			if = { limit = { is_homeland = cu:malagasy			}	remove_homeland = cu:malagasy			}
+			if = { limit = { is_homeland = cu:akan				}	remove_homeland = cu:akan				}
+			if = { limit = { is_homeland = cu:bambara			}	remove_homeland = cu:bambara			}
+			if = { limit = { is_homeland = cu:bassa				}	remove_homeland = cu:bassa				}
+			if = { limit = { is_homeland = cu:dyula				}	remove_homeland = cu:dyula				}
+			if = { limit = { is_homeland = cu:edo				}	remove_homeland = cu:edo				}
+			if = { limit = { is_homeland = cu:ewe				}	remove_homeland = cu:ewe				}
+			if = { limit = { is_homeland = cu:fon				}	remove_homeland = cu:fon				}
+			if = { limit = { is_homeland = cu:fulbe				}	remove_homeland = cu:fulbe				}
+			if = { limit = { is_homeland = cu:hausa				}	remove_homeland = cu:hausa				}
+			if = { limit = { is_homeland = cu:ibibio			}	remove_homeland = cu:ibibio				}
+			if = { limit = { is_homeland = cu:ibo				}	remove_homeland = cu:ibo				}
+			if = { limit = { is_homeland = cu:kissi				}	remove_homeland = cu:kissi				}
+			if = { limit = { is_homeland = cu:kru				}	remove_homeland = cu:kru				}
+			if = { limit = { is_homeland = cu:mande				}	remove_homeland = cu:mande				}
+			if = { limit = { is_homeland = cu:mossi				}	remove_homeland = cu:mossi				}
+			if = { limit = { is_homeland = cu:senufo			}	remove_homeland = cu:senufo				}
+			if = { limit = { is_homeland = cu:songhai			}	remove_homeland = cu:songhai			}
+			if = { limit = { is_homeland = cu:tiv				}	remove_homeland = cu:tiv				}
+			if = { limit = { is_homeland = cu:tuareg			}	remove_homeland = cu:tuareg				}
+			if = { limit = { is_homeland = cu:wolof				}	remove_homeland = cu:wolof				}
+			if = { limit = { is_homeland = cu:yoruba			}	remove_homeland = cu:yoruba				}
+			if = { limit = { is_homeland = cu:bakongo			}	remove_homeland = cu:bakongo			}
+			if = { limit = { is_homeland = cu:baguirmi			}	remove_homeland = cu:baguirmi			}
+			if = { limit = { is_homeland = cu:fang				}	remove_homeland = cu:fang				}
+			if = { limit = { is_homeland = cu:kanuri			}	remove_homeland = cu:kanuri				}
+			if = { limit = { is_homeland = cu:luba				}	remove_homeland = cu:luba				}
+			if = { limit = { is_homeland = cu:lunda				}	remove_homeland = cu:lunda				}
+			if = { limit = { is_homeland = cu:mongo				}	remove_homeland = cu:mongo				}
+			if = { limit = { is_homeland = cu:sara				}	remove_homeland = cu:sara				}
+			if = { limit = { is_homeland = cu:teda				}	remove_homeland = cu:teda				}
+			if = { limit = { is_homeland = cu:equatorial_bantu	}	remove_homeland = cu:equatorial_bantu	}
+			if = { limit = { is_homeland = cu:fluvian_bantu		}	remove_homeland = cu:fluvian_bantu		}
+			if = { limit = { is_homeland = cu:nilotic			}	remove_homeland = cu:nilotic			}
+			# if = { limit = { is_homeland = cu:amhara			}	remove_homeland = cu:amhara				}		# Ethiopian
+			# if = { limit = { is_homeland = cu:afar				}	remove_homeland = cu:afar				}	# Ethiopian
+			if = { limit = { is_homeland = cu:azande			}	remove_homeland = cu:azande				}
+			if = { limit = { is_homeland = cu:baganda			}	remove_homeland = cu:baganda			}
+			if = { limit = { is_homeland = cu:beja				}	remove_homeland = cu:beja				}
+			if = { limit = { is_homeland = cu:dinka				}	remove_homeland = cu:dinka				}
+			if = { limit = { is_homeland = cu:fur				}	remove_homeland = cu:fur				}
+			if = { limit = { is_homeland = cu:kikuyu			}	remove_homeland = cu:kikuyu				}
+			if = { limit = { is_homeland = cu:luo				}	remove_homeland = cu:luo				}
+			if = { limit = { is_homeland = cu:maasai			}	remove_homeland = cu:maasai				}
+			if = { limit = { is_homeland = cu:nuer				}	remove_homeland = cu:nuer				}
+			if = { limit = { is_homeland = cu:nuba				}	remove_homeland = cu:nuba				}
+			# if = { limit = { is_homeland = cu:oromo				}	remove_homeland = cu:oromo				}	# Ethiopian
+			if = { limit = { is_homeland = cu:ruanda			}	remove_homeland = cu:ruanda				}
+			if = { limit = { is_homeland = cu:rundi				}	remove_homeland = cu:rundi				}
+			# if = { limit = { is_homeland = cu:sidama			}	remove_homeland = cu:sidama				}		# Ethiopian
+			if = { limit = { is_homeland = cu:somali			}	remove_homeland = cu:somali				}
+			if = { limit = { is_homeland = cu:sudanese			}	remove_homeland = cu:sudanese			}
+			if = { limit = { is_homeland = cu:sukuma			}	remove_homeland = cu:sukuma				}
+			if = { limit = { is_homeland = cu:swahili			}	remove_homeland = cu:swahili			}
+			# if = { limit = { is_homeland = cu:tigray			}	remove_homeland = cu:tigray				}		# Ethiopian
+			if = { limit = { is_homeland = cu:unyamwezi			}	remove_homeland = cu:unyamwezi			}
+			if = { limit = { is_homeland = cu:lacustrine_bantu	}	remove_homeland = cu:lacustrine_bantu	}
+			if = { limit = { is_homeland = cu:chewa				}	remove_homeland = cu:chewa				}
+			if = { limit = { is_homeland = cu:herero			}	remove_homeland = cu:herero				}
+			if = { limit = { is_homeland = cu:khoisan			}	remove_homeland = cu:khoisan			}
+			if = { limit = { is_homeland = cu:lomwe				}	remove_homeland = cu:lomwe				}
+			if = { limit = { is_homeland = cu:makua				}	remove_homeland = cu:makua				}
+			if = { limit = { is_homeland = cu:nguni				}	remove_homeland = cu:nguni				}
+			if = { limit = { is_homeland = cu:ovimbundu			}	remove_homeland = cu:ovimbundu			}
+			if = { limit = { is_homeland = cu:sena				}	remove_homeland = cu:sena				}
+			if = { limit = { is_homeland = cu:shona				}	remove_homeland = cu:shona				}
+			if = { limit = { is_homeland = cu:sotho				}	remove_homeland = cu:sotho				}
+			if = { limit = { is_homeland = cu:tonga				}	remove_homeland = cu:tonga				}
+			if = { limit = { is_homeland = cu:tswana			}	remove_homeland = cu:tswana				}
+			if = { limit = { is_homeland = cu:xhosa				}	remove_homeland = cu:xhosa				}
+			if = { limit = { is_homeland = cu:yao				}	remove_homeland = cu:yao				}
+			if = { limit = { is_homeland = cu:zulu				}	remove_homeland = cu:zulu				}
+			if = { limit = { is_homeland = cu:kavango_bantu		}	remove_homeland = cu:kavango_bantu		}
+			
+			if = { limit = { NOT = { is_homeland = cu:african }	}	add_homeland = cu:african }
+			# if = { limit = { NOT = { is_homeland = cu:boer }	}	add_homeland = cu:boer }
+			set_global_variable = africans_merged
+		}
+	}
+}
+p0xus_african_culture_conversion_pops = {
+	hidden_effect = {
+		every_state = {
+			every_scope_pop = {
+				limit = {
+					OR = {
+						has_pop_culture = malagasy
+						has_pop_culture = akan
+						has_pop_culture = bambara
+						has_pop_culture = bassa
+						has_pop_culture = dyula
+						has_pop_culture = edo
+						has_pop_culture = ewe
+						has_pop_culture = fon
+						has_pop_culture = fulbe
+						has_pop_culture = hausa
+						has_pop_culture = ibibio
+						has_pop_culture = ibo
+						has_pop_culture = kissi
+						has_pop_culture = kru
+						has_pop_culture = mande
+						has_pop_culture = mossi
+						has_pop_culture = senufo
+						has_pop_culture = songhai
+						has_pop_culture = tiv
+						has_pop_culture = tuareg
+						has_pop_culture = wolof
+						has_pop_culture = yoruba
+						has_pop_culture = bakongo
+						has_pop_culture = baguirmi
+						has_pop_culture = fang
+						has_pop_culture = kanuri
+						has_pop_culture = luba
+						has_pop_culture = lunda
+						has_pop_culture = mongo
+						has_pop_culture = sara
+						has_pop_culture = teda
+						has_pop_culture = equatorial_bantu
+						has_pop_culture = fluvian_bantu
+						has_pop_culture = nilotic
+						# has_pop_culture = amhara			# Ethiopian
+						# has_pop_culture = afar				# Ethiopian
+						has_pop_culture = azande
+						has_pop_culture = baganda
+						has_pop_culture = beja
+						has_pop_culture = dinka
+						has_pop_culture = fur
+						has_pop_culture = kikuyu
+						has_pop_culture = luo
+						has_pop_culture = maasai
+						has_pop_culture = nuer
+						has_pop_culture = nuba
+						# has_pop_culture = oromo			# Ethiopian
+						has_pop_culture = ruanda
+						has_pop_culture = rundi
+						# has_pop_culture = sidama			# Ethiopian
+						has_pop_culture = somali
+						has_pop_culture = sudanese
+						has_pop_culture = sukuma
+						has_pop_culture = swahili
+						# has_pop_culture = tigray			# Ethiopian
+						has_pop_culture = unyamwezi
+						has_pop_culture = lacustrine_bantu
+						has_pop_culture = chewa
+						has_pop_culture = herero
+						has_pop_culture = khoisan
+						has_pop_culture = lomwe
+						has_pop_culture = makua
+						has_pop_culture = nguni
+						has_pop_culture = ovimbundu
+						has_pop_culture = sena
+						has_pop_culture = shona
+						has_pop_culture = sotho
+						has_pop_culture = tonga
+						has_pop_culture = tswana
+						has_pop_culture = xhosa
+						has_pop_culture = yao
+						has_pop_culture = zulu
+						has_pop_culture = kavango_bantu
+					}
+				}
+				change_pop_culture = { value = 1 target = cu:african }
+			}
+		}
+		every_state = { #bedouin carveout
+			limit = {
+				OR = {
+					region = sr:region_nile_basin
+					region = sr:region_north_africa
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj
+					region = sr:region_ethiopia
+				}
+			}
+			every_scope_pop = {
+				limit = { has_pop_culture = bedouin }
+				change_pop_culture = { value = 1 target = cu:african }
+			}
+		}
+	}
+	every_character = {
+		limit = {
+			OR = {
+				has_culture = cu:malagasy
+				has_culture = cu:akan
+				has_culture = cu:bambara
+				has_culture = cu:bassa
+				has_culture = cu:dyula
+				has_culture = cu:edo
+				has_culture = cu:ewe
+				has_culture = cu:fon
+				has_culture = cu:fulbe
+				has_culture = cu:hausa
+				has_culture = cu:ibibio
+				has_culture = cu:ibo
+				has_culture = cu:kissi
+				has_culture = cu:kru
+				has_culture = cu:mande
+				has_culture = cu:mossi
+				has_culture = cu:senufo
+				has_culture = cu:songhai
+				has_culture = cu:tiv
+				has_culture = cu:tuareg
+				has_culture = cu:wolof
+				has_culture = cu:yoruba
+				has_culture = cu:bakongo
+				has_culture = cu:baguirmi
+				has_culture = cu:fang
+				has_culture = cu:kanuri
+				has_culture = cu:luba
+				has_culture = cu:lunda
+				has_culture = cu:mongo
+				has_culture = cu:sara
+				has_culture = cu:teda
+				has_culture = cu:equatorial_bantu
+				has_culture = cu:fluvian_bantu
+				has_culture = cu:nilotic
+				# has_culture = cu:amhara			# Ethiopian
+				# has_culture = cu:afar				# Ethiopian
+				has_culture = cu:azande
+				has_culture = cu:baganda
+				has_culture = cu:beja
+				has_culture = cu:dinka
+				has_culture = cu:fur
+				has_culture = cu:kikuyu
+				has_culture = cu:luo
+				has_culture = cu:maasai
+				has_culture = cu:nuer
+				has_culture = cu:nuba
+				# has_culture = cu:oromo			# Ethiopian
+				has_culture = cu:ruanda
+				has_culture = cu:rundi
+				# has_culture = cu:sidama			# Ethiopian
+				has_culture = cu:somali
+				has_culture = cu:sudanese
+				has_culture = cu:sukuma
+				has_culture = cu:swahili
+				# has_culture = cu:tigray			# Ethiopian
+				has_culture = cu:unyamwezi
+				has_culture = cu:lacustrine_bantu
+				has_culture = cu:chewa
+				has_culture = cu:herero
+				has_culture = cu:khoisan
+				has_culture = cu:lomwe
+				has_culture = cu:makua
+				has_culture = cu:nguni
+				has_culture = cu:ovimbundu
+				has_culture = cu:sena
+				has_culture = cu:shona
+				has_culture = cu:sotho
+				has_culture = cu:tonga
+				has_culture = cu:tswana
+				has_culture = cu:xhosa
+				has_culture = cu:yao
+				has_culture = cu:zulu
+				has_culture = cu:kavango_bantu
+			}
+		}
+		change_character_culture = cu:african
+	}
+}
+p0xus_only_culture_conversion_primary_cultures = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				AND = {
+					country_is_in_africa = yes
+					NOR = {
+						THIS = c:SAF
+						THIS = c:ORA
+						THIS = c:TRN
+						THIS = c:LIB	# Added	- They were just as snobby towards them as the europeans.
+					}
+				}
+			}
+			p0xus_remove_all_primary_cultures = yes
+			add_primary_culture = cu:african
+		}
+	}
+}
+p0xus_remove_all_primary_cultures = {
+	hidden_effect = {
+		remove_primary_culture = cu:malagasy
+		remove_primary_culture = cu:akan
+		remove_primary_culture = cu:bambara
+		remove_primary_culture = cu:bassa
+		remove_primary_culture = cu:dyula
+		remove_primary_culture = cu:edo
+		remove_primary_culture = cu:ewe
+		remove_primary_culture = cu:fon
+		remove_primary_culture = cu:fulbe
+		remove_primary_culture = cu:hausa
+		remove_primary_culture = cu:ibibio
+		remove_primary_culture = cu:ibo
+		remove_primary_culture = cu:kissi
+		remove_primary_culture = cu:kru
+		remove_primary_culture = cu:mande
+		remove_primary_culture = cu:mossi
+		remove_primary_culture = cu:senufo
+		remove_primary_culture = cu:songhai
+		remove_primary_culture = cu:tiv
+		remove_primary_culture = cu:tuareg
+		remove_primary_culture = cu:wolof
+		remove_primary_culture = cu:yoruba
+		remove_primary_culture = cu:bakongo
+		remove_primary_culture = cu:baguirmi
+		remove_primary_culture = cu:fang
+		remove_primary_culture = cu:kanuri
+		remove_primary_culture = cu:luba
+		remove_primary_culture = cu:lunda
+		remove_primary_culture = cu:mongo
+		remove_primary_culture = cu:sara
+		remove_primary_culture = cu:teda
+		remove_primary_culture = cu:equatorial_bantu
+		remove_primary_culture = cu:fluvian_bantu
+		remove_primary_culture = cu:nilotic
+		# remove_primary_culture = cu:amhara			# Ethiopian
+		# remove_primary_culture = cu:afar				# Ethiopian
+		remove_primary_culture = cu:azande
+		remove_primary_culture = cu:baganda
+		remove_primary_culture = cu:beja
+		remove_primary_culture = cu:dinka
+		remove_primary_culture = cu:fur
+		remove_primary_culture = cu:kikuyu
+		remove_primary_culture = cu:luo
+		remove_primary_culture = cu:maasai
+		remove_primary_culture = cu:nuer
+		remove_primary_culture = cu:nuba
+		# remove_primary_culture = cu:oromo				# Ethiopian
+		remove_primary_culture = cu:ruanda
+		remove_primary_culture = cu:rundi
+		# remove_primary_culture = cu:sidama			# Ethiopian
+		remove_primary_culture = cu:somali
+		remove_primary_culture = cu:sudanese
+		remove_primary_culture = cu:sukuma
+		remove_primary_culture = cu:swahili
+		# remove_primary_culture = cu:tigray			# Ethiopian
+		remove_primary_culture = cu:unyamwezi
+		remove_primary_culture = cu:lacustrine_bantu
+		remove_primary_culture = cu:chewa
+		remove_primary_culture = cu:herero
+		remove_primary_culture = cu:khoisan
+		remove_primary_culture = cu:lomwe
+		remove_primary_culture = cu:makua
+		remove_primary_culture = cu:nguni
+		remove_primary_culture = cu:ovimbundu
+		remove_primary_culture = cu:sena
+		remove_primary_culture = cu:shona
+		remove_primary_culture = cu:sotho
+		remove_primary_culture = cu:tonga
+		remove_primary_culture = cu:tswana
+		remove_primary_culture = cu:xhosa
+		remove_primary_culture = cu:yao
+		remove_primary_culture = cu:zulu
+		remove_primary_culture = cu:kavango_bantu
+	}
+}

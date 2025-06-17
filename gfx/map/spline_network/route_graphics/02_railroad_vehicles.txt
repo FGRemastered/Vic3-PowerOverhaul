@@ -1,7 +1,7 @@
 ﻿#################################################################
 #####				TRADE ROUTE GRAPHICS					#####
 #################################################################
-
+#################################################################	IMPORTANT: COMPARE TO "dlc\dlc009_trains_pack" instead of "game/gfx"!
 #################################################################
 #####				PASSANGER TRAIN							#####
 #################################################################
@@ -258,7 +258,7 @@ passenger_train = {
 		# Passengers
 		passenger_wagon_1 = {
 			entity = "european_train_passenger_wagon_01_entity"
-			position = 1
+			position = 2
 			entity_length = 1.74
 			possible = { gfx_passanger_train_trigger = yes }
 			count = {
@@ -270,7 +270,7 @@ passenger_train = {
 		}
 		passenger_wagon_2 = {
 			entity = "european_train_passenger_wagon_02_entity"
-			position = 1
+			position = 2
 			entity_length = 1.74
 			possible = { gfx_passanger_train_trigger = yes }
 			count = {
@@ -282,7 +282,7 @@ passenger_train = {
 		}
 		passenger_wagon_3 = {
 			entity = "european_train_passenger_wagon_03_entity"
-			position = 1
+			position = 2
 			entity_length = 1.74
 			possible = { gfx_passanger_train_trigger = yes }
 			count = {
@@ -550,7 +550,7 @@ mining_train = {
 		# Cargo
 		cargo_coal_wagon_1 = {
 			entity = "train_cargo_coal_01_entity"
-			position = 1
+			position = 2
 			entity_length = 1.05
 			possible = { gfx_coal_mine_trigger = yes }
 			count = {
@@ -563,7 +563,7 @@ mining_train = {
 		}
 		cargo_coal_wagon_2 = {
 			entity = "train_cargo_coal_02_entity"
-			position = 1
+			position = 2
 			entity_length = 1.05
 			possible = { gfx_coal_mine_trigger = yes }
 			count = {
@@ -576,7 +576,7 @@ mining_train = {
 		}
 		cargo_coal_wagon_3 = {
 			entity = "train_cargo_coal_03_entity"
-			position = 1
+			position = 2
 			entity_length = 1.05
 			possible = { gfx_coal_mine_trigger = yes }
 			count = {
@@ -589,7 +589,7 @@ mining_train = {
 		}
 		cargo_iron_wagon_1 = {
 			entity = "train_cargo_iron_01_entity"
-			position = 2
+			position = 3
 			entity_length = 1.05
 			possible = { gfx_iron_mine_trigger = yes }
 			count = {
@@ -602,7 +602,7 @@ mining_train = {
 		}
 		cargo_iron_wagon_2 = {
 			entity = "train_cargo_iron_02_entity"
-			position = 2
+			position = 3
 			entity_length = 1.05
 			possible = { gfx_iron_mine_trigger = yes }
 			count = {
@@ -615,7 +615,7 @@ mining_train = {
 		}
 		cargo_iron_wagon_3 = {
 			entity = "train_cargo_iron_03_entity"
-			position = 2
+			position = 3
 			entity_length = 1.05
 			possible = { gfx_iron_mine_trigger = yes }
 			count = {
@@ -628,7 +628,7 @@ mining_train = {
 		}
 		cargo_steel_wagon_1 = {
 			entity = "train_cargo_steel_01_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = { scope:state = { has_building = building_steel_mills } }
 			count = {
@@ -641,7 +641,7 @@ mining_train = {
 		}
 		cargo_steel_wagon_2 = {
 			entity = "train_cargo_steel_02_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = { scope:state = { has_building = building_steel_mills } }
 			count = {
@@ -654,7 +654,7 @@ mining_train = {
 		}
 		cargo_steel_wagon_3 = {
 			entity = "train_cargo_steel_03_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = { scope:state = { has_building = building_steel_mills } }
 			count = {
@@ -667,7 +667,7 @@ mining_train = {
 		}
 		cargo_steel_wagon_4 = {
 			entity = "train_cargo_steel_04_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = { scope:state = { has_building = building_steel_mills } }
 			count = {
@@ -680,7 +680,7 @@ mining_train = {
 		}
 		cargo_sulfur_wagon_1 = {
 			entity = "train_cargo_sulfur_01_entity"
-			position = 3
+			position = 4
 			entity_length = 1.05
 			possible = { gfx_sulfur_mine_trigger = yes }
 			count = {
@@ -693,7 +693,7 @@ mining_train = {
 		}
 		cargo_sulfur_wagon_2 = {
 			entity = "train_cargo_sulfur_02_entity"
-			position = 3
+			position = 4
 			entity_length = 1.05
 			possible = { gfx_sulfur_mine_trigger = yes }
 			count = {
@@ -706,7 +706,7 @@ mining_train = {
 		}
 		cargo_sulfur_wagon_3 = {
 			entity = "train_cargo_sulfur_03_entity"
-			position = 3
+			position = 4
 			entity_length = 1.05
 			possible = { gfx_sulfur_mine_trigger = yes }
 			count = {
@@ -977,7 +977,7 @@ forestry_train = {
 		# Cargo
 		cargo_log_wagon_1 = {
 			entity = "train_cargo_log_01_entity"
-			position = 1
+			position = 2
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -994,7 +994,7 @@ forestry_train = {
 		}
 		cargo_log_wagon_2 = {
 			entity = "train_cargo_log_02_entity"
-			position = 1
+			position = 2
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1010,7 +1010,7 @@ forestry_train = {
 		}
 		cargo_log_wagon_3 = {
 			entity = "train_cargo_log_03_entity"
-			position = 1
+			position = 2
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1026,7 +1026,7 @@ forestry_train = {
 		}
 		cargo_log_wagon_4 = {
 			entity = "train_cargo_log_04_entity"
-			position = 1
+			position = 2
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1042,7 +1042,7 @@ forestry_train = {
 		}
 		cargo_hardwood_wagon_1 = {
 			entity = "train_cargo_hardwood_01_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1058,7 +1058,7 @@ forestry_train = {
 		}
 		cargo_hardwood_wagon_2 = {
 			entity = "train_cargo_hardwood_02_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1074,7 +1074,7 @@ forestry_train = {
 		}
 		cargo_hardwood_wagon_3 = {
 			entity = "train_cargo_hardwood_03_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes
@@ -1090,7 +1090,7 @@ forestry_train = {
 		}
 		cargo_hardwood_wagon_4 = {
 			entity = "train_cargo_hardwood_04_entity"
-			position = 2
+			position = 3
 			entity_length = 1.6
 			possible = {
 				gfx_forestry_train_trigger = yes

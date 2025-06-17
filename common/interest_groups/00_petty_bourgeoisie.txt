@@ -8,6 +8,16 @@
 		ideology_meritocratic
 		ideology_patriotic
 	}
+	character_ideologies = {
+		ideology_moderate
+		ideology_traditionalist
+		ideology_jingoist_leader
+		ideology_protectionist
+		ideology_orleanist
+		ideology_bonapartist
+		ideology_legitimist
+		ideology_sovereignist_leader
+	}
 	enable = { always = yes }
 	# Deprecated; use on_enable effect to assign traits instead
 	traits = {
@@ -50,6 +60,35 @@
 				set_ig_trait = ig_trait:ig_trait_civil_service
 				set_ig_trait = ig_trait:ig_trait_old_lady_of_threadneedle_street
 			}
+			else_if = {
+				limit = {
+					owner = { 
+						OR = {
+							c:BIC ?= this
+							any_primary_culture = { has_discrimination_trait = south_asian_heritage }
+						}
+					}
+				}
+				remove_ideology = ideology_reactionary
+				add_ideology = ideology_modernizer
+				if = {
+					limit = { owner = { c:BIC ?= this } }
+					# Name
+					set_interest_group_name = ig_bhadralok
+					# Ideologies
+					remove_ideology = ideology_patriotic
+					add_ideology = ideology_sovereignist
+					# Traits
+					set_ig_trait = ig_trait:ig_trait_swadesh
+					set_ig_trait = ig_trait:ig_trait_lines_of_credit
+					set_ig_trait = ig_trait:ig_trait_cooperative_agencies
+				}
+				else = {
+					set_ig_trait = ig_trait:ig_trait_xenophobia
+					set_ig_trait = ig_trait:ig_trait_middle_managers
+					set_ig_trait = ig_trait:ig_trait_treasury_bonds
+				}
+			}
 			else = {
 				set_ig_trait = ig_trait:ig_trait_xenophobia
 				set_ig_trait = ig_trait:ig_trait_middle_managers
@@ -58,6 +97,15 @@
 		}
 	}
 	on_disable = {}
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				c:BIC ?= this
+				any_primary_culture = { cu:british = this }
+			}
+			cultures = { assamese avadhi baluchi bengali bihari gujarati kannada malayalam marathi oriya panjabi pathan rajput sindi tamil telegu hindustani bundeli pahari gondi bageli chhattisgarhi deccani anglo_indian }
+		}
+	}
 	on_character_ig_membership = {}
 	pop_potential = {
 		custom_tooltip = {
@@ -71,9 +119,13 @@
 		}
 		NOR = {
 			is_pop_type = aristocrats
-			is_pop_type = capitalists
+			trigger_if = {
+				limit = { NOT = { c:BIC ?= owner } }
+				is_pop_type = capitalists
+			}
 		}
 		OR = {
+			is_pop_type = shopkeepers								# Added
 			pop_employment_building_group = bg_manufacturing
 			pop_employment_building_group = bg_service
 			pop_employment_building_group = bg_urban_facilities
@@ -83,14 +135,13 @@
 			pop_employment_building_group = bg_fishing
 			pop_employment_building_group = bg_whaling
 			pop_employment_building_group = bg_oil_extraction
-			is_pop_type = shopkeepers							# Added
 			AND = {
 				custom_tooltip = {
 					text = owner_has_homesteading_tt
 					owner = {
 						OR = {
-							has_law = law_type:law_homesteading
 							has_law = law_type:law_commercialized_agriculture
+							has_law = law_type:law_homesteading
 						}
 					}
 				}
@@ -101,43 +152,25 @@
 				}
 				strata = middle
 			}
+			AND = {	# Added
+				owner = { has_law = law_type:law_mass_conscription }
+				OR = {
+					is_pop_type = soldiers
+					is_pop_type = officers
+				}
+			}
 		}
 	}
 	pop_weight = {
 		value = 50
-		add = {
-			desc = "POP_SHOPKEEPERS"
-			if = {
-				limit = { is_pop_type = shopkeepers }
-				value = 250
-			}
-		}
-		add = {
-			desc = "POP_CLERKS"
-			if = {
-				limit = { is_pop_type = clerks }
-				value = 100
-			}
-		}
-		add = {
-			desc = "POP_ENGINEERS"
-			if = {
-				limit = { is_pop_type = engineers }
-				value = 50
-				if = {
-					limit = { owner = { has_law = law_type:law_technocracy } }
-					multiply = 0
-				}
-			}
-		}
+		add = { desc = "POP_SHOPKEEPERS"	if = { limit = { is_pop_type = shopkeepers }	value		= 250 } }
+		add = { desc = "POP_CLERKS"			if = { limit = { is_pop_type = clerks }			value		= 100 } }
+		add = { desc = "POP_ENGINEERS"		if = { limit = { is_pop_type = engineers }		value		=  50 } }
 		if = {
 			limit = { owner = { has_law = law_type:law_elected_bureaucrats } }
 			add = {
 				desc = "POP_BUREAUCRATS_ELECTED"
-				if = {
-					limit = { is_pop_type = bureaucrats }
-					value = 50
-				}
+				if = { limit = { is_pop_type = bureaucrats }								value		=  50 }
 			}
 		}
 		add = {
@@ -146,12 +179,10 @@
 				limit = {
 					is_pop_type = farmers
 					owner = { has_law = law_type:law_homesteading }
+					NOT = { STATE = { is_slave_state = yes } }	# Should be Landowner instead
 				}
-				value = 25
-				if = {
-					limit = { state = { is_slave_state = yes } }
-					subtract = 25
-				}
+				value		= THIS.standard_of_living	# Changed
+				multiply	= 2
 			}
 		}
 		add = {
@@ -165,7 +196,43 @@
 					}
 				}
 				value = 25
-				add = this.standard_of_living
+				add = THIS.standard_of_living
+			}
+		}
+		if = {
+			limit = {
+				c:BIC ?= owner
+				culture = { has_discrimination_trait = european_heritage }
+			}
+			multiply = { desc = "POP_INDIA_COLONIAL_RULE" value = 0.1 }
+		}
+		
+		if = {
+			limit = {
+				c:BIC ?= owner
+				culture = { has_discrimination_trait = south_asian_heritage }
+				OR = {
+					is_pop_type = capitalists
+					is_pop_type = shopkeepers
+				}
+			}
+			add = { desc = "POP_INDIA_MONEYED_ELITES" value = 75 }
+		}
+		add = {	# Added
+			desc = "POP_OFFICERS"
+			if = {
+				limit = { is_pop_type = officers }
+				value =  50
+				if = { limit = { owner = { has_law = law_type:law_mass_conscription } } multiply = 3 }
+			}
+		}
+		add = {	# Added
+			desc = "POP_SOLDIERS"
+			if = {
+				limit = { is_pop_type = soldiers }
+				value =  50
+				if = { limit = { owner	= { has_law = law_type:law_mass_conscription } }	multiply = 4.00	}
+				if = { limit = { NOT	= { pop_employment_building_group = bg_military } }	multiply = 5.00	}
 			}
 		}
 		multiply = {
@@ -178,6 +245,14 @@
 					max = 1.25
 					min = 0.75
 				}
+			}
+		}
+		multiply = {
+			desc = "NO_MASS_COMMUNICATIONS"
+			value = 1.0
+			if = {
+				limit = { owner = { NOT = { has_technology_researched = mass_communication } } }
+				value = 0.0
 			}
 		}
 		multiply = {

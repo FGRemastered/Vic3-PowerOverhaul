@@ -224,3 +224,55 @@ retire_commander = {
 		}
 	}
 }
+grant_command_to_agitator = {
+	icon = "gfx/interface/character_panel/grant_command.dds"
+	clicksound = "event:/SFX/UI/Military/command_grant"
+	potential = {
+		has_dlc_feature = agitators
+		OR = {
+			has_role	= agitator
+			has_role	= politician	# Added
+		}
+		NOR = {
+			has_role	= general
+			has_role	= admiral
+		}
+		NOR = {							# Added
+			is_ruler	= yes
+			is_heir		= yes
+		}
+		owner = scope:actor
+	}
+	possible = {
+		# age >= define:NCharacters|ADULT_AGE
+		NOT = { has_trait = trait_child }		# Changed
+		OR = {									# Changed
+			is_female = no
+			has_trait = immortal
+			owner = { has_law = law_type:law_women_in_the_workplace }
+			owner = { has_law = law_type:law_womens_suffrage }
+		}
+		exists = owner.capital.land_hq
+	}
+	effect = { add_character_role = general }
+	cooldown = { months = normal_modifier_time }
+	ai_chance = {
+		value = 0
+		if = {
+			limit = { has_commander_traits = yes }
+			add = 50
+		}	
+		if = {
+			limit = { is_interest_group_type = ig_armed_forces }
+			add = 25
+		}	
+		if = {
+			limit = { NOT = { owner = {	 any_scope_general = { exists = yes } } } }
+			add = 25
+		}
+		if = {
+			limit = { owner = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
+			add = 100
+		}
+	}
+}

@@ -9,6 +9,17 @@
 		ideology_republican
 		ideology_anti_slavery
 	}
+	character_ideologies = {
+		ideology_moderate
+		ideology_republican_leader
+		ideology_radical
+		ideology_reformer
+		ideology_sovereignist_leader
+		ideology_orleanist
+		ideology_despotic_utopian
+		ideology_humanitarian
+		ideology_humanitarian_royalist
+	}
 	enable = { always = yes }
 	# Deprecated; use on_enable effect to assign traits instead
 	traits = {
@@ -46,32 +57,37 @@
 				set_ig_trait = ig_trait:ig_trait_avant_garde
 				set_ig_trait = ig_trait:ig_trait_les_beaux_arts
 			}
+			else_if = {
+				limit = {
+					has_dlc_feature = ip2_content
+					owner = { c:BIC ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_swaraj
+				set_ig_trait = ig_trait:ig_trait_civil_service
+				set_ig_trait = ig_trait:ig_trait_westernisation
+			}
 			else = {
 				set_ig_trait = ig_trait:ig_trait_social_criticism
 				set_ig_trait = ig_trait:ig_trait_avant_garde
 				set_ig_trait = ig_trait:ig_trait_propagandists
 			}
 		}
-		# Papal Intellegentsia
-		if = {
+		if = {	# Papal Intellegentsia
 			limit = { c:PAP ?= this }
 			ig:ig_intelligentsia = { remove_ideology = ideology_anti_clerical }
 		}
-		# Hawaiian Democrats
-		else_if = {
+		else_if = {	# Hawaiian Democrats
 			limit = { country_has_primary_culture = cu:hawaiian }
 			ig:ig_intelligentsia = { set_interest_group_name = ig_hawaiian_democrats }
 		}
-		# Literati
-		else_if = {
+		else_if = {	# Literati
 			limit = { any_primary_culture = { has_discrimination_trait = han_chinese } }
 			ig:ig_intelligentsia = { 
 				set_interest_group_name = ig_literati
 				remove_ideology = ideology_anti_clerical
 			}
 		}
-		# Brazilian Intelligentsia
-		else_if = {
+		else_if = {	# Brazilian Intelligentsia
 			limit = {
 				has_dlc_feature = rp1_content
 				c:BRZ ?= THIS
@@ -81,6 +97,28 @@
 				set_ig_trait = ig_trait:ig_trait_bachareis
 				set_ig_trait = ig_trait:ig_trait_social_criticism
 
+				remove_ideology = ideology_republican
+				add_ideology = ideology_constitutionalist
+			}
+		}
+	
+		else_if = {	# India
+			limit = { c:BIC ?= THIS }
+			ig:ig_intelligentsia = {
+				set_interest_group_name = ig_civil_servants
+				remove_ideology = ideology_republican
+				add_ideology = ideology_constitutionalist
+			}
+		}
+		else_if = {	# Britain and other Constitutionalists
+			limit = {
+				OR = {
+					c:GBR ?= THIS
+					c:JAP ?= THIS
+					any_primary_culture = { has_discrimination_trait = south_asian_heritage }	# Princely States and Nepal
+				}
+			}
+			ig:ig_intelligentsia = {
 				remove_ideology = ideology_republican
 				add_ideology = ideology_constitutionalist
 			}
@@ -95,6 +133,15 @@
 		}
 	}
 	on_disable = {}
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				c:BIC ?= this
+				any_primary_culture = { cu:british = this }
+			}
+			cultures = { assamese avadhi baluchi bengali bihari gujarati kannada malayalam marathi oriya panjabi pathan rajput sindi tamil telegu hindustani bundeli pahari gondi bageli chhattisgarhi deccani anglo_indian }
+		}
+	}
 	on_character_ig_membership = {}
 	pop_potential = {
 		literacy_rate > 0.25
@@ -110,27 +157,9 @@
 	}
 	pop_weight = {
 		value = 0
-		add = {
-			desc = "POP_ACADEMICS"
-			if = {
-				limit = { is_pop_type = academics }
-				value = 250
-			}
-		}
-		add = {
-			desc = "POP_BUREAUCRATS"
-			if = {
-				limit = { is_pop_type = bureaucrats }
-				value = 150
-			}
-		}
-		add = {
-			desc = "POP_CLERKS"
-			if = {
-				limit = { is_pop_type = clerks }
-				value = 50
-			}
-		}
+		add = { desc = "POP_ACADEMICS"		if = { limit = { is_pop_type = academics }		value	= 250 } }
+		add = { desc = "POP_BUREAUCRATS"	if = { limit = { is_pop_type = bureaucrats }	value	= 200 } }	# Increased
+		add = { desc = "POP_CLERKS"			if = { limit = { is_pop_type = clerks }			value	=  50 } }
 		add = {
 			desc = "POP_ARISTOCRATS"
 			if = {
@@ -142,7 +171,18 @@
 				}
 				if = {
 					limit = { owner = { has_law = law_type:law_technocracy } }
-					value = 200
+					value = 50
+				}
+			}
+		}
+		add = {	# New
+			desc = "POP_CLERGYMEN"
+			if = {
+				limit = { is_pop_type = clergymen }
+				value = 0
+				if = {
+					limit = { has_pop_religion = atheist }
+					add = 250
 				}
 			}
 		}
@@ -162,6 +202,34 @@
 					}
 				}
 				value = 100
+			}
+		}
+		if = {
+			limit = {
+				owner = { c:BIC ?= this }
+				OR = {
+					is_pop_type = bureaucrats
+					is_pop_type = clerks
+				}
+			}
+			if = {
+				limit = { culture = { has_discrimination_trait = european_heritage } }
+				multiply = { desc = "POP_INDIA_COLONIAL_RULE" value = 0.25 }
+			}
+			else = { multiply = { desc = "POP_INDIA_CIVIL_SERVICE" value = 1.5 } }
+		}
+		
+		add = {
+			desc = "POP_MILITARY_BUREAUCRACY"
+			if = {
+				limit = {
+					is_pop_type = bureaucrats
+					owner = {
+						c:ALK ?= this
+						has_government_type = gov_chartered_company
+					}
+				}
+				multiply = 0.25
 			}
 		}
 		if = {

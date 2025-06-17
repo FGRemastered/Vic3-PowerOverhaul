@@ -47,8 +47,8 @@ government_petition_events.1 = {
 				limit = {
 					ROOT = { enacting_any_law = yes }
 					trigger_if = {
-						limit = { exists = scope:current_law_scope }
-						scope:current_law_scope = {
+						limit = { exists = ROOT.scope:current_law_scope }
+						ROOT.scope:current_law_scope = {
 							law_is_valid_for_ig_petition = yes
 							NOR = {
 								scope:government_petition_law	?= THIS
@@ -57,7 +57,7 @@ government_petition_events.1 = {
 						}
 					}
 				}
-				scope:current_law_scope = { save_scope_as = government_petition_law_3 }
+				ROOT.scope:current_law_scope = { save_scope_as = government_petition_law_3 }
 			}
 			else = { clear_saved_scope = government_petition_law_3 }
 			set_variable = { name = petitioning_ig days = 100 }
@@ -78,21 +78,21 @@ government_petition_events.1 = {
 			set_variable = { name = desired_law_var value = scope:government_petition_law }
 		}
 		custom_tooltip = government_petition_tt
-		if = {
-			limit = { any_political_movement = { desired_law ?= scope:government_petition_law.type } }
-			random_political_movement = { limit = { desired_law ?= scope:government_petition_law.type } add_modifier = petition_support_modifier_movement }
-		}
-		else_if = {
-			limit = {
-				scope:government_petition_ig = { is_powerful = yes }
-				is_enacting_law = scope:government_petition_law.type
-			}
-			add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
-		}
-		else_if = {
-			limit = { is_enacting_law = scope:government_petition_law.type }
-			add_enactment_modifier = { name = petition_support_modifier }
-		}
+		# if = {
+			# limit = {
+				# scope:government_petition_ig = { is_powerful = yes }
+				# is_enacting_law = scope:government_petition_law.type
+			# }
+			# add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
+		# }
+		# }
+		# else_if = {
+			# limit = { any_political_movement = { desired_law ?= scope:government_petition_law.type } }
+			# random_political_movement = { limit = { desired_law ?= scope:government_petition_law.type } add_modifier = petition_support_modifier_movement }
+		# else_if = {
+			# limit = { is_enacting_law = scope:government_petition_law.type }
+			# add_enactment_modifier = { name = petition_support_modifier }
+		# }
 		add_journal_entry = { type = je_government_petition }
 	}
 	option = {
@@ -103,21 +103,21 @@ government_petition_events.1 = {
 			set_variable = { name = desired_law_var value = scope:government_petition_law_2 }
 		}
 		custom_tooltip = government_petition_2_tt
-		if = {
-			limit = { any_political_movement = { desired_law ?= scope:government_petition_law_2.type } }
-			random_political_movement = { limit = { desired_law ?= scope:government_petition_law_2.type } add_modifier = petition_support_modifier_movement }
-		}
-		else_if = {
-			limit = {
-				scope:government_petition_ig = { is_powerful = yes }
-				is_enacting_law = scope:government_petition_law_2.type
-			}
-			add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
-		}
-		else_if = {
-			limit = { is_enacting_law = scope:government_petition_law_2.type }
-			add_enactment_modifier = { name = petition_support_modifier }
-		}
+		# if = {
+			# limit = {
+				# scope:government_petition_ig = { is_powerful = yes }
+				# is_enacting_law = scope:government_petition_law_2.type
+			# }
+			# add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
+		# }
+		# else_if = {
+			# limit = { any_political_movement = { desired_law ?= scope:government_petition_law_2.type } }
+			# random_political_movement = { limit = { desired_law ?= scope:government_petition_law_2.type } add_modifier = petition_support_modifier_movement }
+		# }
+		# else_if = {
+			# limit = { is_enacting_law = scope:government_petition_law_2.type }
+			# add_enactment_modifier = { name = petition_support_modifier }
+		# }
 		add_journal_entry = { type = je_government_petition }
 	}
 	option = {
@@ -128,15 +128,15 @@ government_petition_events.1 = {
 			set_variable = { name = desired_law_var value = scope:government_petition_law_3 }
 		}
 		custom_tooltip = government_petition_3_tt
-		if = {
-			limit = { any_political_movement = { desired_law ?= scope:government_petition_law_3.type } }
-			random_political_movement = { limit = { desired_law ?= scope:government_petition_law_3.type } add_modifier = petition_support_modifier_movement }
-		}
-		else_if = {
-			limit = { scope:government_petition_ig = { is_powerful = yes } }
-			add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
-		}
-		else = { add_enactment_modifier = { name = petition_support_modifier } }
+		# if = {
+			# limit = { scope:government_petition_ig = { is_powerful = yes } }
+			# add_enactment_modifier = { name = petition_support_modifier multiplier = 2 }
+		# }
+		# else_if = {
+			# limit = { any_political_movement = { desired_law ?= scope:government_petition_law_3.type } }
+			# random_political_movement = { limit = { desired_law ?= scope:government_petition_law_3.type } add_modifier = petition_support_modifier_movement }
+		# }
+		# else = { add_enactment_modifier = { name = petition_support_modifier } }
 		clear_saved_scope = government_petition_law_3
 		add_journal_entry = { type = je_government_petition }
 		highlighted_option = yes

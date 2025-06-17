@@ -3,6 +3,8 @@ pmg_automation_building_food_industry = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_manual_dough_processing
+		pm_refrigerated_storage_building_livestock_ranch
+		pm_refrigerated_rail_cars_building_livestock_ranch
 		pm_automated_bakery
 		pm_electricfied_bakery
 	}
@@ -61,7 +63,7 @@ pmg_automation_building_arms_industry = {
 	}
 }
 pmg_automation_building_munition_plants = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"	# Changed
 	ai_selection = most_productive
 	production_methods = {
 		pm_automation_disabled
@@ -77,5 +79,15 @@ pmg_automation_building_war_machine_industry = {
 		pm_watertube_boiler_building_war_machine_industry
 		pm_rotary_valve_engine_building_war_machine_industry
 		pm_assembly_lines_building_war_machine_industry
+	}
+}
+pmg_automation_building_shipyards = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_shipyards
+		pm_rotary_valve_engine_building_shipyards
+		pm_assembly_lines_building_shipyards
+		pm_assembly_lines_building_shipyards_green
 	}
 }

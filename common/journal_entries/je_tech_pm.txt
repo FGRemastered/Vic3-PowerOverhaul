@@ -114,7 +114,6 @@ je_steam_engines = {
 				}
 			}
 		}
-
 	}
 	on_complete = { trigger_event = { id = production_tech_events.700 } }
 	timeout = 3650
@@ -136,7 +135,6 @@ je_atmospheric_engine = {
 				is_building_type = building_iron_mine
 				is_building_type = building_sulfur_mine
 				is_building_type = building_lead_mine
-
 				is_building_type = building_infres_iron_mine
 				is_building_type = building_infres_coal_mine
 				is_building_type = building_infres_lead_mine
@@ -154,7 +152,6 @@ je_atmospheric_engine = {
 					is_building_type = building_iron_mine
 					is_building_type = building_sulfur_mine
 					is_building_type = building_lead_mine
-
 					is_building_type = building_infres_iron_mine
 					is_building_type = building_infres_coal_mine
 					is_building_type = building_infres_lead_mine
@@ -201,7 +198,6 @@ je_dynamite = {
 				is_building_type = building_coal_mine
 				is_building_type = building_lead_mine
 				is_building_type = building_sulfur_mine
-
 				is_building_type = building_infres_iron_mine
 				is_building_type = building_infres_coal_mine
 				is_building_type = building_infres_lead_mine
@@ -228,7 +224,6 @@ je_dynamite = {
 						is_building_type = building_coal_mine
 						is_building_type = building_lead_mine
 						is_building_type = building_sulfur_mine
-
 						is_building_type = building_infres_iron_mine
 						is_building_type = building_infres_coal_mine
 						is_building_type = building_infres_lead_mine
@@ -262,7 +257,6 @@ je_dynamite = {
 		trigger_event = { id = production_tech_events.102 }
 		set_variable = { name = dynamite_je_done }
 	}
-
 	timeout = 3650
 }
 # Public Transit
@@ -291,6 +285,7 @@ je_combustion_engines = {
 				OR = {
 					has_active_production_method = pm_public_motor_carriages
 					has_active_production_method = pm_extended_trams
+					has_active_production_method = pm_subways
 				}
 				cash_reserves_ratio >= 0.25
 				weekly_profit > 0
@@ -302,6 +297,8 @@ je_combustion_engines = {
 				OR = {
 					has_active_production_method = pm_automobile_production
 					has_active_production_method = pm_electic_automobile_production
+					has_active_production_method = pm_diesel_automobile_production
+					has_active_production_method = pm_automobile_priority
 				}
 				cash_reserves_ratio >= 0.25
 				weekly_profit > 0
@@ -396,7 +393,6 @@ je_railroads = {
 				    has_active_production_method = pm_rail_transport_building_logging_camp
 				    has_active_production_method = pm_rail_transport_building_oil_rig
 				    has_active_production_method = pm_tanker_cars		# New
-
                 }
 				occupancy >= 0.75
 			}
@@ -415,7 +411,6 @@ je_railroads = {
 						is_building_type = building_sugar_plantation
 						is_building_type = building_rubber_plantation
 						is_building_type = building_banana_plantation
-
 						is_building_type = building_infres_vineyard_plantation
 						is_building_type = building_infres_coffee_plantation
 						is_building_type = building_infres_cotton_plantation
@@ -654,37 +649,52 @@ je_mutual_funds = {
 		has_technology_researched = central_banking
 	}
 	possible = { has_technology_researched = mutual_funds }
-	complete = {
-		any_scope_building = {
-			filter = {
-				custom_tooltip = {
-					text = is_production_building_tt
-					is_production_building = yes
-				}
+ 	complete = {
+ 		any_scope_building = {
+ 			filter = { is_building_type = building_financial_district }
+ 			percent >= 0.5
+ 			OR = {
+				has_active_production_method = pm_financial_district_publicly_traded
+				has_active_production_method = pm_council_of_reason
 			}
-			percent >= 0.5	# Changed
-			hidden_trigger = {
-				OR = {
-				    has_active_production_method = pm_publicly_traded_building_logging_camp
-					# New
-				    has_active_production_method = pm_publicly_traded
-				    has_active_production_method = pm_publicly_traded_industry
-				    has_active_production_method = pm_publicly_traded_bg_fishing
-					# Screw this.
-				    has_active_production_method = pm_sovereign_owned_academics
-				    has_active_production_method = pm_sovereign_owned_engineers
-				    has_active_production_method = pm_sovereign_owned_officers
-	            }
-	        }
-	        custom_tooltip = has_activated_public_trading
-			cash_reserves_ratio >= 0.5
-			weekly_profit > 0
-			# occupancy >= 0.75
-		}
-	}
+ 			cash_reserves_ratio >= 0.5
+ 			weekly_profit > 0
+ 			occupancy >= 0.75
+ 		}
+ 	}
 	on_complete = {
 		trigger_event = { id = society_tech_events.105 }
 		set_variable = { name = mutual_funds_je_done }
 	}
+	timeout = 3650
+}
+je_trench_warfare = {
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		OR = {
+			has_technology_researched = general_staff
+			has_technology_researched = electric_telegraph
+		}
+	}
+	possible = {
+		has_technology_researched = trench_works
+		has_technology_researched = wargaming		# Added
+	}
+	complete = {
+		any_scope_war = {
+			any_scope_front = {
+				any_military_formation = {
+					owner = ROOT
+					OR = {
+						formation_army_unit_type_fraction = { target = unit_type:combat_unit_type_trench_infantry	value >= 0.25 }
+						formation_army_unit_type_fraction = { target = unit_type:combat_unit_type_squad_infantry	value >= 0.25 }
+					}
+				}
+			}
+		}
+	}
+	on_complete = { trigger_event = { id = trench_warfare.1 } }
 	timeout = 3650
 }

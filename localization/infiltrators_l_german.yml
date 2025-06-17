@@ -1,3 +1,5 @@
 ﻿l_german:
  mobilization_option_infiltrators: "Sturmtruppen"
- mobilization_option_infiltrators_desc: "Einheiten die darauf spezialisiert sind Chaos zu verbreiten."
+ mobilization_option_infiltrators_desc: "Einheiten die darauf spezialisiert sind die gegnerischen Linien zu durchstoßen."
+ mobilization_option_mechanized_field_hospitals: "Gepanzerte $mobilization_option_field_hospitals$"
+ mobilization_option_mechanized_field_hospitals_desc: "Gepanzerte Ketten- und Halbkettenfahrzeuge schützen Sanitäter und Verwundete auf dem Weg vom und über's Schlachtfeld."

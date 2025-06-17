@@ -1,17 +1,51 @@
-pm_hardwood_tools = {
-	texture = "gfx/interface/icons/production_method_icons/wooden_buildings.dds"
-	unlocking_technologies = { lathe }	# Simple tools wear out too fast
+pm_crude_tools = {
+	texture = "gfx/interface/icons/production_method_icons/crude_tools.dds"
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   30	# x-20	= -600
-			goods_input_hardwood_add			=   20	# x-40	= -800
-			# output goods								#		=-1400
-			goods_output_tools_add				=   50	# x+40	=+2000
-		}												#		= +600
+			goods_input_wood_add				=   30	# x-20	=  -600
+			# output goods
+			goods_output_tools_add				=   30	# x+40	= +1200
+		}												#		=  +600
+		level_scaled = {
+			building_employment_laborers_add	= 4500
+			building_employment_shopkeepers_add	=  500
+		}
+	}
+}
+pm_hardwood_tools = {
+	texture = "gfx/interface/icons/production_method_icons/lathes.dds"
+	unlocking_technologies = { steelworking }	# Simple tools wear out too fast	- Changed from lathe
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				=   30	# x-20	=  -600
+			goods_input_hardwood_add			=   20	# x-40	=  -800
+			# output goods								#		= -1400
+			goods_output_tools_add				=   50	# x+40	= +2000
+		}												#		=  +600
 		level_scaled = {
 			building_employment_laborers_add	= 4000
 			building_employment_machinists_add	=  500
+			building_employment_shopkeepers_add	=  500
+		}
+	}
+}
+pm_pig_iron = {
+	texture = "gfx/interface/icons/production_method_icons/pig_iron_tools.dds"
+	unlocking_technologies = { steelworking }	
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_wood_add				=   30	# x-20	=  -600
+			goods_input_iron_add				=   20	# x-40	=  -800
+			# output goods								#		= -1400
+			goods_output_tools_add				=   60	# x+40	= +2400
+		}												#		= +1000
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_machinists_add	=  500
+			building_employment_shopkeepers_add	=  500
 		}
 	}
 }
@@ -21,15 +55,17 @@ pm_steel = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   20
-			goods_input_steel_add				=   30
-			# output goods
-			goods_output_tools_add				=  100
-		}
+			goods_input_wood_add				=   20	# x-20	=  -400
+			goods_input_hardwood_add			=   10	# x-40	=  -400
+			goods_input_steel_add				=   30	# x-50	= -1500
+			# output goods								#		= -2300
+			goods_output_tools_add				=  100	# x+40	= +4000
+		}												#		=  1700
 		level_scaled = {
 			building_employment_laborers_add	= 3500
 			building_employment_machinists_add	=  500
 			building_employment_engineers_add	=  500
+			building_employment_shopkeepers_add	=  500
 		}
 	}
 }
@@ -39,15 +75,16 @@ pm_rubber_grips = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_rubber_add				=   20
-			goods_input_steel_add				=   30
-			# output goods
-			goods_output_tools_add				=  125
-		}
+			goods_input_rubber_add				=   20	# x-40	=  -800
+			goods_input_steel_add				=   30	# x-50	= -1500
+			# output goods								#		= -2300
+			goods_output_tools_add				=  125	# x+40	= +5000
+		}												#		=  2700
 		level_scaled = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinists_add	= 1000
 			building_employment_engineers_add	=  500
+			building_employment_shopkeepers_add	=  500
 		}
 	}
 }
@@ -58,19 +95,20 @@ pm_early_machine_tools = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_rubber_add				=   20	# x-40	= -800
-			goods_input_steel_add				=   30	# x-50	=-1500
-			goods_input_oil_add					=   10	# x-40	= -200
-			# output goods								#		=-2650
-			goods_output_tools_add				=  150	# x+40	=+6000
-		}												#		=+3350
+			goods_input_rubber_add				=   25	# x-40	= -1000
+			goods_input_steel_add				=   30	# x-50	= -1500
+			goods_input_oil_add					=   25	# x-40	= -1000
+			# output goods								#		= -3500
+			goods_output_tools_add				=  200	# x+40	= +8000
+		}												#		= +4500
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {
-			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
-			building_employment_machinists_add	=  750	# x-1.5	=-1125
-			building_employment_engineers_add	=  500	# x-3.0	=-1500
-		}												#		=-5625 (-2625)
-	}													#		=-2275 (+725)
+			building_employment_laborers_add	= 3000
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
+		}
+	}
 }
 pm_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_buildings.dds"
@@ -79,93 +117,19 @@ pm_machine_tools = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_rubber_add				=   30	# x-40	= -1200
+			goods_input_rubber_add				=   35	# x-40	= -1400
 			goods_input_steel_add				=   50	# x-50	= -2500
-			goods_input_electricity_add			=   20	# x-30	=  -300
-			# output goods								#		= -4400
+			goods_input_electricity_add			=   20	# x-30	=  -600
+			# output goods								#		= -4500
 			goods_output_tools_add				=  300	# x+40	=+12000
-		}												#		= +7600
+		}												#		= +7500
 		# wood x1 + iron x1.5 + steel x2.5 + rubber x2.5 = tools - or at least that was the plan, but I just can't make that profitable...
 		level_scaled = {
-			building_employment_laborers_add	= 3000	# x-1.0	=-3000	#eliminated by assembly line
-			building_employment_machinists_add	=  500	# x-1.5	= -750
-			building_employment_engineers_add	=  500	# x-3.0	=-1500
-		}												#		=-5250 (-2250)
-	}													#		=+2350 (+5350)
+			building_employment_laborers_add	= 3000
+			building_employment_machinists_add	=  500
+			building_employment_engineers_add	= 1000
+			building_employment_shopkeepers_add	=  500
+		}
+	}
 	required_input_goods = electricity
-}
-pm_privately_owned_building_tooling_workshops = {
-	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
-	unlocking_production_methods = {
-		pm_hardwood_tools
-		pm_pig_iron
-		pm_steel
-		pm_early_machine_tools
-		pm_machine_tools
-	}
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-	building_modifiers = {
-		level_scaled = { building_employment_capitalists_add	= 100 }
-		unscaled = { building_capitalists_shares_add			=  10 }
-	}
-}
-pm_publicly_traded_building_tooling_workshops = {
-	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
-	unlocking_technologies = { mutual_funds }
-	unlocking_production_methods = {
-		pm_hardwood_tools
-		pm_pig_iron
-		pm_steel
-		pm_early_machine_tools
-		pm_machine_tools
-	}
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-	building_modifiers = {
-		# level_scaled	= { building_employment_capitalists_add	= 150 }
-		# unscaled		= { building_capitalists_shares_add		=  10 }
-		level_scaled = {
-			building_employment_capitalists_add					= 100	# 600
-			building_employment_shopkeepers_add					= 150	# 300
-		}
-		unscaled = {
-			building_capitalists_shares_add		=   5
-			building_shopkeepers_shares_add		=   3
-		}
-	}
-}
-# pm_government_run_building_tooling_workshops = {
-	# texture = "gfx/interface/icons/production_method_icons/government_run.dds"
-	# unlocking_production_methods = {
-		# pm_hardwood_tools
-		# pm_pig_iron
-		# pm_steel
-		# pm_early_machine_tools
-		# pm_machine_tools
-	# }
-	# unlocking_laws = { law_command_economy }
-	# building_modifiers = {
-		# level_scaled = { building_employment_bureaucrats_add	= 100 }
-		# unscaled = { building_government_shares_add			=   1 }
-	# }
-# }
-pm_worker_cooperative_building_tooling_workshops = {
-	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
-	unlocking_production_methods = {
-		pm_hardwood_tools
-		pm_pig_iron
-		pm_steel
-		pm_early_machine_tools
-		pm_machine_tools
-	}
-	unlocking_laws = { law_cooperative_ownership }
-	building_modifiers = {
-		level_scaled = { building_employment_shopkeepers_add	= 100 }
-		unscaled = { building_workforce_shares_add				=   1 }
-	}
 }

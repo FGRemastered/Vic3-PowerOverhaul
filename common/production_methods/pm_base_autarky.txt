@@ -1,38 +1,44 @@
 ﻿# Subsistence base pms
 # Generic											 I've given up on doing the math. Safe to say the generic one is the most efficient and effectively replaces all 02_agro buildings
 default_building_generic_subsistence = {
-	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
+	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"	# subsistence_farming
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_grain_add			=  7.0	# x+20	=  140
-			goods_output_fish_add			=  7.0	# x+20	=  140
-			goods_output_fruit_add			=  5.0	# x+30	=  150
-			goods_output_sugar_add			=  5.0	# x+30	=  150
-			goods_output_meat_add			=  5.0	# x+30	=  150
-			goods_output_groceries_add		= 24.0	# x+30	=  720		# Doesn't count
-			goods_output_liquor_add			= 12.0	# x+30	=  360		# Doesn't count
-			goods_output_fertilizer_add		=  3.0	# x+30	=   90
-			goods_output_fabric_add			=  6.0	# x+20	=  120
-			goods_output_wood_add			=  6.0	# x+20	=  120
-			goods_output_services_add		=  5.0	# x+30	=  150
-		}											#		=+1200
-		level_scaled = { building_employment_peasants_add	= 9750 }
-		unscaled	 = {
-			building_slaves_birthrate_mult	 				= 1
-			building_peasants_birthrate_mult 				= 1
-			building_laborers_birthrate_mult 				= 1
-			building_machinists_birthrate_mult 				= 1
-			building_engineers_birthrate_mult 				= 1
-			building_farmers_birthrate_mult 				= 1
-			building_birth_rate_mult 						= 1
+			goods_output_grain_add								=     4.5	# x+20	=    90
+			goods_output_fish_add								=     4.5	# x+20	=    90
+			goods_output_fruit_add								=     3		# x+30	=    90
+			goods_output_sugar_add								=     3		# x+30	=    90
+			goods_output_meat_add								=     3		# x+30	=    90
+			goods_output_groceries_add							=    15		# x+30	=   450		# Doesn't count
+			goods_output_liquor_add								=     4.5	# x+30	=   135		# Doesn't count
+			goods_output_fertilizer_add							=    10		# x+30	=   300
+			goods_output_fabric_add								=    10		# x+20	=   200
+			goods_output_wood_add								=    10		# x+20	=   200
+			goods_output_hardwood_add							=     5		# x+40	=   200
+			goods_output_services_add							=     4		# x+30	=   120
+		}																	#		= +1605	#  1600
+		level_scaled = { building_employment_peasants_add		=  5000 }	# x-.004=   -40	=> Stops breaking even at SoL 40
+		unscaled = {
+			goods_input_transportation_mult						=     1
+			goods_input_electricity_mult						=     1
+			goods_output_electricity_mult						=     1
+			goods_output_clothes_mult							=     1
+			goods_output_furniture_mult							=     1
+			building_employment_peasants_mult					=     1
+			building_employment_laborers_mult					=     1
+			building_employment_machinists_mult					=     1
+			building_employment_engineers_mult					=     1
+			building_employment_farmers_mult					=     1
+			building_employment_aristocrats_mult				=     1
+			building_peasants_birth_rate_mult					=     1
 		}
 	}
 	state_modifiers = {
-		workforce_scaled	= { state_infrastructure_add		=   2	}
-		level_scaled		= { state_pollution_generation_add	= -10	}
-		unscaled			= { state_slave_import_mult			= 100	}
+		workforce_scaled	= { state_infrastructure_add		=     1 }
+		level_scaled		= { state_migration_pull_add		=     1 }
 	}
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
+	ai_value = 1000
 }
 pm_enriched_generic_subsistence = {			#x1.5 - x2.0
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
@@ -40,45 +46,44 @@ pm_enriched_generic_subsistence = {			#x1.5 - x2.0
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add			=  1.5	# x-40	=  -60
+			goods_input_fertilizer_add							=    10		# x+30	=  -300
+			goods_input_tools_add								=     1		# x-40	=   -40
 			# output goods
-			goods_output_grain_add			= 12.0	# x+20	=  240
-			goods_output_fish_add			= 12.0	# x+20	=  240
-			goods_output_fruit_add			=  8.0	# x+30	=  240
-			goods_output_sugar_add			=  8.0	# x+30	=  240
-			goods_output_meat_add			=  8.0	# x+30	=  240
-			goods_output_groceries_add		= 40.0	# x+30	= 1200		# Doesn't count
-			goods_output_liquor_add			= 20.0	# x+30	=  600		# Doesn't count
-			goods_output_fertilizer_add		=  5	# x+30	=  150		1.75-1
-			goods_output_fabric_add			= 20.0	# x+20	=  400
-			goods_output_wood_add			= 18.0	# x+20	=  360
-			goods_output_hardwood_add		=  2.0	# x+40	=   80
-			goods_output_services_add		=  7.5	# x+30	=  225
-		}											#		=+1255
-		level_scaled = { building_employment_peasants_add	= 14750 }	# +50%
-		unscaled	 = {
-			building_slaves_birthrate_mult	 				= 2
-			building_peasants_birthrate_mult 				= 2
-			building_laborers_birthrate_mult 				= 2
-			building_machinists_birthrate_mult 				= 2
-			building_engineers_birthrate_mult 				= 2
-			building_farmers_birthrate_mult 				= 2
-			building_birth_rate_mult 		 				= 2
+			goods_output_grain_add								=     7.5	# x+20	=   150
+			goods_output_fish_add								=     7.5	# x+20	=   150
+			goods_output_fruit_add								=     5		# x+30	=   150
+			goods_output_sugar_add								=     5		# x+30	=   150
+			goods_output_meat_add								=     5		# x+30	=   150
+			goods_output_groceries_add							=    25		# x+30	=   750		# Doesn't count
+			goods_output_liquor_add								=     7.5	# x+30	=   225		# Doesn't count
+			goods_output_fertilizer_add							=    10		# x+30	=   300
+			goods_output_fabric_add								=    15		# x+20	=   300
+			goods_output_wood_add								=    15		# x+20	=   300
+			goods_output_hardwood_add							=     7.5	# x+40	=   300
+			goods_output_services_add							=     8		# x+30	=   240
+		}																	#		= +3200	#  3200
+		level_scaled = { building_employment_peasants_add		= 10000 }	# x-.004=   -80	=> Stops breaking even at SoL 40	# +100%
+		unscaled = {
+			goods_input_transportation_mult						=     1
+			goods_input_electricity_mult						=     1
+			goods_output_electricity_mult						=     1
+			goods_output_clothes_mult							=     1
+			goods_output_furniture_mult							=     1
+			building_employment_peasants_mult					=     1
+			building_employment_laborers_mult					=     1
+			building_employment_machinists_mult					=     1
+			building_employment_engineers_mult					=     1
+			building_employment_farmers_mult					=     1
+			building_employment_aristocrats_mult				=     1
+			building_peasants_birth_rate_mult					=     2
 		}
 	}
 	state_modifiers = {
-		workforce_scaled	= { state_infrastructure_add		=   2	}
-		level_scaled		= { state_pollution_generation_add	= -20	}
-		unscaled			= { state_slave_import_mult			= 100	}
+		workforce_scaled	= { state_infrastructure_add		=     2 }
+		level_scaled		= { state_migration_pull_add		=     1 }
 	}
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 2000
-	# ai_value = {
-		# value = {
-			# value = 100000
-			# if = { limit = { owner = { has_technology_researched = improved_fertilizer } } multiply = 0 }
-		# }
-	# }
 }
 pm_fertilized_generic_subsistence = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
@@ -86,46 +91,49 @@ pm_fertilized_generic_subsistence = {		#x3
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add			=  3	# x-40	= -120
+			goods_input_tools_add								=     3		# x-40	=  -120
+			goods_input_fertilizer_add							=    21		# x-30	=  -630	# 30-5 -> Reduced to make the math work
 			# output goods
-			goods_output_grain_add			= 20	# x+20	=  400
-			goods_output_fish_add			= 20	# x+20	=  400
-			goods_output_fruit_add			= 15	# x+30	=  450
-			goods_output_sugar_add			= 15	# x+30	=  450
-			goods_output_meat_add			= 15	# x+30	=  450
-			goods_output_groceries_add		= 70	# x+30	= 2100		# Doesn't count
-			goods_output_liquor_add			= 35	# x+30	= 1050		# Doesn't count
-			goods_output_fertilizer_add		=  7	# x+30	=  210		3.5-2
-			goods_output_fabric_add			= 18	# x+20	=  360
-			goods_output_wood_add			= 30	# x+20	=  600
-			goods_output_hardwood_add		=  6	# x+40	=  240
-			goods_output_services_add		= 10	# x+30	=  300
-			goods_output_oil_add			=  1.25	# x+40	=   50		# Turns out cows fart... a lot.
-		}											#		=+3740
-		level_scaled = { building_employment_peasants_add	= 19750 }	# +100%
-		unscaled	 = {
-			building_slaves_birthrate_mult	 				= 3
-			building_peasants_birthrate_mult 				= 3
-			building_laborers_birthrate_mult 				= 3
-			building_machinists_birthrate_mult 				= 3
-			building_engineers_birthrate_mult 				= 3
-			building_farmers_birthrate_mult 				= 3
-			building_birth_rate_mult 		 				= 3
+			goods_output_grain_add								=    15		# x+20	=   300
+			goods_output_fish_add								=    15		# x+20	=   300
+			goods_output_fruit_add								=    10		# x+30	=   300
+			goods_output_sugar_add								=    10		# x+30	=   300
+			goods_output_meat_add								=    10		# x+30	=   300
+			goods_output_groceries_add							=    50		# x+30	=  1500		# Doesn't count
+			goods_output_liquor_add								=    15		# x+30	=   450		# Doesn't count
+			goods_output_fertilizer_add							=    10		# x+30	=   300
+			goods_output_fabric_add								=    20		# x+20	=   400
+			goods_output_wood_add								=    20		# x+20	=   400
+			goods_output_hardwood_add							=    10		# x+40	=   400
+			goods_output_coal_add								=    10		# x+30	=   300
+			goods_output_services_add							=    12		# x+30	=   360
+			goods_output_oil_add								=     6		# x+40	=   240		# Turns out cows fart... a lot.
+		}																	#		= +3600	#  4800
+		level_scaled = { building_employment_peasants_add		= 12500 }	# x-.004=   -90	=> Stops breaking even at SoL 40	# +150%
+		unscaled = {
+			goods_input_transportation_mult						=     1
+			goods_input_electricity_mult						=     1
+			goods_output_electricity_mult						=     1
+			goods_output_clothes_mult							=     1
+			goods_output_furniture_mult							=     1
+			building_employment_peasants_mult					=     1
+			building_employment_laborers_mult					=     1
+			building_employment_machinists_mult					=     1
+			building_employment_engineers_mult					=     1
+			building_employment_farmers_mult					=     1
+			building_employment_aristocrats_mult				=     1
+			building_peasants_birth_rate_mult					=     3
 		}
 	}
 	state_modifiers = {
-		workforce_scaled	= { state_infrastructure_add		=   3	}
-		level_scaled		= { state_pollution_generation_add	= -30	}
-		unscaled			= { state_slave_import_mult			= 100	}
+		workforce_scaled	= { state_infrastructure_add		=     3 }
+		level_scaled		= { state_migration_pull_add		=     1 }
+		unscaled			= {
+			state_harvest_condition_drought_impact_mult			=  0.05
+		}
 	}
 	country_modifiers = { workforce_scaled = { country_construction_add	= 1.0 } }
-	ai_value = 30000
-	# ai_value = {
-		# value = {
-			# value = 100000
-			# if = { limit = { owner = { has_technology_researched = nitrogen_fixation } } multiply = 0 }
-		# }
-	# }
+	ai_value = 3000
 }
 pm_chem_fertilized_generic_subsistence = {		#x4.5 - x5.0
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
@@ -133,46 +141,48 @@ pm_chem_fertilized_generic_subsistence = {		#x4.5 - x5.0
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add			=  5	# x-40	= -200
+			goods_input_tools_add								=     5		# x-40	=  -200
+			goods_input_fertilizer_add							=    45		# x-30	= -1350
 			# output goods
-			goods_output_grain_add			= 30	# x+20	=  600
-			goods_output_fish_add			= 30	# x+20	=  600
-			goods_output_fruit_add			= 20	# x+30	=  600
-			goods_output_sugar_add			= 20	# x+30	=  600
-			goods_output_meat_add			= 20	# x+30	=  600
-			goods_output_groceries_add		=100	# x+30	= 3000		# Doesn't count
-			goods_output_liquor_add			= 50	# x+30	= 1500		# Doesn't count
-			goods_output_fertilizer_add		= 10	# x+30	=  300		5.25-3
-			goods_output_fabric_add			= 30.0	# x+20	=  600
-			goods_output_wood_add			= 50.0	# x+20	= 1000
-			goods_output_hardwood_add		= 10.0	# x+40	=  400
-			goods_output_services_add		= 15.0	# x+30	=  450
-			goods_output_oil_add			=  2.5	# x+40	=  100		# Turns out cows fart... a lot.
-		}											#		=+5650
-		level_scaled = { building_employment_peasants_add	=29750 }	# +200%
-		unscaled	 = {
-			building_slaves_birthrate_mult	 				= 5
-			building_peasants_birthrate_mult 				= 5
-			building_laborers_birthrate_mult 				= 5
-			building_machinists_birthrate_mult 				= 5
-			building_engineers_birthrate_mult 				= 5
-			building_farmers_birthrate_mult 				= 5
-			building_birth_rate_mult 		 				= 5
+			goods_output_grain_add								=    22.5	# x+20	=   450
+			goods_output_fish_add								=    22.5	# x+20	=   450
+			goods_output_fruit_add								=    15		# x+30	=   450
+			goods_output_sugar_add								=    15		# x+30	=   450
+			goods_output_meat_add								=    15		# x+30	=   450
+			goods_output_groceries_add							=    75		# x+30	=  2250		# Doesn't count
+			goods_output_liquor_add								=    20		# x+30	=   600		# Doesn't count
+			goods_output_fertilizer_add							=    10		# x+30	=   300
+			goods_output_fabric_add								=    30		# x+20	=   600
+			goods_output_wood_add								=    30		# x+20	=   600
+			goods_output_hardwood_add							=    15		# x+40	=   600
+			goods_output_services_add							=    20		# x+30	=   600
+			goods_output_oil_add								=    20		# x+40	=   800		# Turns out cows fart... a lot.
+		}																	#		= +4800	#  4800
+		level_scaled = { building_employment_peasants_add		= 15000 }	# x-.004=  -120	=> Stops breaking even at SoL 40	# +200%
+		unscaled = {
+			goods_input_transportation_mult						=     1
+			goods_input_electricity_mult						=     1
+			goods_output_electricity_mult						=     1
+			goods_output_clothes_mult							=     1
+			goods_output_furniture_mult							=     1
+			building_employment_peasants_mult					=     1
+			building_employment_laborers_mult					=     1
+			building_employment_machinists_mult					=     1
+			building_employment_engineers_mult					=     1
+			building_employment_farmers_mult					=     1
+			building_employment_aristocrats_mult				=     1
+			building_peasants_birth_rate_mult					=     5
 		}
 	}
 	state_modifiers = {
-		workforce_scaled	= { state_infrastructure_add		=   4	}
-		level_scaled		= { state_pollution_generation_add	= -50	}
-		unscaled			= { state_slave_import_mult			= 100	}
+		workforce_scaled	= { state_infrastructure_add		=     5 }
+		level_scaled		= { state_migration_pull_add		=     1 }
+		unscaled			= {
+			state_harvest_condition_drought_impact_mult			=  0.10
+		}
 	}
 	country_modifiers = { workforce_scaled = { country_construction_add	= 1.5 } }
-	ai_value = 500000
-	# ai_value = {
-		# value = {
-			# value = 100000
-			# if = { limit = { owner = { has_technology_researched = mechanized_farming } } multiply = 0 }
-		# }
-	# }
+	ai_value = 5000
 }
 pm_auto_fertilized_generic_subsistence = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
@@ -180,42 +190,48 @@ pm_auto_fertilized_generic_subsistence = {		#x7.5
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add			= 5		# x-40	= -200
-			goods_input_engines_add			= 5		# x-60	= -300
-			# output goods							#		= -500
-			goods_output_grain_add			= 50	# x+20	= 1000
-			goods_output_fish_add			= 50	# x+20	= 1000
-			goods_output_fruit_add			= 40	# x+30	= 1200
-			goods_output_sugar_add			= 40	# x+30	= 1200
-			goods_output_meat_add			= 40	# x+30	= 1200
-			goods_output_groceries_add		=150	# x+30	= 4500		# Doesn't count
-			goods_output_liquor_add			= 75	# x+30	= 2250		# Doesn't count
-			goods_output_fertilizer_add		= 15	# x+30	=  450		8.75-5 rounded up
-			goods_output_fabric_add			= 75	# x+20	= 1500
-			goods_output_wood_add			= 60	# x+20	= 1200
-			goods_output_hardwood_add		= 15	# x+40	=  600
-			goods_output_services_add		= 25	# x+30	=  750
-			goods_output_oil_add			=  5	# x+40	=  200		# Turns out cows fart... a lot.
-		}											#		=+8700
-		level_scaled = { building_employment_peasants_add	=44750 }	# +350%
-		unscaled	 = {
-			building_slaves_birthrate_mult 					= 10
-			building_peasants_birthrate_mult 				= 10
-			building_laborers_birthrate_mult 				= 10
-			building_machinists_birthrate_mult 				= 10
-			building_engineers_birthrate_mult 				= 10
-			building_farmers_birthrate_mult 				= 10
-			building_birth_rate_mult 		 				= 10
+			goods_input_tools_add								=    10		# x-40	=  -400
+			goods_input_engines_add								=     5		# x-60	=  -300
+			goods_input_fertilizer_add							=    45		# x-30	= -1350	# 50-5
+			# output goods
+			goods_output_grain_add								=    30		# x+20	=   600
+			goods_output_fish_add								=    30		# x+20	=   600
+			goods_output_fruit_add								=    20		# x+30	=   600
+			goods_output_sugar_add								=    20		# x+30	=   600
+			goods_output_meat_add								=    20		# x+30	=   600
+			goods_output_groceries_add							=   100		# x+30	=  3000		# Doesn't count
+			goods_output_liquor_add								=    20		# x+30	=   600		# Doesn't count
+			goods_output_fertilizer_add							=    10		# x+30	=   300
+			goods_output_fabric_add								=    60		# x+20	=  1200
+			goods_output_wood_add								=    60		# x+20	=  1200
+			goods_output_hardwood_add							=    30		# x+40	=  1200
+			goods_output_services_add							=    25		# x+30	=   750
+			goods_output_oil_add								=    25		# x+40	=  1000		# Turns out cows fart... a lot.
+		}																	#		= +7200	# 7200
+		level_scaled = { building_employment_peasants_add		= 22500 }	# x-.004=  -180	=> Stops breaking even at SoL 40	# +350%
+		unscaled = {
+			goods_input_transportation_mult						=     1
+			goods_input_electricity_mult						=     1
+			goods_output_electricity_mult						=     1
+			goods_output_clothes_mult							=     1
+			goods_output_furniture_mult							=     1
+			building_employment_peasants_mult					=     1
+			building_employment_laborers_mult					=     1
+			building_employment_machinists_mult					=     1
+			building_employment_engineers_mult					=     1
+			building_employment_farmers_mult					=     1
+			building_employment_aristocrats_mult				=     1
+			building_peasants_birth_rate_mult					=    10
 		}
 	}
 	state_modifiers = {
-		workforce_scaled	= { state_infrastructure_add		=   5	}
-		level_scaled		= { state_pollution_generation_add	=-100	}
+		workforce_scaled	= { state_infrastructure_add		=    10 }
+		level_scaled		= { state_migration_pull_add		=     1 }
 		unscaled = {
-			state_migration_pull_mult							= 0.05
-			state_slave_import_mult								= 100
+			state_harvest_condition_drought_impact_mult			=  0.25
+			state_migration_pull_mult							=  0.05
 		}
 	}
 	country_modifiers = { workforce_scaled = { country_construction_add	= 2.5 } }
-	ai_value = 1000000
+	ai_value = 10000
 }

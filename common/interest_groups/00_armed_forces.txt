@@ -8,9 +8,13 @@
 		ideology_loyalist
 		ideology_patriotic
 	}
+	character_ideologies = {
+		ideology_moderate
+		ideology_orleanist
+		ideology_bonapartist
+	}
 	enable = { always = yes }
-	# Deprecated; use on_enable effect to assign traits instead
-	traits = {
+	traits = {	# Deprecated; use on_enable effect to assign traits instead
 		ig_trait_patriotic_fervor
 		ig_trait_veteran_consultation
 		ig_trait_materiel_waste
@@ -18,20 +22,19 @@
 	on_enable = {
 		ig:ig_armed_forces = {
 			if = {
-				limit = { owner = { c:CHI ?= this } }
+				limit = { owner = { c:CHI ?= THIS } }
 				set_ig_trait = ig_trait:ig_trait_newly_created_army
 				set_ig_trait = ig_trait:ig_trait_self_strengthening
 				set_ig_trait = ig_trait:ig_trait_parochial_leadership
 			}
+			else_if = {	# Added
+				limit = { owner = { OR = { c:PRU ?= THIS was_formed_from = PRU } } }
+				set_ig_trait = ig_trait:ig_backbone_disrespected
+				set_ig_trait = ig_trait:ig_prussian_military_admin
+				set_ig_trait = ig_trait:ig_army_with_a_state
+			}
 			else_if = {
-				limit = {
-					owner = {
-						OR = {
-							c:FRA ?= this
-							country_has_primary_culture = cu:french
-						}
-					}
-				}
+				limit = { owner = { country_has_primary_culture = cu:french } }
 				set_ig_trait = ig_trait:ig_trait_materiel_waste
 				set_ig_trait = ig_trait:ig_trait_veteran_consultation
 				set_ig_trait = ig_trait:ig_trait_elan_vital
@@ -56,14 +59,34 @@
 				set_ig_trait = ig_trait:ig_trait_clube_militar
 				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
 			}
+			else_if = {
+				limit = {
+					owner = {
+						has_dlc_feature = ip2_content
+						c:BIC ?= this
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_divided_ranks
+				set_ig_trait = ig_trait:ig_trait_imperial_service
+				set_ig_trait = ig_trait:ig_trait_veerta
+			}
+			else_if = {
+				limit = {
+					owner = {
+						c:PAN ?= this
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_materiel_waste
+				set_ig_trait = ig_trait:ig_trait_khalsa
+				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
+			}
 			else = {
 				set_ig_trait = ig_trait:ig_trait_materiel_waste
 				set_ig_trait = ig_trait:ig_trait_veteran_consultation
 				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
 			}
 		}
-		# Caudillo Ideology
-		if = {
+		if = {	# Caudillo Ideology
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:platinean
@@ -75,8 +98,7 @@
 			}
 			ig:ig_armed_forces = { add_ideology = ideology_caudillismo }
 		}
-		# Samurai
-		else_if = {
+		else_if = {	# Samurai
 			limit = {
 				country_has_primary_culture = cu:japanese
 				NOT = { has_global_variable = fall_of_the_samurai_global_var }
@@ -86,15 +108,44 @@
 				set_interest_group_name = ig_samurai
 			}
 		}
+	
+		else_if = {	# India
+			limit = { c:BIC ?= THIS }
+			ig:ig_armed_forces = {
+				set_interest_group_name = ig_presidency_armies
+			}
+		}
+		# Sikh Empire
+		else_if = {
+			limit = { c:PAN ?= THIS }
+			ig:ig_armed_forces = {
+				set_interest_group_name	= ig_khalsaji
+				remove_ideology			= ideology_jingoist
+				add_ideology			= ideology_sikh_militancy
+			}
+		}
 	}
 	on_disable = {}
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				c:BIC ?= this
+				any_primary_culture = { 
+					cu:british = this
+				}
+			}
+			cultures = {
+				british scottish irish
+			}
+		}
+	}
 	on_character_ig_membership = {}
 	pop_potential = {
 		OR = {
 			is_pop_type = soldiers
 			is_pop_type = officers
 			is_pop_type = aristocrats
-			pop_is_discriminated = no
+			pop_acceptance >= acceptance_status_4
 		}
 	}
 	pop_weight = {
@@ -102,11 +153,11 @@
 		add = {
 			desc = "POP_NOT_DISCRIMINATED"
 			if = {
-				limit = { pop_is_discriminated = no }
+				limit = { pop_acceptance >= acceptance_status_4 }
 				value = 25
 				if = { # Militarisation of colonial settlers
 					limit = {
-						owner = { has_law = law_type:law_colonial_resettlement }
+						owner = { OR = { has_law = law_type:law_frontier_colonization has_law = law_type:law_colonial_resettlement } }
 						state = { is_incorporated = no }
 					}
 					add = 50
@@ -124,50 +175,60 @@
 				}
 			}
 		}
-
 		add = {
 			desc = "POP_SOLDIERS"
 			if = {
 				limit = { is_pop_type = soldiers }
 				value = 100
-				if = { # Institutional loyalty
-					limit = { owner = { has_law = law_type:law_professional_army } }
-					add = 50
-				}
-				if = { # Pay makes soldiers more inclined to be loyal to Armed Forces
-					limit = { owner = { military_wage_level = very_low } }
-					multiply = 0.75
-				}
-				if = {
-					limit = { owner = { military_wage_level = low } }
-					multiply = 0.85
-				}
-				if = {
-					limit = { owner = { military_wage_level = medium } }
-					multiply = 1
-				}
-				if = {
-					limit = { owner = { military_wage_level = high } }
-					multiply = 1.15
-				}
-				if = {
-					limit = { owner = { military_wage_level = very_high } }
-					multiply = 1.25
-				}
+				if = { limit = { owner = { has_law = law_type:law_professional_army } } add			=   50 }	# Institutional loyalty
+				if = { limit = { owner = { military_wage_level = very_low } }			multiply	= 0.75 }	# Pay makes soldiers more inclined to be loyal to Armed Forces
+				if = { limit = { owner = { military_wage_level = low } }				multiply	= 0.85 }
+				if = { limit = { owner = { military_wage_level = medium } }				multiply	= 1.00 }
+				if = { limit = { owner = { military_wage_level = high } }				multiply	= 1.25 }	# Increased
+				if = { limit = { owner = { military_wage_level = very_high } }			multiply	= 1.50 }	# Increased
 			}
 		}
 		add = {
 			desc = "POP_ARISTOCRATS"
 			if = {
 				limit = { is_pop_type = aristocrats }
-				value = 50
-				if = { limit = { owner = { has_law = law_type:law_peasant_levies } }	add = 50 }
+				value = 25
+				if = { limit = { owner = { has_modifier = age_of_caudillos_modifier } }	add = 25 }
+				if = { limit = { owner = { has_law = law_type:law_peasant_levies } }	add = 75 }
 			}
 		}
+		add = { desc = "SIKH_MILITANCY" if = { limit = { is_pop_type = aristocrats religion = rel:sikh } add = 100 } }
 		add = {
 			desc = "POP_OFFICERS"
 			if = { limit = { is_pop_type = officers }	value = 250 }
 		}
+		add = { # There's one firearm for every twelve people on the planet. The question is, how do we arm the other eleven?
+			desc = "MILITARY_INDUSTRIES"
+			if = {
+				limit = {
+					OR = {
+						pop_employment_building_group = bg_munition_plants
+						pop_employment_building_group = bg_arms_industries
+						pop_employment_building_group = bg_artillery_foundaries
+						pop_employment_building_group = bg_military_shipyards
+					}
+				}
+				if = { limit = { strata = middle }		value =  75 }
+				if = { limit = { strata = upper }		value = 150 }
+			}
+		}
+		add = {
+			desc = "POP_MILITARY_BUREAUCRACY"
+			if = {
+				limit = {
+					is_pop_type = bureaucrats
+					owner = {
+						c:ALK ?= this
+						has_government_type = gov_chartered_company
+					}
+				}
+				value = 100
+			}
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {

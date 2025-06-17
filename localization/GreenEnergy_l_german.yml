@@ -34,9 +34,12 @@
  pmg_ownership_agriculture: "$pmg_ownership$"
  pmg_ownership_plantation: "$pmg_ownership$"
  
+ pm_hardwood_frame_buildings: "Fachwerkgebäude"
+ 
  pmg_harvesting_process_simple: "$pmg_harvesting_process$"
  pmg_harvesting_process_tractors: "$pmg_harvesting_process$"
  pm_electric_tractors: "Elektrotraktoren"
+ pm_tools_disabled_subsistence: "$pm_tools_disabled$"
  pm_tools_subsistence: "$pm_tools$"
  pm_steam_threshers_subsistence: "$pm_steam_threshers$"
  pm_tractors_subsistence: "$pm_tractors$"
@@ -170,11 +173,7 @@
  pm_lathe_home_workshops: "Drehbankheimwerkstätten"
  pm_mechanized_home_workshops: "Mechanisierte $pm_home_workshops$"
  pm_electric_home_workshops: "Elektrische $pm_home_workshops$"
- 
- pm_home_workshops_building_subsistence_rice_paddies: "$pm_home_workshops$"
- pm_lathe_home_workshops_building_subsistence_rice_paddies: "$pm_lathe_home_workshops$"
- pm_mechanized_home_workshops_building_subsistence_rice_paddies: "$pm_mechanized_home_workshops$"
- pm_electric_home_workshops_building_subsistence_rice_paddies: "$pm_electric_home_workshops$"
+ pm_autark_home_workshops: "Autarke $pm_home_workshops$"
  
  pm_electric_fishing_boats: "Elektrische Fischerboote"
  pm_electic_whaling_ships: "Elektrische Walfänger"
@@ -203,14 +202,4 @@
  building_infres_subsistence_rice_paddies_lens_option: "$building_infres_subsistence_rice_paddies$ erweitern"
  
  pm_centralised_subsistence: "Zentralisierung"
- pm_centralised_subsistence_1: "$pm_centralised_subsistence$ 1"
- pm_centralised_subsistence_2: "$pm_centralised_subsistence$ 2"
- pm_centralised_subsistence_3: "$pm_centralised_subsistence$ 3"
- pm_centralised_subsistence_4: "$pm_centralised_subsistence$ 4"
- pm_centralised_subsistence_5: "$pm_centralised_subsistence$ 5"
- 
- pm_centralised_double_subsistence_1: "$pm_centralised_subsistence$ 1"
- pm_centralised_double_subsistence_2: "$pm_centralised_subsistence$ 2"
- pm_centralised_double_subsistence_3: "$pm_centralised_subsistence$ 3"
- pm_centralised_double_subsistence_4: "$pm_centralised_subsistence$ 4"
- pm_centralised_double_subsistence_5: "$pm_centralised_subsistence$ 5"
+ pm_decentralised_subsistence: "Dezentralisierte Bauern"

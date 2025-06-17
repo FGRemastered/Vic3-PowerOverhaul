@@ -8,15 +8,22 @@ grant_leadership_to_agitator = {
 	}
 	possible = {
 		interest_group = { is_in_government = yes }
-		# character_is_discriminated = no
-		NOT = { culture = { culture_is_discriminated_in = scope:actor } }
+		ROOT.OWNER ?= { country_average_cultural_acceptance = { target = ROOT.culture value >= acceptance_status_4 } }
+		# trigger_if = {
+			# limit = { scope:actor ?= { has_law = law_type:law_state_religion } }
+			# religion = scope:actor.religion
+		# }
+		# trigger_else_if = {
+			# limit = { scope:actor ?= { has_law = law_type:law_freedom_of_conscience } }
+			# religion = { shares_heritage_trait_with_state_religion = scope:actor }
+		# }
 		trigger_if = {
-			limit = { scope:actor ?= { has_law = law_type:law_state_religion } }
-			religion = scope:actor.religion
-		}
-		trigger_if = {
-			limit = { scope:actor ?= { has_law = law_type:law_freedom_of_conscience } }
-			religion = { shares_heritage_trait_with_state_religion = scope:actor }
+			limit = { owner ?= { has_law = law_type:law_state_atheism } }
+			NOR = {
+				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_integralist
+				has_ideology = ideology:ideology_traditionalist
+			}
 		}
 		OR = {
 			is_female = no
@@ -31,18 +38,6 @@ grant_leadership_to_agitator = {
 			text = make_agitator_ig_leader_tt
 			set_as_interest_group_leader = yes
 		}
-		# hidden_effect = {
-			# if = {
-				# limit = {
-					# scope:actor = { has_law = law_type:law_state_atheism }
-					# NOR = {
-						# is_interest_group_type = ig_devout
-						# religion = rel:atheist
-					# }
-				# }
-				# change_character_religion = rel:atheist
-			# }
-		# }
 	}
 	cooldown = { months = normal_modifier_time }
 	ai_chance = {
@@ -66,6 +61,142 @@ grant_leadership_to_agitator = {
 		if = {
 			limit = { this.ideology = owner.ruler.ideology }
 			add = 50
+		}
+	}
+}
+invite_exile = {
+	# icon = ""
+	clicksound = "event:/SFX/DLC/1.3_ip1/UI/character_invite"
+	should_ai_evaluate = { empty_agitator_slots >= 1 }	# Checks against actor country scope and skips the interaction completely if false, before even looking at any characters
+	potential = { is_in_exile_pool = yes }
+	show_requirements = yes
+	ai_considers_exiles = yes	# required for AI to evaluate if interaction is possible on characters in exile pool
+	possible = {
+		scope:actor ?= { empty_agitator_slots >= 1 }
+		can_agitate = scope:actor
+		trigger_if = {																	# Devout exiles must have country religion
+			limit = { is_interest_group_type = ig_devout }
+			custom_tooltip = { text = invite_exile_devout_tt religion = scope:actor.religion }
+		}
+		trigger_if = {
+			limit = {
+				NOT = { is_interest_group_type = ig_devout }
+				scope:actor ?= { has_law = law_type:law_state_religion }				# If you have state religion, exiles must have your religion
+				scope:actor ?= { has_law = law_type:law_migration_controls }			# Added - Who knows who came in if you don't control it?
+			}
+			custom_tooltip = {
+				text = invite_exile_state_religion_tt
+				religion = scope:actor.religion
+			}
+		}
+		trigger_if = {
+			limit = { scope:actor ?= { has_law = law_type:law_migration_controls } }	# Added - Who knows who came in if you don't control it?
+			character_acceptance = { target = scope:actor value >= acceptance_status_3 }			# cannot invite culturally discriminated exiles
+		}
+		scope:actor ?= { NOT = { has_law = law_type:law_closed_borders } }				# Cannot invite exiles if you have Closed Borders
+	}
+	effect = {
+		transfer_character = scope:actor
+		set_variable = exile_to_ruler_var
+		set_variable = { name = memento_mori_immunity months = 60 }
+		custom_tooltip = invite_exile_start_join_movement_effect
+		hidden_effect = { remove_modifier = in_exile_modifier }
+		hidden_effect = {
+			if = {
+				limit = {
+					has_variable = mazzini_var
+					has_dlc_feature = voice_of_the_people_content
+				}
+				scope:actor ?= { trigger_event = { id = historical_agitators.7 days = 3 } }
+			}
+			if = {
+				limit = {
+					has_variable = garibaldi_var
+					has_dlc_feature = voice_of_the_people_content
+				}
+				set_variable = {
+					name = garibaldi_cooldown_var
+					months = short_modifier_time
+				}
+			}
+			if = {
+				limit = {
+					exists = root.home_country
+					NOT = { root.home_country = scope:actor }
+				}
+				if = {
+					limit = {
+						root.home_country = {
+							any_interest_group = {
+								is_in_government = yes
+								OR = {
+									this.type = root.interest_group_type
+									this.leader.ideology = root.ideology
+								}
+							}
+						}
+					}
+					root.home_country = { create_diplomatic_catalyst = { type = catalyst_invited_exile_positive target = scope:actor } }
+				}
+				else = {
+					root.home_country = { create_diplomatic_catalyst = { type = catalyst_invited_exile_negative target = scope:actor } }
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = { has_law = law_type:law_state_atheism }
+				NOR = {
+					is_interest_group_type = ig_devout
+					religion = rel:atheist
+					is_historical = yes
+				}
+			}
+			change_character_religion = rel:atheist
+		}
+	}
+	cooldown = { months = normal_modifier_time }
+	ai_chance = {
+		value = -85
+		if = {
+			limit = { popularity >= 75 }
+			add = 25
+		}	
+		if = {
+			limit = { popularity >= 50 }
+			add = 25
+		}
+		if = {
+			limit = { culture = { is_primary_culture_of = root } }
+			add = 50
+		}
+		if = {
+			limit = {
+				scope:actor ?= {
+					any_interest_group = {
+						is_in_government = yes
+						save_temporary_scope_as = ex_ig
+					}
+				}		
+				ig_type_matches_former = yes	
+			}
+			add = 50
+		}
+		if = {
+			limit = { scope:actor ?= { has_law = law_type:law_closed_borders } }
+			add = -200
+		}
+		if = {
+			limit = { scope:actor ?= { has_law = law_type:law_no_migration_controls } }
+			add = 15
+		}
+		if = {
+			limit = { scope:actor ?= { has_law = law_type:law_multicultural } }
+			add = 15
+		}
+		if = { 
+			limit = { scope:actor ?= { country_rank < rank_value:major_power } }
+			multiply = 0
 		}
 	}
 }

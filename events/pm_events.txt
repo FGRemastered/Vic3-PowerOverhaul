@@ -1,25 +1,17 @@
 ﻿namespace = pm_events
-
 pm_events.1 = {
 	type = country_event
 	placement = scope:industrialized_pm_state
-
 	title = pm_events.1.t
 	desc = pm_events.1.d
 	flavor = pm_events.1.f
-
 	event_image = {
 		video = "unspecific_gears_pistons"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-
 	duration = 3
-
 	cooldown = { months = normal_modifier_time }
-
 	trigger = {
 		OR = {
 			has_law = law_type:law_no_workers_rights
@@ -33,11 +25,7 @@ pm_events.1 = {
 			}
 		}
 	}
-
-	immediate = {
-		save_industrialized_pm_building_and_state = yes
-	}
-
+	immediate = { save_industrialized_pm_building_and_state = yes }
 	option = {
 		name = pm_events.1.a
 		scope:industrialized_pm_state = {
@@ -59,7 +47,6 @@ pm_events.1 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.1.b
 		scope:industrialized_pm_state = {
@@ -83,34 +70,25 @@ pm_events.1 = {
 		default_option = yes
 	}
 }
-
 pm_events.2 = {
 	type = country_event
 	placement = scope:industrialized_pm_state
-
 	title = pm_events.2.t
 	desc = pm_events.2.d
 	flavor = pm_events.2.f
-
 	event_image = {
 		video = "southamerica_child_labor"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-
 	duration = 3
-
 	cooldown = { months = normal_modifier_time }
-
 	trigger = {
 		has_law = law_type:law_child_labor_allowed
 		any_scope_state = {
 			has_industrialized_pm = yes
 		}
 	}
-
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -119,7 +97,6 @@ pm_events.2 = {
 			save_industrialized_pm_building_and_state = yes
 		}
 	}
-
 	option = {
 		name = pm_events.2.a
 		scope:industrialized_pm_state = {
@@ -129,7 +106,6 @@ pm_events.2 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.2.b
 		scope:industrialized_pm_state = {
@@ -153,27 +129,19 @@ pm_events.2 = {
 		default_option = yes
 	}
 }
-
 pm_events.3 = {
 	type = country_event
 	placement = scope:liquor_making_state
-
 	title = pm_events.3.t
 	desc = pm_events.3.d
 	flavor = pm_events.3.f
-
 	event_image = {
 		video = "unspecific_temperance_movement"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-
 	duration = 3
-
 	cooldown = { months = normal_modifier_time }
-
 	trigger = {
 		any_scope_state = {
 			OR = {
@@ -198,7 +166,6 @@ pm_events.3 = {
 			}
 		}
 	}
-
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -220,7 +187,6 @@ pm_events.3 = {
 			save_scope_as = liquor_making_state
 		}
 	}
-
 	option = {
 		name = pm_events.3.a
 		scope:liquor_making_state = {
@@ -230,9 +196,7 @@ pm_events.3 = {
 			}
 		}
 		if = {
-			limit = {
-				has_variable = prohibition_laws_var
-			}
+			limit = { has_variable = prohibition_laws_var }
 			custom_tooltip = prohibition_laws_pm.tt
 			change_variable = {
 				name = prohibition_laws_var
@@ -240,7 +204,6 @@ pm_events.3 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.3.b
 		scope:liquor_making_state = {
@@ -256,9 +219,7 @@ pm_events.3 = {
 			}
 		}
 		if = {
-			limit = {
-				has_variable = prohibition_laws_var
-			}
+			limit = { has_variable = prohibition_laws_var }
 			custom_tooltip = prohibition_laws_weak_pm.tt
 			change_variable = {
 				name = prohibition_laws_var
@@ -266,7 +227,6 @@ pm_events.3 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.3.c
 		ig:ig_devout = {
@@ -277,9 +237,7 @@ pm_events.3 = {
 		}
 		default_option = yes
 		if = {
-			limit = {
-				has_variable = prohibition_laws_var
-			}
+			limit = { has_variable = prohibition_laws_var }
 			custom_tooltip = prohibition_laws_bad_pm.tt
 			change_variable = {
 				name = prohibition_laws_var
@@ -288,25 +246,18 @@ pm_events.3 = {
 		}
 	}
 }
-
 pm_events.4 = {
 	type = country_event
 	placement = scope:arms_making_state
-
 	title = pm_events.4.t
 	desc = pm_events.4.d
 	flavor = pm_events.4.f
-
 	event_image = {
 		video = "africa_public_protest"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
-
 	duration = 3
-
 	trigger = {
 		is_at_war = no
 		any_interest_group = {
@@ -316,9 +267,7 @@ pm_events.4 = {
 			has_building = building_arms_industry
 		}
 	}
-
 	cooldown = { months = normal_modifier_time }
-
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -334,7 +283,6 @@ pm_events.4 = {
 			save_scope_as = pacifist_leader
 		}
 	}
-
 	option = {
 		name = pm_events.4.a
 		scope:arms_making_state = {
@@ -344,7 +292,6 @@ pm_events.4 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.4.b
 		scope:arms_making_state = {
@@ -363,7 +310,6 @@ pm_events.4 = {
 			}
 		}
 	}
-
 	option = {
 		name = pm_events.4.c
 		every_interest_group = {
@@ -396,7 +342,6 @@ pm_events.5 = {
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-				
 				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = default_building_vineyard_plantation }
 				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
 				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
@@ -415,7 +360,6 @@ pm_events.5 = {
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-					
 					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = default_building_vineyard_plantation }
 					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
 					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
@@ -500,7 +444,6 @@ production_tech_events.402 = {
 		}
 		add_technology_progress = { progress = 6000 technology = electric_railway }
 	}
-
 	option = {
 		name = production_tech_events.402.c
 		trigger = {
@@ -509,7 +452,6 @@ production_tech_events.402 = {
 		}
 		add_technology_progress = { progress = 6000 technology = steam_turbine }
 	}
-
 	option = {
 		name = production_tech_events.402.e
 		trigger = {

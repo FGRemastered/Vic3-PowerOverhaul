@@ -15,6 +15,7 @@
 
  pm_steam_rail_transport: "Dampfbetriebener Eisenbahntransport"
  pm_electric_rail_transport: "Strombetriebener Eisenbahntransport"
+ pm_electric_rail_transport_green: "$pm_electric_rail_transport$ (Autark)"
  pm_diesel_rail_transport: "Ölbetriebener Eisenbahntransport"
 
  pm_steam_rail_transport_building_coal_mine: "$pm_steam_rail_transport$"
@@ -95,22 +96,28 @@
  pm_switch_boards_skyscraper: "$pm_switch_boards$"
 
  pmg_skyscraper_bureaucrat_professionalism: "$pmg_government_administration_bureaucrat_professionalism$"
+ pm_atheist_admininistration: "Anti-Klerische Verwaltung"
  pm_academic_admininistration: "Akademische Verwaltung"
- pm_academic_admininistration_construction: "$pm_academic_admininistration$"
- pm_academic_admininistration_skyscraper: "$pm_academic_admininistration$"
  pm_military_admininistration: "Militärverwaltung"
- pm_military_admininistration_construction: "$pm_military_admininistration$"
+ pm_hereditary_bureaucrats_skyscraper: "$pm_hereditary_bureaucrats$"
+ pm_religious_bureaucrats_skyscraper: "$pm_religious_bureaucrats$"
+ pm_professional_bureaucrats_skyscraper: "$pm_professional_bureaucrats$"
+ pm_academic_admininistration_skyscraper: "$pm_academic_admininistration$"
  pm_military_admininistration_skyscraper: "$pm_military_admininistration$"
+ pm_academic_admininistration_construction: "$pm_academic_admininistration$"
+ pm_military_admininistration_construction: "$pm_military_admininistration$"
  pm_central_planned_construction: "Zentralplanung"
  
  pm_independent_academia: "Unabhängige Akademiker"
 
- pm_extended_trams: "U-bahnen"
+ pm_extended_trams: "Integrierte S-Bahn"
+ pm_subways: "Stadtbahn"
 
  pmg_cash_register: "Abrechnung"
  pm_no_cash_register: "Kassierer"
  pm_cash_register: "Mechanische Kasse"
  pm_electric_cash_register: "Elektrische Kasse"
+ pm_electric_cash_register_autark: "$pm_electric_cash_register$"
 
  pm_tourist_attraction_urban_clergy: "Touristenattraktionen"
 
@@ -127,3 +134,5 @@
  pm_publicly_traded_building_canal: "$pm_publicly_traded$"
  pm_government_run_building_canal: "$pm_government_run$"
  pm_worker_cooperative_building_canal: "$pm_worker_cooperative$"
+ 
+ native_resettlement.3.c: "Kauft ihnen Zugfahrscheine."

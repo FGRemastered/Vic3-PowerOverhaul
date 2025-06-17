@@ -1,7 +1,6 @@
 # Green Energy
 pm_no_green_power = {
 	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
-	ai_value = 0
 }
 pm_early_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
@@ -10,90 +9,78 @@ pm_early_windpark = {
 		workforce_scaled = {
 			# input goods	-	1 engine : 5 power
 			goods_input_engines_add				=    2	# x-60	= -120
-			goods_input_wood_add				=    4	# x-20	=  -80
-			# output goods							 	#		= -200
-			goods_output_electricity_add		=   10	# x+30	= +300
-		}											 	#		= +100
-		level_scaled = {
-			building_employment_machinists_add 	=   50	# x-1.5	=  -75
-		}
-	}												 	#		=  +25
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
+			# output goods
+			goods_output_electricity_add		=    5	# x+30	= +150
+		}											 	#		=  +30	=> Never stops breaking even
+	}
 }
 pm_large_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_capacitors }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods	-	2 engines : 1 steel	|	1 engine : 5 power
-			goods_input_engines_add				=    4	# x-60	= -240
-			goods_input_steel_add				=    2	# x-50	= -100
-			# output goods							 	#		= -340
-			goods_output_electricity_add		=   20	# x+30	= +600
-		}											 	#		= +260
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    5	# x-50	= -250
+			# output goods							 	#		= -550
+			goods_output_electricity_add		=   25	# x+30	= +750
+		}											 	#		= +200
 		level_scaled = {
-			building_employment_machinists_add 	=  100	# x-1.5	= -150
+			building_employment_machinists_add 	=  100	# x-0.03=   -3	=> Stops breaking even at SoL 66 2/3
 		}
-	}												 	#		= +110
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
+	}
 }
 pm_solar_windpark = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
-	unlocking_technologies = { electric_railway }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
-			goods_input_engines_add				=   10	# x-60	= -600
-			goods_input_steel_add				=    4	# x-50	= -200
-			goods_input_glass_add				=    2	# x-40	= - 80
-			# output goods							 	#		= -880
-			goods_output_electricity_add		=   50	# x+30	=+1500
-		}											 	#		= +620
-		level_scaled = {
-			building_employment_machinists_add 	=  100	# x-1.5	= -150
-			building_employment_engineers_add	=   50	# x-3	= -150
-		}												#		= -300
-		unscaled = { building_production_mult	=-0.01 }#		   -1%		# Plants and workers need time to adapt - Doesn't work
-	}												 	#		= +320
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-20 } }
-}
-pm_large_solar_windpark = {				# Improved
-	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
-			goods_input_engines_add				=   20	# x-60	=-1200
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   10	# x-60	= -600
 			goods_input_steel_add				=    5	# x-50	= -250
-			goods_input_glass_add				=   10	# x-40	= -400
-			# output goods							 	#		=-1850
-			goods_output_electricity_add		=  100	# x+30	=+3000
-		}											 	#		=+1250
+			goods_input_glass_add				=    5	# x-40	= -200
+			# output goods							 	#		=-1050
+			goods_output_electricity_add		=   50	# x+30	=+1500
+		}											 	#		= +450
 		level_scaled = {
-			building_employment_machinists_add 	=  200	# x-1.5	= -300
-			building_employment_engineers_add	=   50	# x-3	= -150
-		}											 	#		= -450
-		unscaled = { building_production_mult	=    1 }#		 +100%		# Having shade is hugely beneficial for plant growth
-	}												 	#		= +800
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=   -6	=> Stops breaking even at SoL 75
+	}
+}
+pm_large_solar_windpark = {				# Improved
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { radio }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_steel_add				=   10	# x-50	= -500
+			goods_input_glass_add				=   10	# x-40	= -400
+			# output goods							 	#		=-2100
+			goods_output_electricity_add		=  100	# x+30	=+3000
+		}											 	#		= +900
+		level_scaled = {
+			building_employment_machinists_add 	=  200	# x-0.03=   -6
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=   -9	=> Stops breaking even at SoL 100
+	}
 }
 pm_huge_solar_windpark = {				# Advanced
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
-			goods_input_engines_add				=   30	# x-60	=-1800
-			goods_input_steel_add				=   10	# x-50	= -500
-			goods_input_glass_add				=   10	# x-40	= -400
-			# output goods								#		=-2700
-			goods_output_electricity_add		=  150	# x+30	=+4500
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   40	# x-60	=-2400
+			goods_input_steel_add				=   20	# x-50	=-1000
+			goods_input_glass_add				=   20	# x-40	= -800
+			# output goods								#		=-4200
+			goods_output_electricity_add		=  200	# x+30	=+6000
 		}											 	#		=+1800
 		level_scaled = {
-			building_employment_machinists_add 	=  400	# x-1.5	= -600
-			building_employment_engineers_add	=  100	# x-3	= -300
-		}												#		= -900
-		unscaled = { building_production_mult	=    1 }#		 +100%		# Having shade is hugely beneficial for plant growth
-	}													#		= +900
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
+			building_employment_machinists_add 	=  400	# x-0.03=  -12
+			building_employment_engineers_add	=  100	# x-0.06=   -6
+		}												#		=  -18	=> Stops breaking even at SoL 100
+	}
 }

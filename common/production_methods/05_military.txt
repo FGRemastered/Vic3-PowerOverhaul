@@ -5,9 +5,12 @@ pm_no_organization = {
 	ai_value = 0
 	building_modifiers = {
 		level_scaled = {
-			building_employment_soldiers_add	= 970
-			building_employment_officers_add	=  30
-			building_training_rate_add			=  10
+			building_employment_soldiers_add	= 950
+			building_employment_officers_add	=  50
+			building_training_rate_add			=   8
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -18,12 +21,16 @@ pm_general_training = {
 	ai_value = 10000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
+			goods_input_clothes_add				= 0.10
+			goods_input_furniture_add			= 0.10
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 950
-			building_employment_officers_add	=  50
-			building_training_rate_add			=  18
+			building_employment_soldiers_add	= 900
+			building_employment_officers_add	= 100
+			building_training_rate_add			=  15
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -33,13 +40,16 @@ pm_advanced_tactics_training = {
 	ai_value = 20000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.1
+			goods_input_clothes_add				= 0.25
+			goods_input_furniture_add			= 0.25
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 900
-			building_employment_officers_add	= 100
-			building_training_rate_add			=  21
+			building_employment_soldiers_add	= 850
+			building_employment_officers_add	= 150
+			building_training_rate_add			=  18
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -49,13 +59,16 @@ pm_training_streamlining = {
 	ai_value = 30000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.15
+			goods_input_clothes_add				= 0.50
+			goods_input_furniture_add			= 0.50
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 850
-			building_employment_officers_add	= 150
-			building_training_rate_add			=  24
+			building_employment_soldiers_add	= 800
+			building_employment_officers_add	= 200
+			building_training_rate_add			=  21
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -65,15 +78,17 @@ pm_nco_incorporation = {
 	ai_value = 40000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.25
+			goods_input_clothes_add				= 1.00
+			goods_input_furniture_add			= 1.00
 		}
 		level_scaled = {
 			building_employment_soldiers_add	= 750
-			# building_employment_engineers_add	=  50
 			building_employment_officers_add	= 250
-			building_training_rate_add			=  27
-		}		
+			building_training_rate_add			=  24
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
+		}
 	}
 }
 pm_mobile_warfare_tactics = {
@@ -82,15 +97,17 @@ pm_mobile_warfare_tactics = {
 	ai_value = 50000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.5
+			goods_input_clothes_add				= 1.00
+			goods_input_furniture_add			= 1.00
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 700
-			# building_employment_engineers_add	= 100
-			building_employment_officers_add	= 300
-			building_training_rate_add			=  30
-		}		
+			building_employment_soldiers_add	= 500
+			building_employment_officers_add	= 500
+			building_training_rate_add			=  27
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
+		}
 	}
 }
 # Conscripts
@@ -100,9 +117,12 @@ pm_no_organization_conscription = {
 	ai_value = 0
 	building_modifiers = {
 		level_scaled = {
-			building_employment_soldiers_add	= 970
-			building_employment_officers_add	=  30
-			building_training_rate_add			=  10
+			building_employment_soldiers_add	= 950
+			building_employment_officers_add	=  50
+			building_training_rate_add			=  10	# Higher than professional. Base game.
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -113,12 +133,16 @@ pm_general_training_conscription = {
 	ai_value = 10000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
+			goods_input_clothes_add				= 0.10
+			goods_input_furniture_add			= 0.10
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 950
-			building_employment_officers_add	=  50
-			building_training_rate_add			=  18
+			building_employment_soldiers_add	= 900
+			building_employment_officers_add	= 100
+			building_training_rate_add			=  15
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -129,13 +153,16 @@ pm_advanced_tactics_training_conscription = {
 	ai_value = 20000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.1
+			goods_input_clothes_add				= 0.25
+			goods_input_furniture_add			= 0.25
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 900
-			building_employment_officers_add	= 100
-			building_training_rate_add			=  21
+			building_employment_soldiers_add	= 850
+			building_employment_officers_add	= 150
+			building_training_rate_add			=  18
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -146,13 +173,16 @@ pm_training_streamlining_conscription = {
 	ai_value = 30000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.15
+			goods_input_clothes_add				= 0.50
+			goods_input_furniture_add			= 0.50
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 850
-			building_employment_officers_add	= 150
-			building_training_rate_add			=  24
+			building_employment_soldiers_add	= 800
+			building_employment_officers_add	= 200
+			building_training_rate_add			=  21
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -163,14 +193,16 @@ pm_nco_incorporation_conscription = {
 	ai_value = 40000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.25
+			goods_input_clothes_add				= 1.00
+			goods_input_furniture_add			= 1.00
 		}
 		level_scaled = {
 			building_employment_soldiers_add	= 750
-			# building_employment_engineers_add	=  50
 			building_employment_officers_add	= 250
-			building_training_rate_add			=  27
+			building_training_rate_add			=  24
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
 		}
 	}
 }
@@ -181,15 +213,17 @@ pm_mobile_warfare_tactics_conscription = {
 	ai_value = 50000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_luxury_clothes_add		= 0.5
+			goods_input_clothes_add				= 1.00
+			goods_input_furniture_add			= 1.00
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 700
-			# building_employment_engineers_add	= 100
-			building_employment_officers_add	= 300
-			building_training_rate_add			=  30
-		}		
+			building_employment_soldiers_add	= 500
+			building_employment_officers_add	= 500
+			building_training_rate_add			=  27
+		}
+		throughput_scaled = {
+			building_training_rate_add			=  50
+		}	
 	}
 }
 # Navy
@@ -198,9 +232,12 @@ pm_no_naval_theory = {
 	ai_value = 0
 	building_modifiers = {
 		level_scaled = {
-			building_employment_soldiers_add	= 900
-			building_employment_officers_add	= 100
-			building_training_rate_add			= 3
+			building_employment_soldiers_add	=  900
+			building_employment_officers_add	=  100
+			building_training_rate_add			=    4
+		}
+		throughput_scaled = {
+			building_training_rate_add			=   10
 		}
 	}
 }
@@ -210,17 +247,18 @@ pm_power_of_the_purse = {
 	ai_value = 20000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_furniture_add			=   1
+			goods_input_clothes_add				= 0.10
+			goods_input_furniture_add			= 0.10
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 850
-			building_employment_officers_add	= 150
-			building_training_rate_add			= 3.5
+			building_employment_soldiers_add	=  850
+			building_employment_officers_add	=  150
+			building_training_rate_add			=    5
 		}
-		unscaled = {
-			unit_morale_loss_mult				=-0.05
-			unit_morale_damage_mult				= 0.1
+		throughput_scaled = {
+			unit_morale_loss_mult				=-0.10
+			unit_morale_damage_mult				= 0.20
+			building_training_rate_add			=   10
 		}
 	}
 }
@@ -230,19 +268,18 @@ pm_jeune_ecole = {
 	ai_value = 30000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_furniture_add			=   1
-			goods_input_luxury_clothes_add		= 0.15
-			goods_input_luxury_furniture_add	= 0.15
+			goods_input_clothes_add				= 0.25
+			goods_input_furniture_add			= 0.25
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 800
-			building_employment_officers_add	= 200
-			building_training_rate_add			= 4
+			building_employment_soldiers_add	=  800
+			building_employment_officers_add	=  200
+			building_training_rate_add			=    6
 		}
-		unscaled = {
-			unit_morale_loss_mult				=-0.1
-			unit_morale_damage_mult				= 0.2
+		throughput_scaled = {
+			unit_morale_loss_mult				=-0.15
+			unit_morale_damage_mult				= 0.30
+			building_training_rate_add			=   10
 		}
 	}
 }
@@ -252,20 +289,18 @@ pm_sea_lane_strategies = {
 	ai_value = 40000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_furniture_add			=   1
-			goods_input_luxury_clothes_add		= 0.2
-			goods_input_luxury_furniture_add	= 0.2
+			goods_input_clothes_add				= 0.50
+			goods_input_furniture_add			= 0.50
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 750
-			# building_employment_engineers_add	=  50
-			building_employment_officers_add	= 250
-			building_training_rate_add			= 4.5
+			building_employment_soldiers_add	=  750
+			building_employment_officers_add	=  250
+			building_training_rate_add			=    8
 		}
-		unscaled = {
-			unit_morale_loss_mult				=-0.15
-			unit_morale_damage_mult				= 0.3
+		throughput_scaled = {
+			unit_morale_loss_mult				=-0.20
+			unit_morale_damage_mult				= 0.40
+			building_training_rate_add			=   10
 		}
 	}
 }
@@ -275,20 +310,31 @@ pm_battlefleet_tactics = {
 	ai_value = 50000
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_clothes_add				=   1
-			goods_input_furniture_add			=   1
-			goods_input_luxury_clothes_add		= 0.25
-			goods_input_luxury_furniture_add	= 0.25
+			goods_input_clothes_add				= 1.00
+			goods_input_furniture_add			= 1.00
 		}
 		level_scaled = {
-			building_employment_soldiers_add	= 700
-			# building_employment_engineers_add	= 100
-			building_employment_officers_add	= 300
-			building_training_rate_add			= 5
+			building_employment_soldiers_add	=  500
+			building_employment_officers_add	=  500
+			building_training_rate_add			=   10
 		}
-		unscaled = {
-			unit_morale_loss_mult				=-0.2
-			unit_morale_damage_mult				= 0.4
+		throughput_scaled = {
+			unit_morale_loss_mult				=-0.25
+			unit_morale_damage_mult				= 0.50
+			building_training_rate_add			=   10
 		}
 	}
+}
+# Infres
+pm_default_infres_barracks = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+    state_modifiers	= { level_scaled	= { state_building_barracks_max_level_add	= 10 } }
+}
+pm_default_infres_naval_base = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+    state_modifiers	= { level_scaled	= { state_building_naval_base_max_level_add	= 10 } }
+}
+pm_default_infres_port = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+    state_modifiers	= { level_scaled	= { state_building_port_max_level_add		=  1 } }
 }

@@ -1,0 +1,119 @@
+﻿anglo_indian = {
+	color= hsv{ 0.79 0.37 0.36 }
+	religion = hindu
+	traits = { south_asian_heritage indo_aryan_language dravidian anglophone }
+	obsessions = { tea }
+	male_common_first_names = {
+		Aakash Abbakka Abd_al-Quddus Abd_al-Rahman Abdallah Abdul_Akbar Abdullah Adithya Afzal Ahmad Ahmed Ajanbahu Akbar Akram Akshay Alauddin Alif Alivardi Aliya Alluri
+		Amar Amir Amjad Amoghavarasha Amratlal Anagarika Anand Anku Anupam Ashoka Ashtravakra Asvaghosa Atal Atta Awaz Ayilyam Ayyub Azad Aziz
+		Baba Bajirao Bakht_Buland Balaji Balarama Balwantry Banda Bandishankar Basaveshwara Bhagwant Bhai Bhakti Bhanwari Bharatsingh Bhim_Shamsher Bhimsen Bhuma Bhupesh Bijjala Bir_Shamsher Birakishoredeva Burhan-ud-Din
+		Chabildas Champakaraman Chanakya Chand Chandra_Shamsher Chandraka Chennamma Cheraman Chetan Chhatrasal Chidambaram Chithira Curumsey
+		Daishalji Dalip Dalpat Daman Daud Deshraj Deva_Shamsher Dhalip Dharma Dharmraj Dheeran Dhekial Dibvyasimhadeva Diwan Durga Durgabai
+		Fakirbhai Farhatullah Fateh Fateh_Mohammad Fath Firuz_al-Din
+		Ganda Gholam Ghulam Gopal Gopinathdeva Govind Gunda Guvida
+		Habib Habib_Alllah Haji Hao Harekrushnadeva Hari Hari_Singh Harihara Harishankar Harsha Hasan Hayat Haydar Himayat Hosayn Hridayshah Humayun Hussain Hyder
+		Inayat_Allah Ishaq Ishvari
+		Jafar Jafar_Ali Jama Jamal Janardan Jang Jassa Jawapala Jitendra Jivraj Jogeshwar Jugal Juma
+		Kaganath Kailash Kamaleswar Kamran Kanaka Kandukuri Kapur Karam_Singh Karim Karimdad Kaur Kempe Keneganti Khadg Kharak Khemchand Khizr Kifayat Kirtisri Kishore Kohandil Komaram Krishnadeva Krishnamurthy Krisnaraja
+		Lal_Mani Lokendra
+		Madad Madhava Madhavsingh Madhukar Maharshi Mahavira Mahip Mahmud Mahsud Makhanlal Makhdoom Malik Maniraj Mansoor Mansur Marthanda Masood Mayuravarma Mihrdil Mir Mir_Fath Mir_Muhammad Mirdad Mirza Mirza_Raja
+		Mohammad Mohammad_Bahadur Mohammad_Hamid Mohiuddin Moolam Morad Morad_Ali Motilal Motiravan Mubarak Muhammad Muhammad_Husayn Mukundadeva Mulla Murad Murshid Muzaffar
+		Nadir Nagendra Nain_Singh Najimuddin Nanji Narasimha Narayan Narendra Nasir Nasr_Allah Nathuram Nau Nawab Neel Nihal Nikhil Nilamber Nirmal Nitin Nur_Mohammad
+		Omar
+		Padmanavadeva Parbhu Patalang Pawan Pheran Pingali Potti Pramanandas Prasan Pratapsinha Pukhraj Pulakesi Purandar
+		Qadri Qaysar Quli
+		Raghunath Raghuraj Rahat Rahmatullah Rai Raja Rajagopalachari Rajaram Rajasingha Rajendra Rajesh Ramachandradeva Raman Ramaswami Ramayyan Ramiengar Ramji Rani Ranjit Ranjur Rao Ratnesh Ravindra Renaudip Reza Ruchinath
+		Saamoothiri Sagolli Saifuddaula Sakthan Saleem Samudragupta Santosh Sardar Sarojini Sathyamurthy Sawai Sayyid Senarat Seshadri Seshayya
+		Shahdad Shahpur Shahuji Shahzada Shambhaji Shamsher Shamsullah Shankar Shanmukham Sher Sher_Ali Shir Shivaji Shivendra Shivshankar Shubham Shuja Shujauddin Shungrasoobyer Shyama
+		Siddhartha Sirajuddaula Sobhdar Sri Subramania Sudingphaa Sulaiman Suleyman Swathi
+		Tailapa Taimur Tanay Tanguturi Tantia Thanjavur_Subha Thirunal Timur
+		Udayanacharaya Udit Umar Uyyalawada
+		Vachaspati Vakil Valmik Vanchinathan Vasireddy Vatsyayana Veer Veera Veerapandiya Venkatadri Venkatji Vijay Vijaya Vikrama Vikramaditya Vimala Viraparakkama Vishnuvardhana Vishvanath Vrindavan_Lal
+		Waris Wasif Wimalaratne
+		Yahya Yaqub
+		Zainul Zaman Zorawar_Mohammad
+	}
+	female_common_first_names = {
+		Abhilasha Aditi Ahilyabai Aisha Alka Amina Amrita Anandibai Anjali Anuradha Aparna Aruna Asha Asma Avanti Avantibai
+		Babli Baburao Barkha Bhajju Bhawana Bibhusita Bibi Bilkees
+		Chakradhar Chandrakanti Chandrama Chindodi
+		Datar Degiri Dipali Divyeshwari Durga Durga_Bai
+		Fahmida Falak Fateh Fathima Fatima Firoza
+		Ganga Gangabai Gayatri Geeta Gehana Ghazala Giribala Gopikabai Gulrukh
+		Hazrat Hema Himani
+		Iffat Indira Indrani
+		Jangarh_Singh Jaya Jind
+		Kalsoom Karunkar Khanum Kishore Kranti Krishna
+		Laila Lakshmi Lata Lavanya Laxmi
+		Maithilisharan Maji Malati Mamta Manjula Marudhar Maryam Meena Mehtab Moran
+		Nageswari Naima_Khan Nareshchandra Nazia Neha Nidhi Nihaarika Nilofar
+		Omvati
+		Parbati Pooran Priyanka Pushpalata
+		Rachna Radhabai Rahima Rajini Rama Rangammal Rani Ranjana Rasamanohari Raya Razia Renuka Riffat Rohini Rukmani Rupamanjari
+		Sada Samar Samina Sampat Sampatiya Sangita Sangram Sania Sanjukta Saraswati Savita Savitri Selima Shabana Sharanya Sheorajvati Shyamkumari Sita Sitara Soyarabai Subhashini Sucheta Sudhamani Sulakshana Sumedha Sumitra Sunita Suraya Surayya Swati Syeda
+		Tabassum Tarana Tehmina Thangamma
+		Uma Umabai Upendramma Usha
+		Vanshika Venkat Vimla
+		Waheeda
+		Yakada Yogmaya
+		Zehra Zohra
+	}
+	noble_last_names = {
+		Abaqati Achan Ali Amarchand Arkvanshi
+		Babi Bahadur Bahadur_Rana Baji_Rao Bajpai Basnyat Bhandari Bhangi Bhat Bhave Bhonsle Bogra
+		Chaudhari Chauhan Chautariya Choudhary Choudhury
+		Damani Das Deva Devi Dixit
+		Gaekwad Ghafar_Khan Gond Gujar
+		Hegde Holkar Hotak
+		Ijtihadi Ittyanath Iyer
+		Jadeja Jaitely Jatbasha Jethwa Jhalori Jivraj
+		Kalhoro Khan Koirala Kunwar
+		Mahat Mangeshkar Mehere Memon Menon Mirza Muhammad_Khan
+		Naqvi Narayan Nayak Nayakkar Nehru Newalkar Nirban
+		Pande Panni Parasai Patwardhan Pawar Perumal Phulkian Pillai Prasad
+		Rajagopalachari Raksel Rama_Raya Rana Ranchordas Rao Rashidi Raya Roy
+		Salarjung Scindia Sethupathi Shah Sihan Singh Singh_Dogra Singh_Thapa Singha Soomro Subbaraya Suhrawardy Sultan
+		Thampuran Thapa Tiwari Tondaiman
+		Vora
+	}
+	common_last_names = {
+		Acharya Agrahari Ahluwalia Aideo Ali Alokzai Alwani Ambani Appa_Sahib Areeb Arif Azmi
+		Babajan Bachittar_Singh Badgaiyan Bafna Baghel Baig Bajia Ballal Ballala Baloshay Bamzai Ban Baro Bhandari Bhargava Bharti Bhatti Bheem Bhil Bhurgari Bibi Bisht Bjaeen Bora Bowa_Sahib Bulfati
+		Chandels Chandio Chandrakar Chaubey Chaudhury Chitrali Chorotay Dalawa Damjee Das Daudpota Debi Deshmukh Deva Devi Dharmasurya Dhillon Dhur Dogoi Doraisami Doulatshay Dubey
+		Gabol Gandhi Ganguly Gautam Ghazi Ghufran Giri Gour Gowda Gujar Gul Gupt Gupta
+		Haji Hanumathu Hashmi Hydari
+		Jafar Jan Janak Jangla Jarasandh Javed Jawansher Joshi Jung
+		Kakakhel Kakkar Kalash Kalpar Kangali Kardam Karmahe Katiyar Kattabomman Kaur Kaushik Kesavadas Khonay Kiri Kolhi Krishnamachari Kumar Kumari Kunwar Kushwaha
+		Lahiri Laqani Latif
+		Madbaiya Magsi Mal Mallaah Mangilal Masafay Masdoosi Masholay Mehta Mirza Mishra Modhvadia Moghe Mohaptra Mohite Mohiuddin Mudaliar Muhammad Mukhay Mulraj
+		Naidu Najabut Naji Nalwa Naqshbandi Narayan Narendrasimha Nayaka Nayar Nayudu Negi Neupane
+		Pandey Pandit Pansara Pant Parmar Parvin Pateriya Peshawari Phadnis Phukan Premi Purnananda
+		Qadri Qaim Qaisi Qasim_Ali Qayyum
+		Rabakhanay Raghuwanshi Rajadhirajasimha Rajagopalan Rajapopalachari Rajasimha Rajpar Raju Ram Ramachandran Ramgarhia Rana Rani Rao Ratnani Rawat Raya Rayanna Rehman
+		Samdariya Sarfaraz Sarkar Sarki Sastri Sayeed Shama Shamshiray Shandilya Shekha Shinwari Shivpink Shukhaye Shukla Shumuray Singh Sirki Sitaramaraju Siyar Sob Solangi Solanki Sriramulu
+		Tajuddin Tamotia Tandon Tanvir Taseer Taunsvi Tiwana Tripathi Trivedi
+		Upreti
+		Vaghela Valdiya Valmiki Varun Veeresalingam Verma Vyam
+		Wodeyar
+		Yadav
+		Zhikhonay Zore ul-Mulk ur_Rahman us-Salam
+	}
+	male_regal_first_names = {
+		Abdullah Ahmed Amjad Awaz Aziz
+		Bala_Rama
+		Farhatullah
+		Hyder
+		Kerala_Varma
+		Makhdoom Martanda_Varma Mirza Mohiuddin
+		Pratap_Singh
+		Qadri
+		Raghunatha Rajagopala Rajaram Rama_Varma Ramachandra Ravi_Varma
+		Sayyid Shahaji Shahuji Shambhaji Shamsullah Shivaji Sudingphaa Suhitpangphaa Suklingphaa Sulaiman Sunyeophaa Suremphaa
+	}
+	ethnicities = {
+		18	= indian
+		1	= arab
+		1	= asian
+	}
+	graphics = south_asian
+}

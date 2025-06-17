@@ -1,0 +1,30 @@
+﻿### See power_bloc_principle_groups for grouping, primary groups for identities etc.
+principle_food_standardization_3 = {
+	icon = "gfx/interface/icons/principles_icons/food_standardization.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+	member_modifier = {
+		# Modifiers from previous level(s)
+		building_group_bg_agriculture_throughput_add	= 0.1
+		state_mortality_mult							=-0.1
+		# Higher SoL
+		state_standard_of_living_add					= 1
+		#Unlocks a PM for Food Industries
+		goods_output_groceries_mult						= 0.15	# Don't make this more complicated than it has to be.
+	}
+	ai_weight = { value = 1000 }	# AI prefers upgrading groups it has already picked to unlocking new ones
+}
+principle_transport_3 = {
+	icon = "gfx/interface/icons/principles_icons/transport.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+	member_modifier = {
+		# Modifiers from previous level(s)
+		country_convoys_capacity_mult					= 0.2
+		state_infrastructure_from_population_mult		= 0.33
+		state_infrastructure_from_population_max_mult	= 0.33 
+		# Increased land trade capacity
+		market_land_trade_capacity_add					= 50
+		# Unlocks a set of PMs for Railways
+		goods_output_transportation_mult				= 0.25	# Don't make this more complicated than it has to be.
+	}
+	ai_weight = { value = 1000 }	# AI prefers upgrading groups it has already picked to unlocking new ones
+}

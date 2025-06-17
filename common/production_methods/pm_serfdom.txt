@@ -1,21 +1,24 @@
 # Serfdom
 pm_serfdom = {
 	texture = "gfx/interface/icons/production_method_icons/serfdom.dds"
+	unlocking_laws = { law_serfdom }
 	disallowing_laws = {
 		law_tenant_farmers
 		law_commercialized_agriculture
 		law_homesteading
 		law_collectivized_agriculture
 	}
-	unlocking_laws = { law_serfdom }
 	building_modifiers = {
 		unscaled = {
-			building_subsistence_output_add	= 3
-			goods_output_grain_mult			= 0.25
-			goods_output_fish_mult			= 0.25
-			goods_output_fruit_mult			= 0.25
-			goods_output_meat_mult			= 0.25
+			building_subsistence_output_add				= 3
+			goods_output_grain_mult						= 0.25
+			goods_output_fish_mult						= 0.25
+			goods_output_fruit_mult						= 0.25
+			goods_output_meat_mult						= 0.25
 		}
+	}
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		=-1 }
 	}
 }
 # Freedom
@@ -24,383 +27,44 @@ pm_serfdom_no = {
 	unlocking_laws = {
 		law_tenant_farmers
 		law_commercialized_agriculture
-		law_homesteading
 		law_collectivized_agriculture
 	}
 	disallowing_laws = { law_serfdom }
 	building_modifiers = {
 		unscaled = { building_subsistence_output_add	= 4 }
 	}
-	ai_value = 100000
 }
-pm_freedom = {
-	texture = "gfx/interface/icons/production_method_icons/no_serfdom.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	building_modifiers = {
-		unscaled = { building_peasants_shares_add		= 4 }
-	}
-}
-pm_centralised_subsistence_1 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce1.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_technologies = { centralization }
-	unlocking_production_methods = {
-		default_building_subsistence_farms
-		default_building_subsistence_orchards
-		default_building_subsistence_pastures
-		default_building_subsistence_fishing_villages
-		
-		pm_enriched_subsistence_farms
-		pm_enriched_subsistence_orchards
-		pm_enriched_subsistence_pastures
-		pm_enriched_subsistence_fishing_villages
-		
-		pm_fertilized_subsistence_farms
-		pm_fertilized_subsistence_orchards
-		pm_fertilized_subsistence_pastures
-		pm_fertilized_subsistence_fishing_villages
-		
-		pm_chem_fertilized_subsistence_farms
-		pm_chem_fertilized_subsistence_orchards
-		pm_chem_fertilized_subsistence_pastures
-		pm_chem_fertilized_subsistence_fishing_villages
-		
-		pm_auto_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_fishing_villages
-	}
+pm_homesteading_building_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
+	unlocking_laws = { law_homesteading }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_peasants_add	=-4750	# x+0.2	=  950
-			building_employment_laborers_add	= 4000	# x-1.0	=-4000	# 500
-			building_employment_farmers_add		= 1000	# x-2.0	=-2000	# 250
-		}												#		=-5050
+			building_employment_peasants_add			= -500
+			building_employment_farmers_add				=  500
+		}
 		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
+			building_subsistence_output_add				=    4
+			goods_output_grain_mult						= 0.25
+			goods_output_fish_mult						= 0.25
+			goods_output_fruit_mult						= 0.25
+			goods_output_meat_mult						= 0.25
 		}
 	}
-	ai_value = 0
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		= 1 }
+	}
 }
-pm_centralised_subsistence_2 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce2.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_enriched_subsistence_farms
-		pm_enriched_subsistence_orchards
-		pm_enriched_subsistence_pastures
-		pm_enriched_subsistence_fishing_villages
-		
-		pm_fertilized_subsistence_farms
-		pm_fertilized_subsistence_orchards
-		pm_fertilized_subsistence_pastures
-		pm_fertilized_subsistence_fishing_villages
-		
-		pm_chem_fertilized_subsistence_farms
-		pm_chem_fertilized_subsistence_orchards
-		pm_chem_fertilized_subsistence_pastures
-		pm_chem_fertilized_subsistence_fishing_villages
-		
-		pm_auto_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_fishing_villages
-	}
+pm_decentralised_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
+	# unlocking_laws = { law_land_based_taxation }
+	# is_hidden_when_unavailable = yes
 	building_modifiers = {
 		level_scaled = {
-			building_employment_peasants_add	=-7250	# x+0.2	= 1450
-			building_employment_laborers_add	= 3750	# x-1.0	=-3750	# 500
-			building_employment_farmers_add		= 1000	# x-2.0	=-2000	# 500
-		}												#		=-3300
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
+			building_employment_peasants_add			= -500
+			building_employment_farmers_add				=  500
 		}
-	}
-	ai_value = 0
-}
-pm_centralised_subsistence_3 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce3.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_fertilized_subsistence_farms
-		pm_fertilized_subsistence_orchards
-		pm_fertilized_subsistence_pastures
-		pm_fertilized_subsistence_fishing_villages
-		
-		pm_chem_fertilized_subsistence_farms
-		pm_chem_fertilized_subsistence_orchards
-		pm_chem_fertilized_subsistence_pastures
-		pm_chem_fertilized_subsistence_fishing_villages
-		
-		pm_auto_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_fishing_villages
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-9750	# x+0.2	= 1950
-			building_employment_laborers_add	= 3500	# x-1.0	=-3500	#   0	+500 machinists
-			building_employment_farmers_add		= 1000	# x-2.0	=-2000	# 500
-		}												#		=-3550
 		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_subsistence_4 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce4.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_chem_fertilized_subsistence_farms
-		pm_chem_fertilized_subsistence_orchards
-		pm_chem_fertilized_subsistence_pastures
-		pm_chem_fertilized_subsistence_fishing_villages
-		
-		pm_auto_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_fishing_villages
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-14750	# x+0.2	= 2950
-			building_employment_laborers_add	=  3250	# x-1.0	=-3250	#   0	+600 machinists
-			building_employment_farmers_add		=  1250	# x-2.0	=-2500	# 400
-		}												#		=-2800
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_subsistence_5 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_auto_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_fishing_villages
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-21250	# x+0.2	= 4250
-			building_employment_laborers_add	=  3000	# x-1.0	=-3000	#   0
-			building_employment_machinsts_add	=   500	# x-1.5	= -750	# 600
-			building_employment_farmers_add		=  1000	# x-2.0	=-2000	# 400
-		}												#		=-1500
-		unscaled = {
-			building_farmers_shares_add			= 1
-			# slaves_role							= laborers
-		}
-	}
-	ai_value = 0
-}
-# Rice - Double size
-pm_centralised_double_subsistence_1 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce1.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_technologies = { centralization }
-	unlocking_production_methods = {
-		default_building_subsistence_rice_paddies
-		pm_enriched_subsistence_rice_paddies
-		pm_fertilized_subsistence_rice_paddies
-		pm_chem_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_subsistence_rice_paddies
-		
-		default_building_generic_subsistence
-		pm_enriched_generic_subsistence
-		pm_fertilized_generic_subsistence
-		pm_chem_fertilized_generic_subsistence
-		pm_auto_fertilized_generic_subsistence
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-9750	# x+0.2	= 1950
-			building_employment_laborers_add	= 4000	# x-1.0	=-4000	# 1500
-			building_employment_farmers_add		= 1000	# x-2.0	=-2000	#  100
-		}												#		=-5300
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_double_subsistence_2 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce2.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_enriched_subsistence_rice_paddies
-		pm_fertilized_subsistence_rice_paddies
-		pm_chem_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_subsistence_rice_paddies
-		
-		pm_enriched_generic_subsistence
-		pm_fertilized_generic_subsistence
-		pm_chem_fertilized_generic_subsistence
-		pm_auto_fertilized_generic_subsistence
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-14750	# x+0.2	= 2950
-			building_employment_laborers_add	= 3750	# x-1.0	=-3750	# 1000
-			building_employment_farmers_add		= 1000	# x-2.0	=-2000	# 500
-		}												#		=-2800
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_double_subsistence_3 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce3.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_fertilized_subsistence_rice_paddies
-		pm_chem_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_subsistence_rice_paddies
-		
-		pm_fertilized_generic_subsistence
-		pm_chem_fertilized_generic_subsistence
-		pm_auto_fertilized_generic_subsistence
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-19750	# x+0.2	= 3950
-			building_employment_laborers_add	=  3500	# x-1.0	=-3500	# 1000
-			building_employment_farmers_add		=  1000	# x-2.0	=-2000	# 1000
-		}												#		=-1550
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_double_subsistence_4 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/unused/workforce4.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_chem_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_subsistence_rice_paddies
-		
-		pm_chem_fertilized_generic_subsistence
-		pm_auto_fertilized_generic_subsistence
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-29750	# x+0.2	= 5950
-			building_employment_laborers_add	=  3250	# x-1.0	=-3250	#    0	+1000 machinists
-			building_employment_farmers_add		=  1250	# x-2.0	=-2500	# 1000
-		}												#		= 1000
-		unscaled = {
-			building_peasants_shares_add		= 1
-			building_subsistence_output_add		= 1
-		}
-	}
-	ai_value = 0
-}
-pm_centralised_double_subsistence_5 = {
-	low_pop_method = yes # AI will activate this method for states with low population
-	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
-	disallowing_laws = { law_serfdom }
-	unlocking_production_methods = {
-		pm_auto_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_generic_subsistence
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_peasants_add	=-44750	# x+0.2	= 8950
-			building_employment_laborers_add	=  3000	# x-1.0	=-3000	#    0
-			building_employment_machinsts_add	=   500	# x-1.5	= -750	# 1200
-			building_employment_farmers_add		=  1000	# x-2.0	=-2000	#  800
-		}												#		= 3575
-		unscaled = {
-			building_farmers_shares_add			= 1
-			# slaves_role							= laborers
+			building_subsistence_output_add				=    5
 		}
 	}
 	ai_value = 0

@@ -4,7 +4,7 @@
 	ai_usage = defend
 	is_basic_order_type = yes
 	possible = {
-		error_check = { severity = invalid	has_role = general }
+		has_role = general
 	}
 	modifier = {
 		unit_defense_mult = 0.1
@@ -19,7 +19,7 @@ defend_dig_in = {
 	military_type = army
 	ai_usage = defend
 	possible = {
-		error_check = { severity = invalid	has_role = general }
+		has_role = general
 		OR = {
 			has_trait = basic_defensive_strategist
 			has_trait = experienced_defensive_strategist
@@ -45,7 +45,7 @@ defend_desperate_charge = {
 	military_type = army
 	ai_usage = defend
 	possible = {
-		error_check = { severity = invalid	has_role = general }
+		has_role = general
 		OR = {
 			has_trait = brave
 			has_trait = reckless
@@ -104,7 +104,7 @@ defend_last_stand = {
 	military_type = army
 	ai_usage = defend
 	possible = {
-		error_check = { severity = invalid	has_role = general }
+		has_role = general
 		OR = {
 			has_trait = stalwart_defender
 			has_trait = trench_rat
@@ -125,7 +125,7 @@ defend_guerilla_warfare = {
 	military_type = army
 	ai_usage = defend
 	possible = {
-		error_check = { severity = invalid	has_role = general }
+		has_role = general
 		OR = {
 			has_trait = pillager
 			has_trait = cruel

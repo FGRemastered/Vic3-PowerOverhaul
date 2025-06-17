@@ -4,6 +4,12 @@
  bg_heavy_military_industry: "Heavy $bg_military_industry$"
 
  company_edeka: "EDEKA"
+ company_sovereign_wealth_fund: "Sovereign Wealth Fund"
+ 
+ pm_simple_fertilizers: "Compost Fertilizer"
+ pm_nitrogen_fixation_electricity: "$pm_nitrogen_fixation$ (Electrolysis)"
+ pm_early_soda: "Potash Soda"
+ 
  pm_hardwood_tools: "$hardwood$ $tools$"
  pm_early_machine_tools: "Pneumatic Machine Tools"
  pm_machine_tools: "Electric Machine Tools"
@@ -25,6 +31,9 @@
  pm_basic_oxygen_process: "Basic Oxygen Process"
  pm_carbon_capture_steel_process: "Improved $pm_electric_arc_process$"
  
+ pm_arc_welding_shipbuilding_green: "$pm_arc_welding_shipbuilding$ (Autark)"
+ pm_military_shipbuilding_steam_2_green: "$pm_military_shipbuilding_steam_2$ (Autark)"
+ 
  pmg_secondary_charcoal: "Carbon Source"
  pmg_secondary_charcoal_oil: "$pmg_secondary_charcoal$"
  pm_no_charcoal: "No Charcoal"
@@ -41,9 +50,9 @@
  pm_jet_engines: "Jet Engines"
  pm_jet_electric_engines: "Electric Jet Engines"
  
- pm_automobile_production: "Combustion Engine Automobiles"
+ pm_automobile_production: "Petrol Automobiles"
  pm_electic_automobile_production: "Electric Automobiles"
- pm_diesel_automobile_production: "Diesel-Powered Automobiles"
+ pm_diesel_automobile_production: "Diesel Automobiles"
  pm_automobile_priority: "Luxury Cars"
  
  pm_machine_pistols: "Machine Pistols"
@@ -91,6 +100,12 @@
  pm_rotary_valve_engine_building_war_machine_industry: "$pm_rotary_valve_engine$"
  pm_assembly_lines_building_war_machine_industry: "$pm_assembly_lines$"
  
+ pmg_automation_building_shipyards: "$pmg_automation$"
+ pm_watertube_boiler_building_shipyards: "$pm_watertube_boiler$"
+ pm_rotary_valve_engine_building_shipyards: "$pm_rotary_valve_engine$"
+ pm_assembly_lines_building_shipyards: "$pm_assembly_lines$"
+ pm_assembly_lines_building_shipyards_green: "$pm_assembly_lines$ (Autark)"
+ 
  pm_assembly_lines_building_steel_mills: "$pm_assembly_lines$"
  
  pmg_explosives_building_mine: "Explosives"
@@ -117,3 +132,105 @@
  pm_publicly_traded_mine: "$pm_publicly_traded$"
  pm_government_run_mine: "$pm_government_run$"
  pm_worker_cooperative_mine: "$pm_worker_cooperative$"
+ 
+ modifier_traditional_patronage: "$pm_traditional_patronage$"
+ modifier_bourgeoisie_patronage: "$pm_bourgeoisie_patronage$"
+ modifier_independent_artists: "$pm_independent_artists$"
+ 
+ TRIGGER_STATE_GOODS_PRICIER_THIRD: "[STATE_GOODS.GetGoods.GetName] in [STATE_GOODS.GetState.GetName] is $COMPARATOR$ #variable $NUM|%0v$#! more expensive than [concept_base_price]"
+ TRIGGER_STATE_GOODS_PRICIER_THIRD_NOT: "[STATE_GOODS.GetGoods.GetName] in [STATE_GOODS.GetState.GetName] is #b not#! $COMPARATOR$ #variable $NUM|%0v$#! more expensive than [concept_base_price]"
+ insufficient_convoys.tt: "[Building.GetOwner.GetName] has insufficient [concept_convoys]"
+ top_overlord_insufficient_convoys.tt: "[Building.GetOwner.GetTopOverlord.GetName] has insufficient [concept_convoys]"
+ overlord_insufficient_convoys.tt: "[Building.GetOwner.GetOverlord.GetName] has insufficient [concept_convoys]"
+ market_owner_insufficient_convoys.tt: "[Building.GetState.GetMarket.GetOwner.GetName] has insufficient [concept_convoys]"
+ 
+ option_gov: "([concept_treasury])"
+ option_ivp: "([concept_investment_pool])"
+ lag_warning: "@warning!#r BEWARE THE LAG! It is strongly recommended to pause the game before clicking this!#!"
+ 
+ autarky_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('autarky_refund').GetValue|k0]#!) will be refunded to the [concept_treasury] of [THIS.GetState.GetOwner.GetName]."
+ autarky_refund_ivp.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('autarky_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ agro_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('agro_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ plant_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('plant_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ inf_plant_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('inf_plant_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ ind_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('ind_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ mil_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('mil_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ ship_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('ship_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
+ 
+ option_seed_autarky: "Seed [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
+ option_seed_autarky_private: "Seed [GetBuildingType('building_generic_subsistence').GetName] $option_ivp$"
+ option_seed_autarky_forced: "Force-build [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
+ option_build_autarky: "Build [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
+ option_build_autarky_private: "Build [GetBuildingType('building_generic_subsistence').GetName] $option_ivp$"
+ 
+ option_seed_logging: "Seed [GetBuildingType('building_logging_camp').GetName] $option_gov$"
+ option_seed_logging_private: "Seed [GetBuildingType('building_logging_camp').GetName] $option_ivp$"
+ 
+ option_seed_construction: "Seed @construction![GetBuildingType('building_construction_sector').GetName]"
+ option_seed_infrastructure: "Seed #yellow Infrastructure#!"
+ option_build_construction: "Build @construction![GetBuildingType('building_construction_sector').GetName]"
+ option_build_universities: "Build @innovation![GetBuildingType('building_university').GetName]"
+ option_build_admins: "Build @bur![GetBuildingType('building_government_administration').GetName]"
+ option_build_ports: "Build @convoys![GetBuildingType('building_port').GetName]"
+ effect_build_infes_ports.tt: "A total of #variable [ROOT.GetCountry.MakeScope.Var('missing_inf_ports').GetValue|0]#! [GetBuildingType('building_infres_port').GetName] will be queued up to be built to fill the convoy capacity"
+ option_build_railways: "Build [GetBuildingType('building_railway').GetName] $option_gov$"
+ option_build_railways_private: "Build [GetBuildingType('building_railway').GetName] $option_ivp$"
+ option_build_power: "Build [GetBuildingType('building_power_plant').GetName] $option_gov$"
+ option_build_power_private: "Build [GetBuildingType('building_power_plant').GetName] $option_ivp$"
+ 
+ option_seed_resources: "Seed #red Resources#! $option_gov$"
+ option_seed_resources_private: "Seed #red Resources#! $option_ivp$"
+ option_build_logging: "Build #red $bg_logging$#! $option_gov$"
+ option_build_logging_private: "Build #red $bg_logging$#! $option_ivp$"
+ option_build_fishing: "Build #blue $bg_fishing$#! $option_gov$"
+ option_build_fishing_private: "Build #blue $bg_fishing$#! $option_ivp$"
+ option_build_resources: "Build #red Resources#! $option_gov$"
+ option_build_resources_private: "Build #red Resources#! $option_ivp$"
+ 
+ effect_build_resources.tt: "Queue up resource buildings until you have enough of each to fully utilise them in each state. $lag_warning$"
+ 
+ option_seed_industry: "Seed #gold Industry#! $option_gov$"
+ option_seed_industry_private: "Seed #gold Industry#! $option_ivp$"
+ option_build_industry: "Build #gold Industry#! (Economy of Scale) $option_gov$"
+ option_build_industry_private: "Build #gold Industry#! (Economy of Scale) $option_ivp$"
+ option_build_industry_05: "Build #gold Industry#! (5) $option_gov$"
+ option_build_industry_private_05: "Build #gold Industry#! (5) $option_ivp$"
+ option_build_industry_25: "Build #gold Industry#! (25) $option_gov$"
+ option_build_industry_private_25: "Build #gold Industry#! (25) $option_ivp$"
+ option_build_industry_50: "Build #gold Industry#! (50) $option_gov$"
+ option_build_industry_private_50: "Build #gold Industry#! (50) $option_ivp$"
+ 
+ effect_build_industry.tt: "Queue up industry until you have enough of each to fully utilise the economy of scale bonus in every incorporated state. $lag_warning$"
+ effect_build_industry_05.tt: "Queue up industry until you have at least 5 of each in every incorporated state. $lag_warning$"
+ effect_build_industry_25.tt: "Queue up industry until you have at least 25 of each in every incorporated state. $lag_warning$"
+ effect_build_industry_50.tt: "Queue up industry until you have at least 50 of each in every incorporated state. $lag_warning$"
+ 
+ option_seed_plantations: "Seed #green Plantations#! $option_gov$"
+ option_seed_plantations_private: "Seed #green Plantations#! $option_ivp$"
+ option_build_plantations: "Build #green Plantations#! (Economy of Scale) $option_gov$"
+ option_build_plantations_private: "Build #green Plantations#! (Economy of Scale) $option_ivp$"
+ option_build_plantations_05: "Build #green Plantations#! (5) $option_gov$"
+ option_build_plantations_private_05: "Build #green Plantations#! (5) $option_ivp$"
+ option_build_plantations_25: "Build #green Plantations#! (25) $option_gov$"
+ option_build_plantations_private_25: "Build #green Plantations#! (25) $option_ivp$"
+ option_build_plantations_50: "Build #green Plantations#! (50) $option_gov$"
+ option_build_plantations_private_50: "Build #green Plantations#! (50) $option_ivp$"
+ 
+ effect_build_plantations.tt: "Queue up plantations until you have enough of each to fully utilise the economy of scale bonus in every hospitable state. $lag_warning$"
+ effect_build_plantations_05.tt: "Queue up plantations until you have at least 5 of each in every hospitable state. $lag_warning$"
+ effect_build_plantations_25.tt: "Queue up plantations until you have at least 25 of each in every hospitable state. $lag_warning$"
+ effect_build_plantations_50.tt: "Queue up plantations until you have at least 50 of each in every hospitable state. $lag_warning$"
+ 
+ option_seed_inf_resources: "Seed #red Inf. Resources#! $option_gov$"
+ option_seed_inf_resources_private: "Seed #red Inf. Resources#! $option_ivp$"
+ option_build_inf_resources: "Build #red Inf. Resources#! (Economy of Scale)"
+ option_build_inf_resources_25: "Build #red Inf. Resources#! (25)"
+ option_build_inf_resources_50: "Build #red Inf. Resources#! (50)"
+ 
+ effect_build_inf_resources.tt: "Queue up Inf. Resources until you have enough of each to fully utilise the economy of scale bonus in every state. @warning!#r BEWARE THE LAG! It is strongly recommended to pause the game before clicking this!#!"
+ effect_build_inf_resources_25.tt: "Queue up Inf. Resources until you have at least 25 of each in every state. $lag_warning$"
+ effect_build_inf_resources_50.tt: "Queue up Inf. Resources until you have at least 50 of each in every state. $lag_warning$"
+ 
+ effect_tool_fertilizer_switch.tt: "Apply the Tool and Fertilizer switch to [THIS.GetCountry.GetName]"
+ effect_remove_subject_var.tt: "Remove the Subject Vairable for [THIS.GetCountry.GetName] and reset their cosmetic tag"
+ 

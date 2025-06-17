@@ -277,3 +277,17 @@ state_trait_gran_chaco = {
 		building_group_bg_ranching_throughput_add				= 0.3	# offsetting the -0.2 malus to all agriculture, so Gran Chaco should have a +0.10 bonus to ranching overall
 	}
 }
+state_trait_namib_desert = {
+	icon = "gfx/interface/icons/state_trait_icons/poor_soils.dds"
+	modifier = {
+		building_group_bg_logging_throughput_add				=-0.2
+		building_group_bg_agriculture_throughput_add			=-0.4
+		building_group_bg_plantations_throughput_add			=-0.9	# Growing something in the desert is hopeless
+		
+		building_shipyards_throughput_add						=-0.9
+		building_military_shipyards_throughput_add				=-0.9
+		state_building_port_max_level_add						=-16	# You need concrete dockyards to build anything here.
+		state_building_naval_base_max_level_add					=-50	# The only available naval base here is Walvis Bay
+		building_group_bg_mining_throughput_add					= 0.1	# On the upside, it has the most profitable diamond mine and one of the largest uranium ore deposits in the world - Too bad those were only discovered in the late 2010s tho.
+	}
+}

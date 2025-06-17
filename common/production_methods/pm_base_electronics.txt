@@ -4,40 +4,45 @@ pm_telephones = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_iron_add				=   20
-			goods_input_rubber_add				=   20
-			goods_input_hardwood_add			=   10
-			goods_input_lead_add				=   10
-			goods_input_tools_add				=   10
+			goods_input_iron_add				=   20	# x-40	=  -800
+			goods_input_rubber_add				=   20	# x-40	=  -800
+			goods_input_wood_add				=   20	# x-20	=  -400
+			goods_input_hardwood_add			=   10	# x-40	=  -400
+			goods_input_lead_add				=   10	# x-40	=  -400
+			goods_input_tools_add				=   10	# x-40	=  -400
 			# output goods
-			goods_output_telephones_add			=   60
-		}
+			goods_output_telephones_add			=   80	# x+70	= +5600
+		}												#		= +2400
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=   -30
+			building_employment_machinists_add	= 1000	# x-.03	=   -30
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -120	=> Stops breaking even at SoL 20
 	}
 }
 pm_double_telephones = {
 	texture = "gfx/interface/icons/production_method_icons/telephones.dds"
-	unlocking_technologies = { radio }
+	unlocking_technologies = { plastics }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   20
-			goods_input_rubber_add				=   40
-			goods_input_hardwood_add			=   20
-			goods_input_glass_add				=   20
-			goods_input_tools_add				=   10
+			goods_input_steel_add				=   20	# x-50	= -1000
+			goods_input_rubber_add				=   40	# x-40	= -1600
+			goods_input_wood_add				=   40	# x-20	=  -800
+			goods_input_hardwood_add			=   20	# x-40	=  -800
+			goods_input_glass_add				=   20	# x-40	=  -800
+			goods_input_tools_add				=   20	# x-40	=  -800
 			# output goods
-			goods_output_telephones_add			=  120
-		}
+			goods_output_telephones_add			=  160	# x+70	=+11200
+		}												#		= +5400
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=   -30
+			building_employment_machinists_add	= 1000	# x-.03	=   -30
+			building_employment_engineers_add	= 1000	# x-.06	=   -60
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -180	=> Stops breaking even at SoL 30
+		unscaled = { goods_output_radios_mult	= 1.00 }
 	}
 }
 # Radios
@@ -47,14 +52,15 @@ pm_radios = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			=   50
-			goods_output_telephones_add			=  -20
+			goods_input_electricity_add			=   45	# x-30	= -1350
+			# goods_output_telephones_add		=  -40	# x+70	= -2800
 			# output goods
-			goods_output_radios_add				=   40
-		}
+			goods_output_radios_add				=   60	# x+80	= +4800
+		}												#		=  +650
 		level_scaled = {
-			building_employment_machinists_add	=  500
-		}
+			building_employment_machinists_add	=  500	# x-.03	=   -15
+		}												#				=> Stops breaking even at SoL 43 1/3
+		unscaled = { goods_output_telephones_mult		=-0.50 }
 	}
 	required_input_goods = electricity
 }
@@ -64,14 +70,15 @@ pm_double_radios = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			=  100
-			goods_output_telephones_add			=  -40
+			goods_input_electricity_add			=   40	# x-30	= -1200
+			# goods_output_telephones_add		=  -60	# x+70	= -4200
 			# output goods
-			goods_output_radios_add				=  120
-		}
+			goods_output_radios_add				=   80	# x+80	= +6400
+		}												#		= +1000
 		level_scaled = {
-			building_employment_machinists_add	=  500
-		}
+			building_employment_machinists_add	=  500	# x-.03	=   -15
+		}												#				=> Stops breaking even at SoL 66 2/3
+		unscaled = { goods_output_telephones_mult		=-0.75 }
 	}
 	required_input_goods = electricity
 }
