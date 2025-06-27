@@ -80,8 +80,6 @@
  goods_input_automobiles_mult: "@automobiles! $automobiles$ Input"
  goods_input_automobiles_mult_desc: "A factor on the amount of @automobiles! $automobiles$ consumed by buildings"
  # Output Mult
-<<<<<<< HEAD
-=======
  modifier_goods_output_grain_mult: "@grain! $grain$ Output"
  modifier_goods_output_grain_mult_desc: "A factor on the amount of @grain! $grain$ produced by buildings"
  modifier_goods_output_fish_mult: "@fish! $fish$ Output"
@@ -100,7 +98,6 @@
  modifier_goods_output_dye_mult_desc: "A factor on the amount of @dye! $dye$ produced by buildings"
  modifier_goods_output_silk_mult: "@silk! $silk$ Output"
  modifier_goods_output_silk_mult_desc: "A factor on the amount of @silk! $silk$ produced by buildings"
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  goods_output_grain_mult: "@grain! $grain$ Output"
  goods_output_grain_mult_desc: "A factor on the amount of @grain! $grain$ produced by buildings"
  goods_output_fish_mult: "@fish! $fish$ Output"
@@ -117,15 +114,12 @@
  goods_output_clothes_mult_desc: "A factor on the amount of @clothes! $clothes$ produced by buildings"
  goods_output_furniture_mult: "@furniture! $furniture$ Output"
  goods_output_furniture_mult_desc: "A factor on the amount of @furniture! $furniture$ produced by buildings"
-<<<<<<< HEAD
-=======
  goods_output_coffee_mult: "@coffee! $coffee$ Output"
  goods_output_coffee_mult_desc: "A factor on the amount of @coffee! $coffee$ produced by buildings"
  goods_output_tea_mult: "@tea! $tea$ Output"
  goods_output_tea_mult_desc: "A factor on the amount of @tea! $tea$ produced by buildings"
  goods_output_opium_mult: "@opium! $opium$ Output"
  goods_output_opium_mult_desc: "A factor on the amount of @opium! $opium$ produced by buildings"
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  goods_output_tobacco_mult: "@tobacco! $tobacco$ Output"
  goods_output_tobacco_mult_desc: "A factor on the amount of @tobacco! $tobacco$ produced by buildings"
  goods_output_dye_mult: "@dye! $dye$ Output"
@@ -226,7 +220,6 @@
  state_building_barracks_max_level_mult: "$building_barracks$ Max Level Factor"
  state_building_barracks_max_level_mult_desc: "A factor on the to the maximum level of $building_barracks$."
  
-<<<<<<< HEAD
  building_employment_mult: "All Employees"
  building_employment_mult_desc: "Modifies the amount of all employees a building can hire."
  building_employment_slaves_mult: "$slaves$"
@@ -297,12 +290,6 @@
  state_peasants_birth_rate_mult: "$building_peasants_fertility_mult$"
  state_peasants_birth_rate_mult_desc: "$building_peasants_fertility_mult_desc$"
  
-=======
- modifier_country_birthrate_from_grain_consumption_mult: "Birth Rate from Pop @grain! $grain$ Consumption"
- modifier_country_birthrate_from_grain_consumption_mult_desc: "The increase in [concept_pop_growth_birthrate] for each unit of @grain! $grain$ consumed by [Concept('concept_pop', '$concept_pops$')]"
- modifier_country_birthrate_from_groceries_consumption_mult: "Birth Rate from Pop @groceries! $groceries$ Consumption"
- modifier_country_birthrate_from_groceries_consumption_mult_desc: "The increase in [concept_pop_growth_birthrate] for each unit of @groceries! $groceries$ consumed by [Concept('concept_pop', '$concept_pops$')]"
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  country_government_dividends_reinvestment_mult: "$country_government_dividends_reinvestment_add$ Factor"
  country_government_dividends_reinvestment_mult_desc: "A factor on the fraction of [concept_dividends] from [concept_nationally_owned] [concept_building] levels that is paid into the [concept_investment_pool] instead of being converted into [concept_government_dividends]"
  building_group_bg_manor_houses_tax_mult:0 "$bg_manor_houses$ $country_tax_income_add$"
@@ -316,15 +303,9 @@
  country_birthrate_from_groceries_consumption_mult: "Birth Rate from Pop @groceries! $groceries$ Consumption"
  country_birthrate_from_groceries_consumption_mult_desc: "The increase in [concept_pop_growth_birthrate] for each unit of @groceries! $groceries$ consumed by [Concept('concept_pop', '$concept_pops$')]"
  
-<<<<<<< HEAD
- bg_generic_subsistence: "Autark Farms"
- building_group_bg_generic_subsistence_allowed_collectivization_add: "Minimum Worker-Owned $bg_generic_subsistence$ $concept_building$ Levels"
- building_group_bg_generic_subsistence_allowed_collectivization_add_desc: "The minimum amount of $bg_generic_subsistence$ [Concept('concept_building','$concept_buildings$')] that will be worker-owned."
-=======
  bg_autarky_farms: "Autark Farms"
  building_group_bg_autarky_farms_allowed_collectivization_add: "Minimum Worker-Owned $bg_autarky_farms$ $concept_building$ Levels"
  building_group_bg_autarky_farms_allowed_collectivization_add_desc: "The minimum amount of $bg_autarky_farms$ [Concept('concept_building','$concept_buildings$')] that will be worker-owned."
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  
  REMOVE_HOMELAND: "Is no longer an #variable [TARGET_CULTURE.GetName]#! [concept_homeland]"
  REMOVE_HOMELAND_FIRST: "[STATE_REGION.GetNameNoFlag] is no longer a(n) #variable [TARGET_CULTURE.GetNameNoFlag]#! [concept_homeland]"
@@ -351,7 +332,7 @@
  ig_backbone_disrespected:0 "The Backbone of the State"
  ig_backbone_disrespected_desc:0 "It appears that the civilians forgot who protects them from enemies within and without. Perhaps a change in leadership is required."
  ig_prussian_military_admin:0 "Prussian Military Academy"
- ig_prussian_military_admin_desc:0 "The Prussian Military Academy is on the cutting edge of development and makes sure that we are always a few steps ahead of our rivals through meticulousness and ingenuity. This is how we can achieve double with the same budget."
+ ig_prussian_military_admin_desc:0 "The Prussian Military Academy is on the cutting edge of development and makes sure that we are always a few steps ahead of our rivals through meticulousness and ingenuity. This way we achieve double with the same budget."
  ig_army_with_a_state:0 "An Army with a State"
  ig_army_with_a_state_desc:0 "When Voltaire wrote these words, they were hardly meant as a compliment, yet they perfectly capture the reality of a state beset on all sides by vultures. We will ensure that they continue to ring true even after all these years in order to show them that our people will no longer be the plaything of other powers."
  

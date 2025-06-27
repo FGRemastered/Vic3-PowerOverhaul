@@ -3,7 +3,6 @@
 	city_type = farm
 	center_building_mesh = "french_farm_centerpiece_01_mesh"
 	center_building_size = { 2 2 }
-	
 	trigger = {
 		any_scope_state = {
 			owner = {
@@ -27,13 +26,10 @@
 			}
 		}
 	}
-
 	weight = 1
-
 	min_residential_buildings = 4
 	max_residential_buildings = 50
 	max_residence_points = 100
-
 	rich_building_meshes = {
 		"french_rural_residential_rich_01_mesh"
 		"french_rural_residential_rich_02_mesh"
@@ -65,15 +61,13 @@
 		position = 0.2
 		rotation = 360.0
 	}
-		
-	
 	building_rye_farm					= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
 	building_wheat_farm					= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
 	building_rice_farm					= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
 	building_maize_farm					= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
 	building_millet_farm 				= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
 	building_livestock_ranch			= { french_farm_ranch_01_mesh }
-	
+	# Plantations
 	building_coffee_plantation			= { "french_farm_plantation_01_mesh" }
 	building_cotton_plantation			= { "french_farm_plantation_01_mesh" }
 	building_silk_plantation			= { "french_farm_plantation_01_mesh" }	
@@ -85,18 +79,7 @@
 	building_banana_plantation			= { "french_farm_plantation_01_mesh" }
 	building_vineyard_plantation		= { "french_farm_plantation_01_mesh" }
 	building_manor_house = {"french_rural_manorhouse_01_mesh"}
-
 	# Infres
-<<<<<<< HEAD
-	building_infres_rye_farm			= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
-	building_infres_wheat_farm			= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
-	building_infres_rice_farm			= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
-	building_infres_maize_farm			= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
-	building_infres_millet_farm			= { "french_farm_farmstead_01_mesh" "french_farm_farmstead_02_mesh" }
-	building_infres_livestock_ranch		= { "french_farm_ranch_01_mesh" }
-
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	building_infres_coffee_plantation	= { "french_farm_plantation_01_mesh" }
 	building_infres_cotton_plantation	= { "french_farm_plantation_01_mesh" }
 	building_infres_silk_plantation		= { "french_farm_plantation_01_mesh" }

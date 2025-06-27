@@ -258,15 +258,9 @@ type = country_event
 					is_building_type = building_maize_farm
 					is_building_type = building_millet_farm
 					is_building_type = building_livestock_ranch
-<<<<<<< HEAD
-					is_building_type = building_generic_subsistence
-					# Infres
-					is_building_infres_type = building_infres_generic_subsistence
-=======
 					is_building_type = building_autarky_farm
 					# Infres
 					is_building_infres_type = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					is_building_infres_type = building_infres_coffee_plantation
 					is_building_infres_type = building_infres_cotton_plantation
 					is_building_infres_type = building_infres_dye_plantation
@@ -276,15 +270,6 @@ type = country_event
 					is_building_infres_type = building_infres_sugar_plantation
 					is_building_infres_type = building_infres_banana_plantation
 					is_building_infres_type = building_infres_silk_plantation
-<<<<<<< HEAD
-					is_building_infres_type = building_infres_rye_farm
-					is_building_infres_type = building_infres_wheat_farm
-					is_building_infres_type = building_infres_rice_farm
-					is_building_infres_type = building_infres_maize_farm
-					is_building_infres_type = building_infres_millet_farm
-					is_building_infres_type = building_infres_livestock_ranch
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -324,15 +309,9 @@ type = country_event
 						is_building_type = building_maize_farm
 						is_building_type = building_millet_farm
 						is_building_type = building_livestock_ranch
-<<<<<<< HEAD
-						is_building_type = building_generic_subsistence
-						# Infres
-						is_building_infres_type = building_infres_generic_subsistence
-=======
 						is_building_type = building_autarky_farm
 						# Infres
 						is_building_infres_type = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 						is_building_infres_type = building_infres_coffee_plantation
 						is_building_infres_type = building_infres_cotton_plantation
 						is_building_infres_type = building_infres_dye_plantation
@@ -342,15 +321,6 @@ type = country_event
 						is_building_infres_type = building_infres_sugar_plantation
 						is_building_infres_type = building_infres_banana_plantation
 						is_building_infres_type = building_infres_silk_plantation
-<<<<<<< HEAD
-						is_building_infres_type = building_infres_rye_farm
-						is_building_infres_type = building_infres_wheat_farm
-						is_building_infres_type = building_infres_rice_farm
-						is_building_infres_type = building_infres_maize_farm
-						is_building_infres_type = building_infres_millet_farm
-						is_building_infres_type = building_infres_livestock_ranch
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -416,15 +386,9 @@ type = country_event
 					is_building_type = building_maize_farm
 					is_building_type = building_millet_farm
 					is_building_type = building_livestock_ranch
-<<<<<<< HEAD
-					is_building_type = building_generic_subsistence
-					# Infres
-					is_building_infres_type = building_infres_generic_subsistence
-=======
 					is_building_type = building_autarky_farm
 					# Infres
 					is_building_infres_type = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					is_building_infres_type = building_infres_coffee_plantation
 					is_building_infres_type = building_infres_cotton_plantation
 					is_building_infres_type = building_infres_dye_plantation
@@ -434,15 +398,6 @@ type = country_event
 					is_building_infres_type = building_infres_sugar_plantation
 					is_building_infres_type = building_infres_banana_plantation
 					is_building_infres_type = building_infres_silk_plantation
-<<<<<<< HEAD
-					is_building_infres_type = building_infres_rye_farm
-					is_building_infres_type = building_infres_wheat_farm
-					is_building_infres_type = building_infres_rice_farm
-					is_building_infres_type = building_infres_maize_farm
-					is_building_infres_type = building_infres_millet_farm
-					is_building_infres_type = building_infres_livestock_ranch
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -484,15 +439,9 @@ type = country_event
 						is_building_type = building_maize_farm
 						is_building_type = building_millet_farm
 						is_building_type = building_livestock_ranch
-<<<<<<< HEAD
-						is_building_type = building_generic_subsistence
-						# Infres
-						is_building_infres_type = building_infres_generic_subsistence
-=======
 						is_building_type = building_autarky_farm
 						# Infres
 						is_building_infres_type = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 						is_building_infres_type = building_infres_coffee_plantation
 						is_building_infres_type = building_infres_cotton_plantation
 						is_building_infres_type = building_infres_dye_plantation
@@ -502,15 +451,6 @@ type = country_event
 						is_building_infres_type = building_infres_sugar_plantation
 						is_building_infres_type = building_infres_banana_plantation
 						is_building_infres_type = building_infres_silk_plantation
-<<<<<<< HEAD
-						is_building_infres_type = building_infres_rye_farm
-						is_building_infres_type = building_infres_wheat_farm
-						is_building_infres_type = building_infres_rice_farm
-						is_building_infres_type = building_infres_maize_farm
-						is_building_infres_type = building_infres_millet_farm
-						is_building_infres_type = building_infres_livestock_ranch
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5

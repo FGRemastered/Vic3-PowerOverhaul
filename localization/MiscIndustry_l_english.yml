@@ -34,11 +34,8 @@
  pm_arc_welding_shipbuilding_green: "$pm_arc_welding_shipbuilding$ (Autark)"
  pm_military_shipbuilding_steam_2_green: "$pm_military_shipbuilding_steam_2$ (Autark)"
  
-<<<<<<< HEAD
-=======
  pmg_automobile_production_secondary: "$pmg_automobile_production$"
  
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  pmg_secondary_charcoal: "Carbon Source"
  pmg_secondary_charcoal_oil: "$pmg_secondary_charcoal$"
  pm_no_charcoal: "No Charcoal"
@@ -137,10 +134,6 @@
  pm_publicly_traded_mine: "$pm_publicly_traded$"
  pm_government_run_mine: "$pm_government_run$"
  pm_worker_cooperative_mine: "$pm_worker_cooperative$"
-<<<<<<< HEAD
-=======
- pm_worker_cooperative_mine: "$pm_worker_cooperative$"
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  
  modifier_traditional_patronage: "$pm_traditional_patronage$"
  modifier_bourgeoisie_patronage: "$pm_bourgeoisie_patronage$"
@@ -166,19 +159,11 @@
  mil_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('mil_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
  ship_refund.tt: "The cost (@money!#variable [THIS.GetState.MakeScope.Var('ship_refund').GetValue|k0]#!) will be refunded to the [concept_investment_pool] of [THIS.GetState.GetOwner.GetName]."
  
-<<<<<<< HEAD
- option_seed_autarky: "Seed [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
- option_seed_autarky_private: "Seed [GetBuildingType('building_generic_subsistence').GetName] $option_ivp$"
- option_seed_autarky_forced: "Force-build [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
- option_build_autarky: "Build [GetBuildingType('building_generic_subsistence').GetName] $option_gov$"
- option_build_autarky_private: "Build [GetBuildingType('building_generic_subsistence').GetName] $option_ivp$"
-=======
  option_seed_autarky: "Seed [GetBuildingType('building_autarky_farm').GetName] $option_gov$"
  option_seed_autarky_private: "Seed [GetBuildingType('building_autarky_farm').GetName] $option_ivp$"
  option_seed_autarky_forced: "Force-build [GetBuildingType('building_autarky_farm').GetName] $option_gov$"
  option_build_autarky: "Build [GetBuildingType('building_autarky_farm').GetName] $option_gov$"
  option_build_autarky_private: "Build [GetBuildingType('building_autarky_farm').GetName] $option_ivp$"
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
  
  option_seed_logging: "Seed [GetBuildingType('building_logging_camp').GetName] $option_gov$"
  option_seed_logging_private: "Seed [GetBuildingType('building_logging_camp').GetName] $option_ivp$"
@@ -250,8 +235,4 @@
  
  effect_tool_fertilizer_switch.tt: "Apply the Tool and Fertilizer switch to [THIS.GetCountry.GetName]"
  effect_remove_subject_var.tt: "Remove the Subject Vairable for [THIS.GetCountry.GetName] and reset their cosmetic tag"
-<<<<<<< HEAD
  
-=======
- 
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
