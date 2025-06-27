@@ -160,10 +160,6 @@ law_state_atheism = {
 				limit = { is_incorporated = no }
 				convert_population = { target = rel:atheist value = 0.05 }
 			}
-			every_scope_state = {
-				limit = { is_incorporated = no }
-				convert_population = { target = rel:atheist value = 0.05 }
-			}
 		}
 		if = {	# Added - Switch to Public Schools if you have religious schools
 			limit = { has_law = law_type:law_religious_schools }

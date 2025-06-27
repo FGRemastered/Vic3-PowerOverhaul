@@ -201,10 +201,6 @@ decree_encourage_manufacturing_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_manufacturing_industry.dds"
 	unlocking_technologies = { manufacturies }
 	valid = {
-decree_encourage_manufacturing_industry = {
-	texture = "gfx/interface/icons/decree/decree_encourage_manufacturing_industry.dds"
-	unlocking_technologies = { manufacturies }
-	state_trigger = {
 		NOR = {
 			has_decree = decree_encourage_agricultural_industry
 			has_decree = decree_encourage_resource_industry
@@ -218,13 +214,6 @@ decree_encourage_manufacturing_industry = {
 		building_group_bg_trade_throughput_add			= 0.3
 		state_infrastructure_from_population_add		= 1
 		state_infrastructure_from_population_max_add	= 20
-		building_group_bg_manufacturing_throughput_add	= 0.25	# 20% -> 25%
-		building_group_bg_service_throughput_add		= 0.25	# 20% -> 25%
-		# New
-		building_group_bg_arts_throughput_add			= 0.30
-		building_group_bg_trade_throughput_add			= 0.30
-		state_infrastructure_from_population_add		=    1
-		state_infrastructure_from_population_max_add	=   20
 		state_construction_mult							= 0.10
 	}
 	cost = 100
@@ -264,19 +253,6 @@ decree_encourage_agricultural_industry = {
 		# New
 		state_infrastructure_from_population_add		= 1
 		state_infrastructure_from_population_max_add	= 20
-	state_trigger = {
-		NOR = {
-			has_decree = decree_encourage_manufacturing_industry
-			has_decree = decree_encourage_resource_industry
-			trigger_inhospitable_terrain = yes					# Added
-		}
-	}
-	modifier = {
-		building_group_bg_agriculture_throughput_add	= 0.25	# 20% -> 25%	# bg_ranching - Subgroup of bg_agriculture now
-		building_group_bg_plantations_throughput_add	= 0.25	# 20% -> 25%
-		# New
-		state_infrastructure_from_population_add		=    1
-		state_infrastructure_from_population_max_add	=   20
 		state_construction_mult							= 0.10
 	}
 	cost = 100
@@ -337,7 +313,6 @@ decree_encourage_resource_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_resource_industry.dds"
 	unlocking_technologies = { shaft_mining }
 	valid = {
-	state_trigger = {
 		NOR = {
 			has_decree = decree_encourage_manufacturing_industry
 			has_decree = decree_encourage_agricultural_industry
@@ -360,8 +335,6 @@ decree_encourage_resource_industry = {
 		# New
 		state_infrastructure_from_population_add			= 1
 		state_infrastructure_from_population_max_add		= 20
-		state_infrastructure_from_population_add			=    1
-		state_infrastructure_from_population_max_add		=   20
 		state_construction_mult								= 0.10
 	}
 	cost = 100
@@ -413,70 +386,6 @@ decree_encourage_resource_industry = {
 				}
 			}
 			add = 50
-		}
-		if = {
-			limit = {
-				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
-					count >= 10
-				}
-			}
-			add = 50
-		}
-		if = {
-			limit = {
-				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
-					count >= 50
-				}
-			}
-			add = 50
-		}
-		if = {
-			limit = {
-				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
-					count >= 100
-				}
-			}
-			add = 50
-		}
-		if = {
-			limit = {
-				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
-					count >= 200
-				}
-			}
-			add = 100
 		}
 		if = {
 			limit = { scope:country = { has_strategy = ai_strategy_resource_expansion } }

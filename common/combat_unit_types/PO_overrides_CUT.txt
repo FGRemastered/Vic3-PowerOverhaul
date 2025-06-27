@@ -1,7 +1,6 @@
 ﻿# Infantry
 combat_unit_type_line_infantry = {
 	group = combat_unit_group_infantry
-	max_manpower = 1000
 	upkeep_modifier = {
 		goods_input_small_arms_add	= 1
 	}

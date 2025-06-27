@@ -447,41 +447,6 @@ pm_electric_tractors_subsistence = {
 	unlocking_technologies = { arc_welding }
 	low_pop_method = yes # AI will activate this method for states with low population
 	replacement_if_valid = pm_green_tractors_subsistence
-	replacement_if_valid = pm_green_tractors_subsistence
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_tools_add				=    1
-			goods_input_engines_add				=    1
-			goods_input_electricity_add			=    2
-		}
-		level_scaled = {
-			building_employment_engineers_add	=  500
-			building_employment_farmers_add		=  500
-		}
-		throughput_scaled = {
-			goods_output_services_mult			=-1.00
-		}
-		unscaled = {
-			building_throughput_add				= 1.00
-			building_employment_peasants_mult	=-2.00
-		}
-	}
-	state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
-	required_input_goods = tools
-	required_input_goods = engines
-	required_input_goods = electricity
-}
-pm_green_tractors_subsistence = {
-	texture = "gfx/interface/icons/production_method_icons/electric_tractors.dds"
-	unlocking_technologies = { arc_welding }
-	is_hidden_when_unavailable = yes
-	unlocking_production_methods = {
-		pm_early_windpark_subsistence
-		pm_large_windpark_subsistence
-		pm_solar_windpark_subsistence
-		pm_large_solar_windpark_subsistence
-		pm_huge_solar_windpark_subsistence
-	}
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    1
