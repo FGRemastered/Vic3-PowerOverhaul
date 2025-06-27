@@ -38,7 +38,9 @@
  
  pmg_harvesting_process_simple: "$pmg_harvesting_process$"
  pmg_harvesting_process_tractors: "$pmg_harvesting_process$"
+ pmg_harvesting_process_autark: "$pmg_harvesting_process$"
  pm_electric_tractors: "Electric Tractors"
+ pm_tools_disabled_subsistence: "$pm_tools_disabled$"
  pm_tools_subsistence: "$pm_tools$"
  pm_steam_threshers_subsistence: "$pm_steam_threshers$"
  pm_tractors_subsistence: "$pm_tractors$"
@@ -172,11 +174,7 @@
  pm_lathe_home_workshops: "Lathe $pm_home_workshops$"
  pm_mechanized_home_workshops: "Mechanized $pm_home_workshops$"
  pm_electric_home_workshops: "Electric $pm_home_workshops$"
- 
- pm_home_workshops_building_subsistence_rice_paddies: "$pm_home_workshops$"
- pm_lathe_home_workshops_building_subsistence_rice_paddies: "$pm_lathe_home_workshops$"
- pm_mechanized_home_workshops_building_subsistence_rice_paddies: "$pm_mechanized_home_workshops$"
- pm_electric_home_workshops_building_subsistence_rice_paddies: "$pm_electric_home_workshops$"
+ pm_autark_home_workshops: "Autark $pm_home_workshops$"
  
  pm_electric_fishing_boats: "Electric Fishing Boats"
  pm_electic_whaling_ships: "Electric Whaling Ships"
@@ -206,15 +204,5 @@
  
  pmg_serfdom: "$pm_serfdom$"
  pm_freedom: "Freedom"
- pm_centralised_subsistence: "Centralised Subsistence"
- pm_centralised_subsistence_1: "$pm_centralised_subsistence$ 1"
- pm_centralised_subsistence_2: "$pm_centralised_subsistence$ 2"
- pm_centralised_subsistence_3: "$pm_centralised_subsistence$ 3"
- pm_centralised_subsistence_4: "$pm_centralised_subsistence$ 4"
- pm_centralised_subsistence_5: "$pm_centralised_subsistence$ 5"
+ pm_decentralised_subsistence: "De-Centralised Subsistence"
  
- pm_centralised_double_subsistence_1: "$pm_centralised_subsistence$ 1"
- pm_centralised_double_subsistence_2: "$pm_centralised_subsistence$ 2"
- pm_centralised_double_subsistence_3: "$pm_centralised_subsistence$ 3"
- pm_centralised_double_subsistence_4: "$pm_centralised_subsistence$ 4"
- pm_centralised_double_subsistence_5: "$pm_centralised_subsistence$ 5"

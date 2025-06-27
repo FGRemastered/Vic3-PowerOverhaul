@@ -12,7 +12,7 @@ pm_switch.1 = {
 	immediate = {	# Fire the calc effects first to ensure working tooltips
 		effect_calc_admins		= yes
 		effect_calc_railways	= yes
-		# effect_calc_powerplants	= yes	# Trigger is broken, thx PDX
+		effect_calc_powerplants	= yes	# Trigger is broken, thx PDX
 	}
 	option = {
 		name = "Nevermind"
@@ -24,6 +24,13 @@ pm_switch.1 = {
 		trigger_event = { id = pm_switch.1 popup = yes }
 	}
 	option = {
+		name = "Gimme the newest Tools"
+		trigger = { has_technology_researched = manufacturies }
+		effect_tools_switch = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
 		name = "Gimme the newest Fertilizer"
 		trigger = { has_technology_researched = intensive_agriculture }
 		effect_fertilizer_switch = yes
@@ -31,9 +38,9 @@ pm_switch.1 = {
 		ai_chance = { base = 0 }
 	}
 	option = {
-		name = "Gimme the newest Tools"
-		trigger = { has_technology_researched = manufacturies }
-		effect_tools_switch = yes
+		name = "Upgrade the Green Power Grid (Limited)"
+		trigger = { has_technology_researched = electrical_generation }
+		effect_green_power_switch_limited = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}
@@ -50,6 +57,8 @@ pm_switch.1 = {
 			has_technology_researched = watertube_boiler
 			NOT = { has_law = law_type:law_industry_banned }
 		}
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_watertube_boiler_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -60,6 +69,8 @@ pm_switch.1 = {
 			has_technology_researched = rotary_valve_engine
 			NOT = { has_law = law_type:law_industry_banned }
 		}
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_rotary_valve_engine_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -70,6 +81,8 @@ pm_switch.1 = {
 			has_technology_researched = conveyors
 			NOT = { has_law = law_type:law_industry_banned }
 		}
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_assembly_lines_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -77,6 +90,8 @@ pm_switch.1 = {
 	option = {
 		name = "Full Steam ahead!"
 		trigger = { has_technology_researched = railways }
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_steam_transport_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -84,6 +99,8 @@ pm_switch.1 = {
 	option = {
 		name = "I like (electric) trains."
 		trigger = { has_technology_researched = electric_railway }
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_electric_transport_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -91,44 +108,17 @@ pm_switch.1 = {
 	option = {
 		name = "I like (lizard-juice) trains."
 		trigger = { has_technology_researched = compression_ignition }
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_diesel_transport_switch = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = pm_switch_sovereign_owned_bureaucrats
-		trigger = { NOT = { has_law = law_traditionalism } }
-		effect_sovereign_owned_bureaucrats = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = pm_switch_sovereign_owned_clergy
-		trigger = { NOT = { has_law = law_traditionalism } NOR = { has_law = law_type:law_total_separation has_law = law_type:law_state_atheism } }
-		effect_sovereign_owned_clergy = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = pm_switch_sovereign_owned
-		trigger = {
-			NOT = { has_law = law_traditionalism }
-			has_technology_researched = stock_exchange
-		}
-		effect_sovereign_owned = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = pm_switch_trade_publicly
-		trigger = { has_technology_researched = mutual_funds }
-		effect_publicly_traded = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}
 	option = {
 		name = "Build Admins"
 		trigger = { has_technology_researched = tech_bureaucracy }
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
 		effect_make_admins = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
@@ -136,15 +126,19 @@ pm_switch.1 = {
 	option = {
 		name = "Build Railways"
 		trigger = { has_technology_researched = railways }
-		effect_make_railways = yes
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
+		effect_build_railways = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}
-	# option = {
-		# name = "Build Powerplants"
-		# trigger = { has_technology_researched = electrical_generation }
-		# effect_make_powerplants = yes
-		# trigger_event = { id = pm_switch.1 popup = yes }
-		# ai_chance = { base = 0 }
-	# }
+	option = {
+		name = "Build Powerplants"
+		trigger = { has_technology_researched = electrical_generation }
+		show_as_unavailable = { always = yes }
+		highlighted_option = yes
+		effect_build_powerplants = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
 }

@@ -1,11 +1,11 @@
 decree_violent_suppression = {
 	texture = "gfx/interface/icons/decree/decree_violent_suppression.dds"
 	unlocking_technologies = { standing_army }
-	valid = {
+	state_trigger = {
 		OR = {
 			is_incorporated = no
-			owner = { NOT = { has_law = law_type:law_guaranteed_liberties } }
-			owner = { has_law = law_type:law_militarized_police }
+			OWNER = { NOT = { has_law = law_type:law_guaranteed_liberties } }
+			OWNER = { has_law = law_type:law_militarized_police }
 		}
 		turmoil >= 0.2
 	}
@@ -41,10 +41,14 @@ decree_emergency_relief = {
 	texture = "gfx/interface/icons/decree/decree_emergency_relief.dds"
 	unlocking_technologies = { centralization }
 	modifier = {
-		state_welfare_payments_add				= 0.50
-		building_minimum_wage_mult				= 0.25	# New
-		state_radicals_from_sol_change_mult		=-0.10	# New
-		state_loyalists_from_sol_change_mult	= 0.20	# New
+		state_tax_collection_mult						=-0.50
+		state_infrastructure_mult						= 0.10
+		state_market_access_price_impact				= 0.05
+		state_food_security_add							= 0.05
+		state_welfare_payments_add						= 0.50	# Added back
+		building_minimum_wage_mult						= 0.25	# Added
+		state_radicals_from_political_movements_mult	=-0.10	# Added
+		state_loyalists_from_political_movements_mult	= 0.10	# Added
 	}
 	cost = 50
 	ai_weight = {
@@ -89,7 +93,7 @@ decree_emergency_relief = {
 decree_promote_national_values = {
 	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"
 	unlocking_technologies = { centralization }
-	valid = {
+	state_trigger = {
 		OR = {
 			has_assimilating_pops	= yes
 			has_converting_pops		= yes
@@ -152,11 +156,14 @@ decree_promote_national_values = {
 }
 decree_greener_grass_campaign = {
 	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
-	valid = {
+	state_trigger = {
 		is_isolated_from_market = no
-		state_unemployment_rate <= 0.2	# New
+		state_unemployment_rate <= 0.2	# Added
 	}
-	modifier = { state_migration_pull_mult = 5.0 }	# Changed
+	modifier = {
+		state_migration_pull_add	= 20
+		state_migration_pull_mult	=  4.0	# Increased 25% -> 400%
+	}
 	unlocking_technologies = { romanticism }
 	cost = 100
 	ai_weight = {
@@ -212,20 +219,20 @@ decree_greener_grass_campaign = {
 decree_encourage_manufacturing_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_manufacturing_industry.dds"
 	unlocking_technologies = { manufacturies }
-	valid = {
+	state_trigger = {
 		NOR = {
 			has_decree = decree_encourage_agricultural_industry
 			has_decree = decree_encourage_resource_industry
 		}
 	}
 	modifier = {
-		building_group_bg_manufacturing_throughput_add	= 0.3	# 20% -> 30%
-		building_group_bg_service_throughput_add		= 0.3	# 20% -> 30%
+		building_group_bg_manufacturing_throughput_add	= 0.25	# 20% -> 25%
+		building_group_bg_service_throughput_add		= 0.25	# 20% -> 25%
 		# New
-		building_group_bg_arts_throughput_add			= 0.3
-		building_group_bg_trade_throughput_add			= 0.3
-		state_infrastructure_from_population_add		= 1
-		state_infrastructure_from_population_max_add	= 20
+		building_group_bg_arts_throughput_add			= 0.30
+		building_group_bg_trade_throughput_add			= 0.30
+		state_infrastructure_from_population_add		=    1
+		state_infrastructure_from_population_max_add	=   20
 		state_construction_mult							= 0.10
 	}
 	cost = 100
@@ -252,19 +259,19 @@ decree_encourage_manufacturing_industry = {
 decree_encourage_agricultural_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_agricultural_industry.dds"
 	unlocking_technologies = { enclosure }
-	valid = {
+	state_trigger = {
 		NOR = {
 			has_decree = decree_encourage_manufacturing_industry
 			has_decree = decree_encourage_resource_industry
+			trigger_inhospitable_terrain = yes					# Added
 		}
 	}
 	modifier = {
-		building_group_bg_agriculture_throughput_add	= 0.3	# 20% -> 30%
-		building_group_bg_ranching_throughput_add		= 0.3	# 20% -> 30%
-		building_group_bg_plantations_throughput_add	= 0.3	# 20% -> 30%
+		building_group_bg_agriculture_throughput_add	= 0.25	# 20% -> 25%	# bg_ranching - Subgroup of bg_agriculture now
+		building_group_bg_plantations_throughput_add	= 0.25	# 20% -> 25%
 		# New
-		state_infrastructure_from_population_add		= 1
-		state_infrastructure_from_population_max_add	= 20
+		state_infrastructure_from_population_add		=    1
+		state_infrastructure_from_population_max_add	=   20
 		state_construction_mult							= 0.10
 	}
 	cost = 100
@@ -324,22 +331,23 @@ decree_encourage_agricultural_industry = {
 decree_encourage_resource_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_resource_industry.dds"
 	unlocking_technologies = { shaft_mining }
-	valid = {
+	state_trigger = {
 		NOR = {
 			has_decree = decree_encourage_manufacturing_industry
 			has_decree = decree_encourage_agricultural_industry
 		}
 	}
 	modifier = {
-		building_group_bg_mining_throughput_add				= 0.3	# 20% -> 30%
-		building_group_bg_logging_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_rubber_throughput_add				= 0.3	# 20% -> 30%
-		building_group_bg_fishing_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_whaling_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_oil_extraction_throughput_add		= 0.3	# 20% -> 30%
+		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%
+		# building_group_bg_mining_throughput_add				= 0.25	# 20% -> 25%
+		# building_group_bg_logging_throughput_add			= 0.25	# 20% -> 25%
+		# building_group_bg_rubber_throughput_add				= 0.25	# 20% -> 25%
+		# building_group_bg_fishing_throughput_add			= 0.25	# 20% -> 25%
+		# building_group_bg_whaling_throughput_add			= 0.25	# 20% -> 25%
+		# building_group_bg_oil_extraction_throughput_add		= 0.25	# 20% -> 25%
 		# New
-		state_infrastructure_from_population_add			= 1
-		state_infrastructure_from_population_max_add		= 20
+		state_infrastructure_from_population_add			=    1
+		state_infrastructure_from_population_max_add		=   20
 		state_construction_mult								= 0.10
 	}
 	cost = 100
@@ -391,6 +399,70 @@ decree_encourage_resource_industry = {
 				}
 			}
 			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 10
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 50
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 100
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_mining
+						is_building_group = bg_logging
+						is_building_group = bg_rubber
+						is_building_group = bg_fishing
+						is_building_group = bg_whaling
+						is_building_group = bg_oil_extraction
+					}
+					count >= 200
+				}
+			}
+			add = 100
 		}
 		if = {
 			limit = { scope:country = { has_strategy = ai_strategy_resource_expansion } }

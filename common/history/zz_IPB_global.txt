@@ -1,5 +1,0 @@
-﻿# This is executed last among all history
-GLOBAL = {
-	effect_republican_paternalistic = yes
-	# every_country = { IPB_non_monarchistizer_effect = yes }	# Removed - Reactionary means Reactionary.
-}

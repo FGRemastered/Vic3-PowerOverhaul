@@ -10,7 +10,7 @@ pm_anchorage = {
 		workforce_scaled = {
 			goods_output_transportation_add				=   10	# x+30	= +300
 		}
-		unscaled = { building_government_shares_add		=   10 }
+		# unscaled = { building_government_shares_add		=   10 }
 	}
 	state_modifiers = { workforce_scaled	= { state_infrastructure_add		=   5 } }
 	country_modifiers = { workforce_scaled	= { country_convoys_capacity_add	=  50 } }
@@ -19,8 +19,8 @@ pm_basic_port = {
 	texture = "gfx/interface/icons/production_method_icons/basic_port.dds"
 	building_modifiers = {
 		level_scaled = {
-			building_employment_laborers_add			= 2500
-			building_employment_machinists_add			=  500
+			building_employment_laborers_add			= 2000
+			building_employment_machinists_add			= 1000
 			building_employment_clerks_add				= 1500
 			building_employment_bureaucrats_add			=  500
 		}
@@ -28,7 +28,7 @@ pm_basic_port = {
 			goods_input_clippers_add					=    5	# x-60	= -300
 			goods_output_transportation_add				=   20	# x+30	= +600
 		}
-		unscaled = { building_government_shares_add		=   10 }
+		# unscaled = { building_government_shares_add		=   10 }
 	}
 	state_modifiers = { workforce_scaled	= { state_infrastructure_add		=  10 } }
 	country_modifiers = { workforce_scaled	= { country_convoys_capacity_add	= 150 } }
@@ -48,10 +48,10 @@ pm_industrial_port = {
 			goods_input_coal_add						=    5	# x-30	= -150
 			goods_output_transportation_add				=   30	# x+30	= +900
 		}
-		unscaled = { building_government_shares_add		=   10 }
+		# unscaled = { building_government_shares_add		=   10 }
 	}
-	country_modifiers = { workforce_scaled	= { country_convoys_capacity_add	= 250 } }
 	state_modifiers = { workforce_scaled	= { state_infrastructure_add		=  15 } }
+	country_modifiers = { workforce_scaled	= { country_convoys_capacity_add	= 250 } }
 }
 pm_modern_port = {
 	texture = "gfx/interface/icons/production_method_icons/modern_port.dds"
@@ -65,9 +65,9 @@ pm_modern_port = {
 		workforce_scaled = {
 			goods_input_steamers_add					=    5	# x-70	= -350
 			goods_input_oil_add							=    5	# x-40	= -200
-			goods_output_transportation_add				=   50	# x+30	=+1500
+			goods_output_services_add					=   50	# x+30	=+1500
 		}
-		unscaled = { building_government_shares_add		=   10 }
+		# unscaled = { building_government_shares_add		=   10 }
 	}
 	state_modifiers = { workforce_scaled	= { state_infrastructure_add		=  25 } }
 	country_modifiers = { workforce_scaled	= { country_convoys_capacity_add	= 500 } }

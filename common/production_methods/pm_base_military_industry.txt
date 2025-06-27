@@ -4,15 +4,17 @@ pm_muskets = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_iron_add				=   10
-			goods_input_hardwood_add			=   10
+			goods_input_iron_add				=   10	# x-40	= -400
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_explosives_add			=    5	# x-50	= -250
 			# output goods
-			goods_output_small_arms_add			=   25
-		}
+			goods_output_small_arms_add			=   30	# x+60	= 1800
+		}												#		= +750
 		level_scaled = {
-			building_employment_laborers_add	= 4500
-			building_employment_machinists_add	=  500
-		}
+			building_employment_laborers_add	= 3500	# x-.02	=  -70
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -120	=> Stops breaking even at SoL 6.25
 	}
 }
 pm_rifles = {
@@ -21,16 +23,17 @@ pm_rifles = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   10
-			goods_input_hardwood_add			=   10
-			goods_input_tools_add				=    5
+			goods_input_steel_add				=   10	# x-50	= -500
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_tools_add				=    5	# x-40	= -200
 			# output goods
-			goods_output_small_arms_add			=   50
-		}
+			goods_output_small_arms_add			=   50	# x+60	= 3000
+		}												#		=+1900
 		level_scaled = {
-			building_employment_laborers_add	= 4000
-			building_employment_machinists_add	= 1000
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -125	=> Stops breaking even at SoL 15.2
 	}
 }
 pm_repeaters = {
@@ -39,17 +42,18 @@ pm_repeaters = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   20
-			goods_input_hardwood_add			=   10
-			goods_input_tools_add				=   10
+			goods_input_steel_add				=   20	# x-50	=-1000
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_tools_add				=   10	# x-40	= -400
 			# output goods
-			goods_output_small_arms_add			=   75
-		}
+			goods_output_small_arms_add			=   75	# x+60	= 4500
+		}												#		=+2700
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -140	=> Stops breaking even at SoL 19 2/7
 	}
 }
 pm_bolt_action_rifles = {
@@ -58,19 +62,19 @@ pm_bolt_action_rifles = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   10
-			goods_input_hardwood_add			=   10
-			goods_input_tools_add				=   20
-			goods_input_oil_add					=   10
+			goods_input_steel_add				=   20	# x-50	=-1000
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_tools_add				=   20	# x-40	= -800
+			goods_input_oil_add					=   10	# x-40	= -400
 			# output goods
-			goods_output_small_arms_add			=  100
-		}
+			goods_output_small_arms_add			=  100	# x+60	= 6000
+		}												#		=+3400
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1250
-			building_employment_engineers_add	=  250
-			building_employment_officers_add	=  100
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  750	# x-.06	=  -45
+			building_employment_officers_add	=  250	# x-.10	=  -25
+		}												#		= -160	=> Stops breaking even at SoL 21.25
 	}
 }
 pm_machine_pistols = {
@@ -79,19 +83,19 @@ pm_machine_pistols = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   20
-			goods_input_hardwood_add			=   25
-			goods_input_tools_add				=   25
-			goods_input_oil_add					=    5
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_hardwood_add			=   25	# x-40	=-1000
+			goods_input_tools_add				=   25	# x-40	=-1000
+			goods_input_oil_add					=   10	# x-40	= -400
 			# output goods
-			goods_output_small_arms_add			=  150
-		}
+			goods_output_small_arms_add			=  150	# x+60	= 9000
+		}												#		=+5100
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1250
-			building_employment_engineers_add	=  500
-			building_employment_officers_add	=  250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_engineers_add	=  250	# x-.06	=  -15
+			building_employment_officers_add	=  250	# x-.10	=  -25
+		}												#		= -145	=> Stops breaking even at SoL 35 5/29
 	}
 }
 # Artillery
@@ -100,15 +104,17 @@ pm_cannons = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_iron_add				=   10
-			goods_input_hardwood_add			=   15
+			goods_input_iron_add				=   10	# x-40	= -400
+			goods_input_hardwood_add			=   15	# x-40	= -600
+			goods_input_explosives_add			=    5	# x-50	= -250
 			# output goods
-			goods_output_artillery_add			=   25
-		}
+			goods_output_artillery_add			=   30	# x+70	= 2100
+		}												#		= +850
 		level_scaled = {
-			building_employment_laborers_add	= 4000
-			building_employment_machinists_add	= 1000
-		}
+			building_employment_laborers_add	= 3500	# x-.02	=  -70
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -120	=> Stops breaking even at SoL TBD
 	}
 }
 pm_smoothbores = {
@@ -117,16 +123,16 @@ pm_smoothbores = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   15
-			goods_input_hardwood_add			=   15
+			goods_input_steel_add				=   15	# x-50	= -750
+			goods_input_hardwood_add			=   15	# x-40	= -600
 			# output goods
-			goods_output_artillery_add			=   50
-		}
+			goods_output_artillery_add			=   50	# x+70	= 3500
+		}												#		=+2150
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -125	=> Stops breaking even at SoL TBD
 	}
 }
 pm_breech_loaders = {
@@ -135,17 +141,18 @@ pm_breech_loaders = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   25
-			goods_input_hardwood_add			=   10
-			goods_input_tools_add				=   10
+			goods_input_steel_add				=   25	# x-50	=-1250
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_tools_add				=   10	# x-40	= -400
 			# output goods
-			goods_output_artillery_add			=   75
-		}
+			goods_output_artillery_add			=   75	# x+70	= 5250
+		}												#		=+3200
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  750	# x-.06	=  -45
+			building_employment_officers_add	=  250	# x-.10	=  -25
+		}												#		= -160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_recoiled_barrels = {
@@ -154,18 +161,18 @@ pm_recoiled_barrels = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=   50
-			goods_input_tools_add				=   20
-			goods_input_oil_add					=   10
+			goods_input_steel_add				=   50	# x-50	=-2500
+			goods_input_tools_add				=   20	# x-40	= -800
+			goods_input_oil_add					=   10	# x-40	= -400
 			# output goods
-			goods_output_artillery_add			=  150
-		}
+			goods_output_artillery_add			=  150	# x+70	=10500
+		}												#		=+6800
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1250
-			building_employment_engineers_add	=  500
-			building_employment_officers_add	=  100
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_engineers_add	=  250	# x-.06	=  -15
+			building_employment_officers_add	=  250	# x-.10	=  -25
+		}												#		= -145	=> Stops breaking even at SoL TBD
 	}
 }
 # Munition
@@ -174,16 +181,17 @@ pm_percussion_caps = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_explosives_add			=   20
-			goods_input_lead_add				=   20
+			goods_input_explosives_add			=   20	# x-50	=-1000
+			goods_input_lead_add				=   20	# x-40	= -800
 			# output goods
-			goods_output_ammunition_add			=   50
-		}
+			goods_output_ammunition_add			=   50	# x+50	= 2500
+		}												#		= +700
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -140	=> Stops breaking even at SoL 5
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -193,16 +201,17 @@ pm_explosive_shells = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_explosives_add			=   50	# 53
-			goods_input_lead_add				=   40
+			goods_input_explosives_add			=   50	# x-50	=-2500	# 53
+			goods_input_lead_add				=   40	# x-40	=-1600
 			# output goods
-			goods_output_ammunition_add			=  120
-		}
+			goods_output_ammunition_add			=  120	# x+50	= 6000
+		}												#		=+1900
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1250
-			building_employment_engineers_add	=  750
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=  -50
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -130	=> Stops breaking even at SoL 14.6
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
@@ -212,18 +221,19 @@ pm_aeroplane_production = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=   15
-			goods_input_hardwood_add			=   30
-			goods_input_fabric_add				=   30
-			goods_input_oil_add					=   30
+			goods_input_engines_add				=   15	# x-60	= -900
+			goods_input_hardwood_add			=   30	# x-40	=-1200
+			goods_input_fabric_add				=   30	# x-20	= -600
+			goods_input_oil_add					=   30	# x-40	=-1200
 			# output goods
-			goods_output_aeroplanes_add			=   75
-		}
+			goods_output_aeroplanes_add			=   75	# x+80	= 6000
+		}												#		=+2100
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 2000
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 2500	# x-.03	=  -75
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -155	=> Stops breaking even at SoL 13.5
 	}
 }
 pm_modern_aeroplane_production = {
@@ -232,19 +242,20 @@ pm_modern_aeroplane_production = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=   20
-			goods_input_hardwood_add			=   30
-			goods_input_fabric_add				=   30
-			goods_input_oil_add					=   30
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_fabric_add				=   20	# x-20	= -600
+			goods_input_rubber_add				=   20	# x-40	= -800
+			goods_input_oil_add					=   30	# x-40	=-1200
 			# output goods
-			goods_output_aeroplanes_add			=  125
-		}
+			goods_output_aeroplanes_add			=  125	# x+80	=10000
+		}												#		=+5400
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 2500
-			building_employment_engineers_add	= 1000
-			building_employment_officers_add	=  250
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 2000	# x-.03	=  -60
+			building_employment_engineers_add	= 1000	# x-.06	=  -60
+			building_employment_officers_add	=  500	# x-.10	=  -50
+		}												#		= -200	=> Stops breaking even at SoL 27
 	}
 }
 # Tanks
@@ -254,17 +265,17 @@ pm_tank_production = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=  10
-			goods_input_steel_add				=  20
-			goods_input_oil_add					=  10
-			goods_output_aeroplanes_add			= -25
-			goods_input_hardwood_add			=  -5
-			goods_input_fabric_add				=  -5
+			goods_input_engines_add				=  10	# x-60	= -600
+			goods_input_steel_add				=  20	# x-50	=-1000
+			goods_input_oil_add					=  10	# x-40	= -400
+			goods_output_aeroplanes_add			= -25	# x+80	=-2000
+			goods_input_hardwood_add			= -10	# x-40	= +400
+			goods_input_fabric_add				= -10	# x-20	= +200
 			# output goods
-			goods_output_tanks_add 				=  50
-		}
+			goods_output_tanks_add 				=  50	# x+80	= 4000
+		}												#		= +600
 		level_scaled = {
-			building_employment_engineers_add	= 250
+			building_employment_engineers_add	= 500	# x-.06	=  -30	=> Stops breaking even at SoL 20
 		}
 	}
 }
@@ -275,18 +286,17 @@ pm_modern_tank_production = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=  30
-			goods_input_steel_add				=  75
-			goods_input_oil_add					=  25
-			goods_output_aeroplanes_add			= -50
-			goods_input_hardwood_add			= -15
-			goods_input_fabric_add				= -15
+			goods_input_engines_add				=  30	# x-60	=-1800
+			goods_input_steel_add				=  70	# x-50	=-3500
+			goods_input_oil_add					=  25	# x-40	=-1000
+			goods_output_aeroplanes_add			= -50	# x+80	=-4000
+			goods_input_hardwood_add			= -15	# x-40	= +600
+			goods_input_fabric_add				= -15	# x-20	= +300
 			# output goods
-			goods_output_tanks_add				= 150
-		}
+			goods_output_tanks_add				= 150	# x+80	=12000
+		}												#		=+2600
 		level_scaled = {
-			building_employment_engineers_add	= 250
-			building_employment_officers_add	= 250
+			building_employment_officers_add	= 500	# x-.10	=  -50	=> Stops breaking even at SoL 52
 		}
 	}
 }
@@ -297,16 +307,17 @@ pm_basic_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   20
-			goods_input_fabric_add				=   20
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
 			# output goods
-			goods_output_clippers_add			=   35
-		}
+			goods_output_clippers_add			=   35	# x+60	= 2100
+		}												#		=  900
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_machinists_add	=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -140	=> Stops breaking even at SoL 6.4
 	}
 }
 pm_complex_shipbuilding = {
@@ -315,17 +326,18 @@ pm_complex_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   35
-			goods_input_fabric_add				=   15
-			goods_input_engines_add				=   10
+			goods_input_hardwood_add			=   35	# x-40	=-1400
+			goods_input_fabric_add				=   15	# x-20	= -300
+			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
-			goods_output_clippers_add			=   75
-		}
+			goods_output_clippers_add			=   75	# x+60	= 4500
+		}												#		= 1900
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 2000	# x-.03	=  -60
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -150	=> Stops breaking even at SoL 12 2/3
 	}
 	required_input_goods = engines
 }
@@ -336,53 +348,72 @@ pm_metal_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=    2
-			goods_input_fabric_add				=    2
-			goods_input_steel_add				=   30	# 37.5
-			goods_input_coal_add				=   10
-			goods_input_engines_add				=   10	# 12.5
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_coal_add				=   10	# x-30	= -300
+			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
-			goods_output_clippers_add			=    5	# Some of the Shipbuilders have too much free time...
-			goods_output_steamers_add			=   75
-		}
+			goods_output_steamers_add			=   75	# x+70	= 5250
+		}												#		= 2550
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_engineers_add	= 1000	# x-.06	=  -60
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -165	=> Stops breaking even at SoL 15.45
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 pm_arc_welding_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_steam_ships.dds"
 	unlocking_technologies = { arc_welding }
-	unlocking_production_methods = {
-		# pm_on_shore_windpark
-		# pm_early_offshore_windpark
-		pm_offshore_windpark	# 50-10-30 = +10
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-	}
+	replacement_if_valid = pm_arc_welding_shipbuilding_green
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=    5
-			goods_input_fabric_add				=    5
-			goods_input_steel_add				=   30
-			goods_output_electricity_add		=  -30
-			goods_input_engines_add				=   10
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_engines_add				=   15	# x-60	= -900
+			goods_input_electricity_add			=   20	# x-30	= -600
 			# output goods
-			goods_output_clippers_add			=   10	# Some of the Shipbuilders have too much free time...
-			goods_output_steamers_add			=  150
-		}
+			goods_output_steamers_add			=  150	# x+70	=10500
+		}												#		= 7500
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -180	=> Stops breaking even at SoL 41.67
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
+}
+pm_arc_welding_shipbuilding_green = {
+	texture = "gfx/interface/icons/production_method_icons/arc_welded_steam_ships.dds"
+	unlocking_technologies = { arc_welding }
+	unlocking_production_methods = {
+		# pm_on_shore_windpark
+		# pm_early_offshore_windpark
+		pm_offshore_windpark	# 50-10-20 = +20
+		pm_large_offshore_windpark
+		pm_huge_offshore_windpark
+	}
+	is_hidden_when_unavailable = yes
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_engines_add				=   15	# x-60	= -900
+			goods_output_electricity_add		=  -20	# x+30	= -600
+			# output goods
+			goods_output_steamers_add			=  150	# x+70	=10500
+		}												#		= 7500
+		level_scaled = {
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -180	=> Stops breaking even at SoL 41.67
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
 # Military Ships
 pm_no_military_shipbuilding = {
@@ -394,16 +425,17 @@ pm_military_shipbuilding_wooden = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   20
-			goods_input_fabric_add				=   20
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
 			# output goods
-			goods_output_manowars_add			=   35
-		}
+			goods_output_manowars_add			=   35	# x+70	=+2450
+		}												#		= 1250
 		level_scaled = {
-			building_employment_laborers_add	= 3500
-			building_employment_machinists_add	=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 3000	# x-.02	=  -60
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -140	=> Stops breaking even at SoL 8.93
 	}
 }
 pm_military_shipbuilding_wooden_2 = {
@@ -412,17 +444,18 @@ pm_military_shipbuilding_wooden_2 = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   35
-			goods_input_fabric_add				=   15
-			goods_input_engines_add				=   10
+			goods_input_hardwood_add			=   35	# x-40	=-1400
+			goods_input_fabric_add				=   15	# x-20	= -300
+			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
-			goods_output_manowars_add			=   75
-		}
+			goods_output_manowars_add			=   75	# x+70	=+5250
+		}												#		= 2650
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 2000	# x-.03	=  -60
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -150	=> Stops breaking even at SoL 17 2/3
 	}
 	required_input_goods = engines
 }
@@ -433,109 +466,70 @@ pm_military_shipbuilding_steam = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=    2
-			goods_input_fabric_add				=    2
-			goods_input_steel_add				=   30
-			goods_input_coal_add				=   10
-			goods_input_engines_add				=   10
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_coal_add				=   10	# x-30	= -300
+			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
-			goods_output_manowars_add			=    5	# Some of the Shipbuilders have too much free time...
-			goods_output_ironclads_add			=   75
-		}
+			goods_output_ironclads_add			=   75	# x+80	= 6000
+		}												#		= 3300
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_engineers_add	= 1000	# x-.06	=  -60
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -165	=> Stops breaking even at SoL 20
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 pm_military_shipbuilding_steam_2 = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam_2.dds"
 	unlocking_technologies = { arc_welding }
-	unlocking_production_methods = {
-		# pm_on_shore_windpark
-		# pm_early_offshore_windpark
-		pm_offshore_windpark	# 50-10-30 = +10
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-	}
+	replacement_if_valid = pm_military_shipbuilding_steam_2_green
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=    5
-			goods_input_fabric_add				=    5
-			goods_input_steel_add				=   30
-			goods_output_electricity_add		=  -30
-			goods_input_engines_add				=   10
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_engines_add				=   15	# x-60	= -900
+			goods_input_electricity_add			=   20	# x-30	= -600
 			# output goods
-			goods_output_manowars_add			=   10	# Some of the Shipbuilders have too much free time...
-			goods_output_ironclads_add			=  150
-		}
+			goods_output_ironclads_add			=  150	# x+80	=12000
+		}												#		= 9000
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -180	=> Stops breaking even at SoL 50
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
 }
-# Ownership
-pm_privately_owned_building_arms_industry = {
-	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+pm_military_shipbuilding_steam_2_green = {
+	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam_2.dds"
+	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {
-		pm_rifles
-		pm_repeaters
-		pm_bolt_action_rifles
-		pm_machine_pistols
+		# pm_on_shore_windpark
+		# pm_early_offshore_windpark
+		pm_offshore_windpark	# 50-10-20 = +20
+		pm_large_offshore_windpark
+		pm_huge_offshore_windpark
 	}
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
+	is_hidden_when_unavailable = yes
 	building_modifiers = {
-		level_scaled = { building_employment_capitalists_add	= 100 }
-		unscaled = { building_capitalists_shares_add	= 10 }
-	}
-}
-pm_publicly_traded_building_arms_industry = {
-	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
-	unlocking_production_methods = {
-		pm_rifles
-		pm_repeaters
-		pm_bolt_action_rifles
-		pm_machine_pistols
-	}
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-	unlocking_technologies = { mutual_funds }
-	building_modifiers = {
-		# level_scaled	= { building_employment_capitalists_add	= 150 }
-		# unscaled		= { building_capitalists_shares_add		=  10 }
+		workforce_scaled = {
+			# input goods
+			goods_input_steel_add				=   30	# x-50	=-1500
+			goods_input_engines_add				=   15	# x-60	= -900
+			goods_output_electricity_add		=  -20	# x+30	= -600
+			# output goods
+			goods_output_ironclads_add			=  150	# x+80	=12000
+		}												#		= 9000
 		level_scaled = {
-			building_employment_capitalists_add					= 100	# 600
-			building_employment_shopkeepers_add					= 150	# 300
-		}
-		unscaled = {
-			building_capitalists_shares_add		=   5
-			building_shopkeepers_shares_add		=   3
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -180	=> Stops breaking even at SoL 50
 	}
-}
-pm_worker_cooperative_building_arms_industry = {
-	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
-	unlocking_production_methods = {
-		pm_rifles
-		pm_repeaters
-		pm_bolt_action_rifles
-		pm_machine_pistols
-	}
-	unlocking_laws = { law_cooperative_ownership }
-	building_modifiers = {
-		level_scaled = { building_employment_shopkeepers_add	= 250 }
-		unscaled = { building_workforce_shares_add	= 1 }
-	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }

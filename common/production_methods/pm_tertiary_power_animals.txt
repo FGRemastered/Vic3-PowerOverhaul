@@ -2,104 +2,93 @@
 pm_power_self_sufficient_ranch = {	# Early wind turbines
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    2	# x-60	= -120
-			goods_input_wood_add				=    4 	# x-20	=  -80
-			goods_input_iron_add				=    3	# x-40	= -120	# Ignore this
-			# output goods								#		= -200 (-320)
-			goods_output_electricity_add		=    9	# x+30	= +270
-		}												#		=   70 (-130)
+			goods_input_iron_add				=    2	# x-40	=  -80
+			# output goods								#		= -200
+			goods_output_electricity_add		=    3	# x+30	=  +90
+		}												#		= -110
 		level_scaled = {
-			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_machinists_add 	=   50	# x-1.5	=  -75
-		}												#		=  -75	(+1425)
-	}													#		=  +65	(+1295)
+			building_employment_laborers_add	=-1500	# x-0.02=  +30	=> Breaks even at SoL 3 2/3
+		}
+	}
 }
 pm_large_windpark_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_capacitors }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    4	# x-60	= -240
-			goods_input_steel_add				=    3	# x-50	= -150	# +1 from fencing
-			# output goods								#		= -390
-			goods_output_electricity_add		=   18	# x+30	= +540
-		}												#		= +150
-		unscaled = { building_production_mult	=-0.05 }#		   -5%	# It scares the animals
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    5	# x-50	= -250
+			# output goods								#		= -550
+			goods_output_electricity_add		=   23	# x+30	= +690
+		}												#		= +140
 		level_scaled = {
-			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_machinists_add 	=  100	# x-1.5	= -150
-		}												#		= -150	(+1350)
-	}													#		=    0	(+1650)
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+		}												#		=  +27	=> Stops breaking even at SoL 5 5/27
+	}
 }
 pm_solar_windpark_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
-	unlocking_technologies = { electric_railway }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-20 } }
+	unlocking_technologies = { telephone }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=   10	# x-60	= -600
-			goods_input_steel_add				=    5	# x-50	= -250	# +1 from fencing
-			goods_input_glass_add				=    2	# x-40	=  -80
-			# output goods								#		= -930
-			goods_output_electricity_add		=   47	# x+30	=+1410
-		}												#		= +480
-		unscaled = { building_production_mult	= 0.10 }# 		  +10%	# Free shelter!
+			goods_input_steel_add				=    5	# x-50	= -250
+			goods_input_glass_add				=    5	# x-40	= -200
+			# output goods								#		=-1050
+			goods_output_electricity_add		=   48	# x+30	=+1440
+		}												#		= +360
 		level_scaled = {
-			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_farmers_add		= -200	# x+2	= +400
-			building_employment_machinists_add 	=  100	# x-1.5	= -150
-			building_employment_engineers_add	=   50	# x-3	= -150
-		}												#		= +100 (+1600)
-	}													#		= +580 (+2080)
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		= -300	# x-0.04=  +12
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=  +36	=> Stops breaking even at SoL 10
+	}
 }
 pm_large_solar_windpark_ranch = {				# Improved
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
-	unlocking_technologies = { telephone }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
+	unlocking_technologies = { radio }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=   20	# x-60	=-1200
-			goods_input_steel_add				=    5	# x-50	= -250	# +1 from fencing
-			goods_input_glass_add				=   12	# x-40	= -480
-			# output goods								#		=-1930
-			goods_output_electricity_add		=   97	# x+30	=+2910
-		}												#		= +980
-		unscaled = { building_production_mult	= 0.20 }# 		  +20%	# Moar free shelter!
+			goods_input_steel_add				=   10	# x-50	= -500
+			goods_input_glass_add				=   10	# x-40	= -400
+			# output goods								#		=-2100
+			goods_output_electricity_add		=   98	# x+30	=+2940
+		}												#		= +840
 		level_scaled = {
-			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_farmers_add		= -500	# x+2	=+1000
-			building_employment_machinists_add 	=  200	# x-1.5	= -250
-			building_employment_engineers_add	=   50	# x-3	= -150
-		}												#		= +600	(+2100)
-	}													#		=+1580	(+3080)
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		= -500	# x-0.04=  +20
+			building_employment_machinists_add 	=  200	# x-0.03=   -6
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=  +41	=> Stops breaking even at SoL 20.4870...
+	}
 }
 pm_huge_solar_windpark_ranch = {				# Advanced
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods	-	2 engines : 1 steel		|	1 engine : 1 glass	|	1 engine : 5 power
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=	30	# x-60	=-1800
-			goods_input_steel_add				=	10	# x-50	= -500
-			goods_input_glass_add				=   10	# x-40	= -400
-			# output goods								#		=-2700
-			goods_output_electricity_add		=  147	# x+30	=+4410
-		}											 	#		=+1710
-		unscaled = { building_production_mult	= 0.20 }# 		  +20%	# Moar free shelter!
+			goods_input_steel_add				=	15	# x-50	= -750
+			goods_input_glass_add				=   15	# x-40	= -600
+			# output goods								#		=-3150
+			goods_output_electricity_add		=  148	# x+30	=+4440
+		}											 	#		=+1260
 		level_scaled = {
-			building_employment_laborers_add	=-1500	#(x+1	=+1500)	# Ignore this
-			building_employment_farmers_add		= -500	# x+2	=+1000
-			building_employment_machinists_add 	=  400	# x-1.5	= -600
-			building_employment_engineers_add	=  100	# x-3	= -300
-		}												#		= +100 (+1600)
-	}													#		=+1810 (+3310)
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		=-1000	# x-0.04=  +40
+			building_employment_machinists_add 	=  400	# x-0.03=  -12
+			building_employment_engineers_add	=  100	# x-0.06=   -6
+		}												#		=  +52	=> Stops breaking even at SoL 24...
+	}
 }

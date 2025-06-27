@@ -16,7 +16,13 @@ pm_steam_donkey_mine = {
 		level_scaled = {
 			building_employment_laborers_add	=-1000
 		}
-		unscaled = { building_throughput_add = 0.25 }
+		unscaled = {
+			goods_output_iron_mult				= 0.25
+			goods_output_lead_mult				= 0.25
+			goods_output_sulfur_mult			= 0.25
+			goods_output_gold_mult				= 0.25
+		}
+		# unscaled = { building_throughput_add	= 0.25 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
@@ -28,13 +34,20 @@ pm_powered_lift_mine = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    2
-			goods_input_electricity_add			=    3
+			goods_input_electricity_add			=    2
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-1000
 			building_employment_machinists_add 	= -500
 		}
-		unscaled = { building_throughput_add = 0.5 }
+		unscaled = {
+			goods_output_coal_mult				= 0.50
+			goods_output_iron_mult				= 0.50
+			goods_output_lead_mult				= 0.50
+			goods_output_sulfur_mult			= 0.50
+			goods_output_gold_mult				= 0.50
+		}
+		# unscaled = { building_throughput_add	= 0.50 }
 	}
 	required_input_goods = electricity
 }
@@ -46,13 +59,20 @@ pm_oil_fired_lift_mine = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    2
-			goods_input_oil_add					=    3
+			goods_input_oil_add					=    2
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-1000
 			building_employment_machinists_add 	= -500
 		}
-		unscaled = { building_throughput_add = 0.5 }
+		unscaled = {
+			goods_output_coal_mult				= 0.50
+			goods_output_iron_mult				= 0.50
+			goods_output_lead_mult				= 0.50
+			goods_output_sulfur_mult			= 0.50
+			goods_output_gold_mult				= 0.50
+		}
+		# unscaled = { building_throughput_add	= 0.50 }
 	}
 }
 # Coal Mine
@@ -69,7 +89,10 @@ pm_steam_donkey_building_coal_mine = {
 		level_scaled = {
 			building_employment_laborers_add	=-1000
 		}
-		unscaled = { building_throughput_add = 0.25 }
+		unscaled = {
+			goods_output_coal_mult				= 0.25
+		}
+		# unscaled = { building_throughput_add	= 0.25 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
@@ -87,13 +110,17 @@ pm_steam_powered_winch = {
 		level_scaled = {
 			building_employment_laborers_add	=-2000
 		}
-		unscaled = { building_throughput_add = 0.1 }
+		unscaled = {
+			goods_output_wood_mult				= 0.10
+			goods_output_hardwood_mult			= 0.10
+			goods_output_rubber_mult			= 0.10
+		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 pm_powered_winch = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { electrical_generation }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
@@ -104,7 +131,11 @@ pm_powered_winch = {
 		level_scaled = {
 			building_employment_laborers_add	=-2000
 		}
-		unscaled = { building_throughput_add = 0.25 }
+		unscaled = {
+			goods_output_wood_mult				= 0.25
+			goods_output_hardwood_mult			= 0.25
+			goods_output_rubber_mult			= 0.25
+		}
 	}
 	required_input_goods = electricity
 }
@@ -121,7 +152,11 @@ pm_oil_fired_winch = {
 		level_scaled = {
 			building_employment_laborers_add	=-2000
 		}
-		unscaled = { building_throughput_add = 0.25 }
+		unscaled = {
+			goods_output_wood_mult				= 0.25
+			goods_output_hardwood_mult			= 0.25
+			goods_output_rubber_mult			= 0.25
+		}
 	}
 }
 pm_chainsaws = {
@@ -150,19 +185,22 @@ pm_chainsaws = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    2
-			goods_input_coal_add				=    3
-			goods_input_tools_add				=    5
-			goods_input_oil_add					=   10
+			goods_input_oil_add					=    4
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-3000
 			building_employment_machinists_add	=  500
 		}
-		unscaled = { building_throughput_add = 0.5 }
+		unscaled = {
+			goods_output_wood_mult				= 0.50
+			goods_output_hardwood_mult			= 0.50
+			goods_output_rubber_mult			= 0.50
+		}
 	}
 }
 pm_electric_chainsaws = {
 	texture = "gfx/interface/icons/production_method_icons/electric_chainsaws.dds"
+	# unlocking_global_technologies = { combustion_engine }
 	unlocking_technologies = { electrical_capacitors }
 	disallowing_laws = { law_industry_banned }
 	unlocking_production_methods = {
@@ -186,15 +224,18 @@ pm_electric_chainsaws = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				=   10
 			goods_input_engines_add				=    2
 			goods_input_electricity_add			=    5
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-4000
-			building_employment_machinists_add	=  250
+			building_employment_engineers_add	=  500
 		}
-		unscaled = { building_throughput_add = 1 }
+		unscaled = {
+			goods_output_wood_mult				= 1.00
+			goods_output_hardwood_mult			= 1.00
+			goods_output_rubber_mult			= 1.00
+		}
 	}
 	required_input_goods = electricity
 }
@@ -223,15 +264,18 @@ pm_modern_chainsaws = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				=   10
 			goods_input_engines_add				=    2
 			goods_input_oil_add					=    5
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-4000
-			building_employment_machinists_add	=  250
+			building_employment_engineers_add	=  500
 		}
-		unscaled = { building_throughput_add = 1 }
+		unscaled = {
+			goods_output_wood_mult				= 1.00
+			goods_output_hardwood_mult			= 1.00
+			goods_output_rubber_mult			= 1.00
+		}
 	}
 }
 # Harvesting Tools
@@ -248,8 +292,9 @@ pm_tools = {
 		level_scaled = {
 			building_employment_laborers_add	= -500
 		}
-		unscaled = { building_throughput_add = 0.05 }
+		unscaled = { building_throughput_add	= 0.05 }
 	}
+	required_input_goods = tools
 }
 pm_steam_threshers = {
 	texture = "gfx/interface/icons/production_method_icons/steam_powered_threshers.dds"
@@ -257,48 +302,57 @@ pm_steam_threshers = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    2
-			goods_input_coal_add				=    4
+			goods_input_coal_add				=    2
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-2000
 			building_employment_machinists_add	=  500
 		}
-		unscaled = { building_throughput_add = 0.1 }
+		unscaled = { building_throughput_add	= 0.10 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+	required_input_goods = tools
+	required_input_goods = coal
 }
 pm_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_coal_add				=    6
-			goods_input_engines_add				=    2
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_input_coal_add				=    3
 		}
 		level_scaled = {
-			building_employment_laborers_add	=-3000
+			building_employment_laborers_add	=-2500
 			building_employment_machinists_add	= 1000
 		}
-		unscaled = { building_throughput_add = 0.25 }
+		unscaled = { building_throughput_add	= 0.25 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	required_input_goods = tools
+	required_input_goods = engines
+	required_input_goods = coal
 }
 pm_compression_ignition_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition_tractors.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_oil_add					=   10
-			goods_input_engines_add				=    5
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_input_oil_add					=    2
 		}
 		level_scaled = {
-			building_employment_laborers_add	=-3000
-			building_employment_farmers_add		= -250
-			building_employment_machinists_add	=  750
+			building_employment_laborers_add	=-2500
+			building_employment_machinists_add	=  500
 		}
-		unscaled = { building_throughput_add = 0.5 }
+		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
+	required_input_goods = tools
+	required_input_goods = engines
+	required_input_goods = oil
 }
 pm_electric_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/electric_tractors.dds"
@@ -312,125 +366,153 @@ pm_electric_tractors = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_electricity_add		=  -10
-			goods_input_engines_add				=    5
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_output_electricity_add		=   -2
 		}
 		level_scaled = {
-			building_employment_laborers_add	=-3000
-			building_employment_farmers_add		= -500
-			building_employment_machinists_add	=  400
-			building_employment_engineers_add	=  100
+			building_employment_laborers_add	=-2500
+			building_employment_engineers_add	=  250
+			building_employment_farmers_add		= -750
+			# building_employment_aristocrats_add	=  250
 		}
-		unscaled = { building_throughput_add = 1 }
+		unscaled = { building_throughput_add	= 1.00 }
 	}
+	required_input_goods = tools
+	required_input_goods = engines
 	required_input_goods = electricity
 }
 # Subsistence Tools
+pm_tools_disabled_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/no_tool_use.dds"
+	unlocking_technologies = { centralization }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_laborers_add	= 4000
+			building_employment_farmers_add		= 1000
+		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
+		}
+		unscaled = {
+			building_throughput_add				= 0.00
+			building_employment_peasants_mult	=-2.00
+		}
+	}
+	state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
+}
 pm_tools_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/harvesting_tools.dds"
-	unlocking_technologies = { manufacturies }
-	low_pop_method = yes # AI will activate this method for states with low population
+	unlocking_technologies = { centralization }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    1
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 2500
+			building_employment_laborers_add	= 3000
 			building_employment_farmers_add		= 1000
+		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
 		}
 		unscaled = {
 			building_throughput_add				= 0.05
-			building_farmers_shares_add			= 1
-			building_employment_peasants_mult	=-1
-			# slaves_role							= laborers
+			building_employment_peasants_mult	=-2.00
 		}
 	}
+	state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
+	required_input_goods = tools
 }
 pm_steam_threshers_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/steam_powered_threshers.dds"
 	unlocking_technologies = { threshing_machine }
-	low_pop_method = yes # AI will activate this method for states with low population
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    2
-			goods_input_coal_add				=    4
+			goods_input_coal_add				=    2
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 1000
 			building_employment_machinists_add	=  500
 			building_employment_farmers_add		= 1000
 		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
+		}
 		unscaled = {
-			building_throughput_add				= 0.1
-			building_farmers_shares_add			= 1
-			building_employment_peasants_mult	=-1
-			# slaves_role							= laborers
+			building_throughput_add				= 0.10
+			building_employment_peasants_mult	=-2.00
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+	state_modifiers = {
+		workforce_scaled	= { state_pollution_generation_add	= 10 }
+		level_scaled		= { state_migration_pull_add		= -1 }
+	}
+	required_input_goods = tools
+	required_input_goods = coal
 }
 pm_tractors_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
 	unlocking_technologies = { mechanized_farming }
-	low_pop_method = yes # AI will activate this method for states with low population
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_coal_add				=    6
-			goods_input_engines_add				=    2
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_input_coal_add				=    3
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 1000
 			building_employment_farmers_add		= 1000
 		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
+		}
 		unscaled = {
 			building_throughput_add				= 0.25
-			building_farmers_shares_add			= 1
-			building_employment_peasants_mult	=-1
-			# slaves_role							= machinists
+			building_employment_peasants_mult	=-2.00
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	state_modifiers = {
+		workforce_scaled	= { state_pollution_generation_add	= 15 }
+		level_scaled		= { state_migration_pull_add		= -1 }
+	}
+	required_input_goods = tools
+	required_input_goods = engines
+	required_input_goods = coal
 }
 pm_compression_ignition_tractors_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition_tractors.dds"
 	unlocking_technologies = { compression_ignition }
-	low_pop_method = yes # AI will activate this method for states with low population
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_oil_add					=   10
-			goods_input_engines_add				=    5
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_input_oil_add					=    2
 		}
 		level_scaled = {
-			building_employment_machinists_add	=  750
-			building_employment_farmers_add		=  750
+			building_employment_machinists_add	=  500
+			building_employment_farmers_add		= 1000
+		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
 		}
 		unscaled = {
-			building_throughput_add				= 0.5
-			building_farmers_shares_add			= 1
-			building_employment_peasants_mult	=-1
-			# slaves_role							= machinists
+			building_throughput_add				= 0.50
+			building_employment_peasants_mult	=-2.00
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
+	state_modifiers = {
+		workforce_scaled	= { state_pollution_generation_add	= 20 }
+		level_scaled		= { state_migration_pull_add		= -1 }
+	}
+	required_input_goods = tools
+	required_input_goods = engines
+	required_input_goods = oil
 }
 pm_electric_tractors_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/electric_tractors.dds"
 	unlocking_technologies = { arc_welding }
-	low_pop_method = yes # AI will activate this method for states with low population
 	unlocking_production_methods = {
-		pm_early_windpark
-		pm_large_windpark
-		pm_solar_windpark
-		pm_large_solar_windpark
-		pm_huge_solar_windpark
-		
-		pm_no_offshore_windpark
-		pm_on_shore_windpark
-		pm_early_offshore_windpark
-		pm_offshore_windpark
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-		
 		pm_early_windpark_subsistence
 		pm_large_windpark_subsistence
 		pm_solar_windpark_subsistence
@@ -439,20 +521,25 @@ pm_electric_tractors_subsistence = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_electricity_add		=  -10
-			goods_input_engines_add				=    5
+			goods_input_tools_add				=    1
+			goods_input_engines_add				=    1
+			goods_output_electricity_add		=   -2
 		}
 		level_scaled = {
-			building_employment_machinists_add	=  400
-			building_employment_engineers_add	=  100
+			building_employment_machinists_add	=  500
+			building_employment_engineers_add	=  250
 			building_employment_farmers_add		=  250
 		}
+		throughput_scaled = {
+			goods_output_services_mult			=-1.00
+		}
 		unscaled = {
-			building_throughput_add				= 1
-			building_farmers_shares_add			= 1
-			building_employment_peasants_mult	=-1
-			# slaves_role							= machinists
+			building_throughput_add				= 1.00
+			building_employment_peasants_mult	=-2.00
 		}
 	}
+	state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
+	required_input_goods = tools
+	required_input_goods = engines
 	required_input_goods = electricity
 }

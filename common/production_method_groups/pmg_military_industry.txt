@@ -36,32 +36,25 @@ pmg_tanks = {
 		pm_modern_tank_production
 	}
 }
-# Ownership
-pmg_ownership_capital_building_arms_industry = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+pmg_base_building_shipyards = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
 	production_methods = {
-		pm_merchant_guilds_building_arms_industry
-		pm_privately_owned_building_arms_industry
-		pm_publicly_traded_building_arms_industry
-		pm_government_run_military_industry
-		pm_worker_cooperative_building_arms_industry
+		pm_basic_shipbuilding
+		pm_complex_shipbuilding
+		pm_metal_shipbuilding
+		pm_arc_welding_shipbuilding
+		pm_arc_welding_shipbuilding_green	# Added - Only visible once arc_welding has been unlocked.
 	}
 }
-pmg_ownership_capital_building_munition_plants = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+pmg_military_base = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"	# Changed
+	ai_selection = most_productive
 	production_methods = {
-		pm_privately_owned_industry
-		pm_publicly_traded_building_munition_plants
-		pm_government_run_military_industry
-		pm_worker_cooperative_industry
-	}
-}
-pmg_ownership_capital_building_war_machine_industry = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
-	production_methods = {
-		pm_privately_owned_industry
-		pm_publicly_traded_building_war_machines_induestries
-		pm_government_run_military_industry
-		pm_worker_cooperative_industry
+		pm_military_shipbuilding_wooden
+		pm_military_shipbuilding_wooden_2
+		pm_military_shipbuilding_steam
+		pm_military_shipbuilding_steam_2
+		pm_military_shipbuilding_steam_2_green	# Added - Only visible once arc_welding has been unlocked.
 	}
 }

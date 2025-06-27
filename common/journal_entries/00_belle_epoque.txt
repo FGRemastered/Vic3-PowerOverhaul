@@ -239,10 +239,9 @@
 							any_scope_state = {
 								any_neighbouring_state = {
 									owner = {
+									NOT = { this = root }
 										has_journal_entry = je_belle_epoque
-										any_scope_building = {
-											has_active_production_method = pm_craftsman_sewing
-										}
+										any_scope_building = { has_active_production_method = pm_craftsman_sewing }
 									}
 								}
 								has_building = building_railway
@@ -259,26 +258,7 @@
 		value = var:belle_epoque_var
 	}
 
-	invalid = {
-		trigger_if = {
-			limit = {
-				has_variable = belle_epoque_var
-			}
-					 
-								  
-		   
-						
-									 
-	  
-	 
-	
-   
-			NOT = { exists = scope:belle_epoque_state }
-		}
-
-				  
-							  
-	}
+	invalid = { trigger_if = { limit = { has_variable = belle_epoque_var } NOT = { exists = scope:belle_epoque_state } } }
 	
 	progressbar = yes
 

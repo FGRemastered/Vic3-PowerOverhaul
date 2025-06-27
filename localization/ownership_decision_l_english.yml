@@ -52,3 +52,24 @@
  pm_trade_center_academics: "$pm_sovereign_owned_academics$"
  pm_trade_center_engineers: "$pm_sovereign_owned_engineers$"
  pm_trade_center_officers: "$pm_sovereign_owned_officers$"
+ 
+ pm_manor_house_divine_clergy_ownership: "$pm_manor_house_principle_divine_economics_2$"
+ pm_manor_house_academic_ownership: "Academic Oversight"
+ pm_merchant_guilds_building_financial_district: "$pm_merchant_guilds$"
+ pm_council_of_reason: "Council of Reason"
+ pm_trade_center_council_of_reason: "$pm_council_of_reason$"
+ 
+ pmg_manor_house_automation: "$pmg_automation$"
+ pm_manor_house_manual_labor: "Maunal Labor"
+ pm_manor_house_mechanized: "Mechanized Home"
+ pm_manor_house_electrified: "Electified Home"
+ 
+ modern_stratocratic_tt: "The [GetIdeology('ideology_stratocratic').GetName] [Concept('concept_ideology','$concept_ideologies$')]' stance on $law_serfdom$ will change due to increasing pressure from within and without."
+ ideology_stratocratic_modern: "Modern $ideology_stratocratic$"
+ ideology_stratocratic_modern_desc: "$ideology_stratocratic_desc$"
+ 
+ ideology_feminist_reformer:0 "$ideology_feminist$ $ideology_reformer$"
+ ideology_feminist_reformer_desc:0 "$ideology_feminist_desc$"
+ anglo_indian: "Anglo-Indian"
+ gov_anarchist_republic: "$gov_anarchist_commune$"
+ gov_anarchist_republic_desc: "$gov_anarchist_commune_desc$"

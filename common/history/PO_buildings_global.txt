@@ -1,0 +1,72 @@
+﻿GLOBAL = {
+	every_state = {
+		limit = {
+			OR = {
+				any_scope_building = { is_building_type = building_urban_center has_active_production_method = pm_gas_streetlights		}	# Place a synth oil plant in every state that has gas street lights at game start.
+				AND = {
+					is_capital = yes
+					OWNER = { country_rank >= rank_value:unrecognized_major_power }															# Plus, every major_power and above also gets one
+					any_scope_building = { is_building_type = building_urban_center has_active_production_method = pm_market_squares	}	# We need to ensure they have glass
+				}
+			}
+		}
+		create_building = {
+			building = building_synthetic_oil_plants
+			level = 1
+			reserves = 1
+			activate_production_methods = { "pm_road_carts" "pm_no_charcoal" "pm_no_synth_rubber" "pm_coal_gasification" }									# Inverse Order, for some reason.
+		}
+	}
+	every_state = {
+		limit = {
+			OWNER = { NOT = { has_technology_researched = percussion_cap } }
+			OR = {
+				any_scope_building = { is_building_type = building_arms_industry }
+				any_scope_building = { is_building_type = building_artillery_foundries }
+			}
+			market.mg:explosives = { market_goods_sell_orders < 50 }
+		}
+		if = {
+			limit = { market.mg:coal = { market_goods_sell_orders < 10 } }
+			create_building = {
+				building = building_charcoal_burner
+				level = 1
+				reserves = 1
+				activate_production_methods = { "pm_road_carts" "pm_automation_disabled" "pm_unfiltered" "pm_charcoal_kiln_building_charcoal_burner" }
+			}
+		}
+		if = {
+			limit = { OWNER = { has_technology_researched = distillation } }
+			activate_production_method = { building_type = building_charcoal_burner production_method = pm_dust_separation_building_charcoal_burner }
+			create_building = {
+				building = building_synthetic_oil_plants
+				level = 1
+				reserves = 1
+				activate_production_methods = { "pm_road_carts" "pm_no_charcoal" "pm_no_synth_rubber" "pm_coal_gasification" }
+			}
+		}
+		create_building = {
+			building = building_chemical_plants
+			level = 1
+			reserves = 1
+			subsidized = yes
+			activate_production_methods = { "pm_road_carts" "pm_automation_disabled" "pm_simple_fertilizers" }
+		}
+		create_building = {
+			building = building_explosives_factory
+			level = 1
+			reserves = 1
+			subsidized = yes
+			activate_production_methods = { "pm_road_carts" "pm_automation_disabled" "pm_early_soda" }
+		}
+	}
+	# every_country = {
+		# limit = { NOT = { has_law = law_type:law_isolationism } market.mg:sulfur = { market_goods_sell_orders < 50 } }
+		# create_trade_route = {
+			# goods = sulfur
+			# level = 5
+			# direction = import
+			# target = c:GBR.market	# Britain is everwhere
+		# }
+	# }
+}

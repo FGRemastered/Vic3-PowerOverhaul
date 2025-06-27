@@ -4,17 +4,16 @@ pm_traditional_art = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_paper_add				=   10	# x-30	=  -300
+			goods_input_paper_add				=    5	# x-30	=  -150
 			goods_input_dye_add					=    5	# x-40	=  -200
 			# output goods
-			goods_output_fine_art_add			=    5	# x200	= +1000
-		}												#		=  +500
-		level_scaled = {
-			building_employment_laborers_add	= 1000	# x-1	= -1000
-			building_employment_clerks_add		= 1000	# x-1.5	= -1500
-			building_employment_academics_add	=  750	# x-4	= -3000
-		}												#		= -5500
-	}													#		= -4600
+			goods_output_fine_art_add			=    5	# x+200	= +1000
+		}												#		=  +650
+		level_scaled = {						# 3500
+			building_employment_laborers_add	= 2500	# x-.02	=   -50
+			building_employment_academics_add	=  750	# x-.08	=   -80
+		}												#		=  -130	=> Stops breaking even at SoL 5
+	}
 }
 pm_realist_art = {
 	texture = "gfx/interface/icons/production_method_icons/realist_art.dds"
@@ -22,17 +21,17 @@ pm_realist_art = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_paper_add				=   20	# x-30	=  -600
+			goods_input_paper_add				=   10	# x-30	=  -300
 			goods_input_dye_add					=   10	# x-40	=  -400
 			# output goods
-			goods_output_fine_art_add			=   10	# x200	= +2000
-		}												#		= +1000
-		level_scaled = {
-			building_employment_laborers_add	= 1000	# x-1	= -1000
-			building_employment_clerks_add		= 1000	# x-1.5	= -1500
-			building_employment_academics_add	=  750	# x-4	= -3000
-		}												#		= -5500
-	}													#		= -3700
+			goods_output_fine_art_add			=   10	# x+200	= +2000
+		}												#		= +1300
+		level_scaled = {						# 3000
+			building_employment_laborers_add	= 1500	# x-.02	=   -30
+			building_employment_clerks_add		=  500	# x-.03	=   -15
+			building_employment_academics_add	=  750	# x-.08	=   -80
+		}												#		=  -130	=> Stops breaking even at SoL 10
+	}
 }
 pm_photographic_art = {
 	texture = "gfx/interface/icons/production_method_icons/photographic_art.dds"
@@ -44,14 +43,14 @@ pm_photographic_art = {
 			goods_input_dye_add					=   20	# x-40	=  -800
 			goods_input_tools_add				=   10	# x-40	=  -400
 			# output goods								#		= -1800
-			goods_output_fine_art_add			=   20	# x200	= +4000
+			goods_output_fine_art_add			=   20	# x+200	= +4000
 		}												#		= +2200
-		level_scaled = {
-			building_employment_machinists_add	=  500	# x-1.5	=  -750
-			building_employment_clerks_add		=  500	# x-1.5	=  -750
-			building_employment_academics_add	=  500	# x-4	= -2000
-		}												#		= -3500
-	}													#		=  -500
+		level_scaled = {						# 2000
+			building_employment_machinists_add	=  500	# x-.03	=   -15
+			building_employment_clerks_add		=  500	# x-.03	=   -15
+			building_employment_academics_add	=  750	# x-.08	=   -80
+		}												#		=  -110	=> Stops breaking even at SoL 20
+	}
 }
 pm_film_art = {
 	texture = "gfx/interface/icons/production_method_icons/film_art.dds"
@@ -59,19 +58,19 @@ pm_film_art = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_paper_add				=   20	# x-30	=  -600
+			goods_input_paper_add				=   50	# x-30	= -1500
 			goods_input_dye_add					=   50	# x-40	= -2000
-			goods_input_tools_add				=   20	# x-40	=  -800
+			goods_input_tools_add				=   30	# x-40	= -1200
 			goods_input_electricity_add			=   10	# x-30	=  -300
-			# output goods								#		= -3700
-			goods_output_fine_art_add			=   50	# x200	=+10000		# This and the subsistence file are the only ones that have values over 10k per building level
-		}												#		= +6300
-		level_scaled = {
-			building_employment_engineers_add	=  250	# x-3	=  -750
-			building_employment_bureaucrats_add	=  250	# x-3	=  -750
-			building_employment_academics_add	=  250	# x-4	= -1000
-		}												#		= -2500
-	}													#		= +3800
+			# output goods								#		= -5000
+			goods_output_fine_art_add			=   50	# x+200	=+10000		# This and the subsistence file are the only ones that have values over 10k per building level
+		}												#		= +5000
+		level_scaled = {						# 1500
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_bureaucrats_add	=  500	# x-.06	=   -30
+			building_employment_academics_add	=  250	# x-.08	=   -40
+		}												#		=  -100	=> Stops breaking even at SoL 50
+	}
 	required_input_goods = electricity
 }
 # Ownership
@@ -80,16 +79,6 @@ pm_traditional_patronage = {
 	disallowing_laws = {
 		law_command_economy
 		law_cooperative_ownership
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_aristocrats_add	= 150	# x-6	=  -900
-			building_employment_academics_add	= 100	# x-4	=  -400
-		}												#		= -1300
-		unscaled = {
-			building_aristocrats_shares_add		=  18
-			building_academics_shares_add		=   2
-		}
 	}
 }
 pm_bourgeoisie_patronage = {
@@ -100,24 +89,18 @@ pm_bourgeoisie_patronage = {
 		law_cooperative_ownership
 	}
 	building_modifiers = {
-		level_scaled = {
-			building_employment_capitalists_add	= 100	# x-6	=  -600
-			building_employment_aristocrats_add	= 100	# x-6	=  -600
-			building_employment_academics_add	=  50	# x-4	=  -200
-		}												#		= -1400
-		unscaled = {
-			building_capitalists_shares_add		=   9
-			building_aristocrats_shares_add		=   9
-			building_academics_shares_add		=   2
-		}
+		# level_scaled		= { building_employment_shopkeepers_add			=  250 }	# x-.06	=   -15
+		unscaled			= { building_throughput_add						= 0.25 }
 	}
+	ai_value = 5000
 }
 pm_independent_artists = {
 	texture = "gfx/interface/icons/production_method_icons/independent_artists.dds"
 	disallowing_laws = { law_traditionalism }
+	unlocking_technologies = { realism }
 	building_modifiers = {
-		workforce_scaled	= { goods_input_services_add			=   1 }	# x-30	=  -300		# Employment costs expect SoL 52
-		level_scaled		= { building_employment_academics_add	= 250 }	# x-4	= -1000
-		unscaled			= { building_academics_shares_add		=  20 }	#		= -1300
+		level_scaled		= { building_employment_academics_add			=  250 }	# x-.08	=   -20
+		unscaled			= { building_throughput_add						= 0.50 }
 	}
+	ai_value = 2000
 }

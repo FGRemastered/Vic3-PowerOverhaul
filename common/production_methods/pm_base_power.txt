@@ -7,43 +7,45 @@ pm_hydroelectric_plant = {
 			goods_output_electricity_add		=  100	# x+30	=+3000
 		}												#		=+2400
 		level_scaled = {
-			building_employment_laborers_add	= 2000	# x-1	=-2000 /50 * 10	= -400
-			building_employment_machinists_add	= 2000	# x-1.5	=-3000 /50 * 10	= -600
-			building_employment_engineers_add	=  500	# x-3	=-1500 /50 * 15	= -450
-		}												#		=-6500			=-1450
-	}													#		=-4100			= +950
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+		}												#		= -160	=> Stops breaking even at SoL 15
+	}
 }
 pm_coal-fired_plant = {
 	texture = "gfx/interface/icons/production_method_icons/coal_fired_plant.dds"
 	unlocking_technologies = { steam_turbine }
+	disallowing_laws = { law_industry_banned }	# No fun allowed
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=   10	# x-60	= -600
-			goods_input_coal_add				=   20	# x-30	= -600
+			goods_input_coal_add				=   50	# x-30	=-1500	# 34
 			goods_output_electricity_add		=  150	# x+30	=+4500
-		}												#		=+3300
+		}												#		=+2400
 		level_scaled = {
-			building_employment_laborers_add	= 2000	# x-1	=-2000 /50 * 10 = -400
-			building_employment_machinists_add	= 1500	# x-1.5	=-2250 /50 * 10 = -450
-			building_employment_engineers_add	= 1000	# x-3	=-3000 /50 * 15 = -900
-		}												#		=-7250			=-1750
-	}													#		=-3950			=+1550
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+		}												#		= -160	=> Stops breaking even at SoL 15
+	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 50 } }
 }
 pm_oil-fired_plant = {
 	texture = "gfx/interface/icons/production_method_icons/oil_fired_plant.dds"
 	unlocking_technologies = { oil_turbine }
+	disallowing_laws = { law_industry_banned }	# No fun allowed
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=   10	# x-60	= -600
-			goods_input_oil_add					=   20	# x-40	= -800
-			goods_output_electricity_add		=  250	# x+30	=+6000
-		}												#		=+4600
+			goods_input_oil_add					=   75	# x-40	=-3000	# 55
+			goods_output_electricity_add		=  200	# x+30	=+6000
+		}												#		=+2400
 		level_scaled = {
-			building_employment_laborers_add	= 2000	# x-1	=-2000 /50 * 10 = -400
-			building_employment_machinists_add	= 1500	# x-1.5	=-2250 /50 * 10 = -450
-			building_employment_engineers_add	= 1000	# x-3	=-3000 /50 * 15 = -900
-		}												#		=-7250			=-1750
-	}													#		=-1650			=+2850
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1500	# x-.06	=  -90
+		}												#		= -160	=> Stops breaking even at SoL 15
+	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 75 } }
 }

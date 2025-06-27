@@ -43,3 +43,7 @@
  pm_trade_center_academics: "$pm_sovereign_owned_academics$"
  pm_trade_center_engineers: "$pm_sovereign_owned_engineers$"
  pm_trade_center_officers: "$pm_sovereign_owned_officers$"
+ 
+ ideology_feminist_reformer:0 "$ideology_feminist$ $ideology_reformer$"
+ ideology_feminist_reformer_desc:0 "$ideology_feminist_desc$"
+ anglo_indian: "Britisch-Inder"

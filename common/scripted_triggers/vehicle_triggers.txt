@@ -11,6 +11,7 @@ gfx_truck_condition_trigger = {
 		OR = {
 			any_scope_building = { has_active_production_method = pm_public_motor_carriages }
 			any_scope_building = { has_active_production_method = pm_extended_trams }
+			any_scope_building = { has_active_production_method = pm_subways }
 		}
 	}
 }
@@ -85,6 +86,7 @@ gfx_coal_mine_trigger = {
 			has_building = building_charcoal_burner
 			has_building = building_coal_mine
 			has_building = building_infres_coal_mine
+			# market = { mg:coal = { market_goods_sell_orders >= 10 } }
 		}
 	}
 }
@@ -93,6 +95,7 @@ gfx_iron_mine_trigger = {
 		OR = {
 			has_building = building_iron_mine
 			has_building = building_infres_iron_mine
+			# market = { mg:iron = { market_goods_sell_orders >= 10 } }
 		}
 	}
 }
@@ -101,6 +104,7 @@ gfx_lead_mine_trigger = {
 		OR = {
 			has_building = building_lead_mine
 			has_building = building_infres_lead_mine
+			# market = { mg:lead = { market_goods_sell_orders >= 10 } }
 		}
 	}
 }
@@ -109,6 +113,7 @@ gfx_sulfur_mine_trigger = {
 		OR = {
 			has_building = building_sulfur_mine
 			has_building = building_infres_sulfur_mine
+			# market = { mg:sulfur = { market_goods_sell_orders >= 10 } }
 		}
 	}
 }
@@ -119,20 +124,24 @@ gfx_forestry_train_trigger = {
 			has_building = building_rubber_plantation
 			has_building = building_infres_logging_camp
 			has_building = building_infres_rubber_plantation
+			# market = { mg:wood = { market_goods_sell_orders >= 10 } }
+			# market = { mg:hardwood = { market_goods_sell_orders >= 10 } }
 		}
 	}
 }
 gfx_softwood_trigger = {
-	any_scope_building = {
-		OR = {
-			has_active_production_method = pm_simple_forestry
-			has_active_production_method = pm_saw_mills
-			has_active_production_method = pm_electric_saw_mills
-			has_active_production_method = default_building_rubber_plantation
-			has_active_production_method = pm_soil_enriching_farming_rubber_plantation
-			has_active_production_method = pm_fertilization_rubber_plantation
-			has_active_production_method = pm_chemical_fertilizer_rubber_plantation
-			has_active_production_method = pm_automatic_fertilization_rubber_plantation
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_simple_forestry
+				has_active_production_method = pm_saw_mills
+				has_active_production_method = pm_electric_saw_mills
+				has_active_production_method = default_building_rubber_plantation
+				has_active_production_method = pm_soil_enriching_farming_rubber_plantation
+				has_active_production_method = pm_fertilization_rubber_plantation
+				has_active_production_method = pm_chemical_fertilizer_rubber_plantation
+				has_active_production_method = pm_automatic_fertilization_rubber_plantation
+			}
 		}
 	}
 }

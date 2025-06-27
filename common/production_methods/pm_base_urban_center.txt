@@ -3,15 +3,21 @@ pm_market_stalls = {
 	texture = "gfx/interface/icons/production_method_icons/market_stalls.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_wood_add						=    1
-			goods_output_services_add					=   25
+			goods_output_services_add					=   25		# x+30	= +750
 		}
-		level_scaled = {
-			building_employment_laborers_add			= 3000
-			building_employment_clerks_add				= 1000
-			building_employment_shopkeepers_add			=  400	# +100
+		level_scaled = {											#		=  -15	<=	From Clergy
+			building_employment_laborers_add			= 3500		# x-.02	=  -70
+			building_employment_clerks_add				=  500		# x-.03	=  -15
+			building_employment_shopkeepers_add			=  750		# x-.04	=  -30
+		}											#	= 5000				= -130	=> Stops breaking even at SoL 5 10/13
+		unscaled = {
+			building_shopkeepers_shares_add				= 5
+			goods_input_electricity_mult				=-0.50
+			goods_input_oil_mult						=-0.25
 		}
-		unscaled = { building_shopkeepers_shares_add	=    5 }
+	}
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		= 0.05 }
 	}
 }
 pm_market_squares = {
@@ -19,16 +25,19 @@ pm_market_squares = {
 	unlocking_technologies = { urban_planning }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_wood_add						=  2.5
-			goods_input_glass_add						=  2.5
-			goods_output_services_add					=   50
-		}
-		level_scaled = {
-			building_employment_laborers_add			= 2500
-			building_employment_clerks_add				= 1000
-			building_employment_shopkeepers_add			=  900	# +100
-		}
-		unscaled = { building_shopkeepers_shares_add	=    5 }
+			goods_input_wood_add						=    5		# x-20	= -100
+			goods_input_glass_add						=    1.25	# x-40	=  -50
+			goods_output_services_add					=   50		# x+30	=+1500
+		}															#		=+1350
+		level_scaled = {											#		=  -15	<=	From Clergy
+			building_employment_laborers_add			= 3000		# x-.02	=  -60
+			building_employment_clerks_add				= 1000		# x-.03	=  -30
+			building_employment_shopkeepers_add			=  750		# x-.04	=  -30
+		}											#	= 5000				= -135	=> Stops breaking even at SoL 10
+		unscaled = { building_shopkeepers_shares_add	= 5 }
+	}
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		= 0.10 }
 	}
 	ai_value = 1000
 }
@@ -37,20 +46,23 @@ pm_covered_markets = {
 	unlocking_technologies = { steel_frame_buildings }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_steel_add						=    1
-			goods_input_glass_add						=  2.5
-			goods_output_services_add					=   75
-		}
-		level_scaled = {
-			building_employment_laborers_add			= 2000
-			building_employment_clerks_add				= 2000
-			building_employment_shopkeepers_add			=  300	# +200
-			building_employment_capitalists_add			=  250
-		}
+			goods_input_steel_add						=    8		# x-50	= -400
+			goods_input_glass_add						=   10		# x-40	= -400
+			goods_output_services_add					=   75		# x+30	=+2250
+		}															#		=+1450
+		level_scaled = {											#		=  -15	<=	From Clergy
+			building_employment_laborers_add			= 2000		# x-.02	=  -40
+			building_employment_clerks_add				= 2000		# x-.03	=  -60
+			building_employment_shopkeepers_add			=  750		# x-.04	=  -30
+		}											#	= 5000				= -145	=> Stops breaking even at SoL 10
 		unscaled = {
-			building_shopkeepers_shares_add				=    2
-			building_capitalists_shares_add				=    3
+			building_shopkeepers_shares_add				= 5
+			goods_input_electricity_mult				= 0.25
+			goods_input_oil_mult						= 1.00
 		}
+	}
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		= 0.20 }
 	}
 	ai_value = 5000
 }
@@ -59,21 +71,24 @@ pm_arcades = {
 	unlocking_technologies = { elevator }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_steel_add						=  2.5
-			goods_input_glass_add						=    5
-			goods_output_services_add					=  100
-		}
-		level_scaled = {
-			building_employment_laborers_add			= 2000
-			building_employment_clerks_add				= 2000
-			building_employment_shopkeepers_add			=   50	# +200
-			building_employment_capitalists_add			=  150	#  250
-			building_employment_aristocrats_add			=  100	#  250
-		}
+			goods_input_steel_add						=   10		# x-50	= -500
+			goods_input_glass_add						=   10		# x-40	= -400
+			goods_output_services_add					=  100		# x+30	=+3000
+		}															#		=+2100
+		level_scaled = {											#		=  -15	<=	From Clergy
+			building_employment_laborers_add			= 2000		# x-.02	=  -40
+			building_employment_clerks_add				= 2000		# x-.03	=  -60
+			building_employment_shopkeepers_add			= 1000		# x-.06	=  -60
+		}											#	= 5000				= -175	=> Stops breaking even at SoL 12
 		unscaled = {
-			building_capitalists_shares_add				=    4	# 8
-			building_aristocrats_shares_add				=    4	# 5
+			building_shopkeepers_shares_add				= 10
+			goods_output_electricity_mult				=-0.10
+			goods_input_electricity_mult				= 1.00
+			goods_input_oil_mult						= 3.00
 		}
+	}
+	state_modifiers = {
+		level_scaled = { state_migration_pull_add		= 0.25 }
 	}
 	ai_value = 10000
 }
@@ -84,52 +99,62 @@ pm_no_street_lighting = {
 }
 pm_gas_streetlights = {
 	texture = "gfx/interface/icons/production_method_icons/gas_streetlights.dds"
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 1 } }
-	unlocking_technologies = { distillation }
 	city_lights_color_index = 1							# Needs to match city_graphics_data.settings color array
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_oil_add						= 7.5
-			goods_output_services_add				= 5
+			goods_input_oil_add						=   5
+			goods_output_services_add				=   5
 		}
 		level_scaled = {
-			building_employment_laborers_add		= 400
-			building_employment_engineers_add		= 100
+			building_employment_laborers_add		= 500
 		}
 		unscaled = {
-			building_engineers_shares_add			= 0.5
 			goods_output_services_mult				= 0.3
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_infrastructure_add	= 1 } }
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add				= 2
+			state_pollution_generation_add			= 5
+		}
+		throughput_scaled = {
+			state_poor_standard_of_living_add		= 1
+		}
+	}
 	ai_value = 10000
 }
 pm_electric_streetlights = {
 	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
-	required_input_goods = electricity
-	unlocking_technologies = { electrical_generation }
+	# unlocking_technologies = { electrical_generation }
 	city_lights_color_index = 2							# Needs to match city_graphics_data.settings color array
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_electricity_add				= 5
-			goods_output_services_add				= 10
+			goods_input_electricity_add				=   5
+			goods_output_services_add				=  10
 		}
 		level_scaled = {
 			building_employment_laborers_add		= 200
-			building_employment_engineers_add		= 100
+			building_employment_engineers_add		=  50
 		}
 		unscaled = {
-			building_engineers_shares_add			=   1
 			goods_output_services_mult				= 0.5	# = 10 electricity
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_infrastructure_add	= 2.5 } }
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add				= 3
+		}
+		throughput_scaled = {
+			state_poor_standard_of_living_add		= 2
+		}
+	}
+	required_input_goods = electricity	# Replaces electrical_generation tech requirement
 	ai_value = 20000
 }
 # Self-sufficient street lighting
 pm_solar_roofing = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { radio }					# Photoelectric effect was discovered while researching radios
 	city_lights_color_index = 2							# Needs to match city_graphics_data.settings color array
 	unlocking_production_methods = {
 		pm_covered_markets
@@ -138,13 +163,13 @@ pm_solar_roofing = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add					=   3	# 1:5 engines - electricity
-			# goods_input_glass_add					=   3	# 1:1 engines - glass
+			goods_input_engines_add					=   3	# 1:5 engines:electricity
+			goods_input_glass_add					=   4	# 3:4 engines:glass
 			# output goods
 			goods_output_electricity_add			=  10	# 3*5-5 = 10
 		}
 		level_scaled = {
-			building_employment_machinists_add 		= 100
+			building_employment_machinists_add 		= 150
 			building_employment_engineers_add		= 100
 		}
 		unscaled = {
@@ -153,9 +178,14 @@ pm_solar_roofing = {
 		}
 	}
 	state_modifiers = {
-		workforce_scaled = {
-			state_infrastructure_add				=   5
-			state_pollution_generation_add			= -10
+		# workforce_scaled = {
+			# state_infrastructure_add				=   5
+		# }
+		throughput_scaled = {
+			state_poor_standard_of_living_add		=   3
+		}
+		unscaled = {
+			state_pollution_reduction_health_mult	=-0.05
 		}
 	}
 	ai_value = 50000
@@ -171,25 +201,30 @@ pm_air_scrubber = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add					=   5	# 1:5 engines - electricity
-			# goods_input_glass_add					=   5	# 1:1 engines - glass	| Repurposing the base input
-			goods_input_tools_add					=   5	# Oil processing - Don't ask how screwdrivers make oil.
+			goods_input_engines_add					=   3	# 1:5 engines:electricity
+			goods_input_glass_add					=   4	# 3:4 engines:glass
+			goods_input_porcelain_add				=   4	# 7:2 glass:porcelain
 			# output goods
-			goods_output_electricity_add			=  10	# 5*5 => 25-5 => 20
-			goods_output_oil_add					=  10	# Coal * (Electricity / 10) = Oil => 10*(10/10) = 10
+			goods_input_electricity_add				=   5	# 3*5-20 =-5
 		}
 		level_scaled = {
-			building_employment_engineers_add		= 100
+			building_employment_engineers_add		= 250
 		}
 		unscaled = {
-			building_engineers_shares_add			=   5
+			building_engineers_shares_add			= 5
 			goods_output_services_mult				= 0.5	# = 10 electricity
 		}
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add				=   5
-			state_pollution_generation_add			= -20	# 2:1 Pollution - Coal
+			# state_infrastructure_add				=   5
+			state_pollution_generation_add			= -20	# 5:1 Pollution:Engines | 1:4 Electricity:Pollution
+		}
+		throughput_scaled = {
+			state_poor_standard_of_living_add		=   5
+		}
+		unscaled = {
+			state_pollution_reduction_health_mult	=-0.10
 		}
 	}
 	ai_value = 100000
@@ -197,82 +232,130 @@ pm_air_scrubber = {
 # Public transit
 pm_no_public_transport = {
 	texture = "gfx/interface/icons/production_method_icons/no_public_transport.dds"
+	ai_value = 500
 }
 pm_public_trams = {
-	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
+	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
 	unlocking_technologies = { railways }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_transportation_add			=  2	# x30	=  60
-			goods_output_services_add				=  3
-		}
+			goods_input_engines_add					=    1	# x60	=  60
+			goods_input_tools_add					=    5	# Cash register
+		}													#		=  60
 		level_scaled = {
 			building_employment_laborers_add		=-1000
-			building_employment_machinists_add	 	=  500
+			building_employment_machinists_add	 	=  400
+			building_employment_engineers_add		=  100
 		}
-		unscaled = { goods_output_services_mult		= 0.2 }
+		unscaled = {
+			goods_output_services_mult				= 0.20
+			building_employment_clerks_mult			=-0.50
+		}
 	}
 	state_modifiers = {
-		workforce_scaled = {
-			state_infrastructure_add				= 2
-			state_pollution_generation_add			= 5
+		# workforce_scaled = {
+			# state_infrastructure_add				=    2
+		# }
+		throughput_scaled = {
+			state_middle_standard_of_living_add		=    2
 		}
 	}
-	required_input_goods = transportation
-	ai_value = 10000
+	ai_value = 1000
 }
 pm_public_motor_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/public_motor_carriages.dds"
 	unlocking_global_technologies = { combustion_engine electrical_capacitors }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_transportation_add			=  3	# x30	= 120
-			goods_input_automobiles_add				=  0.2	# x100	=  20
-			goods_output_services_add				=  5
-		}													#		= 140
+			goods_input_oil_add						=    2		# x40	=  80		# Even if the cars run on electricity, it has to come from somewhere.
+			goods_input_automobiles_add				=    2		# x100	= 200
+			goods_input_tools_add					=    5		# Cash register
+		}														#		= 280
 		level_scaled = {
-			building_employment_laborers_add		=-1500
-			building_employment_machinists_add 		=  500
+			building_employment_laborers_add		=-2000
+			building_employment_machinists_add 		= 1000
 		}
-		unscaled = { goods_output_services_mult		= 0.3 }
+		unscaled = {
+			goods_output_services_mult				= 0.30
+			building_employment_clerks_mult			=-0.75
+		}
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add				= 2.5
-			state_pollution_generation_add			= 10
+			state_infrastructure_add				=   -5
+			state_pollution_generation_add			=    5
+		}
+		throughput_scaled = {
+			state_middle_standard_of_living_add		=    3
 		}
 	}
-	required_input_goods = transportation
 	required_input_goods = automobiles
-	ai_value = 30000
+	ai_value = 2000
 }
-pm_extended_trams = {	# Subways
-	texture = "gfx/interface/icons/production_method_icons/public_trams.dds"
+pm_extended_trams = {
+	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_transportation_add			=  5	# x30	= 150
-			goods_input_automobiles_add				=  1	# x100	= 100
-			goods_output_services_add				= 10
-		}													#		= 250
+			goods_input_transportation_add			=    5		# x30	= 150
+			goods_input_oil_add						=    1		# x40	=  40		# Even if the cars run on electricity, it has to come from somewhere.
+			goods_input_automobiles_add				=    1		# x100	= 100
+			goods_input_tools_add					=    5		# Cash register
+		}														#		= 290
 		level_scaled = {
 			building_employment_laborers_add		=-2000
-			building_employment_machinists_add	 	=  200
-			building_employment_engineers_add		=   50
+			building_employment_machinists_add 		=  250
+			building_employment_engineers_add		=  250
 		}
-		unscaled = { goods_output_services_mult		= 0.5 }
+		unscaled = {
+			goods_output_services_mult				= 0.30
+			building_employment_clerks_mult			=-0.75
+			# goods_output_electricity_mult			=-0.20
+			# goods_input_electricity_mult			= 2
+		}
 	}
 	state_modifiers = {
-		workforce_scaled = {
-			state_infrastructure_add				=  5
-			state_pollution_generation_add			=  5
+		# workforce_scaled = {
+			# state_infrastructure_add				=    5
+		# }
+		throughput_scaled = {
+			state_middle_standard_of_living_add		=    3
 		}
 	}
 	required_input_goods = transportation
 	required_input_goods = automobiles
-	ai_value = 100000
+	ai_value = 3000
 }
-# Cash Register
+pm_subways = {
+	texture = "gfx/interface/icons/production_method_icons/public_trams.dds"
+	unlocking_technologies = { arc_welding }	# Requires the idea of high speed rail
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_transportation_add			=   10		# x30	= 300	# Required to keep railways profitable despite only manufacturing buildings
+			goods_input_tools_add					=    5		# Cash register
+		}														#		= 300
+		level_scaled = {
+			building_employment_laborers_add		=-2000
+		}
+		unscaled = {
+			goods_output_services_mult				= 0.50
+			building_employment_clerks_mult			=-1.00
+			# goods_output_electricity_mult			=-0.20
+			# goods_input_electricity_mult			= 2
+		}
+	}
+	state_modifiers = {
+		# workforce_scaled = {
+			# state_infrastructure_add				=    5
+		# }
+		throughput_scaled = {
+			state_middle_standard_of_living_add		=    5
+		}
+	}
+	required_input_goods = transportation
+	ai_value = 10000
+}
+# Cash Register	- Unused atm
 pm_no_cash_register = {
 	texture = "gfx/interface/icons/production_method_icons/no_cash_register.dds"
 }
@@ -281,34 +364,54 @@ pm_cash_register = {
 	unlocking_technologies = { banking }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add						=  0.5
+			goods_input_tools_add					=  0.5
 		}
-		level_scaled = {
-			building_employment_clerks_add				=-1000
-			building_employment_shopkeepers_add			=  100
+		unscaled = {
+			building_shopkeepers_shares_add			=    1
+			building_employment_clerks_mult			=   -0.5
 		}
-		unscaled = { building_shopkeepers_shares_add	=    1 }
 	}
 }
 pm_electric_cash_register = {
 	texture = "gfx/interface/icons/production_method_icons/electric_cash_register.dds"
-	# unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electrical_capacitors }
+	is_hidden_when_unavailable = yes
+	replacement_if_valid = pm_electric_cash_register_autark
+	unlocking_production_methods = {
+		pm_no_street_lighting
+		pm_gas_streetlights
+		pm_electric_streetlights
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add					=    1
+			goods_input_electricity_add				=    1
+		}
+		unscaled = {
+			building_shopkeepers_shares_add			=    2
+			building_employment_clerks_mult			=   -1
+		}
+	}
+	required_input_goods = electricity
+}
+pm_electric_cash_register_autark = {
+	texture = "gfx/interface/icons/production_method_icons/electric_cash_register.dds"
+	is_hidden_when_unavailable = yes
+	replacement_if_valid = pm_electric_cash_register
 	unlocking_production_methods = {
 		pm_solar_roofing
 		pm_air_scrubber
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add						=    1
-			goods_output_electricity_add				=   -1
+			goods_input_tools_add					=    1
+			goods_output_electricity_add			=   -1
 		}
-		level_scaled = {
-			building_employment_clerks_add				=-2000
-			building_employment_shopkeepers_add			=  200
+		unscaled = {
+			building_shopkeepers_shares_add			=    2
+			building_employment_clerks_mult			=   -1
 		}
-		unscaled = { building_shopkeepers_shares_add	=    2 }
 	}
-	required_input_goods = electricity
 }
 # Urban Clergy
 pm_state_urban_clergy = {
@@ -318,8 +421,12 @@ pm_state_urban_clergy = {
 		law_state_atheism
 	}
 	building_modifiers = {
-		level_scaled	= { building_employment_clergymen_add	= 200 }
-		unscaled		= { building_clergymen_shares_add		=  10 }
+		level_scaled	= {
+			building_employment_clergymen_add		= 250		# x-.06	=  -15
+		}
+		unscaled		= {
+			building_clergymen_shares_add			=  10
+		}
 	}
 }
 pm_free_urban_clergy = {
@@ -330,12 +437,11 @@ pm_free_urban_clergy = {
 	}
 	building_modifiers = {
 		level_scaled = {
-			building_employment_bureaucrats_add					=  50
-			building_employment_clergymen_add					= 150
-		}
+			building_employment_bureaucrats_add		= 100		# x-.06	=   -6
+			building_employment_clergymen_add		= 150		# x-.06	=   -9
+		}														#		=  -15
 		unscaled = {
-			building_clergymen_shares_add						=   6
-			building_government_shares_add						=   4
+			building_clergymen_shares_add			=   6
 		}
 	}
 }
@@ -343,10 +449,8 @@ pm_no_urban_clergy = {
 	texture = "gfx/interface/icons/production_method_icons/state_atheism.dds"
 	unlocking_laws = { law_state_atheism }
 	building_modifiers = {
-		level_scaled	= { building_employment_academics_add	= 150 }
-		unscaled		= {
-			building_academics_shares_add						=   6
-			building_government_shares_add						=   4
+		level_scaled	= {
+			building_employment_bureaucrats_add		= 250		# x-.06	=  -15
 		}
 	}
 }

@@ -111,5 +111,5 @@ remove_tobacco_ban = {
 			}
 			add = -20
 		}
-   }
+	}
 }

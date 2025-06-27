@@ -1,8 +1,0 @@
-﻿GLOBAL = {
-	s:STATE_HAWAIIAN_ISLANDS		= { add_state_trait = state_trait_pearl_harbor }
-	s:STATE_ERITREA					= { add_state_trait = state_trait_natural_harbors_djibouti }
-	s:STATE_ANHALT					= { add_state_trait = state_trait_good_soils }
-	s:STATE_BRUNSWICK				= { add_state_trait = state_trait_good_soils }
-	s:STATE_RHINELAND				= { add_state_trait = state_trait_saar_coalfield }
-	s:STATE_DISTRICT_OF_COLUMBIA	= { if = { limit = { NOT = { is_homeland = cu:yankee } } add_homeland = cu:yankee } }
-}

@@ -4,7 +4,7 @@
 	ai_usage = escort_convoys
 	is_basic_order_type = yes
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 	}
 	modifier = {
 		character_convoy_protection_mult = 0.2
@@ -23,10 +23,7 @@ escort_convoys_advanced = {
 	military_type = navy
 	ai_usage = escort_convoys
 	possible = {
-		error_check = {
-			severity = invalid
-			has_role = admiral
-		}
+		has_role = admiral
 		OR = {
 			has_trait = basic_naval_commander
 			has_trait = experienced_naval_commander

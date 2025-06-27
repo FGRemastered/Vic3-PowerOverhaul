@@ -8,6 +8,11 @@
 		ideology_stratocratic
 		ideology_patriarchal
 	}
+	character_ideologies = {
+		ideology_moderate
+		ideology_traditionalist
+		ideology_legitimist
+	}
 	enable = { always = yes }
 	# Deprecated; use on_enable effect to assign traits instead
 	traits = {
@@ -34,15 +39,10 @@
 			}
 			else_if = {
 				limit = {
-					OR = {
-						owner = { c:PRU ?= THIS }
-						AND = {
-							owner = { c:NGF ?= THIS }
-							c:NGF ?= { was_formed_from = PRU }
-						}
-						AND = {
-							owner = { c:GER ?= this }
-							c:GER ?= { was_formed_from = PRU }
+					owner = {
+						OR = {
+							c:PRU ?= THIS
+							was_formed_from = PRU
 						}
 					}
 				}
@@ -83,20 +83,15 @@
 				set_ig_trait = ig_trait:ig_trait_noblesse_oblige
 			}
 		}
-		# Squattocracy
-		if = {
+		if = {		# Squattocracy
 			limit = { country_has_primary_culture = cu:australian }
 			ig:ig_landowners = { set_interest_group_name = ig_squattocracy }
 		}
-		# Local Governors
-		else_if = {
+		else_if = {	# Local Governors
 			limit = { c:TUR ?= this }
-			ig:ig_landowners = {
-				set_interest_group_name = ig_local_governors
-			}
+			ig:ig_landowners = { set_interest_group_name = ig_local_governors }
 		}
-		# Junkers
-		else_if = {
+		else_if = {	# Junkers
 			limit = { c:PRU ?= this }
 			ig:ig_landowners = {
 				set_interest_group_name = ig_junkers
@@ -104,13 +99,11 @@
 				add_ideology = ideology_junker_paternalistic
 			}
 		}
-		# Gentry Assembly
-		else_if = {
+		else_if = {	# Gentry Assembly
 			limit = { c:RUS ?= this }
 			ig:ig_landowners = { set_interest_group_name = ig_gentry_assembly }
 		}
-		# Roman Landowners
-		else_if = {
+		else_if = {	# Roman Landowners
 			limit = { c:PAP ?= this }
 			ig:ig_landowners = {
 				set_interest_group_name = ig_roman_landowners
@@ -118,26 +111,22 @@
 				add_ideology = ideology_papal_paternalistic
 			}
 		}
-		# Ali'i
-		else_if = {
+		else_if = {	# Ali'i
 			limit = { country_has_primary_culture = cu:hawaiian }
 			ig:ig_landowners = {
 				set_interest_group_name = ig_alii
 				add_ideology = ideology_loyalist
 			}
 		}
-		# Landed Gentry
-		else_if = {
+		else_if = {	# Landed Gentry
 			limit = { c:GBR ?= this }
 			ig:ig_landowners = { set_interest_group_name = ig_landed_gentry }
 		}
-		# Yangban Officials
-		else_if = {
+		else_if = {	# Yangban Officials
 			limit = { c:KOR ?= this }
 			ig:ig_landowners = { set_interest_group_name = ig_yangban }
 		}
-		# Scholar Officials
-		else_if = {
+		else_if = {	# Scholar Officials
 			limit = { c:CHI ?= this }
 			ig:ig_landowners = { 
 				set_interest_group_name = ig_scholar_officials
@@ -145,18 +134,15 @@
 				add_ideology = ideology_scholar_paternalistic
 			}
 		}
-		# Pious Spanish Landowners
-		else_if = {
+		else_if = {	# Pious Spanish Landowners
 			limit = { country_has_primary_culture = cu:spanish }
 			ig:ig_landowners = { add_ideology = ideology_pious }
 		}
-		# Aristocracy of Officials
-		else_if = {
+		else_if = {	# Aristocracy of Officials
 			limit = { country_has_primary_culture = cu:norwegian }
 			ig:ig_landowners = { set_interest_group_name = ig_aristocracy_of_officials }
 		}
-		# Southern Planters
-		else_if = {
+		else_if = {	# Southern Planters
 			limit = {
 				OR = {
 					AND = {
@@ -172,8 +158,7 @@
 				add_ideology = ideology_republican_paternalistic
 			}
 		}
-		# South American Caudillos/republicans
-		else_if = {
+		else_if = {	# South American Caudillos/republicans
 			limit = {
 				any_primary_culture = {
 					has_discrimination_trait = hispanophone
@@ -187,8 +172,35 @@
 				add_ideology = ideology_republican_paternalistic
 			}
 		}
+		# India
+		else_if = {
+			limit = {
+				OR = {
+					c:BIC ?= this
+					any_primary_culture = { has_discrimination_trait = south_asian_heritage }
+				}
+			}
+			ig:ig_landowners = {
+				set_interest_group_name = ig_zamindars
+				if = {
+					limit = { owner = { c:BIC ?= this } }
+					set_ig_trait = ig_trait:ig_trait_summon_no_zamindars
+				}
+				set_ig_trait = ig_trait:ig_trait_famine_reserves
+				set_ig_trait = ig_trait:ig_trait_profitable_estates
+			}
+		}
 	}
 	on_disable = {}
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				c:BIC ?= this
+				any_primary_culture = { cu:british = this }
+			}
+			cultures = { assamese avadhi baluchi bengali bihari gujarati kannada malayalam marathi oriya panjabi pathan rajput sindi tamil telegu hindustani bundeli pahari gondi bageli chhattisgarhi deccani anglo_indian }
+		}
+	}
 	on_character_ig_membership = {}
 	pop_potential = {
 		OR = {
@@ -196,50 +208,24 @@
 			is_pop_type = clergymen
 			is_pop_type = officers
 			is_pop_type = farmers
-			is_pop_type = peasants
+			is_pop_type = peasants		# Added
+			is_pop_type = bureaucrats	# Added
 		}
 	}
 	pop_weight = {
 		value = 0
-		add = {
-			desc = "POP_ARISTOCRATS"
-			if = {
-				limit = { is_pop_type = aristocrats }
-				value = 250
-			}
-		}
-		add = {
-			desc = "POP_CLERGYMEN"
-			if = {
-				limit = { is_pop_type = clergymen }
-				value = 50
-			}
-		}
-		add = {
-			desc = "POP_OFFICERS"
-			if = {
-				limit = { is_pop_type = officers }
-				value = 50
-			}
-		}
+		add = { desc = "POP_ARISTOCRATS"	if = { limit = { is_pop_type = aristocrats }	value = 250 } }
+		add = { desc = "POP_CLERGYMEN"		if = { limit = { is_pop_type = clergymen }		value =  50 } }
+		add = { desc = "POP_OFFICERS"		if = { limit = { is_pop_type = officers }		value =  50 } }
 		add = {
 			desc = "POP_FARMERS"
 			if = {
 				limit = { is_pop_type = farmers }
 				value = 25
-				add = this.standard_of_living
-				if = {
-					limit = { owner = { has_law = law_type:law_homesteading } }
-					multiply = 5
-				}
-				if = {
-					limit = { owner = { has_law = law_type:law_commercialized_agriculture } }
-					multiply = 3
-				}
-				if = {
-					limit = { state = { is_slave_state = yes } }
-					multiply = 4
-				}
+				add = THIS.standard_of_living
+				if		= { limit = { owner = { has_law = law_type:law_homesteading } }					multiply = 10 }
+				else_if	= { limit = { owner = { has_law = law_type:law_commercialized_agriculture } }	multiply =  5 }
+				if		= { limit = { state = { is_slave_state = yes } }								multiply =  4 }
 			}
 		}
 		add = {
@@ -247,17 +233,34 @@
 			if = {
 				limit = { is_pop_type = peasants }
 				value = -10							# Only if they are wealthy
-				add = this.standard_of_living
-				if = {
-					limit = { owner = { has_law = law_type:law_homesteading } }
-					multiply = 5
-				}
-				if = {
-					limit = { owner = { has_law = law_type:law_commercialized_agriculture } }
-					multiply = 3
-				}
-				else = { multiply = 0 }
+				add = THIS.standard_of_living
+				if		= { limit = { owner = { has_law = law_type:law_homesteading } }					multiply = 5 }
+				else_if	= { limit = { owner = { has_law = law_type:law_commercialized_agriculture } }	multiply = 3 }
+				else	= {																				multiply = 0 }
+				min = 0
 			}
+		}
+		add = {
+			desc = "POP_BUREAUCRATS"
+			if = {
+				limit = { is_pop_type = bureaucrats }
+				value = {
+					value		= THIS.standard_of_living
+					multiply	= 20							# Breaks even with Intelligentisa at 25 SoL
+					divide		=  3							# Breaks even with Intelligentisa at 25 SoL
+				}
+				if		= { limit = { owner = { has_law = law_type:law_council_republic } }				multiply = 2.0 }	# Without an existing Upper Class, a new one emerges.
+				if		= { limit = { owner = { has_law = law_type:law_hereditary_bureaucrats } }		multiply = 0.0 }	# If they aren't professional, we have to.
+				else_if	= { limit = { owner = { has_law = law_type:law_elected_bureaucrats } }			multiply = 0.5 }	# Prefer Petty Bourgoise in this case.
+				min = 0
+			}
+		}
+		if = {
+			limit = {
+				c:BIC ?= owner
+				culture = { has_discrimination_trait = european_heritage }
+			}
+			multiply = { desc = "POP_INDIA_COLONIAL_RULE" value = 0.1 }
 		}
 		multiply = {
 			desc = "LEADER_POPULARITY"

@@ -1,7 +1,7 @@
 ﻿# Base
 # Coal
-pm_rotary_valve_pump_building_coal_mine = {
-	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
+pm_rotary_valve_pump_building_coal_mine = {	# 1.5x Condensing
+	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -12,38 +12,40 @@ pm_rotary_valve_pump_building_coal_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 0.5
+			goods_input_explosives_mult			= 0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_coal_mine = {
-	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
+pm_diesel_pump_building_coal_mine = {	# 4/3x Rotary
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=   15
 			goods_input_oil_add					=    5
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_coal_add				=  120
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 1.0
+			goods_input_explosives_mult			= 1.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_coal_mine = {
+pm_electric_pump_building_coal_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -51,25 +53,25 @@ pm_electric_pump_building_coal_mine = {
 			# input goods
 			goods_input_tools_add				=   20
 			goods_input_electricity_add			=   10
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_coal_add				=  180
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 2.0
+			goods_input_explosives_mult			= 2.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	required_input_goods = electricity
 }
 # Iron
-pm_rotary_valve_pump_building_iron_mine = {
-	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
+pm_rotary_valve_pump_building_iron_mine = {	# 1.5x Condensing
+	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -81,39 +83,41 @@ pm_rotary_valve_pump_building_iron_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 0.5
+			goods_input_explosives_mult			= 0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_iron_mine = {
-	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
+pm_diesel_pump_building_iron_mine = {	# 4/3x Rotary
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=   15
 			goods_input_oil_add					=    5
+			goods_input_services_add			=    5
 			
 			# output goods
 			goods_output_iron_add				=  120
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 1.0
+			goods_input_explosives_mult			= 1.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_iron_mine = {
+pm_electric_pump_building_iron_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -121,25 +125,25 @@ pm_electric_pump_building_iron_mine = {
 			# input goods
 			goods_input_tools_add				=   20
 			goods_input_electricity_add			=   10
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_iron_add				=  180
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 2.0
+			goods_input_explosives_mult			= 2.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	required_input_goods = electricity
 }
 # Lead
-pm_rotary_valve_pump_building_lead_mine = {
-	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
+pm_rotary_valve_pump_building_lead_mine = {	# 1.5x Condensing
+	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -151,39 +155,41 @@ pm_rotary_valve_pump_building_lead_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 0.5
+			goods_input_explosives_mult			= 0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_lead_mine = {
-	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
+pm_diesel_pump_building_lead_mine = {	# 4/3x Rotary
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=   15
 			goods_input_oil_add					=    5
+			goods_input_services_add			=    5
 			
 			# output goods
 			goods_output_lead_add				=  120
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 1.0
+			goods_input_explosives_mult			= 1.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_lead_mine = {
+pm_electric_pump_building_lead_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -191,25 +197,25 @@ pm_electric_pump_building_lead_mine = {
 			# input goods
 			goods_input_tools_add				=   20
 			goods_input_electricity_add			=   10
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_lead_add				=  180
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 2.0
+			goods_input_explosives_mult			= 2.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	required_input_goods = electricity
 }
 # Sulfur
-pm_rotary_valve_pump_building_sulfur_mine = {
-	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
+pm_rotary_valve_pump_building_sulfur_mine = {	# 1.5x Condensing
+	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -221,39 +227,41 @@ pm_rotary_valve_pump_building_sulfur_mine = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 0.5
+			goods_input_explosives_mult			= 0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_sulfur_mine = {
-	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
+pm_diesel_pump_building_sulfur_mine = {	# 4/3x Rotary
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=   15
 			goods_input_oil_add					=    5
+			goods_input_services_add			=    5
 			
 			# output goods
 			goods_output_sulfur_add				=  100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 1.0
+			goods_input_explosives_mult			= 1.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_sulfur_mine = {
+pm_electric_pump_building_sulfur_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -261,25 +269,25 @@ pm_electric_pump_building_sulfur_mine = {
 			# input goods
 			goods_input_tools_add				=   20
 			goods_input_electricity_add			=   10
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_sulfur_add				=  150
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 2.0
+			goods_input_explosives_mult			= 2.00
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	required_input_goods = electricity
 }
 # Gold
-pm_rotary_valve_pump_building_gold_mine = {
-	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
+pm_rotary_valve_pump_building_gold_mine = {	# 1.5x Condensing
+	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -287,44 +295,46 @@ pm_rotary_valve_pump_building_gold_mine = {
 			goods_input_tools_add				=   15
 			goods_input_coal_add				=   20
 			# output goods
-			goods_output_gold_add				=   45
+			goods_output_gold_add				=   37.5
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	= 1000
+			building_employment_engineers_add	=  750
+			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 0.5
+			goods_input_explosives_mult			= 0.50
 		}
 	}
 	state_modifiers		= { workforce_scaled = { state_pollution_generation_add	=   15 } }
-	country_modifiers	= { workforce_scaled = { country_minting_add			= 1500 } }
+	country_modifiers	= { workforce_scaled = { country_minting_add			= 1000 } }
 }
-pm_diesel_pump_building_gold_mine = {
-	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
+pm_diesel_pump_building_gold_mine = {	# 4/3x Rotary
+	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tools_add				=   15
 			goods_input_oil_add					=    5
+			goods_input_services_add			=    5
 			# output goods
-			goods_output_gold_add				=   60
+			goods_output_gold_add				=   50
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	=  500
+			building_employment_machinists_add	=  750
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 1.0
+			goods_input_explosives_mult			= 1.00
 		}
 	}
 	state_modifiers		= { workforce_scaled = { state_pollution_generation_add	=   15 } }
-	country_modifiers	= { workforce_scaled = { country_minting_add			= 2000 } }
+	country_modifiers	= { workforce_scaled = { country_minting_add			= 1500 } }
 }
-pm_electric_pump_building_gold_mine = {
+pm_electric_pump_building_gold_mine = {	# 2x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -332,17 +342,17 @@ pm_electric_pump_building_gold_mine = {
 			# input goods
 			goods_input_tools_add				=   20
 			goods_input_electricity_add			=   10
+			goods_input_services_add			=    5
 			# output goods
-			goods_output_gold_add				=   90
+			goods_output_gold_add				=  100
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	=  750
 		}
 		unscaled = {
-			goods_input_explosives_mult			= 2.0
+			goods_input_explosives_mult			= 2.00
 		}
 	}
 	state_modifiers		= { workforce_scaled = { state_pollution_generation_add	=    5 } }
@@ -432,9 +442,10 @@ pm_steam_derricks = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinists_add	= 1000
 			building_employment_engineers_add	=  500
+			building_employment_shopkeepers_add	=  500
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
 pm_combustion_derricks = {
 	texture = "gfx/interface/icons/production_method_icons/combustion_derricks.dds"
@@ -450,6 +461,7 @@ pm_combustion_derricks = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	= 2000
 			building_employment_engineers_add	=  500
+			building_employment_shopkeepers_add	=  500
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 40 } }
@@ -463,16 +475,16 @@ pm_electric_derricks = {
 			goods_input_engines_add				=   50	# 1:12 oil
 			goods_input_electricity_add			=   50
 			goods_input_explosives_add			=   10
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_oil_add				=  600
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
 			building_employment_machinists_add	=  500
-			building_employment_engineers_add	=  750
-			building_employment_academics_add	=  250
+			building_employment_engineers_add	= 1000
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 120 } }	# The stinky part is the oil
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 100 } }	# The stinky part is the oil
 	required_input_goods = electricity
 }

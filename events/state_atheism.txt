@@ -1,22 +1,17 @@
 ﻿namespace = state_atheism
-
 # Debate Event - Opium of the Masses
 state_atheism.1 = {
 	type = country_event
 	placement = ROOT
-	
 	title = state_atheism.1.t
 	desc = state_atheism.1.d
 	flavor = state_atheism.1.f
-
 	category = enactment
-	
 	event_image = {
 		trigger = {
 			religion = rel:jewish
 		}
 		video = "europenorthamerica_judaism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -29,7 +24,6 @@ state_atheism.1 = {
 			}
 		}
 		video = "southamerica_christianity"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -40,15 +34,16 @@ state_atheism.1 = {
 			}
 		}
 		video = "asia_hinduism_sikhism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
 		trigger = {
-			religion = rel:shinto
+			OR = {
+				religion = rel:shinto
+				religion = rel:confucian
+			}
 		}
 		video = "asia_confucianism_shinto"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -60,7 +55,6 @@ state_atheism.1 = {
 			}
 		}
 		video = "asia_buddhism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -71,7 +65,6 @@ state_atheism.1 = {
 			}
 		}
 		video = "middleeast_islam"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -93,20 +86,14 @@ state_atheism.1 = {
 			}
 		}
 		video = "africa_animism"
-	
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
 	duration = 3
-	
 	trigger = { is_enacting_law = law_type:law_state_atheism }
-
 	immediate = {
 		currently_enacting_law = { save_scope_as = current_law_scope }
 	}
-
 	option = {
 		name = state_atheism.1.a
 		default_option = yes
@@ -115,7 +102,6 @@ state_atheism.1 = {
 			name = opium_of_the_masses_enactment
 		}
 	}
-
 	option = {
 		name = state_atheism.1.b
 		# radicals from SoL
@@ -124,7 +110,6 @@ state_atheism.1 = {
 			months = long_modifier_time
 		}
 	}
-
 	option = {
 		name = state_atheism.1.c
 		trigger = {
@@ -144,28 +129,20 @@ state_atheism.1 = {
 		}
 	}
 }
-
 # Advancement event - Society of the Godless
 state_atheism.2 = {
 	type = country_event
 	placement = scope:godless_state
-	
 	title = state_atheism.2.t
 	desc = state_atheism.2.d
 	flavor = state_atheism.2.f
-
 	category = enactment
-	
 	event_image = {
 		video = "votp_conspiring"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-	
 	duration = 3
-	
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
 		any_scope_state = {
@@ -176,7 +153,6 @@ state_atheism.2 = {
 			}
 		}
 	}
-
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -210,7 +186,6 @@ state_atheism.2 = {
 			}
 		}
 	}
-
 	option = {
 		name = state_atheism.2.a
 		default_option = yes
@@ -260,28 +235,20 @@ state_atheism.2 = {
 		}
 	}
 }
-
 # Stall event - Works of Charity
 state_atheism.3 = {
 	type = country_event
 	placement = ROOT
-	
 	title = state_atheism.3.t
 	desc = state_atheism.3.d
 	flavor = state_atheism.3.f
-
 	category = enactment
-	
 	event_image = {
 		video = "europenorthamerica_rich_and_poor"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-	
 	duration = 3
-
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
 		any_interest_group = {
@@ -293,7 +260,6 @@ state_atheism.3 = {
 			}
 		}
 	}
-
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -310,7 +276,6 @@ state_atheism.3 = {
 			save_scope_as = works_of_charity_ig
 		}
 	}
-
 	option = {
 		name = state_atheism.3.a
 		default_option = yes
@@ -318,48 +283,17 @@ state_atheism.3 = {
 			name = unpopular_attacks_on_charities
 		}
 	}
-
 	option = {
 		name = state_atheism.3.b
-		trigger = {
-			NOT = { has_law = law_type:law_no_social_security }
-		}
+		trigger = { NOT = { has_law = law_type:law_no_social_security } }
 		random_list = {
 			1 = {
 				add_enactment_modifier = {
 					name = state_welfare_disparaged
 				}
 			}
-			1 = {
-				trigger = { institution:institution_social_security.investment = 1 }
-				add_enactment_modifier = {
-					name = state_welfare_promoted
-					multiplier = institution:institution_social_security.investment
-				}
-			}
-			2 = {
-				trigger = { institution:institution_social_security.investment = 2 }
-				add_enactment_modifier = {
-					name = state_welfare_promoted
-					multiplier = institution:institution_social_security.investment
-				}
-			}
-			3 = {
-				trigger = { institution:institution_social_security.investment = 3 }
-				add_enactment_modifier = {
-					name = state_welfare_promoted
-					multiplier = institution:institution_social_security.investment
-				}
-			}
-			4 = {
-				trigger = { institution:institution_social_security.investment = 4 }
-				add_enactment_modifier = {
-					name = state_welfare_promoted
-					multiplier = institution:institution_social_security.investment
-				}
-			}
-			5 = {
-				trigger = { institution:institution_social_security.investment = 5 }
+			0 = {
+				modifier = { add = institution:institution_social_security.investment }
 				add_enactment_modifier = {
 					name = state_welfare_promoted
 					multiplier = institution:institution_social_security.investment
@@ -367,24 +301,19 @@ state_atheism.3 = {
 			}
 		}
 	}
-
 	option = {
 		name = state_atheism.3.c
 		trigger = { has_law = law_type:law_no_social_security }
-
 		add_modifier = {
 			name = ad_hoc_government_charities
 			months = short_modifier_time
 		}
-
 		add_enactment_modifier = {
 			name = imitating_charities
 		}
 	}
-
 	option = {
 		name = state_atheism.3.dd
-
 		scope:works_of_charity_ig = {
 			add_modifier = {
 				name = popular_works_of_charity
@@ -392,28 +321,20 @@ state_atheism.3 = {
 		}
 	}
 }
-
 #Extraterritoriality in God's Nation - Stall
 state_atheism.4 = {
 	type = country_event
 	placement = ROOT
-	
 	title = state_atheism.4.t
 	desc = state_atheism.4.d
 	flavor = state_atheism.4.f
-
 	category = enactment
-	
 	event_image = {
 		video = "unspecific_politicians_arguing"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	duration = 3
-
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
 		any_interest_group = {
@@ -432,7 +353,6 @@ state_atheism.4 = {
 			is_country_type = recognized
 		}
 	}
-
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -462,7 +382,6 @@ state_atheism.4 = {
 			save_scope_as = atheist_ig
 		}
 	}
-
 	option = {
 		name = state_atheism.4.a
 		default_option = yes
@@ -476,7 +395,6 @@ state_atheism.4 = {
 			name = modifier_expelled_missionaries_tolerance
 		}
 	}
-
 	option = {
 		name = state_atheism.4.b
 		create_incident = {
@@ -490,7 +408,6 @@ state_atheism.4 = {
 			name = modifier_expelled_missionaries_infamy
 		}
 	}
-
 	option = {
 		name = state_atheism.4.c
 		ig:ig_devout = {
@@ -508,28 +425,20 @@ state_atheism.4 = {
 		}
 	}
 }
-
 #A River's New Bearing - Debate
 state_atheism.5 = {
 	type = country_event
 	placement = ROOT
-	
 	title = state_atheism.5.t
 	desc = state_atheism.5.d
 	flavor = state_atheism.5.f
-
 	category = enactment
-	
 	event_image = {
 		video = "middleeast_middleclass_cafe"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
 	duration = 3
-
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
 		ig:ig_intelligentsia = {
@@ -545,7 +454,6 @@ state_atheism.5 = {
 			}
 		}
 	}
-
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -557,7 +465,6 @@ state_atheism.5 = {
 			save_scope_as = devout_ig
 		}
 	}
-
 	option = {
 		name = state_atheism.5.a
 		default_option = yes
@@ -571,7 +478,6 @@ state_atheism.5 = {
 			name = modifier_great_retreat_on_faith
 		}
 	}
-
 	option = {
 		name = state_atheism.5.b
 		add_enactment_modifier = {
@@ -582,7 +488,6 @@ state_atheism.5 = {
 			interest_group = scope:devout_ig
 		}
 	}
-
 	option = {
 		name = state_atheism.5.c
 		trigger = {
@@ -596,24 +501,19 @@ state_atheism.5 = {
 		}
 	}
 }
-
 #Golden Indulgences - Advance
 state_atheism.6 = {
 	type = country_event
 	placement = scope:religion_seizures_state
-	
 	title = state_atheism.6.t
 	desc = state_atheism.6.d
 	flavor = state_atheism.6.f
-
 	category = enactment
-	
 	event_image = {
 		trigger = {
 			country_has_state_religion = rel:jewish
 		}
 		video = "europenorthamerica_judaism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -626,7 +526,6 @@ state_atheism.6 = {
 			}
 		}
 		video = "southamerica_christianity"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -637,15 +536,16 @@ state_atheism.6 = {
 			}
 		}
 		video = "asia_hinduism_sikhism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
 		trigger = {
-			country_has_state_religion = rel:shinto
+			OR = {
+				country_has_state_religion = rel:shinto
+				country_has_state_religion = rel:confucian
+			}
 		}
 		video = "asia_confucianism_shinto"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -657,7 +557,6 @@ state_atheism.6 = {
 			}
 		}
 		video = "asia_buddhism"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -668,7 +567,6 @@ state_atheism.6 = {
 			}
 		}
 		video = "middleeast_islam"
-
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
@@ -690,16 +588,11 @@ state_atheism.6 = {
 			}
 		}
 		video = "africa_animism"
-	
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
 	duration = 3
-
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
 		ig:ig_armed_forces = {
@@ -707,7 +600,6 @@ state_atheism.6 = {
 			is_marginal = no
 		}
 	}
-
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -729,7 +621,6 @@ state_atheism.6 = {
 			save_scope_as = religion_seizures_state
 		}
 	}
-
 	option = {
 		name = state_atheism.6.a
 		default_option = yes
@@ -745,9 +636,9 @@ state_atheism.6 = {
 		}
 		add_enactment_modifier = {
 			name = modifier_seizure_of_church_gold_minting
+			multiplier = money_amount_multiplier_medium
 		}
 	}
-
 	option = {
 		name = state_atheism.6.b
 		scope:religion_seizures_state = {
@@ -760,7 +651,6 @@ state_atheism.6 = {
 			name = modifier_seizure_of_church_gold_army
 		}
 	}
-
 	option = {
 		name = state_atheism.6.c
 		scope:religion_seizures_state = {

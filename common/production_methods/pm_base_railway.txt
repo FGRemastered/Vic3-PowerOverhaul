@@ -4,22 +4,21 @@ pm_early_trains = {		# pm_steam_trains
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_wood_add				=   10
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_wood_add				=    3	# x-20	=  -60
 			# output goods
-			goods_output_transportation_add		=   20
-		}
+			goods_output_transportation_add		=   20	# x+30	= +600
+		}												#		= +240
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=  -50
+			building_employment_machinists_add	= 2000	# x-.03	=  -60
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+		}										# 5000	#		= -125		=> Stops breaking even at SoL 1.92
 	}
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add			=   20
-			state_pollution_generation_add		=   20
+			state_pollution_generation_add		=   25
 		}
 	}
 	country_modifiers = { workforce_scaled	= { market_land_trade_capacity_add	=  1 } }
@@ -30,17 +29,17 @@ pm_steam_trains = {		# pm_watertube_boiler_steam_trains
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_coal_add				=    5
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_coal_add				=    5	# x-30	= -150
 			# output goods
-			goods_output_transportation_add		=   25
-		}
+			goods_output_transportation_add		=   25	# x+30	= +750
+		}												#		= +300
 		level_scaled = {
-			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=  -50
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  250	# x-.06	=  -15
+		}										# 4750	#		= -125		=> Stops breaking even at SoL 2.4
 	}
 	state_modifiers = {
 		workforce_scaled = {
@@ -56,17 +55,17 @@ pm_rotary_valve_steam_trains = {	# Advanced
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_coal_add				=    5	# MAXIMUM OVERDRIVE
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_coal_add				=    5	# x-30	= -150	# MAXIMUM OVERDRIVE
 			# output goods
-			goods_output_transportation_add		=   30
-		}
+			goods_output_transportation_add		=   30	# x+30	= +900
+		}												#		= +450
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1750
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+		}										# 4500	#		= -110		=> Stops breaking even at SoL 4.09
 	}
 	state_modifiers = {
 		workforce_scaled = {
@@ -82,17 +81,17 @@ pm_electric_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_electricity_add			=    5
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_electricity_add			=    5	# x-30	= -150
 			# output goods
-			goods_output_transportation_add		=   50
-		}
+			goods_output_transportation_add		=   50	# x+30	=+1500
+		}												#		=+1050
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+		}										# 4000	#		= -120		=> Stops breaking even at SoL 8.75
 	}
 	state_modifiers = {
 		workforce_scaled = {	# No pollution - base game
@@ -108,17 +107,17 @@ pm_diesel_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_oil_add					=   10
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_oil_add					=    5	# x-40	= -200
 			# output goods
-			goods_output_transportation_add		=   60
-		}
+			goods_output_transportation_add		=   60	# x+30	=+1800
+		}												#		=+1300
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  250	# x-.06	=  -15
+		}												#		= -115		=> Stops breaking even at SoL 11.30
 	}
 	state_modifiers = {
 		workforce_scaled = {
@@ -134,17 +133,17 @@ pm_diesel_electric_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_oil_add					=    5
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_oil_add					=    3	# x-40	= -120
 			# output goods
-			goods_output_transportation_add		=   70
-		}
+			goods_output_transportation_add		=   80	# x+30	=+2400
+		}												#		=+1980
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 2000	# x-.02	=  -40
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+		}												#		= -130		=> Stops breaking even at SoL 15.23
 	}
 	state_modifiers = {
 		workforce_scaled = {
@@ -154,8 +153,8 @@ pm_diesel_electric_trains = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			market_land_trade_capacity_add										= 25
-			country_prestige_add												=  1
+			market_land_trade_capacity_add		= 25
+			country_prestige_add				=  1
 		}
 	}
 }
@@ -165,17 +164,17 @@ pm_jet_electric_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5
-			goods_input_oil_add					=   10
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_oil_add					=    5	# x-40	= -200
 			# output goods
-			goods_output_transportation_add		=   80
-		}
+			goods_output_transportation_add		=  100	# x+30	=+3000
+		}												#		=+2500
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			building_employment_engineers_add	= 1000
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	= 1000	# x-.06	=  -60
+		}												#		= -150		=> Stops breaking even at SoL 16 2/3
 	}
 	state_modifiers = {
 		workforce_scaled = {
@@ -201,22 +200,22 @@ pm_maglev_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=   10	# 5 Trains + 5 Generators
-			goods_input_electricity_add			=   10
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_electricity_add			=    5	# x-30	= -150
 			# output goods
-			goods_output_transportation_add		=  100
-		}
+			goods_output_transportation_add		=  200	# x+30	=+6000
+		}												#		=+5550
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_clerks_add		=  750
-			# building_employment_engineers_add	=  500
-			building_employment_academics_add	=  500
-		}
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 1500	# x-.03	=  -45
+			building_employment_clerks_add		=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  250	# x-.06	=  -15
+			building_employment_academics_add	=  250	# x-.08	=  -20
+		}												#		= -125		=> Stops breaking even at SoL 44.4
 	}
 	state_modifiers = {		# No pollution - Frictionless
 		workforce_scaled = {
-			state_infrastructure_add			=  150
+			state_infrastructure_add			=  200
 		}
 		unscaled = {
 			state_market_access_price_impact	= 0.05
@@ -236,13 +235,22 @@ pm_no_passenger_trains = {	# Unchanged - For reference
 }
 pm_wooden_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+	is_default = yes
+	unlocking_production_methods = {
+		pm_early_trains
+		pm_steam_trains
+		pm_rotary_valve_steam_trains
+		pm_electric_trains
+		pm_diesel_trains
+	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_hardwood_add			=    5
+			goods_input_hardwood_add			=    5	# x-40	= -200
 		}
 		level_scaled = {
 			building_employment_machinists_add	= -250
 			building_employment_clerks_add		= -250
+			building_employment_shopkeepers_add	=  250
 		}
 		unscaled = {
 			goods_output_transportation_mult	=  1.0	# Nerfed too much
@@ -250,8 +258,7 @@ pm_wooden_passenger_carriages = {
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add			=-5
-			state_pollution_generation_add		= 5
+			state_infrastructure_add			=  -5
 		}
 	}
 	ai_value = 3000
@@ -261,11 +268,12 @@ pm_steel_passenger_carriages = {
 	unlocking_technologies = { steel_railway_cars }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_steel_add				=    5
+			goods_input_steel_add				=    5	# x-50	= -250
 		}
 		level_scaled = {
 			building_employment_machinists_add	= -500
 			building_employment_clerks_add		= -500
+			building_employment_shopkeepers_add	=  250	# 500
 		}
 		unscaled = {
 			goods_output_transportation_mult	=  1.5
@@ -273,8 +281,7 @@ pm_steel_passenger_carriages = {
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add			=-5
-			state_pollution_generation_add		= 5
+			state_infrastructure_add			= -10
 		}
 	}
 	ai_value = 5000
@@ -283,7 +290,6 @@ pm_high_speed_rail = {
 	texture = "gfx/interface/icons/production_method_icons/public_trams.dds"
 	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {
-		pm_rotary_valve_steam_trains
 		pm_electric_trains
 		pm_diesel_trains
 		pm_diesel_electric_trains
@@ -293,20 +299,12 @@ pm_high_speed_rail = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add				=    5
-			goods_input_glass_add				=    5
-			goods_input_luxury_furniture_add	=    5
-			goods_input_porcelain_add			=    5
-			goods_input_groceries_add			=    5
-			# goods_input_engines_add				=    1
-			# goods_input_electricity_add			=    5
-			# output goods
-			goods_output_services_add			=   25
+			goods_input_engines_add				=    5	# x-60	= -300
 		}
 		level_scaled = {
 			building_employment_machinists_add	= -500
 			building_employment_clerks_add		= -500
-			building_employment_shopkeepers_add	=  250
+			building_employment_shopkeepers_add	=  500	# 1000
 		}
 		unscaled = {
 			goods_input_coal_mult				=  0.5
@@ -318,45 +316,48 @@ pm_high_speed_rail = {
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add			=  -10
-			state_pollution_generation_add		=   10	# Luxury => Littering
+			state_infrastructure_add			=  -20
+			# state_pollution_generation_add		=    5	# Luxury => Littering
+		}
+		throughput_scaled = {
+			building_urban_center_throughput_add= 0.25
 		}
 	}
 	country_modifiers = { workforce_scaled = { country_prestige_add		=   1 } }
-	# required_input_goods = electricity
 	ai_value = 10000
 }
 # Rails
 pm_normal_rails = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	is_default = yes
+	replacement_if_valid = pm_electric_rails
 	state_modifiers		= { level_scaled		= { state_infrastructure_add 		=  5 } }		# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  5 } }
+	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  1 } }
 }
 pm_electric_rails = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { electrical_generation }
+	# unlocking_technologies = { electrical_generation }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_electricity_add			=    1
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -500
-			building_employment_machinists_add	= -500
+			building_employment_laborers_add	=-1000
 		}
 		# unscaled = { building_throughput_add = 0.1 }
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 10 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 10 } }
-	required_input_goods = electricity
+	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  2 } }
+	required_input_goods = electricity	# Replaces electrical_generation tech requirement
+	ai_value = 2000
 }
 pm_resistive_breaks = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
 	unlocking_technologies = { electrical_capacitors }
 	building_modifiers = {
-		# workforce_scaled = {
-			# goods_input_electricity_add			=    5
-		# }
+		workforce_scaled = {
+			goods_input_electricity_add			=    1
+		}
 		level_scaled = {
 			building_employment_laborers_add	=-1500
 			building_employment_machinists_add	= -500
@@ -364,42 +365,47 @@ pm_resistive_breaks = {
 		}
 		unscaled = {
 			# building_throughput_add				= 0.25
+			goods_input_coal_mult				=-0.15	# 8%-17%
 			goods_input_electricity_mult		=-0.15	# 8%-17%
+			goods_input_oil_mult				=-0.15	# 8%-17%
 		}
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 10 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 25 } }
-	# required_input_goods = electricity
+	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  5 } }
+	required_input_goods = electricity
+	ai_value = 3000
 }
 pm_rail_signals = {
 	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
 	unlocking_technologies = { central_planning }
-	unlocking_production_methods = {
-		pm_electric_trains
-		pm_diesel_trains
-		pm_diesel_electric_trains
-		pm_jet_electric_trains
-		pm_maglev_trains
-	}
+	# unlocking_production_methods = {
+		# pm_electric_trains
+		# pm_diesel_trains
+		# pm_diesel_electric_trains
+		# pm_jet_electric_trains
+		# pm_maglev_trains
+	# }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_telephones_add			=    5
-			goods_input_electricity_add			=    5
+			goods_input_electricity_add			=    1
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-1500
 			building_employment_machinists_add	=-1000
-			building_employment_clerks_add		= -250
-			building_employment_engineers_add	=  500
-			building_employment_bureaucrats_add	=  150	# Makes 250 with ownership pm
+			building_employment_engineers_add	=  250
+			building_employment_bureaucrats_add	=  250
 		}
 		unscaled = {
 			# building_throughput_add				= 0.5
+			goods_input_coal_mult				=-0.25
 			goods_input_electricity_mult		=-0.25
+			goods_input_oil_mult				=-0.25
 		}
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 25 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 50 } }
+	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 10 } }
 	required_input_goods = electricity
 	required_input_goods = telephones
+	ai_value = 5000
 }

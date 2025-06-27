@@ -4,6 +4,11 @@
  bg_heavy_military_industry: "Schwere $bg_military_industry$"
 
  company_edeka: "EDEKA"
+ 
+ pm_simple_fertilizers: "Gründünger"
+ pm_nitrogen_fixation_electricity: "$pm_nitrogen_fixation$ (Elektrolyse)"
+ pm_early_soda: "Pflanzenaschebackpulver"
+ 
  pm_hardwood_tools: "$hardwood$ $tools$"
  pm_early_machine_tools: "Pneumatische Maschinenwerkzeuge"
  pm_machine_tools: "Elektrische Maschinenwerkzeuge"
@@ -23,6 +28,9 @@
  
  pm_basic_oxygen_process: "Linz-Donawitz Verfahren"
  pm_carbon_capture_steel_process: "Verbessertes $pm_electric_arc_process$"
+ 
+ pm_arc_welding_shipbuilding_green: "$pm_arc_welding_shipbuilding$ (Autark)"
+ pm_military_shipbuilding_steam_2_green: "$pm_military_shipbuilding_steam_2$ (Autark)"
  
  pmg_secondary_charcoal: "Kohlenstoffquelle"
  pmg_secondary_charcoal_oil: "$pmg_secondary_charcoal$"
@@ -90,6 +98,12 @@
  pm_rotary_valve_engine_building_war_machine_industry: "$pm_rotary_valve_engine$"
  pm_assembly_lines_building_war_machine_industry: "$pm_assembly_lines$"
  
+ pmg_automation_building_shipyards: "$pmg_automation$"
+ pm_watertube_boiler_building_shipyards: "$pm_watertube_boiler$"
+ pm_rotary_valve_engine_building_shipyards: "$pm_rotary_valve_engine$"
+ pm_assembly_lines_building_shipyards: "$pm_assembly_lines$"
+ pm_assembly_lines_building_shipyards_green: "$pm_assembly_lines$ (Autark)"
+ 
  pm_assembly_lines_building_steel_mills: "$pm_assembly_lines$"
  
  pmg_explosives_building_mine: "Sprengstoffe"
@@ -116,3 +130,7 @@
  pm_publicly_traded_mine: "$pm_publicly_traded$"
  pm_government_run_mine: "$pm_government_run$"
  pm_worker_cooperative_mine: "$pm_worker_cooperative$"
+ 
+ modifier_traditional_patronage: "$pm_traditional_patronage$"
+ modifier_bourgeoisie_patronage: "$pm_bourgeoisie_patronage$"
+ modifier_independent_artists: "$pm_independent_artists$"

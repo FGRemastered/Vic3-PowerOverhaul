@@ -3,9 +3,7 @@
 	military_type = navy
 	ai_usage = intercept
 	is_basic_order_type = yes
-	possible = {
-		error_check = { severity = invalid	has_role = admiral }
-	}
+	possible = { has_role = admiral }
 	modifier = {
 		character_interception_add = 2
 	}
@@ -21,7 +19,7 @@ interception_coast_agressive = {
 	military_type = navy
 	ai_usage = intercept
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 		OR = {
 			has_trait = reckless
 			has_trait = brave
@@ -44,7 +42,7 @@ interception_carrier_assualt = {	# PDX' typo, not mine.
 	military_type = navy
 	ai_usage = intercept
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 		has_trait = innovative
 		# NOT = { has_trait = traditionalist_commander }
 		trigger_if = {
@@ -73,7 +71,7 @@ interception_coordinated_attack = {
 	military_type = navy
 	ai_usage = intercept
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 		OR = {
 			has_trait = reserved
 			has_trait = tactful

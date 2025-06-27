@@ -1,139 +1,213 @@
 # Fertilizer
-pm_artificial_fertilizers = {
-	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+pm_simple_fertilizers = {	# Potash + Manure
+	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	replacement_if_valid = pm_artificial_fertilizers
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   30
-			goods_input_iron_add				=   10
+			goods_input_grain_add				=   20	# x-20	=  -400
+			goods_input_wood_add				=   20	# x-20	=  -400
 			# output goods
-			goods_output_fertilizer_add			=   90
-		}
+			goods_output_fertilizer_add			=   45	# x-30	=  1350
+		}												#		=   550
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=   -50
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_shopkeepers_add	=  250	# x-.06	=   -15
+		}												#		=  -110	=> Stops breaking even at SoL 5
+	}
+}
+pm_artificial_fertilizers = {
+	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	unlocking_technologies = { intensive_agriculture }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_iron_add				=   10	# x-40	=  -400
+			goods_input_sulfur_add				=   30	# x-50	= -1500
+			# output goods
+			goods_output_fertilizer_add			=   90	# x-30	=  2700
+		}												#		=   800
+		level_scaled = {
+			building_employment_laborers_add	= 2000	# x-.02	=   -40
+			building_employment_machinists_add	= 2000	# x-.03	=   -60
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -160	=> Stops breaking even at SoL 5
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 pm_improved_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/improved_fertilizer.dds"
 	unlocking_technologies = { improved_fertilizer }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_sulfur_add				=   30
-			goods_input_iron_add				=   30
+			goods_input_iron_add				=   30	# x-40	= -1200
+			goods_input_sulfur_add				=   30	# x-50	= -1500
 			# output goods
-			goods_output_fertilizer_add			=  150
-		}
+			goods_output_fertilizer_add			=  160	# x-30	=  4800
+		}												#		=  2100
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 2000	# x-.03	=   -60
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -140	=> Stops breaking even at SoL 15
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 pm_nitrogen_fixation = {
 	texture = "gfx/interface/icons/production_method_icons/nitrogen_fixation.dds"
 	unlocking_technologies = { nitrogen_fixation }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   50
-			goods_input_electricity_add			=   35
+			goods_input_liquor_add				=   20	# x-30	=  -600
+			goods_input_sulfur_add				=   40	# x-50	= -2000
+			goods_input_oil_add					=   35	# x-40	= -1400
 			# output goods
-			goods_output_fertilizer_add			=  250
-		}
+			goods_output_fertilizer_add			=  230	# x-30	=  6900
+		}												#		=  2900
 		level_scaled = {
-			building_employment_laborers_add	= 1000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
-		}
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -125	=> Stops breaking even at SoL 23.2
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+}
+pm_nitrogen_fixation_electricity = {
+	texture = "gfx/interface/icons/production_method_icons/electric_arc_process.dds"
+	unlocking_technologies = { arc_welding }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_liquor_add				=   20	# x-30	=  -600
+			goods_input_sulfur_add				=   75	# x-50	= -3750
+			goods_input_electricity_add			=   30	# x-30	=  -900
+			# output goods
+			goods_output_fertilizer_add			=  300	# x-30	=  9000
+		}												#		=  3750
+		level_scaled = {
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -125	=> Stops breaking even at SoL 30
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=  5 } }
 	required_input_goods = electricity
 }
 # Explosives
-pm_leblanc_process = {
-	texture = "gfx/interface/icons/production_method_icons/leblanc_process.dds"
+pm_early_soda = {	# Gunpowder	- 75% Fertilizer + 15% Charcoal + 10% Sulfur
+	texture = "gfx/interface/icons/production_method_icons/dye_workshops.dds"
+	replacement_if_valid = pm_leblanc_process
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   10
-			goods_input_fertilizer_add			=   10
-			# output goods
-			goods_output_explosives_add			=   50
-		}
+			goods_input_sulfur_add				=    5	# x-50	=  -250
+			goods_input_fertilizer_add			=   10	# x-30	=  -300
+			goods_input_wood_add				=    7.5# x-20	=  -150
+			# output goods										=  -700
+			goods_output_explosives_add			=   25	# x+50	=  1250
+		}												#		=   550
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  250
-		}
+			building_employment_laborers_add	= 2500	# x-.02	=   -50
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_shopkeepers_add	=  250	# x-.06	=   -15
+		}												#		=  -110	=> Stops breaking even at SoL 5
+	}
+}
+pm_leblanc_process = {
+	texture = "gfx/interface/icons/production_method_icons/leblanc_process.dds"
+	unlocking_technologies = { intensive_agriculture }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_sulfur_add				=   20	# x-50	= -1000
+			goods_input_fertilizer_add			=   20	# x-30	=  -600
+			# output goods
+			goods_output_explosives_add			=   50	# x+50	=  2500
+		}												#		=   900
+		level_scaled = {
+			building_employment_laborers_add	= 2000	# x-.02	=   -40
+			building_employment_machinists_add	= 2000	# x-.03	=   -60
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -160	=> Stops breaking even at SoL 5 5/8
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 pm_ammonia-soda_process = {
 	texture = "gfx/interface/icons/production_method_icons/ammonia_soda_process.dds"
 	unlocking_technologies = { nitroglycerin }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   15
-			goods_input_fertilizer_add			=   15
-			goods_input_paper_add				=    5
+			goods_input_sulfur_add				=   30	# x-50	= -1500
+			goods_input_fertilizer_add			=   30	# x-30	=  -900
+			goods_input_paper_add				=   10	# x-30	=  -300
 			# output goods
-			goods_output_explosives_add			=   80
-		}
+			goods_output_explosives_add			=   80	# x+50	=  4000
+		}												#		=  1300
 		level_scaled = {
-			building_employment_laborers_add	= 1500
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 1250	# x-.02	=   -25
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -130	=> Stops breaking even at SoL 10
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
 pm_vacuum_evaporation = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation.dds"
 	unlocking_technologies = { dynamite }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   20
-			goods_input_fertilizer_add			=   40
-			goods_input_paper_add				=   20
+			goods_input_sulfur_add				=   30	# x-50	= -1500
+			goods_input_fertilizer_add			=   40	# x-30	= -1200
+			goods_input_paper_add				=   20	# x-30	=  -600
 			# output goods
-			goods_output_explosives_add			=  110
-		}
+			goods_output_explosives_add			=  120	# x+50	=  6000
+		}												#		= +2700
 		level_scaled = {
-			building_employment_laborers_add	= 1000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-		}
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -125	=> Stops breaking even at SoL 21.6
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
 pm_brine_electrolysis = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
 	unlocking_technologies = { electrical_capacitors }
+	disallowing_laws = { law_industry_banned law_extraction_economy }
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add				=   40
-			goods_input_fertilizer_add			=   50
-			goods_input_paper_add				=   30
-			goods_input_electricity_add			=   20
+			goods_input_sulfur_add				=   65	# x-50	= -3250
+			goods_input_fertilizer_add			=   50	# x-30	= -1500
+			goods_input_paper_add				=   30	# x-30	=  -900
+			goods_input_electricity_add			=   20	# x-30	=  -600
 			# output goods
-			goods_output_explosives_add			=  200
-		}
+			goods_output_explosives_add			=  200	# x+50	= 10000
+		}												#		= +3750
 		level_scaled = {
-			building_employment_laborers_add	= 1000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	=  500
-			building_employment_academics_add	=  250
-		}
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -125	=> Stops breaking even at SoL 30
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 	required_input_goods = electricity

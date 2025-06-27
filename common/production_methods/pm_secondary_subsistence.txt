@@ -1,286 +1,149 @@
 # Home Workshops
-# No Home Workshops
 pm_home_workshops_no = {
 	texture = "gfx/interface/icons/production_method_icons/no_home_workshops.dds"
 	unlocking_laws = { law_collectivized_agriculture }
 	building_modifiers = {
 		unscaled = {
-			goods_output_groceries_mult		=-0.75
-			goods_output_liquor_mult		=-1.0
-			goods_output_fabric_mult		= 1.0
-			goods_output_wood_mult			= 1.0
-			goods_output_grain_mult			= 0.5
-			goods_output_fish_mult			= 0.5
-			goods_output_fruit_mult			= 0.5
-			goods_output_meat_mult			= 0.5
-			goods_output_services_mult		= 0.5
+			goods_output_groceries_mult			=-1.00
+			goods_output_liquor_mult			=-1.00
+			goods_output_fabric_mult			= 0.50
+			goods_output_wood_mult				= 0.50
+			goods_output_hardwood_mult			= 0.50
+			goods_output_grain_mult				= 0.50
+			goods_output_fish_mult				= 0.50
+			goods_output_fruit_mult				= 0.50
+			goods_output_meat_mult				= 0.50
+			goods_output_fertilizer_mult		= 0.50
+			goods_output_services_mult			=-0.50
 		}
 	}
 }
-# Generic
 pm_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/home_workshops.dds"
 	disallowing_laws = { law_collectivized_agriculture }
+	unlocking_production_methods = { pm_no_green_power }
 	is_default = yes
+	replacement_if_valid = pm_lathe_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_clothes_add		= 0.5
-			goods_output_furniture_add		= 0.5
+			goods_output_clothes_add			= 0.50
+			goods_output_furniture_add			= 0.50
 		}
 		unscaled = {
-			goods_output_groceries_mult		=-1.0
-			goods_output_liquor_mult		=-0.25
+			goods_output_groceries_mult			=-1.00
+			goods_output_liquor_mult			=-0.50
 		}
 	}
 }
 pm_lathe_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/newspapers.dds"
-	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_technologies = { lathe }
+	disallowing_laws = { law_collectivized_agriculture }
+	# replacement_if_valid = pm_mechanized_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_clothes_add		= 0.75
-			goods_output_furniture_add		= 0.75
-			goods_input_tools_add			=-0.5
-			# goods_input_fertilizer_add		=-0.5
-			goods_output_tools_add			= 1.5
-			goods_output_glass_add			= 0.75
-			goods_output_paper_add			= 0.5
-			goods_output_coal_add			= 0.175
+			goods_output_clothes_add			= 0.75
+			goods_output_furniture_add			= 0.75
+			goods_output_tools_add				= 1.50
+			goods_output_glass_add				= 0.75
+			goods_output_paper_add				= 0.50
 		}
 		level_scaled = {
-			building_employment_machinists_add	= 400
-			building_employment_engineers_add	= 100
+			building_employment_peasants_add	= -500
+			building_employment_machinists_add	=  500
 		}
 		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_groceries_mult		=-0.5
-			goods_output_fabric_mult		= 0.5
-			goods_output_wood_mult			= 0.5
-			goods_output_hardwood_mult		= 0.5
+			goods_input_tools_mult				=-0.25
+			goods_input_fertilizer_mult			=-0.10
+			goods_output_fertilizer_mult		= 0.20
+			goods_output_grain_mult				=-0.50
+			goods_output_fish_mult				=-0.50
+			goods_output_fruit_mult				=-0.50
+			goods_output_meat_mult				=-0.50
+			goods_output_sugar_mult				=-0.50
+			goods_output_groceries_mult			=-0.50
+			goods_output_liquor_mult			=-0.50
+			goods_output_fabric_mult			= 0.50
+			goods_output_wood_mult				= 0.50
+			goods_output_hardwood_mult			= 0.50
 		}
 	}
 	ai_value = 10000
-	# ai_value = {
-		# value = 100000
-		# if = { limit = { owner = { has_technology_researched = mechanized_workshops } } multiply = 0 }
-	# }
 }
 pm_mechanized_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/printing_presses.dds"
-	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_technologies = { mechanized_workshops }
+	disallowing_laws = { law_collectivized_agriculture }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_clothes_add		= 1.0
-			goods_output_furniture_add		= 1.0
-			goods_input_tools_add			=-1.5
-			# goods_input_fertilizer_add		=-1.5
-			goods_output_tools_add			= 3.0
-			goods_output_glass_add			= 1.5
-			goods_output_paper_add			= 1.0
-			goods_output_coal_add			= 0.525
+			goods_input_transportation_add		= 0.50	# x-30	=-15
+			goods_output_clothes_add			= 1.00
+			goods_output_furniture_add			= 1.00
+			goods_output_tools_add				= 3.00
+			goods_output_glass_add				= 1.50
+			goods_output_paper_add				= 1.00
 		}
 		level_scaled = {
-			building_employment_machinists_add	= 300
-			building_employment_engineers_add	= 200
+			building_employment_peasants_add	= -500
+			building_employment_machinists_add	=  250
+			building_employment_engineers_add	=  250
 		}
 		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_liquor_mult		= 0.5
-			goods_output_fabric_mult		= 1.0
-			goods_output_wood_mult			= 1.0
-			goods_output_hardwood_mult		= 1.0
-			goods_output_services_mult		= 0.5
+			goods_input_tools_mult				=-0.50
+			goods_input_fertilizer_mult			=-0.20
+			goods_output_fertilizer_mult		= 0.40
+			goods_output_grain_mult				=-0.50
+			goods_output_fish_mult				=-0.50
+			goods_output_fruit_mult				=-0.50
+			goods_output_meat_mult				=-0.50
+			goods_output_sugar_mult				=-0.50
+			goods_output_fabric_mult			= 1.00
+			goods_output_wood_mult				= 1.00
+			goods_output_hardwood_mult			= 1.00
+			goods_output_services_mult			= 1.00
 		}
 	}
 	ai_value = 50000
-	# ai_value = {
-		# value = 100000
-		# if = { limit = { owner = { has_technology_researched = electrical_capacitors } } multiply = 0 }
-	# }
+	required_input_goods = transportation
 }
 pm_electric_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/vacuum_tubes.dds"
-	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_technologies = { electrical_capacitors }
-	unlocking_production_methods = {
-		pm_early_windpark
-		pm_large_windpark
-		pm_solar_windpark
-		pm_large_solar_windpark
-		pm_huge_solar_windpark
-		
-		pm_no_offshore_windpark
-		pm_on_shore_windpark
-		pm_early_offshore_windpark
-		pm_offshore_windpark
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-		
-		pm_early_windpark_subsistence
-		pm_large_windpark_subsistence
-		pm_solar_windpark_subsistence
-		pm_large_solar_windpark_subsistence
-		pm_huge_solar_windpark_subsistence
-	}
+	disallowing_laws = { law_collectivized_agriculture }
+	replacement_if_valid = pm_autark_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_output_electricity_add	=-1.0
+			goods_input_transportation_add		= 0.50	# x-30	=-15
+			goods_input_electricity_add			= 0.50
 			# output goods
-			goods_output_clothes_add		= 1.0
-			goods_output_furniture_add		= 1.0
-			goods_input_tools_add			=-2.5
-			# goods_input_fertilizer_add		=-2.5
-			goods_output_tools_add			= 4.5
-			goods_output_glass_add			= 3.0
-			goods_output_paper_add			= 2.0
-			goods_output_coal_add			= 1.75
-			goods_output_oil_add			= 0.175
+			goods_output_tools_add				= 5.00
+			goods_output_glass_add				= 3.00
+			goods_output_paper_add				= 2.00
 		}
 		level_scaled = {
-			building_employment_machinists_add	= 250
-			building_employment_engineers_add	= 250
+			building_employment_peasants_add	= -500
+			building_employment_engineers_add	=  500
 		}
 		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_groceries_mult		= 1.0
-			goods_output_liquor_mult		= 1.0
-			goods_output_fabric_mult		= 2.0
-			goods_output_wood_mult			= 2.0
-			goods_output_hardwood_mult		= 2.0
-			goods_output_services_mult		= 1.0
+			goods_input_tools_mult				=-0.50
+			goods_input_fertilizer_mult			=-0.25
+			goods_output_fertilizer_mult		= 0.50
+			goods_output_fabric_mult			= 2.00
+			goods_output_wood_mult				= 2.00
+			goods_output_hardwood_mult			= 2.00
+			goods_output_services_mult			= 2.00
 		}
 	}
 	ai_value = 100000
+	required_input_goods = transportation
+	required_input_goods = electricity
 }
-# Double
-pm_home_workshops_building_subsistence_rice_paddies = {
-	texture = "gfx/interface/icons/production_method_icons/home_workshops.dds"
-	disallowing_laws = { law_collectivized_agriculture }
-	is_default = yes
-	building_modifiers = {
-		workforce_scaled = {
-			goods_output_clothes_add		= 1.0
-			goods_output_furniture_add		= 1.0
-		}
-		unscaled = {
-			goods_output_groceries_mult		=-1.0
-			goods_output_liquor_mult		=-0.25
-		}
-	}
-}
-pm_lathe_home_workshops_building_subsistence_rice_paddies = {
-	texture = "gfx/interface/icons/production_method_icons/unused/newspapers.dds"
-	disallowing_laws = { law_collectivized_agriculture }
-	unlocking_technologies = { lathe }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_output_clothes_add		= 2.0
-			goods_output_furniture_add		= 1.5
-			goods_input_tools_add			=-1.0
-			# goods_input_fertilizer_add		=-0.5
-			goods_output_tools_add			= 3.0
-			goods_output_glass_add			= 1.5
-			goods_output_paper_add			= 1.0
-			goods_output_coal_add			= 0.175
-		}
-		level_scaled = {
-			building_employment_machinists_add	= 800
-			building_employment_engineers_add	= 200
-		}
-		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_groceries_mult		=-0.5
-			goods_output_fabric_mult		= 0.5
-			goods_output_wood_mult			= 0.5
-			goods_output_hardwood_mult		= 0.5
-		}
-	}
-	ai_value = 10000
-	# ai_value = {
-		# value = 100000
-		# if = { limit = { owner = { has_technology_researched = mechanized_workshops } } multiply = 0 }
-	# }
-}
-pm_mechanized_home_workshops_building_subsistence_rice_paddies = {
-	texture = "gfx/interface/icons/production_method_icons/unused/printing_presses.dds"
-	disallowing_laws = { law_collectivized_agriculture }
-	unlocking_technologies = { mechanized_workshops }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_output_clothes_add		= 3.0
-			goods_output_furniture_add		= 3.0
-			goods_input_tools_add			=-2.0
-			# goods_input_fertilizer_add		=-1.5
-			goods_output_tools_add			= 6.0
-			goods_output_glass_add			= 3.0
-			goods_output_paper_add			= 2.0
-			goods_output_coal_add			= 1.05
-		}
-		level_scaled = {
-			building_employment_machinists_add	= 600
-			building_employment_engineers_add	= 400
-		}
-		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_liquor_mult		= 0.5
-			goods_output_fabric_mult		= 1.0
-			goods_output_wood_mult			= 1.0
-			goods_output_hardwood_mult		= 1.0
-			goods_output_services_mult		= 0.5
-		}
-	}
-	ai_value = 50000
-	# ai_value = {
-		# value = 100000
-		# if = { limit = { owner = { has_technology_researched = electrical_capacitors } } multiply = 0 }
-	# }
-}
-pm_electric_home_workshops_building_subsistence_rice_paddies = {
+pm_autark_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/vacuum_tubes.dds"
-	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_technologies = { electrical_capacitors }
+	is_hidden_when_unavailable = yes
 	unlocking_production_methods = {
-		pm_early_windpark
-		pm_large_windpark
-		pm_solar_windpark
-		pm_large_solar_windpark
-		pm_huge_solar_windpark
-		
-		pm_no_offshore_windpark
-		pm_on_shore_windpark
-		pm_early_offshore_windpark
-		pm_offshore_windpark
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-		
 		pm_early_windpark_subsistence
 		pm_large_windpark_subsistence
 		pm_solar_windpark_subsistence
@@ -290,36 +153,27 @@ pm_electric_home_workshops_building_subsistence_rice_paddies = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_output_electricity_add	=-2.0
+			goods_input_transportation_add		= 0.50	# x-30	=-15
+			goods_output_electricity_add		=-0.50
 			# output goods
-			goods_output_clothes_add		= 3.0
-			goods_output_furniture_add		= 3.0
-			goods_input_tools_add			=-5.0
-			# goods_input_fertilizer_add		=-2.5
-			goods_output_tools_add			= 9.0
-			goods_output_glass_add			= 6.0
-			goods_output_paper_add			= 4.0
-			goods_output_coal_add			= 3.5
-			goods_output_oil_add			= 0.35
+			goods_output_tools_add				= 5.00
+			goods_output_glass_add				= 3.00
+			goods_output_paper_add				= 2.00
 		}
 		level_scaled = {
-			building_employment_machinists_add	= 500
-			building_employment_engineers_add	= 500
+			building_employment_peasants_add	= -500
+			building_employment_engineers_add	=  500
 		}
 		unscaled = {
-			# building_engineers_shares_add	= 1.0
-			goods_output_grain_mult			=-0.5
-			goods_output_fish_mult			=-0.5
-			goods_output_fruit_mult			=-0.5
-			goods_output_meat_mult			=-0.5
-			goods_output_sugar_mult			=-0.5
-			goods_output_groceries_mult		= 1.0
-			goods_output_liquor_mult		= 1.0
-			goods_output_fabric_mult		= 2.0
-			goods_output_wood_mult			= 2.0
-			goods_output_hardwood_mult		= 2.0
-			goods_output_services_mult		= 1.0
+			goods_input_tools_mult				=-0.50
+			goods_input_fertilizer_mult			=-0.25
+			goods_output_fertilizer_mult		= 0.50
+			goods_output_fabric_mult			= 2.00
+			goods_output_wood_mult				= 2.00
+			goods_output_hardwood_mult			= 2.00
+			goods_output_services_mult			= 2.00
 		}
 	}
 	ai_value = 100000
+	required_input_goods = transportation
 }

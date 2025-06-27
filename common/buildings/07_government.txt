@@ -2,7 +2,8 @@
 building_port = {
 	building_group = bg_public_infrastructure
 	city_type = port
-	texture = "gfx/interface/icons/building_icons/building_port.dds"
+	icon = "gfx/interface/icons/building_icons/building_port.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	has_max_level = yes
 	ignore_stateregion_max_level = yes
 	port = yes
@@ -14,34 +15,41 @@ building_port = {
 	}
 	required_construction = construction_cost_medium
 	terrain_manipulator = urban_port
-	possible = {
-		error_check = { severity = fail is_coastal = yes }
+	possible = { is_coastal = yes }
+	should_auto_expand = { trigger_auto_expand_port = yes }
+	ownership_type = self
+	ai_nationalization_desire = 1.0	# AI WILL nationalise these.
+	ai_value = {	# Added
+		value = 1000
+		if = { limit = { is_treaty_port = yes NOT = { any_scope_building = { is_building_type = building_port } } } multiply = 10 }
 	}
-	should_auto_expand = {
-		OR = {
-			AND = {
-				state = { market_access < 1 }
-				owner = { NOT = { has_technology_researched = railways } } # Placeholder for land adjacency
-			}
-			AND = {
-				owner = { num_convoys_available < num_convoys_required }
-				state = { is_incorporated = yes }
-			}
-			trigger_if = {
-				limit = { owner = { is_subject = yes } }
-				custom_tooltip = {
-					text = "OVERLORD has insufficient convoys"
-					owner.OVERLORD = { num_convoys_available < num_convoys_required }
-				}
-				state = { is_incorporated = yes }
-			}
-			AND = {
-				weekly_profit > 0
-				state = { sg:transportation = { state_goods_pricier > 0.5 } }
-			}
-		}
-		occupancy = 1
-		building_has_goods_shortage = no
+}
+building_infres_port = {
+	building_group = bg_public_infrastructure
+	city_type = port
+	icon = "gfx/interface/icons/building_icons/building_port.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	has_max_level = no
+	port = yes
+	unlocking_technologies = { navigation }
+	production_method_groups = {
+		pmg_base_building_port
+		pmg_train_automation_port
+		pmg_tertiary_offshore_power
+	}
+	required_construction = construction_cost_medium
+	terrain_manipulator = urban_port
+	can_build_government = {
+		trigger_gov_construction	= yes
+		is_coastal					= yes
+	}
+	can_build_private = { always = no }	# Let's try not to break things too much.
+	ownership_type = self
+	ai_nationalization_desire = 1.0	# AI WILL nationalise these.
+	should_auto_expand = { trigger_auto_expand_infres_port = yes }
+	ai_value = {	# Added
+		value = 0
+		if = { limit = { any_scope_building = { is_building_type = building_port NOT = { can_queue_building_levels = 1 } } } add = 1000 }
 	}
 }
 building_government_administration = {
@@ -55,30 +63,38 @@ building_government_administration = {
 		pmg_government_administration_bureaucrat_professionalism
 		pmg_government_administration_religious_administration
 	}
-	should_auto_expand = {
-		occupancy > 0.95
-		OR = {
-			state.tax_capacity < state.tax_capacity_usage
-			AND = {
-				THIS.STATE = {
-					OR = {
-						is_capital = yes
-						any_scope_building = { is_building_type = building_skyscraper }
-						any_scope_building = { is_building_type = building_white_house }
-					}
-				}
-				OR = {
-					owner = { bureaucracy <= 0 }
-					owner = { approaching_bureaucracy_shortage = yes }
-				}
-			}
-		}
-		building_has_goods_shortage = no
-		state.market_access > 0.9
-	}
-	texture = "gfx/interface/icons/building_icons/building_government_administration.dds"
-	required_construction = construction_cost_medium
+	should_auto_expand = { trigger_auto_expand_admin = yes }
+	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	required_construction = construction_cost_very_low
 	slaves_role = clerks
+}
+building_skyscraper = {
+	building_group				= bg_skyscraper
+	city_type					= city
+	levels_per_mesh				= 1
+	enable_air_connection		= yes
+	override_centerpiece_mesh	= yes
+	centerpiece_mesh_weight		= 1
+	expandable					= no
+	downsizeable				= no
+	required_construction		= construction_cost_monument
+	production_method_groups = {
+		pmg_base_building_skyscraper
+		pmg_airship_mooring_post
+		pmg_train_automation_sky
+		pmg_skyscraper_bureaucrat_professionalism
+	}
+	icon = "gfx/interface/icons/building_icons/skyscraper.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+	can_build_government = {
+		custom_tooltip = {
+			text = skyscraper_can_construct_tt
+			has_modifier = skyscraper_site
+		}
+	}
+	can_build_private = { always = no }
+	ai_value = 10000
 }
 building_university = {
 	building_group = bg_technology
@@ -87,38 +103,11 @@ building_university = {
 	unlocking_technologies = { academia }
 	production_method_groups = {
 		pmg_base_building_university
-		pmg_train_automation_uni
+		pmg_train_automation_gov	# pmg_train_automation_uni
 		pmg_university_academia
+		pmg_principle_freedom_of_movement_3
 	}
-	texture = "gfx/interface/icons/building_icons/building_university.dds"
+	icon = "gfx/interface/icons/building_icons/building_university.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_medium
-}
-building_skyscraper = {
-	building_group = bg_skyscraper
-	city_type = city
-	levels_per_mesh = 1
-	enable_air_connection = yes
-	override_centerpiece_mesh = yes
-	expandable = no
-	downsizeable = no
-	production_method_groups = {
-		pmg_base_building_skyscraper
-		pmg_airship_mooring_post
-		pmg_train_automation_sky
-		pmg_skyscraper_bureaucrat_professionalism
-		pmg_government_administration_religious_administration
-	}
-	texture = "gfx/interface/icons/building_icons/skyscraper.dds"
-	required_construction = construction_cost_monument
-	can_build_government = {
-		error_check = {
-			severity = fail
-			custom_tooltip = {
-				text = skyscraper_can_construct_tt
-				has_modifier = skyscraper_site
-			}
-		}
-	}
-	can_build_private = { error_check = { severity = potential always = no } }
-	ai_value = 10000
 }

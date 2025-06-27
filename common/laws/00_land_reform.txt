@@ -28,29 +28,14 @@
 		}
 	}
 	modifier = {
-		interest_group_ig_landowners_pol_str_mult	= 0.25	# Changed
-		country_aristocrats_pol_str_mult			= 0.25	# Added
-	}
-	possible_political_movements = {
-		law_tenant_farmers
-		law_collectivized_agriculture
-		law_homesteading
-		law_commercialized_agriculture
-	}
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_ARISTOCRATS"			
-			if = {
-				limit = { is_pop_type = aristocrats }
-				value = 0.1
-			}
-		}
+		country_aristocrats_pol_str_mult					= 0.50	# Changed
+		state_peasants_internal_migration_disallowed_bool	= yes
+		state_peasants_mass_migration_disallowed_bool		= yes
 	}
 	ai_will_do = { always = no }	# AI should never try to bring back serfdom
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
 	}
 }
 law_tenant_farmers = {
@@ -58,12 +43,8 @@ law_tenant_farmers = {
 	icon = "gfx/interface/icons/law_icons/tenant_farmers.dds"
 	progressiveness = 0
 	modifier = {
-		country_aristocrats_pol_str_mult = 0.25	# Changed
-	}
-	possible_political_movements = {
-		law_homesteading
-		law_collectivized_agriculture
-		law_commercialized_agriculture
+		country_aristocrats_pol_str_mult					= 0.25	# Changed
+		state_peasants_internal_migration_disallowed_bool	= yes
 	}
 	on_enact = {
 		if = {
@@ -85,35 +66,27 @@ law_tenant_farmers = {
 			custom_tooltip = rural_laborers_tu_ig_shift_effect_negative_tt
 		}
 	}
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_ARISTOCRATS"			
-			if = {
-				limit = {
-					owner = { NOT = { has_law = law_type:law_serfdom } }
-					is_pop_type = aristocrats
-				}
-				value = 0.1
-			}
-		}
-		add = {
-			desc = "POP_PEASANTS"		
-			if = {
-				limit = { 
-					is_pop_type = peasants
-					owner = { has_law = law_type:law_serfdom }
-				}
-				add = {
-					value = literacy_rate
-					divide = 2
-				}
-			}			
-		}
-	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {
+			limit = { 
+				OR = { has_journal_entry = je_meiji_main has_journal_entry = je_great_reforms_serfdom }
+				has_law = law_type:law_serfdom
+			}
+			add = 10000 # Top priority for Meiji AI is to get out of Serfdom, likewise for Great Reforms
+		}
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_stance = { law = law_type:law_tenant_farmers value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
 	}
 }
 law_commercialized_agriculture = {
@@ -124,11 +97,6 @@ law_commercialized_agriculture = {
 		state_political_strength_from_wealth_mult = 0.25	# Added
 	}
 	disallowing_laws = { law_traditionalism }
-	possible_political_movements = {
-		law_homesteading
-		law_collectivized_agriculture
-		law_homesteading
-	}
 	unlocking_technologies = { mutual_funds }
 	on_enact = {
 		if = {
@@ -157,46 +125,39 @@ law_commercialized_agriculture = {
 			set_variable = landreform_pedropoint
 			remove_pedropoint_effect = yes
 		}
-	}
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_CAPITALISTS"			
-			if = {
-				limit = { is_pop_type = capitalists }
-				value = 0.1
-			}
-		}
-		add = {
-			desc = "POP_PEASANTS"		
-			if = {
-				limit = { 
-					is_pop_type = peasants
-					owner = { has_law = law_type:law_serfdom }
-				}
-				add = {
-					value = literacy_rate
-					divide = 2
-				}
-			}			
-		}
+		# effect_modern_stratocratic = yes
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {
+			limit = { 
+				has_journal_entry = je_meiji_main
+				has_law = law_type:law_serfdom
+			}
+			add = 10000 # Top priority for Meiji AI is to get out of Serfdom
+		}
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_stance = { law = law_type:law_commercialized_agriculture value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
 	}
 }
 law_homesteading = {
 	group = lawgroup_land_reform
 	icon = "gfx/interface/icons/law_icons/freeholders.dds"
 	progressiveness = 25
-	possible_political_movements = {
-		law_tenant_farmers
-		law_collectivized_agriculture
-		law_commercialized_agriculture
-	}
 	modifier = {
-		country_farmers_pol_str_mult = 0.25
+		building_group_bg_agriculture_allowed_collectivization_add			= 0.50	# I made Ranching a subgroup of agriculture, as it should be.
+		building_group_bg_plantations_throughput_add						= 0.25
+		country_farmers_pol_str_mult										= 0.25
 	}
 	on_enact = {
 		if = {
@@ -225,35 +186,22 @@ law_homesteading = {
 			set_variable = landreform_pedropoint
 			remove_pedropoint_effect = yes
 		}
-	}
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_FARMERS"			
-			if = {
-				limit = { is_pop_type = farmers }
-				value = 0.50
-			}
-		}
-		add = {
-			desc = "POP_PEASANTS"		
-			if = {
-				limit = { 
-					is_pop_type = peasants
-					owner = { 
-						OR = {
-							has_law = law_type:law_serfdom
-							has_law = law_type:law_tenant_farmers
-						}
-					}
-				}
-				add = { value = literacy_rate }
-			}			
-		}
+		# effect_modern_stratocratic = yes
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_stance = { law = law_type:law_homesteading value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
 	}
 }
 law_collectivized_agriculture = {
@@ -261,7 +209,9 @@ law_collectivized_agriculture = {
 	icon = "gfx/interface/icons/law_icons/collectivized_agriculture.dds"
 	progressiveness = 50
 	modifier = {
-		country_bureaucrats_pol_str_mult = 0.25
+		building_group_bg_agriculture_allowed_collectivization_add			= 1.00	# Ranching is a subgroup
+		building_group_bg_plantations_allowed_collectivization_add			= 1.00
+		country_bureaucrats_pol_str_mult									= 0.25	# Moved from law_command_economy
 	}
 	on_enact = {
 		custom_tooltip = rural_laborers_tu_ig_shift_effect_tt
@@ -282,33 +232,16 @@ law_collectivized_agriculture = {
 			set_variable = landreform_pedropoint
 			remove_pedropoint_effect = yes
 		}
+		# effect_modern_stratocratic = yes
 	}
 	unlocking_laws = {
 		law_command_economy
 		law_cooperative_ownership
 	}
-	possible_political_movements = {
-		law_tenant_farmers
-		law_homesteading
-		law_commercialized_agriculture
-	}
 	unlocking_technologies = { socialism }
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_PEASANTS"		
-			if = {
-				limit = { 
-					is_pop_type = peasants
-					owner = { has_law = law_type:law_serfdom }
-				}
-				add = { value = literacy_rate }
-			}			
-		}
-	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var }	add = 750 }
-		if = { limit = { has_law = law_type:law_council_republic }																		add = 250 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }
+		if = { limit = { has_law = law_type:law_council_republic }				add = 250 }
 	}
 }

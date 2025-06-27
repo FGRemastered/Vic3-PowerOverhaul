@@ -1,0 +1,908 @@
+# # Plantation default pms
+# # Wine
+# default_building_vineyard_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_wine_add				=   20	# x+50	= 1000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_vineyard_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_wine_add				=   40	# x+50	= 2000
+		# }												#		= 1850
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_vineyard_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_wine_add				=   70	# x+50	= 3500
+		# }												#		= 3050
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_vineyard_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_wine_add				=   80	# x+50	= 4000
+		# }												#		= 3250
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_vineyard_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_wine_add				=  100	# x+50	= 5000
+		# }												#		= 3950
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Coffee
+# default_building_coffee_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_coffee_add				=   20	# x+50	= 1000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_coffee_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_coffee_add				=   40	# x+50	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_coffee_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_coffee_add				=   70	# x+50	= 3500
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_coffee_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_coffee_add				=   80	# x+50	= 4000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_coffee_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_coffee_add				=  100	# x+50	= 5000
+		# }												#		= 3950
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Cotton
+# default_building_cotton_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_fabric_add				=   40	# x+20	=  800
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 5.71
+	# }
+# }
+# pm_soil_enriching_farming_cotton_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_fabric_add				=   80	# x+20	= 1600
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_cotton_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_fabric_add				=  100	# x+20	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_cotton_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_fabric_add				=  120	# x+20	= 2400
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_cotton_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_fabric_add				=  180	# x+20	= 3600
+		# }												#		= 2550
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Dye
+# default_building_dye_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_dye_add				=   25	# x+40	= 1000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_dye_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_dye_add				=   50	# x+40	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_dye_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_dye_add				=   62.5# x+40	= 2500
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_dye_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_dye_add				=   75	# x+40	= 3000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_dye_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_dye_add				=  100	# x+40	= 4000
+		# }												#		= 2950
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Opium
+# default_building_opium_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods	
+			# goods_output_opium_add				=   20	# x+50	= 1000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_opium_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_opium_add				=   40	# x+50	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_opium_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_opium_add				=   70	# x+50	= 3500
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_opium_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_opium_add				=   80	# x+50	= 4000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_opium_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_opium_add				=  110	# x+50	= 5500
+		# }												#		= 4450
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Tea
+# default_building_tea_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_tea_add				=   20	# x+50	= 1000
+		# }
+		# level_scaled = {
+			# # profit
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_tea_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_tea_add				=   40	# x+50	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_tea_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_tea_add				=   50	# x+50	= 2500
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_tea_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_tea_add				=   60	# x+50	= 3000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_tea_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_tea_add				=   80	# x+50	= 4000
+		# }												#		= 2950
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Tobacco
+# default_building_tobacco_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_tobacco_add			=   25	# x+40	= 1000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 7.14
+	# }
+# }
+# pm_soil_enriching_farming_tobacco_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_tobacco_add			=   50	# x+40	= 2000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_tobacco_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_tobacco_add			=   62.5# x+40	= 2500
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_tobacco_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_tobacco_add			=   75	# x+40	= 3000
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_tobacco_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_tobacco_add			=  100	# x+40	= 4000
+		# }												#		= 2950
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Sugar
+# default_building_sugar_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_sugar_add				=   30	# x+30	=  900
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 6.43
+	# }
+# }
+# pm_soil_enriching_farming_sugar_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_sugar_add				=   60	# x+30	= 1800
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_fertilization_sugar_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_sugar_add				=   75	# x+30	= 2250
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_chemical_fertilizer_sugar_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_sugar_add				=   90	# x+30	= 2700
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL TBD
+	# }
+# }
+# pm_automatic_fertilization_sugar_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_sugar_add				=  120	# x+30	= 3600
+		# }												#		= 2550
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL 18.89
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Silk
+# default_building_silk_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_silk_add				=   20	# x+40	=  800
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 5.71
+	# }
+# }
+# pm_soil_enriching_farming_silk_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_silk_add				=   40	# x+40	= 1600
+		# }												#		= 1450
+		# level_scaled = {
+			# building_employment_laborers_add	= 4750	# x-.02	=  +95
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +135	=> Stops breaking even at SoL 10.74
+	# }
+# }
+# pm_fertilization_silk_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_silk_add				=   50	# x+40	= 2000
+		# }												#		= 1550
+		# level_scaled = {
+			# building_employment_laborers_add	= 4500	# x-.02	=  +90
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +130	=> Stops breaking even at SoL 11.92
+	# }
+# }
+# pm_chemical_fertilizer_silk_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_silk_add				=   60	# x+40	= 2400
+		# }												#		= 1650
+		# level_scaled = {
+			# building_employment_laborers_add	= 4250	# x-.02	=  +85
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +125	=> Stops breaking even at SoL 13.2
+	# }
+# }
+# pm_automatic_fertilization_silk_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_silk_add				=   80	# x+40	= 3200
+		# }												#		= 2150
+		# level_scaled = {
+			# building_employment_laborers_add	= 4000	# x-.02	=  +80	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40	# Electric Tractors remove 500
+		# }												#		= +135	=> Stops breaking even at SoL 15.93
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# # Fruit - Banana
+# default_building_banana_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# goods_output_fruit_add				=   30	# x+30	=  900
+		# }
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 6.43
+	# }
+# }
+# pm_soil_enriching_farming_banana_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# # output goods
+			# goods_output_fruit_add				=   60	# x+30	= 1800
+		# }												#		= 1650
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 11.79
+	# }
+# }
+# pm_fertilization_banana_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# # output goods
+			# goods_output_fruit_add				=   75	# x+30	= 2250
+		# }												#		= 1800
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		=  750	# x-.04	=  +30
+		# }												#		= +130	=> Stops breaking even at SoL 13.85
+	# }
+# }
+# pm_chemical_fertilizer_banana_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# # output goods
+			# goods_output_fruit_add				=   90	# x+30	= 2700
+		# }												#		= 1950
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_machinists_add	=  250	# x-.03	=   +7.5
+			# building_employment_farmers_add		=  750	# x-.04	=  +30
+		# }												#		= +137.5=> Stops breaking even at SoL 14.18
+	# }
+# }
+# pm_automatic_fertilization_banana_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_fruit_add				=  120	# x+30	= 3600
+		# }												#		= 2100
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		=  500	# x-.04	=  +20
+		# }												#		= +135	=> Stops breaking even at SoL 15.56
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }
+# ##############	Rubber	###############
+# default_building_rubber_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # output goods
+			# goods_output_rubber_add				=   30	# x+40	= 1200
+			# goods_output_wood_add				=   30	# x+20	=  600
+			# goods_output_hardwood_add			=   15	# x+40	=  600
+		# }												#		= 2400
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 17.14
+	# }
+# }
+# pm_soil_enriching_farming_rubber_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
+	# unlocking_technologies = { intensive_agriculture }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=    5	# x-30	= -150
+			# goods_input_tools_add				=    5	# x-40	= -200
+			# # output goods
+			# goods_output_rubber_add				=   60	# x+40	= 2400
+			# goods_output_wood_add				=   60	# x+20	= 1200
+			# goods_output_hardwood_add			=   30	# x+40	= 1200
+		# }												#		= 4450
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		= 1000	# x-.04	=  +40
+		# }												#		= +140	=> Stops breaking even at SoL 31.79
+	# }
+# }
+# pm_fertilization_rubber_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+	# unlocking_technologies = { improved_fertilizer }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   15	# x-30	= -450
+			# goods_input_tools_add				=   10	# x-40	= -400
+			# # output goods
+			# goods_output_rubber_add				=   75	# x+40	= 3000
+			# goods_output_wood_add				=   90	# x+20	= 1800
+			# goods_output_hardwood_add			=   45	# x+40	= 1800
+		# }												#		= 5750
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_farmers_add		=  750	# x-.04	=  +30
+		# }												#		= +130	=> Stops breaking even at SoL 44.23
+	# }
+# }
+# pm_chemical_fertilizer_rubber_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+	# unlocking_technologies = { nitrogen_fixation }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_tools_add				=   20	# x-40	= -800
+			# # output goods
+			# goods_output_rubber_add				=   90	# x+40	= 3600
+			# goods_output_wood_add				=  120	# x+20	= 2400
+			# goods_output_hardwood_add			=   60	# x+40	= 2400
+		# }												#		= 6850
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100
+			# building_employment_machinists_add	=  250	# x-.03	=   +7.5
+			# building_employment_farmers_add		=  750	# x-.04	=  +30
+		# }												#		= +137.5=> Stops breaking even at SoL 49.81
+	# }
+# }
+# pm_automatic_fertilization_rubber_plantation = {
+	# texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
+	# unlocking_technologies = { mechanized_farming }
+	# building_modifiers = {
+		# workforce_scaled = {
+			# # input goods
+			# goods_input_fertilizer_add			=   25	# x-30	= -750
+			# goods_input_tools_add				=   20	# x-40	= -800
+			# goods_input_engines_add				=    5	# x-60	= -300
+			# # output goods
+			# goods_output_rubber_add				=  120	# x+40	= 4800
+			# goods_output_wood_add				=  180	# x+20	= 3600
+			# goods_output_hardwood_add			=   90	# x+40	= 3600
+		# }												#		= 9700
+		# level_scaled = {
+			# building_employment_laborers_add	= 5000	# x-.02	= +100	# Rail Transport is -1000 again
+			# building_employment_machinists_add	=  500	# x-.03	=  +15
+			# building_employment_farmers_add		=  500	# x-.04	=  +20
+		# }												#		= +135	=> Stops breaking even at SoL 71.85
+	# }
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+# }

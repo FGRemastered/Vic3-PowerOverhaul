@@ -1,7 +1,7 @@
 ﻿# Base
 pmg_base_building_generic_subsistence = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_generic_subsistence
 		pm_enriched_generic_subsistence
@@ -12,7 +12,7 @@ pmg_base_building_generic_subsistence = {
 }
 pmg_base_building_subsistence_farms = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_subsistence_farms
 		pm_enriched_subsistence_farms
@@ -23,7 +23,7 @@ pmg_base_building_subsistence_farms = {
 }
 pmg_base_building_subsistence_orchards = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_subsistence_orchards
 		pm_enriched_subsistence_orchards
@@ -34,7 +34,7 @@ pmg_base_building_subsistence_orchards = {
 }
 pmg_base_building_subsistence_pastures = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_subsistence_pastures
 		pm_enriched_subsistence_pastures
@@ -45,7 +45,7 @@ pmg_base_building_subsistence_pastures = {
 }
 pmg_base_building_subsistence_fishing_villages = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_subsistence_fishing_villages
 		pm_enriched_subsistence_fishing_villages
@@ -56,7 +56,7 @@ pmg_base_building_subsistence_fishing_villages = {
 }
 pmg_base_building_subsistence_rice_paddies = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-	# ai_selection = most_productive
+	ai_selection = most_productive
 	production_methods = {
 		default_building_subsistence_rice_paddies
 		pm_enriched_subsistence_rice_paddies
@@ -75,31 +75,18 @@ pmg_home_workshops = {
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
-	}
-}
-pmg_home_workshops_building_subsistence_rice_paddies = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_home_workshops_no
-		pm_home_workshops_building_subsistence_rice_paddies
-		pm_lathe_home_workshops_building_subsistence_rice_paddies
-		pm_mechanized_home_workshops_building_subsistence_rice_paddies
-		pm_electric_home_workshops_building_subsistence_rice_paddies
+		pm_autark_home_workshops
 	}
 }
 # Serfdom
 pmg_serfdom = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
 	production_methods = {
 		pm_serfdom
 		pm_serfdom_no
-		pm_freedom
-		pm_centralised_subsistence_1
-		pm_centralised_subsistence_2
-		pm_centralised_subsistence_3
-		pm_centralised_subsistence_4
-		pm_centralised_subsistence_5
+		pm_homesteading_building_subsistence
+		pm_tools_disabled_subsistence
 		pm_tools_subsistence
 		pm_steam_threshers_subsistence
 		pm_tractors_subsistence
@@ -107,21 +94,16 @@ pmg_serfdom = {
 		pm_electric_tractors_subsistence
 	}
 }
-pmg_serfdom_building_subsistence_rice_paddies = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+pmg_harvesting_process_autark = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	ai_selection = most_productive
 	production_methods = {
-		pm_serfdom
-		pm_serfdom_no
-		pm_freedom
-		pm_centralised_double_subsistence_1
-		pm_centralised_double_subsistence_2
-		pm_centralised_double_subsistence_3
-		pm_centralised_double_subsistence_4
-		pm_centralised_double_subsistence_5
+		pm_tools_disabled_subsistence
 		pm_tools_subsistence
 		pm_steam_threshers_subsistence
 		pm_tractors_subsistence
 		pm_compression_ignition_tractors_subsistence
 		pm_electric_tractors_subsistence
+		pm_decentralised_subsistence
 	}
 }

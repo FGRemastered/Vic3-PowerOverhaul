@@ -19,6 +19,8 @@ je_colonial_administration_button_senegal = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -35,7 +37,7 @@ je_colonial_administration_button_senegal = {
 			random_country = { limit = { has_variable = senegal_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_senegal } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_senegal } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_senegal NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -66,7 +68,7 @@ je_colonial_administration_button_senegal = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -92,6 +94,8 @@ je_colonial_administration_button_niger = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -108,7 +112,7 @@ je_colonial_administration_button_niger = {
 			random_country = { limit = { has_variable = niger_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_niger } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_niger } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_niger NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -139,7 +143,7 @@ je_colonial_administration_button_niger = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -170,6 +174,8 @@ je_colonial_administration_button_ethiopia = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -186,7 +192,7 @@ je_colonial_administration_button_ethiopia = {
 			random_country = { limit = { has_variable = ethiopia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_ethiopia } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_ethiopia } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_ethiopia NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -217,7 +223,7 @@ je_colonial_administration_button_ethiopia = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -243,6 +249,8 @@ je_colonial_administration_button_zanj = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -259,7 +267,7 @@ je_colonial_administration_button_zanj = {
 			random_country = { limit = { has_variable = zanj_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_zanj } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_zanj } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_zanj NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -290,7 +298,7 @@ je_colonial_administration_button_zanj = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -316,6 +324,8 @@ je_colonial_administration_button_southern_africa = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -332,7 +342,7 @@ je_colonial_administration_button_southern_africa = {
 			random_country = { limit = { has_variable = southern_africa_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_southern_africa } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_southern_africa } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_southern_africa NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -363,7 +373,7 @@ je_colonial_administration_button_southern_africa = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -389,6 +399,8 @@ je_colonial_administration_button_congo = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -405,7 +417,7 @@ je_colonial_administration_button_congo = {
 			random_country = { limit = { has_variable = congo_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_congo } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_congo } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_congo NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -436,7 +448,7 @@ je_colonial_administration_button_congo = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -462,6 +474,8 @@ je_colonial_administration_button_indonesia = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -478,7 +492,7 @@ je_colonial_administration_button_indonesia = {
 			random_country = { limit = { has_variable = indonesia_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_indonesia } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_indonesia } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_indonesia NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -509,7 +523,7 @@ je_colonial_administration_button_indonesia = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -535,6 +549,8 @@ je_colonial_administration_button_indochina = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -551,7 +567,7 @@ je_colonial_administration_button_indochina = {
 			random_country = { limit = { has_variable = indochina_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_indochina } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_indochina } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_indochina NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -582,7 +598,7 @@ je_colonial_administration_button_indochina = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -608,6 +624,8 @@ je_colonial_administration_button_arabic = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -624,7 +642,7 @@ je_colonial_administration_button_arabic = {
 			random_country = { limit = { has_variable = arabic_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { region = sr:region_arabic } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { region = sr:region_arabic } set_variable = state_to_cede }
+		every_scope_state = { limit = { region = sr:region_arabic NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -655,7 +673,7 @@ je_colonial_administration_button_arabic = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -667,7 +685,7 @@ je_colonial_administration_button_india = {
 	visible = {
 		country_is_in_india = no
 		OR = {
-			any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india } }
+			any_scope_state = { state_is_in_india = yes }
 			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 		OR = {
@@ -677,10 +695,12 @@ je_colonial_administration_button_india = {
 	}
 	possible = {
 		any_scope_state = {
-			OR = { region = sr:region_north_india region = sr:region_south_india }
+			state_is_in_india = yes
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -689,15 +709,15 @@ je_colonial_administration_button_india = {
 	ai_chance = { base = 100 }
 	effect = {
 		if = {
-			limit = { any_scope_state		= { OR = { region = sr:region_north_india region = sr:region_south_india }	has_decree = decree_greener_grass_campaign } }
-			random_scope_state = { limit	= { OR = { region = sr:region_north_india region = sr:region_south_india }	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
+			limit = { any_scope_state		= { state_is_in_india = yes	has_decree = decree_greener_grass_campaign } }
+			random_scope_state = { limit	= { state_is_in_india = yes	has_decree = decree_greener_grass_campaign }	save_scope_as = newly_formed_colonial_nation_capital_scope }
 		}
 		else_if = {
 			limit = { any_subject_or_below = { has_variable = india_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } }
 			random_country = { limit = { has_variable = india_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
-		else = { random_scope_state = { limit = { OR = { region = sr:region_north_india region = sr:region_south_india } } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { OR = { region = sr:region_north_india region = sr:region_south_india } } set_variable = state_to_cede }
+		else = { random_scope_state = { limit = { state_is_in_india = yes } save_scope_as = newly_formed_colonial_nation_capital_scope } }
+		every_scope_state = { limit = { state_is_in_india = yes NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -728,7 +748,7 @@ je_colonial_administration_button_india = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -755,6 +775,8 @@ je_colonial_administration_button_china = {
 			is_largest_state_in_region = yes
 			count >= 2
 		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		custom_tooltip = {
 			text = colonial_administration_cooldown
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
@@ -771,7 +793,7 @@ je_colonial_administration_button_china = {
 			random_country = { limit = { has_variable = china_subject_var	NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } } capital = { save_scope_as = newly_formed_colonial_nation_capital_scope } }
 		}
 		else = { random_scope_state = { limit = { trigger_chinese_state = yes } save_scope_as = newly_formed_colonial_nation_capital_scope } }
-		every_scope_state = { limit = { trigger_chinese_state = yes } set_variable = state_to_cede }
+		every_scope_state = { limit = { trigger_chinese_state = yes NOT = { is_treaty_port = yes } } set_variable = state_to_cede }
 		if = {
 			limit = {
 				any_subject_or_below = {
@@ -802,7 +824,7 @@ je_colonial_administration_button_china = {
 				activate_law = law_type:law_presidential_republic
 			}
 		}
-		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = puppet } }
+		hidden_effect = { create_diplomatic_pact = { country = scope:newly_formed_colonial_nation_capital_scope.owner	type = colony } }
 		trigger_event = { id = colonial_administration_events.1 days = 1 popup = yes }
 		custom_tooltip = je_colonial_administration_button_tt_1
 		custom_tooltip = je_colonial_administration_button_tt_2
@@ -817,8 +839,10 @@ je_colonial_administration_button_expand_senegal = {
 		any_subject_or_below = { has_variable = senegal_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_senegal	is_under_colonization = no }
+			any_scope_state = { region = sr:region_senegal	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = senegal_subject_var	count >= 2 }
@@ -833,9 +857,9 @@ je_colonial_administration_button_expand_senegal = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_senegal	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_senegal	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_senegal is_under_colonization = no }
+				limit = { region = sr:region_senegal is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -864,8 +888,10 @@ je_colonial_administration_button_expand_niger = {
 		any_subject_or_below = { has_variable = niger_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_niger	is_under_colonization = no }
+			any_scope_state = { region = sr:region_niger	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = niger_subject_var	count >= 2 }
@@ -880,9 +906,9 @@ je_colonial_administration_button_expand_niger = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_niger	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_niger	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_niger is_under_colonization = no }
+				limit = { region = sr:region_niger is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -911,8 +937,10 @@ je_colonial_administration_button_expand_ethiopia = {
 		any_subject_or_below = { has_variable = ethiopia_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no }
+			any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = ethiopia_subject_var	count >= 2 }
@@ -927,9 +955,9 @@ je_colonial_administration_button_expand_ethiopia = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_ethiopia	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_ethiopia is_under_colonization = no }
+				limit = { region = sr:region_ethiopia is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -958,8 +986,10 @@ je_colonial_administration_button_expand_zanj = {
 		any_subject_or_below = { has_variable = zanj_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_zanj	is_under_colonization = no }
+			any_scope_state = { region = sr:region_zanj	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = zanj_subject_var	count >= 2 }
@@ -974,9 +1004,9 @@ je_colonial_administration_button_expand_zanj = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_zanj	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_zanj	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_zanj is_under_colonization = no }
+				limit = { region = sr:region_zanj is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1005,8 +1035,10 @@ je_colonial_administration_button_expand_southern_africa = {
 		any_subject_or_below = { has_variable = southern_africa_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no }
+			any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = southern_africa_subject_var	count >= 2 }
@@ -1021,9 +1053,9 @@ je_colonial_administration_button_expand_southern_africa = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_southern_africa	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_southern_africa is_under_colonization = no }
+				limit = { region = sr:region_southern_africa is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1052,8 +1084,10 @@ je_colonial_administration_button_expand_congo = {
 		any_subject_or_below = { has_variable = congo_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_congo	is_under_colonization = no }
+			any_scope_state = { region = sr:region_congo	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = congo_subject_var	count >= 2 }
@@ -1068,9 +1102,9 @@ je_colonial_administration_button_expand_congo = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_congo	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_congo	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_congo is_under_colonization = no }
+				limit = { region = sr:region_congo is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1099,8 +1133,10 @@ je_colonial_administration_button_expand_indonesia = {
 		any_subject_or_below = { has_variable = indonesia_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_indonesia	is_under_colonization = no }
+			any_scope_state = { region = sr:region_indonesia	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = indonesia_subject_var	count >= 2 }
@@ -1115,9 +1151,9 @@ je_colonial_administration_button_expand_indonesia = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_indonesia	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_indonesia	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_indonesia is_under_colonization = no }
+				limit = { region = sr:region_indonesia is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1146,8 +1182,10 @@ je_colonial_administration_button_expand_indochina = {
 		any_subject_or_below = { has_variable = indochina_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_indochina	is_under_colonization = no }
+			any_scope_state = { region = sr:region_indochina	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = indochina_subject_var	count >= 2 }
@@ -1162,9 +1200,9 @@ je_colonial_administration_button_expand_indochina = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_indochina	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_indochina	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_indochina is_under_colonization = no }
+				limit = { region = sr:region_indochina is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1193,8 +1231,10 @@ je_colonial_administration_button_expand_arabic = {
 		any_subject_or_below = { has_variable = arabic_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { region = sr:region_arabic	is_under_colonization = no }
+			any_scope_state = { region = sr:region_arabic	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = arabic_subject_var	count >= 2 }
@@ -1209,9 +1249,9 @@ je_colonial_administration_button_expand_arabic = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { region = sr:region_arabic	is_under_colonization = no } }
+			limit = { any_scope_state = { region = sr:region_arabic	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { region = sr:region_arabic is_under_colonization = no }
+				limit = { region = sr:region_arabic is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1240,8 +1280,10 @@ je_colonial_administration_button_expand_india = {
 		any_subject_or_below = { has_variable = india_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india }	is_under_colonization = no }
+			any_scope_state = { state_is_in_india = yes	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = india_subject_var	count >= 2 }
@@ -1256,9 +1298,9 @@ je_colonial_administration_button_expand_india = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { OR = { region = sr:region_north_india region = sr:region_south_india }	is_under_colonization = no } }
+			limit = { any_scope_state = { state_is_in_india = yes	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { OR = { region = sr:region_north_india region = sr:region_south_india } is_under_colonization = no }
+				limit = { state_is_in_india = yes is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}
@@ -1287,8 +1329,10 @@ je_colonial_administration_button_expand_china = {
 		any_subject_or_below = { has_variable = china_subject_var }
 	}
 	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
 		OR = {
-			any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no }
+			any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no NOT = { is_treaty_port = yes } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = china_subject_var	count >= 2 }
@@ -1303,9 +1347,9 @@ je_colonial_administration_button_expand_china = {
 			save_scope_as = colonial_transfer_subject_scope
 		}
 		if = {
-			limit = { any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no } }
+			limit = { any_scope_state = { trigger_chinese_state = yes	is_under_colonization = no NOT = { is_treaty_port = yes } } }
 			every_scope_state = {
-				limit = { trigger_chinese_state = yes is_under_colonization = no }
+				limit = { trigger_chinese_state = yes is_under_colonization = no NOT = { is_treaty_port = yes } }
 				set_state_owner = scope:colonial_transfer_subject_scope
 			}
 		}

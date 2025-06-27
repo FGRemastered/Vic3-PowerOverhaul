@@ -1,5 +1,4 @@
 ﻿namespace = fascism_events
-
 # Night of the Long Knives
 fascism_events.1 = {
 	type = country_event
@@ -7,21 +6,15 @@ fascism_events.1 = {
 	title = fascism_events.1.t
 	desc = fascism_events.1.d
 	flavor = fascism_events.1.f
-
 	duration = 3
-
 	event_image = {
 		video = "votp_cops_march"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	trigger = {
 		# triggered by JE
 	}
-
 	immediate = {
 		random_interest_group = {
 			limit = {
@@ -33,7 +26,6 @@ fascism_events.1 = {
 			}
 			set_variable = chose_fascism
 		}
-		
 		random_scope_character = {
 			limit = {
 				has_role = general
@@ -73,24 +65,41 @@ fascism_events.1 = {
 				set_variable = fascism_traitor_ig_var
 			}
 		}
-		
 		#We add two fascist generals to replace them
-		create_character = {
-			is_general = yes
-			ig_leader = no
-			interest_group = scope:fascist_ig
-			ideology = ideology_fascist
-			save_scope_as = fascist_general_1
+		if = {
+			limit = {
+				c:BRZ = this
+			}
+			create_character = {
+				is_general = yes
+				ig_leader = no
+				interest_group = scope:fascist_ig
+				ideology = ideology_integralist
+			}
+			create_character = {
+				is_general = yes
+				ig_leader = no
+				interest_group = scope:fascist_ig
+				ideology = ideology_integralist
+			}
 		}
-		create_character = {
-			is_general = yes
-			ig_leader = no
-			interest_group = scope:fascist_ig
-			ideology = ideology_fascist
-			save_scope_as = fascist_general_2
+		else = {
+			create_character = {
+				is_general = yes
+				ig_leader = no
+				interest_group = scope:fascist_ig
+				ideology = ideology_fascist
+				save_scope_as = fascist_general_1
+			}
+			create_character = {
+				is_general = yes
+				ig_leader = no
+				interest_group = scope:fascist_ig
+				ideology = ideology_fascist
+				save_scope_as = fascist_general_2
+			}
 		}
 	}
-
 	option = { #do it secretly
 		name = fascism_events.1.a
 		default_option = yes
@@ -127,7 +136,6 @@ fascism_events.1 = {
 			}
 		}
 	}
-
 	option = { #take care of them publicly
 		name = fascism_events.1.b
 		custom_tooltip = night_of_the_long_knives.tt
@@ -173,7 +181,6 @@ fascism_events.1 = {
 			}
 		}
 	}
-
 	option = { #to jail!
 		name = fascism_events.1.c
 		custom_tooltip = fascism_to_jail_tt
@@ -256,25 +263,34 @@ fascism_events.1 = {
 fascism_events.2 = { #fascist leader gains popularity
 	type = country_event
 	placement = root
-
 	title = fascism_events.2.t
 	desc = fascism_events.2.d
 	flavor = fascism_events.2.f
-
 	duration = 3
-
 	event_image = {
 		video = "votp_agitator_speaking"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
+	cooldown = { months = normal_modifier_time }
 	trigger = {
-		#JE monthly pulse
+		any_interest_group = {
+			has_variable = og_fascist_ig
+		}
+		any_interest_group = {
+			OR = {
+				is_being_bolstered = yes
+				is_in_government = yes
+			}
+			NOT = { has_variable = og_fascist_ig }
+			leader = {
+				OR = {
+					has_ideology = ideology:ideology_fascist
+					has_ideology = ideology:ideology_integralist
+				}
+			}
+		}
 	}
-
 	immediate = {
 		random_interest_group = {
 			limit = { has_variable = og_fascist_ig }
@@ -291,15 +307,16 @@ fascism_events.2 = { #fascist leader gains popularity
 				}
 				NOT = { has_variable = og_fascist_ig }
 				leader = {
-					has_ideology = ideology:ideology_fascist
-				}
+					OR = {
+						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
+					}
 			}
 			leader = {
 				save_scope_as = fascist_leader_2
 			}
 		}
 	}
-
 	option = { #cool speech bro
 		name = fascism_events.2.a
 		default_option = yes
@@ -316,7 +333,6 @@ fascism_events.2 = { #fascist leader gains popularity
 			}
 		}
 	}
-
 	option = { #not super impressive
 		name = fascism_events.2.b
 		scope:fascist_leader = {
@@ -332,7 +348,6 @@ fascism_events.2 = { #fascist leader gains popularity
 			}
 		}
 	}
-
 	option = { #now THIS other guy is a good leader
 		name = fascism_events.2.c
 		trigger = {
@@ -344,7 +359,6 @@ fascism_events.2 = { #fascist leader gains popularity
 				NOT = { has_variable = og_fascist_ig }
 				leader = {
 					has_ideology = ideology:ideology_fascist
-				}
 			}
 		}
 		scope:fascist_leader_2 = {
@@ -361,29 +375,21 @@ fascism_events.2 = { #fascist leader gains popularity
 		}
 	}
 }
-
 fascism_events.3 = { #fascist reward
 	type = country_event
 	placement = root
-
 	title = fascism_events.3.t
 	desc = fascism_events.3.d
 	flavor = fascism_events.3.f
-
 	duration = 3
-
 	event_image = {
 		video = "unspecific_military_parade"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	trigger = {
 		#triggered by JE
 	}
-
 	option = { #authority
 		name = fascism_events.3.a
 		default_option = yes
@@ -392,7 +398,6 @@ fascism_events.3 = { #fascist reward
 			months = normal_modifier_time
 		}
 	}
-
 	option = { #loyalty
 		name = fascism_events.3.b
 		add_modifier = {
@@ -406,25 +411,19 @@ fascism_events.3 = { #fascist reward
 		}
 	}
 }
-
 fascism_events.4 = { #fascist ideology spread
 	type = country_event
 	placement = root
-
 	title = fascism_events.4.t
 	desc = fascism_events.4.d
 	flavor = fascism_events.4.f
-
 	duration = 3
-
 	event_image = {
 		video = "europenorthamerica_political_extremism"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
+	cooldown = { months = normal_modifier_time }
 	trigger = {
 		#triggered by JE
 		NOT = {
@@ -438,7 +437,6 @@ fascism_events.4 = { #fascist ideology spread
 			}
 		}
 	}
-
 	immediate = {
 		random_interest_group = {
 			limit = {
@@ -483,7 +481,6 @@ fascism_events.4 = { #fascist ideology spread
 			}
 		}
 	}
-
 	option = { #only fascist leaders
 		name = fascism_events.4.a
 		default_option = yes
@@ -504,7 +501,6 @@ fascism_events.4 = { #fascist ideology spread
 			}
 		}
 	}
-
 	option = { #any conservative leader
 		name = fascism_events.4.b
 		custom_tooltip = conservative_leaders.tt
@@ -539,29 +535,21 @@ fascism_events.4 = { #fascist ideology spread
 		}
 	}
 }
-
 fascism_events.5 = { #building reward
 	type = country_event
 	placement = root
-
 	title = fascism_events.5.t
 	desc = fascism_events.5.d
 	flavor = fascism_events.5.f
-
 	duration = 3
-
 	event_image = {
 		video = "unspecific_trains"
 	}
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-
 	trigger = {
 		#triggered by JE
 	}
-
 	option = { #efficient infrastructure
 		name = fascism_events.5.b
 		default_option = yes
@@ -570,7 +558,6 @@ fascism_events.5 = { #building reward
 			months = normal_modifier_time
 		}
 	}
-
 	option = { #efficient ports
 		name = fascism_events.5.a
 		every_scope_state = {
@@ -585,29 +572,21 @@ fascism_events.5 = { #building reward
 		}
 	}
 }
-
 fascism_events.6 = { #ethno-nationalist reward
 	type = country_event
 	placement = root
-
 	title = fascism_events.6.t
 	desc = fascism_events.6.d
 	flavor = fascism_events.6.f
-
 	duration = 3
-
 	event_image = {
 		video = "unspecific_military_parade"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	trigger = {
 		#triggered by JE
 	}
-
 	immediate = {
 		random_interest_group = {
 			limit = {
@@ -625,7 +604,6 @@ fascism_events.6 = { #ethno-nationalist reward
 			}
 		}
 	}
-
 	option = { #ethno-nationalist leaders
 		name = fascism_events.6.a
 		default_option = yes
@@ -646,7 +624,6 @@ fascism_events.6 = { #ethno-nationalist reward
 			}
 		}
 	}
-
 	option = { #can be conservative
 		name = fascism_events.6.b
 		custom_tooltip = ethno_conservative_leaders.tt
@@ -681,23 +658,17 @@ fascism_events.6 = { #ethno-nationalist reward
 		}
 	}
 }
-
 fascism_events.8 = { #national anthem
 	type = country_event
 	title = fascism_events.8.t
 	desc = fascism_events.8.d
 	placement = scope:anthem_state
-
 	duration = 3
-
 	event_image = {
 		video = "unspecific_world_fair"
 	}
-
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	flavor = {
 		random_valid = {
 			triggered_desc = {
@@ -804,7 +775,6 @@ fascism_events.8 = { #national anthem
 			}
 		}
 	}
-
 	trigger = {
 		has_technology_researched = nationalism
 		NOT = { has_variable = national_anthem_var }
@@ -812,10 +782,11 @@ fascism_events.8 = { #national anthem
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_arts_academy
+				is_under_construction = no
+				occupancy > 0.5
 			}
 		}
 	}
-
 	immediate = {
 		random_list = {
 			50 = {
@@ -831,7 +802,6 @@ fascism_events.8 = { #national anthem
 				}
 			}
 		}
-
 		random_list = {
 			50 = {
 				set_variable = {
@@ -913,7 +883,6 @@ fascism_events.8 = { #national anthem
 		}
 		set_variable = national_anthem_var
 	}
-
 	option = {
 		name = fascism_events.8.a
 		add_modifier = {

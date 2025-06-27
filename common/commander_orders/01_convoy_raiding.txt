@@ -4,7 +4,7 @@
 	ai_usage = raid_convoys
 	is_basic_order_type = yes
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 	}
 	modifier = {
 		character_convoy_raiding_mult = 0.3
@@ -21,7 +21,7 @@ raid_unrestricted_sub = {
 	military_type = navy
 	ai_usage = raid_convoys
 	possible = {
-		error_check = { severity = invalid	has_role = admiral }
+		has_role = admiral
 		OR = {
 			NOT = { has_trait = honorable }
 			has_trait = reckless

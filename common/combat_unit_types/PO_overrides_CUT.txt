@@ -4,7 +4,7 @@ combat_unit_type_line_infantry = {
 	upkeep_modifier = {
 		goods_input_small_arms_add	= 1
 	}
-	can_build_conscript = { always = yes }	# Changed - I get that peasants are pretty dumb, but walking in a straight line should be doable...
+	# Changed - I get that peasants are pretty dumb, but walking in a straight line should be doable... EDIT: PDX changed this
 	battle_modifier = {
 		unit_offense_add			= 20
 		unit_defense_add			= 25
@@ -54,6 +54,9 @@ combat_unit_type_mechanized_infantry = {
 		unit_morale_loss_add		= 4
 		unit_devastation_mult		= 0.1
 	}
+	formation_modifier = {
+		military_formation_movement_speed_mult		= 0.20
+	}
 	unlocking_technologies = { mobile_armor }
 	combat_unit_image = {
 		trigger = { has_culture_graphics = east_asian }
@@ -78,6 +81,7 @@ combat_unit_type_mechanized_infantry = {
 # Arillery
 combat_unit_type_mobile_artillery = {
 	group = combat_unit_group_artillery
+	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_artillery_add	= 2
 	}
@@ -90,7 +94,7 @@ combat_unit_type_mobile_artillery = {
 	}
 	formation_modifier = {
 		military_formation_mobilization_speed_mult	= -0.2
-		military_formation_movement_speed_mult		= -0.1
+		military_formation_movement_speed_mult		= -0.1	# Reduced - It is MOBILE artillery
 	}
 	unlocking_technologies = { napoleonic_warfare }
 	combat_unit_image = {
@@ -133,7 +137,7 @@ combat_unit_type_shrapnel_artillery = {
 	}
 	formation_modifier = {
 		military_formation_mobilization_speed_mult	= -0.2
-		military_formation_movement_speed_mult		= -0.1
+		military_formation_movement_speed_mult		= -0.1	# Reduced
 	}
 	unlocking_technologies = { breech_loading_artillery }
 	combat_unit_image = {
@@ -178,8 +182,8 @@ combat_unit_type_heavy_tank = {
 		unit_devastation_mult		= 0.2
 	}
 	formation_modifier = {
-		military_formation_mobilization_speed_mult	= -0.2
-		military_formation_movement_speed_mult	= -0.2
+		military_formation_mobilization_speed_mult	=-0.20
+		military_formation_movement_speed_mult		=-0.20
 	}
 	unlocking_technologies = { mobile_armor }
 	combat_unit_image = {
@@ -189,7 +193,8 @@ combat_unit_type_heavy_tank = {
 # Cavalry
 combat_unit_type_dragoons = {
 	group = combat_unit_group_cavalry
-	# can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }	# Removed - If you can ride a horse, you can shoot while riding a horse.
+	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
+	# can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }	# Removed - If you can ride a horse, you can shoot while riding a horse. EDIT: Apparently riding a horse is too difficult for a peasant
 	upkeep_modifier = {
 		goods_input_grain_add		= 1
 		goods_input_small_arms_add	= 2
@@ -230,8 +235,7 @@ combat_unit_type_cuirassiers = {
 	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_grain_add		= 2
-		goods_input_small_arms_add	= 1
-		goods_input_iron_add		= 1
+		goods_input_small_arms_add	= 2
 	}
 	battle_modifier = {
 		unit_offense_add		= 25
@@ -268,9 +272,9 @@ combat_unit_type_lancers = {
 	group = combat_unit_group_cavalry
 	can_build_conscript = { NOT = {  has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
-		goods_input_groceries_add	= 1		# Changed
+		goods_input_groceries_add	= 2		# Changed from grain
 		goods_input_small_arms_add	= 2
-		goods_input_steel_add		= 2		# Changed
+		goods_input_steel_add		= 2		# Changed from iron
 	}
 	battle_modifier = {
 		unit_offense_add			= 30
@@ -323,7 +327,7 @@ combat_unit_type_light_tanks = {
 		unit_occupation_mult		= 0.3
 	}
 	formation_modifier = {
-		military_formation_mobilization_speed_mult	= 0.2
+		military_formation_mobilization_speed_mult	= 0.40
 	}
 	unlocking_technologies = { mobile_armor }
 	combat_unit_image = {

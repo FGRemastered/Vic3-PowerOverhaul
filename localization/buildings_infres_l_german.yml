@@ -34,15 +34,6 @@
  building_infres_barracks: "Inf. $building_barracks$"
  building_infres_construction_sector: "Inf. $building_construction_sector$"
 
- modifier_country_subsidies_bg_infres_agriculture: "Kann $bg_infres_agriculture$ subventionieren"
- modifier_country_subsidies_bg_infres_agriculture_desc: "Die rechtliche Erlaubnis, $bg_infres_agriculture$-Gebäude zu subventionieren."
-
- # modifier_country_subsidies_bg_infres_ranching: "Can Subsidize $bg_infres_ranching$"
- # modifier_country_subsidies_bg_infres_ranching_desc: "Legal permission to enact government subsidies of $bg_infres_ranching$"
-
- # modifier_country_subsidies_bg_infres_plantations: "Can Subsidize $bg_infres_plantations$"
- # modifier_country_subsidies_bg_infres_plantations_desc: "Legal permission to enact government subsidies of $bg_infres_plantations$"
-
  rule_infres_allows_ai_to_build: "IRB: Infinite Gebäude"
  setting_infres_player_only: "Nur Spieler"
  setting_infres_player_and_ai_allowed: "Unbegrenzt"

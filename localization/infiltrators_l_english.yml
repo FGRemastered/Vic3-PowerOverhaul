@@ -1,3 +1,5 @@
 ﻿l_english:
  mobilization_option_infiltrators: "Infiltrators"
  mobilization_option_infiltrators_desc: "Shocktroops trained and equipped to cause chaos behind enemy lines."
+ mobilization_option_mechanized_field_hospitals: "Mechanized $mobilization_option_field_hospitals$"
+ mobilization_option_mechanized_field_hospitals_desc: "Reinforced tracked and non-tracked vehicles protect medics and patients when moving from and across the battlefield."

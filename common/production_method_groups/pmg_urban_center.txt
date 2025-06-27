@@ -16,6 +16,7 @@ pmg_public_transport = {
 		pm_public_trams
 		pm_public_motor_carriages
 		pm_extended_trams
+		pm_subways
 	}
 }
 pmg_cash_register = {

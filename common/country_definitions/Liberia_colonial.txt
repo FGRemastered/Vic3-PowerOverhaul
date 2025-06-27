@@ -1,8 +1,0 @@
-LIB = {
-	color = { 193  138  83 }
-	country_type = colonial		# Changed
-	tier = principality
-	cultures = { afro_american }
-	capital = STATE_LIBERIA
-	is_named_from_capital = yes
-}

@@ -5,6 +5,7 @@ pmg_train_automation = {
 		pm_road_carts
 		pm_steam_rail_transport
 		pm_electric_rail_transport
+		pm_electric_rail_transport_green
 		pm_diesel_rail_transport
 	}
 }
@@ -31,6 +32,7 @@ pmg_transportation_building_oil_rig = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
+		pm_steam_rail_transport
 		pm_tanker_cars
 		pm_electric_tanker_cars
 		pm_diesel_tanker_cars
@@ -52,15 +54,6 @@ pmg_train_automation_power_plant = {
 		pm_steam_rail_transport_power_plant
 		pm_electric_rail_transport_power_plant
 		pm_diesel_rail_transport_power_plant
-	}
-}
-pmg_train_automation_shipyards = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
-	production_methods = {
-		pm_road_carts
-		pm_steam_rail_transport_shipyards
-		pm_electric_rail_transport_shipyards
-		pm_diesel_rail_transport_shipyards
 	}
 }
 pmg_train_automation_port = {

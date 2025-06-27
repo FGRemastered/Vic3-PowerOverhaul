@@ -1,0 +1,78 @@
+tobacco_ban_authority = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_authority_add								=  -50
+	interest_group_ig_petty_bourgeoisie_approval_add	= 3
+	interest_group_ig_trade_unions_approval_add			= 3
+	interest_group_ig_devout_approval_add				= 3
+	interest_group_ig_rural_folk_approval_add			= 3
+	goods_output_tobacco_mult							=-1
+	state_mortality_mult								=-0.05
+	unit_morale_recovery_mult							= 0.10
+}
+capital_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_pop_pol_str_mult								= 0.25
+	state_tax_capacity_mult								= 0.25
+	# state_building_barracks_max_level_mult				= 1.5	# x2.5
+}
+decree_resource_throughput = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_extraction_throughput_add			= 0.10
+}
+dynamite_production_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_chemical_plants_throughput_add				= 0.33
+	building_explosives_factory_throughput_add			= 0.33
+}
+mining_production_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_mining_throughput_add				= 0.25
+}
+modifier_character_extra_ten_percent_command = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_command_limit_mult						= 0.10
+}
+antireligious_policies = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_conversion_mult								= 1.00
+	tax_heathen_add										= 0.50	# New
+}
+zeppelins_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	unit_army_offense_add								=   30
+	country_trade_route_quantity_mult					= 0.25
+	interest_group_ig_petty_bourgeoisie_approval_add	= 1
+	interest_group_ig_industrialists_approval_add		= 1
+	interest_group_ig_armed_forces_approval_add			= 1
+}
+automobile_regulations = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_motor_industry_throughput_add				=-0.10
+	country_authority_mult								= 0.10
+}
+sided_with_workers_over_scrips = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add							=-2
+	interest_group_pol_str_mult							=-0.10
+}
+sided_with_capitalists_over_scrips = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_approval_add							= 2
+	interest_group_pol_str_mult							= 0.10
+}
+junker_compromise = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_aristocrats_pol_str_mult					= 0.50
+}
+modifier_traditional_patronage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_group_bg_arts_allowed_collectivization_add	= 0.00
+}
+modifier_bourgeoisie_patronage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_group_bg_arts_allowed_collectivization_add	= 0.50
+}
+modifier_independent_artists = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_group_bg_arts_allowed_collectivization_add	= 1.00
+}
