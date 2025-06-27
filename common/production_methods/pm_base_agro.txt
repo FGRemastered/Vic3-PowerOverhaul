@@ -13,6 +13,9 @@ pm_simple_farming = {
 			goods_output_grain_add				=   24		# x+20	=  480
 		}
 		level_scaled = {
+			goods_output_grain_add				=   24		# x+20	=  480
+		}
+		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  -80
 			building_employment_farmers_add		= 1000		# x-.04	=  -40
 		}													#		= -120	=> Stops breaking even at SoL 4
@@ -32,6 +35,10 @@ pm_soil_enriching_farming = {
 			building_employment_laborers_add	= 3750
 			building_employment_farmers_add		= 1000
 		}
+			goods_input_fertilizer_add			=    5		# x-30	= -150
+			goods_output_grain_add				=   35		# x+20	=  700
+		}													#		= +550
+		level_scaled = {
 			goods_input_fertilizer_add			=    5		# x-30	= -150
 			goods_output_grain_add				=   35		# x+20	=  700
 		}													#		= +550
@@ -59,6 +66,10 @@ pm_fertilization = {
 			goods_output_grain_add				=   42.5	# x+20	=  850
 		}													#		= +550
 		level_scaled = {
+			goods_input_fertilizer_add			=   10		# x-30	= -300
+			goods_output_grain_add				=   42.5	# x+20	=  850
+		}													#		= +550
+		level_scaled = {
 			building_employment_laborers_add	= 3500		# x-.02	=  -70
 			building_employment_farmers_add		= 1000		# x-.04	=  -40
 		}													#		= -110	=> Stops breaking even at SoL 5
@@ -78,6 +89,10 @@ pm_chemical_fertilizer = {
 			building_employment_laborers_add	= 3250
 			building_employment_farmers_add		= 1250
 		}
+			goods_input_fertilizer_add			=   15		# x-30	= -450
+			goods_output_grain_add				=   72.5	# x+20	= 1450
+		}													#		=+1000
+		level_scaled = {
 			goods_input_fertilizer_add			=   15		# x-30	= -450
 			goods_output_grain_add				=   72.5	# x+20	= 1450
 		}													#		=+1000
@@ -108,6 +123,11 @@ pm_automatic_fertilization = {
 			goods_output_grain_add				=   95		# x+20	= 1900
 		}													#		=+1150
 		level_scaled = {
+			goods_input_fertilizer_add			=   15		# x-30	= -450
+			goods_input_engines_add				=    5		# x-60	= -300
+			goods_output_grain_add				=   95		# x+20	= 1900
+		}													#		=+1150
+		level_scaled = {
 			building_employment_laborers_add	= 2500		# x-.02	=  -60
 			building_employment_machinists_add	=  500		# x-.03	=  -15
 			building_employment_farmers_add		= 1000		# x-.04	=  -40
@@ -126,6 +146,9 @@ pm_simple_farming_rice_farm = {
 		level_scaled = {
 			building_employment_laborers_add	= 5000
 			building_employment_farmers_add		= 1000
+			goods_output_grain_add				=   48		# x+20	=  960
+		}
+		level_scaled = {
 			goods_output_grain_add				=   48		# x+20	=  960
 		}
 		level_scaled = {
@@ -151,6 +174,10 @@ pm_soil_enriching_farming_rice_farm = {
 		level_scaled = {
 			building_employment_laborers_add	= 4500
 			building_employment_farmers_add		= 1000
+			goods_input_fertilizer_add			=   10		# x-30	= -300
+			goods_output_grain_add				=   70		# x+20	= 1400
+		}													#		=+1100
+		level_scaled = {
 			goods_input_fertilizer_add			=   10		# x-30	= -300
 			goods_output_grain_add				=   70		# x+20	= 1400
 		}													#		=+1100
@@ -181,6 +208,10 @@ pm_fertilization_rice_farm = {
 			goods_output_grain_add				=   85		# x+20	= 1700
 		}													#		= 1100
 		level_scaled = {
+			goods_input_fertilizer_add			=   20		# x-30	= -600
+			goods_output_grain_add				=   85		# x+20	= 1700
+		}													#		= 1100
+		level_scaled = {
 			building_employment_laborers_add	= 3500		# x-.02	= -140
 			building_employment_farmers_add		= 1000		# x-.04	=  -80
 		}													#		= -220	=> Stops breaking even at SoL 5
@@ -203,6 +234,10 @@ pm_chemical_fertilizer_rice_farm = {
 		level_scaled = {
 			building_employment_laborers_add	= 3500
 			building_employment_farmers_add		= 1250
+			goods_input_fertilizer_add			=   30		# x-30	=-1500
+			goods_output_grain_add				=  140		# x+20	= 2800
+		}													#		= 1300
+		level_scaled = {
 			goods_input_fertilizer_add			=   30		# x-30	=-1500
 			goods_output_grain_add				=  140		# x+20	= 2800
 		}													#		= 1300
@@ -231,6 +266,11 @@ pm_automatic_fertilization_rice_farm = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinsts_add	=  500
 			building_employment_farmers_add		=  500
+			goods_input_fertilizer_add			=   30		# x-30	=-1500
+			goods_input_engines_add				=    5		# x-60	= -300
+			goods_output_grain_add				=  210		# x+20	= 4200
+		}													#		= 2400
+		level_scaled = {
 			goods_input_fertilizer_add			=   30		# x-30	=-1500
 			goods_input_engines_add				=    5		# x-60	= -300
 			goods_output_grain_add				=  210		# x+20	= 4200

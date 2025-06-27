@@ -1,49 +1,4 @@
 # Government Buldings
-building_port = {
-	building_group = bg_public_infrastructure
-	city_type = port
-	texture = "gfx/interface/icons/building_icons/building_port.dds"
-	has_max_level = yes
-	ignore_stateregion_max_level = yes
-	port = yes
-	unlocking_technologies = { navigation }
-	production_method_groups = {
-		pmg_base_building_port
-		pmg_train_automation_port
-		pmg_tertiary_offshore_power
-	}
-	required_construction = construction_cost_medium
-	terrain_manipulator = urban_port
-	possible = {
-		error_check = { severity = fail is_coastal = yes }
-	}
-	should_auto_expand = {
-		OR = {
-			AND = {
-				state = { market_access < 1 }
-				owner = { NOT = { has_technology_researched = railways } } # Placeholder for land adjacency
-			}
-			AND = {
-				owner = { num_convoys_available < num_convoys_required }
-				state = { is_incorporated = yes }
-			}
-			trigger_if = {
-				limit = { owner = { is_subject = yes } }
-				custom_tooltip = {
-					text = "OVERLORD has insufficient convoys"
-					owner.OVERLORD = { num_convoys_available < num_convoys_required }
-				}
-				state = { is_incorporated = yes }
-			}
-			AND = {
-				weekly_profit > 0
-				state = { sg:transportation = { state_goods_pricier > 0.5 } }
-			}
-		}
-		occupancy = 1
-		building_has_goods_shortage = no
-	}
-}
 building_government_administration = {
 	building_group = bg_bureaucracy
 	city_type = city
@@ -55,23 +10,6 @@ building_government_administration = {
 		pmg_government_administration_bureaucrat_professionalism
 		pmg_government_administration_religious_administration
 	}
-	should_auto_expand = {
-		occupancy > 0.95
-		OR = {
-			state.tax_capacity < state.tax_capacity_usage
-			AND = {
-				THIS.STATE = {
-					OR = {
-						is_capital = yes
-						any_scope_building = { is_building_type = building_skyscraper }
-						any_scope_building = { is_building_type = building_white_house }
-					}
-				}
-				OR = {
-					owner = { bureaucracy <= 0 }
-					owner = { approaching_bureaucracy_shortage = yes }
-				}
-			}
 	should_auto_expand = { trigger_auto_expand_admin = yes }
 	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"

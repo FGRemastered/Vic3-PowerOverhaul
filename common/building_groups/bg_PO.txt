@@ -32,6 +32,10 @@ bg_construction = {
 	economy_of_scale_ai_factor = 5.0
 	max_hiring_rate = 0.5				# Added
 }
+bg_inf_construction = {
+	parent_group = bg_construction
+	urbanization = 0	# important
+}
 bg_power = {
 	category = development
 	lens = infrastructure

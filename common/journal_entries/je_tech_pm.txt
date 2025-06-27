@@ -1254,3 +1254,4 @@ je_mutual_funds = {
 	# on_complete = { trigger_event = { id = trench_warfare.1 } }
 	# timeout = 3650
 # }
+# }
