@@ -169,7 +169,7 @@ building_motor_industry = {
 	unlocking_technologies = { atmospheric_engine }
 	production_method_groups = {
 		pmg_base_building_motor_industry
-		pmg_automobile_production
+		pmg_automobile_production_secondary
 		pmg_automation_building_motor_industry
 	}
 	required_construction = construction_cost_very_high

@@ -1,8 +1,8 @@
 {
   "name" : "FG's Power Overhaul",
   "id" : "",
-  "version" : "1.7.0",
-  "supported_game_version" : "1.8.*",
+  "version" : "1.8.0",
+  "supported_game_version" : "1.9.*",
   "short_description" : "Power Overhaul adds differently powered rail transport and automation, Green Energy sources in form of wind parks and solar fields for agriculture buildings and a few miscallaneous new production methods to make use of them.",
   "tags" : [],
   "relationships" : [],

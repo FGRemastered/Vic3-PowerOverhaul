@@ -36,43 +36,33 @@ building_rubber_plantation = {
 }
 # Infres Logging
 building_infres_logging_camp = {
-	can_build_private = {
-		trigger_private_construction	= yes
-		trigger_infres_logging_allowed	= yes
-	}
-	can_build_government = {
-		trigger_gov_construction		= yes
-		trigger_infres_logging_allowed	= yes
-	}
+	potential				= { trigger_infres_logging_allowed	= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_logging
 	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	terrain_manipulator = forestry
 	levels_per_mesh = 5
 	production_method_groups = {
-		pmg_base_building_logging_camp
-		pmg_hardwood
+		pmg_base_building_wood_plantation
 		pmg_equipment
-		pmg_transportation_building_logging_camp
+		pmg_greenhouse
+		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"	# Changed
 }
 building_infres_rubber_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_rubber_allowed	= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_rubber_allowed	= yes
-	}
+	potential				= { trigger_infres_rubber_allowed	= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_rubber
 	icon = "gfx/interface/icons/building_icons/rubber_lodge.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	terrain_manipulator = forestry
 	unlocking_technologies = { rubber_mastication }
 	city_type = wood
@@ -80,7 +70,7 @@ building_infres_rubber_plantation = {
 	production_method_groups = {
 		pmg_base_building_rubber_plantation
 		pmg_equipment	# Rubber is closer to Logging than anything else
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
@@ -118,14 +108,9 @@ building_whaling_station = {
 }
 # Infinite Fishing
 building_infres_fishing_wharf = {
-	can_build_private = {
-		trigger_private_construction	= yes
-		trigger_infres_fishing_allowed	= yes
-	}
-	can_build_government = {
-		trigger_gov_construction		= yes
-		trigger_infres_fishing_allowed	= yes
-	}
+	potential				= { trigger_infres_fishing_allowed	= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_fishing
 	icon = "gfx/interface/icons/building_icons/fishing_wharf.dds"
@@ -140,14 +125,9 @@ building_infres_fishing_wharf = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
 }
 building_infres_whaling_station = {
-	can_build_private = {
-		trigger_private_construction	= yes
-		trigger_infres_whaling_allowed	= yes
-	}
-	can_build_government = {
-		trigger_gov_construction		= yes
-		trigger_infres_whaling_allowed	= yes
-	}
+	potential				= { trigger_infres_whaling_allowed	= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_whaling
 	icon = "gfx/interface/icons/building_icons/whaling_station.dds"
@@ -177,8 +157,6 @@ building_vineyard_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -197,8 +175,6 @@ building_coffee_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -216,8 +192,6 @@ building_tea_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -235,8 +209,6 @@ building_sugar_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -254,8 +226,6 @@ building_banana_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -273,14 +243,7 @@ building_opium_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= {
-		owner = { NOT = { is_banning_goods	= g:opium } }
-		# trigger_no_autarky_farms			= yes
-	}
-	can_build_private		= {
-		owner = { NOT = { is_banning_goods	= g:opium } }
-		trigger_no_autarky_farms			= yes
-	}
+	possible	= { OWNER = { NOT = { is_banning_goods	= g:opium } } }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -298,14 +261,7 @@ building_tobacco_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= {
-		owner = { NOT = { is_banning_goods	= g:tobacco } }
-		# trigger_no_autarky_farms			= yes
-	}
-	can_build_private		= {
-		owner = { NOT = { is_banning_goods	= g:tobacco } }
-		trigger_no_autarky_farms			= yes
-	}
+	possible	= { OWNER = { NOT = { is_banning_goods	= g:tobacco } } }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -323,8 +279,6 @@ building_cotton_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -342,8 +296,6 @@ building_dye_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
@@ -361,245 +313,177 @@ building_silk_plantation = {
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
-	can_build_government	= { always							= yes }
-	can_build_private		= { trigger_no_autarky_farms		= yes }
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 # Infinite Plantations
 building_infres_vineyard_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_wine_allowed		= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_wine_allowed		= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_vineyard_plantations
 	icon = "gfx/interface/icons/building_icons/vineyards.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_vineyard_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_coffee_plantation = {
-	can_build_private		= { trigger_private_construction	= yes }
-	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_coffee_plantations
 	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_coffee_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_tea_plantation = {
-	can_build_private		= { trigger_private_construction	= yes }
-	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_tea_plantations
 	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_tea_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_sugar_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_sugar_allowed	= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_sugar_allowed	= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_sugar_plantations
 	icon = "gfx/interface/icons/building_icons/sugar_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_sugar_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_banana_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_fruit_allowed	= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_fruit_allowed	= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_banana_plantations
 	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_banana_plantation
 		pmg_equipment	# Fruit is closer to Logging than anything else
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_opium_plantation = {
-	can_build_private = {
-		trigger_private_construction	= yes
-		owner = { NOT = { is_banning_goods = g:opium } }
-	}
-	can_build_government = {
-		trigger_gov_construction		= yes
-		owner = { NOT = { is_banning_goods = g:opium } }
-	}
+	possible	= { OWNER = { NOT = { is_banning_goods	= g:opium } } }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_opium_plantations
 	icon = "gfx/interface/icons/building_icons/opium_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_opium_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_tobacco_plantation = {
-	can_build_private = {
-		trigger_private_construction	= yes
-		owner = { NOT = { is_banning_goods = g:tobacco } }
-	}
-	can_build_government = {
-		trigger_gov_construction		= yes
-		owner = { NOT = { is_banning_goods = g:tobacco } }
-	}
+	possible	= { OWNER = { NOT = { is_banning_goods	= g:tobacco } } }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_tobacco_plantations
 	icon = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_tobacco_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_cotton_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_cotton_allowed	= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_cotton_allowed	= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_cotton_plantations
 	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_cotton_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_dye_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_dye_allowed		= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_dye_allowed		= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_dye_plantations
 	icon = "gfx/interface/icons/building_icons/dye_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_dye_plantation
 		pmg_harvesting_process_tractors
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_infres_silk_plantation = {
-	can_build_private		= {
-		trigger_private_construction	= yes
-		trigger_infres_silk_allowed		= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction		= yes
-		trigger_infres_silk_allowed		= yes
-	}
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_silk_plantations
 	icon = "gfx/interface/icons/building_icons/silk_plantation.dds"
-	required_construction = construction_cost_low
+	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 5
 	production_method_groups = {
 		pmg_base_building_silk_plantation
 		pmg_harvesting_process_simple
-		pmg_tertiary_agri_power
+		pmg_greenhouse
 		pmg_train_automation
 	}
 	ownership_type = self
