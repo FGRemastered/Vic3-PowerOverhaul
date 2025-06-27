@@ -55,12 +55,6 @@
 	possible = {
 		has_technology_researched = civilizing_mission
 		NOT = { is_country_type = colonial }
-<<<<<<< HEAD
-=======
-		# any_scope_state = {
-			# NOT = { trigger_incorporated_or_incorporating = yes }
-		# }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	immediate = {
 		random_state_region = { limit = { region = sr:region_senegal }			save_scope_as = senegal_region_scope }

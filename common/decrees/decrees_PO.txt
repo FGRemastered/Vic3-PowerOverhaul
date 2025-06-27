@@ -326,29 +326,7 @@ decree_encourage_resource_industry = {
 		}
 	}
 	modifier = {
-<<<<<<< HEAD
 		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_mining_throughput_add				= 0.25	# 20% -> 25%
-		# building_group_bg_logging_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_rubber_throughput_add				= 0.25	# 20% -> 25%
-		# building_group_bg_fishing_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_whaling_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_oil_extraction_throughput_add		= 0.25	# 20% -> 25%
-=======
-		building_group_bg_mining_throughput_add				= 0.3	# 20% -> 30%
-		building_group_bg_logging_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_rubber_throughput_add				= 0.3	# 20% -> 30%
-		building_group_bg_fishing_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_whaling_throughput_add			= 0.3	# 20% -> 30%
-		building_group_bg_oil_extraction_throughput_add		= 0.3	# 20% -> 30%
-		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_mining_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_logging_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_rubber_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_fishing_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_whaling_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_oil_extraction_throughput_add	= 0.25	# 20% -> 25%
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		# New
 		state_infrastructure_from_population_add			=    1
 		state_infrastructure_from_population_max_add		=   20

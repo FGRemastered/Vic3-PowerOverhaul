@@ -948,9 +948,7 @@ AFS = { #African Free State
 		trigger = {
 			scope:actor ?= {
 				capital = { region = sr:region_nile_basin }
-				any_state = {
-					owner = c:AFS
-					is_capital = yes
+				any_scope_state = {
 					region = sr:region_north_africa
 				}
 			}
@@ -3777,29 +3775,6 @@ GEO = {
 	}
 }
 
-<<<<<<< HEAD
-AZB = {
-	dynamic_country_name = {
-		name = dyn_c_baku 
-		adjective = dyn_c_baku_adj 
-
-		is_main_tag_only = yes
-		priority = 1
-
-		trigger = {
-			exists = scope:actor
-			scope:actor = {
-				is_country_type = unrecognized
-				NOT = {
-					has_technology_researched = nationalism
-				}
-			}
-		}
-	}
-}
-
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 LUR = {
 	dynamic_country_name = {
 		name = dyn_c_bakhtiari
@@ -4297,9 +4272,6 @@ BGL = {
 			}
 		}
 	}
-<<<<<<< HEAD
-}
-=======
 }
 
 SIB = {
@@ -4317,4 +4289,3 @@ SIB = {
 		}
 	}
 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")

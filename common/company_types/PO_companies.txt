@@ -642,21 +642,11 @@ company_united_fruit = {
 						is_building_type = building_banana_plantation
 						is_building_type = building_sugar_plantation
 						is_building_type = building_infres_banana_plantation
-<<<<<<< HEAD
 						is_building_type = building_infres_sugar_plantation
-=======
-					is_building_type = building_banana_plantation
-					levels_owned_by_country = {
-						target = ROOT
-						value >= 5
 					}
-				}
-				any_scope_building = {
-					is_building_type = building_infres_banana_plantation
 					levels_owned_by_country = {
 						target = ROOT
 						value >= 5
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					}
 				}
 			}

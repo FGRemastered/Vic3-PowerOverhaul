@@ -33,6 +33,7 @@ GLOBAL = {
 			has_law = law_type:law_isolationism
 			has_technology_researched = international_trade
 			NOR = {
+				THIS = c:CHI	# Great Qing
 				THIS = c:JAP	# Japan
 				THIS = c:KOR	# Korea
 				THIS = c:SIA	# Siam
@@ -46,22 +47,5 @@ GLOBAL = {
 		}
 		activate_law = law_type:law_mercantilism
 	}
-<<<<<<< HEAD
-	every_country = {
-		limit = { NOT = { has_law = law_type:law_isolationism } }
-		every_building = {
-			limit = { is_building_type = building_trade_center is_subsidized = no }
-			set_subsidized = yes
-		}
-	}
-=======
-	# every_country = {
-		# limit = { has_building = building_trade_center }
-		# every_building = {
-			# limit = { is_building_type = building_trade_center is_subsidized = no }
-			# set_subsidized = yes
-		# }
-	# }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	c:KAU = { activate_law = law_type:law_anarchy }
 }
