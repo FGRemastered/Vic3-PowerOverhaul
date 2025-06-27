@@ -1,9 +1,9 @@
 ﻿# Base
-pmg_base_building_generic_subsistence = {
+pmg_base_building_autarky_farm = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	# ai_selection = most_productive
 	production_methods = {
-		default_building_generic_subsistence
+		default_building_autarky_farm
 		pm_enriched_generic_subsistence
 		pm_fertilized_generic_subsistence
 		pm_chem_fertilized_generic_subsistence
@@ -105,6 +105,7 @@ pmg_serfdom = {
 		pm_tractors_subsistence
 		pm_compression_ignition_tractors_subsistence
 		pm_electric_tractors_subsistence
+		pm_green_tractors_subsistence
 	}
 }
 pmg_serfdom_building_subsistence_rice_paddies = {
@@ -123,5 +124,7 @@ pmg_serfdom_building_subsistence_rice_paddies = {
 		pm_tractors_subsistence
 		pm_compression_ignition_tractors_subsistence
 		pm_electric_tractors_subsistence
+		pm_green_tractors_subsistence
+		pm_decentralised_subsistence
 	}
 }

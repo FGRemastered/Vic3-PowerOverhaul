@@ -1,3 +1,58 @@
+<<<<<<< Updated upstream
+company_sovereign_wealth_fund = {
+	icon = "gfx/interface/icons/company_icons/basic_metal_mining.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	building_types = {
+		building_logging_camp
+		building_fishing_wharf
+		building_whaling_station
+		building_coal_mine
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+		building_gold_mine
+		building_oil_rig
+		building_rubber_plantation
+		building_infres_logging_camp
+		building_infres_fishing_wharf
+		building_infres_whaling_station
+		building_infres_coal_mine
+		building_infres_iron_mine
+		building_infres_lead_mine
+		building_infres_sulfur_mine
+		building_infres_gold_mine
+		building_infres_oil_rig
+		building_infres_rubber_plantation
+	}
+	extension_building_types = {
+		building_steel_mills
+		building_motor_industry
+		building_electrics_industry
+	}
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+	possible = {
+		has_technology_researched = stock_exchange
+		any_scope_building = {
+			is_building_group = bg_extraction
+			level >= 5
+		}
+	}
+	can_establish_in = { is_capital = yes }
+	prosperity_modifier = {
+		country_bureaucracy_investment_cost_factor_mult				=-0.10
+		building_group_bg_extraction_throughput_add					= 0.25
+		building_group_bg_extraction_tax_mult						= 0.25
+		building_steel_mills_throughput_add							= 0.25
+		building_chemical_plants_throughput_add						= 0.25
+		country_minting_mult										= 0.25
+		state_loyalists_from_political_movements_mult				= 0.10
+		state_migration_pull_mult									= 0.10
+		# state_construction_mult										= 0.10
+	}
+	ai_weight = { value = 2 }	# Higher than normal weight
+}
 # Preußische Staatseisenbahnen
 company_prussian_state_railways = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_kpev.dds"
@@ -5,8 +60,11 @@ company_prussian_state_railways = {
 	flavored_company = yes
 	building_types = {
 		building_urban_center
+		# building_urban_center
 		building_railway
 		building_power_plant
+	}
+	extension_building_types = {
 		building_motor_industry
 	}
 	potential = {
@@ -39,6 +97,7 @@ company_rheinmetall = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_rheinmetall.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 	flavored_company = yes
+	# preferred_headquarters = { STATE_RUHR STATE_NORTH_RHINE }
 	building_types = {					# If it used Steel in any way, they were involved.
 		building_steel_mills			# New
 		building_tooling_workshops		# New
@@ -88,6 +147,36 @@ company_rheinmetall = {
 		unit_combat_unit_type_light_tank_offense_mult			= 0.1	# Added
 		unit_combat_unit_type_mechanized_infantry_offense_mult	= 0.1	# Added
 	}
+	ai_will_do = {
+		has_technology_researched = automatic_machine_guns
+		any_scope_state = {
+			OR = { state_region = s:STATE_RUHR state_region = s:STATE_NORTH_RHINE }
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 5
+			state_trigger = {
+				OR = { state_region = s:STATE_RUHR state_region = s:STATE_NORTH_RHINE }
+				is_incorporated = yes
+			}
+		}
+		building_artillery_foundries = {
+			level = 5
+			state_trigger = {
+				OR = { state_region = s:STATE_RUHR state_region = s:STATE_NORTH_RHINE }
+				is_incorporated = yes
+			}
+		}
+		building_munition_plants = {
+			level = 5
+			state_trigger = {
+				OR = { state_region = s:STATE_RUHR state_region = s:STATE_NORTH_RHINE }
+				is_incorporated = yes
+			}
+		}
+	}
 	ai_weight = { value = 5 }	# Very high to ensure ai picks this
 }
 # Einkaufsgenossenschaft deutscher Kolonialwarenhändler
@@ -116,6 +205,7 @@ company_edeka = {
 		building_tobacco_plantation
 		building_banana_plantation
 		# Inf. Plantations
+		building_infres_autarky_farm
 		building_infres_sugar_plantation
 		building_infres_vineyard_plantation
 		building_infres_coffee_plantation
@@ -124,8 +214,21 @@ company_edeka = {
 		building_infres_opium_plantation
 		building_infres_dye_plantation
 		building_infres_silk_plantation
+		building_infres_opium_plantation
 		building_infres_tobacco_plantation
 		building_infres_banana_plantation
+	}
+	extension_building_types = {
+		building_infres_cotton_plantation
+		building_infres_dye_plantation
+		building_infres_silk_plantation
+	}
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+		prestige_good_generic_furniture
+		prestige_good_generic_groceries
+		prestige_good_generic_fish
+		prestige_good_generic_meat
 	}
 	potential = { has_interest_marker_in_region = region_north_germany }
 	attainable = {
@@ -153,12 +256,26 @@ company_edeka = {
 			}
 		}
 	}
+	replaces_company = company_basic_food
+	can_establish_in = { state_region = s:STATE_BRANDENBURG }
 	prosperity_modifier = {
 		country_production_tech_research_speed_mult	= 0.1
 		state_birth_rate_mult						= 0.05
 		state_loyalists_from_sol_change_mult		= 0.1
 		state_radicals_from_sol_change_mult			=-0.1
 		unit_supply_consumption_mult				=-0.05
+	}
+	ai_will_do = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = { is_building_type = building_food_industry level >= 5 }
+		}
+	}
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = { state_region = s:STATE_BRANDENBURG }
+		}
 	}
 	ai_weight = { value = 5 }	# Very high to ensure ai picks this
 }
@@ -169,9 +286,16 @@ company_basf = {
 	flavored_company = yes
 	building_types = {
 		building_chemical_plants
-		# building_explosives_factory		# Moved to Rheinmetall
 		building_synthetics_plants
 		building_synthetic_oil_plants	# Added
+	}
+	extension_building_types = {
+		building_explosives_factory		# Moved to Rheinmetall
+		building_infres_dye_plantation
+		building_sulfur_mine
+	}
+	possible_prestige_goods = {
+		prestige_good_german_aniline
 	}
 	potential = { has_interest_marker_in_region = region_south_germany }
 	attainable = {
@@ -192,6 +316,98 @@ company_basf = {
 		building_group_bg_oil_extraction_throughput_add = 0.05
 		interest_group_ig_industrialists_approval_add	= 2		# Added
 	}
+	ai_will_do = {
+		has_technology_researched = aniline
+		any_scope_state = { state_region = s:STATE_BADEN is_incorporated = yes }
+	}
+	ai_construction_targets = {
+		building_synthetics_plants = { state_trigger = { state_region = s:STATE_BADEN } level = 5 }
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# Great Indian Peninsula Railway
+company_great_indian_railway = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/india_great_indian_peninsula_railway.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	flavored_company = yes
+	building_types = {  
+		building_railway
+	}
+	extension_building_types = {
+		building_iron_mine
+		building_motor_industry			# Added
+		building_war_machine_industry	# Added
+	}
+	potential = {
+		OR = {
+			has_interest_marker_in_region = region_madras
+			has_interest_marker_in_region = region_bombay
+			has_interest_marker_in_region = region_bengal
+			has_interest_marker_in_region = region_central_india
+			has_interest_marker_in_region = region_punjab
+		}
+	}
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					region = sr:region_madras
+					region = sr:region_bombay
+					region = sr:region_bengal
+					region = sr:region_central_india
+					region = sr:region_punjab
+				}
+			}
+		}
+	}			
+	possible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_madras
+				region = sr:region_bombay
+				region = sr:region_bengal
+				region = sr:region_central_india
+				region = sr:region_punjab
+			}
+			is_incorporated = yes
+			has_building = building_railway
+			count >= 6
+		}
+	}
+	can_establish_in = { state_region = s:STATE_BOMBAY }
+	prosperity_modifier = {
+		military_formation_movement_speed_mult			= 0.1
+		state_infrastructure_from_population_add		= 0.5
+		state_infrastructure_from_population_max_add	=  20
+	}
+	ai_will_do = {
+		has_technology_researched = railways
+		any_scope_state = {
+			OR = {
+				region = sr:region_madras
+				region = sr:region_bombay
+				region = sr:region_bengal
+				region = sr:region_central_india
+				region = sr:region_punjab
+			}
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_madras
+					region = sr:region_bombay
+					region = sr:region_bengal
+					region = sr:region_central_india
+					region = sr:region_punjab
+				}
+				is_incorporated = yes
+			}
+		}
+	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
 # United Company of Merchants of England Trading to the East Indies
@@ -207,9 +423,20 @@ company_east_india_company = {
 		building_infres_tobacco_plantation
 		building_infres_opium_plantation
 	}
-	potential = { c:BIC ?= this }
+	extension_building_types = {
+		building_infres_sugar_plantation
+		building_infres_silk_plantation
+	}
+	possible_prestige_goods = {
+		prestige_good_bengal_opium
+	}
+	potential = { c:GBR ?= this }
 	possible = {
-		c:BIC ?= this
+		c:GBR ?= this
+		OR = {
+			has_law = law_type:law_mercantilism
+			has_law = law_type:law_protectionism
+		}
 		any_scope_state = {
 			OR = {
 				region = sr:region_north_india
@@ -221,17 +448,37 @@ company_east_india_company = {
 					is_building_type = building_tobacco_plantation
 					is_building_type = building_opium_plantation
 				}
-				level >= 10
+				level >= 5
 			}
-			count >= 4
-		}
-		OR = {
-			has_law = law_type:law_mercantilism
-			has_law = law_type:law_protectionism
+			count >= 3
 		}
 	}
 	prosperity_modifier = {
 		country_convoys_capacity_mult = 0.25
+	}
+	ai_will_do = {
+		c:GBR ?= this
+		OR = {
+			has_law = law_type:law_mercantilism
+			has_law = law_type:law_protectionism
+		}
+		any_scope_state = { state_is_in_india = yes }
+	}
+	prosperity_modifier = {
+		country_convoys_capacity_mult = 0.25
+	ai_construction_targets = {
+		building_tea_plantation = {
+			level = 5
+			state_trigger = { state_is_in_india = yes }
+		}
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = { state_is_in_india = yes }
+		}
+		building_opium_plantation = {
+			level = 5
+			state_trigger = { state_is_in_india = yes }
+		}
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -240,12 +487,19 @@ company_united_fruit = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/american_united_fruit_co.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 	flavored_company = yes
+	preferred_headquarters = { STATE_LOUISIANA }
 	building_types = {
 		building_banana_plantation
 		building_sugar_plantation
 		
 		building_infres_banana_plantation
 		building_infres_sugar_plantation
+	}
+	extension_building_types = {
+		building_railway
+	}
+	possible_prestige_goods = {
+		prestige_good_gros_michel_banana
 	}
 	potential = {
 		OR = {
@@ -267,20 +521,39 @@ company_united_fruit = {
 					}
 					level >= 5
 				}
+		any_scope_state = {
+			state_region = s:STATE_LOUISIANA
+			is_incorporated = yes
+			OR = {
+				any_scope_building = { is_building_type = building_sugar_plantation			level >= 5 }
+				any_scope_building = { is_building_type = building_infres_sugar_plantation	level >= 5 }
 			}
 		}
-		any_subject_or_below = {
-			OR = {
-				country_is_in_south_america		= yes
-				country_is_in_central_america	= yes
+		any_scope_state = {
+			custom_tooltip = {
+				text = company_united_fruit_possible_tt
+				OR = {
+					state_is_in_central_america = yes
+					state_is_in_south_america = yes
+				}
 			}
-			any_scope_state = {
+			OR = {
 				any_scope_building = {
 					OR = {
 						is_building_type = building_banana_plantation
 						is_building_type = building_infres_banana_plantation
+					is_building_type = building_banana_plantation
+					levels_owned_by_country = {
+						target = ROOT
+						value >= 5
 					}
-					level >= 5
+				}
+				any_scope_building = {
+					is_building_type = building_infres_banana_plantation
+					levels_owned_by_country = {
+						target = ROOT
+						value >= 5
+					}
 				}
 			}
 		}
@@ -289,6 +562,43 @@ company_united_fruit = {
 		building_group_bg_plantations_throughput_add	= 0.2
 		country_infamy_decay_mult						=-0.25
 	}
+	ai_will_do = {
+		OR = {
+			any_scope_state = {
+				OR = {
+					state_is_in_central_america = yes
+					state_is_in_south_america = yes
+				}
+				has_potential_resource = bg_banana_plantations
+			}
+			any_subject_or_below = {
+				any_scope_state = {
+					OR = {
+						state_is_in_central_america = yes
+						state_is_in_south_america = yes
+					}
+					has_potential_resource = bg_banana_plantations
+				}
+			}
+		}
+	}
+	ai_construction_targets = {
+		building_sugar_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOUISIANA
+			}
+		}	
+		building_banana_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_is_in_central_america = yes
+					state_is_in_south_america = yes
+				}
+			}
+		}
+	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
 # Mitsubishi
@@ -296,16 +606,25 @@ company_mitsubishi = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsubishi.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 	flavored_company = yes
-	building_types = {  
-		building_shipyards
+	preferred_headquarters = { STATE_CHUGOKU }
+	building_types = {
 		building_military_shipyards
 		building_coal_mine
 		building_infres_coal_mine
 		building_charcoal_burner
+		building_paper_mills
+	}
+	extension_building_types = {
+		building_shipyards
 		building_motor_industry
+		building_port
+		building_iron_mine
 	}
 	potential = {
 		country_has_primary_culture = cu:japanese
+	}
+	possible_prestige_goods = {
+		prestige_good_washi_paper
 	}
 	possible = { 
 		any_scope_state = {
@@ -328,10 +647,215 @@ company_mitsubishi = {
 		}
 	}
 	prosperity_modifier = {
-		building_shipyards_throughput_add				= 0.1
-		building_military_shipyards_throughput_add		= 0.1
+		building_shipyards_throughput_add				= 0.1	# Added
+		building_military_shipyards_throughput_add		= 0.1	# Added
 		building_war_machine_industry_throughput_add	= 0.1
 		interest_group_ig_industrialists_approval_add	= 2
+	}
+	ai_will_do = {
+		has_technology_researched = ironclad_tech
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = meiji_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_paper_mills = {
+			level = 5
+			state_trigger = { state_region = s:STATE_CHUGOKU }
+		}
+		building_military_shipyards = {
+			level = 5
+			state_trigger = { state_region = s:STATE_CHUGOKU }
+		}
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# Vinnaia Monopoliia
+company_vodka_monopoly = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/russian_vodka_monopoly.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	flavored_company = yes
+	preferred_headquarters = { STATE_INGRIA STATE_MOSCOW }
+	building_types = {  
+		building_food_industry
+		# Plantations
+		building_vineyard_plantation
+		building_infres_vineyard_plantation
+	}
+	extension_building_types = {
+		building_infres_autarky_farm
+		building_wheat_farm
+	}
+	possible_prestige_goods = {
+		prestige_good_smirnoff_vodka
+	}
+	potential = { country_has_primary_culture = cu:russian }
+	possible = { 
+		NOT = { has_law = law_type:law_laissez_faire }
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}			
+	}
+	can_establish_in = { is_capital = yes }
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult	=-0.35	# Increased
+		goods_output_liquor_mult						= 0.10	# Added
+		goods_output_wine_mult							= 0.10	# Added
+	}
+	ai_will_do = {
+		NOT = { has_law = law_type:law_laissez_faire }
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_INGRIA
+				state_region = s:STATE_MOSCOW
+			}
+		}
+	}
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_INGRIA
+					state_region = s:STATE_MOSCOW
+				}
+			}
+		}
+	}
+	ai_weight = { value = 5 }	# It's just not Russia without Vodka
+}
+# Ursus
+company_ursus = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/polish_ursus.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	flavored_company = yes
+	preferred_headquarters = { STATE_GREATER_POLAND }
+	building_types = {  
+		building_motor_industry
+	}
+	extension_building_types = {
+		building_war_machine_industry
+		building_steel_mills
+	}
+	potential = { has_interest_marker_in_region = region_poland }
+	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_GREATER_POLAND } } }	# Hide attainable if it's always fulfilled by possible
+	possible = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_GREATER_POLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 5
+			}
+		}
+	}
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add	= 0.25	# Changed - Wheat -> All Agriculture
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# Nokia AB
+company_nokia = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/finland_nokia.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	flavored_company = yes
+	building_types = {  
+		building_paper_mills
+		building_logging_camp
+		building_power_plant
+		building_electrics_industry		# Added
+		building_synthetics_plants		# Added
+		building_synthetic_oil_plants	# Added
+	}
+	potential = { has_interest_marker_in_region = region_baltic }
+	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_UUSIMAA } } }	# Hide attainable if it's always fulfilled by possible	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_UUSIMAA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mills
+				level >= 3
+			}
+		}
+		has_technology_researched = atmospheric_engine
+	}
+	can_establish_in = { state_region = s:STATE_UUSIMAA }
+	prosperity_modifier = {
+		building_electrics_industry_throughput_add		= 0.10
+		building_synthetics_plants_throughput_add		= 0.05
+		building_synthetic_oil_plants_throughput_add	= 0.05
+	}
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_GREATER_POLAND
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = { state_region = s:STATE_GREATER_POLAND }
+		}
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# La España Industrial
+company_espana_industrial = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/spain_la_espana_industrial.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	flavored_company = yes
+	preferred_headquarters = { STATE_CATALONIA }
+	building_types = {
+		building_textile_mills
+		building_cotton_plantation
+		building_infres_cotton_plantation
+	}
+	extension_building_types = {
+		building_silk_plantation
+		building_infres_silk_plantation
+	}
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	potential = { has_interest_marker_in_region = region_iberia }
+	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_CATALONIA } } }	# Hide attainable if it's always fulfilled by possible
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CATALONIA
+			is_incorporated = yes
+			any_scope_building = { is_building_type = building_textile_mills level >= 3 }
+		}
+		has_technology_researched = cotton_gin
+	}
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.15
+	}
+	ai_will_do = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_CATALONIA
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_textile_mills = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CATALONIA
+			}
+		}
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }

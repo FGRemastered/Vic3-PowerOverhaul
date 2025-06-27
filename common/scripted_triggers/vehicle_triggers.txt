@@ -133,6 +133,23 @@ gfx_softwood_trigger = {
 			has_active_production_method = pm_fertilization_rubber_plantation
 			has_active_production_method = pm_chemical_fertilizer_rubber_plantation
 			has_active_production_method = pm_automatic_fertilization_rubber_plantation
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_simple_forestry
+				has_active_production_method = pm_saw_mills
+				has_active_production_method = pm_electric_saw_mills
+				has_active_production_method = default_building_wood_plantation
+				has_active_production_method = pm_soil_enriching_farming_wood_plantation
+				has_active_production_method = pm_fertilization_wood_plantation
+				has_active_production_method = pm_chemical_fertilizer_wood_plantation
+				has_active_production_method = pm_automatic_fertilization_wood_plantation
+				has_active_production_method = default_building_rubber_plantation
+				has_active_production_method = pm_soil_enriching_farming_rubber_plantation
+				has_active_production_method = pm_fertilization_rubber_plantation
+				has_active_production_method = pm_chemical_fertilizer_rubber_plantation
+				has_active_production_method = pm_automatic_fertilization_rubber_plantation
+			}
 		}
 	}
 }
@@ -143,6 +160,13 @@ gfx_hardwood_trigger = {
 				has_active_production_method = pm_hardwood
 				has_active_production_method = pm_hardwood_saw_mills
 				has_active_production_method = pm_hardwood_electric_saw_mills
+				has_active_production_method = default_building_wood_plantation
+				has_active_production_method = pm_soil_enriching_farming_wood_plantation
+				has_active_production_method = pm_fertilization_wood_plantation
+				has_active_production_method = pm_chemical_fertilizer_wood_plantation
+				has_active_production_method = pm_automatic_fertilization_wood_plantation
+				has_active_production_method = default_building_rubber_plantation
+				has_active_production_method = pm_soil_enriching_farming_rubber_plantation
 				has_active_production_method = pm_fertilization_rubber_plantation
 				has_active_production_method = pm_chemical_fertilizer_rubber_plantation
 				has_active_production_method = pm_automatic_fertilization_rubber_plantation

@@ -72,11 +72,29 @@ law_land_based_taxation = {
 		tax_consumption_add	= 0.425
 		tax_land_add		= 0.85
 		tax_income_add		= 0.085
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.50	# Increased
+		tax_income_add		= 0.05	# Added
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.60	# Increased
+		tax_income_add		= 0.06	# Added
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.70
+		tax_income_add		= 0.07	# Added
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Increased
+		tax_land_add		= 0.80	# Decreased
+		tax_income_add		= 0.08	# Added
 	}
 	tax_modifier_very_high = {
-		tax_consumption_add	= 0.50
+		tax_consumption_add	= 0.50	# Increased
 		tax_land_add		= 1.00
-		tax_income_add		= 0.10
+		tax_income_add		= 0.10	# Added
 	}
 	possible_political_movements = {
 		law_per_capita_based_taxation
@@ -110,6 +128,8 @@ law_per_capita_based_taxation = {
 		tax_per_capita_add	= 0.40
 		tax_land_add		= 0.10
 		tax_income_add		= 0.20
+		tax_land_add		= 0.30	# Increased
+		tax_income_add		= 0.10	# Increased
 	}
 	tax_modifier_low = {
 		tax_consumption_add	= 0.275
@@ -118,7 +138,7 @@ law_per_capita_based_taxation = {
 		tax_income_add		= 0.25
 	}
 	tax_modifier_medium = {
-		tax_consumption_add	= 0.35
+		tax_consumption_add	= 0.35	# Increased
 		tax_per_capita_add	= 0.70
 		tax_land_add		= 0.30
 		tax_income_add		= 0.30
@@ -128,9 +148,17 @@ law_per_capita_based_taxation = {
 		tax_per_capita_add	= 0.85
 		tax_land_add		= 0.40
 		tax_income_add		= 0.35
+		tax_land_add		= 0.50	# Increased
+		tax_income_add		= 0.15	# Increased
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Increased
+		tax_per_capita_add	= 0.80	# Decreased
+		tax_land_add		= 0.60	# Increased
+		tax_income_add		= 0.20	# Increased
 	}
 	tax_modifier_very_high = {
-		tax_consumption_add	= 0.50
+		tax_consumption_add	= 0.50	# Increased
 		tax_per_capita_add	= 1.00
 		tax_land_add		= 0.50
 		tax_income_add		= 0.40
@@ -222,6 +250,34 @@ law_proportional_taxation = {
 				value = 0.75
 			}
 		}
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.125	# Added
+		tax_income_add		= 0.25	# Increased
+		tax_dividends_add	= 0.10	# Increased
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.15	# Added
+		tax_income_add		= 0.30	# Increased
+		tax_dividends_add	= 0.15	# Increased
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.175	# Added
+		tax_income_add		= 0.35	# Increased
+		tax_dividends_add	= 0.175	# Increased
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Decreased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.40	# Increased
+		tax_dividends_add	= 0.20	# Increased
+	}
+	tax_modifier_very_high = {
+		tax_consumption_add	= 0.50	# Increased
+		tax_land_add		= 0.25	# Added
+		tax_income_add		= 0.50	# Increased
+		tax_dividends_add	= 0.25	# Increased
 	}
 	on_impose = {}
 	ai_enact_weight_modifier = { # Petitions
@@ -288,6 +344,34 @@ law_graduated_taxation = {
 				value = 0.75
 			}
 		}
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.10	# Added
+		tax_income_add		= 0.10
+		tax_dividends_add	= 0.20	# Increased
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.125	# Added
+		tax_income_add		= 0.125
+		tax_dividends_add	= 0.30	# Increased
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.20	# Increased
+		tax_dividends_add	= 0.35 	# Increased
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Increased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.20	# Increased
+		tax_dividends_add	= 0.50	# Increased
+	}
+	tax_modifier_very_high = {
+		tax_consumption_add	= 0.50
+		tax_land_add		= 0.25	# Added
+		tax_income_add		= 0.25	# Increased
+		tax_dividends_add	= 0.65	# Increased
 	}
 	on_impose = {}
 	ai_enact_weight_modifier = { # Petitions

@@ -114,6 +114,25 @@ law_tenant_farmers = {
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
 		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {
+			limit = { 
+				OR = { has_journal_entry = je_meiji_main has_journal_entry = je_great_reforms_serfdom }
+				has_law = law_type:law_serfdom
+			}
+			add = 10000 # Top priority for Meiji AI is to get out of Serfdom, likewise for Great Reforms
+		}
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_enactment_stance = { law = law_type:law_tenant_farmers value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
 	}
 }
 law_commercialized_agriculture = {
@@ -185,6 +204,28 @@ law_commercialized_agriculture = {
 		value = 0
 		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
 	}
+	ai_enact_weight_modifier = {	# Petitions
+		value = 0
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {
+			limit = { 
+				has_journal_entry = je_meiji_main
+				has_law = law_type:law_serfdom
+			}
+			add = 10000 # Top priority for Meiji AI is to get out of Serfdom
+		}
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_enactment_stance = { law = law_type:law_commercialized_agriculture value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
+	}
 }
 law_homesteading = {
 	group = lawgroup_land_reform
@@ -197,6 +238,10 @@ law_homesteading = {
 	}
 	modifier = {
 		country_farmers_pol_str_mult = 0.25
+		country_farmers_pol_str_mult										= 0.25
+		building_group_bg_agriculture_allowed_collectivization_add			= 0.50
+		building_group_bg_ranching_allowed_collectivization_add				= 0.50
+		building_group_bg_plantations_throughput_add						= 0.25	# Added
 	}
 	on_enact = {
 		if = {
@@ -254,6 +299,18 @@ law_homesteading = {
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
 		if = { limit = { has_journal_entry = je_government_petition has_variable = desired_law_var scope:law = var:desired_law_var } add = 750 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_enactment_stance = { law = law_type:law_homesteading value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
 	}
 }
 law_collectivized_agriculture = {
@@ -262,6 +319,10 @@ law_collectivized_agriculture = {
 	progressiveness = 50
 	modifier = {
 		country_bureaucrats_pol_str_mult = 0.25
+		building_group_bg_agriculture_allowed_collectivization_add			= 1.00
+		building_group_bg_ranching_allowed_collectivization_add				= 1.00
+		building_group_bg_plantations_allowed_collectivization_add			= 1.00
+		country_bureaucrats_pol_str_mult									= 0.25	# Moved from law_command_economy
 	}
 	on_enact = {
 		custom_tooltip = rural_laborers_tu_ig_shift_effect_tt

@@ -12,7 +12,7 @@ pmg_base_building_motor_industry = {
 		pm_jet_electric_engines
 	}
 }
-pmg_automobile_production = {
+pmg_automobile_production_secondary = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_automobiles_disabled

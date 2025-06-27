@@ -58,13 +58,6 @@
 	building_banana_plantation = { "arabic_farm_plantation_01_mesh" }
 	building_vineyard_plantation = { "arabic_farm_plantation_01_mesh" }
 	# Infres
-	building_infres_rye_farm = { "arabic_farm_farmstead_01_mesh" }
-	building_infres_wheat_farm = { "arabic_farm_farmstead_01_mesh" }
-	building_infres_rice_farm = { "arabic_farm_farmstead_01_mesh" }
-	building_infres_maize_farm = { "arabic_farm_farmstead_01_mesh" }
-	building_infres_millet_farm = { "arabic_farm_farmstead_01_mesh" }
-	building_infres_livestock_ranch = { "arabic_farm_ranch_01_mesh" }
-
 	building_infres_coffee_plantation = { "arabic_farm_plantation_01_mesh" }
 	building_infres_cotton_plantation = { "arabic_farm_plantation_01_mesh" }
 	building_infres_silk_plantation = { "arabic_farm_plantation_01_mesh" }

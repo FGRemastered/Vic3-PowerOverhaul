@@ -28,6 +28,12 @@
  pm_large_solar_windpark_subsistence: "$pm_large_solar_windpark$"
  pm_huge_solar_windpark_subsistence: "$pm_huge_solar_windpark$"
  
+ pmg_greenhouse: "Greenhouse"
+ pm_coal_furnace: "Coal Heating"
+ pm_electric_furnace: "Resistive Heating"
+ pm_electric_heat_exchanger: "Heat Exchanger"
+ pm_oil_furnace: "Oil-powered Heat Exchanger"
+ 
  pm_solar_roofing: "Solar Roofing"
  pm_air_scrubber: "Air Scrubber"
  
@@ -47,6 +53,8 @@
  
  pm_simple_farming_rice_farm: "$pm_simple_farming$"
  
+ default_building_wood_plantation: "$pm_default$"
+ 
  pm_soil_enriching_farming_rice_farm: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_vineyard_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_coffee_plantation: "$pm_soil_enriching_farming$"
@@ -58,6 +66,7 @@
  pm_soil_enriching_farming_sugar_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_banana_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_silk_plantation: "$pm_soil_enriching_farming$"
+ pm_soil_enriching_farming_wood_plantation: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_rubber_plantation: "$pm_soil_enriching_farming$"
  
  pm_fertilization_rice_farm: "$pm_fertilization$"
@@ -71,6 +80,7 @@
  pm_fertilization_sugar_plantation: "$pm_fertilization$"
  pm_fertilization_banana_plantation: "$pm_fertilization$"
  pm_fertilization_silk_plantation: "$pm_fertilization$"
+ pm_fertilization_wood_plantation: "$pm_fertilization$"
  pm_fertilization_rubber_plantation: "$pm_fertilization$"
 
  pm_chemical_fertilizer_rice_farm: "$pm_chemical_fertilizer$"
@@ -84,6 +94,7 @@
  pm_chemical_fertilizer_sugar_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_banana_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_silk_plantation: "$pm_chemical_fertilizer$"
+ pm_chemical_fertilizer_wood_plantation: "$pm_chemical_fertilizer$"
  pm_chemical_fertilizer_rubber_plantation: "$pm_chemical_fertilizer$"
  
  pm_automatic_fertilization: "Automatic Fertilization"
@@ -98,6 +109,7 @@
  pm_automatic_fertilization_sugar_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_banana_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_silk_plantation: "$pm_automatic_fertilization$"
+ pm_automatic_fertilization_wood_plantation: "$pm_automatic_fertilization$"
  pm_automatic_fertilization_rubber_plantation: "$pm_automatic_fertilization$"
  
  pmg_secondary: "Secondary"
@@ -136,8 +148,8 @@
  pm_electrocution_slaughtering: "Electrocution-Slaughtering"
  pm_electrocution_slaughtering_ranch: "$pm_electrocution_slaughtering$"
  
- pmg_base_building_generic_subsistence: "$pm_base$"
- default_building_generic_subsistence: "$pm_default$"
+ pmg_base_building_autarky_farm: "$pm_base$"
+ default_building_autarky_farm: "$pm_default$"
  pm_enriched_generic_subsistence: "$pm_soil_enriching_farming$"
  pm_fertilized_generic_subsistence: "$pm_fertilization$"
  pm_chem_fertilized_generic_subsistence: "$pm_chemical_fertilizer$"
@@ -189,10 +201,10 @@
  ban_tobacco_again: "Renew ban on Tobacco"
  ban_tobacco_again_desc: "Renew ban on Tobacco"
  
- building_generic_subsistence: "Autark Farms"
- building_generic_subsistence_lens_option: "Expand $building_generic_subsistence$"
- building_infres_generic_subsistence: "Inf. Autark Farms"
- building_infres_generic_subsistence_lens_option: "Expand $building_infres_generic_subsistence$"
+ building_autarky_farm: "Autark Farms"
+ building_autarky_farm_lens_option: "Expand $building_autarky_farm$"
+ building_infres_autarky_farm: "Inf. Autark Farms"
+ building_infres_autarky_farm_lens_option: "Expand $building_infres_autarky_farm$"
  building_infres_subsistence_farms: "Inf. Subs. Farms"
  building_infres_subsistence_farms_lens_option: "Expand $building_infres_subsistence_farms$"
  building_infres_subsistence_orchards: "Inf. Subs. Orchards"
