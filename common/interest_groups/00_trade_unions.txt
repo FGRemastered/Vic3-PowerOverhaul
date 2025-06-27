@@ -79,13 +79,6 @@
 				pop_employment_building_group = bg_ranching
 				pop_employment_building_group = bg_plantations
 			}
-			AND = {	# Added
-				strata = lower
-				OR = {
-					pop_employment_building_group = bg_autarky_farms
-					pop_employment_building_group = bg_infinite_autarky_farms
-				}
-			}
 		}
 	}
 	pop_weight = {
@@ -129,8 +122,8 @@
 				if = {	# Added
 					limit = {
 						OR = {
-							pop_employment_building_group = bg_autarky_farms
-							pop_employment_building_group = bg_infinite_autarky_farms
+							pop_employment_building_group = bg_generic_subsistence
+							pop_employment_building_group = bg_infinite_subsistence_agriculture
 						}
 					}
 					multiply = 2

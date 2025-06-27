@@ -1,56 +1,33 @@
-<<<<<<< Updated upstream
-﻿# Pop Needs
-popneed_crude_items = {
-	default = wood
-	entry = {
-		goods = wood
-		weight = 1
-		max_supply_share = 0.5
-		min_supply_share = 0.0
-	}
-	entry = {
-		goods = furniture
-		weight = 2
-		max_supply_share = 1.0
-		min_supply_share = 0.0
-	}
-	entry = {					# Added
-		goods = tools
-		weight = 0.5
-		max_supply_share = 0.25
-		min_supply_share = 0.0
-	}
-}
 popneed_basic_food = {
 	default = grain
 	entry = {
 		goods = grain
-		weight = 0.9			# Increased
-		max_supply_share = 0.8	# Decreased
+		weight = 1
+		max_supply_share = 0.9
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = fish
 		weight = 1
-		max_supply_share = 0.8	# Decreased
+		max_supply_share = 0.9
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = meat
-		weight = 1.0
-		max_supply_share = 0.8	# Decreased
+		weight = 0.5
+		max_supply_share = 0.9
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = fruit
-		weight = 1.0
-		max_supply_share = 0.8	# Decreased
+		weight = 0.5
+		max_supply_share = 0.9
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = groceries
-		weight = 1.25			# Increased
-		max_supply_share = 1.0	# Increased
+		weight = 1				# Changed
+		max_supply_share = 1.0	# Changed
 		min_supply_share = 0.0
 	}
 }
@@ -58,78 +35,32 @@ popneed_heating = {
 	default = wood
 	entry = {
 		goods = wood
-		weight = 1				# Increased
-		max_supply_share = 0.5
+		weight = 1				# Changed
+		max_supply_share = 1.0	# Changed
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = fabric
-		weight = 0.5			# Increased
-		max_supply_share = 0.5	# Increased
+		weight = 0.5			# Changed
+		max_supply_share = 0.5	# Changed
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = coal
-		weight = 1.5			# Decreased
-		max_supply_share = 0.9	# Increased
+		weight = 1.5			# Changed
+		max_supply_share = 0.9	# Changed
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = oil
-		weight = 1.75			# Decreased
-		max_supply_share = 1.0
+		weight = 1.75			# Changed
+		max_supply_share = 0.9	# Changed
 		min_supply_share = 0.0
 	}
 	entry = {
 		goods = electricity
-		weight = 5				# Increased
+		weight = 5				# Changed
 		max_supply_share = 1.0
-		min_supply_share = 0.0
-	}
-}
-
-# popneed_household_items = {
-	# default = furniture
-
-	# entry = {
-		# goods = furniture
-
-		# weight = 1
-		# max_supply_share = 0.75
-		# min_supply_share = 0.10
-	# }
-
-	# entry = {
-		# goods = glass
-
-		# weight = 1
-		# max_supply_share = 0.5
-		# min_supply_share = 0.0
-	# }
-
-	# entry = {
-		# goods = paper
-
-		# weight = 0.5
-		# max_supply_share = 0.5
-		# min_supply_share = 0.0
-	# }
-# }
-popneed_standard_clothing = {
-	default = clothes
-	entry = {
-		goods = clothes
-
-		weight = 1
-		max_supply_share = 1.0
-		min_supply_share = 0.5
-	}
-
-	entry = {					# Added
-		goods = luxury_clothes
-
-		weight = 0.25
-		max_supply_share = 0.5
 		min_supply_share = 0.0
 	}
 }
@@ -140,9 +71,6 @@ popneed_intoxicants = {
 		weight = 1.2			# Changed
 		max_supply_share = 1.0
 		min_supply_share = 0.0
-		weight = 1
-		max_supply_share = 0.80	# Increased
-		min_supply_share = 0.20	# Increased
 	}
 	entry = {
 		goods = tobacco
@@ -155,18 +83,12 @@ popneed_intoxicants = {
 		weight = 0.8			# Changed
 		max_supply_share = 1.0
 		min_supply_share = 0.0
-		weight = 0.75 # Lower base weight, but very high weight for obsession chance
-		max_supply_share = 0.80	# Increased
-		min_supply_share = 0.00
 	}
 	entry = {					# Added
 		goods = wine
 		weight = 0.5
 		max_supply_share = 1.0
 		min_supply_share = 0.0
-		weight = 0.25
-		max_supply_share = 0.25
-		min_supply_share = 0.10	# Increased
 	}
 	entry = {					# Added
 		goods = services
@@ -293,8 +215,8 @@ popneed_leisure = {
 	}
 	entry = {		# Added
 		goods = dye	# Homemade Art
-		weight = 0.25
-		max_supply_share = 0.25
+		weight = 0.5
+		max_supply_share = 0.5
 		min_supply_share = 0.0
 	}
 	entry = {
@@ -307,12 +229,6 @@ popneed_leisure = {
 		goods = aeroplanes
 		weight = 1
 		max_supply_share = 0.2
-		min_supply_share = 0.0
-	}
-	entry = {	# Added
-		goods = tanks
-		weight = 1
-		max_supply_share = 0.25
 		min_supply_share = 0.0
 	}
 	entry = {

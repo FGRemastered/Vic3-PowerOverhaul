@@ -19,8 +19,9 @@
 			}
 			OR = {	# Changed
 				has_building = building_livestock_ranch
-				has_building = building_autarky_farm
-				has_building = building_infres_autarky_farm
+				has_building = building_infres_livestock_ranch
+				has_building = building_generic_subsistence
+				has_building = building_infres_generic_subsistence
 			}
 			is_incorporated = yes
 		}
@@ -52,7 +53,7 @@
 		trigger_event = { id = coffee_with_milk.1 }
 	}
 
-	on_yearly_pulse = {
+	on_monthly_pulse = {
 		random_events = {
 			100 = 0
 			10 = coffee_with_milk.2
@@ -122,8 +123,9 @@
 				}
 				OR = {	# Changed
 					has_building = building_livestock_ranch
-					has_building = building_autarky_farm
-					has_building = building_infres_autarky_farm
+					has_building = building_infres_livestock_ranch
+					has_building = building_generic_subsistence
+					has_building = building_infres_generic_subsistence
 				}
 				is_incorporated = yes
 			}
@@ -166,8 +168,9 @@ je_coffee_with_milk = {
 			}
 			OR = {	# Changed
 				has_building = building_livestock_ranch
-				has_building = building_autarky_farm
-				has_building = building_infres_autarky_farm
+				has_building = building_infres_livestock_ranch
+				has_building = building_generic_subsistence
+				has_building = building_infres_generic_subsistence
 			}
 			is_incorporated = yes
 		}
@@ -283,8 +286,9 @@ je_coffee_with_milk = {
 				}
 				OR = {	# Changed
 					has_building = building_livestock_ranch
-					has_building = building_autarky_farm
-					has_building = building_infres_autarky_farm
+					has_building = building_infres_livestock_ranch
+					has_building = building_generic_subsistence
+					has_building = building_infres_generic_subsistence
 				}
 				is_incorporated = yes
 			}

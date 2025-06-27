@@ -1,0 +1,12 @@
+# Eurotunnel
+euro_tunnel = {
+	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+	possible = {
+		has_technology_researched = arc_welding
+		market = {
+			any_scope_state = { state_region = s:STATE_HOME_COUNTIES }
+			any_scope_state = { state_region = s:STATE_FRENCH_LOW_COUNTRIES }
+		}
+	}
+	state_region = STATE_FRENCH_LOW_COUNTRIES
+}

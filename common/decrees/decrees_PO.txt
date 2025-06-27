@@ -10,7 +10,7 @@ decree_violent_suppression = {
 		turmoil >= 0.2
 	}
 	modifier = {
-		state_turmoil_effects_mult		=-0.50
+		state_turmoil_effects_mult		=-0.5
 		state_mortality_turmoil_mult	= 0.02
 	}
 	cost = 100
@@ -53,10 +53,22 @@ decree_emergency_relief = {
 			limit = { average_sol < average_expected_sol }
 			add = 100
 		}
-		if		= { limit = { turmoil >= 0.5 } add = 100 }
-		else_if	= { limit = { turmoil >= 0.4 } add =  80 }
-		else_if	= { limit = { turmoil >= 0.3 } add =  60 }
-		else_if	= { limit = { turmoil >= 0.2 } add =  40 }
+		if = {
+			limit = { turmoil >= 0.5 }
+			add = 100
+		}
+		else_if = {
+			limit = { turmoil >= 0.4 }
+			add = 80
+		}
+		else_if = {
+			limit = { turmoil >= 0.3 }
+			add = 60
+		}
+		else_if = {
+			limit = { turmoil >= 0.2 }
+			add = 40
+		}
 		if = {
 			limit = {
 				scope:country = {
@@ -68,7 +80,7 @@ decree_emergency_relief = {
 			}
 			multiply = 0.5
 		}
-		if = {	# Added
+		if = {
 			limit = { scope:country = { has_any_secessionists_possible = yes } }
 			multiply = 2
 		}
@@ -84,10 +96,10 @@ decree_promote_national_values = {
 		}
 	}
 	modifier = {
-		state_assimilation_mult		= 4	# Changed
-		state_conversion_mult		= 4	# Changed
+		state_assimilation_mult		= 9	# Changed
+		state_conversion_mult		= 9	# Changed
 	}
-	cost = 50	# Decreased
+	cost = 50
 	ai_weight = {
 		value = 0
 		if = {
@@ -325,13 +337,6 @@ decree_encourage_resource_industry = {
 		building_group_bg_fishing_throughput_add			= 0.3	# 20% -> 30%
 		building_group_bg_whaling_throughput_add			= 0.3	# 20% -> 30%
 		building_group_bg_oil_extraction_throughput_add		= 0.3	# 20% -> 30%
-		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_mining_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_logging_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_rubber_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_fishing_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_whaling_throughput_add			= 0.25	# 20% -> 25%
-		# building_group_bg_oil_extraction_throughput_add	= 0.25	# 20% -> 25%
 		# New
 		state_infrastructure_from_population_add			= 1
 		state_infrastructure_from_population_max_add		= 20
@@ -390,68 +395,6 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = { scope:country = { has_strategy = ai_strategy_resource_expansion } }
 			multiply = 1.5
-		}
-	}
-}
-decree_greener_grass_campaign = {
-	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
-	state_trigger = {
-		is_isolated_from_market = no
-		state_unemployment_rate <= 0.2	# Added
-	}
-	modifier = {
-		state_migration_pull_add	= 20
-		state_migration_pull_mult	=  4.0	# Increased 25% -> 400%
-	}
-	unlocking_technologies = { romanticism }
-	cost = 100
-	ai_weight = {
-		value = 0
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.75 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.50 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.25 } }
-			add = 50
-		}
-		# vv New
-		if = {
-			limit = { state_unemployment_rate < 0.025 }
-			add = 10
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.020 }
-			add = 20
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.010 }
-			add = 40
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.005 }
-			add = 50
-		}
-		# ^^ New
-		if = {
-			limit = {
-				is_incorporated = no
-				scope:country = {
-					NOR = {												# Already gives a hefty migration bonus
-						has_law = law_type:law_frontier_colonization	# PDX forgot about this one
-						has_law = law_type:law_colonial_resettlement
-					}
-				}
-			}
-			multiply = 2.0
-		}
-		if = {
-			limit = { state_unemployment_rate >= 0.25  }
-			multiply = 0
 		}
 	}
 }

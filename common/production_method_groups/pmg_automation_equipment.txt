@@ -46,6 +46,5 @@ pmg_harvesting_process_tractors = {
 		pm_tractors
 		pm_compression_ignition_tractors
 		pm_electric_tractors
-		pm_green_tractors
 	}
 }

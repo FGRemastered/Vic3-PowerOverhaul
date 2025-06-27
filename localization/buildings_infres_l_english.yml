@@ -11,6 +11,13 @@
  building_infres_tea_plantation: "Inf. $building_tea_plantation$"
  building_infres_tobacco_plantation: "Inf. $building_tobacco_plantation$"
 
+ building_infres_maize_farm: "Inf. $building_maize_farm$"
+ building_infres_millet_farm: "Inf. $building_millet_farm$"
+ building_infres_rice_farm: "Inf. $building_rice_farm$"
+ building_infres_rye_farm: "Inf. $building_rye_farm$"
+ building_infres_wheat_farm: "Inf. $building_wheat_farm$"
+ building_infres_livestock_ranch: "Inf. $building_livestock_ranch$"
+
  building_infres_coal_mine: "Inf. $building_coal_mine$"
  building_infres_gold_mine: "Inf. $building_gold_mine$"
  building_infres_iron_mine: "Inf. $building_iron_mine$"

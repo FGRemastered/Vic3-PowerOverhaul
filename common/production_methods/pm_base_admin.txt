@@ -17,14 +17,6 @@ pm_simple_organization = {
 			building_employment_bureaucrats_add	= -250
 		}
 	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_clerks_add								= 1500	# 50:1
-			building_employment_bureaucrats_add							= -500
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=    5 } }
-	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=   30 } }
 }
 pm_horizontal_drawer_cabinets = {
 	texture = "gfx/interface/icons/production_method_icons/horizontal_drawer_cabinets.dds"
@@ -46,12 +38,6 @@ pm_horizontal_drawer_cabinets = {
 		level_scaled = {
 			building_employment_clerks_add		= 2500	# 3:1
 			building_employment_bureaucrats_add	=  500
-			goods_input_paper_add										=   10
-			goods_input_clothes_add										=    0.5
-			goods_input_furniture_add									=    0.5
-		}
-		level_scaled = {
-			building_employment_clerks_add								= 1000	# 20:1
 		}
 	}
 }
@@ -75,12 +61,6 @@ pm_vertical_filing_cabinets = {
 		level_scaled = {
 			building_employment_clerks_add		= 2000	# 2:1
 			building_employment_bureaucrats_add	=  500
-			goods_input_paper_add										=   20
-			goods_input_clothes_add										=    1
-			goods_input_furniture_add									=    1
-		}
-		level_scaled = {
-			building_employment_clerks_add								=  500	# 20:3
 		}
 	}
 }
@@ -105,23 +85,6 @@ pm_switch_boards = {
 		level_scaled = {
 			building_employment_clerks_add		= 1500	# 1:1
 			building_employment_bureaucrats_add	= 1000
-	}
-	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=   30 } }
-	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=  150 } }
-}
-# White House
-pm_default_building_white_house = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
-	is_hidden_when_unavailable = yes
-	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add							=  500
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=  100 } }	# Added
-	country_modifiers = {	# Changed from state_modifiers
-		workforce_scaled = {
-			building_government_administration_throughput_add			= 0.25	# Increased
 		}
 	}
 	required_input_goods = telephones
@@ -136,8 +99,6 @@ pm_simple_organization_skyscraper = {
 		level_scaled = {
 			building_employment_laborers_add					= 1000
 			building_employment_clerks_add						= 4500	# 10:1
-			building_employment_clerks_add						= 3500
-			building_employment_bureaucrats_add					= -500
 		}
 	}
 	state_modifiers = {
@@ -151,8 +112,7 @@ pm_simple_organization_skyscraper = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add								=   50	# 35
-			state_trade_capacity_mult							= 0.10
-			state_trade_advantage_mult							= 0.10
+			country_trade_route_quantity_mult					= 0.10
 			country_improve_relations_speed_mult				= 0.10
 			country_damage_relations_speed_mult					= 0.10
 		}
@@ -169,7 +129,6 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 			building_employment_laborers_add					= 1000
 			building_employment_clerks_add						= 4000	# 4:1
 			building_employment_bureaucrats_add					=  500
-			building_employment_clerks_add						= 3000
 		}
 	}
 	state_modifiers = {
@@ -183,8 +142,7 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add								=   75	# 50
-			state_trade_capacity_mult							= 0.20
-			state_trade_advantage_mult							= 0.20
+			country_trade_route_quantity_mult					= 0.20
 			country_improve_relations_speed_mult				= 0.20
 			country_damage_relations_speed_mult					= 0.20
 		}
@@ -193,7 +151,6 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 pm_vertical_filing_cabinets_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/vertical_filing_cabinets.dds"
 	unlocking_technologies = { central_archives }
-	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_paper_add								=  100	# 20
@@ -202,7 +159,6 @@ pm_vertical_filing_cabinets_skyscraper = {
 			building_employment_laborers_add					= 1000
 			building_employment_clerks_add						= 3500	# ~2:1
 			building_employment_bureaucrats_add					= 1000
-			building_employment_clerks_add						= 2000	# 4:1
 		}
 	}
 	state_modifiers = {
@@ -216,8 +172,7 @@ pm_vertical_filing_cabinets_skyscraper = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_bureaucracy_add								=  100	# 65
-			state_trade_capacity_mult							= 0.25
-			state_trade_advantage_mult							= 0.25
+			country_trade_route_quantity_mult					= 0.25
 			country_improve_relations_speed_mult				= 0.25
 			country_damage_relations_speed_mult					= 0.25
 		}
@@ -235,7 +190,6 @@ pm_switch_boards_skyscraper = {
 			building_employment_laborers_add					= 1000
 			building_employment_clerks_add						= 2500	# 1:1
 			building_employment_bureaucrats_add					= 2000
-			building_employment_bureaucrats_add					= 1000
 		}
 	}
 	country_modifiers = {
@@ -245,8 +199,7 @@ pm_switch_boards_skyscraper = {
 			building_government_administration_throughput_add	= 0.30
 			building_railway_throughput_add						= 0.30
 			building_paper_mills_throughput_add					= 0.30
-			state_trade_capacity_mult							= 0.30
-			state_trade_advantage_mult							= 0.30
+			country_trade_route_quantity_mult					= 0.30
 			country_improve_relations_speed_mult				= 0.30
 			country_damage_relations_speed_mult					= 0.30
 		}
@@ -296,23 +249,6 @@ pm_switch_boards_skyscraper = {
 		# workforce_scaled = { country_prestige_add	= 10 }
 	# }
 # }
-# Airship
-pm_airship_mooring_post = {
-	texture = "gfx/interface/icons/production_method_icons/airship_mooring_post.dds"
-	unlocking_technologies = { zeppelins }
-	country_modifiers = {
-		workforce_scaled = { 
-			country_prestige_add								= 10
-			state_trade_capacity_mult							=  0.50
-		}
-		throughput_scaled = {
-			unit_army_offense_add								= 30
-			interest_group_ig_petty_bourgeoisie_approval_add	=  1.00
-			interest_group_ig_industrialists_approval_add		=  1.00
-			interest_group_ig_armed_forces_approval_add			=  1.00
-		}
-	}
-}
 # University
 pm_scholastic_education = {
 	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
@@ -324,22 +260,17 @@ pm_scholastic_education = {
 		level_scaled = {
 			building_employment_clerks_add		= 1500
 			building_employment_laborers_add	= 1500
-			building_employment_clerks_add		=  500
 		}
 	}
 	state_modifiers = {
 		workforce_scaled = {
 			state_pop_qualifications_mult		= 0.1
 			state_education_access_add			= 0.025
-			state_pop_qualifications_mult		= 0.10
-		}
-		throughput_scaled = {
-			state_education_access_wealth_add	= 0.01
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add		=    1
+			country_weekly_innovation_add		=    2
 		}
 	}
 }
@@ -355,7 +286,6 @@ pm_philosophy_department = {
 		level_scaled = {
 			building_employment_clerks_add		= 1750
 			building_employment_laborers_add	= 1250
-			building_employment_clerks_add		=  500
 		}
 	}
 	state_modifiers = {
@@ -363,13 +293,10 @@ pm_philosophy_department = {
 			state_pop_qualifications_mult		= 0.15
 			state_education_access_add			= 0.02
 		}
-		throughput_scaled = {
-			state_education_access_wealth_add	= 0.01
-		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add		=    1.5
+			country_weekly_innovation_add		=    3
 		}
 	}
 }
@@ -385,22 +312,17 @@ pm_analytical_philosophy_department = {
 		level_scaled = {
 			building_employment_clerks_add		= 2000
 			building_employment_laborers_add	= 1000
-			building_employment_clerks_add		=  500
 		}
 	}
 	state_modifiers = {
 		workforce_scaled = {
 			state_pop_qualifications_mult		= 0.2
 			state_education_access_add			= 0.015
-			state_pop_qualifications_mult		= 0.20
-		}
-		throughput_scaled = {
-			state_education_access_wealth_add	= 0.01
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add		=    2
+			country_weekly_innovation_add		=    4
 		}
 	}
 }
@@ -506,8 +428,8 @@ pm_religious_academia = {
 	}	
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add =  250
-			building_employment_academics_add =  250
+			building_employment_clergymen_add = 1000
+			building_employment_academics_add = 1000
 		}
 	}
 }
@@ -516,8 +438,8 @@ pm_secular_academia = {
 	disallowing_laws = { law_state_religion law_state_atheism }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_bureaucrats_add	=  250	# Added
-			building_employment_academics_add	=  250	# Reduced
+			building_employment_bureaucrats_add	= 1000	# Added
+			building_employment_academics_add	= 1000	# Reduced
 		}
 	}
 }
@@ -526,34 +448,7 @@ pm_independent_academia = {
 	disallowing_laws = { law_state_religion law_freedom_of_conscience }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_academics_add	=  500
+			building_employment_academics_add	= 2000
 		}
 	}
-}
-pm_no_secondary_building_power_bloc_statue = {
-	texture = "gfx/interface/icons/production_method_icons/no_radios.dds"
-}
-pm_radio_tower = {
-	texture = "gfx/interface/icons/production_method_icons/unused/radio_stations.dds"
-	unlocking_technologies = { radio }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_radios_add							=    5
-		}
-		level_scaled = {
-			building_employment_engineers_add				=  500
-		}
-	}
-	state_modifiers = {
-		workforce_scaled = {
-			state_decree_cost_mult							=-0.25
-			state_pop_pol_str_mult							= 0.25
-			state_conscription_rate_mult					= 0.25
-			state_infrastructure_from_population_mult		= 0.20	# Increased
-			state_loyalists_from_political_movements_mult	= 0.10
-			state_conversion_mult							= 1.00	# Increased
-			state_turmoil_effects_mult						=-0.10
-		}
-	}
-	required_input_goods = radios
 }

@@ -47,13 +47,8 @@ je_liberalism_1 = {
 		any_interest_group = {
 			is_in_government = yes
 			OR = {
-				custom_tooltip = {
-					text = has_ideology_liberal_tt
-					OR = {
-						has_ideology = ideology:ideology_liberal
-						has_ideology = ideology:ideology_liberal_modern
-					}
-				}
+				has_ideology = ideology:ideology_liberal
+				has_ideology = ideology:ideology_liberal_modern
 				leader = { has_ideology = ideology:ideology_radical }
 				leader = { has_ideology = ideology:ideology_market_liberal }
 				leader = { has_ideology = ideology:ideology_positivist }		# Added
