@@ -94,7 +94,7 @@ law_per_capita_based_taxation = {
 		tax_income_add		= 0.15
 	}
 	tax_modifier_high = {
-		tax_consumption_add	= 0.40	# Decreased
+		tax_consumption_add	= 0.40	# Increased
 		tax_per_capita_add	= 0.80	# Decreased
 		tax_land_add		= 0.60	# Increased
 		tax_income_add		= 0.20	# Increased

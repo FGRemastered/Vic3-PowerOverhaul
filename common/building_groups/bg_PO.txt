@@ -37,6 +37,10 @@ bg_inf_construction = {
 	parent_group = bg_construction
 	urbanization = 0	# important
 }
+bg_inf_construction = {
+	parent_group = bg_construction
+	urbanization = 0	# important
+}
 bg_power = {
 	category = development
 	lens = infrastructure
