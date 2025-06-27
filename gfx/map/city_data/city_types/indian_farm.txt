@@ -67,12 +67,15 @@
 	building_vineyard_plantation		= {"indian_farm_cotton_01_mesh"}
 	building_manor_house				= {"indian_rural_manorhouse_01_mesh"}
 	# Infres
+<<<<<<< HEAD
 	building_infres_rye_farm			= { "indian_farm_rice_01_mesh" }
 	building_infres_wheat_farm			= { "indian_farm_rice_01_mesh" }
 	building_infres_rice_farm			= { "indian_farm_rice_01_mesh" }
 	building_infres_maize_farm			= { "indian_farm_rice_01_mesh" }
 	building_infres_millet_farm			= { "indian_farm_rice_01_mesh" }
 	building_infres_livestock_ranch		= { "indian_farm_ranch_01_mesh" }
+=======
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	building_infres_coffee_plantation	= { "indian_farm_cotton_01_mesh" }
 	building_infres_cotton_plantation	= { "indian_farm_cotton_01_mesh" }
 	building_infres_silk_plantation		= { "indian_farm_cotton_01_mesh" }

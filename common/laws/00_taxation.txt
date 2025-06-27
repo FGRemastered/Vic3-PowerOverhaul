@@ -53,14 +53,38 @@ law_land_based_taxation = {
 		tax_income_add		= 0.07
 	}
 	tax_modifier_high = {
+<<<<<<< HEAD
 		tax_consumption_add	= 0.40	# Decreased
 		tax_land_add		= 0.80	# Decreased
 		tax_income_add		= 0.08	# Decreased
+=======
+		tax_consumption_add	= 0.425
+		tax_land_add		= 0.85
+		tax_income_add		= 0.085
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.50	# Increased
+		tax_income_add		= 0.05	# Added
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.60	# Increased
+		tax_income_add		= 0.06	# Added
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.70
+		tax_income_add		= 0.07	# Added
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Increased
+		tax_land_add		= 0.80	# Decreased
+		tax_income_add		= 0.08	# Added
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	tax_modifier_very_high = {
-		tax_consumption_add	= 0.50
+		tax_consumption_add	= 0.50	# Increased
 		tax_land_add		= 1.00
-		tax_income_add		= 0.10
+		tax_income_add		= 0.10	# Added
 	}
 	on_impose = {}
 	ai_will_do = { has_law = law_type:law_consumption_based_taxation }	# AI shouldn't change to land based taxation from more advanced taxation forms
@@ -78,8 +102,15 @@ law_per_capita_based_taxation = {
 	tax_modifier_very_low = {
 		tax_consumption_add	= 0.25	# Increased
 		tax_per_capita_add	= 0.40
+<<<<<<< HEAD
 		tax_land_add		= 0.30	# Increased
 		tax_income_add		= 0.10
+=======
+		tax_land_add		= 0.10
+		tax_income_add		= 0.20
+		tax_land_add		= 0.30	# Increased
+		tax_income_add		= 0.10	# Increased
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	tax_modifier_low = {
 		tax_consumption_add	= 0.30	# Increased
@@ -88,19 +119,30 @@ law_per_capita_based_taxation = {
 		tax_income_add		= 0.15	# Increased
 	}
 	tax_modifier_medium = {
-		tax_consumption_add	= 0.35
+		tax_consumption_add	= 0.35	# Increased
 		tax_per_capita_add	= 0.70
 		tax_land_add		= 0.50	# Increased
 		tax_income_add		= 0.15
 	}
 	tax_modifier_high = {
+<<<<<<< HEAD
+=======
+		tax_consumption_add	= 0.425
+		tax_per_capita_add	= 0.85
+		tax_land_add		= 0.40
+		tax_income_add		= 0.35
+		tax_land_add		= 0.50	# Increased
+		tax_income_add		= 0.15	# Increased
+	}
+	tax_modifier_high = {
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		tax_consumption_add	= 0.40	# Increased
 		tax_per_capita_add	= 0.80	# Decreased
 		tax_land_add		= 0.60	# Increased
 		tax_income_add		= 0.20	# Increased
 	}
 	tax_modifier_very_high = {
-		tax_consumption_add	= 0.50
+		tax_consumption_add	= 0.50	# Increased
 		tax_per_capita_add	= 1.00
 		tax_land_add		= 0.75	# Increased
 		tax_income_add		= 0.25	# Increased
@@ -158,7 +200,67 @@ law_proportional_taxation = {
 	}
 	tax_modifier_very_high = {
 		tax_consumption_add	= 0.50
+<<<<<<< HEAD
 		tax_land_add		= 0.50	# Added
+=======
+		tax_income_add		= 0.35
+		tax_per_capita_add	= 0.50
+		tax_land_add		= 0.25
+		tax_dividends_add	= 0.20
+	}
+	possible_political_movements = {
+		law_per_capita_based_taxation
+		law_graduated_taxation
+	}
+	pop_support = {
+		value = 0
+		add = {
+			desc = "POP_PEASANTS"
+			if = {
+				limit = {
+					owner = { has_law = law_type:law_land_based_taxation }
+					is_pop_type = peasants
+				}
+				value = 0.75
+			}
+		}
+		add = {
+			desc = "POP_LOWER_STRATA"
+			if = {
+				limit = {
+					owner = { has_law = law_type:law_per_capita_based_taxation }
+					strata = poor
+				}
+				value = 0.75
+			}
+		}
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.125	# Added
+		tax_income_add		= 0.25	# Increased
+		tax_dividends_add	= 0.10	# Increased
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.15	# Added
+		tax_income_add		= 0.30	# Increased
+		tax_dividends_add	= 0.15	# Increased
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.175	# Added
+		tax_income_add		= 0.35	# Increased
+		tax_dividends_add	= 0.175	# Increased
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Decreased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.40	# Increased
+		tax_dividends_add	= 0.20	# Increased
+	}
+	tax_modifier_very_high = {
+		tax_consumption_add	= 0.50	# Increased
+		tax_land_add		= 0.25	# Added
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		tax_income_add		= 0.50	# Increased
 		tax_dividends_add	= 0.25	# Increased
 	}
@@ -225,9 +327,70 @@ law_graduated_taxation = {
 	}
 	tax_modifier_very_high = {
 		tax_consumption_add	= 0.50
+<<<<<<< HEAD
 		tax_land_add		= 0.25	# Added
 		tax_income_add		= 0.25	# Increased
 		tax_dividends_add	= 0.75	# Increased
+=======
+		tax_income_add		= 0.25	# Changed
+		tax_land_add		= 0.20	# Added
+		tax_dividends_add	= 0.75	# Changed
+	}
+	possible_political_movements = {
+		law_per_capita_based_taxation
+		law_proportional_taxation
+	}
+	pop_support = {
+		value = 0
+		add = {
+			desc = "POP_PEASANTS"
+			if = {
+				limit = {
+					owner = { has_law = law_type:law_land_based_taxation }
+					is_pop_type = peasants
+				}
+				value = 0.75
+			}
+		}
+		add = {
+			desc = "POP_LOWER_STRATA"
+			if = {
+				limit = {
+					owner = { has_law = law_type:law_per_capita_based_taxation }
+					strata = poor
+				}
+				value = 0.75
+			}
+		}
+		tax_consumption_add	= 0.25	# Increased
+		tax_land_add		= 0.10	# Added
+		tax_income_add		= 0.10
+		tax_dividends_add	= 0.20	# Increased
+	}
+	tax_modifier_low = {
+		tax_consumption_add	= 0.30	# Increased
+		tax_land_add		= 0.125	# Added
+		tax_income_add		= 0.125
+		tax_dividends_add	= 0.30	# Increased
+	}
+	tax_modifier_medium = {
+		tax_consumption_add	= 0.35	# Increased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.20	# Increased
+		tax_dividends_add	= 0.35 	# Increased
+	}
+	tax_modifier_high = {
+		tax_consumption_add	= 0.40	# Increased
+		tax_land_add		= 0.20	# Added
+		tax_income_add		= 0.20	# Increased
+		tax_dividends_add	= 0.50	# Increased
+	}
+	tax_modifier_very_high = {
+		tax_consumption_add	= 0.50
+		tax_land_add		= 0.25	# Added
+		tax_income_add		= 0.25	# Increased
+		tax_dividends_add	= 0.65	# Increased
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	on_impose = {}
 	ai_enact_weight_modifier = { # Petitions

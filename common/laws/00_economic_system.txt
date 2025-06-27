@@ -49,6 +49,10 @@ law_agrarianism = {
 		country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.30
 		country_disable_nationalization_without_compensation_bool	= yes
+<<<<<<< HEAD
+=======
+		country_free_charters_add = 1
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_will_do = {
 		OR = {
@@ -94,6 +98,7 @@ law_interventionism = {
 		country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.25
 		building_nationalization_radicals_mult						=-0.25
+<<<<<<< HEAD
 		country_loan_interest_rate_mult								=-0.10	# Added
 		country_authority_mult										= 0.10	# Added
 		state_shopkeepers_investment_pool_efficiency_mult			= 0.10	# Added
@@ -101,6 +106,12 @@ law_interventionism = {
 		state_capitalists_investment_pool_efficiency_mult			= 0.10	# Added
 		state_aristocrats_investment_pool_efficiency_mult			= 0.10	# Added
 		state_clergymen_investment_pool_efficiency_mult				= 0.10	# Added
+=======
+		country_free_charters_add									= 1
+		country_loan_interest_rate_mult								=-0.10	# Added
+		country_authority_mult										= 0.10	# Added
+		tax_dividends_add											= 0.05	# Added
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		# building_group_bg_manufacturing_allowed_collectivization_add= 0.05	# Added
 	}
 	ai_enact_weight_modifier = { # Petitions
@@ -154,6 +165,10 @@ law_laissez_faire = {
 		country_disable_nationalization_without_compensation_bool	= yes
 		# country_disable_nationalization_bool						= yes	# Removed
 		country_force_privatization_bool							= yes
+<<<<<<< HEAD
+=======
+		country_free_charters_add									= 2
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -204,6 +219,11 @@ law_cooperative_ownership = {
 		building_group_bg_arts_allowed_collectivization_add 					= 1.00
 		state_engineers_investment_pool_efficiency_mult							= 0.25	# Added
 		country_authority_mult													= 0.10	# Added
+<<<<<<< HEAD
+=======
+		country_free_charters_add												= 1
+		country_foreign_collectivization_bool									= no	# Disabled
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
@@ -243,7 +263,13 @@ law_command_economy = {
 		building_nationalization_radicals_mult						=-0.50	# Decreased	- Move to tech
 		country_government_dividends_efficiency_add					= 0.40
 		country_leverage_resistance_mult							= 0.25
+<<<<<<< HEAD
 		country_disable_privatization_bool							= yes
+=======
+		country_private_construction_allocation_mult				= 0.10
+		country_disable_privatization_bool							= yes
+		country_free_charters_add									= 1
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_will_do = {
 		OR = {
@@ -300,9 +326,16 @@ law_industry_banned = {
 		building_nationalization_investment_return_add				= 0.50
 		country_government_dividends_reinvestment_add				=-0.25	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.30
+<<<<<<< HEAD
 		# building_group_bg_manufacturing_allowed_collectivization_add= 0.10	# Added
 		country_economic_dependence_on_overlord_add					=-0.50
 		country_disable_nationalization_without_compensation_bool	= yes
+=======
+		country_economic_dependence_on_overlord_add					=-0.50
+		state_peasants_education_access_add							=-0.10
+		country_disable_nationalization_without_compensation_bool	= yes
+		country_free_charters_add = 1
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_will_do = {	# Changed
 		exists = ruler

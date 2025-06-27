@@ -61,17 +61,9 @@
 	building_vineyard_plantation		= { "european_rural_plantation_01_mesh" }
 	building_manor_house = {"european_rural_manorhouse_01_mesh"}
 
+	building_autarky_farm		= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
 	# Infres
-	building_infres_rye_farm			= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_wheat_farm			= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_rice_farm			= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_maize_farm			= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_millet_farm			= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_livestock_ranch		= { "european_rural_ranch_01_mesh" }
-	
-	building_generic_subsistence		= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_generic_subsistence	= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-
+	building_infres_autarky_farm	= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
 	building_infres_coffee_plantation	= { "european_rural_plantation_01_mesh" }
 	building_infres_silk_plantation		= { "european_rural_plantation_01_mesh" }
 	building_infres_cotton_plantation	= { "european_rural_plantation_01_mesh" }

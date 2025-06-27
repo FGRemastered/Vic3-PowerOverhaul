@@ -20,9 +20,15 @@ principle_transport_3 = {
 		# Modifiers from previous level(s)
 		country_convoys_capacity_mult					= 0.2
 		state_infrastructure_from_population_mult		= 0.33
+<<<<<<< HEAD
 		state_infrastructure_from_population_max_mult	= 0.33 
 		# Increased land trade capacity
 		market_land_trade_capacity_add					= 50
+=======
+		state_infrastructure_from_population_max_mult	= 0.33
+		# Members get an increase to max EoS bonus
+		building_economy_of_scale_level_cap_add			= 10
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		# Unlocks a set of PMs for Railways
 		goods_output_transportation_mult				= 0.25	# Don't make this more complicated than it has to be.
 	}

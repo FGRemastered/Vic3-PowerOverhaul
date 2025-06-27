@@ -1,5 +1,335 @@
+<<<<<<< HEAD
 # Missing/Broken base-game triggers
 has_monarchist_ideology = {
+=======
+<<<<<<< Updated upstream
+=======
+# Missing/Broken base-game triggers
+has_monarchist_ideology = {
+	OR = {
+		has_ideology = ideology:ideology_royalist
+		has_ideology = ideology:ideology_orleanist
+		has_ideology = ideology:ideology_bonapartist
+		has_ideology = ideology:ideology_legitimist
+		has_ideology = ideology:ideology_humanitarian_royalist	# Added
+	}
+}
+ideology_royalist_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_devout
+		is_interest_group_type = ig_rural_folk
+		is_interest_group_type = ig_petty_bourgeoisie
+		is_interest_group_type = ig_armed_forces
+		trigger_if = { limit = { NOT = { has_ideology = ideology:ideology_republican_paternalistic } } is_interest_group_type = ig_landowners }		# Added
+	}
+}
+ideology_atheist_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_rural_folk			# Added
+		is_interest_group_type = ig_armed_forces
+		is_interest_group_type = ig_petty_bourgeoisie
+		is_interest_group_type = ig_intelligentsia
+		trigger_if = { limit = { has_ideology = ideology:ideology_republican_paternalistic } is_interest_group_type = ig_landowners }		# Added
+	}
+}
+ideology_republican_leader_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_armed_forces
+		is_interest_group_type = ig_petty_bourgeoisie
+		is_interest_group_type = ig_industrialists
+		trigger_if = { limit = { has_ideology = ideology:ideology_republican_paternalistic } is_interest_group_type = ig_landowners }		# Added
+	}
+}
+ideology_social_democrat_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_devout
+		is_interest_group_type = ig_rural_folk
+		is_interest_group_type = ig_intelligentsia
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_armed_forces
+		is_interest_group_type = ig_petty_bourgeoisie	# Added
+	}
+}
+ideology_communist_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_rural_folk
+		is_interest_group_type = ig_intelligentsia
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_armed_forces
+		trigger_if = { limit = { c:CHI ?= OWNER } is_interest_group_type = ig_landowners }		# Added
+	}
+}
+ideology_vanguardist_valid_trigger = {
+	OR = {
+		is_interest_group_type = ig_rural_folk
+		is_interest_group_type = ig_intelligentsia
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_armed_forces
+		trigger_if = { limit = { c:CHI ?= OWNER } is_interest_group_type = ig_landowners }		# Added
+	}
+}
+trigger_trans_siberian_railway = {	# Not broken, just too large to comfortably fit into the buildings/building_infrastructure file
+	OWNER = { has_journal_entry = je_trans_siberian_railway }
+	NOT = { has_building = building_railway }
+	OR = {
+		state_region = s:STATE_MOSCOW
+		state_region = s:STATE_YAROSLAVL
+		state_region = s:STATE_NIZHNY_NOVGOROD
+		state_region = s:STATE_CHUVASHIA
+		state_region = s:STATE_KAZAN
+		state_region = s:STATE_UFA
+		state_region = s:STATE_CHELYABINSK
+		state_region = s:STATE_URAL
+		state_region = s:STATE_TOBOLSK
+		state_region = s:STATE_TOMSK
+		state_region = s:STATE_KRASNOYARSK
+		state_region = s:STATE_IRKUTSK
+		state_region = s:STATE_BURYATIA
+		state_region = s:STATE_TRANS_BAIKAL
+		state_region = s:STATE_YAKUTSK
+		state_region = s:STATE_OKHOTSK
+		state_region = s:STATE_AMUR
+		state_region = s:STATE_OUTER_MANCHURIA
+	}
+}
+trigger_manchurian_railway = {	# Not broken, just too large to comfortably fit into the buildings/building_infrastructure file
+	exists = c:RUS
+	c:RUS ?= owner
+	region = sr:region_manchuria
+	any_scope_building = {
+		is_building_type = building_railway
+		levels_owned_by_country = {  
+			target = c:RUS  
+			value  < 1
+		}
+	}
+}
+trigger_backwards_agenda = {
+	OR = {
+		has_strategy = ai_strategy_conservative_agenda
+		has_strategy = ai_strategy_reactionary_agenda
+		has_strategy = ai_strategy_maintain_mandate_of_heaven
+	}
+}
+trigger_chose_extremism = {
+	OR = {
+		has_variable = communist_ig_var
+		has_variable = chose_vanguardism
+		has_variable = chose_anarchism
+		has_variable = chose_communism
+		has_variable = chose_ethno_nationalism
+		has_variable = chose_conservatism
+		has_variable = chose_fascism
+	}
+}
+trigger_chose_not_communism = {
+	OR = {
+		has_variable = chose_vanguardism
+		has_variable = chose_anarchism
+		has_variable = chose_conservatism
+		has_variable = chose_fascism
+		has_variable = chose_ethno_nationalism
+	}
+}
+trigger_chose_not_vanguardism = {
+	OR = {
+		has_variable = chose_communism
+		has_variable = chose_anarchism
+		has_variable = chose_conservatism
+		has_variable = chose_fascism
+		has_variable = chose_ethno_nationalism
+	}
+}
+trigger_chose_not_anarchy = {
+	OR = {
+		has_variable = chose_vanguardism
+		has_variable = chose_communism
+		has_variable = chose_conservatism
+		has_variable = chose_fascism
+		has_variable = chose_ethno_nationalism
+	}
+}
+trigger_chose_not_fascism = {
+	OR = {
+		has_variable = communist_ig_var
+		has_variable = chose_vanguardism
+		has_variable = chose_anarchism
+		has_variable = chose_communism
+		has_variable = chose_ethno_nationalism
+	}
+}
+trigger_chose_not_ethno_nationalism = {
+	OR = {
+		has_variable = communist_ig_var
+		has_variable = chose_vanguardism
+		has_variable = chose_anarchism
+		has_variable = chose_communism
+		has_variable = chose_fascism
+	}
+}
+trigger_no_republican_monarch = {
+	NAND = {	# Monarchs cannot be republicans
+		OWNER = { has_law	= law_type:law_monarchy }
+		OR = {
+			is_ruler	= yes
+			is_heir		= yes
+		}
+	}
+}
+trigger_BIC_british_dictate = {
+	scope:target_country = {
+		c:BIC ?= this
+		OR = {	
+			has_journal_entry = je_british_dictate_plantations
+			has_journal_entry = je_british_dictate_military
+			has_journal_entry = je_british_dictate_universities
+		}
+	}
+}
+trigger_army_leader = {
+	OR = {
+		has_role = general
+		has_role = admiral
+	}
+}
+trigger_junker_landowners = {
+	any_interest_group = { has_ideology = ideology:ideology_junker_paternalistic }
+}
+trigger_PREV_has_investment_rights = {
+	OR = {
+		has_diplomatic_pact = { who = PREV type = foreign_investment_rights is_initiator = no }
+		AND = {
+			market.OWNER = PREV
+			is_in_customs_union_with = PREV
+		}
+	}
+}
+trigger_bureacracy_admin_state = {
+	OR = {
+		is_capital = yes
+		any_scope_building = { is_building_type = building_skyscraper }
+		OWNER = { has_law = law_type:law_elected_bureaucrats }
+	}
+}
+trigger_valid_pop_spawn_state = {
+	OR = {
+		var:peasantsToSpawn			> 0
+		var:peasantsToSpawnHundredk	> 0
+		var:peasantsToSpawn1M		> 0
+	}
+	OR = {
+		any_scope_building = { is_subsistence_building = yes }
+		any_scope_building = { is_building_type = building_autarky_farm }
+		any_scope_building = { is_building_type = building_infres_autarky_farm }
+	}
+}
+trigger_auto_expand_railway = {
+	OR = {
+		cash_reserves_ratio > 0.75
+		is_subsidized = yes
+	}
+	OR = {
+		weekly_profit		>= 2500
+		state = { sg:transportation = { state_goods_pricier > 0 } }	# Changed
+		state = { relative_infrastructure < 1 }
+		# state.market_access < 1	# Causes issue when you are a puppet connected by convoys
+	}
+	occupancy > 0.975 # Don't try to expand unless sufficient employment
+	state = { NOT = { is_isolated_from_market = yes } }	# Needs to be this way.
+	building_has_goods_shortage = no
+}
+trigger_auto_expand_trade = {	# TODO
+	always = no
+}
+trigger_auto_expand_power = {
+	OR = {
+		cash_reserves_ratio > 0.75
+		is_subsidized = yes
+	}
+	OR = {
+		weekly_profit		>= 2500
+		state = { sg:electricity = { state_goods_pricier > 0 } }	
+	}
+	state.market_access	> 0.9
+	occupancy			> 0.95
+	building_has_goods_shortage = no
+}
+trigger_auto_expand_admin = {
+	occupancy > 0.95
+	OR = {
+		state.tax_capacity < state.tax_capacity_usage
+		AND = {
+			STATE = { trigger_bureacracy_admin_state = yes }
+			OR = {
+				OWNER = { bureaucracy <= 0 }
+				OWNER = { approaching_bureaucracy_shortage = yes }
+			}
+		}
+	}
+	building_has_goods_shortage = no
+	state.market_access > 0.9
+}
+trigger_auto_expand_port = {
+	OR = {
+		trigger_if = {
+			limit = { OWNER = { NOT = { has_technology_researched = railways } } }	# Placeholder for land adjacency
+			state = { market_access < 1 }
+		}
+		custom_tooltip = {
+			text = insufficient_convoys.tt
+			OWNER = {
+				modifier:country_convoy_contribution_to_market_owner_add < 1
+				OR = {
+					num_convoys_available < num_convoys_required
+					any_trade_route = { trade_route_needs_convoys_to_grow = yes }
+				}
+			}
+		}
+		trigger_if = {
+			limit = { NOT = { OWNER = market.OWNER } state = { is_incorporated = yes } }
+			custom_tooltip = {
+				text = market_owner_insufficient_convoys.tt
+				market.OWNER = {
+					OR = {
+						num_convoys_available < num_convoys_required
+						any_trade_route = { trade_route_needs_convoys_to_grow = yes }
+					}
+				}
+			}
+		}
+		AND = {
+			weekly_profit > 0
+			state = { sg:transportation = { state_goods_pricier > 0.5 } }
+		}
+	}
+	occupancy = 1
+	building_has_goods_shortage = no
+}
+trigger_auto_expand_infres_port = {
+	trigger_auto_expand_port = yes
+	state = {
+		trigger_if = {
+			limit = { has_building = building_port }
+			custom_tooltip = {
+				text = "The [THIS.GetState.GetBuilding('building_port').GetName] in [THIS.GetState.GetName] cannot expand."
+				b:building_port.level >= modifier:state_building_port_max_level_add
+			}
+		}
+		trigger_else = { always = no }
+	}
+}
+trigger_forbidden_heavy_industry = {	# Using a NOT and OR seperately instead of NOR to make it more versatile
+	OR = {
+		has_law = law_type:law_industry_banned
+		has_law = law_type:law_extraction_economy
+	}
+}
+>>>>>>> Stashed changes
+# Rules for infinite buildings
+trigger_private_construction = {
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	OR = {
 		has_ideology = ideology:ideology_royalist
 		has_ideology = ideology:ideology_orleanist
@@ -333,9 +663,24 @@ trigger_gov_construction = {
 	}
 }
 trigger_no_autarky_farms = {
+<<<<<<< HEAD
 	NOR = { 
 		any_scope_building = { is_building_type = building_generic_subsistence }
 		any_scope_building = { is_building_type = building_infres_generic_subsistence }
+=======
+<<<<<<< Updated upstream
+	error_check = {
+		severity = fail
+		NOR = { 
+			any_scope_building = { is_building_type = building_generic_subsistence }
+			any_scope_building = { is_building_type = building_infres_generic_subsistence }
+		}
+=======
+	NOR = { 
+		any_scope_building = { is_building_type = building_autarky_farm }
+		any_scope_building = { is_building_type = building_infres_autarky_farm }
+>>>>>>> Stashed changes
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 trigger_incorporated_or_incorporating = {
@@ -378,6 +723,11 @@ trigger_chinese_state = {	# any_scope_state left out intentionally to make it mo
 		}
 	}
 }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_microstate = {
 	OR = {
 		AND = {
@@ -494,6 +844,7 @@ trigger_war_machine_industry_allowed = {
 		NOT = { trigger_microstate = yes }
 	}
 }
+<<<<<<< HEAD
 trigger_infres_wine_allowed		= {
 	# trigger_if = {
 		# limit = { OWNER = { is_player = yes } }
@@ -600,10 +951,25 @@ trigger_infres_logging_allowed	= {
 		market = { mg:hardwood	= { market_goods_pricier > 0 } }
 	}
 	OR = {
+=======
+trigger_infres_logging_allowed	= {
+	OR = {
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		NOT = { has_potential_resource = bg_logging }
 		any_scope_building = { is_building_type = building_logging_camp NOT = { can_queue_building_levels = 1 } }
 		exists = b:building_infres_logging_camp									# Allowed to expand if it already exists
 	}
+<<<<<<< HEAD
+=======
+	NOT = { trigger_microstate = yes }
+}
+trigger_infres_rubber_allowed	= {
+	OR = {
+		NOT = { has_potential_resource = bg_rubber_plantations }
+		any_scope_building = { is_building_group = bg_rubber_plantations NOT = { can_queue_building_levels = 1 } }
+	}
+	NOT = { trigger_microstate = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }
 trigger_infres_fishing_allowed	= {
 	is_sea_adjacent = yes
@@ -621,11 +987,14 @@ trigger_infres_whaling_allowed	= {
 		exists = b:building_infres_whaling_station								# Allowed to expand if it already exists
 	}
 }
+<<<<<<< HEAD
 trigger_infres_rubber_allowed	= {
 	OWNER = { has_variable = enable_inf_seed_ext }
 	OWNER = { NOT = { has_technology_researched = plastics } }
 	NOT = { trigger_microstate = yes }
 }
+=======
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_infres_coal_allowed		= {
 	OR = {
 		OWNER = { has_variable = enable_inf_seed_ext }
@@ -679,6 +1048,7 @@ trigger_finite_plantation = {
 		is_building_type = building_silk_plantation
 	}
 }
+<<<<<<< HEAD
 trigger_infres_agriculture = {
 	OR = {
 		is_building_type = building_infres_rye_farm
@@ -689,6 +1059,8 @@ trigger_infres_agriculture = {
 		is_building_type = building_infres_livestock_ranch
 	}
 }
+=======
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_infres_plantation = {
 	OR = {
 		is_building_type = building_infres_vineyard_plantation
@@ -717,10 +1089,18 @@ trigger_instant_seed_autarky = {
 			THIS = ROOT
 			trigger_PREV_has_investment_rights = yes
 		}
+<<<<<<< HEAD
 		any_scope_state = { NOT = { has_building = building_generic_subsistence } }
 		any_scope_state = { NOT = { has_building = building_infres_generic_subsistence } }
 	}
 }
+=======
+		any_scope_state = { NOT = { has_building = building_autarky_farm } }
+		any_scope_state = { NOT = { has_building = building_infres_autarky_farm } }
+	}
+}
+>>>>>>> Stashed changes
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_seed_plantations = {
 	has_technology_researched = enclosure
 	any_scope_state = {
@@ -728,10 +1108,21 @@ trigger_seed_plantations = {
 		trigger_if = { limit = { is_capital = no } NOT = { trigger_microstate = yes } }
 		is_treaty_port = no
 		OR = {
+<<<<<<< Updated upstream
 			NOT = { any_scope_building = { is_building_type = building_infres_generic_subsistence } }
+<<<<<<< HEAD
 			NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } }
 			trigger_if = {
 				limit = { OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
+=======
+			AND = {
+=======
+			NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } }
+			NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } }
+			trigger_if = {
+				limit = { OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
+>>>>>>> Stashed changes
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }
 			}
 			# AND = {

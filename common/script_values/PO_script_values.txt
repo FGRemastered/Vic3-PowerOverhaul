@@ -63,7 +63,11 @@ tax_capacity_per_building = {
 	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }												multiply	=  1.25 }
 }
 bureacracy_per_admin = {
+<<<<<<< HEAD
 	if		= { limit = { b:building_government_administration = { has_active_production_method = pm_simple_organization } }		value		=    35 }
+=======
+	if		= { limit = { b:building_government_administration = { has_active_production_method = pm_simple_organization } }		value		=    30 }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_horizontal_drawer_cabinets } }	value		=    50 }
 	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_vertical_filing_cabinets } }	value		=    75 }
 	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_switch_boards } }				value		=   150 }

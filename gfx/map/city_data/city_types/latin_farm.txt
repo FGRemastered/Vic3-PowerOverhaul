@@ -59,14 +59,8 @@
 	building_vineyard_plantation		= { "latin_farm_plantation_01_mesh" }
 	building_manor_house = {"latin_rural_manorhouse_01_mesh"}
 
+	building_manor_house = {"latin_rural_manorhouse_01_mesh"}
 	# Infres
-	building_infres_rye_farm			= { "latin_farm_farmstead_01_mesh" }
-	building_infres_wheat_farm			= { "latin_farm_farmstead_01_mesh" }
-	building_infres_rice_farm			= { "latin_farm_farmstead_01_mesh" }
-	building_infres_maize_farm			= { "latin_farm_farmstead_01_mesh" }
-	building_infres_millet_farm			= { "latin_farm_farmstead_01_mesh" }
-	building_infres_livestock_ranch		= { "latin_farm_ranch_01_mesh" }
-
 	building_infres_coffee_plantation	= { "latin_farm_plantation_01_mesh" }
 	building_infres_silk_plantation		= { "latin_farm_plantation_01_mesh" }
 	building_infres_cotton_plantation	= { "latin_farm_plantation_01_mesh" }

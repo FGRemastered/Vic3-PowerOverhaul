@@ -95,8 +95,13 @@
 			AND = {	# Added
 				strata = lower
 				OR = {
+<<<<<<< HEAD
 					pop_employment_building_group = bg_generic_subsistence
 					pop_employment_building_group = bg_infinite_subsistence_agriculture
+=======
+					pop_employment_building_group = bg_autarky_farms
+					pop_employment_building_group = bg_infinite_autarky_farms
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 		}
@@ -131,8 +136,8 @@
 				if = {	# Added
 					limit = {
 						OR = {
-							pop_employment_building_group = bg_generic_subsistence
-							pop_employment_building_group = bg_infinite_subsistence_agriculture
+							pop_employment_building_group = bg_autarky_farms
+							pop_employment_building_group = bg_infinite_autarky_farms
 						}
 					}
 					multiply = 4	# 50 -> 200

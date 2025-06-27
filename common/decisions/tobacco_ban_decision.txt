@@ -12,18 +12,17 @@ ban_tobacco = {
 	}
 	when_taken = { effect_tobacco_ban = yes }
     ai_chance = {
-        base = 0
-		modifier = {
+        value = 0
+		if = {
+			limit = { authority >= 200 }
 			add = 10
-			trigger = { authority >= 200 }
 		}
-		modifier = {
-			add = 10
-			trigger = {
+		if = {
+			limit = {
 				any_interest_group = {
 					limit = {
 						OR = {
-							is_being_bolstered = yes
+							is_powerful = yes
 							is_in_government = yes
 						}
 						OR = {
@@ -33,6 +32,7 @@ ban_tobacco = {
 					}
 				}
 			}
+			add = 10
 		}
     }
 }
@@ -56,18 +56,17 @@ ban_tobacco_again = {
 	}
 	when_taken = { effect_tobacco_ban = yes }
     ai_chance = {
-        base = 0
-		modifier = {
+        value = 0
+		if = {
+			limit = { authority >= 200 }
 			add = 10
-			trigger = { authority >= 200 }
 		}
-		modifier = {
-			add = 10
-			trigger = {
+		if = {
+			limit = {
 				any_interest_group = {
 					limit = {
 						OR = {
-							is_being_bolstered = yes
+							is_powerful = yes
 							is_in_government = yes
 						}
 						OR = {
@@ -77,6 +76,7 @@ ban_tobacco_again = {
 					}
 				}
 			}
+			add = 10
 		}
     }
 }
@@ -89,17 +89,17 @@ remove_tobacco_ban = {
 	possible = { market.owner = ROOT }
 	when_taken = { effect_remove_tobacco_ban = yes }
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { authority < 50 }
+		value = 0
+		if = {
+			limit = { authority < 50 }
 			add = 10
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				any_interest_group = {
 					limit = {
 						OR = {
-							is_being_bolstered = yes
+							is_powerful = yes
 							is_in_government = yes
 						}
 						OR = {

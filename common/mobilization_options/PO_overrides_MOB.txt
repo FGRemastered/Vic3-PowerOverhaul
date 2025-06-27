@@ -31,7 +31,7 @@ mobilization_option_extra_supplies = {
 	texture = "gfx/interface/icons/mobilization_options/extra_supplies.dds"
 	unlocking_technologies = { army_reserves }
 	possible = {
-		market ?= { mg:groceries ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:groceries ?= { has_potential_supply = yes } }
 	}
 	on_deactivate_while_mobilized = {
 		custom_tooltip = {
@@ -74,11 +74,23 @@ mobilization_option_luxurious_supplies = {
 	possible = {
 		scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_extra_supplies }
 		market ?= {
+<<<<<<< HEAD
 			mg:meat			?= { market_goods_sell_orders > 0 }
 			mg:wine			?= { market_goods_sell_orders > 0 }
 			mg:coffee		?= { market_goods_sell_orders > 0 }
 			mg:tea			?= { market_goods_sell_orders > 0 }
 			mg:ammunition	?= { market_goods_sell_orders > 0 }
+=======
+			mg:meat		?= { market_goods_sell_orders > 0 }
+			mg:wine		?= { market_goods_sell_orders > 0 }
+			mg:coffee	?= { market_goods_sell_orders > 0 }
+			mg:tea		?= { market_goods_sell_orders > 0 }
+			mg:meat			?= { has_potential_supply = yes }
+			mg:wine			?= { has_potential_supply = yes }
+			mg:coffee		?= { has_potential_supply = yes }
+			mg:tea			?= { has_potential_supply = yes }
+			mg:ammunition	?= { has_potential_supply = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	unlocking_technologies = { military_statistics }
@@ -126,7 +138,7 @@ mobilization_option_luxurious_supplies = {
 mobilization_option_tobacco = {
 	texture = "gfx/interface/icons/mobilization_options/tobacco.dds"
 	possible = {
-		market ?= { mg:tobacco ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:tobacco ?= { has_potential_supply = yes } }
 		NOT = { owner = { is_banning_goods = g:tobacco } }
 	}
 	on_deactivate_while_mobilized = {
@@ -150,7 +162,7 @@ mobilization_option_tobacco = {
 mobilization_option_liquor = {
 	texture = "gfx/interface/icons/mobilization_options/liquor.dds"
 	possible = {
-		market ?= { mg:liquor ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:liquor ?= { has_potential_supply = yes } }
 		NOT = { owner = { is_banning_goods = g:liquor } }
 	}
 	on_deactivate_while_mobilized = {
@@ -174,7 +186,7 @@ mobilization_option_liquor = {
 mobilization_option_opium = {
 	texture = "gfx/interface/icons/mobilization_options/opium.dds"
 	possible = {
-		market ?= { mg:opium ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:opium ?= { has_potential_supply = yes } }
 		NOT = { owner = { is_banning_goods = g:opium } }
 	}
 	on_deactivate_while_mobilized = {
@@ -233,7 +245,7 @@ mobilization_option_truck_transport = {
 	# unlocking_technologies = { combustion_engine electrical_capacitors }	# Removed - If you have Cars, you can use it. No matter what.
 	possible = {
 		scope:military_formation = { NOT = { has_mobilization_option = mobilization_option:mobilization_option_forced_march } }
-		market ?= { mg:automobiles ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:automobiles ?= { has_potential_supply = yes } }
 	}
 	on_activate_while_mobilized = {
 		custom_tooltip = {
@@ -261,7 +273,7 @@ mobilization_option_rail_transport = {
 	texture = "gfx/interface/icons/mobilization_options/rail_transport.dds"
 	possible = {
 		scope:military_formation = { NOT = { has_mobilization_option = mobilization_option:mobilization_option_forced_march } }
-		market ?= { mg:engines ?= { market_goods_sell_orders > 0 } }
+		market ?= { mg:engines ?= { has_potential_supply = yes } }
 	}
 	on_activate_while_mobilized = {
 		custom_tooltip = {
@@ -293,8 +305,8 @@ mobilization_option_motorized_recon = {
 	unlocking_technologies = { combustion_engine electrical_capacitors }
 	possible = {
 		market ?= {
-			mg:automobiles	?= { market_goods_sell_orders > 0 }
-			mg:oil			?= { market_goods_sell_orders > 0 }
+			mg:automobiles	?= { has_potential_supply = yes }
+			mg:oil			?= { has_potential_supply = yes }
 		}
 	}
 	on_activate_while_mobilized = {
@@ -325,7 +337,7 @@ mobilization_option_motorized_recon = {
 mobilization_option_machinegunners = {
 	texture = "gfx/interface/icons/mobilization_options/machinegunners.dds"
 	unlocking_technologies = { automatic_machine_guns }
-	possible = { market ?= { mg:ammunition ?= { market_goods_sell_orders > 0 } } }
+	possible = { market ?= { mg:ammunition ?= { has_potential_supply = yes } } }
 	on_activate_while_mobilized = {
 		custom_tooltip = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
@@ -357,7 +369,13 @@ mobilization_option_infiltrators = {
 	possible = {
 		market ?= {
 			mg:radios		?= { market_goods_sell_orders > 0 }
+<<<<<<< HEAD
 			mg:ammunition	?= { market_goods_sell_orders > 0 }
+=======
+			mg:explosives	?= { market_goods_sell_orders > 0 }
+			mg:radios		?= { has_potential_supply = yes }
+			mg:ammunition	?= { has_potential_supply = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {
@@ -388,10 +406,18 @@ mobilization_option_infiltrators = {
 mobilization_option_flamethrowers = {
 	texture = "gfx/interface/icons/mobilization_options/flamethrowers.dds"
 	unlocking_technologies = { flamethrowers }
+<<<<<<< HEAD
 	possible = {
 		market ?= {
 			mg:small_arms	?= { market_goods_sell_orders > 0 }
 			mg:oil			?= { market_goods_sell_orders > 0 }
+=======
+	possible = { market ?= { mg:oil ?= { market_goods_sell_orders > 0 } } }
+	possible = {
+		market ?= {
+			mg:small_arms	?= { has_potential_supply = yes }
+			mg:oil			?= { has_potential_supply = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {
@@ -422,10 +448,18 @@ mobilization_option_flamethrowers = {
 mobilization_option_chemical_weapons = {
 	texture = "gfx/interface/icons/mobilization_options/chemical_weapons.dds"
 	unlocking_technologies = { chemical_warfare }
+<<<<<<< HEAD
 	possible = {
 		market ?= {
 			mg:artillery	?= { market_goods_sell_orders > 0 }
 			mg:fertilizer	?= { market_goods_sell_orders > 0 }
+=======
+	possible = { market ?= { mg:fertilizer ?= { market_goods_sell_orders > 0 } } }
+	possible = {
+		market ?= {
+			mg:artillery	?= { has_potential_supply = yes }
+			mg:fertilizer	?= { has_potential_supply = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {
@@ -459,8 +493,15 @@ mobilization_option_first_aid = {
 	possible = {
 		# NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_field_hospitals } }
 		market ?= {
+<<<<<<< HEAD
 			mg:fabric	?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
 			mg:liquor	?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
+=======
+			mg:fabric ?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
+			mg:liquor ?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
+			mg:fabric	?= { has_potential_supply = yes }	# Is it even possible not to?
+			mg:liquor	?= { has_potential_supply = yes }	# Is it even possible not to?
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {
@@ -493,8 +534,15 @@ mobilization_option_field_hospitals = {
 	possible = {
 		# NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_first_aid } }
 		market ?= {
+<<<<<<< HEAD
 			mg:opium	?= { market_goods_sell_orders > 0 }
 			mg:tools	?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
+=======
+			mg:opium ?= { market_goods_sell_orders > 0 }
+			mg:tools ?= { market_goods_sell_orders > 0 }	# Is it even possible not to?
+			mg:opium	?= { has_potential_supply = yes }
+			mg:tools	?= { has_potential_supply = yes }	# Is it even possible not to?
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {
@@ -516,6 +564,10 @@ mobilization_option_field_hospitals = {
 	}
 	unit_modifier = {
 		unit_recovery_rate_add	= 0.30
+<<<<<<< HEAD
+=======
+		unit_morale_loss_mult	=-0.03
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		unit_morale_loss_mult	=-0.05
 	}
 	ai_weight = { value = 5 }
@@ -530,9 +582,15 @@ mobilization_option_mechanized_field_hospitals = {
 			has_mobilization_option = mobilization_option:mobilization_option_field_hospitals
 		}
 		market ?= {
+<<<<<<< HEAD
 			mg:engines		?= { market_goods_sell_orders > 0 }
 			mg:automobiles	?= { market_goods_sell_orders > 0 }
 			mg:tanks		?= { market_goods_sell_orders > 0 }
+=======
+			mg:engines		?= { has_potential_supply = yes }
+			mg:automobiles	?= { has_potential_supply = yes }
+			mg:tanks		?= { has_potential_supply = yes }
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 	on_activate_while_mobilized = {

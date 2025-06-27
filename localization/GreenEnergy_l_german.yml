@@ -28,6 +28,12 @@
  pm_large_solar_windpark_subsistence: "$pm_large_solar_windpark$"
  pm_huge_solar_windpark_subsistence: "$pm_huge_solar_windpark$"
  
+ pmg_greenhouse: "Gewächshaus"
+ pm_coal_furnace: "Kohleofen"
+ pm_electric_furnace: "Durchlauferhitzer"
+ pm_electric_heat_exchanger: "Wärmepumpe"
+ pm_oil_furnace: "Dieselbetriebene Wärmepumpe"
+ 
  pm_solar_roofing: "Solardächer"
  pm_air_scrubber: "Luftfilter"
  
@@ -137,8 +143,8 @@
  pm_electrocution_slaughtering: "Elektrische Schlachthöfe"
  pm_electrocution_slaughtering_ranch: "$pm_electrocution_slaughtering$"
  
- pmg_base_building_generic_subsistence: "$pm_base$"
- default_building_generic_subsistence: "$pm_default$" 
+ pmg_base_building_autarky_farm: "$pm_base$"
+ default_building_autarky_farm: "$pm_default$" 
  pm_enriched_generic_subsistence: "$pm_soil_enriching_farming$"
  pm_fertilized_generic_subsistence: "$pm_fertilization$"
  pm_chem_fertilized_generic_subsistence: "$pm_chemical_fertilizer$"
@@ -186,10 +192,10 @@
  ban_tobacco_again: "Tabakverbotsverordnung erneuern"
  ban_tobacco_again_desc: "Erneuere die Tabakverbotsverordnung"
  
- building_generic_subsistence: "Autarkiehöfe"
- building_generic_subsistence_lens_option: "$building_generic_subsistence$ erweitern"
- building_infres_generic_subsistence: "Inf. Autarkiehöfe"
- building_infres_generic_subsistence_lens_option: "$building_infres_generic_subsistence$ erweitern"
+ building_autarky_farm: "Autarkiehöfe"
+ building_autarky_farm_lens_option: "$building_autarky_farm$ erweitern"
+ building_infres_autarky_farm: "Inf. Autarkiehöfe"
+ building_infres_autarky_farm_lens_option: "$building_infres_autarky_farm$ erweitern"
  building_infres_subsistence_farms: "Unerschöpfliche Subsistenzhöfe"
  building_infres_subsistence_farms_lens_option: "$building_infres_subsistence_farms$ erweitern"
  building_infres_subsistence_orchards: "Unerschöpfliche Subsistenzobstgärten"

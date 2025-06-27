@@ -1,6 +1,11 @@
 ﻿# Subsistence base pms
 # Generic											 I've given up on doing the math. Safe to say the generic one is the most efficient and effectively replaces all 02_agro buildings
 default_building_generic_subsistence = {
+<<<<<<< HEAD
+=======
+	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
+default_building_autarky_farm = {
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"	# subsistence_farming
 	building_modifiers = {
 		workforce_scaled = {

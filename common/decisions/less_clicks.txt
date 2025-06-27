@@ -1,7 +1,7 @@
 ﻿decision_pm_switch = {
     is_shown = { exists = yes }
     when_taken = { trigger_event = { id = pm_switch.1 popup = yes } }
-    ai_chance = { base = 0 }
+    ai_chance = { value = 0 }
 }
 # build_railways = {
     # is_shown = { exists = yes }

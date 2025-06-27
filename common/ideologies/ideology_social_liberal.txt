@@ -143,6 +143,7 @@
 	}
 	possible = {}
 	leader_weight = { value = { value	= 0 } } # event only
+	possible = {}	# event only
 }
 ideology_royal_social_liberal = {
 	icon	= "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_junker_paternalistic.dds"
@@ -289,4 +290,5 @@ ideology_royal_social_liberal = {
 	}
 	possible = {}
 	leader_weight = { value = { value	= 0 } } # event only
+	possible = {}	# event only
 }

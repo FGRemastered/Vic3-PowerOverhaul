@@ -43,7 +43,14 @@ gov_colonial_administration = {
 	male_ruler		= "RULER_TITLE_GOVERNOR_GENERAL"
 	female_ruler	= "RULER_TITLE_GOVERNOR_GENERAL"
 	possible = {
+<<<<<<< HEAD
 		has_law = law_type:law_presidential_republic
+=======
+		OR = {
+			is_subject_type = law_presidential_republic
+			is_subject_type = law_corporate_state
+		}
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		OR = {
 			is_subject_type = subject_type_colony
 			is_subject_type = subject_type_dominion
@@ -75,7 +82,14 @@ gov_colonial_administration = {
 			has_variable = china_subject_var
 			AND = {
 				has_variable = india_subject_var
+<<<<<<< HEAD
 				NOT = { c:BIC ?= THIS }
+=======
+				NOR = {
+					c:BIC ?= THIS
+					c:BHT ?= THIS
+				}
+>>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 	}
