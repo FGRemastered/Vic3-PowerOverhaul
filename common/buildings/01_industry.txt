@@ -105,7 +105,7 @@ building_charcoal_burner = {
 		pmg_base_charcoal
         pmg_secondary_charcoal_filters
 		pmg_automation_building_charcoal_burner
-        pmg_train_automation_building_coal_mine
+        pmg_train_automation
 	}
 	required_construction = construction_cost_high
 	ai_value = 500 # Coal is very important but mines should be more important

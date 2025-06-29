@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-# Missing/Broken base-game triggers
-has_monarchist_ideology = {
-=======
-<<<<<<< Updated upstream
-=======
-# Missing/Broken base-game triggers
+﻿# Missing/Broken base-game triggers
 has_monarchist_ideology = {
 	OR = {
 		has_ideology = ideology:ideology_royalist
@@ -271,7 +265,7 @@ trigger_auto_expand_admin = {
 	building_has_goods_shortage = no
 	state.market_access > 0.9
 }
-trigger_auto_expand_port = {
+trigger_auto_expand_port = {	# TODO: Rework
 	OR = {
 		trigger_if = {
 			limit = { OWNER = { NOT = { has_technology_researched = railways } } }	# Placeholder for land adjacency
@@ -663,24 +657,9 @@ trigger_gov_construction = {
 	}
 }
 trigger_no_autarky_farms = {
-<<<<<<< HEAD
-	NOR = { 
-		any_scope_building = { is_building_type = building_generic_subsistence }
-		any_scope_building = { is_building_type = building_infres_generic_subsistence }
-=======
-<<<<<<< Updated upstream
-	error_check = {
-		severity = fail
-		NOR = { 
-			any_scope_building = { is_building_type = building_generic_subsistence }
-			any_scope_building = { is_building_type = building_infres_generic_subsistence }
-		}
-=======
 	NOR = { 
 		any_scope_building = { is_building_type = building_autarky_farm }
 		any_scope_building = { is_building_type = building_infres_autarky_farm }
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 trigger_incorporated_or_incorporating = {
@@ -723,11 +702,6 @@ trigger_chinese_state = {	# any_scope_state left out intentionally to make it mo
 		}
 	}
 }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_microstate = {
 	OR = {
 		AND = {
@@ -844,123 +818,12 @@ trigger_war_machine_industry_allowed = {
 		NOT = { trigger_microstate = yes }
 	}
 }
-<<<<<<< HEAD
-trigger_infres_wine_allowed		= {
-	# trigger_if = {
-		# limit = { OWNER = { is_player = yes } }
-		# OR = {
-			# exists = b:building_infres_vineyard_plantation						# Allowed to expand if it already exists
-			# OWNER = { NOT = { has_technology_researched = fractional_distillation } }
-			# OWNER = { has_variable = enable_inf_seed }
-			# any_overlord_or_above = { has_variable = enable_inf_seed }
-			# market = { mg:wine = { market_goods_has_goods_shortage = yes } }
-		# }
-	# }
-	always = yes
-}
-trigger_infres_rye_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_rye_farms
-		# any_scope_building = { is_building_type = building_rye_farm		NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_wheat_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_wheat_farms
-		# any_scope_building = { is_building_type = bg_wheat_farms		NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_rice_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_rice_farms
-		# any_scope_building = { is_building_type = bg_rice_farms			NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_maize_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_maize_farms
-		# any_scope_building = { is_building_type = bg_maize_farms		NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_millet_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_millet_farms
-		# any_scope_building = { is_building_type = bg_millet_farms		NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_ranch_allowed = {
-	# trigger_no_autarky_farms = yes
-	# trigger_if = {
-		# limit = { OWNER = { is_ai = yes } }
-		# has_potential_resource = bg_livestock_ranches
-		# any_scope_building = { is_building_type = bg_livestock_ranches	NOT = { can_queue_building_levels = 1 } }
-	# }
-	always = no
-}
-trigger_infres_cotton_allowed	= {
-	OR = {
-		trigger_if = {
-			limit = { OWNER = { is_ai = yes } }
-			has_potential_resource = bg_finite_cotton_plantations
-			any_scope_building = { is_building_type = building_cotton_plantation NOT = { can_queue_building_levels = 1 } }
-		}
-		market = { mg:fabric = { market_goods_has_goods_shortage = yes } }
-		OWNER = { is_player = yes }
-		exists = b:building_infres_cotton_plantation							# Allowed to expand if it already exists
-	}
-}
-trigger_infres_sugar_allowed	= {
-	OR = {
-		OWNER = { any_primary_culture = { has_cultural_obsession = sugar } }
-		trigger_if = { limit = { state_is_in_india = yes } cu:anglo_indian = { has_cultural_obsession = sugar } }
-		OWNER = c:BRZ
-		OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = sugar } } }
-		OWNER = { has_company = company_type:company_united_fruit }
-		market = { mg:sugar = { market_goods_has_goods_shortage = yes } }
-		exists = b:building_infres_sugar_plantation								# Allowed to expand if it already exists
-	}
-}
-trigger_infres_fruit_allowed	= {	# banana
-	OR = {
-		OWNER = { any_primary_culture = { has_cultural_obsession = fruit } }
-		OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = fruit } } }
-		OWNER = { has_company = company_type:company_united_fruit }
-		exists = b:building_infres_banana_plantation							# Allowed to expand if it already exists
-	}
-}
-trigger_infres_dye_allowed		= { OWNER = { trigger_if = { limit = { NOT = { trigger_forbidden_heavy_industry = yes } } NOT = { has_technology_researched = aniline } } } }
-trigger_infres_silk_allowed		= { OWNER = { trigger_if = { limit = { NOT = { trigger_forbidden_heavy_industry = yes } } NOT = { has_technology_researched = art_silk } } } }
 trigger_infres_logging_allowed	= {
 	OR = {
-		market = { mg:wood		= { market_goods_pricier > 0 } }
-		market = { mg:hardwood	= { market_goods_pricier > 0 } }
-	}
-	OR = {
-=======
-trigger_infres_logging_allowed	= {
-	OR = {
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		NOT = { has_potential_resource = bg_logging }
-		any_scope_building = { is_building_type = building_logging_camp NOT = { can_queue_building_levels = 1 } }
+		any_scope_building = { is_building_group = bg_logging			NOT = { can_queue_building_levels = 1 } }
 		exists = b:building_infres_logging_camp									# Allowed to expand if it already exists
 	}
-<<<<<<< HEAD
-=======
 	NOT = { trigger_microstate = yes }
 }
 trigger_infres_rubber_allowed	= {
@@ -969,7 +832,6 @@ trigger_infres_rubber_allowed	= {
 		any_scope_building = { is_building_group = bg_rubber_plantations NOT = { can_queue_building_levels = 1 } }
 	}
 	NOT = { trigger_microstate = yes }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }
 trigger_infres_fishing_allowed	= {
 	is_sea_adjacent = yes
@@ -987,14 +849,6 @@ trigger_infres_whaling_allowed	= {
 		exists = b:building_infres_whaling_station								# Allowed to expand if it already exists
 	}
 }
-<<<<<<< HEAD
-trigger_infres_rubber_allowed	= {
-	OWNER = { has_variable = enable_inf_seed_ext }
-	OWNER = { NOT = { has_technology_researched = plastics } }
-	NOT = { trigger_microstate = yes }
-}
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_infres_coal_allowed		= {
 	OR = {
 		OWNER = { has_variable = enable_inf_seed_ext }
@@ -1019,6 +873,7 @@ trigger_infres_sulphur_allowed	= {
 		OWNER = { has_variable = enable_inf_seed_ext }
 		exists = b:building_infres_sulfur_mine		# Allowed to expand if it already exists
 	}
+	NOT = { any_scope_building = { is_building_type = building_charcoal_burner } }
 }
 trigger_infres_gold_allowed		= {
 	scope:investor_country = { is_player = yes }
@@ -1048,19 +903,6 @@ trigger_finite_plantation = {
 		is_building_type = building_silk_plantation
 	}
 }
-<<<<<<< HEAD
-trigger_infres_agriculture = {
-	OR = {
-		is_building_type = building_infres_rye_farm
-		is_building_type = building_infres_wheat_farm
-		is_building_type = building_infres_maize_farm
-		is_building_type = building_infres_rice_farm
-		is_building_type = building_infres_millet_farm
-		is_building_type = building_infres_livestock_ranch
-	}
-}
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_infres_plantation = {
 	OR = {
 		is_building_type = building_infres_vineyard_plantation
@@ -1089,18 +931,10 @@ trigger_instant_seed_autarky = {
 			THIS = ROOT
 			trigger_PREV_has_investment_rights = yes
 		}
-<<<<<<< HEAD
-		any_scope_state = { NOT = { has_building = building_generic_subsistence } }
-		any_scope_state = { NOT = { has_building = building_infres_generic_subsistence } }
-	}
-}
-=======
 		any_scope_state = { NOT = { has_building = building_autarky_farm } }
 		any_scope_state = { NOT = { has_building = building_infres_autarky_farm } }
 	}
 }
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 trigger_seed_plantations = {
 	has_technology_researched = enclosure
 	any_scope_state = {
@@ -1108,21 +942,10 @@ trigger_seed_plantations = {
 		trigger_if = { limit = { is_capital = no } NOT = { trigger_microstate = yes } }
 		is_treaty_port = no
 		OR = {
-<<<<<<< Updated upstream
-			NOT = { any_scope_building = { is_building_type = building_infres_generic_subsistence } }
-<<<<<<< HEAD
-			NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } }
-			trigger_if = {
-				limit = { OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
-=======
-			AND = {
-=======
 			NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } }
 			NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } }
 			trigger_if = {
 				limit = { OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }
 			}
 			# AND = {

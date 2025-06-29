@@ -738,71 +738,6 @@ effect_fix_literacy_peasants_state = {
 	else_if	= { limit = { modifier:state_education_access_add >= 0.10 } every_scope_pop = { limit = { is_pop_type = peasants is_employed = no literacy_rate < 0.10 } set_pop_literacy = { literacy_rate = { value = 0.10 } } } }
 }
 effect_calc_peasants = {
-<<<<<<< HEAD
-	custom_tooltip = {
-		text = "Recalc Peasants for [THIS.GetCountry.GetName]"
-		every_scope_state = {
-			remove_variable = farms_occupancy
-			remove_variable = orchards_occupancy
-			remove_variable = pastures_occupancy
-			remove_variable = fishing_occupancy
-			remove_variable = rice_occupancy
-			remove_variable = autark_occupancy
-			remove_variable = infres_autark_occupancy
-		}
-		every_scope_state = {
-			limit = {
-				OR = {
-					any_scope_building = { is_subsistence_building = yes }
-					any_scope_building = { is_building_type = building_generic_subsistence }
-					any_scope_building = { is_building_type = building_infres_generic_subsistence }
-				}
-			}
-=======
-<<<<<<< Updated upstream
-	every_scope_state = {
-		limit = {
-			OR = {
-				any_scope_building = { is_subsistence_building = yes }
-				any_scope_building = { is_building_type = building_generic_subsistence }
-				any_scope_building = { is_building_type = building_infres_generic_subsistence }
-			}
-		}
-        set_variable = {
-            name = farms_occupancy
-            value = b:building_subsistence_farms.occupancy
-        }
-        set_variable = {
-            name = orchards_occupancy
-            value = b:building_subsistence_orchards.occupancy
-        }
-        set_variable = {
-            name = pastures_occupancy
-            value = b:building_subsistence_pastures.occupancy
-        }
-        set_variable = {
-            name = fishing_occupancy
-            value = b:building_subsistence_fishing_villages.occupancy
-        }
-        set_variable = {
-            name = rice_occupancy
-            value = b:building_subsistence_rice_paddies.occupancy
-        }
-		set_variable = {
-			name = autark_occupancy
-            value = b:building_generic_subsistence.occupancy
-		}
-		set_variable = {
-			name = infres_autark_occupancy
-            value = b:building_infres_generic_subsistence.occupancy
-		}
-		# every_scope_building = {
-			# limit = {
-				# OR = {
-					# is_subsistence_building = yes
-					# is_building_type = building_generic_subsistence
-					# is_building_type = building_infres_generic_subsistence
-=======
 	custom_tooltip = {
 		text = "Recalc Peasants for [THIS.GetCountry.GetName]"
 		every_scope_state = {
@@ -822,46 +757,26 @@ effect_calc_peasants = {
 					any_scope_building = { is_building_type = building_infres_autarky_farm }
 				}
 			}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			set_variable = { name = farms_occupancy			value = b:building_subsistence_farms.occupancy }
 			set_variable = { name = orchards_occupancy		value = b:building_subsistence_orchards.occupancy }
 			set_variable = { name = pastures_occupancy		value = b:building_subsistence_pastures.occupancy }
 			set_variable = { name = fishing_occupancy		value = b:building_subsistence_fishing_villages.occupancy }
 			set_variable = { name = rice_occupancy			value = b:building_subsistence_rice_paddies.occupancy }
-<<<<<<< HEAD
-			set_variable = { name = autark_occupancy		value = b:building_generic_subsistence.occupancy }
-			set_variable = { name = infres_autark_occupancy	value = b:building_infres_generic_subsistence.occupancy }
-=======
 			set_variable = { name = autark_occupancy		value = b:building_autarky_farm.occupancy }
 			set_variable = { name = infres_autark_occupancy	value = b:building_infres_autarky_farm.occupancy }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			# every_scope_building = {
 				# limit = {
 					# OR = {
 						# is_subsistence_building = yes
-<<<<<<< HEAD
-						# is_building_type = building_generic_subsistence
-						# is_building_type = building_infres_generic_subsistence
-					# }
-=======
 						# is_building_type = building_autarky_farm
 						# is_building_type = building_infres_autarky_farm
 					# }
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				# }
 				# set_variable = { name = occupancy_var value = occupancy }
 			# }
 			set_variable = {
 				name = peasantsToSpawn
 				value = {
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-					value = var:peasantsToSpawn
-					divide = 100
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					value = 0
 					if = {
 						limit = { any_scope_building = { is_building_type = building_subsistence_farms } }
@@ -869,6 +784,7 @@ effect_calc_peasants = {
 							limit = {
 								b:building_subsistence_farms = {
 									NOR = {
+										has_active_production_method = pm_centralised_subsistence_5
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
 										has_active_production_method = pm_tractors_subsistence
@@ -880,7 +796,6 @@ effect_calc_peasants = {
 							add = {
 								value = b:building_subsistence_farms.level
 								multiply = {
-									# Base pm
 									if		= { limit = { b:building_subsistence_farms	= { has_active_production_method = pm_auto_fertilized_subsistence_farms		} }	value		= 45 }
 									if		= { limit = { b:building_subsistence_farms	= { has_active_production_method = pm_chem_fertilized_subsistence_farms		} }	value		= 30 }
 									if		= { limit = { b:building_subsistence_farms	= { has_active_production_method = pm_fertilized_subsistence_farms			} }	value		= 25 }
@@ -889,7 +804,7 @@ effect_calc_peasants = {
 									if		= { limit = { b:building_subsistence_farms	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
 									min = 1
 								}
-								multiply	= {
+								multiply = {
 									value = 1
 									subtract = var:farms_occupancy
 								}
@@ -903,6 +818,7 @@ effect_calc_peasants = {
 							limit = {
 								b:building_subsistence_orchards = {
 									NOR = {
+										has_active_production_method = pm_centralised_subsistence_5
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
 										has_active_production_method = pm_tractors_subsistence
@@ -914,7 +830,6 @@ effect_calc_peasants = {
 							add = {
 								value = b:building_subsistence_orchards.level
 								multiply = {
-									# Base pm
 									if		= { limit = { b:building_subsistence_orchards	= { has_active_production_method = pm_auto_fertilized_subsistence_orchards	} }	value		= 45 }
 									if		= { limit = { b:building_subsistence_orchards	= { has_active_production_method = pm_chem_fertilized_subsistence_orchards	} }	value		= 30 }
 									if		= { limit = { b:building_subsistence_orchards	= { has_active_production_method = pm_fertilized_subsistence_orchards		} }	value		= 25 }
@@ -937,6 +852,7 @@ effect_calc_peasants = {
 							limit = {
 								b:building_subsistence_pastures = {
 									NOR = {
+										has_active_production_method = pm_centralised_subsistence_5
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
 										has_active_production_method = pm_tractors_subsistence
@@ -948,7 +864,6 @@ effect_calc_peasants = {
 							add = {
 								value = b:building_subsistence_pastures.level
 								multiply = {
-									# Base pm
 									if		= { limit = { b:building_subsistence_pastures	= { has_active_production_method = pm_auto_fertilized_subsistence_pastures	} }	value		= 45 }
 									if		= { limit = { b:building_subsistence_pastures	= { has_active_production_method = pm_chem_fertilized_subsistence_pastures	} }	value		= 30 }
 									if		= { limit = { b:building_subsistence_pastures	= { has_active_production_method = pm_fertilized_subsistence_pastures		} }	value		= 25 }
@@ -971,6 +886,7 @@ effect_calc_peasants = {
 							limit = {
 								b:building_subsistence_fishing_villages = {
 									NOR = {
+										has_active_production_method = pm_centralised_subsistence_5
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
 										has_active_production_method = pm_tractors_subsistence
@@ -982,7 +898,6 @@ effect_calc_peasants = {
 							add = {
 								value = b:building_subsistence_fishing_villages.level
 								multiply = {
-									# Base pm
 									if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_auto_fertilized_subsistence_fishing_villages	} }	value		= 45 }
 									if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_chem_fertilized_subsistence_fishing_villages	} }	value		= 30 }
 									if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_fertilized_subsistence_fishing_villages		} }	value		= 25 }
@@ -1005,6 +920,7 @@ effect_calc_peasants = {
 							limit = {
 								b:building_subsistence_rice_paddies = {
 									NOR = {
+										has_active_production_method = pm_centralised_double_subsistence_5
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
 										has_active_production_method = pm_tractors_subsistence
@@ -1016,7 +932,6 @@ effect_calc_peasants = {
 							add = {
 								value = b:building_subsistence_rice_paddies.level
 								multiply = {
-									# Base pm
 									if		= { limit = { b:building_subsistence_rice_paddies	= { has_active_production_method = pm_auto_fertilized_subsistence_rice_paddies	} }	value		= 45 }
 									if		= { limit = { b:building_subsistence_rice_paddies	= { has_active_production_method = pm_chem_fertilized_subsistence_rice_paddies	} }	value		= 30 }
 									if		= { limit = { b:building_subsistence_rice_paddies	= { has_active_production_method = pm_fertilized_subsistence_rice_paddies		} }	value		= 25 }
@@ -1033,17 +948,10 @@ effect_calc_peasants = {
 						}
 					}
 					if = {
-<<<<<<< HEAD
-						limit = { any_scope_building = { is_building_type = building_generic_subsistence } }
-						if = {
-							limit = {
-								b:building_generic_subsistence = {
-=======
 						limit = { any_scope_building = { is_building_type = building_autarky_farm } }
 						if = {
 							limit = {
 								b:building_autarky_farm = {
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 									NOR = {
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
@@ -1054,27 +962,14 @@ effect_calc_peasants = {
 								}
 							}
 							add = {
-<<<<<<< HEAD
-								value = b:building_generic_subsistence.level
-								multiply = {
-									# Base pm
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = pm_auto_fertilized_generic_subsistence	} }	value		= 45 }
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = pm_chem_fertilized_generic_subsistence	} }	value		= 30 }
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = pm_fertilized_generic_subsistence		} }	value		= 25 }
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = pm_enriched_generic_subsistence			} }	value		= 20 }
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = default_building_generic_subsistence		} }	value		= 10 }
-									if		= { limit = { b:building_generic_subsistence	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
-=======
 								value = b:building_autarky_farm.level
 								multiply = {
-									# Base pm
-									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_auto_fertilized_generic_subsistence	} }	value		= 45 }
-									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_chem_fertilized_generic_subsistence	} }	value		= 30 }
-									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_fertilized_generic_subsistence		} }	value		= 25 }
-									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_enriched_generic_subsistence			} }	value		= 20 }
-									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = default_building_autarky_farm		} }	value		= 10 }
+									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_auto_fertilized_autarky_farm	} }	value		= 45 }
+									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_chem_fertilized_autarky_farm	} }	value		= 30 }
+									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_fertilized_autarky_farm		} }	value		= 25 }
+									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_enriched_autarky_farm			} }	value		= 20 }
+									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = default_building_autarky_farm			} }	value		= 10 }
 									if		= { limit = { b:building_autarky_farm	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 									min = 1
 								}
 								multiply = {
@@ -1085,17 +980,10 @@ effect_calc_peasants = {
 						}
 					}
 					if = {
-<<<<<<< HEAD
-						limit = { any_scope_building = { is_building_type = building_infres_generic_subsistence } }
-						if = {
-							limit = {
-								b:building_infres_generic_subsistence = {
-=======
 						limit = { any_scope_building = { is_building_type = building_infres_autarky_farm } }
 						if = {
 							limit = {
 								b:building_infres_autarky_farm = {
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 									NOR = {
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
@@ -1106,27 +994,14 @@ effect_calc_peasants = {
 								}
 							}
 							add = {
-<<<<<<< HEAD
-								value = b:building_infres_generic_subsistence.level
-								multiply = {
-									# Base pm
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = pm_auto_fertilized_generic_subsistence	} }	value		= 45 }
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = pm_chem_fertilized_generic_subsistence	} }	value		= 30 }
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = pm_fertilized_generic_subsistence		} }	value		= 25 }
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = pm_enriched_generic_subsistence			} }	value		= 20 }
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = default_building_generic_subsistence		} }	value		= 10 }
-									if		= { limit = { b:building_infres_generic_subsistence	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
-=======
 								value = b:building_infres_autarky_farm.level
 								multiply = {
-									# Base pm
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_auto_fertilized_generic_subsistence	} }	value		= 45 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_chem_fertilized_generic_subsistence	} }	value		= 30 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_fertilized_generic_subsistence		} }	value		= 25 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_enriched_generic_subsistence			} }	value		= 20 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = default_building_autarky_farm		} }	value		= 10 }
+									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_auto_fertilized_autarky_farm	} }	value		= 45 }
+									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_chem_fertilized_autarky_farm	} }	value		= 30 }
+									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_fertilized_autarky_farm		} }	value		= 25 }
+									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_enriched_autarky_farm			} }	value		= 20 }
+									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = default_building_autarky_farm			} }	value		= 10 }
 									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 									min = 1
 								}
 								multiply = {
@@ -1138,42 +1013,8 @@ effect_calc_peasants = {
 					}
 					divide = 10	# Causes too much lag
 					round = yes
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
-			if = {
-				limit = { var:peasantsToSpawn >= 100 }	# 1M
-				set_variable = {
-					name = peasantsToSpawn1M
-					value = {
-						value = var:peasantsToSpawn
-						divide = 100
-					}
-				}
-				change_variable = {
-					name = peasantsToSpawn
-					modulo = 100
-				}
-			}
-			else = { set_variable = { name = peasantsToSpawn1M		value = 0 } }
-			if = {
-				limit = { var:peasantsToSpawn >= 10 }	# 100k
-				set_variable = {
-					name = peasantsToSpawnHundredk
-					value = {
-						value = var:peasantsToSpawn
-						divide = 10
-					}
-				}
-				change_variable = {
-					name = peasantsToSpawn
-					modulo = 10
-				}
-			}
-			else = { set_variable = { name = peasantsToSpawnHundredk	value = 0 } }
 		}
 	}
 }
@@ -1313,15 +1154,6 @@ effect_spawn_slaves_colonies = {
 	effect_calc_peasants = yes
 	every_scope_state = {
 		limit = {
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-			OR = {
-				var:peasantsToSpawn		> 0
-				var:peasantsToSpawnHundredk	> 0
-				var:peasantsToSpawn1M	> 0
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			NOT = { trigger_incorporated_or_incorporating = yes }
 			trigger_valid_pop_spawn_state = yes
 		}
@@ -1344,40 +1176,22 @@ effect_spawn_slaves_greener_grass = {
 }
 effect_seed_autarky_farms_state = {
 	if = {
-<<<<<<< HEAD
-		limit = { NOT = { any_scope_building = { is_building_type = building_generic_subsistence } } }
-		start_building_construction = building_generic_subsistence
-	}
-	if = {
-		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_generic_subsistence } } }
-		start_building_construction = building_infres_generic_subsistence
-=======
 		limit = { NOT = { any_scope_building = { is_building_type = building_autarky_farm } } }
 		start_building_construction = building_autarky_farm
 	}
 	if = {
 		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_autarky_farm } } }
 		start_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 effect_seed_autarky_farms_private_state = {
 	if = {
-<<<<<<< HEAD
-		limit = { NOT = { any_scope_building = { is_building_type = building_generic_subsistence } } }
-		start_privately_funded_building_construction = building_generic_subsistence
-	}
-	if = {
-		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_generic_subsistence } } }
-		start_privately_funded_building_construction = building_infres_generic_subsistence
-=======
 		limit = { NOT = { any_scope_building = { is_building_type = building_autarky_farm } } }
 		start_privately_funded_building_construction = building_autarky_farm
 	}
 	if = {
 		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_autarky_farm } } }
 		start_privately_funded_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 effect_seed_autarky_farms			= { every_scope_state = { effect_seed_autarky_farms_state			= yes } }
@@ -1387,8 +1201,6 @@ effect_seed_infrastructure = {
 		if = {
 			limit = { NOT = { any_scope_building = { is_building_type = building_government_administration } }	OWNER = { has_technology_researched = tech_bureaucracy } trigger_incorporated_or_incorporating = yes }
 			start_building_construction = building_government_administration
-<<<<<<< HEAD
-=======
 		}
 		if = {
 			limit = { NOT = { any_scope_building = { is_building_type = building_university } }					OWNER = { has_technology_researched = academia } trigger_incorporated_or_incorporating = yes }
@@ -1407,26 +1219,12 @@ effect_seed_infrastructure = {
 			if = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_railway } }					OWNER = { has_technology_researched = railways } }
 				start_privately_funded_building_construction = building_railway
->>>>>>> Stashed changes
 			}
-			OR = {
-				any_scope_building = { is_subsistence_building = yes }
-				any_scope_building = { is_building_type = building_generic_subsistence }
-				any_scope_building = { is_building_type = building_infres_generic_subsistence }
+			if = {
+				limit = { NOT = { any_scope_building = { is_building_type = building_power_plant } }				OWNER = { has_technology_researched = electrical_generation } }
+				start_privately_funded_building_construction = building_power_plant
 			}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
-<<<<<<< Updated upstream
-		if = {
-<<<<<<< HEAD
-			limit = { NOT = { any_scope_building = { is_building_type = building_port } } is_coastal = yes		OWNER = { has_technology_researched = navigation } trigger_can_have_port_namib_desert = yes }
-			start_building_construction = building_port
-=======
-			limit = { var:peasantsToSpawn1M > 0 }
-			while = {
-				count = var:peasantsToSpawn1M
-				create_pop = { culture = african religion = atheist pop_type = slaves size = 4000000 }
-=======
 		else = {
 			if = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_port } } is_coastal = yes		OWNER = { has_technology_researched = navigation } }
@@ -1436,33 +1234,6 @@ effect_seed_infrastructure = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_trade_center } }				trade_center_construction_allowed = yes }
 				start_building_construction = building_trade_center
 			}
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_railway } }					OWNER = { has_technology_researched = railways } }
-				start_building_construction = building_railway
-			}
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_power_plant } }				OWNER = { has_technology_researched = electrical_generation } }
-				start_building_construction = building_power_plant
->>>>>>> Stashed changes
-			}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
-		}
-		if = {
-			limit = { NOT = { any_scope_building = { is_building_type = building_university } }					OWNER = { has_technology_researched = academia } trigger_incorporated_or_incorporating = yes }
-			start_building_construction = building_university
-		}
-		if = {
-			limit = { OWNER = { OR = { has_law = law_type:law_laissez_faire has_law = law_type:law_extraction_economy } } }
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_railway } }					OWNER = { has_technology_researched = railways } }
-				start_privately_funded_building_construction = building_railway
-			}
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_power_plant } }				OWNER = { has_technology_researched = electrical_generation } }
-				start_privately_funded_building_construction = building_power_plant
-			}
-		}
-		else = {
 			if = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_railway } }					OWNER = { has_technology_researched = railways } }
 				start_building_construction = building_railway
@@ -1639,19 +1410,10 @@ effect_seed_plantations_state = {
 		start_building_construction = building_infres_tobacco_plantation
 	}
 }
-<<<<<<< HEAD
-effect_seed_plantations_private_state = {
-	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_generic_subsistence } } }
-		start_privately_funded_building_construction = building_infres_generic_subsistence
-=======
-<<<<<<< Updated upstream
-=======
 effect_seed_plantations_private_state = {
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } } }
 		start_privately_funded_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } } }
@@ -1690,10 +1452,6 @@ effect_seed_plantations_private_state = {
 		start_privately_funded_building_construction = building_infres_tobacco_plantation
 	}
 }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 effect_seed_industry_state = {
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_tooling_workshops } }			OWNER = { has_technology_researched = manufacturies } }
@@ -2172,109 +1930,6 @@ effect_replace_silk = {
 				}
 			}
 		}
-<<<<<<< HEAD
-		hidden_effect = {
-			if = {
-				limit = { has_law = law_type:law_command_economy }
-				while = {
-					limit = { any_scope_state = { var:silk_var > 0 } OR = { is_incorporated = yes incorporation_progress > 0 } }
-					every_scope_state = {
-						limit = { var:silk_var > 0 }
-						start_building_construction = building_synthetics_plants
-						change_variable = { name = silk_var subtract = 1 }
-					}
-				}
-			}
-			else = {
-				while = {
-					limit = { any_scope_state = { var:silk_var > 0 } OR = { is_incorporated = yes incorporation_progress > 0 } }
-					every_scope_state = {
-						limit = { var:silk_var > 0 }
-						start_privately_funded_building_construction = building_synthetics_plants
-						change_variable = { name = silk_var subtract = 1 }
-					}
-				}
-			}
-			every_scope_state = { remove_building = building_infres_silk_plantation }	# Remove anyways to prevent ghost buildings
-		}
-	}
-}
-effect_calc_autarky_target = {
-	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_generic_subsistence	} }
-		if = {
-			limit = { NOT = { any_scope_building = { is_building_type = building_generic_subsistence can_queue_building_levels = 1 } } }
-			set_variable = {
-				name = infres_autarky_build_target
-				value = {
-					value		= arable_land
-					subtract	= b:building_infres_generic_subsistence.level
-				}
-			}
-		}
-		if = { limit = { var:infres_autarky_build_target < 0 } remove_variable = infres_autarky_build_target }
-	}
-}
-effect_build_autarky_farms_state = {
-	if = {
-		limit = { any_scope_building = { is_building_type = building_generic_subsistence can_queue_building_levels = 1 } }
-		start_building_construction = building_generic_subsistence
-		start_building_construction = building_infres_generic_subsistence
-		PREV = { change_variable = { name = counter add = 1 } }
-	}
-	# else_if = {
-		# limit = {
-			# any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no }
-			# var:infres_autarky_build_target > 0
-		# }
-		# start_building_construction = building_infres_generic_subsistence
-	# }
-	# change_variable = { name = infres_autarky_build_target subtract = 1 }
-}
-effect_build_autarky_farms_private_state = {
-	if = {
-		limit = { any_scope_building = { is_building_type = building_generic_subsistence can_queue_building_levels = 1 } }
-		start_privately_funded_building_construction = building_generic_subsistence
-		start_privately_funded_building_construction = building_infres_generic_subsistence
-		PREV = { change_variable = { name = counter add = 1 } }
-	}
-	# else_if = {
-		# limit = {
-			# any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no }
-			# var:infres_autarky_build_target > 0
-		# }
-		# start_privately_funded_building_construction = building_infres_generic_subsistence
-	# }
-	# change_variable = { name = infres_autarky_build_target subtract = 1 }
-}
-effect_build_autarky_farms = {
-	hidden_effect = {
-		effect_calc_autarky_target = yes
-		set_variable = { name = counter value = 0 }	# Precaution to prevent game-freezes taking too long
-		every_scope_state = { effect_delete_finite_agro_state = yes }
-		effect_seed_autarky_farms = yes
-		while = {	# Striped
-			limit = {
-				OR = {
-					any_scope_state = { free_arable_land > 0 }
-					any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-				}
-				var:counter < 1000
-			}
-			every_scope_state = {
-				limit = {
-					OR = {
-						free_arable_land > 0
-						any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-=======
-<<<<<<< Updated upstream
-		while = {
-			limit = { any_scope_state = { var:silk_var > 0 } OR = { is_incorporated = yes incorporation_progress > 0 } }
-			every_scope_state = {
-				limit = { var:silk_var > 0 }
-				start_building_construction = building_synthetics_plants
-				change_variable = { name = silk_var subtract = 1 }
-=======
 		hidden_effect = {
 			if = {
 				limit = { has_law = law_type:law_command_economy }
@@ -2368,24 +2023,12 @@ effect_build_autarky_farms = {
 					OR = {
 						free_arable_land > 0
 						any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					}
 				}
 				effect_build_autarky_farms_state = yes
 			}
 		}
 		if = {
-<<<<<<< HEAD
-			limit = { any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no } }
-			while = {	# Striped
-				limit = { any_scope_state = { any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no } var:infres_autarky_build_target > 0 } }
-				every_scope_state = {
-					limit = {
-						any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no }
-						var:infres_autarky_build_target > 0
-					}
-					start_building_construction = building_infres_generic_subsistence
-=======
 			limit = { any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no } }
 			while = {	# Striped
 				limit = { any_scope_state = { any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no } var:infres_autarky_build_target > 0 } }
@@ -2395,7 +2038,6 @@ effect_build_autarky_farms = {
 						var:infres_autarky_build_target > 0
 					}
 					start_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					change_variable = { name = infres_autarky_build_target subtract = 1 }
 				}
 			}
@@ -2407,48 +2049,27 @@ effect_build_autarky_farms = {
 			limit = {
 				OR = {
 					free_arable_land > 0
-<<<<<<< HEAD
-					any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-=======
 					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { free_arable_land > 0 }
 				while = {
 					count = free_arable_land
-<<<<<<< HEAD
-					start_building_construction = building_generic_subsistence
-					start_building_construction = building_infres_generic_subsistence
-=======
 					start_building_construction = building_autarky_farm
 					start_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { var:infres_autarky_build_target > 0 }
 				while = {
 					count = var:infres_autarky_build_target
-<<<<<<< HEAD
-					start_building_construction = building_infres_generic_subsistence
-				}
-=======
 					start_building_construction = building_infres_autarky_farm
 				}
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 	}
 }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-effect_build_resources_state = {
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 effect_build_autarky_farms_private = {
 	hidden_effect = {
 		effect_calc_autarky_target = yes
@@ -2459,11 +2080,7 @@ effect_build_autarky_farms_private = {
 			limit = {
 				OR = {
 					any_scope_state = { free_arable_land > 0 }
-<<<<<<< HEAD
-					any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-=======
 					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 				var:counter < 1000
 			}
@@ -2471,28 +2088,13 @@ effect_build_autarky_farms_private = {
 				limit = {
 					OR = {
 						free_arable_land > 0
-<<<<<<< HEAD
-						any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-=======
 						any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					}
 				}
 				effect_build_autarky_farms_private_state = yes
 			}
 		}
 		if = {
-<<<<<<< HEAD
-			limit = { any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no } }
-			while = {	# Striped
-				limit = { any_scope_state = { any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no } var:infres_autarky_build_target > 0 } }
-				every_scope_state = {
-					limit = {
-						any_scope_building = { is_building_type = building_generic_subsistence is_under_construction = no }
-						var:infres_autarky_build_target > 0
-					}
-					start_privately_funded_building_construction = building_infres_generic_subsistence
-=======
 			limit = { any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no } }
 			while = {	# Striped
 				limit = { any_scope_state = { any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no } var:infres_autarky_build_target > 0 } }
@@ -2502,7 +2104,6 @@ effect_build_autarky_farms_private = {
 						var:infres_autarky_build_target > 0
 					}
 					start_privately_funded_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					change_variable = { name = infres_autarky_build_target subtract = 1 }
 				}
 			}
@@ -2514,45 +2115,28 @@ effect_build_autarky_farms_private = {
 			limit = {
 				OR = {
 					free_arable_land > 0
-<<<<<<< HEAD
-					any_scope_building = { is_building_type = building_infres_generic_subsistence	level < STATE.arable_land }
-=======
 					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { free_arable_land > 0 }
 				while = {
 					count = free_arable_land
-<<<<<<< HEAD
-					start_privately_funded_building_construction = building_generic_subsistence
-					start_privately_funded_building_construction = building_infres_generic_subsistence
-=======
 					start_privately_funded_building_construction = building_autarky_farm
 					start_privately_funded_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { var:infres_autarky_build_target > 0 }
 				while = {
 					count = var:infres_autarky_build_target
-<<<<<<< HEAD
-					start_privately_funded_building_construction = building_infres_generic_subsistence
-=======
 					start_privately_funded_building_construction = building_infres_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 		}
 	}
 }
 effect_build_logging_state = {
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	if = {
 		limit = { has_potential_resource = bg_logging			any_scope_building = { is_building_type = building_logging_camp			can_queue_building_levels = 1 }																		}
 		start_building_construction = building_logging_camp
@@ -2829,16 +2413,6 @@ effect_build_resources_private = {
 			}
 		}
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-	while = {	# Striped
-		limit = { any_scope_state = { NOT = { has_decree = decree_encourage_resource_industry } trigger_build_resources_state = yes } }
-		every_scope_state = {
-			limit = { NOT = { has_decree = decree_encourage_resource_industry } }
-			effect_build_resources_state = yes
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }
 effect_calc_autarky_refund = {
 	set_variable = {
@@ -2846,15 +2420,9 @@ effect_calc_autarky_refund = {
 		value = {
 			value = 0
 			if = {
-<<<<<<< HEAD
-				limit = { has_building = building_generic_subsistence }
-				add = {
-					value = b:building_generic_subsistence.level
-=======
 				limit = { has_building = building_autarky_farm }
 				add = {
 					value = b:building_autarky_farm.level
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					multiply = construction_cost_low
 				}
 			}
@@ -2910,10 +2478,6 @@ effect_calc_agro_refund = {
 				}
 			}
 			multiply = 1000	# 1k/point
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		}
 	}
 }
@@ -3016,11 +2580,6 @@ effect_calc_plant_refund = {
 	}
 }
 effect_delete_finite_plant_state = {
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	effect_calc_plant_refund = yes
 	if = { limit = { has_building = building_vineyard_plantation }	remove_building = building_vineyard_plantation }
 	if = { limit = { has_building = building_coffee_plantation }	remove_building = building_coffee_plantation }
@@ -3033,8 +2592,6 @@ effect_delete_finite_plant_state = {
 	if = { limit = { has_building = building_banana_plantation }	remove_building = building_banana_plantation }
 	if = { limit = { has_building = building_silk_plantation }		remove_building = building_silk_plantation }
 	hidden_effect = {	# Do it even if it doesn't exist, to prevent ghost buildings
-<<<<<<< HEAD
-=======
 		remove_building = building_vineyard_plantation
 		remove_building = building_coffee_plantation
 		remove_building = building_cotton_plantation
@@ -3060,72 +2617,29 @@ effect_delete_useless_inf_state = {
 		# }
 		# remove_building = building_infres_vineyard_plantation
 	# }
->>>>>>> Stashed changes
-	if = {
-		limit = {
-			OR = {
-				has_building = building_vineyard_plantation
-				trigger_if = { limit = { any_scope_building = { is_building_type = building_vineyard_plantation } } b:building_vineyard_plantation	= { is_under_construction = yes } }
-			}
-		}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
-		remove_building = building_vineyard_plantation
-		remove_building = building_coffee_plantation
-		remove_building = building_cotton_plantation
-		remove_building = building_dye_plantation
-		remove_building = building_opium_plantation
-		remove_building = building_tea_plantation
-		remove_building = building_tobacco_plantation
-		remove_building = building_sugar_plantation
-		remove_building = building_banana_plantation
-		remove_building = building_silk_plantation
-	}
-	if = { limit = { var:plant_refund > 0 } custom_tooltip = { text = plant_refund.tt OWNER = { add_investment_pool = PREV.var:plant_refund } } }
-	remove_variable = plant_refund
-}
-effect_delete_useless_inf_state = {
-	show_as_tooltip = {
-		if = { limit = { has_building = building_infres_rye_farm }			remove_building = building_infres_rye_farm }
-		if = { limit = { has_building = building_infres_wheat_farm }		remove_building = building_infres_wheat_farm }
-		if = { limit = { has_building = building_infres_maize_farm }		remove_building = building_infres_maize_farm }
-		if = { limit = { has_building = building_infres_rice_farm }			remove_building = building_infres_rice_farm }
-		if = { limit = { has_building = building_infres_millet_farm }		remove_building = building_infres_millet_farm }
-		if = { limit = { has_building = building_infres_livestock_ranch }	remove_building = building_infres_livestock_ranch }
-		# if = { limit = { has_building = building_infres_cotton_plantation }	remove_building = building_infres_cotton_plantation }
-	}
 	# if = {
 		# limit = {
-			# OWNER = {
-				# has_technology_researched = fractional_distillation
-				# NOT = { trigger_agrarian_economy = yes }
+			# NOR = {
+				# OWNER = c:BRZ
+				# OWNER = { any_primary_culture = { has_cultural_obsession = sugar } }
+				# OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = sugar } } }
+				# OWNER = { has_company = company_type:company_united_fruit }
 			# }
-			# has_building = building_infres_vineyard_plantation
+			# has_building = building_infres_sugar_plantation
 		# }
-		# remove_building = building_infres_vineyard_plantation
+		# remove_building = building_infres_sugar_plantation
 	# }
-	if = {
-		limit = {
-			NOR = {
-				OWNER = c:BRZ
-				OWNER = { any_primary_culture = { has_cultural_obsession = sugar } }
-				OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = sugar } } }
-				OWNER = { has_company = company_type:company_united_fruit }
-			}
-			has_building = building_infres_sugar_plantation
-		}
-		remove_building = building_infres_sugar_plantation
-	}
-	if = {
-		limit = {
-			NOR = {
-				OWNER = { any_primary_culture = { has_cultural_obsession = fruit } }
-				OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = fruit } } }
-				OWNER = { has_company = company_type:company_united_fruit }
-			}
-			has_building = building_infres_banana_plantation
-		}
-		remove_building = building_infres_banana_plantation
-	}
+	# if = {
+		# limit = {
+			# NOR = {
+				# OWNER = { any_primary_culture = { has_cultural_obsession = fruit } }
+				# OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = fruit } } }
+				# OWNER = { has_company = company_type:company_united_fruit }
+			# }
+			# has_building = building_infres_banana_plantation
+		# }
+		# remove_building = building_infres_banana_plantation
+	# }
 	if = {
 		limit = {
 			OWNER = { has_technology_researched = plastics }
@@ -3147,20 +2661,6 @@ effect_delete_useless_inf_state = {
 		# }
 		# remove_building = building_infres_silk_plantation
 	# }
-<<<<<<< HEAD
-	hidden_effect = {	# Do it even if it doesn't exist, to prevent ghost buildings
-		remove_building = building_infres_rye_farm
-		remove_building = building_infres_wheat_farm
-		remove_building = building_infres_maize_farm
-		remove_building = building_infres_rice_farm
-		remove_building = building_infres_millet_farm
-		remove_building = building_infres_livestock_ranch
-		# remove_building = building_infres_cotton_plantation
-	}
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }
 effect_calc_inf_plant_refund = {	# Todo: Convert to script value -> Figure out how to display script values in loc.
 	set_variable = {
@@ -3171,119 +2671,75 @@ effect_calc_inf_plant_refund = {	# Todo: Convert to script value -> Figure out h
 				limit = { has_building = building_infres_vineyard_plantation }
 				add = {
 					value = b:building_infres_vineyard_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_coffee_plantation }
 				add = {
 					value = b:building_infres_coffee_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_cotton_plantation }
 				add = {
 					value = b:building_infres_cotton_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_dye_plantation }
 				add = {
 					value = b:building_infres_dye_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_opium_plantation }
 				add = {
 					value = b:building_infres_opium_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_tea_plantation }
 				add = {
 					value = b:building_infres_tea_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_tobacco_plantation }
 				add = {
 					value = b:building_infres_tobacco_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_sugar_plantation }
 				add = {
 					value = b:building_infres_sugar_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_banana_plantation }
 				add = {
 					value = b:building_infres_banana_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			if = {
 				limit = { has_building = building_infres_silk_plantation }
 				add = {
 					value = b:building_infres_silk_plantation.level
-<<<<<<< HEAD
-					multiply = construction_cost_low
-=======
 					multiply = construction_cost_medium
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 			multiply = 1000	# 1k/point
 		}
 	}
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }
 effect_delete_inhospitable = {
 	every_scope_state = {
@@ -4249,7 +3705,6 @@ effect_build_industry = {			# VERY HEAVY - EXECUTE WITH CAUTION
 		text = effect_build_industry.tt
 		effect_build_industry_gov = yes
 	}
-<<<<<<< HEAD
 	effect_build_industry_tooltip = yes
 }
 effect_build_industry_private = {	# VERY HEAVY - EXECUTE WITH CAUTION
@@ -4259,15 +3714,6 @@ effect_build_industry_private = {	# VERY HEAVY - EXECUTE WITH CAUTION
 	custom_tooltip = {
 		text = effect_build_industry.tt
 		effect_build_industry_ivp = yes
-=======
-	while = {	# Striped
-		limit = { any_scope_state = { has_decree = decree_encourage_manufacturing_industry trigger_build_industry_state = yes } }
-		every_scope_state = {
-<<<<<<< Updated upstream
-			limit = { has_decree = decree_encourage_manufacturing_industry }	# NOT = { b:building_construction_sector = { is_under_construction = yes } }
-			effect_build_industry_state = yes
-		}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	effect_build_industry_private_tooltip = yes
 }
@@ -4348,29 +3794,13 @@ effect_calc_plantations_target = {
 	if = {
 		limit = { has_technology_researched = enclosure }
 		every_scope_state = {
-<<<<<<< HEAD
-=======
-			limit = {
-				trigger_incorporated_or_incorporating = yes
-				NOT = { has_decree = decree_encourage_manufacturing_industry }
-				NOR = {
-					state_region = s:STATE_SINAI					# Canal has priority
-					state_region = s:STATE_PANAMA					# Canal has priority
-					state_region = s:STATE_DISTRICT_OF_COLUMBIA		# Too small
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			limit = { NOR = { trigger_inhospitable_terrain = yes is_treaty_port = yes } }
 			set_variable = {
 				name = agro_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-<<<<<<< HEAD
-					subtract = b:building_infres_generic_subsistence.level
-					if = { limit = { b:building_infres_generic_subsistence = { is_under_construction = yes } } subtract = 1 }
-=======
 					subtract = b:building_infres_autarky_farm.level
 					if = { limit = { b:building_infres_autarky_farm = { is_under_construction = yes } } subtract = 1 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 					min = 0
 				}
 			}
@@ -4468,139 +3898,11 @@ effect_calc_plantations_target = {
 						if = { limit = { b:building_infres_tobacco_plantation = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				}
 			}
 		}
 	}
 }
-<<<<<<< HEAD
-effect_build_plantations_state = {
-	if = {
-		limit = { var:agro_target > 0 }
-		start_building_construction = building_infres_generic_subsistence
-		change_variable = { name = agro_target subtract = 1 }
-	}
-	if = {
-		limit = { var:sugar_target > 0 }
-		start_building_construction = building_infres_sugar_plantation
-		change_variable = { name = sugar_target subtract = 1 }
-	}
-	if = {
-		limit = { var:wine_target > 0 }
-		start_building_construction = building_infres_vineyard_plantation
-		change_variable = { name = wine_target subtract = 1 }
-	}
-	if = {
-		limit = { var:coffee_target > 0 }
-		start_building_construction = building_infres_coffee_plantation
-		change_variable = { name = coffee_target subtract = 1 }
-	}
-	if = {
-		limit = { var:cotton_target > 0 }
-		start_building_construction = building_infres_cotton_plantation
-		change_variable = { name = cotton_target subtract = 1 }
-	}
-	if = {
-		limit = { var:tea_target > 0 }
-		start_building_construction = building_infres_tea_plantation
-		change_variable = { name = tea_target subtract = 1 }
-	}
-	if = {
-		limit = { var:dye_target > 0 }
-		start_building_construction = building_infres_dye_plantation
-		change_variable = { name = dye_target subtract = 1 }
-	}
-	if = {
-		limit = { var:silk_target > 0 }
-		start_building_construction = building_infres_silk_plantation
-		change_variable = { name = silk_target subtract = 1 }
-	}
-	if = {
-		limit = { var:opium_target > 0 }
-		start_building_construction = building_infres_opium_plantation
-		change_variable = { name = opium_target subtract = 1 }
-	}
-	if = {
-		limit = { var:tobacco_target > 0 }
-		start_building_construction = building_infres_tobacco_plantation
-		change_variable = { name = tobacco_target subtract = 1 }
-	}
-}
-effect_build_plantations_private_state = {
-	if = {
-		limit = { var:agro_target > 0 }
-		start_privately_funded_building_construction = building_infres_generic_subsistence
-		change_variable = { name = agro_target subtract = 1 }
-	}
-	if = {
-		limit = { var:sugar_target > 0 }
-		start_privately_funded_building_construction = building_infres_sugar_plantation
-		change_variable = { name = sugar_target subtract = 1 }
-	}
-	if = {
-		limit = { var:wine_target > 0 }
-		start_privately_funded_building_construction = building_infres_vineyard_plantation
-		change_variable = { name = wine_target subtract = 1 }
-	}
-	if = {
-		limit = { var:coffee_target > 0 }
-		start_privately_funded_building_construction = building_infres_coffee_plantation
-		change_variable = { name = coffee_target subtract = 1 }
-	}
-	if = {
-		limit = { var:cotton_target > 0 }
-		start_privately_funded_building_construction = building_infres_cotton_plantation
-		change_variable = { name = cotton_target subtract = 1 }
-	}
-	if = {
-		limit = { var:tea_target > 0 }
-		start_privately_funded_building_construction = building_infres_tea_plantation
-		change_variable = { name = tea_target subtract = 1 }
-	}
-	if = {
-		limit = { var:dye_target > 0 }
-		start_privately_funded_building_construction = building_infres_dye_plantation
-		change_variable = { name = dye_target subtract = 1 }
-	}
-	if = {
-		limit = { var:silk_target > 0 }
-		start_privately_funded_building_construction = building_infres_silk_plantation
-		change_variable = { name = silk_target subtract = 1 }
-	}
-	if = {
-		limit = { var:opium_target > 0 }
-		start_privately_funded_building_construction = building_infres_opium_plantation
-		change_variable = { name = opium_target subtract = 1 }
-	}
-	if = {
-		limit = { var:tobacco_target > 0 }
-		start_privately_funded_building_construction = building_infres_tobacco_plantation
-		change_variable = { name = tobacco_target subtract = 1 }
-	}
-}
-effect_build_plantations_tooltip = {
-	show_as_tooltip = {
-		every_scope_state = {
-			if = {
-				limit = { var:agro_target > 0 }
-				while = { count = var:agro_target				start_building_construction = building_infres_generic_subsistence }
-=======
-<<<<<<< Updated upstream
-effect_build_industry_25 = {	# VERY HEAVY - EXECTUE WITH CAUTION
-	effect_seed_industry			= yes
-	every_scope_state = { set_variable = { name = economy_of_scale_target value = 25 } }
-	effect_calc_industry_target		= yes
-	show_as_tooltip = {
-		every_scope_state = {
-			limit = { trigger_build_industry_state = yes }
-			while = {
-				count = 25
-				effect_build_industry_state = yes
-=======
 effect_build_plantations_state = {
 	if = {
 		limit = { var:agro_target > 0 }
@@ -4743,40 +4045,6 @@ effect_build_plantations_tooltip = {
 			if = {
 				limit = { var:tobacco_target > 0 }
 				while = { count = var:tobacco_target			start_building_construction = building_infres_tobacco_plantation }
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
-			}
-			if = {
-				limit = { var:wine_target > 0 }
-				while = { count = var:wine_target				start_building_construction = building_infres_vineyard_plantation }
-			}
-			if = {
-				limit = { var:coffee_target > 0 }
-				while = { count = var:coffee_target				start_building_construction = building_infres_coffee_plantation }
-			}
-			if = {
-				limit = { var:cotton_target > 0 }
-				while = { count = var:cotton_target				start_building_construction = building_infres_cotton_plantation }
-			}
-			if = {
-				limit = { var:tea_target > 0 }
-				while = { count = var:tea_target				start_building_construction = building_infres_tea_plantation }
-			}
-			if = {
-				limit = { var:dye_target > 0 }
-				while = { count = var:dye_target				start_building_construction = building_infres_dye_plantation }
-			}
-			if = {
-				limit = { var:silk_target > 0 }
-				while = { count = var:silk_target				start_building_construction = building_infres_silk_plantation }
-			}
-			if = {
-				limit = { var:opium_target > 0 }
-				while = { count = var:opium_target				start_building_construction = building_infres_opium_plantation }
-			}
-			if = {
-				limit = { var:tobacco_target > 0 }
-				while = { count = var:tobacco_target			start_building_construction = building_infres_tobacco_plantation }
 			}
 		}
 	}
@@ -4784,21 +4052,9 @@ effect_build_plantations_tooltip = {
 effect_build_plantations_private_tooltip = {
 	show_as_tooltip = {
 		every_scope_state = {
-<<<<<<< HEAD
-			if = {
-				limit = { var:agro_target > 0 }
-				while = { count = var:agro_target				start_privately_funded_building_construction = building_infres_generic_subsistence }
-=======
-<<<<<<< Updated upstream
-			limit = { trigger_build_industry_state = yes }
-			while = {
-				count = 50
-				effect_build_industry_state = yes
-=======
 			if = {
 				limit = { var:agro_target > 0 }
 				while = { count = var:agro_target				start_privately_funded_building_construction = building_infres_autarky_farm }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 			if = {
 				limit = { var:wine_target > 0 }
@@ -4831,10 +4087,6 @@ effect_build_plantations_private_tooltip = {
 			if = {
 				limit = { var:tobacco_target > 0 }
 				while = { count = var:tobacco_target			start_privately_funded_building_construction = building_infres_tobacco_plantation }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 	}
@@ -5916,8 +5168,6 @@ effect_merge_dei = {
 		else_if	= { limit = { exists = c:UNL } 						every_scope_state = { limit = { NOT = { OWNER = c:UNL } } set_state_owner = c:UNL } }
 	}
 }
-<<<<<<< Updated upstream
-=======
 effect_build_mil_industry_state = {
 	show_as_tooltip = {
 		if = {
@@ -6422,7 +5672,6 @@ effect_merge_dei = {
 		else_if	= { limit = { exists = c:UNL } 						every_scope_state = { limit = { NOT = { OWNER = c:UNL } } set_state_owner = c:UNL } }
 	}
 }
->>>>>>> Stashed changes
 effect_tobacco_ban = {
 	market = {
 		every_scope_country = {
@@ -6563,11 +5812,6 @@ effect_default_import_export = {	# set_tariffs_no_priority	set_tariffs_export_pr
 	set_tariffs_export_priority	= g:radios
 	set_tariffs_export_priority	= g:fine_art
 }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 effect_innovative_general = {
 	create_character = {
 		female = yes
@@ -7088,11 +6332,7 @@ effect_build_art = {
 }
 effect_autarky_ownership = {
 	every_scope_building = {
-<<<<<<< HEAD
-		is_building_type = building_generic_subsistence
-=======
 		is_building_type = building_autarky_farm
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		add_ownership = {
 			building = {
 				type	= building_manor_house
@@ -7281,11 +6521,7 @@ effect_edeka = {
 		}
 		every_scope_state = {
 			limit = { OWNER = { has_technology_researched = enclosure } }
-<<<<<<< HEAD
-			create_building = { building = "building_infres_generic_subsistence"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
-=======
 			create_building = { building = "building_infres_autarky_farm"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			create_building = { building = "building_infres_vineyard_plantation"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
 			create_building = { building = "building_infres_coffee_plantation"		add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
 			create_building = { building = "building_infres_tea_plantation"			add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
@@ -7498,35 +6734,20 @@ effect_reset_autarky_pm = {
 		trigger = has_law
 		law_type:law_serfdom = {
 			if = {
-<<<<<<< HEAD
-				limit = { is_production_method_active	= { building_type = building_generic_subsistence	production_method = pm_serfdom } }
-				activate_production_method				= { building_type = building_generic_subsistence	production_method = pm_serfdom }
-=======
 				limit = { is_production_method_active	= { building_type = building_autarky_farm	production_method = pm_serfdom } }
 				activate_production_method				= { building_type = building_autarky_farm	production_method = pm_serfdom }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 		law_type:law_homesteading = {
 			if = {
-<<<<<<< HEAD
-				limit = { is_production_method_active	= { building_type = building_generic_subsistence	production_method = pm_homesteading_building_subsistence } }
-				activate_production_method				= { building_type = building_generic_subsistence	production_method = pm_homesteading_building_subsistence }
-=======
 				limit = { is_production_method_active	= { building_type = building_autarky_farm	production_method = pm_homesteading_building_subsistence } }
 				activate_production_method				= { building_type = building_autarky_farm	production_method = pm_homesteading_building_subsistence }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 		fallback = {
 			if = {
-<<<<<<< HEAD
-				limit = { is_production_method_active	= { building_type = building_generic_subsistence	production_method = pm_serfdom_no } }
-				activate_production_method				= { building_type = building_generic_subsistence	production_method = pm_serfdom_no }
-=======
 				limit = { is_production_method_active	= { building_type = building_autarky_farm	production_method = pm_serfdom_no } }
 				activate_production_method				= { building_type = building_autarky_farm	production_method = pm_serfdom_no }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 			}
 		}
 	}
@@ -7534,31 +6755,13 @@ effect_reset_autarky_pm = {
 effect_instant_seed_autarky_ivr = {
 	save_temporary_scope_as = country_scope
 	every_scope_state = {
-<<<<<<< HEAD
-		limit = { NOT = { has_building = building_generic_subsistence } }
-		create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels = 1 } } }
-=======
 		limit = { NOT = { has_building = building_autarky_farm } }
 		create_building = { building = building_autarky_farm			add_ownership = { country = { country = scope:country_scope levels = 1 } } }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	every_country = {
 		limit = { trigger_PREV_has_investment_rights = yes }
 		every_scope_state = {
-<<<<<<< HEAD
-			limit = { NOT = { has_building = building_generic_subsistence } }
-			create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels = 1 } } }
-			ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
-		}
-		every_scope_state = {
-			limit = { NOT = { has_building = building_infres_generic_subsistence } }
-			create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels = 1 } } }
-			ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
-		}
-		hidden_effect = { effect_reset_autarky_pm = yes }
-		hidden_effect = { activate_production_method = { building_type = building_infres_generic_subsistence		production_method = pm_tools_disabled_subsistence } }
-=======
 			limit = { NOT = { has_building = building_autarky_farm } }
 			create_building = { building = building_autarky_farm			add_ownership = { country = { country = scope:country_scope levels = 1 } } }
 			ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
@@ -7570,7 +6773,6 @@ effect_instant_seed_autarky_ivr = {
 		}
 		hidden_effect = { effect_reset_autarky_pm = yes }
 		hidden_effect = { activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_disabled_subsistence } }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		custom_tooltip = {
 			text = effect_tool_fertilizer_switch.tt
 			effect_fertilizer_switch = yes
@@ -7589,35 +6791,6 @@ effect_instant_build_autarky_ivr = {
 		}
 		every_scope_state = { effect_delete_finite_agro_state = yes }
 		every_scope_state = {
-<<<<<<< HEAD
-			limit = { b:building_generic_subsistence.level < arable_land }
-			set_variable = { name = old_level value = b:building_generic_subsistence.level }
-			if		= { limit = { arable_land <=  11 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
-			else_if	= { limit = { arable_land <=  21 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   20 } } } }
-			else_if	= { limit = { arable_land <=  31 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   30 } } } }
-			else_if	= { limit = { arable_land <=  41 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   40 } } } }
-			else_if	= { limit = { arable_land <=  51 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   50 } } } }
-			else_if	= { limit = { arable_land <=  61 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   60 } } } }
-			else_if	= { limit = { arable_land <=  71 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   70 } } } }
-			else_if	= { limit = { arable_land <=  81 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   80 } } } }
-			else_if	= { limit = { arable_land <=  91 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =   90 } } } }
-			else_if	= { limit = { arable_land <=  101 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  100 } } } }
-			else_if	= { limit = { arable_land <=  201 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  200 } } } }
-			else_if	= { limit = { arable_land <=  301 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  300 } } } }
-			else_if	= { limit = { arable_land <=  401 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  400 } } } }
-			else_if	= { limit = { arable_land <=  501 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  500 } } } }
-			else_if	= { limit = { arable_land <=  601 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  600 } } } }
-			else_if	= { limit = { arable_land <=  701 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  700 } } } }
-			else_if	= { limit = { arable_land <=  801 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  800 } } } }
-			else_if	= { limit = { arable_land <=  901 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels =  900 } } } }
-			else_if	= { limit = { arable_land <= 1001 }	create_building = { building = building_generic_subsistence			add_ownership = { country = { country = scope:country_scope levels = 1000 } } } }
-			if = {
-				limit = { b:building_generic_subsistence.level > var:old_level }	# Required to prevent division by zero errors
-				set_variable = {
-					name = temp_price
-					value = {
-						value		= b:building_generic_subsistence.level
-=======
 			limit = { b:building_autarky_farm.level < arable_land }
 			set_variable = { name = old_level value = b:building_autarky_farm.level }
 			if		= { limit = { arable_land <=  11 }	create_building = { building = building_autarky_farm			add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
@@ -7645,7 +6818,6 @@ effect_instant_build_autarky_ivr = {
 					name = temp_price
 					value = {
 						value		= b:building_autarky_farm.level
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 						subtract	= var:old_level
 						multiply = {
 							value	= construction_cost_low			# Building price in construction points
@@ -7671,38 +6843,6 @@ effect_instant_build_infres_autarky_ivr = {
 			}
 		}
 		every_scope_state = {
-<<<<<<< HEAD
-			limit = { b:building_infres_generic_subsistence.level < arable_land }
-			set_variable = { name = old_level value = b:building_infres_generic_subsistence.level }
-			if		= { limit = { arable_land <=  11 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
-			else_if	= { limit = { arable_land <=  21 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   20 } } } }
-			else_if	= { limit = { arable_land <=  31 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   30 } } } }
-			else_if	= { limit = { arable_land <=  41 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   40 } } } }
-			else_if	= { limit = { arable_land <=  51 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   50 } } } }
-			else_if	= { limit = { arable_land <=  61 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   60 } } } }
-			else_if	= { limit = { arable_land <=  71 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   70 } } } }
-			else_if	= { limit = { arable_land <=  81 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   80 } } } }
-			else_if	= { limit = { arable_land <=  91 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =   90 } } } }
-			else_if	= { limit = { arable_land <=  101 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  100 } } } }
-			else_if	= { limit = { arable_land <=  201 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  200 } } } }
-			else_if	= { limit = { arable_land <=  301 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  300 } } } }
-			else_if	= { limit = { arable_land <=  401 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  400 } } } }
-			else_if	= { limit = { arable_land <=  501 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  500 } } } }
-			else_if	= { limit = { arable_land <=  601 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  600 } } } }
-			else_if	= { limit = { arable_land <=  701 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  700 } } } }
-			else_if	= { limit = { arable_land <=  801 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  800 } } } }
-			else_if	= { limit = { arable_land <=  901 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels =  900 } } } }
-			else_if	= { limit = { arable_land <= 1001 }	create_building = { building = building_infres_generic_subsistence	add_ownership = { country = { country = scope:country_scope levels = 1000 } } } }
-			if = {
-				limit = { b:building_infres_generic_subsistence.level > var:old_level }	# Required to prevent division by zero errors
-				set_variable = {
-					name = temp_price
-					value = {
-						value		= b:building_infres_generic_subsistence.level
-						subtract	= var:old_level
-						multiply = {
-							value	= construction_cost_low			# Building price in construction points
-=======
 			limit = { b:building_infres_autarky_farm.level < arable_land }
 			set_variable = { name = old_level value = b:building_infres_autarky_farm.level }
 			if		= { limit = { arable_land <=  11 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
@@ -7732,8 +6872,7 @@ effect_instant_build_infres_autarky_ivr = {
 						value		= b:building_infres_autarky_farm.level
 						subtract	= var:old_level
 						multiply = {
-							value	= construction_cost_medium			# Building price in construction points
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
+							value	= construction_cost_medium		# Building price in construction points
 							divide	= 1000							# 1k/point in Millions
 						}
 						min			= 0
@@ -7758,13 +6897,8 @@ effect_instant_seed_plantations = {
 }
 effect_instant_seed_plantations_state = {
 	if = {
-<<<<<<< HEAD
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_generic_subsistence } } }
-		create_building = { building = building_infres_generic_subsistence level = 1 }
-=======
 		limit = { NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } } }
 		create_building = { building = building_infres_autarky_farm level = 1 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
@@ -8109,10 +7243,6 @@ effect_purveyor_of_progres_railway = {
 		}
 	}
 }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 # state_set_balances = {
     # if = {
 		# limit = { OR = { sg:$GOODS$ = { market_goods_is_local = yes } is_isolated_from_market = yes } }

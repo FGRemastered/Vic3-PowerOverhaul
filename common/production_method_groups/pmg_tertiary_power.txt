@@ -50,6 +50,7 @@ pmg_greenhouse = {
 		pm_coal_furnace
 		pm_electric_furnace
 		pm_electric_heat_exchanger
+		pm_autark_greenhouse
 		pm_oil_furnace
 	}
 }

@@ -109,7 +109,6 @@ pm_mechanized_home_workshops = {
 pm_electric_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/vacuum_tubes.dds"
 	unlocking_technologies = { electrical_capacitors }
-	disallowing_laws = { law_collectivized_agriculture }
 	replacement_if_valid = pm_autark_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
@@ -144,6 +143,7 @@ pm_autark_home_workshops = {
 	unlocking_technologies = { electrical_capacitors }
 	is_hidden_when_unavailable = yes
 	unlocking_production_methods = {
+		pm_autark_greenhouse
 		pm_early_windpark_subsistence
 		pm_large_windpark_subsistence
 		pm_solar_windpark_subsistence

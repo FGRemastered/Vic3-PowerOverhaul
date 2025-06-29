@@ -53,12 +53,9 @@ goods_output_liquor_mult										= { decimals = 1	color = good	percent = yes	ga
 goods_output_clothes_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_furniture_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_fabric_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-<<<<<<< HEAD
-=======
 goods_output_coffee_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_tea_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_opium_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 goods_output_wood_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_hardwood_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_coal_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }

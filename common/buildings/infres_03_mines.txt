@@ -1,12 +1,7 @@
 ﻿building_infres_coal_mine = {
-	can_build_private		= {
-		trigger_private_construction		= yes
-		trigger_infres_coal_allowed			= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_coal_allowed			= yes
-	}
+	potential				= { trigger_infres_coal_allowed		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/coal_mine.dds"
@@ -19,20 +14,15 @@
 		pmg_mining_equipment_building_coal_mine
 		pmg_explosives_building_mine
 		pmg_steam_automation_building_coal_mine
-		pmg_train_automation_building_coal_mine
+		pmg_train_automation
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
 building_infres_iron_mine = {
-	can_build_private		= {
-		trigger_private_construction		= yes
-		trigger_infres_iron_allowed			= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_iron_allowed			= yes
-	}
+	potential				= { trigger_infres_iron_allowed		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/iron_mine.dds"
@@ -51,14 +41,9 @@ building_infres_iron_mine = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
 building_infres_lead_mine = {
-	can_build_private		= {
-		trigger_private_construction		= yes
-		trigger_infres_lead_allowed			= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_lead_allowed			= yes
-	}
+	potential				= { trigger_infres_lead_allowed		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/lead_mine.dds"
@@ -77,14 +62,9 @@ building_infres_lead_mine = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
 building_infres_sulfur_mine = {
-	can_build_private		= {
-		trigger_private_construction		= yes
-		trigger_infres_sulphur_allowed		= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_sulphur_allowed		= yes
-	}
+	potential				= { trigger_infres_sulphur_allowed	= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/sulfur_mine.dds"
@@ -103,11 +83,9 @@ building_infres_sulfur_mine = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
 building_infres_gold_mine = {
-	can_build_private		= { always		= no }	# Don't even think about building a money printer. No, bad capitalists!
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_gold_allowed			= yes
-	}
+	potential				= { trigger_infres_gold_allowed		= yes }
+	can_build_private		= { always							=  no }	# Don't even think about building a money printer. No, bad capitalists!
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 0 # Make AI not build this at all
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/gold_mine.dds"
@@ -126,14 +104,9 @@ building_infres_gold_mine = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
 }
 building_infres_oil_rig = {
-	can_build_private		= {
-		trigger_private_construction		= yes
-		trigger_infres_oil_allowed			= yes
-	}
-	can_build_government	= {
-		trigger_gov_construction			= yes
-		trigger_infres_oil_allowed			= yes
-	}
+	potential				= { trigger_infres_oil_allowed		= yes }
+	can_build_private		= { trigger_private_construction	= yes }
+	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 0 # Make AI not build this at all
 	building_group = bg_infinite_mining
 	icon = "gfx/interface/icons/building_icons/oil_rig.dds"

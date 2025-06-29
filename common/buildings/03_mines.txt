@@ -11,7 +11,7 @@
 		pmg_mining_equipment_building_coal_mine
 		pmg_explosives_building_mine
 		pmg_steam_automation_building_coal_mine
-		pmg_train_automation_building_coal_mine
+		pmg_train_automation
 	}
 	ownership_type = self
 }

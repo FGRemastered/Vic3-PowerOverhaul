@@ -37,10 +37,6 @@ bg_inf_construction = {
 	parent_group = bg_construction
 	urbanization = 0	# important
 }
-bg_inf_construction = {
-	parent_group = bg_construction
-	urbanization = 0	# important
-}
 bg_power = {
 	category = development
 	lens = infrastructure
@@ -114,8 +110,6 @@ bg_owner_buildings = {
 	cash_reserves_max = 10000
 	urbanization = 5
 	infrastructure_usage_per_level = 0.1
-	fired_pops_become_radical = no
-	should_auto_expand = { always = no }
 }
 # Government
 bg_government = {

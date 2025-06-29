@@ -4,70 +4,21 @@ pm_road_carts = {
 	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
 	ai_value = 500	# -500
 }
-pm_steam_rail_transport = {
+pm_rail_transport = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	unlocking_technologies = { railways }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_transportation_add		=    5	# x-30	= -150
-			goods_input_coal_add				=    2	# x-30	=  -60
-		}												#		= -210
+		}
 		level_scaled = {
-			building_employment_laborers_add	=-1000	# x-.02	=  +20	=> Breaks even at SoL 10.5
+			building_employment_laborers_add	=-1000	# x-.02	=  +20	=> Breaks even at SoL 7.5
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = transportation
 }
-pm_electric_rail_transport = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { electric_railway }
-	is_hidden_when_unavailable = no	# Would otherwise be invisible until you have electric_railway
-	replacement_if_valid = pm_electric_rail_transport_green
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=    5	# x-30	= -150
-			goods_input_electricity_add			=    1	# x-30	=  -30
-		}												#		= -180
-		level_scaled = {
-			building_employment_laborers_add	=-1000	# x-.02	=  +20	=> Breaks even at SoL 9
-		}
-	}
-	required_input_goods = transportation
-	required_input_goods = electricity
-	ai_value = 2000
-}
-pm_electric_rail_transport_green = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { electric_railway }
-	is_hidden_when_unavailable = yes
-	# replacement_if_valid = pm_electric_rail_transport
-	unlocking_production_methods = {
-		pm_early_windpark
-		pm_large_windpark
-		pm_solar_windpark
-		pm_large_solar_windpark
-		pm_huge_solar_windpark
-		
-		pm_on_shore_windpark
-		pm_early_offshore_windpark
-		pm_offshore_windpark
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=    5	# x-30	= -150
-			goods_output_electricity_add		=   -1	# x+30	=  -30
-		}												#		= -180
-		level_scaled = {
-			building_employment_laborers_add	=-1000	# x-.02	=  +20	=> Breaks even at SoL 9
-		}
-	}
-	required_input_goods = transportation
-	ai_value = 10000
-}
-pm_diesel_rail_transport = {
+pm_truck_transport = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -82,135 +33,61 @@ pm_diesel_rail_transport = {
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_pollution_generation_add	= 15
-			state_infrastructure_add		= -1
+			state_pollution_generation_add		= 15
+			state_infrastructure_add			= -1
 		}
 	}
-	# required_input_goods = transportation
-}
-# Coal Mine + Charcoal Burner
-pm_steam_rail_transport_building_coal_mine = {
-	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
-	unlocking_technologies = { railways }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=  5	# x-30	= -150
-			goods_output_coal_add				= -2	# x+30	=  -60
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-1000	# x-.02	=  +20	=> Breaks even at SoL 10.5
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-	required_input_goods = transportation
 }
 # Misc Resources
 # Logging Camps
 pm_log_carts = {
 	texture = "gfx/interface/icons/production_method_icons/log_carts.dds"
-	unlocking_technologies = { steel_railway_cars }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_coal_add				=    5	# x-30	= -150
-		}												#		= -450
+		}
 		level_scaled = {
-			building_employment_laborers_add	=-2000	# x-.02	=  +40	=> Breaks even at SoL 11.25
+			building_employment_laborers_add	=-2000	# x-.02	=  +40	=> Breaks even at SoL 7.5
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 	required_input_goods = transportation
 }
-pm_electric_log_carts = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { electric_railway }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_electricity_add			=    5	# x-30	= -150
-		}												#		= -450
-		level_scaled = {
-			building_employment_laborers_add	=-2000	# x-.02	=  +40	=> Breaks even at SoL 11.25
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-	required_input_goods = transportation
-	required_input_goods = electricity
-}
-pm_diesel_log_carts = {
+pm_log_trucks = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_automobiles_add			=    2	# x-100	= -200
-			goods_input_oil_add					=    5	# x-40	= -200
-		}												#		= -400
+			goods_input_oil_add					=    2	# x-40	=  -80
+		}												#		= -280
 		level_scaled = {
 			building_employment_laborers_add	=-2000	# x-.02	=  +40
 			building_employment_machinists_add	=  400	# x-.03	=  -12
-		}												#		=  +28	=> Breaks even at SoL 14 2/7
+		}												#		=  +28	=> Breaks even at SoL 10
 	}
 	state_modifiers = {
 		workforce_scaled = {
-			state_pollution_generation_add	= 15
-			state_infrastructure_add		= -2
+			state_pollution_generation_add		= 15
+			state_infrastructure_add			= -2
 		}
 	}
-	# required_input_goods = transportation
 }
 # Oil Rigs + Synth Oil Plants
 pm_tanker_cars = {
 	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
-	unlocking_technologies = { steel_railway_cars }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_coal_add				=    5	# x-30	= -150
-		}												#		= -450
-		level_scaled = {
-			building_employment_laborers_add	=-2000	# x-.02	=  +40
-		}												#			  	=> Breaks even at SoL 11.25
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-	required_input_goods = transportation
-}
-pm_electric_tanker_cars = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_transportation_add		=   15	# x-30	= -450
-			goods_input_electricity_add			=    5	# x-30	= -150
-		}												#		= -600
+		}
 		level_scaled = {
 			building_employment_laborers_add	=-2000	# x-.02	=  +40
 			building_employment_machinists_add	= -500	# x-.03	=  +15
 		}												#		=  +55	=> Breaks even at SoL 10.91
-		unscaled = { building_throughput_add = 1 }
 	}
 	required_input_goods = transportation
-	required_input_goods = electricity
-}
-pm_diesel_tanker_cars = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
-	unlocking_technologies = { compression_ignition }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_automobiles_add			=    3	# x-100	= -300
-			goods_output_oil_add				=   -5	# x-40	= -200
-		}												#		= -500
-		level_scaled = {
-			building_employment_laborers_add	=-2000	# x-.02	=  +40	=> Breaks even at SoL 12.5
-		}
-		unscaled = { building_throughput_add = 1 }
-	}
-	state_modifiers = {
-		workforce_scaled = {
-			state_pollution_generation_add	= 15
-			state_infrastructure_add		= -3
-		}
-	}
-	# required_input_goods = transportation
 }
 # Refrigerated Transport
 pm_unrefrigerated = {
@@ -350,18 +227,6 @@ pm_steam_rail_transport_port = {
 pm_electric_rail_transport_port = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { electric_railway }
-<<<<<<< HEAD
-	# unlocking_production_methods = {
-		# pm_on_shore_windpark
-		# pm_early_offshore_windpark
-		# pm_offshore_windpark
-		# pm_large_offshore_windpark
-		# pm_huge_offshore_windpark
-	# }
-=======
-<<<<<<< Updated upstream
-	# unlocking_production_methods = { pm_basic_port pm_industrial_port }
-=======
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    5
@@ -404,15 +269,6 @@ pm_diesel_rail_transport_port = {
 pm_modern_port_rail_transport = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
 	unlocking_technologies = { flash_freezing }
->>>>>>> Stashed changes
-	unlocking_production_methods = {
-		pm_on_shore_windpark
-		pm_early_offshore_windpark
-		pm_offshore_windpark
-		pm_large_offshore_windpark
-		pm_huge_offshore_windpark
-	}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    5
@@ -485,130 +341,6 @@ pm_modern_port_rail_transport = {
 	}
 	required_input_goods = transportation
 }
-<<<<<<< Updated upstream
-# Government
-pm_no_gov_automation = {
-	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"	# Nothing. This is the default.
-}
-# Admin
-pm_steam_rail_transport_gov = {
-	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
-	unlocking_technologies = { steel_railway_cars }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_coal_add				=    2	# x-30	=  -60
-		}												#		= -360
-		level_scaled = {
-			building_employment_clerks_add		=-1500	# x-.03	=  +45
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-		}												#		=   15	=> Breaks even at SoL 24
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 1 } }
-	required_input_goods = transportation
-}
-pm_electric_rail_transport_gov = {
-	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	unlocking_technologies = { electric_railway }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_electricity_add			=    1	# x-30	=  -30
-		}												#		= -330
-		level_scaled = {
-			building_employment_clerks_add		=-1500	# x-.03	=  +45
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-		}												#		=  +15	=> Breaks even at SoL 22
-	}
-	required_input_goods = transportation
-	required_input_goods = electricity
-}
-pm_diesel_rail_transport_gov = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
-	unlocking_technologies = { compression_ignition }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_automobiles_add			=    1	# x-100	= -100
-			goods_input_oil_add					=    1	# x-40	=  -40
-		}												#		= -140
-		level_scaled = {
-			building_employment_clerks_add		=-1500	# x-.03	=  +45
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-			building_employment_machinists_add	=  200	# x-.03	=   -6
-		}												#		=   +9	=> Breaks even at SoL 15 5/9
-	}
-	state_modifiers = {
-		workforce_scaled = {
-			state_pollution_generation_add	=  5
-			state_infrastructure_add		= -1
-		}
-	}
-	# required_input_goods = transportation
-}
-# Skyscraper
-pm_steam_rail_transport_sky = {
-	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
-	unlocking_technologies = { steel_railway_cars }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_engines_add				=    2	# x-60	= -120
-			goods_input_coal_add				=    6	# x-30	= -180
-		}												#		= -600
-		level_scaled = {
-			building_employment_clerks_add		=-2000	# x-.03	=  +60
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-		}												#		=  +30	=> Breaks even at SoL 20
-		unscaled = { building_throughput_add = 0.5 }
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-	required_input_goods = transportation
-	required_input_goods = engines
-}
-pm_electric_rail_transport_sky = {
-	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
-	unlocking_technologies = { electric_railway }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_transportation_add		=   10	# x-30	= -300
-			goods_input_engines_add				=    2	# x-60	= -120
-			goods_input_electricity_add			=    6	# x-30	= -180
-		}												#		= -600
-		level_scaled = {
-			building_employment_clerks_add		=-3000	# x-.03	=  +90
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-		}												#		=  +60	=> Breaks even at SoL 10
-		unscaled = { building_throughput_add = 1 }
-	}
-	required_input_goods = transportation
-	required_input_goods = electricity
-}
-pm_diesel_rail_transport_sky = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
-	unlocking_technologies = { compression_ignition }
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_automobiles_add			=    2	# x-100	= -200
-			goods_input_engines_add				=    2	# x-60	= -120
-			goods_input_oil_add					=    5	# x-40	= -200
-		}												#		= -540
-		level_scaled = {
-			building_employment_clerks_add		=-3000	# x-.03	=  +90
-			building_employment_bureaucrats_add	=  500	# x-.06	=  -30
-			building_employment_machinists_add	=  500	# x-.03	=  -15
-		}												#		=  +45	=> Breaks even at SoL 12
-		unscaled = { building_throughput_add = 1 }
-	}
-	state_modifiers = {
-		workforce_scaled = {
-			state_pollution_generation_add	= 15
-			state_infrastructure_add		= -5
-		}
-	}
-	# required_input_goods = transportation
-}
-=======
->>>>>>> Stashed changes
 # Construction
 pm_steam_rail_transport_construction = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"

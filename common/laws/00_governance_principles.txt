@@ -97,10 +97,7 @@ law_monarchy = {
 			}
 			else = { multiply = 0.5 }	# AI is less likely to mess with governance principles unless dealing with council republics
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_theocracy = {
@@ -157,10 +154,7 @@ law_theocracy = {
 			}
 			else = { multiply = 0.5 }	# AI is less likely to mess with governance principles unless dealing with council republics
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_presidential_republic = {
@@ -232,10 +226,7 @@ law_presidential_republic = {
 			}
 			else = { multiply = 0.5 }	# AI is less likely to mess with governance principles unless dealing with council republics
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_parliamentary_republic = {
@@ -324,10 +315,7 @@ law_parliamentary_republic = {
 			}
 			else = { multiply = 0.5 }	# AI is less likely to mess with governance principles unless dealing with council republics
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_council_republic = {
@@ -385,10 +373,7 @@ law_council_republic = {
 			limit = { has_law = law_type:law_council_republic has_strategy = ai_strategy_egalitarian_agenda }
 			add = base_impose_law_weight multiply = 5.0
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_corporate_state = {
@@ -436,10 +421,7 @@ law_corporate_state = {
 		country_legitimacy_ideological_incoherence_mult		=-0.25
 		country_authority_add								=  100
 		interest_group_ig_petty_bourgeoisie_pol_str_mult	= 0.25
-<<<<<<< HEAD
-=======
 		state_political_strength_from_wealth_mult			= 1.00	# Added
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	ai_will_do = {
 		exists = ruler

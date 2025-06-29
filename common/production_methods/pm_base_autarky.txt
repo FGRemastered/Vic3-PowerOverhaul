@@ -1,11 +1,6 @@
 ﻿# Subsistence base pms
 # Generic											 I've given up on doing the math. Safe to say the generic one is the most efficient and effectively replaces all 02_agro buildings
-default_building_generic_subsistence = {
-<<<<<<< HEAD
-=======
-	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 default_building_autarky_farm = {
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"	# subsistence_farming
 	building_modifiers = {
 		workforce_scaled = {
@@ -45,7 +40,7 @@ default_building_autarky_farm = {
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
 	ai_value = 1000
 }
-pm_enriched_generic_subsistence = {			#x1.5 - x2.0
+pm_enriched_autarky_farm = {			#x1.5 - x2.0
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -90,7 +85,7 @@ pm_enriched_generic_subsistence = {			#x1.5 - x2.0
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 2000
 }
-pm_fertilized_generic_subsistence = {		#x3
+pm_fertilized_autarky_farm = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -140,7 +135,7 @@ pm_fertilized_generic_subsistence = {		#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 1.0 } }
 	ai_value = 3000
 }
-pm_chem_fertilized_generic_subsistence = {		#x4.5 - x5.0
+pm_chem_fertilized_autarky_farm = {		#x4.5 - x5.0
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -189,7 +184,7 @@ pm_chem_fertilized_generic_subsistence = {		#x4.5 - x5.0
 	country_modifiers = { workforce_scaled = { country_construction_add	= 1.5 } }
 	ai_value = 5000
 }
-pm_auto_fertilized_generic_subsistence = {		#x7.5
+pm_auto_fertilized_autarky_farm = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {

@@ -130,33 +130,12 @@ gfx_forestry_train_trigger = {
 	}
 }
 gfx_softwood_trigger = {
-<<<<<<< HEAD
-=======
-	any_scope_building = {
-		OR = {
-			has_active_production_method = pm_simple_forestry
-			has_active_production_method = pm_saw_mills
-			has_active_production_method = pm_electric_saw_mills
-			has_active_production_method = default_building_rubber_plantation
-			has_active_production_method = pm_soil_enriching_farming_rubber_plantation
-			has_active_production_method = pm_fertilization_rubber_plantation
-			has_active_production_method = pm_chemical_fertilizer_rubber_plantation
-			has_active_production_method = pm_automatic_fertilization_rubber_plantation
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	scope:state = {
 		any_scope_building = {
 			OR = {
 				has_active_production_method = pm_simple_forestry
 				has_active_production_method = pm_saw_mills
 				has_active_production_method = pm_electric_saw_mills
-<<<<<<< HEAD
-=======
-				has_active_production_method = default_building_wood_plantation
-				has_active_production_method = pm_soil_enriching_farming_wood_plantation
-				has_active_production_method = pm_fertilization_wood_plantation
-				has_active_production_method = pm_chemical_fertilizer_wood_plantation
-				has_active_production_method = pm_automatic_fertilization_wood_plantation
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 				has_active_production_method = default_building_rubber_plantation
 				has_active_production_method = pm_soil_enriching_farming_rubber_plantation
 				has_active_production_method = pm_fertilization_rubber_plantation

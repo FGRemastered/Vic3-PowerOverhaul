@@ -2874,8 +2874,6 @@ effect_pacific_coast_army = {
 			}
 		}
 	}
-<<<<<<< HEAD
-=======
 }
 # Navy
 effect_CHI_navy = {
@@ -3105,5 +3103,4 @@ effect_CHI_navy = {
 			}
 		}
 	}
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 }

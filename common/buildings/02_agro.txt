@@ -122,7 +122,7 @@ building_infres_autarky_farm = {
 	production_method_groups = {
 		pmg_base_building_autarky_farm
 		pmg_home_workshops
-		pmg_tertiary_agri_power_subsistence
+		pmg_greenhouse
 		pmg_harvesting_process_autark
 	}
 	min_raise_to_hire			= 0
@@ -144,7 +144,7 @@ building_rye_farm = {
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
-		pmg_base_building_rye_farm
+		pmg_base_building_farm
 		pmg_secondary_farm_cold
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
@@ -163,7 +163,7 @@ building_wheat_farm = {
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
-		pmg_base_building_wheat_farm
+		pmg_base_building_farm
 		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
@@ -201,7 +201,7 @@ building_maize_farm = {
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
-		pmg_base_building_maize_farm
+		pmg_base_building_farm
 		pmg_secondary_farm_temperate
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors
@@ -220,7 +220,7 @@ building_millet_farm = {
 	levels_per_mesh = 5
 	unlocking_technologies = { enclosure }
 	production_method_groups = {
-		pmg_base_building_millet_farm
+		pmg_base_building_farm
 		pmg_secondary_farm_hot
 		pmg_tertiary_agri_power
 		pmg_harvesting_process_tractors

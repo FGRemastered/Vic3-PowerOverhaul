@@ -4,10 +4,10 @@ pmg_base_building_autarky_farm = {
 	ai_selection = most_productive
 	production_methods = {
 		default_building_autarky_farm
-		pm_enriched_generic_subsistence
-		pm_fertilized_generic_subsistence
-		pm_chem_fertilized_generic_subsistence
-		pm_auto_fertilized_generic_subsistence
+		pm_enriched_autarky_farm
+		pm_fertilized_autarky_farm
+		pm_chem_fertilized_autarky_farm
+		pm_auto_fertilized_autarky_farm
 	}
 }
 pmg_base_building_subsistence_farms = {
@@ -105,10 +105,7 @@ pmg_harvesting_process_autark = {
 		pm_tractors_subsistence
 		pm_compression_ignition_tractors_subsistence
 		pm_electric_tractors_subsistence
-<<<<<<< HEAD
-=======
 		pm_green_tractors_subsistence
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		pm_decentralised_subsistence
 	}
 }

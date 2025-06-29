@@ -32,6 +32,7 @@
  pm_coal_furnace: "Coal Heating"
  pm_electric_furnace: "Resistive Heating"
  pm_electric_heat_exchanger: "Heat Exchanger"
+ pm_autark_greenhouse: "Self-Sufficient Greenhouse"
  pm_oil_furnace: "Oil-powered Heat Exchanger"
  
  pm_solar_roofing: "Solar Roofing"
@@ -53,6 +54,7 @@
  pm_compression_ignition_tractors_subsistence: "$pm_compression_ignition_tractors$"
  pm_electric_tractors_subsistence: "$pm_electric_tractors$"
  
+ pmg_base_building_farm: "$pmg_base_building_rye_farm$"
  pm_simple_farming_rice_farm: "$pm_simple_farming$"
  
  default_building_wood_plantation: "$pm_default$"
@@ -152,10 +154,10 @@
  
  pmg_base_building_autarky_farm: "$pm_base$"
  default_building_autarky_farm: "$pm_default$"
- pm_enriched_generic_subsistence: "$pm_soil_enriching_farming$"
- pm_fertilized_generic_subsistence: "$pm_fertilization$"
- pm_chem_fertilized_generic_subsistence: "$pm_chemical_fertilizer$"
- pm_auto_fertilized_generic_subsistence: "$pm_automatic_fertilization$"
+ pm_enriched_autarky_farm: "$pm_soil_enriching_farming$"
+ pm_fertilized_autarky_farm: "$pm_fertilization$"
+ pm_chem_fertilized_autarky_farm: "$pm_chemical_fertilizer$"
+ pm_auto_fertilized_autarky_farm: "$pm_automatic_fertilization$"
  
  pm_enriched_subsistence_farms: "$pm_soil_enriching_farming$"
  pm_fertilized_subsistence_farms: "$pm_fertilization$"

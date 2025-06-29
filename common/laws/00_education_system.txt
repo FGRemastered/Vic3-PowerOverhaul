@@ -27,11 +27,7 @@ law_religious_schools = {
 	institution_modifier = {
 		state_conversion_mult								= 0.20
 		state_education_access_add							= 0.10
-<<<<<<< HEAD
-		state_education_access_wealth_add					= 0.002	# Added
-=======
 		state_education_access_wealth_add					= 0.001	# Added
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 		interest_group_ig_devout_pol_str_mult				= 0.10
 	}
 	can_impose = {
@@ -77,10 +73,7 @@ law_religious_schools = {
 			}
 			add = 10
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_private_schools = {
@@ -141,10 +134,7 @@ law_private_schools = {
 			}
 			add = 10
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
 law_public_schools = {
@@ -161,11 +151,7 @@ law_public_schools = {
 		state_assimilation_mult								= 0.20	# Increased (12.5% -> 20%)
 		state_education_access_add							= 0.20	# Increased (12.5% -> 20%)
 		state_conversion_mult								= 0.15	# Added - Ideally schools would be entirely unbiased, but that's hardly realistic.
-<<<<<<< HEAD
-		state_education_access_wealth_add					= 0.002	# Added - Even if public schooling is available, more money makes it easier still.
-=======
 		state_education_access_wealth_add					= 0.001	# Added - Even if public schooling is available, more money makes it easier still.
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 	can_impose = {
 		OR = {
@@ -210,9 +196,6 @@ law_public_schools = {
 			}
 			add = 10
 		}
-<<<<<<< HEAD
-=======
 		if = { limit = { trigger_BIC_british_dictate = yes } multiply = 0 }
->>>>>>> parent of 3ceef7d (Revert "Initial 1.9 push")
 	}
 }
