@@ -1,8 +1,6 @@
 ﻿indian_wood = {
 #	graphical_culture = "indian"
 	city_type = wood
-	center_building_entity = "indian_forestry_centerpiece_01_entity"
-	center_building_size = { 2 2 }
 	trigger = {
 		any_scope_state = {
 			OR = {

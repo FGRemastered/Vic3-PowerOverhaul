@@ -202,7 +202,7 @@ effect_reset_transport_switch = {
 		activate_production_method = { building_type = building_rubber_plantation					production_method = pm_no_equipment }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_no_equipment }
 		activate_production_method = { building_type = building_banana_plantation					production_method = pm_no_equipment }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_no_equipment }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_no_equipment }
 	}
 	# Infinite
 	# Mines
@@ -215,16 +215,16 @@ effect_reset_transport_switch = {
 	activate_production_method = { building_type = building_infres_logging_camp						production_method = pm_road_carts }
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_road_carts }
 	# Plantations
-	activate_production_method = { building_type = building_infres_vineyard_plantation				production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_coffee_plantation				production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_cotton_plantation				production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_dye_plantation					production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_opium_plantation					production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_tea_plantation					production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_tobacco_plantation				production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_sugar_plantation					production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_silk_plantation					production_method = pm_road_carts }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_road_carts }
+	activate_production_method = { building_type = building_vineyard_greenhouse				production_method = pm_road_carts }
+	activate_production_method = { building_type = building_coffee_greenhouse				production_method = pm_road_carts }
+	activate_production_method = { building_type = building_cotton_greenhouse				production_method = pm_road_carts }
+	activate_production_method = { building_type = building_dye_greenhouse					production_method = pm_road_carts }
+	activate_production_method = { building_type = building_opium_greenhouse					production_method = pm_road_carts }
+	activate_production_method = { building_type = building_tea_greenhouse					production_method = pm_road_carts }
+	activate_production_method = { building_type = building_tobacco_greenhouse				production_method = pm_road_carts }
+	activate_production_method = { building_type = building_sugar_greenhouse					production_method = pm_road_carts }
+	activate_production_method = { building_type = building_silk_greenhouse					production_method = pm_road_carts }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_road_carts }
 }
 effect_steam_transport_switch = {
 	hidden_effect = { effect_reset_transport_switch = yes }
@@ -337,7 +337,7 @@ effect_steam_transport_switch = {
 		# Misc Inf Resources
 		activate_production_method = { building_type = building_infres_logging_camp					production_method = pm_steam_powered_winch }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_steam_powered_winch }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_steam_powered_winch }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_steam_powered_winch }
 	}
 	if = {
 		limit = { has_technology_researched = electrical_generation }
@@ -347,7 +347,7 @@ effect_steam_transport_switch = {
 		# Infinite
 		activate_production_method = { building_type = building_infres_logging_camp					production_method = pm_powered_winch }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_powered_winch }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_powered_winch }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_powered_winch }
 	}
 	if = {
 		limit = { has_technology_researched = combustion_engine }
@@ -357,7 +357,7 @@ effect_steam_transport_switch = {
 		# Infinite
 		activate_production_method = { building_type = building_infres_logging_camp					production_method = pm_chainsaws }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_chainsaws }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_chainsaws }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_chainsaws }
 	}
 	if = {
 		limit = { has_technology_researched = electrical_capacitors }
@@ -367,7 +367,7 @@ effect_steam_transport_switch = {
 		# Infinite
 		activate_production_method = { building_type = building_infres_logging_camp					production_method = pm_electric_chainsaws }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_electric_chainsaws }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_electric_chainsaws }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_electric_chainsaws }
 	}
 	# Pasteurisation
 	if = {
@@ -395,16 +395,16 @@ effect_steam_transport_switch = {
 	activate_production_method = { building_type = building_infres_sulfur_mine						production_method = pm_steam_rail_transport }
 	activate_production_method = { building_type = building_infres_gold_mine						production_method = pm_steam_rail_transport }
 	# Plantations
-	activate_production_method = { building_type = building_infres_vineyard_plantation				production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_coffee_plantation				production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_cotton_plantation				production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_dye_plantation					production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_opium_plantation					production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_tea_plantation					production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_tobacco_plantation				production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_sugar_plantation					production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_silk_plantation					production_method = pm_steam_rail_transport }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_vineyard_greenhouse				production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_coffee_greenhouse				production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_cotton_greenhouse				production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_dye_greenhouse					production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_opium_greenhouse					production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_tea_greenhouse					production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_tobacco_greenhouse				production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_sugar_greenhouse					production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_silk_greenhouse					production_method = pm_steam_rail_transport }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_steam_rail_transport }
 	# Rubber
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_steam_rail_transport }
 }
@@ -566,16 +566,16 @@ effect_electric_transport_switch = {
 	activate_production_method = { building_type = building_infres_sulfur_mine						production_method = pm_electric_rail_transport }
 	activate_production_method = { building_type = building_infres_gold_mine						production_method = pm_electric_rail_transport }
 	# Plantations
-	activate_production_method = { building_type = building_infres_vineyard_plantation				production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_coffee_plantation				production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_cotton_plantation				production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_dye_plantation					production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_opium_plantation					production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_tea_plantation					production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_tobacco_plantation				production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_sugar_plantation					production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_silk_plantation					production_method = pm_electric_rail_transport }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_vineyard_greenhouse				production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_coffee_greenhouse				production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_cotton_greenhouse				production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_dye_greenhouse					production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_opium_greenhouse					production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_tea_greenhouse					production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_tobacco_greenhouse				production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_sugar_greenhouse					production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_silk_greenhouse					production_method = pm_electric_rail_transport }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_electric_rail_transport }
 	# Rubber
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_electric_rail_transport }
 	# Misc Resources
@@ -621,10 +621,10 @@ effect_electric_transport_switch = {
 	# Misc Resources
 	activate_production_method = { building_type = building_infres_logging_camp						production_method = pm_powered_winch }
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_powered_winch }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_powered_winch }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_powered_winch }
 	activate_production_method = { building_type = building_infres_logging_camp						production_method = pm_electric_chainsaws }
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_electric_chainsaws }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_electric_chainsaws }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_electric_chainsaws }
 	# Self-sufficient
 	every_scope_state = {
 		limit = { any_scope_building = { is_building_type = building_shipyards						trigger_green_pm_active = yes } }
@@ -680,44 +680,44 @@ effect_electric_transport_switch = {
 	}
 	# Infres
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_vineyard_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_vineyard_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_coffee_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_coffee_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_cotton_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_cotton_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_dye_plantation			trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_dye_greenhouse			trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_opium_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_opium_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_tea_plantation			trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_tea_greenhouse			trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_tobacco_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_tobacco_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_sugar_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_sugar_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_silk_plantation			trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_silk_greenhouse			trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_banana_plantation		trigger_green_pm_active = yes } }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_electric_rail_transport_green }
+		limit = { any_scope_building = { is_building_type = building_banana_greenhouse		trigger_green_pm_active = yes } }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_electric_rail_transport_green }
 	}
 	every_scope_state = {
 		limit = { any_scope_building = { is_building_type = building_infres_rubber_plantation		trigger_green_pm_active = yes } }
@@ -729,11 +729,9 @@ effect_diesel_transport_switch = {
 	if = {	# Port
 		limit = { NOT = { has_technology_researched = flash_freezing } }
 		activate_production_method = { building_type = building_port								production_method = pm_diesel_rail_transport_port }
-		activate_production_method = { building_type = building_infres_port							production_method = pm_diesel_rail_transport_port }
 	}
 	else = {
 		activate_production_method = { building_type = building_port								production_method = pm_modern_port_rail_transport }
-		activate_production_method = { building_type = building_infres_port							production_method = pm_modern_port_rail_transport }
 	}
 	# Industry
 	activate_production_method = { building_type = building_charcoal_burner							production_method = pm_diesel_rail_transport }
@@ -843,16 +841,16 @@ effect_diesel_transport_switch = {
 	activate_production_method = { building_type = building_infres_sulfur_mine						production_method = pm_diesel_rail_transport }
 	activate_production_method = { building_type = building_infres_gold_mine						production_method = pm_diesel_rail_transport }
 	# Plantations
-	activate_production_method = { building_type = building_infres_vineyard_plantation				production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_coffee_plantation				production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_cotton_plantation				production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_dye_plantation					production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_opium_plantation					production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_tea_plantation					production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_tobacco_plantation				production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_sugar_plantation					production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_silk_plantation					production_method = pm_diesel_rail_transport }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_vineyard_greenhouse				production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_coffee_greenhouse				production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_cotton_greenhouse				production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_dye_greenhouse					production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_opium_greenhouse					production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_tea_greenhouse					production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_tobacco_greenhouse				production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_sugar_greenhouse					production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_silk_greenhouse					production_method = pm_diesel_rail_transport }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_diesel_rail_transport }
 	# Rubber
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_diesel_rail_transport }
 	# Misc Resources
@@ -866,10 +864,10 @@ effect_diesel_transport_switch = {
 	# Misc Resources
 	activate_production_method = { building_type = building_infres_logging_camp						production_method = pm_oil_fired_winch }
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_oil_fired_winch }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_oil_fired_winch }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_oil_fired_winch }
 	activate_production_method = { building_type = building_infres_logging_camp						production_method = pm_modern_chainsaws }
 	activate_production_method = { building_type = building_infres_rubber_plantation				production_method = pm_modern_chainsaws }
-	activate_production_method = { building_type = building_infres_banana_plantation				production_method = pm_modern_chainsaws }
+	activate_production_method = { building_type = building_banana_greenhouse				production_method = pm_modern_chainsaws }
 }
 effect_tools_switch = {
 	hidden_effect = {
@@ -888,15 +886,15 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_tools_disabled }
 		activate_production_method = { building_type = building_silk_plantation						production_method = pm_tools_disabled }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_tools_disabled }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_tools_disabled }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_tools_disabled }
 		if = {
 			limit = { has_technology_researched = manufacturies }
 			every_scope_state = {
@@ -904,8 +902,8 @@ effect_tools_switch = {
 				activate_production_method = { building_type = building_autarky_farm				production_method = pm_tools_disabled_subsistence }
 			}
 			every_scope_state = {
-				limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-				activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_disabled_subsistence }
+				limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+				activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tools_disabled_subsistence }
 			}
 		}
 		# if = {
@@ -934,22 +932,22 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_tools }
 		activate_production_method = { building_type = building_silk_plantation						production_method = pm_tools }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_tools }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_tools }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_tools }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_tools }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_tools }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_tools }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_tools }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_tools }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_tools }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_tools }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_tools }
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_autarky_farm		trigger_subsistence_building_has_tools = yes } }
 			activate_production_method = { building_type = building_autarky_farm				production_method = pm_tools_subsistence }
 		}
 		every_scope_state = {
-			limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-			activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_subsistence }
+			limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+			activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tools_subsistence }
 		}
 	}
 	if = {
@@ -968,21 +966,21 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_tobacco_plantation					production_method = pm_steam_threshers }
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_steam_threshers }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_steam_threshers }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_steam_threshers }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_steam_threshers }
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_autarky_farm		trigger_subsistence_building_has_tools = yes } }
 			activate_production_method = { building_type = building_autarky_farm				production_method = pm_steam_threshers_subsistence }
 		}
 		every_scope_state = {
-			limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-			activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_steam_threshers_subsistence }
+			limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+			activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_steam_threshers_subsistence }
 		}
 	}
 	if = {
@@ -1001,21 +999,21 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_tobacco_plantation					production_method = pm_tractors }
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_tractors }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_tractors }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_tractors }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_tractors }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_tractors }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_tractors }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_tractors }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_tractors }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_tractors }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_tractors }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_tractors }
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_autarky_farm		trigger_subsistence_building_has_tools = yes } }
 			activate_production_method = { building_type = building_autarky_farm				production_method = pm_tractors_subsistence }
 		}
 		every_scope_state = {
-			limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-			activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tractors_subsistence }
+			limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+			activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tractors_subsistence }
 		}
 	}
 	if = {
@@ -1034,21 +1032,21 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_tobacco_plantation					production_method = pm_compression_ignition_tractors }
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_compression_ignition_tractors }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_compression_ignition_tractors }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_compression_ignition_tractors }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_compression_ignition_tractors }
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_autarky_farm		trigger_subsistence_building_has_tools = yes } }
 			activate_production_method = { building_type = building_autarky_farm				production_method = pm_compression_ignition_tractors_subsistence }
 		}
 		every_scope_state = {
-			limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-			activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_compression_ignition_tractors_subsistence }
+			limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+			activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_compression_ignition_tractors_subsistence }
 		}
 	}
 	if = {
@@ -1067,21 +1065,21 @@ effect_tools_switch = {
 		activate_production_method = { building_type = building_tobacco_plantation					production_method = pm_electric_tractors }
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_electric_tractors }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_electric_tractors }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_electric_tractors }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_electric_tractors }
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_autarky_farm		trigger_subsistence_building_has_tools = yes } }
 			activate_production_method = { building_type = building_autarky_farm				production_method = pm_electric_tractors_subsistence }
 		}
 		every_scope_state = {
-			limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	trigger_subsistence_building_has_tools = yes } }
-			activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_electric_tractors_subsistence }
+			limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	trigger_subsistence_building_has_tools = yes } }
+			activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_electric_tractors_subsistence }
 		}
 	}
 }
@@ -1090,7 +1088,7 @@ effect_fertilizer_switch = {
 		if = {
 			limit = { has_technology_researched = intensive_agriculture }
 			activate_production_method = { building_type = building_autarky_farm						production_method = pm_enriched_autarky_farm }
-			activate_production_method = { building_type = building_infres_autarky_farm					production_method = pm_enriched_autarky_farm }
+			activate_production_method = { building_type = building_autarky_greenhouse					production_method = pm_enriched_autarky_farm }
 			activate_production_method = { building_type = building_subsistence_farms					production_method = pm_enriched_subsistence_farms }
 			activate_production_method = { building_type = building_subsistence_orchards				production_method = pm_enriched_subsistence_orchards }
 			activate_production_method = { building_type = building_subsistence_pastures				production_method = pm_enriched_subsistence_pastures }
@@ -1113,23 +1111,23 @@ effect_fertilizer_switch = {
 			activate_production_method = { building_type = building_banana_plantation					production_method = pm_soil_enriching_farming_banana_plantation }
 			activate_production_method = { building_type = building_rubber_plantation					production_method = pm_soil_enriching_farming_rubber_plantation }
 			# Infinite
-			activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_soil_enriching_farming_vineyard_plantation }
-			activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_soil_enriching_farming_coffee_plantation }
-			activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_soil_enriching_farming_cotton_plantation }
-			activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_soil_enriching_farming_dye_plantation }
-			activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_soil_enriching_farming_opium_plantation }
-			activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_soil_enriching_farming_tea_plantation }
-			activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_soil_enriching_farming_tobacco_plantation }
-			activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_soil_enriching_farming_sugar_plantation }
-			activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_soil_enriching_farming_silk_plantation }
-			activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_soil_enriching_farming_banana_plantation }
+			activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_soil_enriching_farming_vineyard_plantation }
+			activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_soil_enriching_farming_coffee_plantation }
+			activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_soil_enriching_farming_cotton_plantation }
+			activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_soil_enriching_farming_dye_plantation }
+			activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_soil_enriching_farming_opium_plantation }
+			activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_soil_enriching_farming_tea_plantation }
+			activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_soil_enriching_farming_tobacco_plantation }
+			activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_soil_enriching_farming_sugar_plantation }
+			activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_soil_enriching_farming_silk_plantation }
+			activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_soil_enriching_farming_banana_plantation }
 			activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_soil_enriching_farming_rubber_plantation }
 		}
 	}
 	if = {
 		limit = { has_technology_researched = improved_fertilizer }
-		activate_production_method = { building_type = building_autarky_farm					production_method = pm_fertilized_autarky_farm }
-		activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_farm						production_method = pm_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_greenhouse					production_method = pm_fertilized_autarky_farm }
 		activate_production_method = { building_type = building_subsistence_farms					production_method = pm_fertilized_subsistence_farms }
 		activate_production_method = { building_type = building_subsistence_orchards				production_method = pm_fertilized_subsistence_orchards }
 		activate_production_method = { building_type = building_subsistence_pastures				production_method = pm_fertilized_subsistence_pastures }
@@ -1152,22 +1150,22 @@ effect_fertilizer_switch = {
 		activate_production_method = { building_type = building_banana_plantation					production_method = pm_fertilization_banana_plantation }
 		activate_production_method = { building_type = building_rubber_plantation					production_method = pm_fertilization_rubber_plantation }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_fertilization_vineyard_plantation }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_fertilization_coffee_plantation }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_fertilization_cotton_plantation }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_fertilization_dye_plantation }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_fertilization_opium_plantation }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_fertilization_tea_plantation }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_fertilization_tobacco_plantation }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_fertilization_sugar_plantation }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_fertilization_silk_plantation }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_fertilization_banana_plantation }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_fertilization_vineyard_plantation }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_fertilization_coffee_plantation }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_fertilization_cotton_plantation }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_fertilization_dye_plantation }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_fertilization_opium_plantation }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_fertilization_tea_plantation }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_fertilization_tobacco_plantation }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_fertilization_sugar_plantation }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_fertilization_silk_plantation }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_fertilization_banana_plantation }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_fertilization_rubber_plantation }
 	}
 	if = {
 		limit = { has_technology_researched = nitrogen_fixation }
-		activate_production_method = { building_type = building_autarky_farm					production_method = pm_chem_fertilized_autarky_farm }
-		activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_chem_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_farm						production_method = pm_chem_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_greenhouse					production_method = pm_chem_fertilized_autarky_farm }
 		activate_production_method = { building_type = building_subsistence_farms					production_method = pm_chem_fertilized_subsistence_farms }
 		activate_production_method = { building_type = building_subsistence_orchards				production_method = pm_chem_fertilized_subsistence_orchards }
 		activate_production_method = { building_type = building_subsistence_pastures				production_method = pm_chem_fertilized_subsistence_pastures }
@@ -1190,22 +1188,22 @@ effect_fertilizer_switch = {
 		activate_production_method = { building_type = building_banana_plantation					production_method = pm_chemical_fertilizer_banana_plantation }
 		activate_production_method = { building_type = building_rubber_plantation					production_method = pm_chemical_fertilizer_rubber_plantation }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_chemical_fertilizer_vineyard_plantation }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_chemical_fertilizer_coffee_plantation }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_chemical_fertilizer_cotton_plantation }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_chemical_fertilizer_dye_plantation }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_chemical_fertilizer_opium_plantation }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_chemical_fertilizer_tea_plantation }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_chemical_fertilizer_tobacco_plantation }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_chemical_fertilizer_sugar_plantation }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_chemical_fertilizer_silk_plantation }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_chemical_fertilizer_banana_plantation }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_chemical_fertilizer_vineyard_plantation }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_chemical_fertilizer_coffee_plantation }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_chemical_fertilizer_cotton_plantation }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_chemical_fertilizer_dye_plantation }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_chemical_fertilizer_opium_plantation }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_chemical_fertilizer_tea_plantation }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_chemical_fertilizer_tobacco_plantation }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_chemical_fertilizer_sugar_plantation }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_chemical_fertilizer_silk_plantation }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_chemical_fertilizer_banana_plantation }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_chemical_fertilizer_rubber_plantation }
 	}
 	if = {
 		limit = { has_technology_researched = mechanized_farming }
-		activate_production_method = { building_type = building_autarky_farm					production_method = pm_auto_fertilized_autarky_farm }
-		activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_auto_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_farm						production_method = pm_auto_fertilized_autarky_farm }
+		activate_production_method = { building_type = building_autarky_greenhouse					production_method = pm_auto_fertilized_autarky_farm }
 		activate_production_method = { building_type = building_subsistence_farms					production_method = pm_auto_fertilized_subsistence_farms }
 		activate_production_method = { building_type = building_subsistence_orchards				production_method = pm_auto_fertilized_subsistence_orchards }
 		activate_production_method = { building_type = building_subsistence_pastures				production_method = pm_auto_fertilized_subsistence_pastures }
@@ -1225,19 +1223,19 @@ effect_fertilizer_switch = {
 		activate_production_method = { building_type = building_tobacco_plantation					production_method = pm_automatic_fertilization_tobacco_plantation }
 		activate_production_method = { building_type = building_sugar_plantation					production_method = pm_automatic_fertilization_sugar_plantation }
 		activate_production_method = { building_type = building_silk_plantation						production_method = pm_automatic_fertilization_silk_plantation }
-		activate_production_method = { building_type = building_banana_plantation						production_method = pm_automatic_fertilization_banana_plantation }
+		activate_production_method = { building_type = building_banana_plantation					production_method = pm_automatic_fertilization_banana_plantation }
 		activate_production_method = { building_type = building_rubber_plantation					production_method = pm_automatic_fertilization_rubber_plantation }
 		# Infinite
-		activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_automatic_fertilization_vineyard_plantation }
-		activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_automatic_fertilization_coffee_plantation }
-		activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_automatic_fertilization_cotton_plantation }
-		activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_automatic_fertilization_dye_plantation }
-		activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_automatic_fertilization_opium_plantation }
-		activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_automatic_fertilization_tea_plantation }
-		activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_automatic_fertilization_tobacco_plantation }
-		activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_automatic_fertilization_sugar_plantation }
-		activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_automatic_fertilization_silk_plantation }
-		activate_production_method = { building_type = building_infres_banana_plantation			production_method = pm_automatic_fertilization_banana_plantation }
+		activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_automatic_fertilization_vineyard_plantation }
+		activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_automatic_fertilization_coffee_plantation }
+		activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_automatic_fertilization_cotton_plantation }
+		activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_automatic_fertilization_dye_plantation }
+		activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_automatic_fertilization_opium_plantation }
+		activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_automatic_fertilization_tea_plantation }
+		activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_automatic_fertilization_tobacco_plantation }
+		activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_automatic_fertilization_sugar_plantation }
+		activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_automatic_fertilization_silk_plantation }
+		activate_production_method = { building_type = building_banana_greenhouse			production_method = pm_automatic_fertilization_banana_plantation }
 		activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_automatic_fertilization_rubber_plantation }
 	}
 }
@@ -1271,16 +1269,16 @@ effect_fertilizer_switch = {
 			# activate_production_method = { building_type = building_rubber_plantation				production_method = pm_no_green_power }
 			# activate_production_method = { building_type = building_autarky_farm				production_method = pm_no_green_power }
 			# # Infinite
-			# activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_vineyard_plantation		production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_coffee_plantation		production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_cotton_plantation		production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_dye_plantation			production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_opium_plantation			production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_tea_plantation			production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_tobacco_plantation		production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_sugar_plantation			production_method = pm_no_green_power }
-			# activate_production_method = { building_type = building_infres_silk_plantation			production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_vineyard_greenhouse		production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_coffee_greenhouse		production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_cotton_greenhouse		production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_dye_greenhouse			production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_opium_greenhouse			production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_tea_greenhouse			production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_tobacco_greenhouse		production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_sugar_greenhouse			production_method = pm_no_green_power }
+			# activate_production_method = { building_type = building_silk_greenhouse			production_method = pm_no_green_power }
 			# activate_production_method = { building_type = building_infres_rubber_plantation		production_method = pm_no_green_power }
 		# }
 	# }
@@ -1321,15 +1319,15 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_infres_maize_farm					production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_millet_farm					production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_livestock_ranch				production_method = pm_power_self_sufficient_ranch }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_on_shore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_on_shore_windpark }
@@ -1371,15 +1369,15 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_infres_maize_farm					production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_millet_farm					production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_livestock_ranch				production_method = pm_large_windpark_ranch }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_early_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_early_offshore_windpark }
@@ -1421,15 +1419,15 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_infres_maize_farm					production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_millet_farm					production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_livestock_ranch				production_method = pm_solar_windpark_ranch }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_offshore_windpark }
@@ -1471,15 +1469,15 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_infres_maize_farm					production_method = pm_large_solar_windpark }
 		# activate_production_method = { building_type = building_infres_millet_farm					production_method = pm_large_solar_windpark }
 		# activate_production_method = { building_type = building_infres_livestock_ranch				production_method = pm_large_solar_windpark_ranch }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_large_solar_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_large_solar_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_large_solar_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_large_solar_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_large_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_large_offshore_windpark }
@@ -1545,39 +1543,39 @@ effect_fertilizer_switch = {
 			# production_method = pm_huge_solar_windpark_ranch
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_vineyard_plantation
+			# building_type = building_vineyard_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_coffee_plantation
+			# building_type = building_coffee_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_cotton_plantation
+			# building_type = building_cotton_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_dye_plantation
+			# building_type = building_dye_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_opium_plantation
+			# building_type = building_opium_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_tea_plantation
+			# building_type = building_tea_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_tobacco_plantation
+			# building_type = building_tobacco_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_sugar_plantation
+			# building_type = building_sugar_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
-			# building_type = building_infres_silk_plantation
+			# building_type = building_silk_greenhouse
 			# production_method = pm_huge_solar_windpark
 		# }
 		# activate_production_method = {
@@ -1621,16 +1619,16 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_whaling_station						production_method = pm_on_shore_windpark }
 		# activate_production_method = { building_type = building_autarky_farm					production_method = pm_early_windpark_subsistence }
 		# # Infinite
-		# activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_early_windpark_subsistence }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_early_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_early_windpark_subsistence }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_early_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_early_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_on_shore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_on_shore_windpark }
@@ -1665,16 +1663,16 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_whaling_station						production_method = pm_early_offshore_windpark }
 		# activate_production_method = { building_type = building_autarky_farm					production_method = pm_large_windpark_subsistence }
 		# # Infinite
-		# activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_large_windpark_subsistence }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_large_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_large_windpark_subsistence }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_large_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_large_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_early_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_early_offshore_windpark }
@@ -1709,16 +1707,16 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_whaling_station						production_method = pm_offshore_windpark }
 		# activate_production_method = { building_type = building_autarky_farm					production_method = pm_solar_windpark_subsistence }
 		# # Infinite
-		# activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_solar_windpark_subsistence }
-		# activate_production_method = { building_type = building_infres_vineyard_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_coffee_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_cotton_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_dye_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_opium_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tea_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_tobacco_plantation			production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_sugar_plantation				production_method = pm_solar_windpark }
-		# activate_production_method = { building_type = building_infres_silk_plantation				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_solar_windpark_subsistence }
+		# activate_production_method = { building_type = building_vineyard_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_coffee_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_cotton_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_dye_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_opium_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_tea_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_tobacco_greenhouse			production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_sugar_greenhouse				production_method = pm_solar_windpark }
+		# activate_production_method = { building_type = building_silk_greenhouse				production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_rubber_plantation			production_method = pm_solar_windpark }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_offshore_windpark }
@@ -1753,7 +1751,7 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_whaling_station						production_method = pm_large_offshore_windpark }
 		# activate_production_method = { building_type = building_autarky_farm					production_method = pm_large_solar_windpark_subsistence }
 		# # Infinite
-		# activate_production_method = { building_type = building_infres_autarky_farm			production_method = pm_large_solar_windpark_subsistence }
+		# activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_large_solar_windpark_subsistence }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_large_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_large_offshore_windpark }
 	# }
@@ -1787,7 +1785,7 @@ effect_fertilizer_switch = {
 		# activate_production_method = { building_type = building_whaling_station						production_method = pm_huge_offshore_windpark }
 		# activate_production_method = { building_type = building_autarky_farm						production_method = pm_huge_solar_windpark_subsistence }
 		# # Infinite
-		# activate_production_method = { building_type = building_infres_autarky_farm					production_method = pm_huge_solar_windpark_subsistence }
+		# activate_production_method = { building_type = building_autarky_greenhouse					production_method = pm_huge_solar_windpark_subsistence }
 		# activate_production_method = { building_type = building_infres_fishing_wharf				production_method = pm_huge_offshore_windpark }
 		# activate_production_method = { building_type = building_infres_whaling_station				production_method = pm_huge_offshore_windpark }
 	# }

@@ -85,7 +85,7 @@ native_resettlement.2 = {
 			scope:jackson_scope = {
 				add_modifier = {
 					name = USA_rejected_ross_petition
-					months = normal_modifier_time
+					days = normal_modifier_time
 				}
 			}
 		}
@@ -106,7 +106,7 @@ native_resettlement.2 = {
 			scope:jackson_scope = {
 				add_modifier = {
 					name = USA_accepted_ross_petition
-					months = normal_modifier_time
+					days = normal_modifier_time
 				}
 			}
 		}
@@ -187,14 +187,14 @@ native_resettlement.3 = {
 		add_modifier = {
 			name = USA_paying_removal_costs
 			multiplier = money_amount_multiplier_very_small
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		custom_tooltip = {
 			text = indian_removal_normal_tt
 			set_variable = { # affects severity of trail of tears
 				name = indian_removal_force
 				value = 1
-				months = 36
+				days = 36
 			}
 		}
 	}
@@ -211,12 +211,12 @@ native_resettlement.3 = {
 		add_modifier = {
 			name = USA_paying_removal_costs
 			multiplier = money_amount_multiplier_very_small
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		# set_variable = { # affects severity of trail of tears
 			# name = indian_removal_force
 			# value = 0
-			# months = 36
+			# days = 36
 		# }
 	}
 }
@@ -253,7 +253,7 @@ native_resettlement.4 = {
 			}
 		}
 		default_option = yes
-		scope:oklahoma_state = { add_modifier = { name = trail_of_tears_modifier months = normal_modifier_time } }	# cherokee sol
+		scope:oklahoma_state = { add_modifier = { name = trail_of_tears_modifier days = normal_modifier_time } }	# cherokee sol
 		if = {
 			limit = {
 				OR = { 
@@ -271,7 +271,7 @@ native_resettlement.4 = {
 		scope:oklahoma_state = {
 			add_modifier = {	# cherokee sol
 				name = trail_of_tears_modifier
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = 2
 			}
 		}
@@ -317,7 +317,7 @@ native_resettlement.5 = {
 				}
 				add_modifier = {
 					name = indian_removal_approval
-					months = normal_modifier_time
+					days = normal_modifier_time
 				}
 			}
 		}
@@ -335,7 +335,7 @@ native_resettlement.5 = {
 				}
 				add_modifier = {
 					name = indian_removal_approval
-					months = normal_modifier_time
+					days = normal_modifier_time
 					multiplier = -1
 				}
 			}
@@ -375,7 +375,7 @@ native_resettlement.6 = {
 		else = {
 			add_modifier = {
 				name = native_american_rights
-				months = long_modifier_time
+				days = long_modifier_time
 			}
 		}
 	}
@@ -414,7 +414,7 @@ native_resettlement.7 = {
 			s:STATE_FLORIDA.region_state:USA ?= {
 				add_modifier = {
 					name = florida_resettlement
-					months = long_modifier_time
+					days = long_modifier_time
 				}
 			}
 		}

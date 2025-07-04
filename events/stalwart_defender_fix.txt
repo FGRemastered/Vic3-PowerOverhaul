@@ -1,4 +1,4 @@
-namespace = military_tech_events
+﻿namespace = military_tech_events
 # Automatic Machine Guns
 military_tech_events.402 = {
 	type = country_event
@@ -10,7 +10,22 @@ military_tech_events.402 = {
 	event_image = { video = "europenorthamerica_before_the_battle" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	trigger = {} # triggered by machine guns JE
+	trigger = {
+		army_mobilization_option_fraction = {
+			target = mobilization_option:mobilization_option_machinegunners
+			value >= 0.2
+		}
+		any_scope_war = {
+			any_scope_front = {
+				any_scope_general = {
+					owner = ROOT
+					this.commander_military_formation = {
+						has_mobilization_option = mobilization_option:mobilization_option_machinegunners
+					}
+				}
+			}
+		}
+	}
 	immediate = {
 		random_scope_war = {
 			limit = {

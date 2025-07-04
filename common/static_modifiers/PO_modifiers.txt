@@ -5,7 +5,7 @@ tobacco_ban_authority = {
 	interest_group_ig_trade_unions_approval_add			= 3
 	interest_group_ig_devout_approval_add				= 3
 	interest_group_ig_rural_folk_approval_add			= 3
-	goods_output_tobacco_mult							=-1
+	goods_output_tobacco_mult							=-2
 	state_mortality_mult								=-0.05
 	unit_morale_recovery_mult							= 0.10
 }
@@ -13,7 +13,6 @@ capital_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	state_pop_pol_str_mult								= 0.25
 	state_tax_capacity_mult								= 0.25
-	# state_building_barracks_max_level_mult				= 1.5	# x2.5
 }
 decree_resource_throughput = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds

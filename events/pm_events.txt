@@ -11,7 +11,7 @@ pm_events.1 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 	duration = 3
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 	trigger = {
 		OR = {
 			has_law = law_type:law_no_workers_rights
@@ -31,7 +31,7 @@ pm_events.1 = {
 		scope:industrialized_pm_state = {
 			add_modifier = {
 				name = industrial_safety_slowdowns
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		every_interest_group = {
@@ -43,7 +43,7 @@ pm_events.1 = {
 			}
 			add_modifier = {
 				name = slowed_down_production
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -52,7 +52,7 @@ pm_events.1 = {
 		scope:industrialized_pm_state = {
 			add_modifier = {
 				name = lacking_industrial_safety_regulations
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		every_interest_group = {
@@ -64,7 +64,7 @@ pm_events.1 = {
 			}
 			add_modifier = {
 				name = ignored_safety_concerns
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		default_option = yes
@@ -82,7 +82,7 @@ pm_events.2 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 	duration = 3
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 	trigger = {
 		has_law = law_type:law_child_labor_allowed
 		any_scope_state = {
@@ -102,7 +102,7 @@ pm_events.2 = {
 		scope:industrialized_pm_state = {
 			add_modifier = {
 				name = child_labor_restrictions
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -111,7 +111,7 @@ pm_events.2 = {
 		scope:industrialized_pm_state = {
 			add_modifier = {
 				name = dangerous_child_labor
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		every_interest_group = {
@@ -123,7 +123,7 @@ pm_events.2 = {
 			}
 			add_modifier = {
 				name = child_crushing_machines
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		default_option = yes
@@ -141,7 +141,7 @@ pm_events.3 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	duration = 3
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 	trigger = {
 		any_scope_state = {
 			OR = {
@@ -192,7 +192,7 @@ pm_events.3 = {
 		scope:liquor_making_state = {
 			add_modifier = {
 				name = liquor_production_ban
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		if = {
@@ -209,13 +209,13 @@ pm_events.3 = {
 		scope:liquor_making_state = {
 			add_modifier = {
 				name = liquor_production_restrictions
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		ig:ig_devout = {
 			add_modifier = {
 				name = permitted_limited_liquor_production
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		if = {
@@ -232,7 +232,7 @@ pm_events.3 = {
 		ig:ig_devout = {
 			add_modifier = {
 				name = permitted_unrestricted_liquor_production
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		default_option = yes
@@ -267,7 +267,7 @@ pm_events.4 = {
 			has_building = building_arms_industry
 		}
 	}
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -288,7 +288,7 @@ pm_events.4 = {
 		scope:arms_making_state = {
 			add_modifier = {
 				name = arms_manufacturing_ban
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -297,7 +297,7 @@ pm_events.4 = {
 		scope:arms_making_state = {
 			add_modifier = {
 				name = arms_manufacturing_restrictions
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		every_interest_group = {
@@ -306,7 +306,7 @@ pm_events.4 = {
 			}
 			add_modifier = {
 				name = permitted_limited_arms_manufacturing
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -318,7 +318,7 @@ pm_events.4 = {
 			}
 			add_modifier = {
 				name = permitted_unrestricted_arms_manufacturing
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		default_option = yes
@@ -342,15 +342,15 @@ pm_events.5 = {
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
 				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = default_building_vineyard_plantation }
-				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
-				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
-				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
-				is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
+				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = default_building_vineyard_plantation }
+				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_soil_enriching_farming_vineyard_plantation }
+				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_fertilization_vineyard_plantation }
+				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_chemical_fertilizer_vineyard_plantation }
+				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_automatic_fertilization_vineyard_plantation }
 			}
 		}
 	}
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -360,11 +360,11 @@ pm_events.5 = {
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
 					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = default_building_vineyard_plantation }
-					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
-					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
-					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
-					is_production_method_active = { building_type = building_infres_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
+					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = default_building_vineyard_plantation }
+					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_soil_enriching_farming_vineyard_plantation }
+					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_fertilization_vineyard_plantation }
+					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_chemical_fertilizer_vineyard_plantation }
+					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_automatic_fertilization_vineyard_plantation }
 				}
 			}
 			save_scope_as = vinyard_state
@@ -374,7 +374,7 @@ pm_events.5 = {
 		name = pm_events.5.a
 		add_modifier = {
 			name = exclusive_wine
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 	option = {
@@ -382,7 +382,7 @@ pm_events.5 = {
 		scope:vinyard_state = {
 			add_modifier = {
 				name = popular_wine
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		default_option = yes
@@ -431,7 +431,7 @@ production_tech_events.402 = {
 		scope:power_plant_state = {
 			add_modifier = {
 				name = electrical_power_production_modifier
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -442,6 +442,7 @@ production_tech_events.402 = {
 			has_technology_researched = steel_railway_cars
 			can_research = electric_railway
 		}
+		highlighted_option = yes
 		add_technology_progress = { progress = 6000 technology = electric_railway }
 	}
 	option = {
@@ -450,6 +451,7 @@ production_tech_events.402 = {
 			NOT = { has_technology_researched = steam_turbine }
 			can_research = steam_turbine
 		}
+		highlighted_option = yes
 		add_technology_progress = { progress = 6000 technology = steam_turbine }
 	}
 	option = {
@@ -458,6 +460,7 @@ production_tech_events.402 = {
 			NOT = { has_technology_researched = shift_work }
 			can_research = shift_work
 		}
+		highlighted_option = yes
 		add_technology_progress = { progress = 6000 technology = shift_work }	# Increased - Now Era 4 tech
 	}
 }

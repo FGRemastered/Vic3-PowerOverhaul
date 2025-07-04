@@ -203,8 +203,8 @@
  
  building_autarky_farm: "Autarkiehöfe"
  building_autarky_farm_lens_option: "$building_autarky_farm$ erweitern"
- building_infres_autarky_farm: "Inf. Autarkiehöfe"
- building_infres_autarky_farm_lens_option: "$building_infres_autarky_farm$ erweitern"
+ building_autarky_greenhouse: "Inf. Autarkiehöfe"
+ building_autarky_greenhouse_lens_option: "$building_autarky_greenhouse$ erweitern"
  building_infres_subsistence_farms: "Unerschöpfliche Subsistenzhöfe"
  building_infres_subsistence_farms_lens_option: "$building_infres_subsistence_farms$ erweitern"
  building_infres_subsistence_orchards: "Unerschöpfliche Subsistenzobstgärten"

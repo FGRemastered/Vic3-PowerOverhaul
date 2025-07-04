@@ -50,7 +50,7 @@ ban_tobacco_again = {
 				any_scope_country = { NOT = { is_banning_goods = g:tobacco } }
 				any_scope_country = { any_primary_culture = { has_cultural_obsession = tobacco } }
 				any_scope_country = { any_scope_state = { has_building = building_tobacco_plantation } }
-				any_scope_country = { any_scope_state = { has_building = building_infres_tobacco_plantation } }
+				any_scope_country = { any_scope_state = { has_building = building_tobacco_greenhouse } }
 			}
 		}
 	}

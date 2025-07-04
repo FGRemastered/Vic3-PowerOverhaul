@@ -16,11 +16,21 @@ communism.1 = {
 		# triggered by communsim JE 1
 	}
 	immediate = {
-		random_interest_group = {
-			limit = { law_stance = { law = law_type:law_council_republic value > neutral } }
-			set_variable = communist_ig_var
-			save_scope_as = unions
-			leader = { save_scope_as = union_leader }
+		if = {
+			limit = { any_interest_group = { law_stance = { law = law_type:law_council_republic value > neutral } } }
+			random_interest_group = {
+				limit = { law_stance = { law = law_type:law_council_republic value > neutral } }
+				set_variable = communist_ig_var
+				save_scope_as = unions
+				leader = { save_scope_as = union_leader }
+			}
+		}
+		else = {
+			ig:ig_trade_unions = {
+				set_variable = communist_ig_var
+				save_scope_as = unions
+				leader = { save_scope_as = union_leader }
+			}
 		}
 		set_variable = {
 			name = je_communism_2_var
@@ -82,9 +92,15 @@ communism.1 = {
 					}
 				}
 			}
-			add_modifier = { name = communist_government_modifier months = normal_modifier_time }
+			add_modifier = {
+				name = communist_government_modifier
+				days = normal_modifier_time
+			}
 		}
-		add_loyalists = { value = medium_radicals strata = rich }
+		add_loyalists = {
+			value = medium_radicals
+			strata = upper
+		}
 	}
 	option = {
 		name = "I don't think so..."	# communism.1.e
@@ -102,7 +118,7 @@ communism.1 = {
 			}
 			add_modifier = {
 				name = communist_government_modifier
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = -1
 			}
 		}
@@ -152,7 +168,7 @@ communism.2 = {
 		}
 		add_modifier = {
 			name = path_to_vanguardism
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = {
@@ -200,6 +216,29 @@ communism.2 = {
 		ig:ig_trade_unions = {
 			set_variable = chose_communism
 		}
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_communist
+					}
+				}
+			}
+			create_political_movement = { type = movement_communist }
+		}
+		if = {
+			limit = {
+				any_political_movement = {
+					is_political_movement_type = movement_communist
+				}
+			}
+			random_political_movement = {
+				limit = {
+					is_political_movement_type = movement_communist
+				}
+				remove_character_ideology = ideology_vanguardist
+			}
+		}
 		custom_tooltip = chose_communism.tt
 		if = {
 			limit = {
@@ -213,7 +252,7 @@ communism.2 = {
 		}
 		add_modifier = {
 			name = path_to_communism
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = {
@@ -273,9 +312,32 @@ communism.2 = {
 				set_ideology = ideology:ideology_communist
 			}
 		}
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_communist
+					}
+				}
+			}
+			create_political_movement = { type = movement_communist }
+		}
+		if = {
+			limit = {
+				any_political_movement = {
+					is_political_movement_type = movement_communist
+				}
+			}
+			random_political_movement = {
+				limit = {
+					is_political_movement_type = movement_communist
+				}
+				remove_character_ideology = ideology_vanguardist
+			}
+		}
 		add_modifier = {
 			name = path_to_communism
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = {
@@ -316,10 +378,28 @@ communism.2 = {
 	}
 	option = { # anarchism
 		name = communism.2.c
+		trigger = {
+			any_political_movement = {
+				OR = {
+					is_political_movement_type = movement_anarchist
+					is_political_movement_type = movement_socialist
+				}
+			}
+		}
 		ig:ig_trade_unions = {
 			set_variable = chose_anarchism
 		}
 		custom_tooltip = chose_anarchism.tt
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_anarchist
+					}
+				}
+			}
+			create_political_movement = { type = movement_anarchist }
+		}
 		if = {
 			limit = {
 				scope:union_leader = {
@@ -332,7 +412,7 @@ communism.2 = {
 		}
 		add_modifier = {
 			name = path_to_anarchy
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = {
@@ -423,7 +503,7 @@ communism.3 = {
 		scope:new_vanguard_ig = {
 			add_modifier = {
 				name = new_vanguard_opinion
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -433,7 +513,7 @@ communism.3 = {
 		scope:new_vanguard_ig = {
 			add_modifier = {
 				name = new_vanguard_clout
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -457,7 +537,7 @@ communism.4 = {
 		name = communism.4.a
 		add_modifier = {
 			name = anarchist_utopia
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -480,7 +560,7 @@ communism.5 = {
 		name = communism.5.a
 		add_modifier = {
 			name = great_purge_modifier
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -503,7 +583,7 @@ communism.6 = {
 		name = communism.6.a
 		add_modifier = {
 			name = institutions_of_socialism_modifier
-			months = normal_modifier_time
+			days = long_modifier_time
 		}
 	}
 }
@@ -515,7 +595,7 @@ communism.7 = {
 	desc = communism.7.d
 	flavor = communism.7.f
 	duration = 3
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = very_long_modifier_time }
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	event_image = {
 		video = "votp_agitator_speaking"
@@ -585,7 +665,7 @@ communism.7 = {
 		scope:popular_socialist_leader = {
 			add_modifier = {
 				name = popular_socialist_leader
-				months = short_modifier_time
+				days = long_modifier_time
 			}
 		}
 	}
@@ -600,7 +680,7 @@ communism.7 = {
 		scope:popular_socialist_leader = {
 			add_modifier = {
 				name = popular_socialist_leader
-				months = short_modifier_time
+				days = long_modifier_time
 			}
 		}
 		random_scope_state = {
@@ -609,7 +689,7 @@ communism.7 = {
 			}
 			add_radicals_in_state = {
 				value = large_radicals
-				strata = poor
+				strata = lower
 			}
 		}
 	}
@@ -630,7 +710,7 @@ communism.7 = {
 			set_variable = { communist_ig_var value = no }
 			add_modifier = {
 				name = communist_government_modifier
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = -1
 			}
 		}
@@ -713,7 +793,7 @@ communism.9 = {
 			NOT = { has_modifier = coop_loyalty_modifier }
 			NOT = { has_modifier = coop_migration_modifier }
 			any_scope_pop = {
-				pop_is_discriminated = no
+				pop_acceptance >= acceptance_status_4
 				standard_of_living > 15
  				workplace ?= {
 					NOR = {
@@ -735,7 +815,7 @@ communism.9 = {
 				NOT = { has_modifier = coop_loyalty_modifier }
 				NOT = { has_modifier = coop_migration_modifier }
 				any_scope_pop = {
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					standard_of_living > 15
 					workplace ?= {
 						NOR = {
@@ -752,7 +832,7 @@ communism.9 = {
 			save_scope_as = coop_state
 			random_scope_pop = {
 				limit = {
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					standard_of_living > 15
 					workplace ?= {
 						NOR = {
@@ -778,7 +858,7 @@ communism.9 = {
 		scope:coop_state = {
 			add_modifier = {
 				name = coop_loyalty_modifier
-				months = normal_modifier_time
+				days = long_modifier_time
 			}
 		}
 	}
@@ -787,7 +867,7 @@ communism.9 = {
 		scope:coop_state = {
 			add_modifier = {
 				name = coop_migration_modifier
-				months = normal_modifier_time
+				days = long_modifier_time
 			}
  	}
  }
@@ -865,11 +945,11 @@ communism.11 = {
 		default_option = yes
 		add_modifier = {
 			name = modifier_defeated_initial_socialist_movement
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		add_loyalists = {
 			value = small_radicals
-			strata = rich
+			strata = upper
 		}
 		add_loyalists = {
 			value = small_radicals
@@ -880,11 +960,11 @@ communism.11 = {
 		name = communism.11.b
 		add_modifier = {
 			name = modifier_defeated_initial_socialist_movement_worries
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		add_loyalists = {
 			value = medium_radicals
-			strata = rich
+			strata = upper
 		}
 		add_loyalists = {
 			value = medium_radicals

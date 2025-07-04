@@ -1,8 +1,6 @@
 ﻿indian_farm = {
 #	graphical_culture = "indian"
 	city_type = farm
-	center_building_mesh = "indian_farm_centerpiece_01_mesh"
-	center_building_size = { 2 2 }
 	trigger = {
 		any_scope_state = {
 			OR = {
@@ -67,14 +65,14 @@
 	building_vineyard_plantation		= {"indian_farm_cotton_01_mesh"}
 	building_manor_house				= {"indian_rural_manorhouse_01_mesh"}
 	# Infres
-	building_infres_coffee_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_cotton_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_silk_plantation		= { "indian_farm_cotton_01_mesh" }
-	building_infres_dye_plantation		= { "indian_farm_cotton_01_mesh" }
-	building_infres_opium_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_tea_plantation		= { "indian_farm_cotton_01_mesh" }
-	building_infres_tobacco_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_sugar_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_banana_plantation	= { "indian_farm_cotton_01_mesh" }
-	building_infres_vineyard_plantation	= { "indian_farm_cotton_01_mesh" }
+	building_coffee_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_cotton_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_silk_greenhouse		= { "indian_farm_cotton_01_mesh" }
+	building_dye_greenhouse		= { "indian_farm_cotton_01_mesh" }
+	building_opium_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_tea_greenhouse		= { "indian_farm_cotton_01_mesh" }
+	building_tobacco_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_sugar_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_banana_greenhouse	= { "indian_farm_cotton_01_mesh" }
+	building_vineyard_greenhouse	= { "indian_farm_cotton_01_mesh" }
 }

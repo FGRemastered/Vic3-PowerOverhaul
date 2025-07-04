@@ -1,4 +1,4 @@
-namespace = plague
+﻿namespace = plague
 # The plague arrives
 plague.1 = {
 	type = country_event
@@ -42,20 +42,25 @@ plague.1 = {
 			save_scope_as = plague_origin_state
 			set_variable = plague_originator_state
 			randomize_plague_level_effect = yes
+			add_plague_modifier_effect = yes
 		}
 	}
 	option = {
 		name = plague.1.a
 		default_option = yes
-		scope:plague_origin_state = { add_plague_modifier_effect = yes }
+		scope:plague_origin_state = { custom_tooltip = plague_state_mortality.tt }
 		custom_tooltip = plague_decisions_available.tt
 		hidden_effect = {
 			every_country = {
-				limit = { NOT = { this = ROOT } is_player = yes }
+				limit = {
+					NOT = { this = ROOT }
+					is_player = yes
+				}
 				trigger_event = { id = plague.4 }
 			}
 		}
 		add_journal_entry = { type = je_spanish_flu }
+		set_variable = country_hit_by_plague # so that countries cannot get JE multiple times
 	}
 }
 # Determine your plague response - close businesses, social distancing, or nothing
@@ -164,9 +169,7 @@ plague.8 = {
 	cancellation_trigger = { has_variable = spanish_flu_over }
 	option = { # rent freeze and eviction ban
 		name = plague.8.a
-		scope:landowner_ig = {
-			add_modifier = { name = plague_eviction_ban months = 12 }
-		}
+		scope:landowner_ig = { add_modifier = { name = plague_eviction_ban months = 12 } }
 		if = {
 			limit = { any_interest_group = { leader = { has_ideology = ideology:ideology_anarchist } } }
 			every_interest_group = {
@@ -209,9 +212,7 @@ plague.8 = {
 	option = { # We don't care about poor people
 		name = plague.8.c
 		default_option = yes
-		scope:plague_poverty_state = {
-			add_radicals_in_state = { value = medium_radicals strata = poor }
-		}
+		scope:plague_poverty_state = { add_radicals_in_state = { value = medium_radicals strata = lower } }
 		if = {
 			limit = {
 				any_interest_group = {

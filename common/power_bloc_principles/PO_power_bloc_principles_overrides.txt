@@ -19,7 +19,6 @@ principle_transport_3 = {
 	member_modifier = {
 		# Modifiers from previous level(s)
 		building_port_throughput_add					= 0.20
-		market_land_trade_capacity_add					= 50
 		state_infrastructure_from_population_mult		= 0.33
 		state_infrastructure_from_population_max_mult	= 0.33
 		# Members get an increase to max EoS bonus

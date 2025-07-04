@@ -26,7 +26,7 @@ je_colonial_administration_button_senegal = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_senegal	has_decree = decree_greener_grass_campaign } }
@@ -88,6 +88,7 @@ je_colonial_administration_button_niger = {
 			any_subject_or_below = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_niger
@@ -101,7 +102,7 @@ je_colonial_administration_button_niger = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_niger	has_decree = decree_greener_grass_campaign } }
@@ -168,6 +169,7 @@ je_colonial_administration_button_ethiopia = {
 			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_ethiopia
@@ -181,7 +183,7 @@ je_colonial_administration_button_ethiopia = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_ethiopia	has_decree = decree_greener_grass_campaign } }
@@ -243,6 +245,7 @@ je_colonial_administration_button_zanj = {
 			any_subject_or_below = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_zanj
@@ -256,7 +259,7 @@ je_colonial_administration_button_zanj = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_zanj	has_decree = decree_greener_grass_campaign } }
@@ -318,6 +321,7 @@ je_colonial_administration_button_southern_africa = {
 			any_subject_or_below = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_southern_africa
@@ -331,7 +335,7 @@ je_colonial_administration_button_southern_africa = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_southern_africa	has_decree = decree_greener_grass_campaign } }
@@ -393,6 +397,7 @@ je_colonial_administration_button_congo = {
 			any_subject_or_below = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_congo
@@ -406,7 +411,7 @@ je_colonial_administration_button_congo = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_congo	has_decree = decree_greener_grass_campaign } }
@@ -468,6 +473,7 @@ je_colonial_administration_button_indonesia = {
 			any_subject_or_below = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_indonesia
@@ -481,7 +487,7 @@ je_colonial_administration_button_indonesia = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_indonesia	has_decree = decree_greener_grass_campaign } }
@@ -543,6 +549,7 @@ je_colonial_administration_button_indochina = {
 			any_subject_or_below = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_indochina
@@ -556,7 +563,7 @@ je_colonial_administration_button_indochina = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_indochina	has_decree = decree_greener_grass_campaign } }
@@ -618,6 +625,7 @@ je_colonial_administration_button_arabic = {
 			any_subject_or_below = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			region = sr:region_arabic
@@ -631,7 +639,7 @@ je_colonial_administration_button_arabic = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { region = sr:region_arabic	has_decree = decree_greener_grass_campaign } }
@@ -693,6 +701,7 @@ je_colonial_administration_button_india = {
 			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		any_scope_state = {
 			state_is_in_india = yes
@@ -706,7 +715,7 @@ je_colonial_administration_button_india = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { state_is_in_india = yes	has_decree = decree_greener_grass_campaign } }
@@ -768,6 +777,7 @@ je_colonial_administration_button_china = {
 			any_subject_or_below = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
 		}
 	}
+	cooldown = { days = 30 }
 	possible = {
 		NOT = { THIS = c:RUS }	# They historically take Outer Manchuria, but should not form a puppet China because of that.
 		any_scope_state = {
@@ -782,7 +792,7 @@ je_colonial_administration_button_china = {
 			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		if = {
 			limit = { any_scope_state		= { trigger_chinese_state = yes	has_decree = decree_greener_grass_campaign } }
@@ -838,6 +848,7 @@ je_colonial_administration_button_expand_senegal = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = senegal_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -849,7 +860,7 @@ je_colonial_administration_button_expand_senegal = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -887,6 +898,7 @@ je_colonial_administration_button_expand_niger = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = niger_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -898,7 +910,7 @@ je_colonial_administration_button_expand_niger = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -936,6 +948,7 @@ je_colonial_administration_button_expand_ethiopia = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = ethiopia_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -947,7 +960,7 @@ je_colonial_administration_button_expand_ethiopia = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -985,6 +998,7 @@ je_colonial_administration_button_expand_zanj = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = zanj_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -996,7 +1010,7 @@ je_colonial_administration_button_expand_zanj = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1034,6 +1048,7 @@ je_colonial_administration_button_expand_southern_africa = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = southern_africa_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1045,7 +1060,7 @@ je_colonial_administration_button_expand_southern_africa = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1083,6 +1098,7 @@ je_colonial_administration_button_expand_congo = {
 		country_is_in_africa = no
 		any_subject_or_below = { has_variable = congo_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1094,7 +1110,7 @@ je_colonial_administration_button_expand_congo = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1132,6 +1148,7 @@ je_colonial_administration_button_expand_indonesia = {
 		country_is_in_southeast_asia = no
 		any_subject_or_below = { has_variable = indonesia_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1143,7 +1160,7 @@ je_colonial_administration_button_expand_indonesia = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1181,6 +1198,7 @@ je_colonial_administration_button_expand_indochina = {
 		country_is_in_southeast_asia = no
 		any_subject_or_below = { has_variable = indochina_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1192,7 +1210,7 @@ je_colonial_administration_button_expand_indochina = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1230,6 +1248,7 @@ je_colonial_administration_button_expand_arabic = {
 		country_is_in_middle_east = no
 		any_subject_or_below = { has_variable = arabic_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1241,7 +1260,7 @@ je_colonial_administration_button_expand_arabic = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1279,6 +1298,7 @@ je_colonial_administration_button_expand_india = {
 		country_is_in_india = no
 		any_subject_or_below = { has_variable = india_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1290,7 +1310,7 @@ je_colonial_administration_button_expand_india = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {
@@ -1328,6 +1348,7 @@ je_colonial_administration_button_expand_china = {
 		country_is_in_china = no
 		any_subject_or_below = { has_variable = china_subject_var }
 	}
+	cooldown = { days = 30 }
 	possible = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -1339,7 +1360,7 @@ je_colonial_administration_button_expand_china = {
 			}
 		}
 	}
-	ai_chance = { base = 100 }
+	ai_chance = { value = 100 }
 	effect = {
 		custom_tooltip = { text = transfer_stuff_to_subject_tt }
 		random_subject_or_below = {

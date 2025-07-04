@@ -278,7 +278,7 @@ bg_infinite_autarky_farms = {
 	default_building = building_infres_generic_subsistence
 	# hires_unemployed_only = yes
 	cash_reserves_max = 25000
-	default_building = building_infres_autarky_farm
+	default_building = building_autarky_greenhouse
 	ignores_productivity_when_hiring = yes
 	max_hiring_rate = 1.0
 	should_auto_expand = {
@@ -300,7 +300,7 @@ bg_vineyard_plantations = {
 }
 bg_infres_vineyard_plantations = {
 	parent_group = bg_infinite_agriculture
-	default_building = building_infres_vineyard_plantation
+	default_building = building_vineyard_greenhouse
 	max_hiring_rate = 1.0
 }
 # Ranching
@@ -411,7 +411,7 @@ bg_infinite_plantations = {
 }
 bg_infres_coffee_plantations = {
 	parent_group = bg_coffee_plantations
-	default_building = building_infres_coffee_plantation
+	default_building = building_coffee_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -419,7 +419,7 @@ bg_infres_coffee_plantations = {
 }
 bg_infres_cotton_plantations = {
 	parent_group = bg_cotton_plantations
-	default_building = building_infres_cotton_plantation
+	default_building = building_cotton_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -427,7 +427,7 @@ bg_infres_cotton_plantations = {
 }
 bg_infres_silk_plantations = {
 	parent_group = bg_silk_plantations
-	default_building = building_infres_silk_plantation
+	default_building = building_silk_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -435,7 +435,7 @@ bg_infres_silk_plantations = {
 }
 bg_infres_dye_plantations = {
 	parent_group = bg_dye_plantations
-	default_building = building_infres_dye_plantation
+	default_building = building_dye_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -443,7 +443,7 @@ bg_infres_dye_plantations = {
 }
 bg_infres_opium_plantations = {
 	parent_group = bg_opium_plantations
-	default_building = building_infres_opium_plantation
+	default_building = building_opium_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -451,7 +451,7 @@ bg_infres_opium_plantations = {
 }
 bg_infres_tea_plantations = {
 	parent_group = bg_tea_plantations
-	default_building = building_infres_tea_plantation
+	default_building = building_tea_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -459,7 +459,7 @@ bg_infres_tea_plantations = {
 }
 bg_infres_tobacco_plantations = {
 	parent_group = bg_tobacco_plantations
-	default_building = building_infres_tobacco_plantation
+	default_building = building_tobacco_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -467,7 +467,7 @@ bg_infres_tobacco_plantations = {
 }
 bg_infres_sugar_plantations = {
 	parent_group = bg_sugar_plantations
-	default_building = building_infres_sugar_plantation
+	default_building = building_sugar_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no
@@ -475,7 +475,7 @@ bg_infres_sugar_plantations = {
 }
 bg_infres_banana_plantations = {
 	parent_group = bg_banana_plantations
-	default_building = building_infres_banana_plantation
+	default_building = building_banana_greenhouse
 	always_possible = yes
 	capped_by_resources = no
 	fired_pops_become_radical = no

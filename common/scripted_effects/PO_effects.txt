@@ -754,7 +754,7 @@ effect_calc_peasants = {
 				OR = {
 					any_scope_building = { is_subsistence_building = yes }
 					any_scope_building = { is_building_type = building_autarky_farm }
-					any_scope_building = { is_building_type = building_infres_autarky_farm }
+					any_scope_building = { is_building_type = building_autarky_greenhouse }
 				}
 			}
 			set_variable = { name = farms_occupancy			value = b:building_subsistence_farms.occupancy }
@@ -763,13 +763,13 @@ effect_calc_peasants = {
 			set_variable = { name = fishing_occupancy		value = b:building_subsistence_fishing_villages.occupancy }
 			set_variable = { name = rice_occupancy			value = b:building_subsistence_rice_paddies.occupancy }
 			set_variable = { name = autark_occupancy		value = b:building_autarky_farm.occupancy }
-			set_variable = { name = infres_autark_occupancy	value = b:building_infres_autarky_farm.occupancy }
+			set_variable = { name = infres_autark_occupancy	value = b:building_autarky_greenhouse.occupancy }
 			# every_scope_building = {
 				# limit = {
 					# OR = {
 						# is_subsistence_building = yes
 						# is_building_type = building_autarky_farm
-						# is_building_type = building_infres_autarky_farm
+						# is_building_type = building_autarky_greenhouse
 					# }
 				# }
 				# set_variable = { name = occupancy_var value = occupancy }
@@ -980,10 +980,10 @@ effect_calc_peasants = {
 						}
 					}
 					if = {
-						limit = { any_scope_building = { is_building_type = building_infres_autarky_farm } }
+						limit = { any_scope_building = { is_building_type = building_autarky_greenhouse } }
 						if = {
 							limit = {
-								b:building_infres_autarky_farm = {
+								b:building_autarky_greenhouse = {
 									NOR = {
 										has_active_production_method = pm_tools_subsistence
 										has_active_production_method = pm_steam_threshers_subsistence
@@ -994,14 +994,14 @@ effect_calc_peasants = {
 								}
 							}
 							add = {
-								value = b:building_infres_autarky_farm.level
+								value = b:building_autarky_greenhouse.level
 								multiply = {
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_auto_fertilized_autarky_farm	} }	value		= 45 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_chem_fertilized_autarky_farm	} }	value		= 30 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_fertilized_autarky_farm		} }	value		= 25 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_enriched_autarky_farm			} }	value		= 20 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = default_building_autarky_farm			} }	value		= 10 }
-									if		= { limit = { b:building_infres_autarky_farm	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = pm_auto_fertilized_autarky_farm	} }	value		= 45 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = pm_chem_fertilized_autarky_farm	} }	value		= 30 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = pm_fertilized_autarky_farm		} }	value		= 25 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = pm_enriched_autarky_farm			} }	value		= 20 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = default_building_autarky_farm			} }	value		= 10 }
+									if		= { limit = { b:building_autarky_greenhouse	= { has_active_production_method = pm_tools_disabled_subsistence			} }	value		= 10 }
 									min = 1
 								}
 								multiply = {
@@ -1180,8 +1180,8 @@ effect_seed_autarky_farms_state = {
 		start_building_construction = building_autarky_farm
 	}
 	if = {
-		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_autarky_farm } } }
-		start_building_construction = building_infres_autarky_farm
+		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_autarky_greenhouse } } }
+		start_building_construction = building_autarky_greenhouse
 	}
 }
 effect_seed_autarky_farms_private_state = {
@@ -1190,8 +1190,8 @@ effect_seed_autarky_farms_private_state = {
 		start_privately_funded_building_construction = building_autarky_farm
 	}
 	if = {
-		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_infres_autarky_farm } } }
-		start_privately_funded_building_construction = building_infres_autarky_farm
+		limit = { NOR = { trigger_inhospitable_terrain = yes any_scope_building = { is_building_type = building_autarky_greenhouse } } }
+		start_privately_funded_building_construction = building_autarky_greenhouse
 	}
 }
 effect_seed_autarky_farms			= { every_scope_state = { effect_seed_autarky_farms_state			= yes } }
@@ -1370,86 +1370,86 @@ effect_seed_resources_private_state = {
 }
 effect_seed_plantations_state = {
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } } }
-		start_building_construction = building_infres_autarky_farm
+		limit = { NOT = { any_scope_building = { is_building_type = building_autarky_greenhouse } } }
+		start_building_construction = building_autarky_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } } }
-		start_building_construction = building_infres_cotton_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } } }
+		start_building_construction = building_cotton_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
-		start_building_construction = building_infres_sugar_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_sugar_greenhouse } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
+		start_building_construction = building_sugar_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_vineyard_plantation } } }
-		start_building_construction = building_infres_vineyard_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_vineyard_greenhouse } } }
+		start_building_construction = building_vineyard_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_coffee_plantation } } }
-		start_building_construction = building_infres_coffee_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_coffee_greenhouse } } }
+		start_building_construction = building_coffee_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tea_plantation } } }
-		start_building_construction = building_infres_tea_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_tea_greenhouse } } }
+		start_building_construction = building_tea_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_dye_plantation } }		OWNER = { NOT = { has_technology_researched = aniline } } }
-		start_building_construction = building_infres_dye_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_dye_greenhouse } }		OWNER = { NOT = { has_technology_researched = aniline } } }
+		start_building_construction = building_dye_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_silk_plantation } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
-		start_building_construction = building_infres_silk_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_silk_greenhouse } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
+		start_building_construction = building_silk_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_opium_plantation } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
-		start_building_construction = building_infres_opium_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
+		start_building_construction = building_opium_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tobacco_plantation } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
-		start_building_construction = building_infres_tobacco_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
+		start_building_construction = building_tobacco_greenhouse
 	}
 }
 effect_seed_plantations_private_state = {
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } } }
-		start_privately_funded_building_construction = building_infres_autarky_farm
+		limit = { NOT = { any_scope_building = { is_building_type = building_autarky_greenhouse } } }
+		start_privately_funded_building_construction = building_autarky_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } } }
-		start_privately_funded_building_construction = building_infres_cotton_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } } }
+		start_privately_funded_building_construction = building_cotton_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
-		start_privately_funded_building_construction = building_infres_sugar_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_sugar_greenhouse } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
+		start_privately_funded_building_construction = building_sugar_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_vineyard_plantation } } }
-		start_privately_funded_building_construction = building_infres_vineyard_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_vineyard_greenhouse } } }
+		start_privately_funded_building_construction = building_vineyard_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_coffee_plantation } } }
-		start_privately_funded_building_construction = building_infres_coffee_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_coffee_greenhouse } } }
+		start_privately_funded_building_construction = building_coffee_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tea_plantation } } }
-		start_privately_funded_building_construction = building_infres_tea_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_tea_greenhouse } } }
+		start_privately_funded_building_construction = building_tea_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_dye_plantation } }		OWNER = { NOT = { has_technology_researched = aniline } } }
-		start_privately_funded_building_construction = building_infres_dye_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_dye_greenhouse } }		OWNER = { NOT = { has_technology_researched = aniline } } }
+		start_privately_funded_building_construction = building_dye_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_silk_plantation } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
-		start_privately_funded_building_construction = building_infres_silk_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_silk_greenhouse } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
+		start_privately_funded_building_construction = building_silk_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_opium_plantation } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
-		start_privately_funded_building_construction = building_infres_opium_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
+		start_privately_funded_building_construction = building_opium_greenhouse
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tobacco_plantation } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
-		start_privately_funded_building_construction = building_infres_tobacco_plantation
+		limit = { NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
+		start_privately_funded_building_construction = building_tobacco_greenhouse
 	}
 }
 effect_seed_industry_state = {
@@ -1500,6 +1500,10 @@ effect_seed_industry_state = {
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_motor_industry } }				OWNER = { has_technology_researched = atmospheric_engine NOT = { trigger_forbidden_heavy_industry = yes } } }
 		start_building_construction = building_motor_industry
+	}
+	if = {
+		limit = { NOT = { any_scope_building = { is_building_type = building_automotive_industry } }		OWNER = { has_technology_researched = combustion_engine NOT = { trigger_forbidden_heavy_industry = yes } } }
+		start_building_construction = building_automotive_industry
 	}
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_synthetics_plants } }			OWNER = { has_technology_researched = aniline NOT = { trigger_forbidden_heavy_industry = yes } } }
@@ -1558,6 +1562,10 @@ effect_seed_industry_private_state = {
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_motor_industry } }				OWNER = { has_technology_researched = atmospheric_engine NOT = { trigger_forbidden_heavy_industry = yes } } }
 		start_privately_funded_building_construction = building_motor_industry
+	}
+	if = {
+		limit = { NOT = { any_scope_building = { is_building_type = building_automotive_industry } }		OWNER = { has_technology_researched = combustion_engine NOT = { trigger_forbidden_heavy_industry = yes } } }
+		start_privately_funded_building_construction = building_automotive_industry
 	}
 	if = {
 		limit = { NOT = { any_scope_building = { is_building_type = building_synthetics_plants } }			OWNER = { has_technology_researched = aniline NOT = { trigger_forbidden_heavy_industry = yes } } }
@@ -1756,10 +1764,6 @@ effect_seed_military_industry = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_munition_plants } }			OWNER = { has_technology_researched = percussion_cap	NOT = { has_law = law_type:law_industry_banned } } }
 				start_privately_funded_building_construction = building_munition_plants
 			}
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_war_machine_industry } }		OWNER = { OR = { has_technology_researched = military_aviation has_technology_researched = carrier_tech } } }
-				start_privately_funded_building_construction = building_war_machine_industry
-			}
 		}
 		scope:shipyards_state = {
 			if = {
@@ -1790,10 +1794,6 @@ effect_seed_military_industry = {
 				limit = { NOT = { any_scope_building = { is_building_type = building_munition_plants } }			OWNER = { has_technology_researched = percussion_cap	NOT = { has_law = law_type:law_industry_banned } } }
 				start_building_construction = building_munition_plants
 			}
-			if = {
-				limit = { NOT = { any_scope_building = { is_building_type = building_war_machine_industry } }		OWNER = { OR = { has_technology_researched = military_aviation has_technology_researched = carrier_tech } } }
-				start_building_construction = building_war_machine_industry
-			}
 		}
 		scope:shipyards_state = {
 			if = {
@@ -1811,13 +1811,13 @@ effect_calc_dye_state = {
 	set_variable = {
 		name = dye_var
 		value = {
-			value = b:building_infres_dye_plantation.level
+			value = b:building_dye_greenhouse.level
 			multiply = {
-				if		= { limit = { b:building_infres_dye_plantation = { has_active_production_method = default_building_dye_plantation } }			value =  25   }
-				else_if	= { limit = { b:building_infres_dye_plantation = { has_active_production_method = pm_soil_enriching_farming_dye_plantation } }	value =  50   }
-				else_if	= { limit = { b:building_infres_dye_plantation = { has_active_production_method = pm_fertilization_dye_plantation } }			value =  62.5 }
-				else_if	= { limit = { b:building_infres_dye_plantation = { has_active_production_method = pm_chemical_fertilizer_dye_plantation } }		value =  75   }
-				else_if	= { limit = { b:building_infres_dye_plantation = { has_active_production_method = pm_automatic_fertilization_dye_plantation } }	value = 100   }
+				if		= { limit = { b:building_dye_greenhouse = { has_active_production_method = default_building_dye_plantation } }			value =  25   }
+				else_if	= { limit = { b:building_dye_greenhouse = { has_active_production_method = pm_soil_enriching_farming_dye_plantation } }	value =  50   }
+				else_if	= { limit = { b:building_dye_greenhouse = { has_active_production_method = pm_fertilization_dye_plantation } }			value =  62.5 }
+				else_if	= { limit = { b:building_dye_greenhouse = { has_active_production_method = pm_chemical_fertilizer_dye_plantation } }		value =  75   }
+				else_if	= { limit = { b:building_dye_greenhouse = { has_active_production_method = pm_automatic_fertilization_dye_plantation } }	value = 100   }
 			}
 			divide = {
 				if		= { limit = { OWNER = { has_technology_researched = nitrogen_fixation } }														value = 300   }
@@ -1841,8 +1841,8 @@ effect_replace_dye = {
 		limit = { has_technology_researched = aniline	NOT = { trigger_forbidden_heavy_industry = yes } }
 		# every_scope_state = {	# I dunno why, but this breaks the tooltip
 			# if = {
-				# limit = { has_building = building_infres_dye_plantation }
-				# remove_building = building_infres_dye_plantation
+				# limit = { has_building = building_dye_greenhouse }
+				# remove_building = building_dye_greenhouse
 			# }
 		# }
 		show_as_tooltip = {
@@ -1877,7 +1877,7 @@ effect_replace_dye = {
 					}
 				}
 			}
-			every_scope_state = { remove_building = building_infres_dye_plantation }	# Remove anyways to prevent ghost buildings
+			every_scope_state = { remove_building = building_dye_greenhouse }	# Remove anyways to prevent ghost buildings
 		}
 	}
 }
@@ -1885,13 +1885,13 @@ effect_calc_silk_state = {
 	set_variable = {
 		name = silk_var
 		value = {
-			value = b:building_infres_silk_plantation.level
+			value = b:building_silk_greenhouse.level
 			multiply = {
-				if		= { limit = { b:building_infres_silk_plantation = { has_active_production_method = default_building_silk_plantation } }				value		=   20 }
-				else_if	= { limit = { b:building_infres_silk_plantation = { has_active_production_method = pm_soil_enriching_farming_silk_plantation } }	value		=   40 }
-				else_if	= { limit = { b:building_infres_silk_plantation = { has_active_production_method = pm_fertilization_silk_plantation } }				value		=   50 }
-				else_if	= { limit = { b:building_infres_silk_plantation = { has_active_production_method = pm_chemical_fertilizer_silk_plantation } }		value		=   60 }
-				else_if	= { limit = { b:building_infres_silk_plantation = { has_active_production_method = pm_automatic_fertilization_silk_plantation } }	value		=   80 }
+				if		= { limit = { b:building_silk_greenhouse = { has_active_production_method = default_building_silk_plantation } }				value		=   20 }
+				else_if	= { limit = { b:building_silk_greenhouse = { has_active_production_method = pm_soil_enriching_farming_silk_plantation } }	value		=   40 }
+				else_if	= { limit = { b:building_silk_greenhouse = { has_active_production_method = pm_fertilization_silk_plantation } }				value		=   50 }
+				else_if	= { limit = { b:building_silk_greenhouse = { has_active_production_method = pm_chemical_fertilizer_silk_plantation } }		value		=   60 }
+				else_if	= { limit = { b:building_silk_greenhouse = { has_active_production_method = pm_automatic_fertilization_silk_plantation } }	value		=   80 }
 				if		= { limit = { OWNER = { has_technology_researched = sericulture } }																	multiply	= 1.25 }
 			}
 			divide = {
@@ -1916,8 +1916,8 @@ effect_replace_silk = {
 		limit = { has_technology_researched = art_silk	NOT = { trigger_forbidden_heavy_industry = yes } }
 		# every_scope_state = {	# I dunno why, but this breaks the tooltip
 			# if = {
-				# limit = { has_building = building_infres_silk_plantation }
-				# remove_building = building_infres_silk_plantation
+				# limit = { has_building = building_silk_greenhouse }
+				# remove_building = building_silk_greenhouse
 			# }
 		# }
 		show_as_tooltip = {
@@ -1952,20 +1952,20 @@ effect_replace_silk = {
 					}
 				}
 			}
-			every_scope_state = { remove_building = building_infres_silk_plantation }	# Remove anyways to prevent ghost buildings
+			every_scope_state = { remove_building = building_silk_greenhouse }	# Remove anyways to prevent ghost buildings
 		}
 	}
 }
 effect_calc_autarky_target = {
 	every_scope_state = {
-		limit = { any_scope_building = { is_building_type = building_infres_autarky_farm	} }
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse	} }
 		if = {
 			limit = { NOT = { any_scope_building = { is_building_type = building_autarky_farm can_queue_building_levels = 1 } } }
 			set_variable = {
 				name = infres_autarky_build_target
 				value = {
 					value		= arable_land
-					subtract	= b:building_infres_autarky_farm.level
+					subtract	= b:building_autarky_greenhouse.level
 				}
 			}
 		}
@@ -1976,7 +1976,7 @@ effect_build_autarky_farms_state = {
 	if = {
 		limit = { any_scope_building = { is_building_type = building_autarky_farm can_queue_building_levels = 1 } }
 		start_building_construction = building_autarky_farm
-		start_building_construction = building_infres_autarky_farm
+		start_building_construction = building_autarky_greenhouse
 		PREV = { change_variable = { name = counter add = 1 } }
 	}
 	# else_if = {
@@ -1984,7 +1984,7 @@ effect_build_autarky_farms_state = {
 			# any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no }
 			# var:infres_autarky_build_target > 0
 		# }
-		# start_building_construction = building_infres_autarky_farm
+		# start_building_construction = building_autarky_greenhouse
 	# }
 	# change_variable = { name = infres_autarky_build_target subtract = 1 }
 }
@@ -1992,7 +1992,7 @@ effect_build_autarky_farms_private_state = {
 	if = {
 		limit = { any_scope_building = { is_building_type = building_autarky_farm can_queue_building_levels = 1 } }
 		start_privately_funded_building_construction = building_autarky_farm
-		start_privately_funded_building_construction = building_infres_autarky_farm
+		start_privately_funded_building_construction = building_autarky_greenhouse
 		PREV = { change_variable = { name = counter add = 1 } }
 	}
 	# else_if = {
@@ -2000,7 +2000,7 @@ effect_build_autarky_farms_private_state = {
 			# any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no }
 			# var:infres_autarky_build_target > 0
 		# }
-		# start_privately_funded_building_construction = building_infres_autarky_farm
+		# start_privately_funded_building_construction = building_autarky_greenhouse
 	# }
 	# change_variable = { name = infres_autarky_build_target subtract = 1 }
 }
@@ -2014,7 +2014,7 @@ effect_build_autarky_farms = {
 			limit = {
 				OR = {
 					any_scope_state = { free_arable_land > 0 }
-					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+					any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 				}
 				var:counter < 1000
 			}
@@ -2022,7 +2022,7 @@ effect_build_autarky_farms = {
 				limit = {
 					OR = {
 						free_arable_land > 0
-						any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+						any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 					}
 				}
 				effect_build_autarky_farms_state = yes
@@ -2037,7 +2037,7 @@ effect_build_autarky_farms = {
 						any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no }
 						var:infres_autarky_build_target > 0
 					}
-					start_building_construction = building_infres_autarky_farm
+					start_building_construction = building_autarky_greenhouse
 					change_variable = { name = infres_autarky_build_target subtract = 1 }
 				}
 			}
@@ -2049,7 +2049,7 @@ effect_build_autarky_farms = {
 			limit = {
 				OR = {
 					free_arable_land > 0
-					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+					any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 				}
 			}
 			if = {
@@ -2057,14 +2057,14 @@ effect_build_autarky_farms = {
 				while = {
 					count = free_arable_land
 					start_building_construction = building_autarky_farm
-					start_building_construction = building_infres_autarky_farm
+					start_building_construction = building_autarky_greenhouse
 				}
 			}
 			if = {
 				limit = { var:infres_autarky_build_target > 0 }
 				while = {
 					count = var:infres_autarky_build_target
-					start_building_construction = building_infres_autarky_farm
+					start_building_construction = building_autarky_greenhouse
 				}
 			}
 		}
@@ -2080,7 +2080,7 @@ effect_build_autarky_farms_private = {
 			limit = {
 				OR = {
 					any_scope_state = { free_arable_land > 0 }
-					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+					any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 				}
 				var:counter < 1000
 			}
@@ -2088,7 +2088,7 @@ effect_build_autarky_farms_private = {
 				limit = {
 					OR = {
 						free_arable_land > 0
-						any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+						any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 					}
 				}
 				effect_build_autarky_farms_private_state = yes
@@ -2103,7 +2103,7 @@ effect_build_autarky_farms_private = {
 						any_scope_building = { is_building_type = building_autarky_farm is_under_construction = no }
 						var:infres_autarky_build_target > 0
 					}
-					start_privately_funded_building_construction = building_infres_autarky_farm
+					start_privately_funded_building_construction = building_autarky_greenhouse
 					change_variable = { name = infres_autarky_build_target subtract = 1 }
 				}
 			}
@@ -2115,7 +2115,7 @@ effect_build_autarky_farms_private = {
 			limit = {
 				OR = {
 					free_arable_land > 0
-					any_scope_building = { is_building_type = building_infres_autarky_farm	level < STATE.arable_land }
+					any_scope_building = { is_building_type = building_autarky_greenhouse	level < STATE.arable_land }
 				}
 			}
 			if = {
@@ -2123,14 +2123,14 @@ effect_build_autarky_farms_private = {
 				while = {
 					count = free_arable_land
 					start_privately_funded_building_construction = building_autarky_farm
-					start_privately_funded_building_construction = building_infres_autarky_farm
+					start_privately_funded_building_construction = building_autarky_greenhouse
 				}
 			}
 			if = {
 				limit = { var:infres_autarky_build_target > 0 }
 				while = {
 					count = var:infres_autarky_build_target
-					start_privately_funded_building_construction = building_infres_autarky_farm
+					start_privately_funded_building_construction = building_autarky_greenhouse
 				}
 			}
 		}
@@ -2606,134 +2606,78 @@ effect_delete_finite_plant_state = {
 	if = { limit = { var:plant_refund > 0 } custom_tooltip = { text = plant_refund.tt OWNER = { add_investment_pool = PREV.var:plant_refund } } }
 	remove_variable = plant_refund
 }
-effect_delete_useless_inf_state = {
-	# if = {
-		# limit = {
-			# OWNER = {
-				# has_technology_researched = fractional_distillation
-				# NOT = { trigger_agrarian_economy = yes }
-			# }
-			# has_building = building_infres_vineyard_plantation
-		# }
-		# remove_building = building_infres_vineyard_plantation
-	# }
-	# if = {
-		# limit = {
-			# NOR = {
-				# OWNER = c:BRZ
-				# OWNER = { any_primary_culture = { has_cultural_obsession = sugar } }
-				# OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = sugar } } }
-				# OWNER = { has_company = company_type:company_united_fruit }
-			# }
-			# has_building = building_infres_sugar_plantation
-		# }
-		# remove_building = building_infres_sugar_plantation
-	# }
-	# if = {
-		# limit = {
-			# NOR = {
-				# OWNER = { any_primary_culture = { has_cultural_obsession = fruit } }
-				# OWNER = { any_overlord_or_above = { any_primary_culture = { has_cultural_obsession = fruit } } }
-				# OWNER = { has_company = company_type:company_united_fruit }
-			# }
-			# has_building = building_infres_banana_plantation
-		# }
-		# remove_building = building_infres_banana_plantation
-	# }
-	if = {
-		limit = {
-			OWNER = { has_technology_researched = plastics }
-			has_building = building_infres_rubber_plantation
-		}
-		remove_building = building_infres_rubber_plantation
-	}
-	# if = {	# Removed - Handled by replace_dye instead
-		# limit = {
-			# OWNER = { has_technology_researched = aniline }
-			# has_building = building_infres_dye_plantation
-		# }
-		# remove_building = building_infres_dye_plantation
-	# }
-	# if = {	# Removed - Handled by replace_silk instead
-		# limit = {
-			# OWNER = { has_technology_researched = art_silk }
-			# has_building = building_infres_silk_plantation
-		# }
-		# remove_building = building_infres_silk_plantation
-	# }
-}
 effect_calc_inf_plant_refund = {	# Todo: Convert to script value -> Figure out how to display script values in loc.
 	set_variable = {
 		name = inf_plant_refund
 		value = {
 			value = 0
 			if = {
-				limit = { has_building = building_infres_vineyard_plantation }
+				limit = { has_building = building_vineyard_greenhouse }
 				add = {
-					value = b:building_infres_vineyard_plantation.level
+					value = b:building_vineyard_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_coffee_plantation }
+				limit = { has_building = building_coffee_greenhouse }
 				add = {
-					value = b:building_infres_coffee_plantation.level
+					value = b:building_coffee_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_cotton_plantation }
+				limit = { has_building = building_cotton_greenhouse }
 				add = {
-					value = b:building_infres_cotton_plantation.level
+					value = b:building_cotton_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_dye_plantation }
+				limit = { has_building = building_dye_greenhouse }
 				add = {
-					value = b:building_infres_dye_plantation.level
+					value = b:building_dye_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_opium_plantation }
+				limit = { has_building = building_opium_greenhouse }
 				add = {
-					value = b:building_infres_opium_plantation.level
+					value = b:building_opium_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_tea_plantation }
+				limit = { has_building = building_tea_greenhouse }
 				add = {
-					value = b:building_infres_tea_plantation.level
+					value = b:building_tea_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_tobacco_plantation }
+				limit = { has_building = building_tobacco_greenhouse }
 				add = {
-					value = b:building_infres_tobacco_plantation.level
+					value = b:building_tobacco_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_sugar_plantation }
+				limit = { has_building = building_sugar_greenhouse }
 				add = {
-					value = b:building_infres_sugar_plantation.level
+					value = b:building_sugar_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_banana_plantation }
+				limit = { has_building = building_banana_greenhouse }
 				add = {
-					value = b:building_infres_banana_plantation.level
+					value = b:building_banana_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
 			if = {
-				limit = { has_building = building_infres_silk_plantation }
+				limit = { has_building = building_silk_greenhouse }
 				add = {
-					value = b:building_infres_silk_plantation.level
+					value = b:building_silk_greenhouse.level
 					multiply = construction_cost_medium
 				}
 			}
@@ -2744,39 +2688,38 @@ effect_calc_inf_plant_refund = {	# Todo: Convert to script value -> Figure out h
 effect_delete_inhospitable = {
 	every_scope_state = {
 		limit = { OR = { trigger_inhospitable_terrain = yes is_treaty_port = yes } }
-		effect_delete_useless_inf_state = yes
 		effect_calc_inf_plant_refund = yes
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_vineyard_plantation } }
-			remove_building = building_infres_vineyard_plantation
+			limit = { any_scope_building = { is_building_type = building_vineyard_greenhouse } }
+			remove_building = building_vineyard_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_coffee_plantation } }
-			remove_building = building_infres_coffee_plantation
+			limit = { any_scope_building = { is_building_type = building_coffee_greenhouse } }
+			remove_building = building_coffee_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_cotton_plantation } }
-			remove_building = building_infres_cotton_plantation
+			limit = { any_scope_building = { is_building_type = building_cotton_greenhouse } }
+			remove_building = building_cotton_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_opium_plantation } }
-			remove_building = building_infres_opium_plantation
+			limit = { any_scope_building = { is_building_type = building_opium_greenhouse } }
+			remove_building = building_opium_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_tea_plantation } }
-			remove_building = building_infres_tea_plantation
+			limit = { any_scope_building = { is_building_type = building_tea_greenhouse } }
+			remove_building = building_tea_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_tobacco_plantation } }
-			remove_building = building_infres_tobacco_plantation
+			limit = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }
+			remove_building = building_tobacco_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }
-			remove_building = building_infres_sugar_plantation
+			limit = { any_scope_building = { is_building_type = building_sugar_greenhouse } }
+			remove_building = building_sugar_greenhouse
 		}
 		if = {
-			limit = { any_scope_building = { is_building_type = building_infres_silk_plantation } }
-			remove_building = building_infres_silk_plantation
+			limit = { any_scope_building = { is_building_type = building_silk_greenhouse } }
+			remove_building = building_silk_greenhouse
 		}
 		if = { limit = { var:inf_plant_refund > 0 } custom_tooltip = { text = inf_plant_refund.tt OWNER = { add_investment_pool = PREV.var:inf_plant_refund } } }
 		remove_variable = inf_plant_refund
@@ -2805,13 +2748,6 @@ effect_calc_mil_refund = {
 				limit = { has_building = building_munition_plants }
 				add = {
 					value = b:building_munition_plants.level
-					multiply = construction_cost_very_high
-				}
-			}
-			if = {
-				limit = { has_building = building_war_machine_industry }
-				add = {
-					value = b:building_war_machine_industry.level
 					multiply = construction_cost_very_high
 				}
 			}
@@ -2859,16 +2795,11 @@ effect_delete_mil_non_capital = {
 				limit = { any_scope_building = { is_building_type = building_munition_plants } }
 				remove_building = building_munition_plants
 			}
-			if = {
-				limit = { any_scope_building = { is_building_type = building_war_machine_industry } }
-				remove_building = building_war_machine_industry
-			}
 		}
 		hidden_effect = {
 			remove_building = building_arms_industry
 			remove_building = building_artillery_foundries
 			remove_building = building_munition_plants
-			remove_building = building_war_machine_industry
 		}
 		if = { limit = { var:mil_refund > 0 } custom_tooltip = { text = mil_refund.tt OWNER = { add_investment_pool = PREV.var:mil_refund } } }
 		remove_variable = mil_refund
@@ -2976,6 +2907,13 @@ effect_calc_ind_refund = {
 				}
 			}
 			if = {
+				limit = { has_building = building_automotive_industry }
+				add = {
+					value = b:building_automotive_industry.level
+					multiply = construction_cost_very_high
+				}
+			}
+			if = {
 				limit = { has_building = building_electrics_industry }
 				add = {
 					value = b:building_electrics_industry.level
@@ -3067,6 +3005,10 @@ effect_delete_unincorporated_industry = {
 				remove_building = building_motor_industry
 			}
 			if = {
+				limit = { any_scope_building = { is_building_type = building_automotive_industry } }
+				remove_building = building_automotive_industry
+			}
+			if = {
 				limit = { any_scope_building = { is_building_type = building_electrics_industry } }
 				remove_building = building_electrics_industry
 			}
@@ -3089,10 +3031,6 @@ effect_delete_unincorporated_industry = {
 			if = {
 				limit = { any_scope_building = { is_building_type = building_munition_plants } }
 				remove_building = building_munition_plants
-			}
-			if = {
-				limit = { any_scope_building = { is_building_type = building_war_machine_industry } }
-				remove_building = building_war_machine_industry
 			}
 			if = {
 				limit = { any_scope_building = { is_building_type = building_synthetic_oil_plants } }
@@ -3119,13 +3057,13 @@ effect_delete_unincorporated_industry = {
 			remove_building = building_synthetics_plants
 			remove_building = building_steel_mills
 			remove_building = building_motor_industry
+			remove_building = building_automotive_industry
 			remove_building = building_electrics_industry
 			remove_building = building_shipyards
 			remove_building = building_military_shipyards
 			remove_building = building_arms_industry
 			remove_building = building_artillery_foundries
 			remove_building = building_munition_plants
-			remove_building = building_war_machine_industry
 			remove_building = building_synthetic_oil_plants
 			remove_building = building_charcoal_burner
 			remove_building = building_arts_academy
@@ -3167,6 +3105,7 @@ effect_calc_industry_target = {
 		remove_variable = synth_dye_target
 		remove_variable = steel_target
 		remove_variable = motor_target
+		remove_variable = automotive_target
 		remove_variable = electronics_target
 		remove_variable = charcoal_target
 		remove_variable = synth_oil_target
@@ -3271,6 +3210,18 @@ effect_calc_industry_target = {
 						value = OWNER.var:economy_of_scale_target
 						subtract = b:building_motor_industry.level
 						if = { limit = { b:building_motor_industry = { is_under_construction = yes } } subtract = 1 }
+						min = 0
+					}
+				}
+			}
+			if = {
+				limit = { OWNER = { has_technology_researched = combustion_engine	NOT = { trigger_forbidden_heavy_industry = yes } } }
+				set_variable = {
+					name = automotive_target
+					value = {
+						value = OWNER.var:economy_of_scale_target
+						subtract = b:building_automotive_industry.level
+						if = { limit = { b:building_automotive_industry = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3397,6 +3348,11 @@ effect_build_industry_state = {
 		change_variable = { name = motor_target subtract = 1 }
 	}
 	if = {
+		limit = { var:automotive_target > 0 }
+		start_building_construction = building_automotive_industry
+		change_variable = { name = automotive_target subtract = 1 }
+	}
+	if = {
 		limit = { var:synth_dye_target > 0 }
 		start_building_construction = building_synthetics_plants
 		change_variable = { name = synth_dye_target subtract = 1 }
@@ -3474,6 +3430,11 @@ effect_build_industry_private_state = {
 		change_variable = { name = motor_target subtract = 1 }
 	}
 	if = {
+		limit = { var:automotive_target > 0 }
+		start_privately_funded_building_construction = building_automotive_industry
+		change_variable = { name = automotive_target subtract = 1 }
+	}
+	if = {
 		limit = { var:synth_dye_target > 0 }
 		start_privately_funded_building_construction = building_synthetics_plants
 		change_variable = { name = synth_dye_target subtract = 1 }
@@ -3541,6 +3502,10 @@ effect_build_industry_tooltip = {
 				while = { count = var:motor_target 			start_building_construction = building_motor_industry }
 			}
 			if = {
+				limit = { var:automotive_target > 0 }
+				while = { count = var:automotive_target		start_building_construction = building_automotive_industry }
+			}
+			if = {
 				limit = { var:synth_dye_target > 0 }
 				while = { count = var:synth_dye_target		start_building_construction = building_synthetics_plants }
 			}
@@ -3605,6 +3570,10 @@ effect_build_industry_private_tooltip = {
 			if = {
 				limit = { var:motor_target > 0 }
 				while = { count = var:motor_target			start_privately_funded_building_construction = building_motor_industry }
+			}
+			if = {
+				limit = { var:automotive_target > 0 }
+				while = { count = var:automotive_target		start_privately_funded_building_construction = building_automotive_industry }
 			}
 			if = {
 				limit = { var:synth_dye_target > 0 }
@@ -3799,8 +3768,8 @@ effect_calc_plantations_target = {
 				name = agro_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-					subtract = b:building_infres_autarky_farm.level
-					if = { limit = { b:building_infres_autarky_farm = { is_under_construction = yes } } subtract = 1 }
+					subtract = b:building_autarky_greenhouse.level
+					if = { limit = { b:building_autarky_greenhouse = { is_under_construction = yes } } subtract = 1 }
 					min = 0
 				}
 			}
@@ -3810,8 +3779,8 @@ effect_calc_plantations_target = {
 					name = sugar_target
 					value = {
 						value = OWNER.var:economy_of_scale_target
-						subtract = b:building_infres_sugar_plantation.level
-						if = { limit = { b:building_infres_sugar_plantation = { is_under_construction = yes } } subtract = 1 }
+						subtract = b:building_sugar_greenhouse.level
+						if = { limit = { b:building_sugar_greenhouse = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3820,8 +3789,8 @@ effect_calc_plantations_target = {
 				name = wine_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-					subtract = b:building_infres_vineyard_plantation.level
-					if = { limit = { b:building_infres_vineyard_plantation = { is_under_construction = yes } } subtract = 1 }
+					subtract = b:building_vineyard_greenhouse.level
+					if = { limit = { b:building_vineyard_greenhouse = { is_under_construction = yes } } subtract = 1 }
 					min = 0
 				}
 			}
@@ -3829,8 +3798,8 @@ effect_calc_plantations_target = {
 				name = coffee_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-					subtract = b:building_infres_coffee_plantation.level
-					if = { limit = { b:building_infres_coffee_plantation = { is_under_construction = yes } } subtract = 1 }
+					subtract = b:building_coffee_greenhouse.level
+					if = { limit = { b:building_coffee_greenhouse = { is_under_construction = yes } } subtract = 1 }
 					min = 0
 				}
 			}
@@ -3838,8 +3807,8 @@ effect_calc_plantations_target = {
 				name = cotton_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-					subtract = b:building_infres_cotton_plantation.level
-					if = { limit = { b:building_infres_cotton_plantation = { is_under_construction = yes } } subtract = 1 }
+					subtract = b:building_cotton_greenhouse.level
+					if = { limit = { b:building_cotton_greenhouse = { is_under_construction = yes } } subtract = 1 }
 					min = 0
 				}
 			}
@@ -3847,8 +3816,8 @@ effect_calc_plantations_target = {
 				name = tea_target
 				value = {
 					value = OWNER.var:economy_of_scale_target
-					subtract = b:building_infres_tea_plantation.level
-					if = { limit = { b:building_infres_tea_plantation = { is_under_construction = yes } } subtract = 1 }
+					subtract = b:building_tea_greenhouse.level
+					if = { limit = { b:building_tea_greenhouse = { is_under_construction = yes } } subtract = 1 }
 					min = 0
 				}
 			}
@@ -3858,8 +3827,8 @@ effect_calc_plantations_target = {
 					name = dye_target
 					value = {
 						value = OWNER.var:economy_of_scale_target
-						subtract = b:building_infres_dye_plantation.level
-						if = { limit = { b:building_infres_dye_plantation = { is_under_construction = yes } } subtract = 1 }
+						subtract = b:building_dye_greenhouse.level
+						if = { limit = { b:building_dye_greenhouse = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3870,8 +3839,8 @@ effect_calc_plantations_target = {
 					name = silk_target
 					value = {
 						value = OWNER.var:economy_of_scale_target
-						subtract = b:building_infres_silk_plantation.level
-						if = { limit = { b:building_infres_silk_plantation = { is_under_construction = yes } } subtract = 1 }
+						subtract = b:building_silk_greenhouse.level
+						if = { limit = { b:building_silk_greenhouse = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3882,8 +3851,8 @@ effect_calc_plantations_target = {
 					name = opium_target
 					value = {
 						value = OWNER.var:economy_of_scale_target
-						subtract = b:building_infres_opium_plantation.level
-						if = { limit = { b:building_infres_opium_plantation = { is_under_construction = yes } } subtract = 1 }
+						subtract = b:building_opium_greenhouse.level
+						if = { limit = { b:building_opium_greenhouse = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3894,8 +3863,8 @@ effect_calc_plantations_target = {
 					name = tobacco_target
 					value = {
 						value = OWNER.var:economy_of_scale_target
-						subtract = b:building_infres_tobacco_plantation.level
-						if = { limit = { b:building_infres_tobacco_plantation = { is_under_construction = yes } } subtract = 1 }
+						subtract = b:building_tobacco_greenhouse.level
+						if = { limit = { b:building_tobacco_greenhouse = { is_under_construction = yes } } subtract = 1 }
 						min = 0
 					}
 				}
@@ -3906,104 +3875,104 @@ effect_calc_plantations_target = {
 effect_build_plantations_state = {
 	if = {
 		limit = { var:agro_target > 0 }
-		start_building_construction = building_infres_autarky_farm
+		start_building_construction = building_autarky_greenhouse
 		change_variable = { name = agro_target subtract = 1 }
 	}
 	if = {
 		limit = { var:sugar_target > 0 }
-		start_building_construction = building_infres_sugar_plantation
+		start_building_construction = building_sugar_greenhouse
 		change_variable = { name = sugar_target subtract = 1 }
 	}
 	if = {
 		limit = { var:wine_target > 0 }
-		start_building_construction = building_infres_vineyard_plantation
+		start_building_construction = building_vineyard_greenhouse
 		change_variable = { name = wine_target subtract = 1 }
 	}
 	if = {
 		limit = { var:coffee_target > 0 }
-		start_building_construction = building_infres_coffee_plantation
+		start_building_construction = building_coffee_greenhouse
 		change_variable = { name = coffee_target subtract = 1 }
 	}
 	if = {
 		limit = { var:cotton_target > 0 }
-		start_building_construction = building_infres_cotton_plantation
+		start_building_construction = building_cotton_greenhouse
 		change_variable = { name = cotton_target subtract = 1 }
 	}
 	if = {
 		limit = { var:tea_target > 0 }
-		start_building_construction = building_infres_tea_plantation
+		start_building_construction = building_tea_greenhouse
 		change_variable = { name = tea_target subtract = 1 }
 	}
 	if = {
 		limit = { var:dye_target > 0 }
-		start_building_construction = building_infres_dye_plantation
+		start_building_construction = building_dye_greenhouse
 		change_variable = { name = dye_target subtract = 1 }
 	}
 	if = {
 		limit = { var:silk_target > 0 }
-		start_building_construction = building_infres_silk_plantation
+		start_building_construction = building_silk_greenhouse
 		change_variable = { name = silk_target subtract = 1 }
 	}
 	if = {
 		limit = { var:opium_target > 0 }
-		start_building_construction = building_infres_opium_plantation
+		start_building_construction = building_opium_greenhouse
 		change_variable = { name = opium_target subtract = 1 }
 	}
 	if = {
 		limit = { var:tobacco_target > 0 }
-		start_building_construction = building_infres_tobacco_plantation
+		start_building_construction = building_tobacco_greenhouse
 		change_variable = { name = tobacco_target subtract = 1 }
 	}
 }
 effect_build_plantations_private_state = {
 	if = {
 		limit = { var:agro_target > 0 }
-		start_privately_funded_building_construction = building_infres_autarky_farm
+		start_privately_funded_building_construction = building_autarky_greenhouse
 		change_variable = { name = agro_target subtract = 1 }
 	}
 	if = {
 		limit = { var:sugar_target > 0 }
-		start_privately_funded_building_construction = building_infres_sugar_plantation
+		start_privately_funded_building_construction = building_sugar_greenhouse
 		change_variable = { name = sugar_target subtract = 1 }
 	}
 	if = {
 		limit = { var:wine_target > 0 }
-		start_privately_funded_building_construction = building_infres_vineyard_plantation
+		start_privately_funded_building_construction = building_vineyard_greenhouse
 		change_variable = { name = wine_target subtract = 1 }
 	}
 	if = {
 		limit = { var:coffee_target > 0 }
-		start_privately_funded_building_construction = building_infres_coffee_plantation
+		start_privately_funded_building_construction = building_coffee_greenhouse
 		change_variable = { name = coffee_target subtract = 1 }
 	}
 	if = {
 		limit = { var:cotton_target > 0 }
-		start_privately_funded_building_construction = building_infres_cotton_plantation
+		start_privately_funded_building_construction = building_cotton_greenhouse
 		change_variable = { name = cotton_target subtract = 1 }
 	}
 	if = {
 		limit = { var:tea_target > 0 }
-		start_privately_funded_building_construction = building_infres_tea_plantation
+		start_privately_funded_building_construction = building_tea_greenhouse
 		change_variable = { name = tea_target subtract = 1 }
 	}
 	if = {
 		limit = { var:dye_target > 0 }
-		start_privately_funded_building_construction = building_infres_dye_plantation
+		start_privately_funded_building_construction = building_dye_greenhouse
 		change_variable = { name = dye_target subtract = 1 }
 	}
 	if = {
 		limit = { var:silk_target > 0 }
-		start_privately_funded_building_construction = building_infres_silk_plantation
+		start_privately_funded_building_construction = building_silk_greenhouse
 		change_variable = { name = silk_target subtract = 1 }
 	}
 	if = {
 		limit = { var:opium_target > 0 }
-		start_privately_funded_building_construction = building_infres_opium_plantation
+		start_privately_funded_building_construction = building_opium_greenhouse
 		change_variable = { name = opium_target subtract = 1 }
 	}
 	if = {
 		limit = { var:tobacco_target > 0 }
-		start_privately_funded_building_construction = building_infres_tobacco_plantation
+		start_privately_funded_building_construction = building_tobacco_greenhouse
 		change_variable = { name = tobacco_target subtract = 1 }
 	}
 }
@@ -4012,39 +3981,39 @@ effect_build_plantations_tooltip = {
 		every_scope_state = {
 			if = {
 				limit = { var:agro_target > 0 }
-				while = { count = var:agro_target				start_building_construction = building_infres_autarky_farm }
+				while = { count = var:agro_target				start_building_construction = building_autarky_greenhouse }
 			}
 			if = {
 				limit = { var:wine_target > 0 }
-				while = { count = var:wine_target				start_building_construction = building_infres_vineyard_plantation }
+				while = { count = var:wine_target				start_building_construction = building_vineyard_greenhouse }
 			}
 			if = {
 				limit = { var:coffee_target > 0 }
-				while = { count = var:coffee_target				start_building_construction = building_infres_coffee_plantation }
+				while = { count = var:coffee_target				start_building_construction = building_coffee_greenhouse }
 			}
 			if = {
 				limit = { var:cotton_target > 0 }
-				while = { count = var:cotton_target				start_building_construction = building_infres_cotton_plantation }
+				while = { count = var:cotton_target				start_building_construction = building_cotton_greenhouse }
 			}
 			if = {
 				limit = { var:tea_target > 0 }
-				while = { count = var:tea_target				start_building_construction = building_infres_tea_plantation }
+				while = { count = var:tea_target				start_building_construction = building_tea_greenhouse }
 			}
 			if = {
 				limit = { var:dye_target > 0 }
-				while = { count = var:dye_target				start_building_construction = building_infres_dye_plantation }
+				while = { count = var:dye_target				start_building_construction = building_dye_greenhouse }
 			}
 			if = {
 				limit = { var:silk_target > 0 }
-				while = { count = var:silk_target				start_building_construction = building_infres_silk_plantation }
+				while = { count = var:silk_target				start_building_construction = building_silk_greenhouse }
 			}
 			if = {
 				limit = { var:opium_target > 0 }
-				while = { count = var:opium_target				start_building_construction = building_infres_opium_plantation }
+				while = { count = var:opium_target				start_building_construction = building_opium_greenhouse }
 			}
 			if = {
 				limit = { var:tobacco_target > 0 }
-				while = { count = var:tobacco_target			start_building_construction = building_infres_tobacco_plantation }
+				while = { count = var:tobacco_target			start_building_construction = building_tobacco_greenhouse }
 			}
 		}
 	}
@@ -4054,39 +4023,39 @@ effect_build_plantations_private_tooltip = {
 		every_scope_state = {
 			if = {
 				limit = { var:agro_target > 0 }
-				while = { count = var:agro_target				start_privately_funded_building_construction = building_infres_autarky_farm }
+				while = { count = var:agro_target				start_privately_funded_building_construction = building_autarky_greenhouse }
 			}
 			if = {
 				limit = { var:wine_target > 0 }
-				while = { count = var:wine_target				start_privately_funded_building_construction = building_infres_vineyard_plantation }
+				while = { count = var:wine_target				start_privately_funded_building_construction = building_vineyard_greenhouse }
 			}
 			if = {
 				limit = { var:coffee_target > 0 }
-				while = { count = var:coffee_target				start_privately_funded_building_construction = building_infres_coffee_plantation }
+				while = { count = var:coffee_target				start_privately_funded_building_construction = building_coffee_greenhouse }
 			}
 			if = {
 				limit = { var:cotton_target > 0 }
-				while = { count = var:cotton_target				start_privately_funded_building_construction = building_infres_cotton_plantation }
+				while = { count = var:cotton_target				start_privately_funded_building_construction = building_cotton_greenhouse }
 			}
 			if = {
 				limit = { var:tea_target > 0 }
-				while = { count = var:tea_target				start_privately_funded_building_construction = building_infres_tea_plantation }
+				while = { count = var:tea_target				start_privately_funded_building_construction = building_tea_greenhouse }
 			}
 			if = {
 				limit = { var:dye_target > 0 }
-				while = { count = var:dye_target				start_privately_funded_building_construction = building_infres_dye_plantation }
+				while = { count = var:dye_target				start_privately_funded_building_construction = building_dye_greenhouse }
 			}
 			if = {
 				limit = { var:silk_target > 0 }
-				while = { count = var:silk_target				start_privately_funded_building_construction = building_infres_silk_plantation }
+				while = { count = var:silk_target				start_privately_funded_building_construction = building_silk_greenhouse }
 			}
 			if = {
 				limit = { var:opium_target > 0 }
-				while = { count = var:opium_target				start_privately_funded_building_construction = building_infres_opium_plantation }
+				while = { count = var:opium_target				start_privately_funded_building_construction = building_opium_greenhouse }
 			}
 			if = {
 				limit = { var:tobacco_target > 0 }
-				while = { count = var:tobacco_target			start_privately_funded_building_construction = building_infres_tobacco_plantation }
+				while = { count = var:tobacco_target			start_privately_funded_building_construction = building_tobacco_greenhouse }
 			}
 		}
 	}
@@ -4564,7 +4533,6 @@ effect_calc_mil_industry = {	# This one does not delete buildings, so you can fi
 	set_variable = { name = arms_level	value = 0 }
 	set_variable = { name = arty_level	value = 0 }
 	set_variable = { name = ammo_level	value = 0 }
-	set_variable = { name = war_level	value = 0 }
 	set_variable = { name = ship_level	value = 0 }
 	set_variable = { name = wship_level	value = 0 }
 	every_scope_state = {
@@ -4580,10 +4548,6 @@ effect_calc_mil_industry = {	# This one does not delete buildings, so you can fi
 		if = {
 			limit = { any_scope_building = { is_building_type = building_munition_plants } }
 			OWNER = { change_variable = { name = ammo_level		add = PREV.b:building_munition_plants.level } }
-		}
-		if = {
-			limit = { any_scope_building = { is_building_type = building_war_machine_industry } }
-			OWNER = { change_variable = { name = war_level		add = PREV.b:building_war_machine_industry.level } }
 		}
 		effect_calc_mil_refund = yes
 	}
@@ -4623,13 +4587,6 @@ effect_build_mil_industry_private_state = {
 				start_privately_funded_building_construction = building_munition_plants
 			}
 		}
-		if = {
-			limit = { OWNER.var:war_level	> 0 }
-			while = {
-				count = OWNER.var:war_level
-				start_privately_funded_building_construction = building_war_machine_industry
-			}
-		}
 	}
 	hidden_effect = {
 		while = {
@@ -4638,7 +4595,6 @@ effect_build_mil_industry_private_state = {
 					OWNER.var:arms_level	> 0
 					OWNER.var:arty_level	> 0
 					OWNER.var:ammo_level	> 0
-					OWNER.var:war_level		> 0
 				}
 			}
 			if = {
@@ -4656,11 +4612,6 @@ effect_build_mil_industry_private_state = {
 				start_privately_funded_building_construction = building_munition_plants
 				OWNER = { change_variable = { name = ammo_level	subtract = 1 } }
 			}
-			if = {
-				limit = { OWNER.var:war_level	> 0 }
-				start_privately_funded_building_construction = building_war_machine_industry
-				OWNER = { change_variable = { name = war_level	subtract = 1 } }
-			}
 		}
 	}
 }
@@ -4687,13 +4638,6 @@ effect_build_mil_industry_state = {
 				start_building_construction = building_munition_plants
 			}
 		}
-		if = {
-			limit = { OWNER.var:war_level	> 0 }
-			while = {
-				count = OWNER.var:war_level
-				start_building_construction = building_war_machine_industry
-			}
-		}
 	}
 	hidden_effect = {
 		while = {
@@ -4702,7 +4646,6 @@ effect_build_mil_industry_state = {
 					OWNER.var:arms_level	> 0
 					OWNER.var:arty_level	> 0
 					OWNER.var:ammo_level	> 0
-					OWNER.var:war_level		> 0
 				}
 			}
 			if = {
@@ -4719,11 +4662,6 @@ effect_build_mil_industry_state = {
 				limit = { OWNER.var:ammo_level	> 0 }
 				start_building_construction = building_munition_plants
 				OWNER = { change_variable = { name = ammo_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:war_level	> 0 }
-				start_building_construction = building_war_machine_industry
-				OWNER = { change_variable = { name = war_level	subtract = 1 } }
 			}
 		}
 	}
@@ -4910,511 +4848,6 @@ effect_fix_puppets = {
 		limit = { OWNER = { is_subject_of = ROOT } }
 		effect_delete_finite_agro_state		= yes
 		effect_delete_finite_plant_state	= yes
-		effect_delete_useless_inf_state		= yes
-		# effect_seed_autarky_farms_state		= yes
-		if = { limit = { free_arable_land > 0 } create_building = { building = building_generic_subsistence level = arable_land } }
-		effect_seed_resources_state			= yes
-		if = {
-			limit = {
-				NOT = { trigger_inhospitable_terrain = yes }
-				trigger_if = { limit = { is_capital = no } NOT = { trigger_microstate = yes } }
-			}
-			effect_seed_plantations_state	= yes
-		}
-		# every_scope_building = { limit = { is_building_type = building_generic_subsistence is_subsidized = no } set_subsidized = yes }
-	}
-	every_country = {
-		limit = { is_subject_of = ROOT }
-		hidden_effect = { activate_production_method = { building_type = building_infres_generic_subsistence		production_method = pm_tools_disabled_subsistence } }
-		custom_tooltip = {
-			text = effect_tool_fertilizer_switch.tt
-			effect_fertilizer_switch = yes
-			effect_tools_switch = yes
-		}
-		effect_replace_dye	= yes
-		effect_replace_silk	= yes
-		effect_make_admins	= yes
-		# effect_build_autarky_farms	= yes
-	}
-}
-effect_fix_customs_union = {
-	if = {
-		limit = { has_technology_researched = enclosure }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = enclosure }
-			}
-			add_technology_researched = enclosure
-		}
-	}
-	if = {
-		limit = { has_technology_researched = shaft_mining }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = shaft_mining }
-			}
-			add_technology_researched = shaft_mining
-		}
-	}
-	if = {
-		limit = { has_technology_researched = prospecting }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = prospecting }
-			}
-			add_technology_researched = prospecting
-		}
-	}
-	if = {
-		limit = { has_technology_researched = intensive_agriculture }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = intensive_agriculture }
-			}
-			add_technology_researched = intensive_agriculture
-		}
-	}
-	if = {
-		limit = { has_technology_researched = improved_fertilizer }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = improved_fertilizer }
-			}
-			add_technology_researched = improved_fertilizer
-		}
-	}
-	if = {
-		limit = { has_technology_researched = nitrogen_fixation }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = nitrogen_fixation }
-			}
-			add_technology_researched = nitrogen_fixation
-		}
-	}
-	if = {
-		limit = { has_technology_researched = mechanized_farming }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = mechanized_farming }
-			}
-			add_technology_researched = mechanized_farming
-		}
-	}
-	if = {
-		limit = { has_technology_researched = aniline }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = aniline }
-			}
-			add_technology_researched = aniline
-		}
-	}
-	if = {
-		limit = { has_technology_researched = art_silk }
-		every_country = {
-			limit = {
-				trigger_PREV_has_investment_rights = yes
-				NOT = { has_technology_researched = art_silk }
-			}
-			add_technology_researched = art_silk
-		}
-	}
-	every_country = {
-		limit = { trigger_PREV_has_investment_rights = yes }
-		every_scope_state = {
-			effect_delete_finite_agro_state		= yes
-			effect_delete_finite_plant_state	= yes
-			effect_delete_useless_inf_state		= yes
-			# effect_seed_autarky_farms_state		= yes
-			# if = { limit = { free_arable_land > 0 }
-				# create_building = {
-					# building = building_generic_subsistence
-					# level = arable_land
-					# # add_ownership = {
-						# # country = {
-							# # country = ROOT
-							# # levels = arable_land
-						# # }
-					# # }
-				# }
-			# }
-			effect_seed_resources_state			= yes
-			if = {
-				limit = {
-					NOT = { trigger_inhospitable_terrain = yes }
-					trigger_if = { limit = { is_capital = no } NOT = { trigger_microstate = yes } }
-				}
-				effect_seed_plantations_state	= yes
-			}
-		}
-		hidden_effect = { activate_production_method = { building_type = building_infres_generic_subsistence		production_method = pm_tools_disabled_subsistence } }
-		custom_tooltip = {
-			text = effect_tool_fertilizer_switch.tt
-			effect_fertilizer_switch = yes
-			effect_tools_switch = yes
-		}
-		effect_replace_dye	= yes
-		effect_replace_silk	= yes
-		effect_build_autarky_farms	= yes
-	}
-}
-effect_enslave_discriminated_pops = {
-	custom_tooltip = {
-		text = "All discriminated pops will be enslaved."
-		every_scope_pop = {
-			limit = {
-				trigger_if		= { limit = { is_employed = yes } is_pop_type = workplace.type.slaves_role }
-				trigger_else	= { is_pop_type = laborers }
-				pop_acceptance < acceptance_status_4
-			}
-			change_poptype = pop_type:slaves
-		}
-	}
-}
-effect_delete_invalid_subsistence = {
-	every_state = {
-		limit = { free_arable_land = 0 }
-		show_as_tooltip = {
-			switch = {
-				trigger = has_building
-				building_subsistence_farms				= { remove_building = building_subsistence_farms }
-				building_subsistence_orchards			= { remove_building = building_subsistence_orchards }
-				building_subsistence_pastures			= { remove_building = building_subsistence_pastures }
-				building_subsistence_fishing_villages	= { remove_building = building_subsistence_fishing_villages }
-				building_subsistence_rice_paddies		= { remove_building = building_subsistence_rice_paddies }
-			}
-		}
-		hidden_effect = {
-			remove_building = building_subsistence_farms
-			remove_building = building_subsistence_orchards
-			remove_building = building_subsistence_pastures
-			remove_building = building_subsistence_fishing_villages
-			remove_building = building_subsistence_rice_paddies
-		}
-	}
-}
-# effect_merge_india = {	# Check for south_asian_heritage in any primary culture
-	# random_country = {
-		# limit = { OR = { THIS = c:BIC has_variable = india_subject_var } }
-		# save_scope_as = BIC_scope
-	# }
-	# every_state_region = {
-		# limit = {
-			# OR = {
-				# state_is_in_india = yes
-				# THIS = s:STATE_MALAYA
-				# is_homeland = cu:burmese
-				# is_homeland = cu:kachin
-			# }
-			# NOT = { THIS = s:STATE_TENASSERIM }			# Split with SIAM
-		# }
-		# every_scope_state = { limit = { NOT = { owner = scope:BIC_scope } } set_state_owner = scope:BIC_scope }
-	# }
-# }
-effect_merge_bic = {
-	if = {
-		limit = { any_country = { filter = { country_is_in_india = yes } OR = { has_variable = india_subject_var THIS = c:BIC THIS = c:BHT } } }
-		random_country = { limit = { country_is_in_india = yes OR = { has_variable = india_subject_var THIS = c:BIC THIS = c:BHT } } save_scope_as = BIC_scope }
-	}
-	else = { random_country = { limit = { country_is_in_india = yes } save_scope_as = BIC_scope } }
-	every_state_region = {
-		limit = {
-			OR = {
-				state_is_in_india = yes
-				THIS = s:STATE_MALAYA
-				is_homeland = cu:burmese
-				is_homeland = cu:kachin
-				any_scope_state = {
-					state_is_in_southeast_asia = yes
-					OWNER = scope:BIC_scope.OVERLORD
-				}
-			}
-			NOT = { THIS = s:STATE_TENASSERIM }			# Split with SIAM
-		}
-		every_scope_state = { limit = { NOT = { owner = scope:BIC_scope } } set_state_owner = scope:BIC_scope }
-	}
-}
-effect_merge_dei = {
-	every_state_region = {
-		limit = {
-			OR = {
-				is_homeland = cu:balinese
-				is_homeland = cu:batak
-				is_homeland = cu:bornean
-				is_homeland = cu:dayak
-				is_homeland = cu:javan
-				is_homeland = cu:malay
-				is_homeland = cu:moluccan
-				is_homeland = cu:sumatran
-				THIS = s:STATE_WESTERN_NEW_GUINEA
-				THIS = s:STATE_EASTERN_NEW_GUINEA
-			}
-			NOT = { THIS = s:STATE_MALAYA }		# Belongs to Britain
-		}
-		if		= { limit = { exists = c:DEI } 						every_scope_state = { limit = { NOT = { OWNER = c:DEI } } set_state_owner = c:DEI } }
-		else_if	= { limit = { exists = c:IDN } 						every_scope_state = { limit = { NOT = { OWNER = c:IDN } } set_state_owner = c:IDN } }
-		else_if	= { limit = { c:BIC = { is_subject_of = ROOT } }	every_scope_state = { limit = { NOT = { OWNER = c:BIC } } set_state_owner = c:BIC } }
-		else_if	= { limit = { exists = c:NET } 						every_scope_state = { limit = { NOT = { OWNER = c:NET } } set_state_owner = c:NET } }
-		else_if	= { limit = { exists = c:BNL } 						every_scope_state = { limit = { NOT = { OWNER = c:BNL } } set_state_owner = c:BNL } }
-		else_if	= { limit = { exists = c:UNL } 						every_scope_state = { limit = { NOT = { OWNER = c:UNL } } set_state_owner = c:UNL } }
-	}
-}
-effect_build_mil_industry_state = {
-	show_as_tooltip = {
-		if = {
-			limit = { OWNER.var:arms_level	> 0 }
-			while = {
-				count = OWNER.var:arms_level
-				start_building_construction = building_arms_industry
-			}
-		}
-		if = {
-			limit = { OWNER.var:arty_level	> 0 }
-			while = {
-				count = OWNER.var:arty_level
-				start_building_construction = building_artillery_foundries
-			}
-		}
-		if = {
-			limit = { OWNER.var:ammo_level	> 0 }
-			while = {
-				count = OWNER.var:ammo_level
-				start_building_construction = building_munition_plants
-			}
-		}
-		if = {
-			limit = { OWNER.var:war_level	> 0 }
-			while = {
-				count = OWNER.var:war_level
-				start_building_construction = building_war_machine_industry
-			}
-		}
-	}
-	hidden_effect = {
-		while = {
-			limit = {
-				OR = {
-					OWNER.var:arms_level	> 0
-					OWNER.var:arty_level	> 0
-					OWNER.var:ammo_level	> 0
-					OWNER.var:war_level		> 0
-				}
-			}
-			if = {
-				limit = { OWNER.var:arms_level	> 0 }
-				start_building_construction = building_arms_industry
-				OWNER = { change_variable = { name = arms_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:arty_level	> 0 }
-				start_building_construction = building_artillery_foundries
-				OWNER = { change_variable = { name = arty_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:ammo_level	> 0 }
-				start_building_construction = building_munition_plants
-				OWNER = { change_variable = { name = ammo_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:war_level	> 0 }
-				start_building_construction = building_war_machine_industry
-				OWNER = { change_variable = { name = war_level	subtract = 1 } }
-			}
-		}
-	}
-}
-effect_build_mil_industry_coastal_private_state = {
-	show_as_tooltip = {
-		if = {
-			limit = { OWNER.var:ship_level		> 0 }
-			while = {
-				count = OWNER.var:ship_level
-				start_privately_funded_building_construction = building_shipyards
-			}
-		}
-		if = {
-			limit = { OWNER.var:wship_level		> 0 }
-			while = {
-				count = OWNER.var:wship_level
-				start_privately_funded_building_construction = building_military_shipyards
-			}
-		}
-	}
-	hidden_effect = {
-		while = {
-			limit = {
-				OR = {
-					OWNER.var:ship_level		> 0
-					OWNER.var:wship_level		> 0
-				}
-			}
-			if = {
-				limit = { OWNER.var:ship_level	> 0 }
-				start_privately_funded_building_construction = building_shipyards
-				OWNER = { change_variable = { name = ship_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:wship_level	> 0 }
-				start_privately_funded_building_construction = building_military_shipyards
-				OWNER = { change_variable = { name = wship_level	subtract = 1 } }
-			}
-		}
-	}
-}
-effect_build_mil_industry_coastal_state = {
-	show_as_tooltip = {
-		if = {
-			limit = { OWNER.var:ship_level		> 0 }
-			while = {
-				count = OWNER.var:ship_level
-				start_building_construction = building_shipyards
-			}
-		}
-		if = {
-			limit = { OWNER.var:wship_level		> 0 }
-			while = {
-				count = OWNER.var:wship_level
-				start_building_construction = building_military_shipyards
-			}
-		}
-	}
-	hidden_effect = {
-		while = {
-			limit = {
-				OR = {
-					OWNER.var:ship_level		> 0
-					OWNER.var:wship_level		> 0
-				}
-			}
-			if = {
-				limit = { OWNER.var:ship_level	> 0 }
-				start_building_construction = building_shipyards
-				OWNER = { change_variable = { name = ship_level	subtract = 1 } }
-			}
-			if = {
-				limit = { OWNER.var:wship_level	> 0 }
-				start_building_construction = building_military_shipyards
-				OWNER = { change_variable = { name = wship_level	subtract = 1 } }
-			}
-		}
-	}
-}
-effect_build_mil_industry = {
-	if = {
-		limit = {
-			OR = {
-				has_law = law_type:law_laissez_faire
-				has_law = law_type:law_extraction_economy
-				# has_company = company_type:company_krupp
-				# has_company = company_type:company_rheinmetall
-				# has_company = company_type:company_la_rosada
-				# has_company = company_type:company_famae
-				# has_company = company_type:company_skoda
-				# has_company = company_type:company_oevg
-				# has_company = company_type:company_hanyang_arsenal
-				# has_company = company_type:company_rossi
-				# has_company = company_type:company_trubia
-				# has_company = company_type:company_zastava
-				# has_company = company_type:company_saint_etienne
-				# has_company = company_type:company_izhevsk_arms_plant
-				# has_company = company_type:company_basic_metalworks
-			}
-		}
-		scope:military_industry_state	= { effect_build_mil_industry_private_state	= yes }
-	}
-	else = { scope:military_industry_state	= { effect_build_mil_industry_state		= yes } }
-	if = {
-		limit = {
-			OR = {
-				has_law = law_type:law_laissez_faire
-				has_law = law_type:law_extraction_economy
-				# has_company = company_type:company_suez_company
-				# has_company = company_type:company_panama_company
-				# has_company = company_type:company_foochow_arsenal
-				# has_company = company_type:company_estaleiro_maua
-				# has_company = company_type:company_sudamericana_de_vapores
-				# has_company = company_type:company_basileiades
-				# has_company = company_type:company_gotaverken
-				# has_company = company_type:company_aker_mek
-				# has_company = company_type:company_ap_moller
-				# has_company = company_type:company_fcm
-				# has_company = company_type:company_schichau
-				# has_company = company_type:company_john_brown
-				# has_company = company_type:company_wadia_shipbuilders
-				# has_company = company_type:company_stt
-				# has_company = company_type:company_mitsubishi
-				# has_company = company_type:company_william_cramp
-				# has_company = company_type:company_basic_shipyards
-			}
-		}
-		scope:shipyards_state		= { effect_build_mil_industry_coastal_private_state	= yes }
-	}
-	else = { scope:shipyards_state	= { effect_build_mil_industry_coastal_state			= yes } }
-}
-effect_centralise_war_industry = {
-	effect_calc_mil_industry		= yes
-	effect_delete_mil_non_capital	= yes
-	effect_build_mil_industry		= yes
-}
-effect_overlord_war_industry = {
-	OVERLORD.capital = {
-		while = {
-			count = 20
-			start_privately_funded_building_construction = building_munition_plants
-		}
-	}
-}
-effect_fix_puppets = {
-	if = {
-		limit = { has_technology_researched = enclosure }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = enclosure } }				add_technology_researched = enclosure }
-	}
-	if = {
-		limit = { has_technology_researched = shaft_mining }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = shaft_mining } }			add_technology_researched = shaft_mining }
-	}
-	if = {
-		limit = { has_technology_researched = prospecting }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = prospecting } }			add_technology_researched = prospecting }
-	}
-	if = {
-		limit = { has_technology_researched = intensive_agriculture }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = intensive_agriculture } }	add_technology_researched = intensive_agriculture }
-	}
-	if = {
-		limit = { has_technology_researched = improved_fertilizer }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = improved_fertilizer } }	add_technology_researched = improved_fertilizer }
-	}
-	if = {
-		limit = { has_technology_researched = nitrogen_fixation }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = nitrogen_fixation } }		add_technology_researched = nitrogen_fixation }
-	}
-	if = {
-		limit = { has_technology_researched = mechanized_farming }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = mechanized_farming } }		add_technology_researched = mechanized_farming }
-	}
-	if = {
-		limit = { has_technology_researched = aniline }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = aniline } }				add_technology_researched = aniline }
-	}
-	if = {
-		limit = { has_technology_researched = art_silk }
-		every_subject_or_below = { limit = { NOT = { has_technology_researched = art_silk } }				add_technology_researched = art_silk }
-	}
-	every_state = {	# This puts them in our construction queue instead of theirs - Or it should
-		limit = { OWNER = { is_subject_of = ROOT } }
-		effect_delete_finite_agro_state		= yes
-		effect_delete_finite_plant_state	= yes
-		effect_delete_useless_inf_state		= yes
 		# effect_seed_autarky_farms_state		= yes
 		if = { limit = { free_arable_land > 0 } create_building = { building = building_autarky_farm level = arable_land } }
 		effect_seed_resources_state			= yes
@@ -5429,7 +4862,7 @@ effect_fix_puppets = {
 	}
 	every_country = {
 		limit = { is_subject_of = ROOT }
-		hidden_effect = { activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_disabled_subsistence } }
+		hidden_effect = { activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tools_disabled_subsistence } }
 		custom_tooltip = {
 			text = effect_tool_fertilizer_switch.tt
 			effect_fertilizer_switch = yes
@@ -5537,7 +4970,6 @@ effect_fix_customs_union = {
 		every_scope_state = {
 			effect_delete_finite_agro_state		= yes
 			effect_delete_finite_plant_state	= yes
-			effect_delete_useless_inf_state		= yes
 			# effect_seed_autarky_farms_state		= yes
 			# if = { limit = { free_arable_land > 0 }
 				# create_building = {
@@ -5560,7 +4992,7 @@ effect_fix_customs_union = {
 				effect_seed_plantations_state	= yes
 			}
 		}
-		hidden_effect = { activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_disabled_subsistence } }
+		hidden_effect = { activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tools_disabled_subsistence } }
 		custom_tooltip = {
 			text = effect_tool_fertilizer_switch.tt
 			effect_fertilizer_switch = yes
@@ -5683,17 +5115,17 @@ effect_tobacco_ban = {
 			limit = {
 				OR = {
 					any_scope_building = { is_building_type = building_tobacco_plantation }
-					any_scope_building = { is_building_type = building_infres_tobacco_plantation }
+					any_scope_building = { is_building_type = building_tobacco_greenhouse }
 				}
 			}
 			show_as_tooltip = {
 				every_scope_state = { limit = { has_building = building_tobacco_plantation }		remove_building = building_tobacco_plantation }
-				every_scope_state = { limit = { has_building = building_infres_tobacco_plantation }	remove_building = building_infres_tobacco_plantation }
+				every_scope_state = { limit = { has_building = building_tobacco_greenhouse }	remove_building = building_tobacco_greenhouse }
 			}
 			hidden_effect = {
 				every_scope_state = {
 					remove_building = building_tobacco_plantation
-					remove_building = building_infres_tobacco_plantation
+					remove_building = building_tobacco_greenhouse
 				}
 			}
 		}
@@ -6521,11 +5953,11 @@ effect_edeka = {
 		}
 		every_scope_state = {
 			limit = { OWNER = { has_technology_researched = enclosure } }
-			create_building = { building = "building_infres_autarky_farm"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_vineyard_plantation"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_coffee_plantation"		add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_tea_plantation"			add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_opium_plantation"		add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_autarky_greenhouse"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_vineyard_greenhouse"	add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_coffee_greenhouse"		add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_tea_greenhouse"			add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_opium_greenhouse"		add_ownership = { company = { type = company_edeka country = "scope:country_scope" levels = 1 } } }
 			ROOT = { change_variable = { name = loans_var add = 1.0 } }	# Every building costs 200 points x 1k/point in Millions
 		}
 	}
@@ -6536,9 +5968,9 @@ effect_beic = {
 		save_temporary_scope_as = country_scope
 		every_scope_state = {
 			limit = { OWNER = { has_technology_researched = enclosure } }
-			create_building = { building = "building_infres_tea_plantation"			add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_tobacco_plantation"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_opium_plantation"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_tea_greenhouse"			add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_tobacco_greenhouse"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_opium_greenhouse"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
 			ROOT = { change_variable = { name = loans_var add = 0.6 } }	# Every building costs 200 points x 1k/point in Millions
 		}
 	}
@@ -6549,9 +5981,9 @@ effect_beic = {
 		save_temporary_scope_as = country_scope
 		every_scope_state = {
 			limit = { OWNER = { has_technology_researched = enclosure } state_is_in_india = yes }
-			create_building = { building = "building_infres_tea_plantation"			add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_tobacco_plantation"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
-			create_building = { building = "building_infres_opium_plantation"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_tea_greenhouse"			add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_tobacco_greenhouse"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
+			create_building = { building = "building_opium_greenhouse"		add_ownership = { company = { type = company_east_india_company country = "scope:country_scope" levels = 1 } } }
 			ROOT = { change_variable = { name = loans_var add = 0.6 } }	# Every building costs 200 points x 1k/point in Millions
 		}
 	}
@@ -6767,12 +6199,12 @@ effect_instant_seed_autarky_ivr = {
 			ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
 		}
 		every_scope_state = {
-			limit = { NOT = { has_building = building_infres_autarky_farm } }
-			create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels = 1 } } }
-			ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+			limit = { NOT = { has_building = building_autarky_greenhouse } }
+			create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels = 1 } } }
+			ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 		}
 		hidden_effect = { effect_reset_autarky_pm = yes }
-		hidden_effect = { activate_production_method = { building_type = building_infres_autarky_farm		production_method = pm_tools_disabled_subsistence } }
+		hidden_effect = { activate_production_method = { building_type = building_autarky_greenhouse		production_method = pm_tools_disabled_subsistence } }
 		custom_tooltip = {
 			text = effect_tool_fertilizer_switch.tt
 			effect_fertilizer_switch = yes
@@ -6843,33 +6275,33 @@ effect_instant_build_infres_autarky_ivr = {
 			}
 		}
 		every_scope_state = {
-			limit = { b:building_infres_autarky_farm.level < arable_land }
-			set_variable = { name = old_level value = b:building_infres_autarky_farm.level }
-			if		= { limit = { arable_land <=  11 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
-			else_if	= { limit = { arable_land <=  21 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   20 } } } }
-			else_if	= { limit = { arable_land <=  31 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   30 } } } }
-			else_if	= { limit = { arable_land <=  41 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   40 } } } }
-			else_if	= { limit = { arable_land <=  51 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   50 } } } }
-			else_if	= { limit = { arable_land <=  61 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   60 } } } }
-			else_if	= { limit = { arable_land <=  71 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   70 } } } }
-			else_if	= { limit = { arable_land <=  81 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   80 } } } }
-			else_if	= { limit = { arable_land <=  91 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =   90 } } } }
-			else_if	= { limit = { arable_land <=  101 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  100 } } } }
-			else_if	= { limit = { arable_land <=  201 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  200 } } } }
-			else_if	= { limit = { arable_land <=  301 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  300 } } } }
-			else_if	= { limit = { arable_land <=  401 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  400 } } } }
-			else_if	= { limit = { arable_land <=  501 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  500 } } } }
-			else_if	= { limit = { arable_land <=  601 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  600 } } } }
-			else_if	= { limit = { arable_land <=  701 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  700 } } } }
-			else_if	= { limit = { arable_land <=  801 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  800 } } } }
-			else_if	= { limit = { arable_land <=  901 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels =  900 } } } }
-			else_if	= { limit = { arable_land <= 1001 }	create_building = { building = building_infres_autarky_farm	add_ownership = { country = { country = scope:country_scope levels = 1000 } } } }
+			limit = { b:building_autarky_greenhouse.level < arable_land }
+			set_variable = { name = old_level value = b:building_autarky_greenhouse.level }
+			if		= { limit = { arable_land <=  11 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   10 } } } }
+			else_if	= { limit = { arable_land <=  21 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   20 } } } }
+			else_if	= { limit = { arable_land <=  31 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   30 } } } }
+			else_if	= { limit = { arable_land <=  41 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   40 } } } }
+			else_if	= { limit = { arable_land <=  51 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   50 } } } }
+			else_if	= { limit = { arable_land <=  61 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   60 } } } }
+			else_if	= { limit = { arable_land <=  71 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   70 } } } }
+			else_if	= { limit = { arable_land <=  81 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   80 } } } }
+			else_if	= { limit = { arable_land <=  91 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =   90 } } } }
+			else_if	= { limit = { arable_land <=  101 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  100 } } } }
+			else_if	= { limit = { arable_land <=  201 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  200 } } } }
+			else_if	= { limit = { arable_land <=  301 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  300 } } } }
+			else_if	= { limit = { arable_land <=  401 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  400 } } } }
+			else_if	= { limit = { arable_land <=  501 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  500 } } } }
+			else_if	= { limit = { arable_land <=  601 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  600 } } } }
+			else_if	= { limit = { arable_land <=  701 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  700 } } } }
+			else_if	= { limit = { arable_land <=  801 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  800 } } } }
+			else_if	= { limit = { arable_land <=  901 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels =  900 } } } }
+			else_if	= { limit = { arable_land <= 1001 }	create_building = { building = building_autarky_greenhouse	add_ownership = { country = { country = scope:country_scope levels = 1000 } } } }
 			if = {
-				limit = { b:building_infres_autarky_farm.level > var:old_level }	# Required to prevent division by zero errors
+				limit = { b:building_autarky_greenhouse.level > var:old_level }	# Required to prevent division by zero errors
 				set_variable = {
 					name = temp_price
 					value = {
-						value		= b:building_infres_autarky_farm.level
+						value		= b:building_autarky_greenhouse.level
 						subtract	= var:old_level
 						multiply = {
 							value	= construction_cost_medium		# Building price in construction points
@@ -6897,54 +6329,54 @@ effect_instant_seed_plantations = {
 }
 effect_instant_seed_plantations_state = {
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_autarky_farm } } }
-		create_building = { building = building_infres_autarky_farm level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_autarky_greenhouse } } }
+		create_building = { building = building_autarky_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_vineyard_plantation } } }
-		create_building = { building = building_infres_vineyard_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_vineyard_greenhouse } } }
+		create_building = { building = building_vineyard_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_coffee_plantation } } }
-		create_building = { building = building_infres_coffee_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_coffee_greenhouse } } }
+		create_building = { building = building_coffee_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tea_plantation } } }
-		create_building = { building = building_infres_tea_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_tea_greenhouse } } }
+		create_building = { building = building_tea_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_sugar_plantation } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
-		create_building = { building = building_infres_sugar_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_sugar_greenhouse } }	OWNER = { OR = { THIS = c:BRZ any_primary_culture = { has_cultural_obsession = sugar } } } }
+		create_building = { building = building_sugar_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_opium_plantation } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
-		create_building = { building = building_infres_opium_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:opium } } }
+		create_building = { building = building_opium_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_tobacco_plantation } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
-		create_building = { building = building_infres_tobacco_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }	OWNER = { NOT = { is_banning_goods = g:tobacco } } }
+		create_building = { building = building_tobacco_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_cotton_plantation } } }
-		create_building = { building = building_infres_cotton_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } } }
+		create_building = { building = building_cotton_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_dye_plantation } }		OWNER = { NOT = { has_technology_researched = aniline } } }
-		create_building = { building = building_infres_dye_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_dye_greenhouse } }		OWNER = { NOT = { has_technology_researched = aniline } } }
+		create_building = { building = building_dye_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 	if = {
-		limit = { NOT = { any_scope_building = { is_building_type = building_infres_silk_plantation } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
-		create_building = { building = building_infres_silk_plantation level = 1 }
-		ROOT = { change_variable = { name = loans_var add = 0.2 } }	# Every building costs 200 points x 1k/point in Millions
+		limit = { NOT = { any_scope_building = { is_building_type = building_silk_greenhouse } }		OWNER = { NOT = { has_technology_researched = art_silk } } }
+		create_building = { building = building_silk_greenhouse level = 1 }
+		ROOT = { change_variable = { name = loans_var add = 0.4 } }	# Every building costs 200 points x 1k/point in Millions
 	}
 }
 effect_set_culture_scopes = {

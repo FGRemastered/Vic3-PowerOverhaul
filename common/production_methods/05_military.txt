@@ -367,7 +367,3 @@ pm_default_infres_naval_base = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
     state_modifiers	= { level_scaled	= { state_building_naval_base_max_level_add	= 10 } }
 }
-pm_default_infres_port = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
-    state_modifiers	= { level_scaled	= { state_building_port_max_level_add		=  1 } }
-}

@@ -15,12 +15,12 @@
 			is_capital = no
 			OR = {	# Changed
 				has_building = building_coffee_plantation
-				has_building = building_infres_coffee_plantation
+				has_building = building_coffee_greenhouse
 			}
 			OR = {	# Changed
 				has_building = building_livestock_ranch
 				has_building = building_autarky_farm
-				has_building = building_infres_autarky_farm
+				has_building = building_autarky_greenhouse
 			}
 			is_incorporated = yes
 		}
@@ -118,12 +118,12 @@
 				is_capital = no
 				OR = {	# Changed
 					has_building = building_coffee_plantation
-					has_building = building_infres_coffee_plantation
+					has_building = building_coffee_greenhouse
 				}
 				OR = {	# Changed
 					has_building = building_livestock_ranch
 					has_building = building_autarky_farm
-					has_building = building_infres_autarky_farm
+					has_building = building_autarky_greenhouse
 				}
 				is_incorporated = yes
 			}
@@ -162,12 +162,12 @@ je_coffee_with_milk = {
 			is_capital = no
 			OR = {	# Changed
 				has_building = building_coffee_plantation
-				has_building = building_infres_coffee_plantation
+				has_building = building_coffee_greenhouse
 			}
 			OR = {	# Changed
 				has_building = building_livestock_ranch
 				has_building = building_autarky_farm
-				has_building = building_infres_autarky_farm
+				has_building = building_autarky_greenhouse
 			}
 			is_incorporated = yes
 		}
@@ -279,12 +279,12 @@ je_coffee_with_milk = {
 				is_capital = no
 				OR = {	# Changed
 					has_building = building_coffee_plantation
-					has_building = building_infres_coffee_plantation
+					has_building = building_coffee_greenhouse
 				}
 				OR = {	# Changed
 					has_building = building_livestock_ranch
 					has_building = building_autarky_farm
-					has_building = building_infres_autarky_farm
+					has_building = building_autarky_greenhouse
 				}
 				is_incorporated = yes
 			}

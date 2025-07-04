@@ -99,7 +99,7 @@ gfx_iron_mine_trigger = {
 		}
 	}
 }
-gfx_lead_mine_trigger = {
+gfx_lead_mine_trigger = {	# Unused
 	scope:state = {
 		OR = {
 			has_building = building_lead_mine
@@ -111,6 +111,7 @@ gfx_lead_mine_trigger = {
 gfx_sulfur_mine_trigger = {
 	scope:state = {
 		OR = {
+			has_building = building_charcoal_burner
 			has_building = building_sulfur_mine
 			has_building = building_infres_sulfur_mine
 			# market = { mg:sulfur = { market_goods_sell_orders >= 10 } }

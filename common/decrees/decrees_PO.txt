@@ -49,6 +49,7 @@ decree_emergency_relief = {
 		building_minimum_wage_mult						= 0.25	# Added
 		state_radicals_from_political_movements_mult	=-0.10	# Added
 		state_loyalists_from_political_movements_mult	= 0.10	# Added
+		state_birth_rate_mult							= 1.00	# Added
 	}
 	cost = 50
 	ai_weight = {

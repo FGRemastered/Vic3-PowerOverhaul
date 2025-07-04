@@ -107,7 +107,7 @@ state_atheism.1 = {
 		# radicals from SoL
 		add_modifier = {
 			name = opium_of_the_masses_mod
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 	option = {
@@ -153,6 +153,8 @@ state_atheism.2 = {
 			}
 		}
 	}
+	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }
+	cooldown = { days = normal_modifier_time }
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -217,7 +219,7 @@ state_atheism.2 = {
 			ig:ig_intelligentsia = {
 				is_marginal = no
 				leader = {
-					NOT = { has_ideology = ideology:ideology_atheist }
+					NOT = { has_ideology = ideology:ideology_nihilist }
 				}
 			}
 		}
@@ -230,7 +232,7 @@ state_atheism.2 = {
 				ig_leader = yes
 				interest_group = ig_intelligentsia
 				religion = rel:atheist
-				ideology = ideology_atheist
+				ideology = ideology_nihilist
 			}
 		}
 	}
@@ -260,6 +262,8 @@ state_atheism.3 = {
 			}
 		}
 	}
+	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }
+	cooldown = { days = normal_modifier_time }
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -306,7 +310,7 @@ state_atheism.3 = {
 		trigger = { has_law = law_type:law_no_social_security }
 		add_modifier = {
 			name = ad_hoc_government_charities
-			months = short_modifier_time
+			days = short_modifier_time
 		}
 		add_enactment_modifier = {
 			name = imitating_charities
@@ -353,6 +357,8 @@ state_atheism.4 = {
 			is_country_type = recognized
 		}
 	}
+	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }
+	cooldown = { days = normal_modifier_time }
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -388,7 +394,7 @@ state_atheism.4 = {
 		scope:atheist_ig = {
 			add_modifier = {
 				name = modifier_caved_to_theists
-				months = short_modifier_time
+				days = short_modifier_time
 			}
 		}
 		add_enactment_modifier = {
@@ -413,7 +419,7 @@ state_atheism.4 = {
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_expelled_devouts_friends
-				months = short_modifier_time
+				days = short_modifier_time
 			}
 		}
 		add_radicals = {
@@ -446,7 +452,7 @@ state_atheism.5 = {
 			leader = {
 				OR = {
 					has_ideology = ideology:ideology_radical
-					has_ideology = ideology:ideology_atheist
+					has_ideology = ideology:ideology_nihilist
 					has_ideology = ideology:ideology_communist
 					has_ideology = ideology:ideology_vanguardist
 					has_ideology = ideology:ideology_anarchist
@@ -454,6 +460,8 @@ state_atheism.5 = {
 			}
 		}
 	}
+	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }
+	cooldown = { days = normal_modifier_time }
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -471,7 +479,7 @@ state_atheism.5 = {
 		scope:devout_ig = {
 			add_modifier = {
 				name = modifier_retreat_on_faith
-				months = short_modifier_time
+				days = short_modifier_time
 			}
 		}
 		add_enactment_modifier = {
@@ -600,6 +608,8 @@ state_atheism.6 = {
 			is_marginal = no
 		}
 	}
+	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }
+	cooldown = { days = normal_modifier_time }
 	immediate = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -656,7 +666,7 @@ state_atheism.6 = {
 		scope:religion_seizures_state = {
 			add_loyalists_in_state = {
 				value = small_radicals
-				strata = poor
+				strata = lower
 			}
 		}
 		add_enactment_modifier = {

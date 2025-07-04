@@ -5,7 +5,6 @@ pmg_steam_automation_building_coal_mine = {
 		pm_no_steam_automation
 		pm_steam_donkey_building_coal_mine
 		pm_powered_lift_mine
-		pm_oil_fired_lift_mine
 	}
 }
 pmg_steam_automation = {
@@ -14,7 +13,6 @@ pmg_steam_automation = {
 		pm_no_steam_automation
 		pm_steam_donkey_mine
 		pm_powered_lift_mine
-		pm_oil_fired_lift_mine
 	}
 }
 pmg_equipment = {
@@ -22,11 +20,7 @@ pmg_equipment = {
 	production_methods = {
 		pm_no_equipment
 		pm_steam_powered_winch
-		pm_powered_winch
-		pm_oil_fired_winch
 		pm_chainsaws
-		pm_electric_chainsaws
-		pm_modern_chainsaws
 	}
 }
 # Harvesting methods

@@ -203,8 +203,8 @@
  
  building_autarky_farm: "Autark Farms"
  building_autarky_farm_lens_option: "Expand $building_autarky_farm$"
- building_infres_autarky_farm: "Inf. Autark Farms"
- building_infres_autarky_farm_lens_option: "Expand $building_infres_autarky_farm$"
+ building_autarky_greenhouse: "Inf. Autark Farms"
+ building_autarky_greenhouse_lens_option: "Expand $building_autarky_greenhouse$"
  building_infres_subsistence_farms: "Inf. Subs. Farms"
  building_infres_subsistence_farms_lens_option: "Expand $building_infres_subsistence_farms$"
  building_infres_subsistence_orchards: "Inf. Subs. Orchards"

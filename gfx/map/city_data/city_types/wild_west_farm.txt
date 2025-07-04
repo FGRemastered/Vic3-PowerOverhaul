@@ -1,7 +1,5 @@
 ﻿wild_west_farm = {
 	city_type = farm
-	center_building_mesh = "wild_west_town_mesh"
-	center_building_size = { 2 2 }
 
 	trigger = {
 		has_american_buildings_dlc_trigger = yes
@@ -84,14 +82,14 @@
 	building_manor_house = {"european_rural_manorhouse_01_mesh"}
 
 	# Infres
-	building_infres_coffee_plantation	= { "southern_plantation_mesh" }
-	building_infres_silk_plantation		= { "southern_plantation_mesh" }
-	building_infres_cotton_plantation	= { "southern_plantation_mesh" }
-	building_infres_dye_plantation		= { "southern_plantation_mesh" }
-	building_infres_opium_plantation	= { "southern_plantation_mesh" }
-	building_infres_tea_plantation		= { "southern_plantation_mesh" }
-	building_infres_tobacco_plantation	= { "southern_plantation_mesh" }
-	building_infres_sugar_plantation	= { "southern_plantation_mesh" }
-	building_infres_banana_plantation	= { "southern_plantation_mesh" }
-	building_infres_vineyard_plantation	= { "southern_plantation_mesh" }
+	building_coffee_greenhouse	= { "southern_plantation_mesh" }
+	building_silk_greenhouse		= { "southern_plantation_mesh" }
+	building_cotton_greenhouse	= { "southern_plantation_mesh" }
+	building_dye_greenhouse		= { "southern_plantation_mesh" }
+	building_opium_greenhouse	= { "southern_plantation_mesh" }
+	building_tea_greenhouse		= { "southern_plantation_mesh" }
+	building_tobacco_greenhouse	= { "southern_plantation_mesh" }
+	building_sugar_greenhouse	= { "southern_plantation_mesh" }
+	building_banana_greenhouse	= { "southern_plantation_mesh" }
+	building_vineyard_greenhouse	= { "southern_plantation_mesh" }
 }

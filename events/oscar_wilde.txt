@@ -89,7 +89,7 @@ oscar_wilde_events.1 = {
 			if = {
 				limit = {
 					exists = scope:oscar_wilde.home_country
-					NOT = { scope:oscar_wilde.home_country = ROOT }
+					NOT = { scope:oscar_wilde.home_country ?= ROOT }
 				}
 				if = {
 					limit = {

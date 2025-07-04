@@ -242,21 +242,6 @@ types state_panel_types {
 			blockoverride "text" {
 				text = "URBAN_PART_OF_STATE"
 			}
-			# button_icon_round = {
-				# position = { -40 0 }
-				# parentanchor = right|vcenter
-				# size = { 29 29 }
-
-				# visible = "[State.GetCountry.IsLocalPlayer]"
-				# onclick = "[InformationPanelBar.OpenCompactBuildingBrowserPanelCycleFilters( GetPlayer.Self, '|' )]"
-
-				# blockoverride "icon" {
-					# texture = "gfx/interface/icons/building_icons/building_browser_filter_icons/filter_icons_building_type.dds"
-				# }
-				# blockoverride "icon_size" {
-					# size = { 80% 80% }
-				# }
-			# }
 
 			# grid/list toggle
 			button_icon_round_toggle = {
@@ -301,7 +286,7 @@ types state_panel_types {
 
 				divider_clean = {}
 			
-				expanded_building_grid_header_building_item = {
+				header_building_item = {
 					datacontext = "[StatesPanel.AccessBuilding('building_urban_center')]"
 
 					tooltipwidget = {
@@ -377,7 +362,7 @@ types state_panel_types {
 					flipdirection = yes
 
 					item = {
-						expanded_building_grid_building_item = {}
+						building_item = {}
 					}
 				}
 
@@ -494,7 +479,7 @@ types state_panel_types {
 				flipdirection = yes
 
 				item = {
-					expanded_building_grid_building_item = {}
+					building_item = {}
 				}
 			}
 		}
@@ -533,7 +518,7 @@ types state_panel_types {
 				divider_clean = {}
 
 			### UNUSED ARABLE LAND
-			expanded_building_grid_header_building_item = {
+			header_building_item = {
 				datacontext = "[StatesPanel.AccessSubsistenceBuilding]"
 				tooltipwidget = {
 					FancyTooltip_Building = {}
@@ -554,7 +539,7 @@ types state_panel_types {
 				flipdirection = yes
 
 				item = {
-					expanded_building_grid_building_item = {}
+					building_item = {}
 				}
 			}
 		}
@@ -659,7 +644,7 @@ types state_panel_types {
 						flipdirection = yes
 
 						item = {
-							expanded_building_grid_building_item = {}
+							building_item = {}
 							}
 						}
 					}

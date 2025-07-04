@@ -239,9 +239,11 @@ pm_philosophy_department = {
 	unlocking_technologies = { dialectics }
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_clothes_add				=    1		# x-30	=  -30
+			goods_input_furniture_add			=    1		# x-30	=  -30
 			goods_input_paper_add				=    5		# x-30	= -150
 			goods_input_fine_art_add			=    0.75	# x-200	= -150
-			goods_output_services_add			=   10		# x+30	= +300
+			goods_output_services_add			=   12		# x+30	= +360
 		}													#		=    0
 		level_scaled = {
 			building_employment_clerks_add		=  500
@@ -266,9 +268,11 @@ pm_analytical_philosophy_department = {
 	unlocking_technologies = { analytical_philosophy }
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_clothes_add				=    5		# x-30	= -150
+			goods_input_furniture_add			=    5		# x-30	= -150
 			goods_input_paper_add				=    5		# x-30	= -150
 			goods_input_fine_art_add			=    1.5	# x-200	= -300
-			goods_output_services_add			=   15		# x+30	= +450
+			goods_output_services_add			=   25		# x+30	= +750
 		}													#		=    0
 		level_scaled = {
 			building_employment_bureaucrats_add	=  500

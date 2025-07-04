@@ -28,7 +28,7 @@ building_rubber_plantation = {
 		pmg_base_building_rubber_plantation
 		pmg_equipment	# Rubber is closer to Logging than anything else
 		pmg_tertiary_agri_power
-		pmg_train_automation
+		pmg_transportation_building_logging_camp
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
@@ -50,7 +50,7 @@ building_infres_logging_camp = {
 		pmg_base_building_wood_plantation
 		pmg_equipment
 		pmg_greenhouse
-		pmg_train_automation
+		pmg_transportation_building_logging_camp
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"	# Changed
@@ -71,7 +71,7 @@ building_infres_rubber_plantation = {
 		pmg_base_building_rubber_plantation
 		pmg_equipment	# Rubber is closer to Logging than anything else
 		pmg_greenhouse
-		pmg_train_automation
+		pmg_transportation_building_logging_camp
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
@@ -317,7 +317,7 @@ building_silk_plantation = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 # Infinite Plantations
-building_infres_vineyard_plantation = {
+building_vineyard_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_vineyard_plantations
 	icon = "gfx/interface/icons/building_icons/vineyards.dds"
@@ -334,7 +334,7 @@ building_infres_vineyard_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_coffee_plantation = {
+building_coffee_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_coffee_plantations
 	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
@@ -351,7 +351,7 @@ building_infres_coffee_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_tea_plantation = {
+building_tea_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_tea_plantations
 	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
@@ -368,7 +368,7 @@ building_infres_tea_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_sugar_plantation = {
+building_sugar_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_sugar_plantations
 	icon = "gfx/interface/icons/building_icons/sugar_plantation.dds"
@@ -385,7 +385,7 @@ building_infres_sugar_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_banana_plantation = {
+building_banana_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_banana_plantations
 	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
@@ -402,7 +402,7 @@ building_infres_banana_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_opium_plantation = {
+building_opium_greenhouse = {
 	possible	= { OWNER = { NOT = { is_banning_goods	= g:opium } } }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_opium_plantations
@@ -420,7 +420,7 @@ building_infres_opium_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_tobacco_plantation = {
+building_tobacco_greenhouse = {
 	possible	= { OWNER = { NOT = { is_banning_goods	= g:tobacco } } }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_tobacco_plantations
@@ -438,7 +438,7 @@ building_infres_tobacco_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_cotton_plantation = {
+building_cotton_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_cotton_plantations
 	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
@@ -455,7 +455,7 @@ building_infres_cotton_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_dye_plantation = {
+building_dye_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_dye_plantations
 	icon = "gfx/interface/icons/building_icons/dye_plantation.dds"
@@ -472,7 +472,7 @@ building_infres_dye_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_infres_silk_plantation = {
+building_silk_greenhouse = {
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
 	building_group = bg_infres_silk_plantations
 	icon = "gfx/interface/icons/building_icons/silk_plantation.dds"

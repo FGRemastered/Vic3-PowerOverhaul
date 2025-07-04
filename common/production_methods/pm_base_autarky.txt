@@ -4,20 +4,19 @@ default_building_autarky_farm = {
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"	# subsistence_farming
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_grain_add								=     4.5	# x+20	=    90
-			goods_output_fish_add								=     4.5	# x+20	=    90
-			goods_output_fruit_add								=     3		# x+30	=    90
-			goods_output_sugar_add								=     3		# x+30	=    90
-			goods_output_meat_add								=     3		# x+30	=    90
-			goods_output_groceries_add							=    15		# x+30	=   450		# Doesn't count
-			goods_output_liquor_add								=     4.5	# x+30	=   135		# Doesn't count
+			goods_output_grain_add								=     6		# x+20	=   120
+			goods_output_fish_add								=     6		# x+20	=   120
+			goods_output_fruit_add								=     4		# x+30	=   120
+			goods_output_sugar_add								=     4		# x+30	=   120
+			goods_output_meat_add								=     4		# x+30	=   120
+			goods_output_groceries_add							=    20		# x+30	=   600		# Doesn't count
+			goods_output_liquor_add								=     6		# x+30	=   180		# Doesn't count
 			goods_output_fertilizer_add							=    10		# x+30	=   300
-			goods_output_fabric_add								=    10		# x+20	=   200
-			goods_output_wood_add								=    10		# x+20	=   200
-			goods_output_hardwood_add							=     5		# x+40	=   200
-			goods_output_services_add							=     4		# x+30	=   120
-		}																	#		= +1605	#  1600
-		level_scaled = { building_employment_peasants_add		=  5000 }	# x-.004=   -40	=> Stops breaking even at SoL 40
+			goods_output_fabric_add								=     5		# x+20	=   100
+			goods_output_wood_add								=     5		# x+20	=   100
+			goods_output_services_add							=     5		# x+30	=   150
+		}																	#		= +1250	#  1200
+		level_scaled = { building_employment_peasants_add		=  5000 }	# x-.004=   -40	=> Stops breaking even at SoL 
 		unscaled = {
 			goods_input_transportation_mult						=     1
 			goods_input_electricity_mult						=     1
@@ -46,23 +45,24 @@ pm_enriched_autarky_farm = {			#x1.5 - x2.0
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fertilizer_add							=    10		# x+30	=  -300
-			goods_input_tools_add								=     1		# x-40	=   -40
+			goods_input_tools_add								=     2		# x-40	=   -80
+			goods_input_fertilizer_add							=    10		# x-30	=  -300
 			# output goods
-			goods_output_grain_add								=     7.5	# x+20	=   150
-			goods_output_fish_add								=     7.5	# x+20	=   150
-			goods_output_fruit_add								=     5		# x+30	=   150
-			goods_output_sugar_add								=     5		# x+30	=   150
-			goods_output_meat_add								=     5		# x+30	=   150
-			goods_output_groceries_add							=    25		# x+30	=   750		# Doesn't count
-			goods_output_liquor_add								=     7.5	# x+30	=   225		# Doesn't count
+			goods_output_grain_add								=     9		# x+20	=   180
+			goods_output_fish_add								=     9		# x+20	=   180
+			goods_output_fruit_add								=     6		# x+30	=   180
+			goods_output_sugar_add								=     6		# x+30	=   180
+			goods_output_meat_add								=     6		# x+30	=   180
+			goods_output_groceries_add							=    30		# x+30	=   900		# Doesn't count
+			goods_output_liquor_add								=    12		# x+30	=   360		# Doesn't count
 			goods_output_fertilizer_add							=    10		# x+30	=   300
-			goods_output_fabric_add								=    15		# x+20	=   300
-			goods_output_wood_add								=    15		# x+20	=   300
-			goods_output_hardwood_add							=     7.5	# x+40	=   300
-			goods_output_services_add							=     8		# x+30	=   240
-		}																	#		= +3200	#  3200
-		level_scaled = { building_employment_peasants_add		= 10000 }	# x-.004=   -80	=> Stops breaking even at SoL 40	# +100%
+			goods_output_fabric_add								=    16		# x+20	=   320
+			goods_output_wood_add								=    16		# x+20	=   320
+			goods_output_hardwood_add							=     8		# x+40	=   320
+			goods_output_services_add							=    10		# x+30	=   300
+			goods_output_oil_add								=     3		# x+40	=   120		# Turns out cows fart... a lot.
+		}																	#		= +2260	#  2250
+		level_scaled = { building_employment_peasants_add		= 10000 }	# x-.004=   -80	=> Stops breaking even at SoL 	# +100%
 		unscaled = {
 			goods_input_transportation_mult						=     1
 			goods_input_electricity_mult						=     1
@@ -105,11 +105,10 @@ pm_fertilized_autarky_farm = {		#x3
 			goods_output_fabric_add								=    20		# x+20	=   400
 			goods_output_wood_add								=    20		# x+20	=   400
 			goods_output_hardwood_add							=    10		# x+40	=   400
-			goods_output_coal_add								=    10		# x+30	=   300
-			goods_output_services_add							=    12		# x+30	=   360
-			goods_output_oil_add								=     6		# x+40	=   240		# Turns out cows fart... a lot.
-		}																	#		= +3600	#  4800
-		level_scaled = { building_employment_peasants_add		= 12500 }	# x-.004=   -90	=> Stops breaking even at SoL 40	# +150%
+			goods_output_services_add							=    10		# x+30	=   300
+			goods_output_oil_add								=    15		# x+40	=   600		# Turns out cows fart... a lot.
+		}																	#		= +3150	#  3150
+		level_scaled = { building_employment_peasants_add		= 12500 }	# x-.004=   -90	=> Stops breaking even at SoL 	# +150%
 		unscaled = {
 			goods_input_transportation_mult						=     1
 			goods_input_electricity_mult						=     1
@@ -144,21 +143,21 @@ pm_chem_fertilized_autarky_farm = {		#x4.5 - x5.0
 			goods_input_tools_add								=     5		# x-40	=  -200
 			goods_input_fertilizer_add							=    45		# x-30	= -1350
 			# output goods
-			goods_output_grain_add								=    22.5	# x+20	=   450
-			goods_output_fish_add								=    22.5	# x+20	=   450
-			goods_output_fruit_add								=    15		# x+30	=   450
-			goods_output_sugar_add								=    15		# x+30	=   450
-			goods_output_meat_add								=    15		# x+30	=   450
-			goods_output_groceries_add							=    75		# x+30	=  2250		# Doesn't count
-			goods_output_liquor_add								=    20		# x+30	=   600		# Doesn't count
+			goods_output_grain_add								=    18		# x+20	=   360
+			goods_output_fish_add								=    18		# x+20	=   360
+			goods_output_fruit_add								=    12		# x+30	=   360
+			goods_output_sugar_add								=    12		# x+30	=   360
+			goods_output_meat_add								=    12		# x+30	=   360
+			goods_output_groceries_add							=    60		# x+30	=  1800		# Doesn't count
+			goods_output_liquor_add								=    15		# x+30	=   450		# Doesn't count
 			goods_output_fertilizer_add							=    10		# x+30	=   300
-			goods_output_fabric_add								=    30		# x+20	=   600
-			goods_output_wood_add								=    30		# x+20	=   600
-			goods_output_hardwood_add							=    15		# x+40	=   600
-			goods_output_services_add							=    20		# x+30	=   600
-			goods_output_oil_add								=    20		# x+40	=   800		# Turns out cows fart... a lot.
-		}																	#		= +4800	#  4800
-		level_scaled = { building_employment_peasants_add		= 15000 }	# x-.004=  -120	=> Stops breaking even at SoL 40	# +200%
+			goods_output_fabric_add								=    40		# x+20	=   800
+			goods_output_wood_add								=    40		# x+20	=   800
+			goods_output_hardwood_add							=    20		# x+40	=   800
+			goods_output_services_add							=    15		# x+30	=   450
+			goods_output_oil_add								=    15		# x+40	=   600		# Turns out cows fart... a lot.
+		}																	#		= +4000	#  4050
+		level_scaled = { building_employment_peasants_add		= 15000 }	# x-.004=  -120	=> Stops breaking even at SoL 	# +200%
 		unscaled = {
 			goods_input_transportation_mult						=     1
 			goods_input_electricity_mult						=     1
@@ -194,21 +193,21 @@ pm_auto_fertilized_autarky_farm = {		#x7.5
 			goods_input_engines_add								=     5		# x-60	=  -300
 			goods_input_fertilizer_add							=    45		# x-30	= -1350	# 50-5
 			# output goods
-			goods_output_grain_add								=    30		# x+20	=   600
-			goods_output_fish_add								=    30		# x+20	=   600
-			goods_output_fruit_add								=    20		# x+30	=   600
-			goods_output_sugar_add								=    20		# x+30	=   600
-			goods_output_meat_add								=    20		# x+30	=   600
-			goods_output_groceries_add							=   100		# x+30	=  3000		# Doesn't count
+			goods_output_grain_add								=    22.5	# x+20	=   450
+			goods_output_fish_add								=    22.5	# x+20	=   450
+			goods_output_fruit_add								=    15		# x+30	=   450
+			goods_output_sugar_add								=    15		# x+30	=   450
+			goods_output_meat_add								=    20		# x+30	=   450
+			goods_output_groceries_add							=    75		# x+30	=  2250		# Doesn't count
 			goods_output_liquor_add								=    20		# x+30	=   600		# Doesn't count
 			goods_output_fertilizer_add							=    10		# x+30	=   300
-			goods_output_fabric_add								=    60		# x+20	=  1200
-			goods_output_wood_add								=    60		# x+20	=  1200
-			goods_output_hardwood_add							=    30		# x+40	=  1200
+			goods_output_fabric_add								=    50		# x+20	=  1000
+			goods_output_wood_add								=    50		# x+20	=  1000
+			goods_output_hardwood_add							=    25		# x+40	=  1000
 			goods_output_services_add							=    25		# x+30	=   750
-			goods_output_oil_add								=    25		# x+40	=  1000		# Turns out cows fart... a lot.
-		}																	#		= +7200	# 7200
-		level_scaled = { building_employment_peasants_add		= 22500 }	# x-.004=  -180	=> Stops breaking even at SoL 40	# +350%
+			goods_output_oil_add								=    15		# x+40	=   600		# Turns out cows fart... a lot.
+		}																	#		= +4850	# 4950
+		level_scaled = { building_employment_peasants_add		= 22500 }	# x-.004=  -180	=> Stops breaking even at SoL 	# +350%
 		unscaled = {
 			goods_input_transportation_mult						=     1
 			goods_input_electricity_mult						=     1

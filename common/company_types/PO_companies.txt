@@ -242,19 +242,19 @@ company_edeka = {
 		building_tobacco_plantation
 		building_banana_plantation
 		# Inf. Plantations
-		building_infres_autarky_farm
-		building_infres_sugar_plantation
-		building_infres_vineyard_plantation
-		building_infres_coffee_plantation
-		building_infres_tea_plantation
-		building_infres_opium_plantation
-		building_infres_tobacco_plantation
-		building_infres_banana_plantation
+		building_autarky_greenhouse
+		building_sugar_greenhouse
+		building_vineyard_greenhouse
+		building_coffee_greenhouse
+		building_tea_greenhouse
+		building_opium_greenhouse
+		building_tobacco_greenhouse
+		building_banana_greenhouse
 	}
 	extension_building_types = {
-		building_infres_cotton_plantation
-		building_infres_dye_plantation
-		building_infres_silk_plantation
+		building_cotton_greenhouse
+		building_dye_greenhouse
+		building_silk_greenhouse
 	}
 	possible_prestige_goods = {
 		prestige_good_generic_clothes
@@ -324,7 +324,7 @@ company_basf = {
 	}
 	extension_building_types = {
 		building_explosives_factory		# Moved to Rheinmetall
-		building_infres_dye_plantation
+		building_dye_greenhouse
 		building_sulfur_mine
 	}
 	possible_prestige_goods = {
@@ -537,13 +537,13 @@ company_east_india_company = {
 		building_tea_plantation
 		building_tobacco_plantation
 		building_opium_plantation
-		building_infres_tea_plantation
-		building_infres_tobacco_plantation
-		building_infres_opium_plantation
+		building_tea_greenhouse
+		building_tobacco_greenhouse
+		building_opium_greenhouse
 	}
 	extension_building_types = {
-		building_infres_sugar_plantation
-		building_infres_silk_plantation
+		building_sugar_greenhouse
+		building_silk_greenhouse
 	}
 	possible_prestige_goods = {
 		prestige_good_bengal_opium
@@ -562,9 +562,9 @@ company_east_india_company = {
 					is_building_type = building_tea_plantation
 					is_building_type = building_tobacco_plantation
 					is_building_type = building_opium_plantation
-					is_building_type = building_infres_tea_plantation
-					is_building_type = building_infres_tobacco_plantation
-					is_building_type = building_infres_opium_plantation
+					is_building_type = building_tea_greenhouse
+					is_building_type = building_tobacco_greenhouse
+					is_building_type = building_opium_greenhouse
 				}
 				level >= 5
 			}
@@ -608,8 +608,8 @@ company_united_fruit = {
 	building_types = {
 		building_banana_plantation
 		building_sugar_plantation
-		building_infres_banana_plantation
-		building_infres_sugar_plantation
+		building_banana_greenhouse
+		building_sugar_greenhouse
 	}
 	extension_building_types = {
 		building_railway
@@ -634,8 +634,8 @@ company_united_fruit = {
 					OR = {
 						is_building_type = building_banana_plantation
 						is_building_type = building_sugar_plantation
-						is_building_type = building_infres_banana_plantation
-						is_building_type = building_infres_sugar_plantation
+						is_building_type = building_banana_greenhouse
+						is_building_type = building_sugar_greenhouse
 					}
 					level >= 5
 				}
@@ -646,7 +646,7 @@ company_united_fruit = {
 			is_incorporated = yes
 			OR = {
 				any_scope_building = { is_building_type = building_sugar_plantation			level >= 5 }
-				any_scope_building = { is_building_type = building_infres_sugar_plantation	level >= 5 }
+				any_scope_building = { is_building_type = building_sugar_greenhouse	level >= 5 }
 			}
 		}
 		any_scope_state = {
@@ -662,8 +662,8 @@ company_united_fruit = {
 					OR = {
 						is_building_type = building_banana_plantation
 						is_building_type = building_sugar_plantation
-						is_building_type = building_infres_banana_plantation
-						is_building_type = building_infres_sugar_plantation
+						is_building_type = building_banana_greenhouse
+						is_building_type = building_sugar_greenhouse
 					}
 					levels_owned_by_country = {
 						target = ROOT
@@ -801,10 +801,10 @@ company_vodka_monopoly = {
 		building_food_industry
 		# Plantations
 		building_vineyard_plantation
-		building_infres_vineyard_plantation
+		building_vineyard_greenhouse
 	}
 	extension_building_types = {
-		building_infres_autarky_farm
+		building_autarky_greenhouse
 		building_wheat_farm
 	}
 	possible_prestige_goods = {
@@ -951,11 +951,11 @@ company_espana_industrial = {
 	building_types = {
 		building_textile_mills
 		building_cotton_plantation
-		building_infres_cotton_plantation
+		building_cotton_greenhouse
 	}
 	extension_building_types = {
 		building_silk_plantation
-		building_infres_silk_plantation
+		building_silk_greenhouse
 	}
 	possible_prestige_goods = {
 		prestige_good_generic_clothes

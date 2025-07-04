@@ -1,17 +1,6 @@
 ﻿indian_port = {
 #	graphical_culture = "indian"
 	city_type = port
-	center_building_entity = "indian_port_centerpiece_01_entity"
-	center_modifiers = {
-		building_shipyards = "s"
-		building_port = "d"
-		building_fishing_wharf = "f"
-		building_military_shipyards = "s"
-		building_whaling_station = "f"
-	}
-	modifier_key_prefix = "indian_port"
-	modifier_key_suffix = "entity"
-	center_building_size = { 2 2 }
 
 	trigger = {
 		any_scope_state = {

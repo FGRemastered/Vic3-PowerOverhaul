@@ -1,8 +1,9 @@
 ﻿advance = {
 	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
 	is_basic_order_type = yes
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -20,7 +21,8 @@
 advance_reckless = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_reckless.dds"	# Changed
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -43,7 +45,8 @@ advance_reckless = {
 advance_pillager = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_pillager.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -71,7 +74,8 @@ advance_pillager = {
 advance_cautious = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_cautious.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -92,7 +96,8 @@ advance_cautious = {
 advance_heavy_barrage = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_heavy_barrage.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -102,6 +107,41 @@ advance_heavy_barrage = {
 		   has_trait = experienced_artillery_commander
 		   has_trait = expert_artillery_commander
 		}
+        trigger_if = {
+            limit = { has_role = general }
+            OR = {
+                commander_military_formation ?= {
+                    formation_army_unit_type_fraction = {
+                        target = unit_type:combat_unit_type_cannon_artillery
+                        value >= 0.2
+                    }
+                }
+                commander_military_formation ?= {
+                    formation_army_unit_type_fraction = {
+                        target = unit_type:combat_unit_type_mobile_artillery
+                        value >= 0.2
+                    }
+                }
+                commander_military_formation ?= {
+                    formation_army_unit_type_fraction = {
+                        target = unit_type:combat_unit_type_shrapnel_artillery
+                        value >= 0.2
+                    }
+                }
+                commander_military_formation ?= {
+                    formation_army_unit_type_fraction = {
+                        target = unit_type:combat_unit_type_siege_artillery
+                        value >= 0.2
+                    }
+                }
+                commander_military_formation ?= {
+                   formation_army_unit_type_fraction = {
+                      target = unit_type:combat_unit_type_heavy_tank
+                      value >= 0.2
+                   }
+                }
+            }
+        }
 	}
 	modifier = {
 		character_advancement_speed_add	= 2.5	# Changed (+.5)
@@ -119,7 +159,8 @@ advance_heavy_barrage = {
 advance_cavalry_assualt = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_cavalry_assault.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -127,31 +168,31 @@ advance_cavalry_assualt = {
 		trigger_if = {
 			limit = { has_role = general }
 			OR = {
-				commander_military_formation = {
+				commander_military_formation ?= {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_cuirassiers
 						value >= 0.3
 					}
 				}
-				commander_military_formation = {
+				commander_military_formation ?= {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_hussars
 						value >= 0.3
 					}
 				}
-				commander_military_formation = {
+				commander_military_formation ?= {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_dragoons
 						value >= 0.3
 					}
 				}
-				commander_military_formation = {
+				commander_military_formation ?= {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_lancers
 						value >= 0.3
 					}
 				}
-				commander_military_formation = {
+				commander_military_formation ?= {
 				   formation_army_unit_type_fraction = {
 					  target = unit_type:combat_unit_type_light_tanks
 					  value >= 0.3
@@ -175,7 +216,8 @@ advance_cavalry_assualt = {
 advance_tank_assualt = {
 	texture = "gfx/interface/icons/commander_order_icons/advance_tank_assault.dds"
 	military_type = army
-	ai_usage = advance
+	behavior = advance
+	visible = { has_role = general }
 	possible = {
 		has_role = general
 		ai_subject_can_advance_front	= yes
@@ -183,7 +225,7 @@ advance_tank_assualt = {
 		has_trait = innovative
 		trigger_if = {
 			limit = { has_role = general }
-			commander_military_formation = {
+			commander_military_formation ?= {
 				formation_army_unit_type_fraction = {
 					target = unit_type:combat_unit_type_heavy_tank
 					value >= 0.1									# Changed

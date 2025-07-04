@@ -1,7 +1,5 @@
 ﻿default_farm = {
 	city_type = farm
-	center_building_mesh = "european_rural_center_piece_01_mesh"
-	center_building_size = { 2 2 }
 	
 	weight = -1 #default farm is always down prioritized
 		
@@ -63,15 +61,15 @@
 
 	building_autarky_farm		= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
 	# Infres
-	building_infres_autarky_farm	= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
-	building_infres_coffee_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_silk_plantation		= { "european_rural_plantation_01_mesh" }
-	building_infres_cotton_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_dye_plantation		= { "european_rural_plantation_01_mesh" }
-	building_infres_opium_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_tea_plantation		= { "european_rural_plantation_01_mesh" }
-	building_infres_tobacco_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_sugar_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_banana_plantation	= { "european_rural_plantation_01_mesh" }
-	building_infres_vineyard_plantation	= { "european_rural_plantation_01_mesh" }
+	building_autarky_greenhouse	= { "european_province_farm_01_mesh" "european_province_farm_02_mesh" }
+	building_coffee_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_silk_greenhouse		= { "european_rural_plantation_01_mesh" }
+	building_cotton_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_dye_greenhouse		= { "european_rural_plantation_01_mesh" }
+	building_opium_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_tea_greenhouse		= { "european_rural_plantation_01_mesh" }
+	building_tobacco_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_sugar_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_banana_greenhouse	= { "european_rural_plantation_01_mesh" }
+	building_vineyard_greenhouse	= { "european_rural_plantation_01_mesh" }
 }

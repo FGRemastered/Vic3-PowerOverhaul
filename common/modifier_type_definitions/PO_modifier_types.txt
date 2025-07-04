@@ -38,6 +38,7 @@ goods_input_tobacco_mult										= { decimals = 1	color =  bad	percent = yes	ga
 goods_input_opium_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_automobiles_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_oil_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }	# decimals 0 -> 1
+goods_input_merchant_marine_mult								= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_services_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_transportation_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_electricity_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
@@ -80,15 +81,16 @@ goods_output_glass_mult											= { decimals = 1	color = good	percent = yes	ga
 goods_output_porcelain_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_telephones_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_radios_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Base game has a typo
+goods_output_merchant_marine_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_services_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 100 } }
 goods_output_transportation_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_electricity_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Buildings
-building_infres_silk_plantation_throughput_add					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
-building_infres_cotton_plantation_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
-building_infres_sugar_plantation_throughput_add					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
-building_infres_coffee_plantation_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
-building_infres_tobacco_plantation_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
+building_silk_greenhouse_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
+building_cotton_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
+building_sugar_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
+building_coffee_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
+building_tobacco_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
 building_synthetic_oil_plants_throughput_add					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Synth Oil
 building_group_bg_manor_houses_tax_mult							= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
 building_group_bg_financial_districts_tax_mult					= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }

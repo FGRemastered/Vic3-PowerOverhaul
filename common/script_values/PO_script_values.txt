@@ -70,34 +70,19 @@ bureacracy_per_admin = {
 	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }												multiply	=  1.25 }
 }
 power_per_plant = {
-	if		= { limit = { b:building_power_plant	= { has_active_production_method = pm_hydroelectric_plant } }					value		=   100 }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_coal-fired_plant } }						value		=   150 }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_oil-fired_plant } }						value		=   200 }
-	if		= { limit = { b:building_power_plant	= { has_active_production_method = pm_steam_rail_transport_power_plant		} }						multiply	= 1.5 }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_electric_rail_transport_power_plant	} }	subtract	=   2	multiply	= 2   }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_diesel_rail_transport_power_plant 	} }						multiply	= 2   }
+	if		= { limit = { b:building_power_plant	= { has_active_production_method = pm_early_power_plant } }						value		=    25 }
+	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_coal-fired_plant } }						value		=    50 }
+	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_oil-fired_plant } }						value		=    75 }
 }
 convoys_per_port = {
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_anchorage } }								value		=    50 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_basic_port } }							value		=   150 }
+	if		= { limit = { b:building_port			= { has_active_production_method = pm_anchorage } }								value		=    10 }
+	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_basic_port } }							value		=   100 }
 	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_industrial_port } }						value		=   250 }
 	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_modern_port } }							value		=   500 }
 	
 	if		= { limit = { b:building_port			= { has_active_production_method = pm_steam_rail_transport_port } }				add			=   100 }
 	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_electric_rail_transport_port } }			add			=   250 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_diesel_rail_transport_port } }			add			=   250 }
 	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_modern_port_rail_transport } }			add			=  4500 }
-}
-convoys_per_inf_port = {
-	if		= { limit = { b:building_infres_port	= { has_active_production_method = pm_anchorage } }								value		=    50 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_basic_port } }							value		=   150 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_industrial_port } }						value		=   250 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_modern_port } }							value		=   500 }
-	
-	if		= { limit = { b:building_infres_port	= { has_active_production_method = pm_steam_rail_transport_port } }				add			=   100 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_electric_rail_transport_port } }			add			=   250 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_diesel_rail_transport_port } }			add			=   250 }
-	else_if	= { limit = { b:building_infres_port	= { has_active_production_method = pm_modern_port_rail_transport } }			add			=  4500 }
 }
 small_arms_per_level = {
 	if		= { limit = { b:building_arms_industry	= { has_active_production_method = pm_muskets } }								value		=    30 }
@@ -117,13 +102,14 @@ ammunition_per_level = {
 	else_if	= { limit = { b:building_munition_plants	= { has_active_production_method = pm_explosive_shells } }					value		=   120 }
 }
 aeroplanes_per_level = {
-	if		= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_aeroplane_production } }			value		=    75 }
-	else_if	= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_modern_aeroplane_production } }	value		=   125 }
-	
-	if		= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_tank_production } }				subtract	=    25 }
-	else_if	= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_modern_tank_production } }		subtract	=    50 }
+	if		= { limit = { b:building_automotive_industry	= { has_active_production_method = pm_aeroplane_production } }			value		=    15 }
 }
 tanks_per_level = {
-	if		= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_tank_production } }				value		=    50 }
-	else_if	= { limit = { b:building_war_machine_industry	= { has_active_production_method = pm_modern_tank_production } }		value		=   150 }
+	if		= { limit = { b:building_automotive_industry	= { has_active_production_method = pm_tank_production } }				value		=    15 }
+}
+paper_per_level = {
+	if		= { limit = { b:building_paper_mills	= { has_active_production_method = pm_pulp_pressing } }							value		=    40 }
+	else_if	= { limit = { b:building_paper_mills	= { has_active_production_method = pm_sulfite_pulping } }						value		=    70 }
+	else_if	= { limit = { b:building_paper_mills	= { has_active_production_method = pm_bleached_paper } }						value		=   100 }
+	else_if	= { limit = { b:building_paper_mills	= { has_active_production_method = pm_continous_bleached_paper } }				value		=   250 }
 }

@@ -21,7 +21,6 @@ pm_early_trains = {		# pm_steam_trains
 			state_pollution_generation_add		=   25
 		}
 	}
-	country_modifiers = { workforce_scaled	= { market_land_trade_capacity_add	=  1 } }
 }
 pm_steam_trains = {		# pm_watertube_boiler_steam_trains
 	texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
@@ -47,7 +46,6 @@ pm_steam_trains = {		# pm_watertube_boiler_steam_trains
 			state_pollution_generation_add		=   10
 		}
 	}
-	country_modifiers = { workforce_scaled	= { market_land_trade_capacity_add	=  2 } }
 }
 pm_rotary_valve_steam_trains = {	# Advanced
 	texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
@@ -73,7 +71,6 @@ pm_rotary_valve_steam_trains = {	# Advanced
 			state_pollution_generation_add		=   30
 		}
 	}
-	country_modifiers = { workforce_scaled	= { market_land_trade_capacity_add	=  3 } }
 }
 pm_electric_trains = {
 	texture = "gfx/interface/icons/production_method_icons/trains_electric.dds"
@@ -98,7 +95,6 @@ pm_electric_trains = {
 			state_infrastructure_add			=   50
 		}
 	}
-	country_modifiers = { workforce_scaled	= { market_land_trade_capacity_add	=  5 } }
 	required_input_goods = electricity
 }
 pm_diesel_trains = {
@@ -125,7 +121,6 @@ pm_diesel_trains = {
 			state_pollution_generation_add		=   10
 		}
 	}
-	country_modifiers = { workforce_scaled = { market_land_trade_capacity_add	= 10 } }
 }
 pm_diesel_electric_trains = {
 	texture = "gfx/interface/icons/production_method_icons/trains_diesel.dds"
@@ -153,7 +148,6 @@ pm_diesel_electric_trains = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			market_land_trade_capacity_add		= 25
 			country_prestige_add				=  1
 		}
 	}
@@ -184,7 +178,6 @@ pm_jet_electric_trains = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			market_land_trade_capacity_add		=  50
 			country_prestige_add				=   2
 		}
 	}
@@ -223,7 +216,6 @@ pm_maglev_trains = {
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			market_land_trade_capacity_add		=  100
 			country_prestige_add				=    5
 		}
 	}

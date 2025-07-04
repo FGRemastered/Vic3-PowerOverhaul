@@ -809,8 +809,7 @@ default_building_rubber_plantation = {
 		workforce_scaled = {
 			goods_output_rubber_add				=   30		# x+40	= 1200
 			goods_output_wood_add				=   30		# x+20	=  600
-			goods_output_hardwood_add			=   15		# x+40	=  600
-		}													#		= 2400	# 1200
+		}													#		= 1800	# 1200
 		level_scaled = {
 			building_employment_laborers_add	= 5000		# x-.02	= +100
 			building_employment_farmers_add		= 1000		# x-.04	=  +40
@@ -826,8 +825,7 @@ pm_soil_enriching_farming_rubber_plantation = {
 			goods_input_tools_add				=    5		# x-40	= -200
 			goods_output_rubber_add				=   60		# x+40	= 2400
 			goods_output_wood_add				=   60		# x+20	= 1200
-			goods_output_hardwood_add			=   30		# x+40	= 1200
-		}													#		= 4450	# 2250
+		}													#		= 3250	# 2250
 		level_scaled = {
 			building_employment_laborers_add	= 5000		# x-.02	= +100
 			building_employment_farmers_add		= 1000		# x-.04	=  +40
@@ -842,9 +840,8 @@ pm_fertilization_rubber_plantation = {
 			goods_input_fertilizer_add			=   15		# x-30	= -450
 			goods_input_tools_add				=   10		# x-40	= -400
 			goods_output_rubber_add				=   75		# x+40	= 3000
-			goods_output_wood_add				=   90		# x+20	= 1800
-			goods_output_hardwood_add			=   45		# x+40	= 1800
-		}													#		= 5750	# 3150
+			goods_output_wood_add				=   75		# x+20	= 1500
+		}													#		= 3650	# 3150
 		level_scaled = {
 			building_employment_laborers_add	= 5000		# x-.02	= +100
 			building_employment_farmers_add		=  750		# x-.04	=  +30
@@ -859,9 +856,8 @@ pm_chemical_fertilizer_rubber_plantation = {
 			goods_input_fertilizer_add			=   25		# x-30	= -750
 			goods_input_tools_add				=   20		# x-40	= -800
 			goods_output_rubber_add				=   90		# x+40	= 3600
-			goods_output_wood_add				=  120		# x+20	= 2400
-			goods_output_hardwood_add			=   60		# x+40	= 2400
-		}													#		= 6850	# 4050
+			goods_output_wood_add				=   90		# x+20	= 1800
+		}													#		= 3850	# 4050
 		level_scaled = {
 			building_employment_laborers_add	= 5000		# x-.02	= +100
 			building_employment_machinists_add	=  250		# x-.03	=   +7.5
@@ -878,9 +874,8 @@ pm_automatic_fertilization_rubber_plantation = {
 			goods_input_tools_add				=   20		# x-40	= -800
 			goods_input_engines_add				=    5		# x-60	= -300
 			goods_output_rubber_add				=  120		# x+40	= 4800
-			goods_output_wood_add				=  180		# x+20	= 3600
-			goods_output_hardwood_add			=   90		# x+40	= 3600
-		}													#		= 9700	# 4950
+			goods_output_wood_add				=  120		# x+20	= 2400
+		}													#		= 5350	# 4950
 		level_scaled = {
 			building_employment_laborers_add	= 5000		# x-.02	= +100	- Rail Transport is -1000 again
 			building_employment_machinists_add	=  500		# x-.03	=  +15

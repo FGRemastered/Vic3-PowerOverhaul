@@ -47,8 +47,8 @@ government_petition_events.1 = {
 				limit = {
 					ROOT = { enacting_any_law = yes }
 					trigger_if = {
-						limit = { exists = ROOT.scope:current_law_scope }
-						ROOT.scope:current_law_scope = {
+						limit = { exists = ROOT.currently_enacting_law }
+						ROOT.currently_enacting_law.type = {
 							law_is_valid_for_ig_petition = yes
 							NOR = {
 								scope:government_petition_law	?= THIS
@@ -57,7 +57,7 @@ government_petition_events.1 = {
 						}
 					}
 				}
-				ROOT.scope:current_law_scope = { save_scope_as = government_petition_law_3 }
+				ROOT.currently_enacting_law.type = { save_scope_as = government_petition_law_3 }
 			}
 			else = { clear_saved_scope = government_petition_law_3 }
 			set_variable = { name = petitioning_ig days = 100 }

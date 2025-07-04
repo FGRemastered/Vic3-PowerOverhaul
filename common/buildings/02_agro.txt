@@ -113,7 +113,7 @@ building_autarky_farm = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_infres_autarky_farm = {
+building_autarky_greenhouse = {
 	building_group = bg_infinite_autarky_farms
 	unlocking_technologies = { enclosure }
 	can_build_private		= { trigger_private_construction	= yes }

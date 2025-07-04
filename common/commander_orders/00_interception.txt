@@ -1,13 +1,14 @@
 ﻿interception_coast = {
 	texture = "gfx/interface/icons/commander_order_icons/patrol_coast.dds"
 	military_type = navy
-	ai_usage = intercept
+	behavior = intercept
 	is_basic_order_type = yes
+	visible = { has_role = admiral }
 	possible = { has_role = admiral }
 	modifier = {
 		character_interception_add = 2
 	}
-	clicksound = "event:/SFX/UI/Military/order_admiral_patrol"
+	clicksound = "event:/SFX/UI/Military/order_admiral_intercept"
 	experience = 0 											# Default experience gain with this Order
 	naval_entity = "naval_order_interception_entity"		# Node indicator entity
 	indicator_position_angle = 150							# Player's or ally's order position on the indicator in degrees
@@ -17,7 +18,8 @@
 interception_coast_agressive = {
 	texture = "gfx/interface/icons/commander_order_icons/patrol_coast_agressive.dds"
 	military_type = navy
-	ai_usage = intercept
+	behavior = intercept
+	visible = { has_role = admiral }
 	possible = {
 		has_role = admiral
 		OR = {
@@ -30,7 +32,7 @@ interception_coast_agressive = {
 		character_interception_add = 5
 		unit_navy_offense_mult = -0.1
 	}
-	clicksound = "event:/SFX/UI/Military/order_admiral_patrol"
+	clicksound = "event:/SFX/UI/Military/order_admiral_intercept"
 	experience = 0 # Default experience gain with this Order
 	naval_entity = "naval_order_interception_entity"
 	indicator_position_angle = 150							# Player's or ally's order position on the indicator in degrees
@@ -40,14 +42,15 @@ interception_coast_agressive = {
 interception_carrier_assualt = {	# PDX' typo, not mine.
 	texture = "gfx/interface/icons/commander_order_icons/patrol_carrier_assault.dds"
 	military_type = navy
-	ai_usage = intercept
+	behavior = intercept
+	visible = { has_role = admiral }
 	possible = {
 		has_role = admiral
 		has_trait = innovative
 		# NOT = { has_trait = traditionalist_commander }
 		trigger_if = {
 			limit = { has_role = admiral }
-			commander_military_formation = {
+			commander_military_formation ?= {
 				formation_navy_unit_type_fraction = {
 					target = unit_type:combat_unit_type_carrier
 					value >= 0.30	# Changed
@@ -60,7 +63,7 @@ interception_carrier_assualt = {	# PDX' typo, not mine.
 		unit_supply_consumption_mult	= 0.5
 		unit_navy_offense_mult			= 0.15
 	}
-	clicksound = "event:/SFX/UI/Military/order_admiral_patrol"
+	clicksound = "event:/SFX/UI/Military/order_admiral_intercept"
 	experience = 0 											# Default experience gain with this Order
 	naval_entity = "naval_order_interception_entity"		# Node indicator entity
 	indicator_position_angle = 150							# Order position on indicator in degrees
@@ -69,7 +72,8 @@ interception_carrier_assualt = {	# PDX' typo, not mine.
 interception_coordinated_attack = {
 	texture = "gfx/interface/icons/commander_order_icons/patrol_coordinated_attack.dds"
 	military_type = navy
-	ai_usage = intercept
+	behavior = intercept
+	visible = { has_role = admiral }
 	possible = {
 		has_role = admiral
 		OR = {
@@ -85,7 +89,7 @@ interception_coordinated_attack = {
 		battle_casualties_mult = 0.1
 		unit_navy_offense_mult = 0.2
 	}
-	clicksound = "event:/SFX/UI/Military/order_admiral_patrol"
+	clicksound = "event:/SFX/UI/Military/order_admiral_intercept"
 	experience = 0 # Default experience gain with this Order
 	naval_entity = "naval_order_interception_entity"		# Node indicator entity
 	indicator_position_angle = 150							# Player's or ally's order position on the indicator in degrees

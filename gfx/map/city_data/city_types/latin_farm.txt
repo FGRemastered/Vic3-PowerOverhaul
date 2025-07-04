@@ -1,8 +1,6 @@
 ﻿latin_farm = {
 	graphical_culture = "latin"
 	city_type = farm
-	center_building_mesh = "latin_rural_farm_centerpiece_01_mesh"
-	center_building_size = { 2 2 }
 	
 	min_residential_buildings = 4
 	max_residential_buildings = 50
@@ -61,14 +59,14 @@
 
 	building_manor_house = {"latin_rural_manorhouse_01_mesh"}
 	# Infres
-	building_infres_coffee_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_silk_plantation		= { "latin_farm_plantation_01_mesh" }
-	building_infres_cotton_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_dye_plantation		= { "latin_farm_plantation_01_mesh" }
-	building_infres_opium_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_tea_plantation		= { "latin_farm_plantation_01_mesh" }
-	building_infres_tobacco_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_sugar_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_banana_plantation	= { "latin_farm_plantation_01_mesh" }
-	building_infres_vineyard_plantation	= { "latin_farm_plantation_01_mesh" }
+	building_coffee_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_silk_greenhouse		= { "latin_farm_plantation_01_mesh" }
+	building_cotton_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_dye_greenhouse		= { "latin_farm_plantation_01_mesh" }
+	building_opium_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_tea_greenhouse		= { "latin_farm_plantation_01_mesh" }
+	building_tobacco_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_sugar_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_banana_greenhouse	= { "latin_farm_plantation_01_mesh" }
+	building_vineyard_greenhouse	= { "latin_farm_plantation_01_mesh" }
 }

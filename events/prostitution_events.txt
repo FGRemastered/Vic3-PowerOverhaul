@@ -39,6 +39,7 @@ prostitution.1 = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	duration = 3
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		NOT = { has_variable = police_cooldown }
@@ -50,10 +51,15 @@ prostitution.1 = {
 			value = 3
 		}
 		any_scope_state = {
+			NOT = { has_modifier = cda_enacted }
 			is_incorporated = yes
 			has_building = building_urban_center
 		}
 		any_interest_group = {
+			NOR = {
+				has_modifier = cda_enacted_ig
+				has_modifier = cda_not_enacted_ig
+			}
 			is_in_government = yes
 			OR = {
 				leader = {
@@ -80,10 +86,11 @@ prostitution.1 = {
 	immediate = {
 		set_variable = {
 			name = police_cooldown
-			years = 2
+			years = 5
 		}
 		random_scope_state = {
 			limit = {
+				NOT = { has_modifier = cda_enacted }
 				has_building = building_urban_center
 				is_incorporated = yes
 			}
@@ -91,6 +98,10 @@ prostitution.1 = {
 		}
 		random_interest_group = {
 			limit = {
+				NOR = {
+					has_modifier = cda_enacted_ig
+					has_modifier = cda_not_enacted_ig
+				}
 				is_in_government = yes
 				OR = {
 					leader = {
@@ -122,13 +133,13 @@ prostitution.1 = {
 		scope:cda_state = {
 			add_modifier = {
 				name = cda_enacted
-				months = -1
+				days = very_long_modifier_time
 			}
 		}
 		scope:cda_ig = {
 			add_modifier = {
 				name = cda_enacted_ig
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -137,7 +148,7 @@ prostitution.1 = {
 		scope:cda_ig = {
 			add_modifier = {
 				name = cda_not_enacted_ig
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -154,12 +165,12 @@ prostitution.1 = {
 		scope:cda_ig = {
 			add_modifier = {
 				name = cda_not_enacted_ig
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		add_modifier = {
 			name = cda_following_the_science
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -182,6 +193,7 @@ prostitution.2 = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	duration = 3
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		NOT = { has_variable = police_cooldown }
@@ -288,7 +300,7 @@ prostitution.2 = {
 				}
 				add_modifier = {
 					name = cda_abolished_traditionalists
-					months = normal_modifier_time
+					days = normal_modifier_time
 				}
 			}
 		}
@@ -330,6 +342,7 @@ prostitution.3 = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	duration = 3
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		NOT = { has_variable = police_cooldown }
@@ -361,7 +374,7 @@ prostitution.3 = {
 	immediate = {
 		set_variable = {
 			name = police_cooldown
-			years = 2
+			years = 5
 		}
 		random_scope_state = {
 			limit = {
@@ -417,8 +430,8 @@ prostitution.3 = {
 						limit = {
 							has_law = law_type:law_protected_speech
 						}
+						add = 25
 					}
-					add = 25
 				}
 				if = {
 					limit = {
@@ -442,8 +455,8 @@ prostitution.3 = {
 						limit = {
 							has_law = law_type:law_censorship
 						}
+						add = 25
 					}
-					add = 25
 				}
 			}
 		}
@@ -456,7 +469,7 @@ prostitution.3 = {
 		scope:scandal_character = {
 			add_modifier = {
 				name = embroiled_in_scandal
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -479,6 +492,7 @@ prostitution.4 = {
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	duration = 3
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		NOT = { has_variable = police_cooldown }
@@ -530,7 +544,7 @@ prostitution.4 = {
 			}
 			add_modifier = {
 				name = defunded_police
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -540,7 +554,7 @@ prostitution.4 = {
 		scope:police_brutality_state = {
 			add_radicals_in_state = {
 				value = medium_radicals
-				strata = poor
+				strata = lower
 			}
 		}
 		every_interest_group = {
@@ -552,7 +566,7 @@ prostitution.4 = {
 			}
 			add_modifier = {
 				name = unreasonable_force
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}

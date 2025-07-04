@@ -7,7 +7,7 @@ sericulture = {
 	can_research = no
 	modifier = {
 		building_silk_plantation_throughput_add				= 0.25
-		building_infres_silk_plantation_throughput_add		= 0.25	# Added
+		building_silk_greenhouse_throughput_add				= 0.25	# Added
 	}
 	ai_weight = { value = 1 }
 }
@@ -17,7 +17,7 @@ cotton_gin = {
 	category = production
 	modifier = {
 		building_cotton_plantation_throughput_add			= 0.25
-		building_infres_cotton_plantation_throughput_add	= 0.25	# Added
+		building_cotton_greenhouse_throughput_add			= 0.25	# Added
 	}
 	unlocking_technologies = { manufacturies }
 	ai_weight = { value = 1 }
@@ -54,6 +54,7 @@ pneumatic_tools = {
 		building_construction_sector_throughput_add		= 0.10	# +15% construction throughput
 		# goods_output_hardwood_mult					= 0.25	# Removed
 		country_resource_discovery_chance_mult			= 0.25	# Countries get a +25% chance of discovering new resources
+		building_group_bg_heavy_industry_throughput_add	= 0.10	# Added
 	}
 	unlocking_technologies = {	
 		rotary_valve_engine
@@ -125,7 +126,7 @@ arc_welding = {
 		pneumatic_tools
 	}
 	modifier = {
-		building_group_bg_heavy_industry_throughput_add		= 0.10	# Added
+		building_group_bg_heavy_industry_throughput_add		= 0.15	# Added
 	}
 	ai_weight = { value = 1 }
 }
@@ -155,9 +156,6 @@ floating_harbor = {	# Increases Port Level by 4
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
 	category = military
-	modifier = {
-		state_building_port_max_level_add = 4
-	}
 	unlocking_technologies = {
 		gantry_cranes
 		ironclad_tech	# Added to avoid getting ironclads too late
@@ -196,7 +194,7 @@ defense_in_depth = {	# Increases defense
 	modifier = { unit_army_defense_mult = 0.1 }	# defensive bonus, either to the army or ideally to fortifications
 	unlocking_technologies = {	
 		trench_works
-		wargaming
+		wargaming	# Added
 		handcranked_machine_gun
 	}
 	ai_weight = { value = 2 }	# Important tech in general
@@ -219,7 +217,7 @@ stormtroopers = {	# Unlocks Infiltrators
 		defense_in_depth		# Changed
 		war_propaganda			# Added
 	}
-	# modifier = {
+	# modifier = {	# Moved to unit
 		# unit_kill_rate_add = 0.05
 		# unit_army_offense_mult = 0.1
 		# unit_combat_unit_type_trench_infantry_offense_add		= 5
@@ -236,7 +234,7 @@ flamethrowers = {	# Increases kill rate (lowers opponent survival rate)
 		defense_in_depth	# Changed
 		stormtroopers		# Changed
 	}
-	# modifier = {
+	# modifier = {	# Moved to unit
 		# unit_kill_rate_add = 0.05
 	# }
 	ai_weight = { value = 1 }
@@ -268,10 +266,7 @@ stock_exchange = {
 	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
 	category = society
 	modifier = {
-		country_trade_route_cost_mult						=-0.25
 		state_market_access_price_impact					= 0.10
-		# country_trade_route_competitiveness_mult			= 0.25	# Removed in 1.6
-		# country_max_companies_add							= 1		# Removed in 1.6
 		state_engineers_investment_pool_contribution_add	= 0.05	# Added
 		state_academics_investment_pool_contribution_add	= 0.05	# Added
 		state_officers_investment_pool_contribution_add		= 0.05	# Added
@@ -289,7 +284,7 @@ empiricism = {
 	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
 	category = society
 	modifier = {
-		country_influence_mult							=  0.1
+		country_influence_mult							=  0.25
 		country_diplomatic_play_maneuvers_add			= 10
 		country_institution_schools_max_investment_add	=  1
 		state_education_access_wealth_add				=  0.005
@@ -344,8 +339,9 @@ mutual_funds = {
 	texture = "gfx/interface/icons/invention_icons/mutual_funds.dds"
 	category = society
 	modifier = {
-		country_minting_mult								= 0.1
+		country_minting_mult								= 0.10
 		country_loan_interest_rate_add						=-0.02
+		state_max_trade_advantage_from_capacity_add			= 0.05
 		state_engineers_investment_pool_contribution_add	= 0.05	# Added
 		state_academics_investment_pool_contribution_add	= 0.05	# Added
 		state_officers_investment_pool_contribution_add		= 0.05	# Added
@@ -370,7 +366,6 @@ elevator = {	# Unlocks Arcades PM in Urban Center
 		state_infrastructure_from_population_max_add		= 20
 		state_building_construction_sector_max_level_add	= 10	# Increased
 		country_max_weekly_construction_progress_add		= 5
-		market_land_trade_capacity_add						= 10
 	}	
 	unlocking_technologies = { steel_frame_buildings }
 	ai_weight = { value = 1.5 }	# Important in general
@@ -384,6 +379,7 @@ international_exchange_standards = {
 	modifier = {
 		country_minting_mult								= 0.10
 		country_loan_interest_rate_add						=-0.02
+		state_max_trade_advantage_from_capacity_add			= 0.05
 		state_engineers_investment_pool_efficiency_mult		= 0.25	# Added
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
@@ -398,7 +394,6 @@ paved_roads = {
 	should_update_map = yes # This technology adds paved roads to the map
 	modifier = {
 		state_infrastructure_from_automobiles_consumption_add	= 0.25
-		market_land_trade_capacity_add							= 20
 		state_building_construction_sector_max_level_add		= 10	# Added
 	}
 	unlocking_technologies = { elevator }

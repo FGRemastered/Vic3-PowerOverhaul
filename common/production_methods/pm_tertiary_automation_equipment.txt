@@ -51,30 +51,6 @@ pm_powered_lift_mine = {
 	}
 	required_input_goods = electricity
 }
-pm_oil_fired_lift_mine = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
-	unlocking_technologies = { compression_ignition }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2
-			goods_input_oil_add					=    2
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-1000
-			building_employment_machinists_add 	= -500
-		}
-		unscaled = {
-			goods_output_coal_mult				= 0.50
-			goods_output_iron_mult				= 0.50
-			goods_output_lead_mult				= 0.50
-			goods_output_sulfur_mult			= 0.50
-			goods_output_gold_mult				= 0.50
-		}
-		# unscaled = { building_throughput_add	= 0.50 }
-	}
-}
 # Coal Mine
 pm_steam_donkey_building_coal_mine = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
@@ -111,165 +87,25 @@ pm_steam_powered_winch = {
 			building_employment_laborers_add	=-2000
 		}
 		unscaled = {
-			goods_output_wood_mult				= 0.10
-			goods_output_hardwood_mult			= 0.10
-			goods_output_rubber_mult			= 0.10
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-}
-pm_powered_winch = {
-	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
-	unlocking_technologies = { electrical_generation }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2
-			goods_input_electricity_add			=    4
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-2000
-		}
-		unscaled = {
-			goods_output_wood_mult				= 0.25
-			goods_output_hardwood_mult			= 0.25
-			goods_output_rubber_mult			= 0.25
-		}
-	}
-	required_input_goods = electricity
-}
-pm_oil_fired_winch = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
-	unlocking_technologies = { compression_ignition }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2
-			goods_input_oil_add					=    4
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-2000
-		}
-		unscaled = {
-			goods_output_wood_mult				= 0.25
-			goods_output_hardwood_mult			= 0.25
-			goods_output_rubber_mult			= 0.25
-		}
-	}
-}
-pm_chainsaws = {
-	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
-	unlocking_technologies = { combustion_engine }
-	disallowing_laws = { law_industry_banned }
-	unlocking_production_methods = {
-		pm_simple_forestry
-		pm_hardwood
-		pm_hardwood_saw_mills
-		pm_hardwood_electric_saw_mills
-
-		default_building_rubber_plantation
-		pm_soil_enriching_farming_rubber_plantation
-		pm_fertilization_rubber_plantation
-		pm_chemical_fertilizer_rubber_plantation
-		pm_automatic_fertilization_rubber_plantation
-
-		default_building_banana_plantation
-		pm_soil_enriching_farming_banana_plantation
-		pm_fertilization_banana_plantation
-		pm_chemical_fertilizer_banana_plantation
-		pm_automatic_fertilization_banana_plantation
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2
-			goods_input_oil_add					=    4
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-3000
-			building_employment_machinists_add	=  500
-		}
-		unscaled = {
 			goods_output_wood_mult				= 0.50
 			goods_output_hardwood_mult			= 0.50
 			goods_output_rubber_mult			= 0.50
 		}
 	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_electric_chainsaws = {
-	texture = "gfx/interface/icons/production_method_icons/electric_chainsaws.dds"
-	# unlocking_global_technologies = { combustion_engine }
-	unlocking_technologies = { electrical_capacitors }
+pm_chainsaws = {
+	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
+	unlocking_technologies = { combustion_engine }
 	disallowing_laws = { law_industry_banned }
-	unlocking_production_methods = {
-		pm_simple_forestry
-		pm_hardwood
-		pm_hardwood_saw_mills
-		pm_hardwood_electric_saw_mills
-
-		default_building_rubber_plantation
-		pm_soil_enriching_farming_rubber_plantation
-		pm_fertilization_rubber_plantation
-		pm_chemical_fertilizer_rubber_plantation
-		pm_automatic_fertilization_rubber_plantation
-
-		default_building_banana_plantation
-		pm_soil_enriching_farming_banana_plantation
-		pm_fertilization_banana_plantation
-		pm_chemical_fertilizer_banana_plantation
-		pm_automatic_fertilization_banana_plantation
-	}
 	building_modifiers = {
 		workforce_scaled = {
-			# input goods
 			goods_input_engines_add				=    2
-			goods_input_electricity_add			=    5
+			goods_input_electricity_add			=    1
+			goods_input_oil_add					=    4
 		}
 		level_scaled = {
-			building_employment_laborers_add	=-4000
-			building_employment_engineers_add	=  500
-		}
-		unscaled = {
-			goods_output_wood_mult				= 1.00
-			goods_output_hardwood_mult			= 1.00
-			goods_output_rubber_mult			= 1.00
-		}
-	}
-	required_input_goods = electricity
-}
-pm_modern_chainsaws = {
-	texture = "gfx/interface/icons/production_method_icons/compression_ignition_chainsaws.dds"
-	unlocking_technologies = { compression_ignition }
-	disallowing_laws = { law_industry_banned }
-	unlocking_production_methods = {
-		pm_simple_forestry
-		pm_hardwood
-		pm_hardwood_saw_mills
-		pm_hardwood_electric_saw_mills
-
-		default_building_rubber_plantation
-		pm_soil_enriching_farming_rubber_plantation
-		pm_fertilization_rubber_plantation
-		pm_chemical_fertilizer_rubber_plantation
-		pm_automatic_fertilization_rubber_plantation
-
-		default_building_banana_plantation
-		pm_soil_enriching_farming_banana_plantation
-		pm_fertilization_banana_plantation
-		pm_chemical_fertilizer_banana_plantation
-		pm_automatic_fertilization_banana_plantation
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2
-			goods_input_oil_add					=    5
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-4000
-			building_employment_engineers_add	=  500
+			building_employment_laborers_add	=-3000
 		}
 		unscaled = {
 			goods_output_wood_mult				= 1.00

@@ -1,8 +1,6 @@
 ﻿asian_farm = {
 	graphical_culture = "asian"
 	city_type = farm
-	center_building_mesh = "asian_rural_farm_centerpiece_01_mesh"
-	center_building_size = { 2 2 }
 	
 	min_residential_buildings = 4
 	max_residential_buildings = 50
@@ -59,14 +57,14 @@
 	building_vineyard_plantation 		= { "asian_rural_plantation_01_mesh" }
 	building_manor_house = {"asian_rural_manorhouse_01_mesh"}
 	# Infres
-	building_infres_coffee_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_cotton_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_silk_plantation		= { "asian_rural_plantation_01_mesh" }
-	building_infres_dye_plantation		= { "asian_rural_plantation_01_mesh" }
-	building_infres_opium_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_tea_plantation		= { "asian_rural_plantation_01_mesh" }
-	building_infres_tobacco_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_sugar_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_banana_plantation	= { "asian_rural_plantation_01_mesh" }
-	building_infres_vineyard_plantation	= { "asian_rural_plantation_01_mesh" }
+	building_coffee_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_cotton_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_silk_greenhouse		= { "asian_rural_plantation_01_mesh" }
+	building_dye_greenhouse		= { "asian_rural_plantation_01_mesh" }
+	building_opium_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_tea_greenhouse		= { "asian_rural_plantation_01_mesh" }
+	building_tobacco_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_sugar_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_banana_greenhouse	= { "asian_rural_plantation_01_mesh" }
+	building_vineyard_greenhouse	= { "asian_rural_plantation_01_mesh" }
 }
