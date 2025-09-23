@@ -123,8 +123,8 @@ gfx_forestry_train_trigger = {
 		OR = {
 			has_building = building_logging_camp
 			has_building = building_rubber_plantation
-			has_building = building_infres_logging_camp
-			has_building = building_infres_rubber_plantation
+			has_building = building_logging_greenhouse
+			has_building = building_rubber_greenhouse
 			# market = { mg:wood = { market_goods_sell_orders >= 10 } }
 			# market = { mg:hardwood = { market_goods_sell_orders >= 10 } }
 		}

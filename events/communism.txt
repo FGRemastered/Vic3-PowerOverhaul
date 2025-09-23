@@ -104,7 +104,7 @@ communism.1 = {
 	}
 	option = {
 		name = "I don't think so..."	# communism.1.e
-		set_variable = { name = communism_1_done value = no }
+		remove_variable = communism_1_done
 		set_variable = communism_failed
 		every_interest_group = {
 			limit = {
@@ -132,6 +132,7 @@ communism.1 = {
 			}
 			effect_handle_exile_roles	= yes
 			exile_character				= yes
+		}
 	}
 }
 # Completion event 2, choose ideology
@@ -152,6 +153,7 @@ communism.2 = {
 		ig:ig_trade_unions = {
 			save_scope_as = unions
 			leader = { save_scope_as = union_leader }
+		}
 	}
 	option = { # vanguardism
 		name = communism.2.a
@@ -202,6 +204,7 @@ communism.2 = {
 		}
 		else = {
 			add_journal_entry = { type = je_vanguard }
+		}
 		add_journal_entry = { type = je_5_year_plan }
 	}
 	option = { # communism
@@ -695,7 +698,7 @@ communism.7 = {
 	}
 	option = {
 		name = "I don't think so..."	# communism.1.e
-		set_variable = { name = communism_1_done value = no }
+		remove_variable = communism_1_done
 		set_variable = communism_failed
 		every_interest_group = {
 			limit = {
@@ -707,7 +710,7 @@ communism.7 = {
 					}
 				}
 			}
-			set_variable = { communist_ig_var value = no }
+			remove_variable = communist_ig_var
 			add_modifier = {
 				name = communist_government_modifier
 				days = normal_modifier_time
@@ -869,6 +872,7 @@ communism.9 = {
 				name = coop_migration_modifier
 				days = long_modifier_time
 			}
+		}
  	}
  }
 # Startup event 1

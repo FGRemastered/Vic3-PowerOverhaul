@@ -27,7 +27,16 @@ pmg_train_rails = {
 	production_methods = {
 		pm_normal_rails
 		pm_electric_rails
-		pm_resistive_breaks
+		pm_regenerative_brakes
 		pm_rail_signals
+	}
+}
+pmg_base_building_power_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_hydroelectric_plant
+		pm_early_power_plant
+		pm_coal-fired_plant
+		pm_oil-fired_plant
 	}
 }

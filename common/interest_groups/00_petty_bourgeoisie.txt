@@ -111,9 +111,19 @@
 		custom_tooltip = {
 			text = would_be_accepted_under_national_supremacy_tt
 			THIS.culture = {
-				AND = {
-					shares_heritage_trait_with_any_primary_culture = PREV.owner
-					shares_non_heritage_trait_with_any_primary_culture = PREV.owner
+				OR = {
+					AND = {
+						shares_heritage_trait_with_any_primary_culture = PREV.owner
+						shares_non_heritage_trait_with_any_primary_culture = PREV.owner
+					}
+					AND = {
+						c:BIC ?= prev.owner
+						has_discrimination_trait = south_asian_heritage
+					}
+					# AND = {	# TODO: Check whether this makes sense
+						# is_country_type = colonial
+						# NOT = { shares_heritage_trait_with_any_primary_culture = PREV.owner }
+					# }
 				}
 			}
 		}
@@ -129,6 +139,8 @@
 			pop_employment_building_group = bg_manufacturing
 			pop_employment_building_group = bg_service
 			pop_employment_building_group = bg_urban_facilities
+			pop_employment_building_group = bg_private_infrastructure
+			pop_employment_building_group = bg_financial_districts
 			pop_employment_building_group = bg_government
 			pop_employment_building_group = bg_logging
 			pop_employment_building_group = bg_mining

@@ -114,7 +114,7 @@ building_autarky_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 building_autarky_greenhouse = {
-	building_group = bg_infinite_autarky_farms
+	building_group = bg_agricultural_greenhouses
 	unlocking_technologies = { enclosure }
 	can_build_private		= { trigger_private_construction	= yes }
 	can_build_government	= { trigger_gov_construction		= yes }
@@ -136,6 +136,7 @@ building_autarky_greenhouse = {
 }
 # Farms
 building_rye_farm = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_rye_farms
@@ -155,6 +156,7 @@ building_rye_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 building_wheat_farm = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_wheat_farms
@@ -174,6 +176,7 @@ building_wheat_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 building_rice_farm = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_rice_farms
@@ -193,6 +196,7 @@ building_rice_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 building_maize_farm = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_maize_farms
@@ -212,6 +216,7 @@ building_maize_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 building_millet_farm = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_millet_farms
@@ -232,6 +237,7 @@ building_millet_farm = {
 }
 # Ranches
 building_livestock_ranch = {
+	ai_value				= 0
 	can_build_private		= { trigger_no_autarky_farms	= yes }
 	can_build_government	= { trigger_no_autarky_farms	= yes }
 	building_group = bg_livestock_ranches

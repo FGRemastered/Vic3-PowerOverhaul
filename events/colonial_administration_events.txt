@@ -11,7 +11,6 @@ colonial_administration_events.1 = {
 	duration = 3
 	cooldown = { months = 3 }
 	trigger = {}
-
 	immediate = {
 		random_subject_or_below = {
 			limit = { has_variable = newly_formed_colonial_nation_var }
@@ -53,7 +52,7 @@ colonial_administration_events.1 = {
 			set_strategy = ai_strategy_colonial_extraction
 			add_modifier = {
 				name = resource_extraction_charter_modifier
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 			ig:ig_industrialists = {
 				if = {

@@ -22,8 +22,8 @@ pm_soil_enriching_farming_vineyard_plantation = {
 		}													#		= 2250
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_vineyard_plantation = {
@@ -36,8 +36,8 @@ pm_fertilization_vineyard_plantation = {
 		}													#		= 3150
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_vineyard_plantation = {
@@ -50,8 +50,8 @@ pm_chemical_fertilizer_vineyard_plantation = {
 		}													#		= 4050
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_vineyard_plantation = {
@@ -94,8 +94,8 @@ pm_soil_enriching_farming_coffee_plantation = {
 		}													#		= 2250
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_coffee_plantation = {
@@ -108,8 +108,8 @@ pm_fertilization_coffee_plantation = {
 		}													#		= 3150
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_coffee_plantation = {
@@ -122,8 +122,8 @@ pm_chemical_fertilizer_coffee_plantation = {
 		}													#		= 4050
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_coffee_plantation = {
@@ -166,8 +166,8 @@ pm_soil_enriching_farming_cotton_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_cotton_plantation = {
@@ -180,8 +180,8 @@ pm_fertilization_cotton_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_cotton_plantation = {
@@ -194,8 +194,8 @@ pm_chemical_fertilizer_cotton_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_cotton_plantation = {
@@ -238,8 +238,8 @@ pm_soil_enriching_farming_dye_plantation = {
 		}													#		= 1850
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_dye_plantation = {
@@ -252,8 +252,8 @@ pm_fertilization_dye_plantation = {
 		}													#		= 2050
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_dye_plantation = {
@@ -266,8 +266,8 @@ pm_chemical_fertilizer_dye_plantation = {
 		}													#		= 2250
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_dye_plantation = {
@@ -310,8 +310,8 @@ pm_soil_enriching_farming_opium_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_opium_plantation = {
@@ -324,8 +324,8 @@ pm_fertilization_opium_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_opium_plantation = {
@@ -338,8 +338,8 @@ pm_chemical_fertilizer_opium_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_opium_plantation = {
@@ -383,8 +383,8 @@ pm_soil_enriching_farming_tea_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_tea_plantation = {
@@ -397,8 +397,8 @@ pm_fertilization_tea_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_tea_plantation = {
@@ -411,8 +411,8 @@ pm_chemical_fertilizer_tea_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_tea_plantation = {
@@ -455,8 +455,8 @@ pm_soil_enriching_farming_tobacco_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_tobacco_plantation = {
@@ -469,8 +469,8 @@ pm_fertilization_tobacco_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_tobacco_plantation = {
@@ -483,8 +483,8 @@ pm_chemical_fertilizer_tobacco_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_tobacco_plantation = {
@@ -527,8 +527,8 @@ pm_soil_enriching_farming_sugar_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_fertilization_sugar_plantation = {
@@ -541,8 +541,8 @@ pm_fertilization_sugar_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
 pm_chemical_fertilizer_sugar_plantation = {
@@ -555,8 +555,8 @@ pm_chemical_fertilizer_sugar_plantation = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL TBD
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
 pm_automatic_fertilization_sugar_plantation = {
@@ -599,8 +599,8 @@ pm_soil_enriching_farming_silk_plantation = {
 		}													#		= 1450
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +135	=> Stops breaking even at SoL 10.74
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL 10.74
 	}
 }
 pm_fertilization_silk_plantation = {
@@ -613,8 +613,8 @@ pm_fertilization_silk_plantation = {
 		}													#		= 1550
 		level_scaled = {
 			building_employment_laborers_add	= 4500		# x-.02	=  +90
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +130	=> Stops breaking even at SoL 11.92
+			building_employment_farmers_add		= 1500		# x-.04	=  +60
+		}													#		= +150	=> Stops breaking even at SoL 11.92
 	}
 }
 pm_chemical_fertilizer_silk_plantation = {
@@ -627,8 +627,8 @@ pm_chemical_fertilizer_silk_plantation = {
 		}													#		= 1650
 		level_scaled = {
 			building_employment_laborers_add	= 4000		# x-.02	=  +80
-			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +125	=> Stops breaking even at SoL 13.2
+			building_employment_farmers_add		= 2000		# x-.04	=  +80
+		}													#		= +160	=> Stops breaking even at SoL 13.2
 	}
 }
 pm_automatic_fertilization_silk_plantation = {
@@ -653,12 +653,12 @@ default_building_banana_plantation = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_fruit_add				=   40		# x+30	=  900
+			goods_output_fruit_add				=   40		# x+30	= 1200
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 5000		# x-.02	= +100
+			building_employment_laborers_add	= 4000		# x-.02	=  +80
 			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +140	=> Stops breaking even at SoL 6.43
+		}													#		= +120	=> Stops breaking even at SoL 10
 	}
 }
 pm_soil_enriching_farming_banana_plantation = {
@@ -667,12 +667,12 @@ pm_soil_enriching_farming_banana_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fertilizer_add			=    5		# x-30	= -150
-			goods_output_fruit_add				=   80		# x+30	= 1800
-		}													#		= 1650
+			goods_output_fruit_add				=   80		# x+30	= 2400
+		}													#		= 2250
 		level_scaled = {
-			building_employment_laborers_add	= 5000		# x-.02	= +100
+			building_employment_laborers_add	= 4000		# x-.02	=  +80
 			building_employment_farmers_add		= 1000		# x-.04	=  +40
-		}													#		= +140	=> Stops breaking even at SoL 11.79
+		}													#		= +120	=> Stops breaking even at SoL 18.75
 	}
 }
 pm_fertilization_banana_plantation = {
@@ -681,12 +681,12 @@ pm_fertilization_banana_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fertilizer_add			=   15		# x-30	= -450
-			goods_output_fruit_add				=  120		# x+30	= 2250
-		}													#		= 1800
+			goods_output_fruit_add				=  120		# x+30	= 3600
+		}													#		= 3150
 		level_scaled = {
-			building_employment_laborers_add	= 5000		# x-.02	= +100
+			building_employment_laborers_add	= 4000		# x-.02	=  +80
 			building_employment_farmers_add		=  750		# x-.04	=  +30
-		}													#		= +130	=> Stops breaking even at SoL 13.85
+		}													#		= +110	=> Stops breaking even at SoL 28 70/110
 	}
 }
 pm_chemical_fertilizer_banana_plantation = {
@@ -695,13 +695,12 @@ pm_chemical_fertilizer_banana_plantation = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fertilizer_add			=   25		# x-30	= -750
-			goods_output_fruit_add				=  160		# x+30	= 2700
-		}													#		= 1950
+			goods_output_fruit_add				=  160		# x+30	= 4800
+		}													#		= 4050
 		level_scaled = {
-			building_employment_laborers_add	= 5000		# x-.02	= +100
-			building_employment_machinists_add	=  250		# x-.03	=   +7.5
+			building_employment_laborers_add	= 4000		# x-.02	=  +80
 			building_employment_farmers_add		=  750		# x-.04	=  +30
-		}													#		= +137.5=> Stops breaking even at SoL 14.18
+		}													#		= +110	=> Stops breaking even at SoL 36 90/110
 	}
 }
 pm_automatic_fertilization_banana_plantation = {
@@ -712,12 +711,12 @@ pm_automatic_fertilization_banana_plantation = {
 			goods_input_fertilizer_add			=   25		# x-30	= -750
 			goods_input_engines_add				=    5		# x-60	= -300
 			goods_output_fruit_add				=  200		# x+30	= 3600
-		}													#		= 2100
+		}													#		= 4950
 		level_scaled = {
-			building_employment_laborers_add	= 5000		# x-.02	= +100	- Rail Transport is -1000 again
+			building_employment_laborers_add	= 4000		# x-.02	=  +80	- Rail Transport is -1000 again
 			building_employment_machinists_add	=  500		# x-.03	=  +15
 			building_employment_farmers_add		=  500		# x-.04	=  +20
-		}													#		= +135	=> Stops breaking even at SoL 15.56
+		}													#		= +115	=> Stops breaking even at SoL 43 1/23
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }

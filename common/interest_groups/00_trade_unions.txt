@@ -96,7 +96,7 @@
 				strata = lower
 				OR = {
 					pop_employment_building_group = bg_autarky_farms
-					pop_employment_building_group = bg_infinite_autarky_farms
+					pop_employment_building_group = bg_agricultural_greenhouses
 				}
 			}
 		}
@@ -132,7 +132,7 @@
 					limit = {
 						OR = {
 							pop_employment_building_group = bg_autarky_farms
-							pop_employment_building_group = bg_infinite_autarky_farms
+							pop_employment_building_group = bg_agricultural_greenhouses
 						}
 					}
 					multiply = 4	# 50 -> 200

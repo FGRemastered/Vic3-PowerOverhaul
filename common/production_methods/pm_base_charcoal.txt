@@ -63,10 +63,12 @@ pm_machine_coal_building_charcoal_burner = {
 pm_unfiltered = {
 	texture = "gfx/interface/icons/production_method_icons/no_filters.dds"
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
+	ai_value = 0
 }
 pm_dust_separation_building_charcoal_burner = {
 	texture = "gfx/interface/icons/production_method_icons/dust_separation.dds"
 	unlocking_technologies = { distillation }
+	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods

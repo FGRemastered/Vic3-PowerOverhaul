@@ -12,7 +12,7 @@ ideology_reformer = {
 	lawgroup_rights_of_women = {
 		law_no_womens_rights			= disapprove			# Changed
 		law_women_own_property			= approve
-		law_women_in_the_workplace		= neutral
+		law_women_in_the_workplace		= strongly_approve		# Increased
 		law_womens_suffrage				= neutral
 	}
 	lawgroup_childrens_rights = {
@@ -255,8 +255,8 @@ ideology_feminist_reformer = {
 		if = { limit = { interest_group = { trigger_chose_extremism = yes } }	multiply = 0.1 }
 	}
 }
-ideology_atheist = {
-	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_atheist.dds"
+ideology_nihilist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_nihilist.dds"
 	character_ideology = yes
 	lawgroup_governance_principles = {
 		law_theocracy						= strongly_disapprove
@@ -1089,6 +1089,12 @@ ideology_market_liberal = {
 		law_migration_controls			= disapprove
 		law_closed_borders				= strongly_disapprove
 	}
+	lawgroup_rights_of_women = {		# Added
+		law_no_womens_rights			= disapprove
+		law_women_own_property			= approve
+		law_women_in_the_workplace		= strongly_approve
+		law_womens_suffrage				= neutral
+	}
 	country_trigger = {
 		has_technology_researched = stock_exchange
 		trigger_if = { limit = { exists = ig:ig_industrialists } ig:ig_industrialists = { is_marginal = no } }	# capitalism must be relevant
@@ -1116,12 +1122,10 @@ ideology_market_liberal = {
 		}
 		if = {	# more likely for intelligentsia, industrialists, and PB with traditional economic laws
 			limit = {
-				interest_group = {
-					OR = {
-						is_interest_group_type = ig_petty_bourgeoisie
-						is_interest_group_type = ig_intelligentsia
-						is_interest_group_type = ig_industrialists
-					}
+				OR = {
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_intelligentsia
+					is_interest_group_type = ig_industrialists
 				}
 				OWNER = {
 					OR = {
@@ -1251,7 +1255,6 @@ ideology_abolitionist = {
 				add = 150
 			}
 		}
-		if = { limit = { has_trait = tactful }				add = 75 }
 		if = {
 			limit = { OWNER = { has_journal_entry = je_acw_countdown } }
 			add = 100

@@ -120,7 +120,18 @@
 		}
 		else_if = {	# Landed Gentry
 			limit = { c:GBR ?= this }
-			ig:ig_landowners = { set_interest_group_name = ig_landed_gentry }
+			ig:ig_landowners = {
+				set_interest_group_name = ig_landed_gentry
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_magnatial
+			}
+		}
+		else_if = {	# Polish Landowners
+			limit = { country_has_primary_culture = cu:polish }
+			ig:ig_landowners = {
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_magnatial
+			}
 		}
 		else_if = {	# Yangban Officials
 			limit = { c:KOR ?= this }

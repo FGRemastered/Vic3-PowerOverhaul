@@ -49,7 +49,7 @@ decree_emergency_relief = {
 		building_minimum_wage_mult						= 0.25	# Added
 		state_radicals_from_political_movements_mult	=-0.10	# Added
 		state_loyalists_from_political_movements_mult	= 0.10	# Added
-		state_birth_rate_mult							= 1.00	# Added
+		state_mortality_mult							=-0.50	# Added
 	}
 	cost = 50
 	ai_weight = {
@@ -58,10 +58,12 @@ decree_emergency_relief = {
 			limit = { average_sol < average_expected_sol }
 			add = 100
 		}
+		### Added
 		if		= { limit = { turmoil >= 0.5 } add = 100 }
 		else_if	= { limit = { turmoil >= 0.4 } add =  80 }
 		else_if	= { limit = { turmoil >= 0.3 } add =  60 }
 		else_if	= { limit = { turmoil >= 0.2 } add =  40 }
+		###
 		if = {
 			limit = {
 				scope:country = {
@@ -84,13 +86,15 @@ decree_promote_national_values = {
 	unlocking_technologies = { centralization }
 	state_trigger = {
 		OR = {
-			has_assimilating_pops	= yes
-			has_converting_pops		= yes
+			has_assimilating_pops				= yes
+			has_converting_pops					= yes
+			# trigger_state_has_peasant_vacancy	= yes
 		}
 	}
 	modifier = {
-		state_assimilation_mult		= 4	# Changed
-		state_conversion_mult		= 4	# Changed
+		state_assimilation_mult						=  4.0	# Changed
+		state_conversion_mult						=  4.0	# Changed
+		# state_birth_rate_full_acceptance_mult		=  4.0	# Added
 	}
 	cost = 50	# Decreased
 	ai_weight = {
@@ -110,14 +114,14 @@ decree_promote_national_values = {
 			limit = { scope:country = { has_strategy = ai_strategy_nationalist_agenda } }
 			add = 200
 		}
-		if = {
-			limit = { state_population < 100000 }
-			multiply = 0
-		}
-		else_if = {
-			limit = { state_population < 300000 }
-			multiply = 0.5
-		}
+		# if = {
+			# limit = { state_population < 100000 }
+			# multiply = 0
+		# }
+		# else_if = {
+			# limit = { state_population < 300000 }
+			# multiply = 0.5
+		# }
 		if = {
 			limit = {
 				scope:country = {
@@ -141,67 +145,18 @@ decree_promote_national_values = {
 			}
 			multiply = 1.5
 		}
-	}
-}
-decree_greener_grass_campaign = {
-	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
-	state_trigger = {
-		is_isolated_from_market = no
-		state_unemployment_rate <= 0.2	# Added
-	}
-	modifier = {
-		state_migration_pull_add	= 20
-		state_migration_pull_mult	=  4.0	# Increased 25% -> 400%
-	}
-	unlocking_technologies = { romanticism }
-	cost = 100
-	ai_weight = {
-		value = 0
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.75 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.50 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.25 } }
-			add = 50
-		}
-		# vv New
-		if = {
-			limit = { state_unemployment_rate < 0.025 }
-			add = 10
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.020 }
-			add = 20
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.010 }
-			add = 40
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.005 }
-			add = 50
-		}
-		# ^^ New
-		if = {
+		if = {	# Added - Anti-lag measure
 			limit = {
-				is_incorporated = no
-				scope:country = {
-					NOR = {												# Already gives a hefty migration bonus
-						has_law = law_type:law_frontier_colonization	# PDX forgot about this one
-						has_law = law_type:law_colonial_resettlement
+				any_scope_culture = {
+					NOT = { is_primary_culture_of = OWNER }
+					any_scope_pop = {
+						filter = { state.owner = root }
+						percent >= 1
 					}
+					count >= 10
 				}
 			}
-			multiply = 2.0
-		}
-		if = {
-			limit = { state_unemployment_rate >= 0.25  }
-			multiply = 0
+			add = 1000
 		}
 	}
 }
@@ -218,8 +173,8 @@ decree_encourage_manufacturing_industry = {
 		building_group_bg_manufacturing_throughput_add	= 0.25	# 20% -> 25%
 		building_group_bg_service_throughput_add		= 0.25	# 20% -> 25%
 		# New
-		building_group_bg_arts_throughput_add			= 0.30
-		building_group_bg_trade_throughput_add			= 0.30
+		building_group_bg_arts_throughput_add			= 0.25
+		building_group_bg_trade_throughput_add			= 0.25
 		state_infrastructure_from_population_add		=    1
 		state_infrastructure_from_population_max_add	=   20
 		state_construction_mult							= 0.10
@@ -256,7 +211,8 @@ decree_encourage_agricultural_industry = {
 		}
 	}
 	modifier = {
-		building_group_bg_agriculture_throughput_add	= 0.25	# 20% -> 25%	# bg_ranching - Subgroup of bg_agriculture now
+		building_group_bg_agriculture_throughput_add	= 0.25	# 20% -> 25%
+		building_group_bg_ranching_throughput_add		= 0.25	# 20% -> 25%
 		building_group_bg_plantations_throughput_add	= 0.25	# 20% -> 25%
 		# New
 		state_infrastructure_from_population_add		=    1
@@ -327,7 +283,7 @@ decree_encourage_resource_industry = {
 		}
 	}
 	modifier = {
-		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%
+		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%	# Consolidated from bg_mining bg_logging bg_fishing bg_whaling bg_oil_extraction bg_rubber
 		# New
 		state_infrastructure_from_population_add			=    1
 		state_infrastructure_from_population_max_add		=   20
@@ -337,31 +293,13 @@ decree_encourage_resource_industry = {
 	ai_weight = {
 		value = 0
 		if = {
-			limit = {
-				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
-				}
-			}
+			limit = { any_scope_building = { is_building_group = bg_extraction } }
 			add = 50
 		}
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 3
 				}
 			}
@@ -370,14 +308,7 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 5
 				}
 			}
@@ -386,14 +317,7 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 10
 				}
 			}
@@ -402,14 +326,7 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 50
 				}
 			}
@@ -418,14 +335,7 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 100
 				}
 			}
@@ -434,14 +344,7 @@ decree_encourage_resource_industry = {
 		if = {
 			limit = {
 				any_scope_building = {
-					OR = {
-						is_building_group = bg_mining
-						is_building_group = bg_logging
-						is_building_group = bg_rubber
-						is_building_group = bg_fishing
-						is_building_group = bg_whaling
-						is_building_group = bg_oil_extraction
-					}
+					is_building_group = bg_extraction
 					count >= 200
 				}
 			}
@@ -455,48 +358,69 @@ decree_encourage_resource_industry = {
 }
 decree_greener_grass_campaign = {
 	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
-	state_trigger = {
-		is_isolated_from_market = no
-		state_unemployment_rate <= 0.2	# Added
-	}
+	unlocking_technologies = { romanticism }
+	state_trigger = { trigger_greener_grass_state = yes }
 	modifier = {
 		state_migration_pull_add	= 20
 		state_migration_pull_mult	=  4.0	# Increased 25% -> 400%
+		state_slave_import_mult		=  4.0	# Added
+		state_birth_rate_mult		=  4.0	# Added
 	}
-	unlocking_technologies = { romanticism }
 	cost = 100
 	ai_weight = {
 		value = 0
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.75 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.50 } }
-			add = 50
-		}
-		if = {
-			limit = { any_scope_building = { is_subsistence_building = yes occupancy < 0.25 } }
-			add = 50
-		}
 		# vv New
 		if = {
-			limit = { state_unemployment_rate < 0.025 }
-			add = 10
+			limit = { trigger_state_has_peasant_workplace = yes }
+			if = {
+				limit = { any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.75 } }
+				add = 20
+			}
+			if = {
+				limit = { any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.50 } }
+				add = 40
+			}
+			if = {
+				limit = { any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.25 } }
+				add = 40
+			}
 		}
-		if = {
-			limit = { state_unemployment_rate < 0.020 }
-			add = 20
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.010 }
-			add = 40
-		}
-		if = {
-			limit = { state_unemployment_rate < 0.005 }
-			add = 50
-		}
+		else_if	= { limit = { state_unemployment_rate < 0.025 } add =  10 }
+		else_if	= { limit = { state_unemployment_rate < 0.020 } add =  25 }
+		else_if	= { limit = { state_unemployment_rate < 0.010 } add =  50 }
+		else_if	= { limit = { state_unemployment_rate < 0.005 } add = 100 }
 		# ^^ New
+		if = {
+			limit = {
+				scope:country = { has_journal_entry = je_the_algerian_departements }
+				state_region = {
+					OR = {
+						this = s:STATE_ORAN
+						this = s:STATE_ALGIERS
+						this = s:STATE_CONSTANTINE
+					}
+				}
+				culture_percent_state = {
+					target = cu:french
+					value <= 0.25 # Bit of a buffer since we need 20%
+				}
+			}
+			add = 500
+		}
+		if = {
+			limit = {
+				is_incorporated = yes
+				any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.9 }	# Changed
+				scope:country = {
+					OR = {
+						has_journal_entry = je_south_america_migration
+						has_journal_entry = je_central_america_migration
+						has_journal_entry = je_american_west_migration
+					}
+				}
+			}
+			add = 500
+		}
 		if = {
 			limit = {
 				is_incorporated = no
@@ -510,7 +434,12 @@ decree_greener_grass_campaign = {
 			multiply = 2.0
 		}
 		if = {
-			limit = { state_unemployment_rate >= 0.25  }
+			limit = {
+				OR = {
+					state_unemployment_rate >= 0.25
+					any_scope_building = { trigger_peasant_workplace = yes occupancy > 0.95 }
+				}
+			}
 			multiply = 0
 		}
 	}

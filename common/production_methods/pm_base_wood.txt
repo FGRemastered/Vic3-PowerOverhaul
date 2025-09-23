@@ -22,7 +22,7 @@ pm_simple_forestry = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 9000
-			building_employment_farmers_add		= 1000
+			building_employment_shopkeepers_add	= 1000
 		}										#10000
 	}
 }
@@ -39,7 +39,7 @@ pm_saw_mills = {
 		level_scaled = {
 			building_employment_laborers_add	= 7000
 			building_employment_machinists_add	= 1000
-			building_employment_farmers_add		= 1000
+			building_employment_shopkeepers_add	= 1000
 		}										# 9000
 		unscaled = { goods_output_hardwood_mult	= 2.00 }
 	}
@@ -57,10 +57,9 @@ pm_electric_saw_mills = {
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 5000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 1000
-			building_employment_farmers_add		= 1000
-		}										# 8000
+			building_employment_machinists_add	=  500
+			building_employment_shopkeepers_add	=  500
+		}										# 6000
 		unscaled = { goods_output_hardwood_mult	= 5.00 }
 	}
 	required_input_goods = electricity

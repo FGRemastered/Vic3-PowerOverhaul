@@ -48,7 +48,7 @@ government_petition_events.1 = {
 					ROOT = { enacting_any_law = yes }
 					trigger_if = {
 						limit = { exists = ROOT.currently_enacting_law }
-						ROOT.currently_enacting_law.type = {
+						ROOT.currently_enacting_law = {
 							law_is_valid_for_ig_petition = yes
 							NOR = {
 								scope:government_petition_law	?= THIS
@@ -57,7 +57,7 @@ government_petition_events.1 = {
 						}
 					}
 				}
-				ROOT.currently_enacting_law.type = { save_scope_as = government_petition_law_3 }
+				ROOT.currently_enacting_law = { save_scope_as = government_petition_law_3 }
 			}
 			else = { clear_saved_scope = government_petition_law_3 }
 			set_variable = { name = petitioning_ig days = 100 }
@@ -148,13 +148,13 @@ government_petition_events.1 = {
 		scope:government_petition_ig = { set_variable = { name = government_petition_rejected years = 20 } }
 		add_modifier = {
 			name = modifier_petition_rejected_legitimacy
-			months = normal_modifier_time
+			days = normal_modifier_time
 			is_decaying = yes
 		}
 		scope:government_petition_ig = {
 			add_modifier = {
 				name = modifier_petition_rejected_ig_opinion
-				months = normal_modifier_time
+				days = normal_modifier_time
 				is_decaying = yes
 			}
 		}
@@ -166,14 +166,14 @@ government_petition_events.1 = {
 		scope:government_petition_ig = { set_variable = { name = government_petition_rejected years = 20 } }
 		add_modifier = {
 			name = modifier_petition_rejected_legitimacy
-			months = normal_modifier_time
+			days = normal_modifier_time
 			multiplier = 3
 			is_decaying = yes
 		}
 		scope:government_petition_ig = {
 			add_modifier = {
 				name = modifier_petition_rejected_ig_opinion
-				months = normal_modifier_time
+				days = normal_modifier_time
 				multiplier = 4
 				is_decaying = yes
 			}

@@ -40,8 +40,9 @@ pm_mechanized_looms = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add				=    5		# x-40	=  -200
-		}
+			goods_input_furniture_add			=    4		# x-30	=  -120
+			goods_input_tools_add				=    2		# x-40	=   -80
+		}													#		=  -200
 		level_scaled = {
 			building_employment_laborers_add	=-2000		# x-.02	=   +40	=> Breaks even at SoL 5
 		}
@@ -54,11 +55,12 @@ pm_automatic_power_looms = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_electricity_add			=    5		# x-30	=  -150
-		}													#		=  -350
+			goods_input_furniture_add			=    6		# x-30	=  -180
+			goods_input_tools_add				=    6		# x-40	=  -240
+			goods_input_electricity_add			=    6		# x-30	=  -180
+		}													#		=  -600
 		level_scaled = {
-			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 5 5/6
+			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 10
 		}
 		unscaled = { building_throughput_add	= 0.50 }
 	}
@@ -71,12 +73,13 @@ pm_assembly_lines_building_furniture_manufacturies = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_clothes_add				=    3		# x-30	=   -90
 			goods_input_tools_add				=    5		# x-40	=  -200
 			goods_input_electricity_add			=    5		# x-30	=  -150
-			goods_input_oil_add					=    5		# x-40	=  -200
-		}													#		=  -550
+			goods_input_oil_add					=    4		# x-40	=  -160
+		}													#		=  -600
 		level_scaled = {
-			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 9 1/6
+			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 10
 		}
 		unscaled = { building_throughput_add	= 0.50 }
 	}
@@ -90,30 +93,38 @@ pm_automatic_bottle_blowers = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_oil_add					=    5		# x-40	=  -200
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_transportation_add		=    6		# x-30	=  -180
 			goods_input_engines_add				=    1		# x-60	=   -60
-		}													#		=  -260
+			goods_input_oil_add					=    5		# x-40	=  -200
+		}													#		=  -500
 		level_scaled = {
-			building_employment_laborers_add	=-2500		# x-.02	=   +50	=> Breaks even at SoL 5.2
+			building_employment_laborers_add	=-2500		# x-.02	=   +50	=> Breaks even at SoL 10
 		}
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+	required_input_goods = transportation
 }
 pm_electric_bottle_blowers = {
 	texture = "gfx/interface/icons/production_method_icons/automated_bottle_blowers.dds"
 	unlocking_technologies = { automatic_bottle_blowers }
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
-		unscaled = { building_throughput_add	= 0.50 }
 		workforce_scaled = {
-			goods_input_electricity_add			=    5		# x-30	=  -150
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_transportation_add		=    6		# x-30	=  -180
 			goods_input_engines_add				=    1		# x-60	=   -60
-		}													#		=  -210
+			goods_input_electricity_add			=    5		# x-30	=  -150
+		}													#		=  -450
 		level_scaled = {
-			building_employment_laborers_add	=-2500		# x-.02	=   +50	=> Breaks even at SoL 4.2
+			building_employment_laborers_add	=-2500		# x-.02	=   +50	=> Breaks even at SoL 9
 		}
+		unscaled = { building_throughput_add	= 0.50 }
 	}
+	required_input_goods = transportation
 	required_input_goods = electricity
 }
 # Tooling Workshops
@@ -153,12 +164,14 @@ pm_assembly_lines_building_tooling_workshops = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_electricity_add			=    10		# x-30	=  -300
-			goods_input_oil_add					=    10		# x-40	=  -400
+			goods_input_clothes_add				=     2		# x-30	=   -60
+			goods_input_furniture_add			=     2		# x-30	=   -60
+			goods_input_electricity_add			=     6		# x-30	=  -180
+			goods_input_oil_add					=     6		# x-40	=  -240
 			goods_input_engines_add				=     1		# x-60	=   -60
-		}													#		=  -760
+		}													#		=  -600
 		level_scaled = {
-			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 12 2/3
+			building_employment_laborers_add	=-3000		# x-.02	=   +60	=> Breaks even at SoL 10
 		}
 		unscaled = { building_throughput_add	= 0.50 }
 	}
@@ -178,14 +191,16 @@ pm_assembly_lines_building_paper_mills = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			=   10		# x-30	=  -300
-			goods_input_engines_add				=    1		# x-60	=   -60
-		}													#		=  -360
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_electricity_add			=   14		# x-30	=  -420
+			goods_input_engines_add				=    4		# x-60	=  -240
+		}													#		=  -720
 		level_scaled = {
 			building_employment_laborers_add	=-3000		# x-.02	=   +60
 			building_employment_machinists_add	= -500		# x-.03	=   +15
-			building_employment_engineers_add	=  250		# x-.06	=   -15
-		}													#		=   +60	=> Breaks even at SoL 6
+			building_employment_engineers_add	=   50		# x-.06	=    -3
+		}													#		=   +72	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
@@ -231,67 +246,15 @@ pm_assembly_lines_building_chemical_plants = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    3		# x-60	=  -180
-			goods_input_oil_add					=    9		# x-40	=  -360
-			goods_input_electricity_add			=    9		# x-30	=  -270
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_engines_add				=    5		# x-60	=  -300
+			goods_input_oil_add					=    6		# x-40	=  -240
+			goods_input_electricity_add			=    7		# x-30	=  -210
 		}													#		=  -810
 		level_scaled = {
 			building_employment_machinists_add	=-1500		# x-.03	=   +45	=> Breaks even at SoL 18
 		}
-		unscaled = { building_throughput_add	= 0.50 }
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
-	required_input_goods = electricity
-}
-# Dyeworks
-pm_watertube_boiler_building_synthetics_plants = {
-	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
-	unlocking_technologies = { watertube_boiler }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    1		# x-60	=   -60
-			goods_input_coal_add				=    5		# x-30	=  -150
-		}													#		=  -210
-		level_scaled = {
-			building_employment_laborers_add	=-1000		# x-.02	=   +20	=> Breaks even at SoL  10.5
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-}
-pm_rotary_valve_engine_building_synthetics_plants = {
-	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
-	unlocking_technologies = { rotary_valve_engine }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2		# x-60	=  -120
-			goods_input_coal_add				=   10		# x-30	=  -300
-		}													#		=  -420
-		level_scaled = {
-			building_employment_laborers_add	=-1000		# x-.02	=   +20
-			building_employment_machinists_add	= -500		# x-.03	=   +15
-		}													#		=   +35	=> Breaks even at SoL 12
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-}
-pm_assembly_lines_building_synthetics_plants = {
-	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	unlocking_technologies = { conveyors }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    2.5	# x-60	=  -150
-			goods_input_electricity_add			=   15		# x-30	=  -450
-			goods_input_oil_add					=    5		# x-40	=  -200
-		}													#		=  -800
-		level_scaled = {
-			building_employment_laborers_add	=-1000		# x-.02	=   +20
-			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}                                             		#		=   +50	=> Breaks even at SoL 16
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
@@ -309,6 +272,11 @@ pm_watertube_boiler_building_steel_mills = {
 		level_scaled = {
 			building_employment_laborers_add	=-1000		# x-.02	=   +20	=> Breaks even at SoL 10.5
 		}
+		unscaled = {
+			goods_input_oil_mult				= 0.167
+			goods_input_wood_mult				= 0.167
+			goods_input_hardwood_mult			= 0.167
+		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
@@ -324,6 +292,11 @@ pm_rotary_valve_engine_building_steel_mills = {
 			building_employment_laborers_add	=-1000		# x-.02	=   +20
 			building_employment_machinists_add	= -500		# x-.03	=   +15
 		}                                             		#		=   +35	=> Breaks even at SoL 12
+		unscaled = {
+			goods_input_oil_mult				= 0.333
+			goods_input_wood_mult				= 0.333
+			goods_input_hardwood_mult			= 0.333
+		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -334,17 +307,19 @@ pm_assembly_lines_building_steel_mills = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    2.5	# x-60	=  -150
-			goods_input_electricity_add			=   15		# x-30	=  -450
-			goods_input_oil_add					=    5		# x-40	=  -200
-		}													#		=  -800
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_engines_add				=    5		# x-60	=  -300
+			goods_input_electricity_add			=    5		# x-30	=  -150
+			goods_input_oil_add					=    6		# x-40	=  -240
+		}													#		=  -750
 		level_scaled = {
 			building_employment_laborers_add	=-1000		# x-.02	=   +20
 			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}                                             		#		=   +50	=> Breaks even at SoL 16
+		}                                             		#		=   +50	=> Breaks even at SoL 15
 		unscaled = { building_throughput_add	= 0.50 }
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
 }
 # Motor Industry
@@ -354,14 +329,16 @@ pm_assembly_lines_building_motor_industry = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
 			goods_input_tools_add				=    5		# x-40	=  -200
 			goods_input_oil_add					=    1		# x-40	=   -40
-			goods_input_electricity_add			=    4		# x-30	=  -120
-		}													#		=  -360
+			goods_input_electricity_add			=    5		# x-30	=  -150
+		}													#		=  -450
 		level_scaled = {
 			building_employment_laborers_add	=-1500		# x-.02	=   +30
 			building_employment_machinists_add	= -500		# x-.03	=   +15
-		}                                             		#		=   +45	=> Breaks even at SoL 8
+		}                                             		#		=   +45	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
@@ -409,14 +386,16 @@ pm_assembly_lines_building_arms_industry = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
 			goods_input_tools_add				=   10		# x-40	=  -400
-			goods_input_electricity_add			=   10		# x-30	=  -300
-			goods_input_oil_add					=   10		# x-40	=  -400
-		}
+			goods_input_electricity_add			=    8		# x-30	=  -240
+			goods_input_oil_add					=    5		# x-40	=  -200
+		}													#		=  -900
 		level_scaled = {
-			building_employment_laborers_add	=-3000
+			building_employment_laborers_add	=-3000		# x-.02	=   +60
 			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}
+		}													#		=   +90	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
@@ -463,78 +442,23 @@ pm_assembly_lines_building_munition_plants = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				=   10		# x-40	=  -400
-			goods_input_electricity_add			=   10		# x-30	=  -300
-			goods_input_oil_add					=   10		# x-40	=  -400
-		}
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_engines_add				=    2		# x-60	=  -120
+			goods_input_tools_add				=    5		# x-40	=  -200
+			goods_input_electricity_add			=    6		# x-30	=  -180
+			goods_input_oil_add					=    6		# x-40	=  -240
+		}													#		=  -800
 		level_scaled = {
-			building_employment_laborers_add	=-2500
+			building_employment_laborers_add	=-2500		# x-.02	=   +50
 			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}
+		}													#		=   +80	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 	required_input_goods = electricity
 }
-# War Machine Industry
-pm_watertube_boiler_building_war_machine_industry = {
-	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
-	unlocking_technologies = { watertube_boiler }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=  0.5		# x-60	=   -30
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_coal_add				=    5		# x-30	=  -150
-		}
-		level_scaled = {
-			building_employment_laborers_add	= -500
-			building_employment_machinists_add	= -500		# x-.03	=   +15
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-}
-pm_rotary_valve_engine_building_war_machine_industry = {
-	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
-	unlocking_technologies = { rotary_valve_engine }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    1		# x-60	=   -60
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_coal_add				=   10		# x-30	=  -300
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-1000		# x-.02	=   +20
-			building_employment_machinists_add	= -500		# x-.03	=   +15
-		}
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-}
-pm_assembly_lines_building_war_machine_industry = {
-	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
-	unlocking_technologies = { conveyors }
-	disallowing_laws = { law_industry_banned }
-	building_modifiers = {
-		workforce_scaled = {
-			# input goods
-			goods_input_engines_add				=    1		# x-60	=   -60
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_electricity_add			=    5		# x-30	=  -150
-			goods_input_oil_add					=    5		# x-40	=  -200
-		}
-		level_scaled = {
-			building_employment_laborers_add	=-1500		# x-.02	=   +30
-			building_employment_machinists_add	= -500		# x-.03	=   +15
-		}
-		unscaled = { building_throughput_add	= 0.50 }
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
-	required_input_goods = electricity
-}
-# War Machine Industry
+# Shipyards
 pm_watertube_boiler_building_shipyards = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
@@ -578,15 +502,16 @@ pm_assembly_lines_building_shipyards = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_engines_add				=    1		# x-60	=   -60
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_engines_add				=    1.5	# x-60	=   -90
 			goods_input_oil_add					=    5		# x-40	=  -200
 			goods_input_electricity_add			=    5		# x-30	=  -150
-		}
+		}													#		=  -500
 		level_scaled = {
 			building_employment_laborers_add	=-1000		# x-.02	=   +20
 			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}
+		}													#		=   +50	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
@@ -607,15 +532,16 @@ pm_assembly_lines_building_shipyards_green = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				=    5		# x-40	=  -200
-			goods_input_engines_add				=    1		# x-60	=   -60
+			goods_input_clothes_add				=    1		# x-30	=   -30
+			goods_input_furniture_add			=    1		# x-30	=   -30
+			goods_input_engines_add				=    1.5	# x-60	=   -90
 			goods_input_oil_add					=    5		# x-40	=  -200
 			goods_output_electricity_add		=   -5		# x+30	=  -150
-		}
+		}													#		=  -500
 		level_scaled = {
 			building_employment_laborers_add	=-1000		# x-.02	=   +20
 			building_employment_machinists_add	=-1000		# x-.03	=   +30
-		}
+		}													#		=   +50	=> Breaks even at SoL 10
 		unscaled = { building_throughput_add	= 0.50 }
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }

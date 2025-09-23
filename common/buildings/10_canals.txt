@@ -11,16 +11,20 @@
 	ai_value = 50000 # Canals are very important
 	unlocking_technologies = { colonization }
 	potential = { state_region = s:STATE_SINAI }
-	possible = {
+	can_build_private		= { state = { has_building = building_suez_canal } }
+	can_build_government	= {
 		OWNER = {
-			owns_treaty_port_in = STATE_SINAI
+			OR = {
+				owns_treaty_port_in = STATE_SINAI
+				owns_entire_state_region = STATE_SINAI
+			}
 			custom_tooltip = {
 				text = suez_survey_complete_tooltip
 				has_variable = suez_survey_complete
 			}
 		}
 	}
-	entity_not_constructed = { }
+	entity_not_constructed = {}
 	entity_under_construction = { "canal_suezcanal_under_construction_01_entity" }
 	entity_constructed = { "canal_suezcanal_01_entity" }
 	locator = "canal_suez_locator"
@@ -32,6 +36,7 @@
 		pmg_canal
 		pmg_canal_engines
 	}
+	ownership_type = self	# Added
 }
 building_panama_canal = {
 	building_group = bg_canals
@@ -46,16 +51,20 @@ building_panama_canal = {
 	ai_value = 50000 # Canals are very important
 	unlocking_technologies = { civilizing_mission }
 	potential = { state_region = s:STATE_PANAMA }
-	possible = {
-		owner = {
-			owns_treaty_port_in = STATE_PANAMA
+	can_build_private		= { state = { has_building = building_panama_canal } }
+	can_build_government	= {
+		OWNER = {
+			OR = {
+				owns_treaty_port_in = STATE_PANAMA
+				owns_entire_state_region = STATE_PANAMA
+			}
 			custom_tooltip = {
 				text = panama_survey_complete_tooltip
 				has_variable = panama_survey_complete
 			}
 		}
 	}
-	entity_not_constructed = { }
+	entity_not_constructed = {}
 	entity_under_construction = { "canal_panamacanal_under_construction_01_entity" }
 	entity_constructed = { "canal_panamacanal_01_entity" }
 	locator = "canal_panama_locator"
@@ -67,4 +76,5 @@ building_panama_canal = {
 		pmg_canal
 		pmg_canal_engines
 	}
+	ownership_type = self	# Added
 }

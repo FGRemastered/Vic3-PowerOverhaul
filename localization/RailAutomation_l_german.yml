@@ -9,22 +9,15 @@
 
  pmg_train_rails: "Schienentypen"
  pm_normal_rails: "Schienen"
- pm_electric_rails: "Oberleitungen"
- pm_resistive_breaks: "Magnetbremsen"
- pm_rail_signals: "Zugsignale"
+ pm_electric_rails: "Zugsignale"
+ pm_regenerative_brakes: "Regnerative Bremsen"
+ pm_rail_signals: "Ferngesteuerte Zugsignale"
 
- pm_steam_rail_transport: "Dampfbetriebener Eisenbahntransport"
  pm_electric_rail_transport: "Strombetriebener Eisenbahntransport"
- pm_electric_rail_transport_green: "$pm_electric_rail_transport$ (Autark)"
- pm_diesel_rail_transport: "Ölbetriebener Eisenbahntransport"
+ pm_truck_transport: "Lastwagentransport"
 
- pm_steam_rail_transport_building_coal_mine: "$pm_steam_rail_transport$"
-
- pm_electric_log_carts: "Strombetriebene Baumstammwaggons"
- pm_diesel_log_carts: "Ölbetriebene Baumstammwaggons"
-
- pm_electric_tanker_cars: "Strombetriebene Tankwagen"
- pm_diesel_tanker_cars: "Ölbetriebene Tankwagen"
+ pm_log_trucks: "Baumstammlaster"
+ pm_rail_transport_construction: "$pm_rail_transport$"
 
  pm_flash_freezing_building_livestock_ranch: "Schockfrosten"
 
@@ -52,22 +45,6 @@
  pm_electric_chainsaws: "Elektrische Kettensägen"
  pm_modern_chainsaws: "Moderne Kettensägen"
 
- pmg_train_automation_gov: "$pmg_train_automation$"
- pm_no_gov_automation: "Fußboten"
- pm_steam_rail_transport_gov: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_gov: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_gov: "$pm_diesel_rail_transport$"
-
- pmg_train_automation_uni: "$pmg_train_automation$"
- pm_steam_rail_transport_uni: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_uni: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_uni: "$pm_diesel_rail_transport$"
-
- pmg_train_automation_sky: "$pmg_train_automation$"
- pm_steam_rail_transport_sky: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_sky: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_sky: "$pm_diesel_rail_transport$"
-
  pmg_train_automation_construction: "$pmg_train_automation$"
  pm_steam_rail_transport_construction: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_construction: "$pm_electric_rail_transport$"
@@ -78,6 +55,8 @@
  pm_electric_rail_transport_port: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_port: "$pm_diesel_rail_transport$"
  pm_modern_port_rail_transport: "Zugintegration"
+ 
+ pm_trade_center_trade_quantity_insane: "Standardisierte Logistik"
 
  pmg_construction_sector_bureaucrat_professionalism: "$pmg_government_administration_bureaucrat_professionalism$"
  pm_hereditary_bureaucrats_construction: "$pm_hereditary_bureaucrats$"

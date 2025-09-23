@@ -245,7 +245,7 @@ law_command_economy = {
 		country_government_dividends_efficiency_add					= 0.40
 		country_leverage_resistance_mult							= 0.25
 		country_private_construction_allocation_mult				= 0.10
-		country_disable_privatization_bool							= yes
+		# country_disable_privatization_bool							= yes	# Removed
 		country_free_charters_add									= 1
 	}
 	ai_will_do = {
@@ -286,7 +286,7 @@ law_industry_banned = {
 				if = { limit = { has_building = building_motor_industry }		remove_building = building_motor_industry }
 				if = { limit = { has_building = building_electrics_industry }	remove_building = building_electrics_industry }
 				if = { limit = { has_building = building_munition_plants }		remove_building = building_munition_plants }
-				if = { limit = { has_building = building_war_machine_industry }	remove_building = building_war_machine_industry }
+				if = { limit = { has_building = building_automotive_industry }	remove_building = building_automotive_industry }
 			}
 		}
 	}
@@ -339,7 +339,7 @@ law_extraction_economy = {
 				if = { limit = { has_building = building_motor_industry }		remove_building = building_motor_industry }
 				if = { limit = { has_building = building_electrics_industry }	remove_building = building_electrics_industry }
 				# if = { limit = { has_building = building_munition_plants }		remove_building = building_munition_plants }
-				if = { limit = { has_building = building_war_machine_industry }	remove_building = building_war_machine_industry }
+				if = { limit = { has_building = building_automotive_industry }	remove_building = building_automotive_industry }
 			}
 		}
 	}

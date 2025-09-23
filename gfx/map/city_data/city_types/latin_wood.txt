@@ -49,11 +49,11 @@
 
 
 	# Infres
-	building_infres_logging_camp = {
+	building_logging_greenhouse = {
 		"latin_forestry_loggingcamp_01_mesh"
 		"latin_forestry_loggingcamp_02_mesh"
 	}
-	building_infres_rubber_plantation = {
+	building_rubber_greenhouse = {
 		"rubber_lodge_01_mesh"
 	}
 }

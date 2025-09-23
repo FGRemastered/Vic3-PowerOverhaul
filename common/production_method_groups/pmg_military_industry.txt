@@ -1,3 +1,26 @@
+# Motor Industry
+pmg_base_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_steam_engines
+		pm_watertube_boiler_steam_engines
+		pm_rotary_valve_engines
+		pm_electric_engines
+		pm_diesel_engines
+		pm_hybrid_electric_engines
+		pm_jet_engines
+		pm_jet_electric_engines
+	}
+}
+pmg_automobile_production = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_electric_automobile_production
+		pm_automobile_production
+		pm_mass_electric_automobile_production
+		pm_mass_automobile_production
+	}
+}
 # Arms Industry
 pmg_firearms_manufacturing = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
@@ -18,22 +41,6 @@ pmg_foundries = {
 		pm_smoothbores
 		pm_breech_loaders
 		pm_recoiled_barrels
-	}
-}
-# War Machine Industry
-pmg_aeroplanes = {
-	texture = gfxinterfaceiconsgeneric_iconsmixed_icon_base.dds
-	production_methods = {
-		pm_aeroplane_production
-		pm_modern_aeroplane_production
-	}
-}
-pmg_tanks = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
-	production_methods = {
-		pm_no_tank_production
-		pm_tank_production
-		pm_modern_tank_production
 	}
 }
 pmg_base_building_shipyards = {

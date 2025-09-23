@@ -70,7 +70,10 @@ pm_automatic_fertilization = {
 			building_employment_farmers_add		= 1000		# x-.04	=  -40
 		}													#		= -115	=> Stops breaking even at SoL 10
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=    5 } }
+	state_modifiers = {
+		workforce_scaled = { state_pollution_generation_add			=    5 }
+		unscaled = { state_harvest_condition_drought_impact_mult	= 0.25 }
+	}
 }
 # Rice
 pm_simple_farming_rice_farm = {
@@ -164,7 +167,10 @@ pm_automatic_fertilization_rice_farm = {
 			building_employment_farmers_mult	=    1
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=    5 } }
+	state_modifiers = {
+		workforce_scaled = { state_pollution_generation_add			=    5 }
+		unscaled = { state_harvest_condition_drought_impact_mult	= 0.25 }
+	}
 }
 # Ranches - Slaughtering
 pm_mechanized_slaughtering = {

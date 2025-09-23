@@ -128,7 +128,6 @@ law_total_separation = {
 			power_bloc ?= { NOT = { has_identity = identity:identity_religious } }
 		}
 	}
-	on_activate = {
 	can_enact = {
 		OR = {
 			is_power_bloc_leader = no
@@ -177,12 +176,12 @@ law_state_atheism = {
 	modifier = {
 		interest_group_ig_devout_pol_str_mult					=-0.50
 		state_conversion_mult									= 0.25
-		state_birth_rate_mult									= 0.05	# new
-		state_mortality_mult									=-0.05	# new
+		state_birth_rate_mult									= 0.05	# Added
+		state_mortality_mult									=-0.05	# Added
 		country_authority_add									=  200
-		country_acceptance_state_religion_add					=   20	# Increased
+		country_acceptance_state_religion_add					=   20	#+15 - Increased
 		country_acceptance_shared_religious_trait_add			=    0
-		country_acceptance_religion_base_add					=  -10	
+		country_acceptance_religion_base_add					=  -10
 
 		country_allow_conversion_violent_hostility_bool			= yes
 		country_allow_conversion_cultural_erasure_bool			= yes
@@ -193,7 +192,7 @@ law_state_atheism = {
 	can_enact = { ig:ig_devout = { is_in_government = no } }
 	on_activate = {	# Changed from on_enact
 		set_state_religion = rel:atheist
-		add_modifier = { name = antireligious_policies months = long_modifier_time }
+		add_modifier = { name = antireligious_policies days = long_modifier_time }
 		custom_tooltip = {
 			text = state_atheism_conversion_tt
 			every_scope_state = {

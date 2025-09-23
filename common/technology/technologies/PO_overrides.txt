@@ -127,6 +127,7 @@ arc_welding = {
 	}
 	modifier = {
 		building_group_bg_heavy_industry_throughput_add		= 0.15	# Added
+		country_max_weekly_construction_progress_add		=   10	# Added
 	}
 	ai_weight = { value = 1 }
 }

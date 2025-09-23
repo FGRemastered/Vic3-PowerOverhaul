@@ -10,11 +10,11 @@ pm_dye_production = {
 			goods_output_dye_add				=  140	# x+40	=  5600
 		}												#		=  3200
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1500
-			building_employment_engineers_add	= 1000
-			building_employment_shopkeepers_add	=  500
-		}
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -125	=> Stops breaking even at SoL 25.6
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 7 } }
 }
@@ -30,10 +30,13 @@ pm_double_dye_production = {
 			goods_output_dye_add				=  280	# x+40	= 11200
 		}												#		=  6400
 		level_scaled = {
-			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
-			building_employment_engineers_add	= 1000
-			building_employment_academics_add	=  500
+			building_employment_laborers_add	= 1000	# x-.02	=   -20
+			building_employment_machinists_add	= 1500	# x-.03	=   -45
+			building_employment_engineers_add	=  500	# x-.06	=   -30
+			building_employment_academics_add	=  500	# x-.08	=   -40
+			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
+		}												#		=  -165	=> Stops breaking even at SoL 38 26/33
+		level_scaled = {
 			building_employment_shopkeepers_add	=  500
 		}
 		unscaled = {

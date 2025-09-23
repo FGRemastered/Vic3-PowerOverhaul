@@ -91,7 +91,7 @@ law_colonial_resettlement = {
 	unlocking_technologies = { colonization }
 	institution = institution_colonial_affairs
 	modifier = { state_migration_pull_unincorporated_mult					= 0.50 }
-	institution_modifier = { interest_group_ig_armed_forces_approval_add	= 1 }
+	institution_modifier = { interest_group_ig_landowners_approval_add		= 1 }
 	can_impose = {
 		OR = {
 			AND = {
@@ -136,20 +136,7 @@ law_colonial_exploitation = {
 	progressiveness = -25
 	unlocking_technologies = { colonization }
 	institution = institution_colonial_affairs
-	# modifier = {
-		# building_group_bg_manufacturing_unincorporated_throughput_add	=-0.1
-		# state_unincorporated_starting_wages_mult						=-0.1
-	# }
-	# institution_modifier = {	# level-scaled
-		# building_group_bg_plantations_unincorporated_throughput_add		= 0.05
-		# building_group_bg_rubber_unincorporated_throughput_add			= 0.05
-		# building_group_bg_logging_unincorporated_throughput_add			= 0.05
-		# building_group_bg_mining_unincorporated_throughput_add			= 0.05
-		# building_unincorporated_subsistence_output_mult					=-0.025
-		# country_tension_decay_mult										=-0.05
-	# }
 	modifier = {
-		state_unincorporated_starting_wages_mult						=-0.10
 		building_group_bg_manufacturing_unincorporated_throughput_add	=-0.10
 		building_group_bg_plantations_unincorporated_throughput_add		= 0.20
 		building_group_bg_rubber_unincorporated_throughput_add			= 0.20
@@ -160,7 +147,10 @@ law_colonial_exploitation = {
 		country_tension_decay_mult										=-0.25
 		state_migration_pull_unincorporated_mult						=-0.25	# Added
 	}
-	institution_modifier = { interest_group_ig_industrialists_approval_add	= 1 }
+	institution_modifier = {
+		interest_group_ig_industrialists_approval_add					= 1
+		country_infamy_generation_against_unrecognized_mult				=-0.05	# From Colonial Offices
+	}
 	ai_will_do = {
 		OR = {
 			has_law = law_type:law_colonial_resettlement

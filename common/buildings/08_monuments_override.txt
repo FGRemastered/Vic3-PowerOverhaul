@@ -12,12 +12,12 @@ building_power_bloc_statue = {
 	}
 	icon = "gfx/interface/icons/building_icons/building_powerblock_statue.dds"
 	required_construction = construction_cost_monument
-	can_build_government = { always = yes }
-	can_build_private = { always = no }	
-	possible = {
+	potential = {
 		owner = { is_in_power_bloc = yes }
 		has_dlc_feature = power_bloc_features
 	}
+	can_build_government	= { always = yes }
+	can_build_private		= { always = no }
 	ai_value = {
 		value = 0
 		if = {
@@ -62,9 +62,7 @@ building_victoria_terminus = {
 	unlocking_technologies = { pneumatic_tools }
 	required_construction = construction_cost_monument
 	potential = { state_region = s:STATE_BOMBAY }
-	possible = {
-		# owner = { NOT = { has_law = law_type:law_state_atheism } }
-	}
+	possible = { always = yes }
 	ai_value = 10000
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }

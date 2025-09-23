@@ -290,7 +290,7 @@ mobilization_option_rail_transport = {
 # Recon
 mobilization_option_motorized_recon = {
 	texture = "gfx/interface/icons/mobilization_options/motorized_reconaissance.dds"
-	unlocking_technologies = { combustion_engine electrical_capacitors }
+	unlocking_technologies = { combustion_engine electric_railway }
 	possible = {
 		market ?= {
 			mg:automobiles	?= { has_potential_supply = yes }

@@ -74,6 +74,7 @@ government_wages_high = {
 	interest_group_ig_petty_bourgeoisie_approval_add	= 2
 	country_prestige_mult								= 0.10
 	country_authority_mult								= 0.05
+	state_bureaucrats_investment_pool_contribution_add	= 0.05
 }
 government_wages_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
@@ -82,6 +83,7 @@ government_wages_very_high = {
 	interest_group_ig_petty_bourgeoisie_approval_add	= 5
 	country_prestige_mult								= 0.20
 	country_authority_mult								= 0.10
+	state_bureaucrats_investment_pool_contribution_add	= 0.10
 }
 # Mil Wages
 military_wages_very_low = {
@@ -125,7 +127,7 @@ military_wages_very_high = {
 }
 efficient_bureaucracy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	state_construction_mult								= 0.10
+	state_construction_mult								= 0.25
 	state_tax_waste_add									=-0.05
 	country_government_dividends_waste_add				=-0.05
 	country_institution_size_change_speed_mult			= 1.00
@@ -134,11 +136,13 @@ efficient_bureaucracy = {
 	country_authority_mult								= 0.50
 	country_influence_mult								= 0.50
 	military_formation_organization_gain_mult			= 0.50
+	state_bureaucrats_investment_pool_efficiency_mult	= 0.50
 }
 administrative_overburden = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	state_tax_waste_add									= 1
 	country_government_dividends_waste_add				= 1
+	state_construction_mult								=-1
 	country_law_enactment_time_mult						= 0.25
 	country_authority_mult								=-0.25
 	country_influence_mult								=-0.25

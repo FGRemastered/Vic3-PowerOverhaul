@@ -35,12 +35,10 @@ building_rubber_plantation = {
 	ai_value = 3000
 }
 # Infres Logging
-building_infres_logging_camp = {
-	potential				= { trigger_infres_logging_allowed	= yes }
-	can_build_private		= { trigger_private_construction	= yes }
-	can_build_government	= { trigger_gov_construction		= yes }
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infinite_logging
+building_logging_greenhouse = {
+	# potential	= { is_treaty_port = no }
+	# possible	= { trigger_logging_greenhouse_allowed	= yes }
+	building_group = bg_logging_greenhouses
 	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
 	required_construction = construction_cost_medium
@@ -54,13 +52,11 @@ building_infres_logging_camp = {
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"	# Changed
-}
-building_infres_rubber_plantation = {
-	potential				= { trigger_infres_rubber_allowed	= yes }
-	can_build_private		= { trigger_private_construction	= yes }
-	can_build_government	= { trigger_gov_construction		= yes }
 	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infinite_rubber
+}
+building_rubber_greenhouse = {
+	possible	= { trigger_rubber_greenhouse_allowed	= yes }
+	building_group = bg_rubber_greenhouses
 	icon = "gfx/interface/icons/building_icons/rubber_lodge.dds"
 	required_construction = construction_cost_medium
 	terrain_manipulator = forestry
@@ -318,8 +314,7 @@ building_silk_plantation = {
 }
 # Infinite Plantations
 building_vineyard_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_vineyard_plantations
+	building_group = bg_vineyard_greenhouses
 	icon = "gfx/interface/icons/building_icons/vineyards.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -335,8 +330,7 @@ building_vineyard_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_coffee_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_coffee_plantations
+	building_group = bg_coffee_greenhouses
 	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -352,8 +346,7 @@ building_coffee_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_tea_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_tea_plantations
+	building_group = bg_tea_greenhouses
 	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -369,8 +362,7 @@ building_tea_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_sugar_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_sugar_plantations
+	building_group = bg_sugar_greenhouses
 	icon = "gfx/interface/icons/building_icons/sugar_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -386,8 +378,7 @@ building_sugar_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_banana_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_banana_plantations
+	building_group = bg_banana_greenhouses
 	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -404,8 +395,7 @@ building_banana_greenhouse = {
 }
 building_opium_greenhouse = {
 	possible	= { OWNER = { NOT = { is_banning_goods	= g:opium } } }
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_opium_plantations
+	building_group = bg_opium_greenhouses
 	icon = "gfx/interface/icons/building_icons/opium_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -422,8 +412,7 @@ building_opium_greenhouse = {
 }
 building_tobacco_greenhouse = {
 	possible	= { OWNER = { NOT = { is_banning_goods	= g:tobacco } } }
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_tobacco_plantations
+	building_group = bg_tobacco_greenhouses
 	icon = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -439,8 +428,7 @@ building_tobacco_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_cotton_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_cotton_plantations
+	building_group = bg_cotton_greenhouses
 	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -456,8 +444,8 @@ building_cotton_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_dye_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_dye_plantations
+	possible = { trigger_dye_greenhouse_allowed = yes }
+	building_group = bg_dye_greenhouses
 	icon = "gfx/interface/icons/building_icons/dye_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -473,8 +461,8 @@ building_dye_greenhouse = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 building_silk_greenhouse = {
-	ai_value = 1 # Make AI less likely to build if there is still potentional of normal resources
-	building_group = bg_infres_silk_plantations
+	possible = { trigger_silk_greenhouse_allowed = yes }
+	building_group = bg_silk_greenhouses
 	icon = "gfx/interface/icons/building_icons/silk_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }

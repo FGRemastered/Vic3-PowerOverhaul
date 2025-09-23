@@ -1,4 +1,4 @@
-p0xus_rwd_annex_africa = {
+﻿p0xus_rwd_annex_africa = {
 	every_state = {
 		limit = {
 			OR = {
@@ -16,21 +16,21 @@ p0xus_rwd_annex_africa = {
 	}
 }
 p0xus_root_annex_africa = {
-		every_state = {
-			limit = {
-				OR = {
-					region = sr:region_nile_basin
-					region = sr:region_north_africa
-					region = sr:region_senegal
-					region = sr:region_niger
-					region = sr:region_congo
-					region = sr:region_southern_africa
-					region = sr:region_zanj
-					region = sr:region_ethiopia
-				}
+	every_state = {
+		limit = {
+			OR = {
+				region = sr:region_nile_basin
+				region = sr:region_north_africa
+				region = sr:region_senegal
+				region = sr:region_niger
+				region = sr:region_congo
+				region = sr:region_southern_africa
+				region = sr:region_zanj
+				region = sr:region_ethiopia
 			}
-			set_state_owner = ROOT
 		}
+		set_state_owner = ROOT
+	}
 }
 p0xus_african_culture_set = {
 	p0xus_african_culture_conversion_homelands = yes

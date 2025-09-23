@@ -117,7 +117,6 @@ building_infres_oil_rig = {
 	production_method_groups = {
 		pmg_base_building_oil_rig
 		pmg_transportation_building_oil_rig
-		pmg_ownership_capital_building_oil_rig
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_oil.dds"

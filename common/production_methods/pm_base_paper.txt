@@ -39,12 +39,13 @@ pm_bleached_paper = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   25	# x-20	= -500
-			goods_input_fertilizer_add			=   15	# x-30	= -450
+			goods_input_wood_add				=   20	# x-20	= -400
+			goods_input_fabric_add				=   10	# x-20	= -200
+			goods_input_fertilizer_add			=   10	# x-30	= -300
 			goods_input_dye_add					=   10	# x-40	= -400
 			# output goods
 			goods_output_paper_add				=  100	# x-30	= 3000
-		}												#		= 1650
+		}												#		= 1700
 		level_scaled = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinists_add	=  500
@@ -60,13 +61,13 @@ pm_continous_bleached_paper = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   15	# x-20	= -300
-			goods_input_fabric_add				=   15	# x-20	= -300
+			goods_input_wood_add				=   30	# x-20	= -600
+			goods_input_fabric_add				=   30	# x-20	= -600
 			goods_input_fertilizer_add			=   30	# x-30	= -900
 			goods_input_dye_add					=   30	# x-40	=-1200
 			# output goods
 			goods_output_paper_add				=  250	# x-30	= 7500
-		}												#		= 4800
+		}												#		= 4200
 		level_scaled = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinists_add	=  500

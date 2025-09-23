@@ -48,8 +48,9 @@
  pm_jet_engines: "Düsentriebwerke"
  pm_jet_electric_engines: "Elektrische Düsentriebwerke"
   
- pm_automobile_production: "Benzinbetriebene Automobile"
- pm_electic_automobile_production: "Automobile mit Elektromotor"
+ pm_automobile_production_secondary: "Benzinbetriebene Automobile"
+ pm_electric_automobile_production: "Automobile mit Elektromotor"
+ pm_mass_electric_automobile_production: "$pm_mass_automobile_production$ (Elektrisch)"
  pm_diesel_automobile_production: "Automobile mit Dieselmotor"
  pm_automobile_priority: "Luxusautos"
  

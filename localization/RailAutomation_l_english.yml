@@ -9,29 +9,20 @@
 
  pmg_train_rails: "Rail Types"
  pm_normal_rails: "Rails"
- pm_electric_rails: "Electric Rails"
- pm_resistive_breaks: "Resistive Breaks"
- pm_rail_signals: "Rail Signals"
+ pm_electric_rails: "Electric Rail Signals"
+ pm_regenerative_brakes: "Regenerative Brakes"
+ pm_rail_signals: "Remote-Controlled Rail Signals"
 
- pm_steam_rail_transport: "Steam-powered Rail Transportation"
  pm_electric_rail_transport: "Electric Rail Transportation"
- pm_electric_rail_transport_green: "$pm_electric_rail_transport$ (Autark)"
- pm_diesel_rail_transport: "Oil-powered Rail Transportation"
+ pm_truck_transport: "Truck Transportation"
 
- pm_steam_rail_transport_building_coal_mine: "$pm_steam_rail_transport$"
-
- pm_electric_log_carts: "Electric Rail Log Carts"
- pm_diesel_log_carts: "Oil-powered Log Carts"
-
- pm_electric_tanker_cars: "Electric Tanker Cars"
- pm_diesel_tanker_cars: "Oil-powered Tanker Cars"
+ pm_log_trucks: "Logging Trucks"
+ pm_rail_transport_construction: "$pm_rail_transport$"
 
  pm_flash_freezing_building_livestock_ranch: "Flash Freezing"
 
  pmg_train_automation_power_plant: "$pmg_train_automation$"
- pm_steam_rail_transport_power_plant: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_power_plant: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_power_plant: "$pm_diesel_rail_transport$"
+ pm_rail_transport_power_plant: "$pm_rail_transport$"
 
  pmg_train_automation_shipyards: "$pmg_train_automation$"
  pm_steam_rail_transport_shipyards: "$pm_steam_rail_transport$"
@@ -52,22 +43,6 @@
  pm_electric_chainsaws: "Electric Chainsaws"
  pm_modern_chainsaws: "Modern Chainsaws"
 
- pmg_train_automation_gov: "$pmg_train_automation$"
- pm_no_gov_automation: "Foot Messengers"
- pm_steam_rail_transport_gov: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_gov: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_gov: "$pm_diesel_rail_transport$"
-
- pmg_train_automation_uni: "$pmg_train_automation$"
- pm_steam_rail_transport_uni: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_uni: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_uni: "$pm_diesel_rail_transport$"
-
- pmg_train_automation_sky: "$pmg_train_automation$"
- pm_steam_rail_transport_sky: "$pm_steam_rail_transport$"
- pm_electric_rail_transport_sky: "$pm_electric_rail_transport$"
- pm_diesel_rail_transport_sky: "$pm_diesel_rail_transport$"
-
  pmg_train_automation_construction: "$pmg_train_automation$"
  pm_steam_rail_transport_construction: "$pm_steam_rail_transport$"
  pm_electric_rail_transport_construction: "$pm_electric_rail_transport$"
@@ -78,6 +53,8 @@
  pm_electric_rail_transport_port: "$pm_electric_rail_transport$"
  pm_diesel_rail_transport_port: "$pm_diesel_rail_transport$"
  pm_modern_port_rail_transport: "Direct Train Loading"
+ 
+ pm_trade_center_trade_quantity_insane: "Standardized Containers"
 
  pmg_construction_sector_bureaucrat_professionalism: "$pmg_government_administration_bureaucrat_professionalism$"
  pm_hereditary_bureaucrats_construction: "$pm_hereditary_bureaucrats$"

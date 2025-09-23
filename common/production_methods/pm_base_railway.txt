@@ -193,11 +193,12 @@ pm_maglev_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_engines_add				=   10	# x-60	= -600
 			goods_input_electricity_add			=    5	# x-30	= -150
+			goods_input_oil_add					=    5	# x-40	= -200
 			# output goods
 			goods_output_transportation_add		=  200	# x+30	=+6000
-		}												#		=+5550
+		}												#		=+5050
 		level_scaled = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
@@ -222,8 +223,9 @@ pm_maglev_trains = {
 	required_input_goods = electricity
 }
 # Personal Transport
-pm_no_passenger_trains = {	# Unchanged - For reference
+pm_no_passenger_trains = {
 	texture = "gfx/interface/icons/production_method_icons/no_passenger_trains.dds"
+	disallowing_laws = { law_cooperative_ownership }	# Has not shopkeepers
 }
 pm_wooden_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
@@ -322,13 +324,11 @@ pm_high_speed_rail = {
 pm_normal_rails = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	is_default = yes
-	replacement_if_valid = pm_electric_rails
 	state_modifiers		= { level_scaled		= { state_infrastructure_add 		=  5 } }		# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  1 } }
 }
 pm_electric_rails = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
-	# unlocking_technologies = { electrical_generation }
+	unlocking_technologies = { electrical_capacitors }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_electricity_add			=    1
@@ -336,20 +336,15 @@ pm_electric_rails = {
 		level_scaled = {
 			building_employment_laborers_add	=-1000
 		}
-		# unscaled = { building_throughput_add = 0.1 }
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 10 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  2 } }
-	required_input_goods = electricity	# Replaces electrical_generation tech requirement
+	required_input_goods = electricity
 	ai_value = 2000
 }
-pm_resistive_breaks = {
+pm_regenerative_brakes = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
-	unlocking_technologies = { electrical_capacitors }
+	unlocking_technologies = { electric_railway }
 	building_modifiers = {
-		workforce_scaled = {
-			goods_input_electricity_add			=    1
-		}
 		level_scaled = {
 			building_employment_laborers_add	=-1500
 			building_employment_machinists_add	= -500
@@ -357,14 +352,14 @@ pm_resistive_breaks = {
 		}
 		unscaled = {
 			# building_throughput_add				= 0.25
+			goods_input_engines_mult			= 0.10
 			goods_input_coal_mult				=-0.15	# 8%-17%
 			goods_input_electricity_mult		=-0.15	# 8%-17%
 			goods_input_oil_mult				=-0.15	# 8%-17%
 		}
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 10 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  5 } }
-	required_input_goods = electricity
+	# country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	=  5 } }
 	ai_value = 3000
 }
 pm_rail_signals = {
@@ -380,7 +375,6 @@ pm_rail_signals = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_telephones_add			=    5
-			goods_input_electricity_add			=    1
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-1500
@@ -390,14 +384,14 @@ pm_rail_signals = {
 		}
 		unscaled = {
 			# building_throughput_add				= 0.5
+			goods_input_engines_mult			= 0.10
 			goods_input_coal_mult				=-0.25
 			goods_input_electricity_mult		=-0.25
 			goods_input_oil_mult				=-0.25
 		}
 	}
 	state_modifiers		= { level_scaled		= { state_infrastructure_add		= 25 } }	# Rails don't need people to be used
-	country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 10 } }
-	required_input_goods = electricity
+	# country_modifiers	= { workforce_scaled	= { market_land_trade_capacity_add	= 10 } }
 	required_input_goods = telephones
 	ai_value = 5000
 }

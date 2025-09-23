@@ -17,6 +17,7 @@ je_colonial_administration_button_senegal = {
 		any_scope_state = {
 			region = sr:region_senegal
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -93,6 +94,7 @@ je_colonial_administration_button_niger = {
 		any_scope_state = {
 			region = sr:region_niger
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -174,6 +176,7 @@ je_colonial_administration_button_ethiopia = {
 		any_scope_state = {
 			region = sr:region_ethiopia
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -250,6 +253,7 @@ je_colonial_administration_button_zanj = {
 		any_scope_state = {
 			region = sr:region_zanj
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -326,6 +330,7 @@ je_colonial_administration_button_southern_africa = {
 		any_scope_state = {
 			region = sr:region_southern_africa
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -402,6 +407,7 @@ je_colonial_administration_button_congo = {
 		any_scope_state = {
 			region = sr:region_congo
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -478,6 +484,7 @@ je_colonial_administration_button_indonesia = {
 		any_scope_state = {
 			region = sr:region_indonesia
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -554,6 +561,7 @@ je_colonial_administration_button_indochina = {
 		any_scope_state = {
 			region = sr:region_indochina
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -630,6 +638,7 @@ je_colonial_administration_button_arabic = {
 		any_scope_state = {
 			region = sr:region_arabic
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -706,6 +715,7 @@ je_colonial_administration_button_india = {
 		any_scope_state = {
 			state_is_in_india = yes
 			is_largest_state_in_region = yes
+			trigger_if = { limit = { NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } } } NOT = { is_homeland_of_country_cultures = ROOT } }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no
@@ -783,6 +793,7 @@ je_colonial_administration_button_china = {
 		any_scope_state = {
 			trigger_chinese_state = yes
 			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
 			count >= 2
 		}
 		is_diplomatic_play_committed_participant = no

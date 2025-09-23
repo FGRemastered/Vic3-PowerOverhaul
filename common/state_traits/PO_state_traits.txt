@@ -24,6 +24,8 @@ state_trait_bremerhaven = {
 		building_shipyards_throughput_add						= 0.50
 		building_military_shipyards_throughput_add				= 0.50
 		building_port_throughput_add							= 0.50
+		state_trade_capacity_mult								= 0.25
+		state_market_access_price_impact						= 0.05
 		state_building_naval_base_max_level_add					= 40	# 100 total
 	}
 }
@@ -32,6 +34,8 @@ state_trait_black_forest = {
 	modifier = {
 		building_group_bg_logging_throughput_add				= 0.25
 		building_group_bg_rubber_throughput_add					= 0.25
+		building_group_bg_logging_greenhouses_throughput_add	= 0.25
+		building_group_bg_rubber_greenhouses_throughput_add		= 0.25
 	}
 }
 state_trait_alps_mountains = {
@@ -215,20 +219,43 @@ state_trait_seto_inland_sea = {
 state_trait_scottish_highlands = {
 	icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
 	modifier = {
-		state_infrastructure_mult								=-0.1
-		state_construction_mult									=-0.1
-		building_group_bg_agriculture_throughput_add			=-0.1
-		building_group_bg_ranching_throughput_add				= 0.1
-		goods_output_electricity_mult							= 0.1
+		state_infrastructure_mult								=-0.10
+		state_construction_mult									=-0.10
+		building_group_bg_agriculture_throughput_add			=-0.10
+		building_group_bg_ranching_throughput_add				= 0.10
+		goods_output_electricity_mult							= 0.10
 	}
 }
 state_trait_golden_horn_bay = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
 	modifier = {
-		building_shipyards_throughput_add						= 0.30
-		building_military_shipyards_throughput_add				= 0.30
-		building_port_throughput_add							= 0.30
-		state_building_naval_base_max_level_add					= 40	# 100 total
+		building_shipyards_throughput_add						= 0.80
+		building_military_shipyards_throughput_add				= 0.80
+		building_port_throughput_add							= 0.80
+		state_building_naval_base_max_level_add					=   40	# 100 total
+	}
+}
+state_trait_cordillera_de_la_costa = { # Santiago, Tarapaca, and Los Rios
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+	modifier = {
+		building_shipyards_throughput_add						= 0.20
+		building_military_shipyards_throughput_add				= 0.20
+		building_port_throughput_add							= 0.20
+		state_trade_capacity_mult								= 0.25
+		state_building_naval_base_max_level_add					=   20
+		state_market_access_price_impact						= 0.05
+	}
+}
+state_trait_canales_patagonicos = { # araucania
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+	modifier = {
+		goods_output_hardwood_mult								= 0.20
+		building_shipyards_throughput_add						= 0.20
+		building_military_shipyards_throughput_add				= 0.20
+		building_port_throughput_add							= 0.20
+		state_trade_capacity_mult								= 0.25
+		state_building_naval_base_max_level_add					=   20
+		state_market_access_price_impact						= 0.05
 	}
 }
 state_trait_pearl_harbor = {
@@ -243,9 +270,9 @@ state_trait_pearl_harbor = {
 state_trait_natural_harbors_djibouti = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
 	modifier = {
-		building_shipyards_throughput_add						= 0.30
-		building_military_shipyards_throughput_add				= 0.30
-		building_port_throughput_add							= 0.30
+		building_shipyards_throughput_add						= 0.80
+		building_military_shipyards_throughput_add				= 0.80
+		building_port_throughput_add							= 0.80
 		state_building_naval_base_max_level_add					= 40	# 100 total
 	}
 }
@@ -278,13 +305,24 @@ state_trait_gran_chaco = {
 		building_group_bg_plantations_throughput_add			=-0.20	# Growing something in the desert is hopeless
 	}
 }
+state_trait_turqoise_deposits = {
+	icon = "gfx/interface/icons/state_trait_icons/turquoise.dds"
+	modifier = {
+		goods_output_dye_mult									= 0.20
+	}
+}
+state_trait_bam_narmashir = {
+	icon = "gfx/interface/icons/state_trait_icons/turquoise.dds"
+	modifier = {
+		goods_output_dye_mult									= 0.20
+	}
+}
 state_trait_namib_desert = {
 	icon = "gfx/interface/icons/state_trait_icons/poor_soils.dds"
 	modifier = {
 		building_group_bg_logging_throughput_add				=-0.20
 		building_group_bg_agriculture_throughput_add			=-0.40
 		building_group_bg_plantations_throughput_add			=-0.90	# Growing something in the desert is hopeless
-		
 		building_shipyards_throughput_add						=-0.90	# The only available naval base here is Walvis Bay
 		building_military_shipyards_throughput_add				=-0.90	# The only available naval base here is Walvis Bay
 		building_port_throughput_add							=-0.90	# The only available naval base here is Walvis Bay

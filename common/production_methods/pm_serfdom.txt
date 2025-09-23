@@ -2,12 +2,7 @@
 pm_serfdom = {
 	texture = "gfx/interface/icons/production_method_icons/serfdom.dds"
 	unlocking_laws = { law_serfdom }
-	disallowing_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_homesteading
-		law_collectivized_agriculture
-	}
+	disallowing_laws = { law_tenant_farmers law_commercialized_agriculture law_homesteading law_collectivized_agriculture }
 	building_modifiers = {
 		unscaled = {
 			building_subsistence_output_add				= 3
@@ -24,11 +19,7 @@ pm_serfdom = {
 # Freedom
 pm_serfdom_no = {
 	texture = "gfx/interface/icons/production_method_icons/no_serfdom.dds"
-	unlocking_laws = {
-		law_tenant_farmers
-		law_commercialized_agriculture
-		law_collectivized_agriculture
-	}
+	unlocking_laws = { law_tenant_farmers law_commercialized_agriculture law_collectivized_agriculture }
 	disallowing_laws = { law_serfdom }
 	building_modifiers = {
 		unscaled = { building_subsistence_output_add	= 4 }
@@ -50,13 +41,17 @@ pm_homesteading_building_subsistence = {
 			goods_output_meat_mult						= 0.25
 		}
 	}
-	state_modifiers = {
-		level_scaled = { state_migration_pull_add		= 1 }
+	state_modifiers = {	# Yes, this has to be this complicated.
+		workforce_scaled	= { state_migration_pull_add		=-1 }
+		level_scaled		= { state_migration_pull_add		= 1 }
+		throughput_scaled	= { state_migration_pull_add		= 1 }
+		unscaled			= { state_migration_pull_add		=-1 }
 	}
 }
 pm_decentralised_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
-	# unlocking_laws = { law_land_based_taxation }
+	unlocking_laws = { law_consumption_based_taxation law_land_based_taxation law_per_capita_based_taxation }
+	disallowing_laws = { law_proportional_taxation law_graduated_taxation }
 	# is_hidden_when_unavailable = yes
 	building_modifiers = {
 		level_scaled = {

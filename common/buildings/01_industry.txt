@@ -13,6 +13,7 @@ building_food_industry = {
 		pmg_automation_building_food_industry
 	}
 	required_construction = construction_cost_high
+	ai_value = 1500 # Food is a matter of life or death, literally
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
 }
@@ -182,7 +183,7 @@ building_automotive_industry = {
 	icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
-	unlocking_technologies = { combustion_engine }
+	unlocking_technologies = { electric_railway combustion_engine }
 	production_method_groups = {
 		pmg_automobile_production
 		pmg_aeroplanes
@@ -203,7 +204,7 @@ building_synthetics_plants = {
 	production_method_groups = {
 		pmg_synthetic_dyes
 		pmg_synthetic_silk
-		pmg_automation_building_synthetics_plants
+		pmg_automation_building_chemical_plants
 		pmg_train_automation
 	}
 	required_construction = construction_cost_very_high
@@ -257,8 +258,8 @@ building_arts_academy = {
 	icon = "gfx/interface/icons/building_icons/building_arts_academy.dds"
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 	required_construction = construction_cost_medium
-	possible = { is_incorporated = yes }
-	# can_switch_owner	= no
+	possible = { trigger_incorporated_or_incorporating = yes }
+	ai_nationalization_desire = -1.00 # Always privatize Art
 	ownership_type = self
 }
 building_shipyards = {
@@ -343,20 +344,3 @@ building_munition_plants = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
-# building_war_machine_industry = {
-	# building_group = bg_heavy_military_industry
-	# icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
-	# city_type = city
-	# levels_per_mesh = 5
-	# unlocking_technologies = { military_aviation carrier_tech }
-	# production_method_groups = {
-		# pmg_aeroplanes
-		# pmg_tanks
-		# pmg_automation_building_war_machine_industry
-	# }
-	# required_construction = construction_cost_very_high
-	# possible = { trigger_war_machine_industry_allowed	= yes }
-	# ai_nationalization_desire = 0.5 # AI generally does not want to privatize military goods industries
-	# ownership_type = self
-	# background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
-# }

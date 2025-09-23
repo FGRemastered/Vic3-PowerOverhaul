@@ -30,7 +30,7 @@ law_national_guard = {
 		state_harvest_condition_wildfire_impact_mult		=-0.05
 		state_harvest_condition_extreme_winds_impact_mult	=-0.05
 		state_harvest_condition_drought_impact_mult			=-0.05
-		country_suppression_attraction_mult					=-0.05	# Added
+		country_suppression_attraction_factor				=-0.05	# Added
 	}
 	ai_will_do = { NOR = { has_law = law_type:law_secret_police has_law = law_type:law_guaranteed_liberties } }	# Don't return to national guard we have something more advanced
 	ai_enact_weight_modifier = {	# Petitions
@@ -49,7 +49,7 @@ law_secret_police = {
 	}
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_suppression_attraction_mult				=-0.10		# Changed
+		country_suppression_attraction_factor			=-0.10		# Changed
 		political_movement_radicalism_add				=-0.05
 		state_conscription_rate_mult					= 0.05		# Added - A better overview of your people makes conscription easier
 	}
@@ -72,8 +72,8 @@ law_guaranteed_liberties = {
 	institution_modifier = {
 		state_radicals_from_political_movements_mult	=-0.05
 		state_loyalists_from_political_movements_mult	= 0.05
-		political_movement_radicalism_add				=-0.02		# Added
-		country_bolster_attraction_mult					= 0.20		# Added - Money can solve anything
+		political_movement_radicalism_add				=-0.01		# Added
+		country_bolster_attraction_factor				= 0.20		# Added - Money can solve anything
 		state_conscription_rate_mult					= 0.05		# Added - A better overview of your people makes conscription easier
 	}
 	ai_enact_weight_modifier = { # Petitions

@@ -1,1 +1,1 @@
-﻿############ GOVERNMENT BUILDINGS
+﻿# Empty to override original

@@ -9,10 +9,12 @@ tobacco_ban_authority = {
 	state_mortality_mult								=-0.05
 	unit_morale_recovery_mult							= 0.10
 }
-capital_state = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	state_pop_pol_str_mult								= 0.25
-	state_tax_capacity_mult								= 0.25
+decree_manufacturing_throughput = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_manufacturing_throughput_add		= 0.10
+	building_group_bg_service_throughput_add			= 0.10
+		building_group_bg_arts_throughput_add			= 0.10	# Added
+		building_group_bg_trade_throughput_add			= 0.10	# Added
 }
 decree_resource_throughput = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
@@ -47,6 +49,7 @@ zeppelins_modifier = {
 automobile_regulations = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
 	building_motor_industry_throughput_add				=-0.10
+	building_automotive_industry_throughput_add			=-0.10
 	country_authority_mult								= 0.10
 }
 sided_with_workers_over_scrips = {
@@ -63,6 +66,20 @@ junker_compromise = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_aristocrats_pol_str_mult					= 0.50
 }
+radio_production_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	goods_output_radios_mult							= 0.50	# PDX forgot the s in radios
+}
+modifier_pebrine_state_modifier = {												# Something about this one in particular is fucked and I have no clue why.
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	building_silk_plantation_throughput_add				=-0.75
+	building_silk_greenhouse_throughput_add				=-0.75
+}
+modifier_silk_grand_reopening = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_silk_plantation_throughput_add				= 0.15
+	building_silk_greenhouse_throughput_add				= 0.15
+}
 modifier_traditional_patronage = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 0.00
@@ -74,4 +91,29 @@ modifier_bourgeoisie_patronage = {
 modifier_independent_artists = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 1.00
+}
+modifier_social_market_economy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	building_group_bg_manufacturing_allowed_collectivization_add	= 0.50
+	building_group_bg_extraction_allowed_collectivization_add		= 0.50
+	state_shopkeepers_investment_pool_efficiency_mult				= 0.10
+	state_farmers_investment_pool_efficiency_mult					= 0.10
+	interest_group_ig_trade_unions_approval_add						= 5
+}
+# Culture SoL
+african_standard_of_living_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	state_african_standard_of_living_add = 1
+}
+african_standard_of_living_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	state_african_standard_of_living_add = 1
+}
+anglo_indian_standard_of_living_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	state_anglo_indian_standard_of_living_add = 1
+}
+anglo_indian_standard_of_living_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	state_anglo_indian_standard_of_living_add = 1
 }

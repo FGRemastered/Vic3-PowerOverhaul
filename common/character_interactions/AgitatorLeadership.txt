@@ -6,9 +6,11 @@ grant_leadership_to_agitator = {
 		has_role = agitator
 		owner = scope:actor
 	}
+	show_requirements = yes
 	possible = {
 		interest_group = { is_in_government = yes }
-		ROOT.OWNER ?= { country_average_cultural_acceptance = { target = ROOT.culture value >= acceptance_status_4 } }
+		character_acceptance = { target = scope:actor value >= acceptance_status_4 }
+		# ROOT.OWNER ?= { country_average_cultural_acceptance = { target = ROOT.culture value >= acceptance_status_4 } }
 		# trigger_if = {
 			# limit = { scope:actor ?= { has_law = law_type:law_state_religion } }
 			# religion = scope:actor.religion
@@ -39,7 +41,7 @@ grant_leadership_to_agitator = {
 			set_as_interest_group_leader = yes
 		}
 	}
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = normal_modifier_time }
 	ai_chance = {
 		value = -50
 		if = {
@@ -155,7 +157,7 @@ invite_exile = {
 			change_character_religion = rel:atheist
 		}
 	}
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = normal_modifier_time }
 	ai_chance = {
 		value = -85
 		if = {

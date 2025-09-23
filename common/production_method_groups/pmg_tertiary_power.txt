@@ -47,6 +47,7 @@ pmg_tertiary_agri_power_subsistence = {
 pmg_greenhouse = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_primitive_greenhouse
 		pm_coal_furnace
 		pm_electric_furnace
 		pm_electric_heat_exchanger

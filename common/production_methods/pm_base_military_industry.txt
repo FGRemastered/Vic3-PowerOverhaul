@@ -410,9 +410,32 @@ pm_jet_electric_engines = {
 	required_input_goods = electricity
 }
 # Automobiles
+pm_electric_automobile_production = {
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
+	unlocking_technologies = { electric_railway }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_rubber_add				=    5	# x-40	= -200
+			goods_input_electricity_add			=    5	# x-30	= -150
+			# output goods
+			goods_output_automobiles_add		=   25	# x+100	= 2500
+		}												#		=+1850
+		level_scaled = {
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
+			building_employment_engineers_add	= 1000	# x-.06	=  -60
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		= -140	=> Stops breaking even at SoL 13 3/14
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+	required_input_goods = electricity
+}
 pm_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
 	unlocking_technologies = { combustion_engine }
+	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -431,6 +454,28 @@ pm_automobile_production = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
+pm_mass_electric_automobile_production = {
+	texture = "gfx/interface/icons/production_method_icons/unused/base3.dds"
+	unlocking_technologies = { conveyors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_rubber_add				=   10	# x-40	= -400
+			goods_input_electricity_add			=   10	# x-30	= -300
+			# output goods
+			goods_output_automobiles_add		=   50	# x+100	= 5000
+		}												#		=+3700
+		level_scaled = {
+			building_employment_laborers_add	= 1500	# x-.02	=  -30
+			building_employment_machinists_add	=  500	# x-.03	=  -15
+			building_employment_engineers_add	=  500	# x-.06	=  -30
+			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+		}												#		=  -95	=> Stops breaking even at SoL 38 18/19
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+	required_input_goods = electricity
+}
 pm_mass_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/standardized_automobiles.dds"
 	unlocking_technologies = { compression_ignition }
@@ -446,9 +491,9 @@ pm_mass_automobile_production = {
 		level_scaled = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
-			building_employment_engineers_add	= 1500	# x-.06	=  -90
+			building_employment_engineers_add	=  500	# x-.06	=  -30
 			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -185	=> Stops breaking even at SoL 24 32/37 
+		}												#		= -125	=> Stops breaking even at SoL 36.8
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -498,7 +543,8 @@ pm_basic_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_wood_add				=   20	# x-20	= -400
+			goods_input_hardwood_add			=   10	# x-40	= -400
 			goods_input_fabric_add				=   20	# x-20	= -400
 			# output goods
 			goods_output_clippers_add			=   35	# x+60	= 2100
@@ -517,18 +563,19 @@ pm_complex_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   35	# x-40	=-1400
-			goods_input_fabric_add				=   15	# x-20	= -300
+			goods_input_wood_add				=   40	# x-20	= -800
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
 			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
 			goods_output_clippers_add			=   75	# x+60	= 4500
-		}												#		= 1900
+		}												#		= 1600
 		level_scaled = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 2000	# x-.03	=  -60
 			building_employment_engineers_add	=  500	# x-.06	=  -30
 			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -150	=> Stops breaking even at SoL 12 2/3
+		}												#		= -150	=> Stops breaking even at SoL 10 2/3
 	}
 	required_input_goods = engines
 }
@@ -607,16 +654,14 @@ pm_arc_welding_shipbuilding_green = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
 # Military Ships
-pm_no_military_shipbuilding = {
-	texture = "gfx/interface/icons/production_method_icons/no_military_shipbuilding.dds"
-}
 # Wood
 pm_military_shipbuilding_wooden = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_wooden.dds"
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_wood_add				=   20	# x-20	= -400
+			goods_input_hardwood_add			=   10	# x-40	= -400
 			goods_input_fabric_add				=   20	# x-20	= -400
 			# output goods
 			goods_output_manowars_add			=   35	# x+70	=+2450
@@ -635,18 +680,19 @@ pm_military_shipbuilding_wooden_2 = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_hardwood_add			=   35	# x-40	=-1400
-			goods_input_fabric_add				=   15	# x-20	= -300
+			goods_input_wood_add				=   40	# x-20	= -800
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_fabric_add				=   20	# x-20	= -400
 			goods_input_engines_add				=   15	# x-60	= -900
 			# output goods
 			goods_output_manowars_add			=   75	# x+70	=+5250
-		}												#		= 2650
+		}												#		= 2350
 		level_scaled = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 2000	# x-.03	=  -60
 			building_employment_engineers_add	=  500	# x-.06	=  -30
 			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -150	=> Stops breaking even at SoL 17 2/3
+		}												#		= -150	=> Stops breaking even at SoL 15 2/3
 	}
 	required_input_goods = engines
 }

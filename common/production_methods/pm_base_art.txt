@@ -76,10 +76,7 @@ pm_film_art = {
 # Ownership
 pm_traditional_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
+	disallowing_laws = { law_cooperative_ownership }
 }
 pm_bourgeoisie_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
@@ -89,14 +86,17 @@ pm_bourgeoisie_patronage = {
 		law_cooperative_ownership
 	}
 	building_modifiers = {
-		# level_scaled		= { building_employment_shopkeepers_add			=  250 }	# x-.06	=   -15
+		level_scaled		= { building_employment_shopkeepers_add			=  250 }	# x-.06	=   -15
 		unscaled			= { building_throughput_add						= 0.25 }
 	}
 	ai_value = 5000
 }
 pm_independent_artists = {
 	texture = "gfx/interface/icons/production_method_icons/independent_artists.dds"
-	disallowing_laws = { law_traditionalism }
+	disallowing_laws = {
+		law_traditionalism
+		law_command_economy
+	}
 	unlocking_technologies = { realism }
 	building_modifiers = {
 		level_scaled		= { building_employment_academics_add			=  250 }	# x-.08	=   -20

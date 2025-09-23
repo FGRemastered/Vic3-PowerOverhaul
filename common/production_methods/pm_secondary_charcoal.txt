@@ -55,6 +55,7 @@ pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 		}
 	}													#		= 5350
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }	# not as smelly
+	ai_value = 10000
 }
 pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Process
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
@@ -76,6 +77,7 @@ pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Proce
 	}													#		= 6440 			= 2250	# Intentionally half as good as Linz-Donawitz - Now slightly better
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-75 } }	# very not smelly
 	required_input_goods = electricity
+	ai_value = 10000
 }
 # Oil
 pm_secondary_biofuel = {
@@ -83,13 +85,14 @@ pm_secondary_biofuel = {
 	unlocking_technologies = { combustion_engine }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_liquor_add				=   30	# x-30	= -900	# 175 grain
+			goods_input_liquor_add				=   40	# x-30	=-1200	# 175 grain
 		}
 		unscaled = {
 			goods_input_glass_mult				=-0.50	# Effectively irrelevant
-			goods_output_oil_mult				= 0.20	# x+40	=  960
+			goods_output_oil_mult				= 0.25	# x+40	= 1200
 		}
-	}													#		=  +60	x1-3
+	}													#		=    0	x1-3
+	ai_value = 2000
 }
 pm_secondary_carbon_capture_oil = { # Future tech
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
@@ -97,12 +100,15 @@ pm_secondary_carbon_capture_oil = { # Future tech
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			=  80	# x-30	=-2400	# 60	# Realistic would be ~200000 per unit, but this is more reasonable.
+			goods_input_liquor_add				=   40	# x-30	=-1200
+			goods_input_electricity_add			=   80	# x-30	=-2400	# 60	# Realistic would be ~200000 per unit, but this is more reasonable.
 		}
 		unscaled = {
-			goods_input_coal_mult				=-1.0	# x+30	= 2400
+			goods_input_coal_mult				=-1.00	# x+30	= 2400
+			goods_output_oil_mult				= 0.25	# x+40	= 1200
 		}
 	}													#		=    0
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-90 } }	# very not smelly
 	required_input_goods = electricity
+	ai_value = 1000
 }

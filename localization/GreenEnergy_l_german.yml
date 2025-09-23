@@ -29,6 +29,7 @@
  pm_huge_solar_windpark_subsistence: "$pm_huge_solar_windpark$"
  
  pmg_greenhouse: "Gewächshaus"
+ pm_primitive_greenhouse: "Primitives Gewächshaus"
  pm_coal_furnace: "Kohleofen"
  pm_electric_furnace: "Durchlauferhitzer"
  pm_electric_heat_exchanger: "Wärmepumpe"
@@ -58,6 +59,7 @@
  pm_simple_farming_rice_farm: "$pm_simple_farming$"
  
  default_building_wood_plantation: "$pm_default$"
+ pmg_base_building_wood_plantation: "$pm_base$"
  
  pm_soil_enriching_farming_rice_farm: "$pm_soil_enriching_farming$"
  pm_soil_enriching_farming_vineyard_plantation: "$pm_soil_enriching_farming$"
@@ -203,18 +205,8 @@
  
  building_autarky_farm: "Autarkiehöfe"
  building_autarky_farm_lens_option: "$building_autarky_farm$ erweitern"
- building_autarky_greenhouse: "Inf. Autarkiehöfe"
+ building_autarky_greenhouse: "Autarkiegewächshaus"
  building_autarky_greenhouse_lens_option: "$building_autarky_greenhouse$ erweitern"
- building_infres_subsistence_farms: "Unerschöpfliche Subsistenzhöfe"
- building_infres_subsistence_farms_lens_option: "$building_infres_subsistence_farms$ erweitern"
- building_infres_subsistence_orchards: "Unerschöpfliche Subsistenzobstgärten"
- building_infres_subsistence_orchards_lens_option: "$building_infres_subsistence_orchards$ erweitern"
- building_infres_subsistence_pastures: "Unerschöpfliche Subsistenzweiden"
- building_infres_subsistence_pastures_lens_option: "$building_infres_subsistence_pastures$ erweitern"
- building_infres_subsistence_fishing_villages: "Unerschöpfliche Subsistenzfischerdorf"
- building_infres_subsistence_fishing_villages_lens_option: "$building_infres_subsistence_fishing_villages$ erweitern"
- building_infres_subsistence_rice_paddies: "Unerschöpfliche Subsistenzreisfelder"
- building_infres_subsistence_rice_paddies_lens_option: "$building_infres_subsistence_rice_paddies$ erweitern"
  
  pm_centralised_subsistence: "Zentralisierung"
  pm_decentralised_subsistence: "Dezentralisierte Bauern"

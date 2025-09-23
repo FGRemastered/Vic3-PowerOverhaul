@@ -18,9 +18,12 @@ pm_wooden_buildings = {
 	state_modifiers		= {
 		workforce_scaled = {
 			state_construction_mult											= 0.0025
-			building_group_bg_agriculture_throughput_add					= 0.0025
-			building_group_bg_plantations_throughput_add					= 0.0025
-			building_group_bg_extraction_throughput_add						= 0.0025
+		}
+		throughput_scaled = {
+			building_group_bg_agriculture_throughput_add					= 0.025
+			building_group_bg_ranching_throughput_add						= 0.025
+			building_group_bg_plantations_throughput_add					= 0.025
+			building_group_bg_extraction_throughput_add						= 0.025
 		}
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 2.5   } }
@@ -47,9 +50,12 @@ pm_hardwood_frame_buildings = {	# Sidegrade to Iron-Frame for countries with lit
 	state_modifiers		= {
 		workforce_scaled = {
 			state_construction_mult											= 0.0045
-			building_group_bg_agriculture_throughput_add					= 0.0045
-			building_group_bg_plantations_throughput_add					= 0.0045
-			building_group_bg_extraction_throughput_add						= 0.0045
+		}
+		throughput_scaled = {
+			building_group_bg_agriculture_throughput_add					= 0.045
+			building_group_bg_ranching_throughput_add						= 0.045
+			building_group_bg_plantations_throughput_add					= 0.045
+			building_group_bg_extraction_throughput_add						= 0.045
 		}
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    4.5 } }
@@ -76,9 +82,12 @@ pm_iron_frame_buildings = {
 	state_modifiers		= {
 		workforce_scaled = {
 			state_construction_mult											= 0.005
-			building_group_bg_agriculture_throughput_add					= 0.005
-			building_group_bg_plantations_throughput_add					= 0.005
-			building_group_bg_extraction_throughput_add						= 0.005
+		}
+		throughput_scaled = {
+			building_group_bg_agriculture_throughput_add					= 0.05
+			building_group_bg_ranching_throughput_add						= 0.05
+			building_group_bg_plantations_throughput_add					= 0.05
+			building_group_bg_extraction_throughput_add						= 0.05
 		}
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    5 } }
@@ -106,9 +115,12 @@ pm_steel_frame_buildings = {
 	state_modifiers		= {
 		workforce_scaled = {
 			state_construction_mult											= 0.010
-			building_group_bg_agriculture_throughput_add					= 0.010
-			building_group_bg_plantations_throughput_add					= 0.010
-			building_group_bg_extraction_throughput_add						= 0.010
+		}
+		throughput_scaled = {
+			building_group_bg_agriculture_throughput_add					= 0.10
+			building_group_bg_ranching_throughput_add						= 0.10
+			building_group_bg_plantations_throughput_add					= 0.10
+			building_group_bg_extraction_throughput_add						= 0.10
 		}
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    10 } }
@@ -129,7 +141,6 @@ pm_arc_welded_buildings = {
 		}												#		=-7500
 		level_scaled = {
 			building_employment_laborers_add	=  500
-			building_employment_machinists_add	=  250
 			building_employment_engineers_add	=  250
 		}
 		unscaled = { building_laborers_mortality_mult = 0.1 }
@@ -137,9 +148,12 @@ pm_arc_welded_buildings = {
 	state_modifiers		= {
 		workforce_scaled = {
 			state_construction_mult											= 0.025
-			building_group_bg_agriculture_throughput_add					= 0.025
-			building_group_bg_plantations_throughput_add					= 0.025
-			building_group_bg_extraction_throughput_add						= 0.025
+		}
+		throughput_scaled = {
+			building_group_bg_agriculture_throughput_add					= 0.25
+			building_group_bg_ranching_throughput_add						= 0.25
+			building_group_bg_plantations_throughput_add					= 0.25
+			building_group_bg_extraction_throughput_add						= 0.25
 		}
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	=   25 } }
@@ -209,6 +223,7 @@ pm_central_planned_construction = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_telephones_add			=    5
+			goods_output_services_add			=    1
 		}
 		unscaled = { building_throughput_add	= 0.10 }
 	}

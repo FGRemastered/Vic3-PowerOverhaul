@@ -422,6 +422,8 @@ law_corporate_state = {
 		country_authority_add								=  100
 		interest_group_ig_petty_bourgeoisie_pol_str_mult	= 0.25
 		state_political_strength_from_wealth_mult			= 1.00	# Added
+		country_max_companies_add							= 1
+		country_free_charters_add							= 1
 	}
 	ai_will_do = {
 		exists = ruler

@@ -246,13 +246,13 @@ fascism_events.1 = {
 			}
 		}
 		scope:fascist_ig		= { leader = { add_modifier = { name = modifier_character_unpopular_despised } } }
-		scope:general_1			= { set_variable = { name = general_1_var value = no } }
-		scope:general_2			= { set_variable = { name = general_2_var value = no } }
+		scope:general_1			= { remove_variable = general_1_var }
+		scope:general_2			= { remove_variable = general_2_var }
 		scope:fascist_general_1	= { remove_character_role = general }
 		scope:fascist_general_2	= { remove_character_role = general }
 		every_interest_group = {
 			limit = { has_variable = fascism_traitor_ig_var }
-			set_variable = { name = fascism_traitor_ig_var value = no }
+			remove_variable = fascism_traitor_ig_var
 		}
 	}
 }

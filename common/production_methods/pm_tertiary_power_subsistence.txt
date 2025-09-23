@@ -4,7 +4,7 @@ pm_early_windpark_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }
 	unlocking_production_methods = {
-		# pm_home_workshops
+		pm_home_workshops_no	# Required for Autark Worshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
@@ -23,7 +23,7 @@ pm_large_windpark_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_capacitors }
 	unlocking_production_methods = {
-		# pm_home_workshops
+		pm_home_workshops_no	# Required for Autark Worshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
@@ -43,7 +43,7 @@ pm_solar_windpark_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
 	unlocking_production_methods = {
-		# pm_home_workshops
+		pm_home_workshops_no	# Required for Autark Worshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
@@ -64,7 +64,7 @@ pm_large_solar_windpark_subsistence = {	# Improved
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { radio }
 	unlocking_production_methods = {
-		# pm_home_workshops
+		pm_home_workshops_no	# Required for Autark Worshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
@@ -86,7 +86,7 @@ pm_huge_solar_windpark_subsistence = {	# Advanced
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {
-		# pm_home_workshops
+		pm_home_workshops_no	# Required for Autark Worshops
 		pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops

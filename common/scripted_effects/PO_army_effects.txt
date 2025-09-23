@@ -1,4 +1,4 @@
-# Army Spwaner
+﻿# Army Spwaner
 # TODO: Rework the CHI army to work like the US army
 effect_capital_army = {
 	switch = {

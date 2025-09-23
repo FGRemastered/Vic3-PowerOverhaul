@@ -106,14 +106,8 @@ retire_commander = {
 	}
 	effect = {
 		hidden_effect = {
-			if = {
-				limit = { has_role = general }
-				remove_character_role = general
-			}
-			if = {
-				limit = { has_role = admiral }
-				remove_character_role = admiral
-			}
+			if = { limit = { has_role = general } remove_character_role = general }
+			if = { limit = { has_role = admiral } remove_character_role = admiral }
 		}
 		interest_group = {
 			add_modifier = {

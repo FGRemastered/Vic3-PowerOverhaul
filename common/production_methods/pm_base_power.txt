@@ -1,33 +1,36 @@
 # Power
-pm_early_power_plant = {
-	texture = "gfx/interface/icons/production_method_icons/power_plant.dds"
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_engines_add				=    5	# x-60	= -300
-			goods_input_wood_add 				=    7.5# x-20	= -150
-			goods_output_electricity_add		=   25	# x+30	= +750
-		}												#		= +300
-		level_scaled = {
-			building_employment_laborers_add	=  550	# x-.02	=  -11
-			building_employment_machinists_add	=  200	# x-.03	=   -6
-			building_employment_engineers_add	=   50	# x-.06	=   -3
-		}												#		=  -20	=> Stops breaking even at SoL 15
-	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
-}
-pm_hydroelectric_plant = {	# Unused atm
+pm_hydroelectric_plant = {
 	texture = "gfx/interface/icons/production_method_icons/hydroelectric_plant.dds"
+	unlocking_laws = { law_traditionalism law_agrarianism law_industry_banned law_cooperative_ownership }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    5	# x-60	= -300
 			goods_output_electricity_add		=   25	# x+30	= +750
-		}												#		= +450
+		}												#		= +450	(+300)
 		level_scaled = {
 			building_employment_laborers_add	=  500	# x-.02	=  -10
-			building_employment_machinists_add	=  400	# x-.03	=  -12
-			building_employment_engineers_add	=  100	# x-.06	=   -6
-		}												#		=  -28	=> Stops breaking even at SoL 15 (16.8...)
+			building_employment_machinists_add	=  200	# x-.03	=   -6
+			building_employment_engineers_add	=   50	# x-.06	=   -3
+		}												#		=  -19	(-9)	=> Stops breaking even at SoL 23 13/19	(33 1/3)
 	}
+}
+pm_early_power_plant = {
+	texture = "gfx/interface/icons/production_method_icons/power_plant.dds"
+	disallowing_laws = { law_industry_banned }	# No fun allowed
+	is_default = yes
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_wood_add 				=   15	# x-20	= -300
+			goods_output_electricity_add		=   30	# x+30	= +900
+		}												#		= +300	(+150)
+		level_scaled = {
+			building_employment_laborers_add	=  500	# x-.02	=  -10
+			building_employment_machinists_add	=  200	# x-.03	=   -6
+			building_employment_engineers_add	=   50	# x-.06	=   -3
+		}												#		=  -19	(-9)	=> Stops breaking even at SoL 15 15/19	(16 2/3)
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 30 } }
 }
 pm_coal-fired_plant = {
 	texture = "gfx/interface/icons/production_method_icons/coal_fired_plant.dds"
@@ -38,12 +41,12 @@ pm_coal-fired_plant = {
 			goods_input_engines_add				=    5	# x-60	= -300
 			goods_input_coal_add				=   25	# x-30	= -750	# 34
 			goods_output_electricity_add		=   50	# x+30	=+1500
-		}												#		= +450
+		}												#		= +450	(+300)
 		level_scaled = {
 			building_employment_laborers_add	=  500	# x-.02	=  -10
 			building_employment_machinists_add	=  400	# x-.03	=  -12
 			building_employment_engineers_add	=  100	# x-.06	=   -6
-		}												#		=  -28	=> Stops breaking even at SoL 15 (16.8...)
+		}												#		=  -28	(-18)	=> Stops breaking even at SoL 16 1/14	(16 2/3)
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 50 } }
 }
@@ -54,14 +57,14 @@ pm_oil-fired_plant = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    5	# x-60	= -300
-			goods_input_oil_add					=   37.5# x-40	= -750	# 55
+			goods_input_oil_add					=   25	# x-40	=-1000	# 55
 			goods_output_electricity_add		=   75	# x+30	=+2250
-		}												#		= +450
+		}												#		= +950	(+800)
 		level_scaled = {
 			building_employment_laborers_add	=  500	# x-.02	=  -10
 			building_employment_machinists_add	=  400	# x-.03	=  -12
 			building_employment_engineers_add	=  100	# x-.06	=   -6
-		}												#		=  -28	=> Stops breaking even at SoL 15 (16.8...)
+		}												#		=  -28	(-18)	=> Stops breaking even at SoL 33 13/14	(44 4/9)
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 75 } }
 }

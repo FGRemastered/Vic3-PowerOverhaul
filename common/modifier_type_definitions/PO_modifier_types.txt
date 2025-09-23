@@ -36,6 +36,7 @@ goods_input_luxury_furniture_mult								= { decimals = 1	color =  bad	percent =
 goods_input_liquor_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_tobacco_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_opium_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+goods_input_engines_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_automobiles_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 goods_input_oil_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }	# decimals 0 -> 1
 goods_input_merchant_marine_mult								= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
@@ -86,15 +87,13 @@ goods_output_services_mult										= { decimals = 1	color = good	percent = yes	
 goods_output_transportation_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 goods_output_electricity_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Buildings
-building_silk_greenhouse_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
-building_cotton_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
-building_sugar_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
-building_coffee_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
-building_tobacco_greenhouse_throughput_add						= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
-building_synthetic_oil_plants_throughput_add					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Synth Oil
-building_group_bg_manor_houses_tax_mult							= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_financial_districts_tax_mult					= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_extraction_tax_mult							= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+building_silk_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
+building_cotton_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
+building_sugar_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
+building_vineyard_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
+building_coffee_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
+building_tobacco_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
+building_synthetic_oil_plants_throughput_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Synth Oil
 # Shares
 building_peasants_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
 building_farmers_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
@@ -103,16 +102,29 @@ building_engineers_shares_add									= { decimals = 0	color = neutral					game_
 building_officers_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
 building_government_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
 # Investment Pool Contribution
+state_peasants_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_laborers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_machinists_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_bureaucrats_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_academics_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_engineers_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_officers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 # ... Efficiency
+state_peasants_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_laborers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_machinists_investment_pool_efficiency_mult				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_bureaucrats_investment_pool_efficiency_mult				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_academics_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_engineers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 state_officers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Building Groups
+building_group_bg_logging_greenhouses_throughput_add			= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+building_group_bg_rubber_greenhouses_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 building_group_bg_arts_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 building_group_bg_trade_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+building_group_bg_manor_houses_tax_mult							= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+building_group_bg_financial_districts_tax_mult					= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+building_group_bg_extraction_tax_mult							= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
 # Units
 unit_combat_unit_type_carrier_offense_add						= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
 unit_combat_unit_type_carrier_defense_add						= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
@@ -152,6 +164,7 @@ building_capitalists_birth_rate_mult							= { decimals = 1	color = good	percent
 building_aristocrats_birth_rate_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 
 state_peasants_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+state_birth_rate_peasants_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Perhaps it was the wrong way around?
 
 building_slaves_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
 building_peasants_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
@@ -176,13 +189,13 @@ state_education_access_wealth_add								= {	decimals = 2	color = good	suffix	= 
 state_birth_rate_wealth_mult									= {	decimals = 2	color = good	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Added - Unused for now
 state_mortality_wealth_mult										= {	decimals = 2	color =  bad	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Increased decimals to 2
 state_birth_rate_mult											= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 1
-state_mortality_mult											= {	decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 1
+state_mortality_mult											= {	decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }		
+state_birth_rate_full_acceptance_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }					# Increased decimals to 1
 state_african_standard_of_living_add							= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
 state_anglo_indian_standard_of_living_add						= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
 # Country
 country_law_enactment_success_add								= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Changed the decimals to 1, because that looks weird in some tooltips.
-country_government_dividends_reinvestment_mult					= {	decimals = 1	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-country_birthrate_from_grain_consumption_mult					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-country_birthrate_from_groceries_consumption_mult				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+country_birth_rate_from_grain_consumption_mult					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+country_birth_rate_from_groceries_consumption_mult				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 country_law_enactment_stall_mult								= {	decimals = 1	color = bad		percent = yes	game_data = { ai_value = 0 } }	# Swapped good to bad, since it's good thing to decreases, thus a bad to increase.
 country_institution_cost_institution_social_security_mult		= {	decimals = 0	color = bad		percent = yes	game_data = { ai_value = 0 } }
