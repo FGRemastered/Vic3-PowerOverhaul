@@ -4,71 +4,75 @@
 # Pottery
 pm_primitive_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	replacement_if_valid = pm_electric_heat_exchanger
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=    3		# x-20	=  -60
-			goods_input_fabric_add				=    3		# x-20	=  -60
-			goods_input_fertilizer_add			=    2		# x-30	=  -60
-		}											 		#		= -180 => Reduces the target SoL of workers to 3
+			goods_input_wood_add				=    4		# x-20	=  -80	# Fuel
+			goods_input_hardwood_add			=    2		# x-40	=  -80	# Frame
+			goods_input_fabric_add				=    2.5	# x-20	=  -50	# Roof
+			goods_input_fertilizer_add			=    5		# x-30	= -150
+		}											 		#		= -360 => Reduces the target SoL of workers to 3
 		unscaled = {
-			goods_output_fertilizer_mult		=-0.50
-			goods_output_grain_mult				=-0.50
-			goods_output_fish_mult				=-0.50
-			goods_output_fruit_mult				=-0.50
-			goods_output_meat_mult				=-0.50
-			goods_output_sugar_mult				=-0.50
-			goods_output_wine_mult				=-0.50
-			goods_output_coffee_mult			=-0.50
-			goods_output_fabric_mult			=-0.50
-			goods_output_dye_mult				=-0.50
-			goods_output_opium_mult				=-0.50
-			goods_output_tea_mult				=-0.50
-			goods_output_tobacco_mult			=-0.50
-			goods_output_silk_mult				=-0.50
-			goods_output_rubber_mult			=-0.75		# Rubber is particularly hard to grow in the wrong climate
-			goods_output_wood_mult				=-0.50
-			goods_output_hardwood_mult			=-0.50
+			building_throughput_add				=-0.50
+			# goods_output_fertilizer_mult		=-0.50
+			# goods_output_grain_mult				=-0.50
+			# goods_output_fish_mult				=-0.50
+			# goods_output_fruit_mult				=-0.50
+			# goods_output_meat_mult				=-0.50
+			# goods_output_sugar_mult				=-0.50
+			# goods_output_wine_mult				=-0.50
+			# goods_output_coffee_mult			=-0.50
+			# goods_output_fabric_mult			=-0.50
+			# goods_output_dye_mult				=-0.50
+			# goods_output_opium_mult				=-0.50
+			# goods_output_tea_mult				=-0.50
+			# goods_output_tobacco_mult			=-0.50
+			# goods_output_silk_mult				=-0.50
+			goods_output_rubber_mult			=-0.50	# .75		# Rubber is particularly hard to grow in the wrong climate
+			# goods_output_wood_mult				=-0.50
+			# goods_output_hardwood_mult			=-0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 1 } }
-	ai_value = 300
+	ai_value = 500
 }
 pm_coal_furnace = {
 	texture = "gfx/interface/icons/production_method_icons/coal_fired_plant.dds"
-	unlocking_technologies = { steelworking }
+	unlocking_technologies = { mechanical_tools }
 	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_coal_add				=    5		# x-30	= -150
-			goods_input_glass_add				=    3		# x-40	= -120
-			goods_input_porcelain_add			=    0.85	# x-70	=  -60
-			goods_input_steel_add				=    0.4	# x-50	=  -20
+			goods_input_coal_add				=    5		# x-30	= -150	# Fuel
+			goods_input_glass_add				=    2.25	# x-40	=  -90	# Roof
+			goods_input_porcelain_add			=    1.3	# x-70	=  -90	# Pottery - Rounded
+			goods_input_steel_add				=    0.4	# x-50	=  -20	# Furnace
 			goods_input_fertilizer_add			=    5		# x-30	= -150
-		}											 		#		= -500	=> Reduces the target SoL of workers to 5
+		}											 		#		= -500	=> Reduces the target SoL of workers to 3.75
 		unscaled = {
-			goods_output_fertilizer_mult		=-0.125
-			goods_output_grain_mult				=-0.125
-			goods_output_fish_mult				=-0.125
-			goods_output_fruit_mult				=-0.125
-			goods_output_meat_mult				=-0.125
-			goods_output_sugar_mult				=-0.125
-			goods_output_wine_mult				=-0.125
-			goods_output_coffee_mult			=-0.125
-			goods_output_fabric_mult			=-0.125
-			goods_output_dye_mult				=-0.125
-			goods_output_opium_mult				=-0.125
-			goods_output_tea_mult				=-0.125
-			goods_output_tobacco_mult			=-0.125
-			goods_output_silk_mult				=-0.125
+			building_throughput_add				=-0.25
+			# goods_output_fertilizer_mult		=-0.125
+			# goods_output_grain_mult				=-0.125
+			# goods_output_fish_mult				=-0.125
+			# goods_output_fruit_mult				=-0.125
+			# goods_output_meat_mult				=-0.125
+			# goods_output_sugar_mult				=-0.125
+			# goods_output_wine_mult				=-0.125
+			# goods_output_coffee_mult			=-0.125
+			# goods_output_fabric_mult			=-0.125
+			# goods_output_dye_mult				=-0.125
+			# goods_output_opium_mult				=-0.125
+			# goods_output_tea_mult				=-0.125
+			# goods_output_tobacco_mult			=-0.125
+			# goods_output_silk_mult				=-0.125
 			goods_output_rubber_mult			=-0.50		# Rubber is particularly hard to grow in the wrong climate
-			goods_output_wood_mult				=-0.125
-			goods_output_hardwood_mult			=-0.125
+			# goods_output_wood_mult				=-0.125
+			# goods_output_hardwood_mult			=-0.125
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-	ai_value = 500
+	ai_value = 750
 }
 pm_electric_furnace = {
 	texture = "gfx/interface/icons/production_method_icons/unused/lightbulbs.dds"
@@ -84,7 +88,8 @@ pm_electric_furnace = {
 			goods_input_fertilizer_add			=    5		# x-30	= -150
 		}											 		#		= -500	=> Reduces the target SoL of workers to 5
 		unscaled = {
-			goods_output_rubber_mult			=-0.25		# Rubber is particularly hard to grow in the wrong climate
+			building_throughput_add				=-0.25
+			goods_output_rubber_mult			=-0.50		# Rubber is particularly hard to grow in the wrong climate
 		}
 	}
 	required_input_goods = electricity
@@ -98,34 +103,35 @@ pm_electric_heat_exchanger = {
 			# input goods
 			goods_input_engines_add				=    1		# x-60	=  -60
 			goods_input_electricity_add			=    2		# x-30	=  -60
-			goods_input_glass_add				=    3.5	# x-40	= -140
-			goods_input_porcelain_add			=    1		# x-70	=  -70
+			goods_input_glass_add				=    3.25	# x-40	= -130
+			goods_input_porcelain_add			=    1.85	# x-70	= -130
 			goods_input_oil_add					=    0.5	# x-40	=  -20	# Lubricant and Refrigerant
 			goods_input_fertilizer_add			=    5		# x-30	= -150
-		}											 		#		= -500 (550)
+		}											 		#		= -550
 		unscaled = {										# Optimal growing temperature year-round
-			goods_output_fertilizer_mult		= 0.10
-			goods_output_grain_mult				= 0.10
-			goods_output_fish_mult				= 0.10
-			goods_output_fruit_mult				= 0.10
-			goods_output_meat_mult				= 0.10
-			goods_output_sugar_mult				= 0.10
-			goods_output_wine_mult				= 0.10
-			goods_output_coffee_mult			= 0.10
-			goods_output_fabric_mult			= 0.10
-			goods_output_dye_mult				= 0.10
-			goods_output_opium_mult				= 0.10
-			goods_output_tea_mult				= 0.10
-			goods_output_tobacco_mult			= 0.10
-			goods_output_silk_mult				= 0.10
-			goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
-			goods_output_wood_mult				= 0.10
-			goods_output_hardwood_mult			= 0.10
+			# building_throughput_add				= 0.25
+			# goods_output_fertilizer_mult		= 0.10
+			# goods_output_grain_mult				= 0.10
+			# goods_output_fish_mult				= 0.10
+			# goods_output_fruit_mult				= 0.10
+			# goods_output_meat_mult				= 0.10
+			# goods_output_sugar_mult				= 0.10
+			# goods_output_wine_mult				= 0.10
+			# goods_output_coffee_mult			= 0.10
+			# goods_output_fabric_mult			= 0.10
+			# goods_output_dye_mult				= 0.10
+			# goods_output_opium_mult				= 0.10
+			# goods_output_tea_mult				= 0.10
+			# goods_output_tobacco_mult			= 0.10
+			# goods_output_silk_mult				= 0.10
+			# goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
+			# goods_output_wood_mult				= 0.10
+			# goods_output_hardwood_mult			= 0.10
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }	# Toxic Refrigerant
 	required_input_goods = electricity
-	ai_value = 1100
+	ai_value = 1500
 }
 pm_autark_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
@@ -141,23 +147,24 @@ pm_autark_greenhouse = {
 			goods_output_electricity_add		=   20		# x+30	= +600
 		}											 		#		= -500
 		unscaled = {										# Optimal growing temperature year-round
-			goods_output_fertilizer_mult		= 0.10
-			goods_output_grain_mult				= 0.10
-			goods_output_fish_mult				= 0.10
-			goods_output_fruit_mult				= 0.10
-			goods_output_meat_mult				= 0.10
-			goods_output_sugar_mult				= 0.10
-			goods_output_wine_mult				= 0.10
-			goods_output_coffee_mult			= 0.10
-			goods_output_fabric_mult			= 0.10
-			goods_output_dye_mult				= 0.10
-			goods_output_opium_mult				= 0.10
-			goods_output_tea_mult				= 0.10
-			goods_output_tobacco_mult			= 0.10
-			goods_output_silk_mult				= 0.10
-			goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
-			goods_output_wood_mult				= 0.10
-			goods_output_hardwood_mult			= 0.10
+			# building_throughput_add				= 0.25
+			# goods_output_fertilizer_mult		= 0.10
+			# goods_output_grain_mult				= 0.10
+			# goods_output_fish_mult				= 0.10
+			# goods_output_fruit_mult				= 0.10
+			# goods_output_meat_mult				= 0.10
+			# goods_output_sugar_mult				= 0.10
+			# goods_output_wine_mult				= 0.10
+			# goods_output_coffee_mult			= 0.10
+			# goods_output_fabric_mult			= 0.10
+			# goods_output_dye_mult				= 0.10
+			# goods_output_opium_mult				= 0.10
+			# goods_output_tea_mult				= 0.10
+			# goods_output_tobacco_mult			= 0.10
+			# goods_output_silk_mult				= 0.10
+			# goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
+			# goods_output_wood_mult				= 0.10
+			# goods_output_hardwood_mult			= 0.10
 		}
 	}
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }	# The plants suck out the pollution
@@ -177,25 +184,26 @@ pm_oil_furnace = {
 			goods_input_fertilizer_add			=    5		# x-30	= -150
 		}											 		#		= -500
 		unscaled = {										# Optimal growing temperature year-round
-			goods_output_fertilizer_mult		= 0.10
-			goods_output_grain_mult				= 0.10
-			goods_output_fish_mult				= 0.10
-			goods_output_fruit_mult				= 0.10
-			goods_output_meat_mult				= 0.10
-			goods_output_sugar_mult				= 0.10
-			goods_output_wine_mult				= 0.10
-			goods_output_coffee_mult			= 0.10
-			goods_output_fabric_mult			= 0.10
-			goods_output_dye_mult				= 0.10
-			goods_output_opium_mult				= 0.10
-			goods_output_tea_mult				= 0.10
-			goods_output_tobacco_mult			= 0.10
-			goods_output_silk_mult				= 0.10
-			goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
-			goods_output_wood_mult				= 0.10
-			goods_output_hardwood_mult			= 0.10
+			# building_throughput_add				= 0.25
+			# goods_output_fertilizer_mult		= 0.10
+			# goods_output_grain_mult				= 0.10
+			# goods_output_fish_mult				= 0.10
+			# goods_output_fruit_mult				= 0.10
+			# goods_output_meat_mult				= 0.10
+			# goods_output_sugar_mult				= 0.10
+			# goods_output_wine_mult				= 0.10
+			# goods_output_coffee_mult			= 0.10
+			# goods_output_fabric_mult			= 0.10
+			# goods_output_dye_mult				= 0.10
+			# goods_output_opium_mult				= 0.10
+			# goods_output_tea_mult				= 0.10
+			# goods_output_tobacco_mult			= 0.10
+			# goods_output_silk_mult				= 0.10
+			# goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
+			# goods_output_wood_mult				= 0.10
+			# goods_output_hardwood_mult			= 0.10
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
-	ai_value = 1100
+	ai_value = 1500
 }

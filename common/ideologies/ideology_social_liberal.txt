@@ -20,6 +20,7 @@
 		law_anarchy						= neutral
 	}
 	lawgroup_citizenship = {
+		law_subjecthood					= disapprove
 		law_ethnostate					= strongly_disapprove
 		law_national_supremacy			= strongly_disapprove
 		law_racial_segregation			= disapprove
@@ -138,8 +139,16 @@
 	lawgroup_slavery = {				# Of no concern to us.
 		law_slavery_banned				= neutral
 		law_legacy_slavery				= disapprove
+		law_colonial_slavery			= neutral
 		law_slave_trade					= neutral
 		law_debt_slavery				= neutral
+	}
+	lawgroup_labour_associations = {
+		law_guild_system				= neutral
+		law_anti_strike_laws			= disapprove
+		law_combination_acts			= strongly_disapprove
+		law_right_to_associate			= approve
+		law_corporatized_unions			= neutral
 	}
 	possible = {}
 	leader_weight = { value = { value	= 0 } } # event only
@@ -167,6 +176,7 @@ ideology_royal_social_liberal = {
 		law_anarchy						= neutral
 	}
 	lawgroup_citizenship = {
+		law_subjecthood					= neutral
 		law_ethnostate					= strongly_disapprove
 		law_national_supremacy			= strongly_disapprove
 		law_racial_segregation			= disapprove
@@ -285,8 +295,16 @@ ideology_royal_social_liberal = {
 	lawgroup_slavery = {				# Of no concern to us.
 		law_slavery_banned				= neutral
 		law_legacy_slavery				= disapprove
+		law_colonial_slavery			= neutral
 		law_slave_trade					= neutral
 		law_debt_slavery				= neutral
+	}
+	lawgroup_labour_associations = {
+		law_guild_system				= neutral
+		law_anti_strike_laws			= disapprove
+		law_combination_acts			= strongly_disapprove
+		law_right_to_associate			= approve
+		law_corporatized_unions			= neutral
 	}
 	possible = {}
 	leader_weight = { value = { value	= 0 } } # event only

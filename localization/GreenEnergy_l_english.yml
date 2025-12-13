@@ -49,6 +49,7 @@
  pmg_harvesting_process_autark: "$pmg_harvesting_process$"
  pm_electric_tractors: "Electric Tractors"
  pm_green_tractors: "$pm_electric_tractors$"
+ pm_modern_tractors: "Modern Tractors"
  pm_tools_disabled_subsistence: "$pm_tools_disabled$"
  pm_tools_subsistence: "$pm_tools$"
  pm_steam_threshers_subsistence: "$pm_steam_threshers$"
@@ -56,6 +57,7 @@
  pm_compression_ignition_tractors_subsistence: "$pm_compression_ignition_tractors$"
  pm_electric_tractors_subsistence: "$pm_electric_tractors$"
  pm_green_tractors_subsistence: "$pm_electric_tractors$"
+ pm_modern_tractors_subsistence: "$pm_modern_tractors$"
  
  pmg_base_building_farm: "$pmg_base_building_rye_farm$"
  pm_simple_farming_rice_farm: "$pm_simple_farming$"

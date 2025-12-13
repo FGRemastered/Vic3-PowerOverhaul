@@ -194,6 +194,10 @@
  goods_output_electricity_mult: "@electricity! $electricity$ Output"
  goods_output_electricity_mult_desc: "A factor on the amount of @electricity! $electricity$ provided by buildings"
  # Building Modifiers
+ building_autarky_farm_throughput_add: "$building_autarky_farm$ building [concept_throughput]"
+ building_autarky_farm_throughput_add_desc: "A bonus or penalty to both input and output of $building_autarky_farm$"
+ building_autarky_greenhouse_throughput_add: "$building_autarky_greenhouse$ building [concept_throughput]"
+ building_autarky_greenhouse_throughput_add_desc: "A bonus or penalty to both input and output of $building_autarky_greenhouse$"
  building_cotton_greenhouse_throughput_add: "$building_cotton_greenhouse$ building [concept_throughput]"
  building_cotton_greenhouse_throughput_add_desc: "A bonus or penalty to both input and output of $building_cotton_greenhouse$"
  building_silk_greenhouse_throughput_add: "$building_silk_greenhouse$ building [concept_throughput]"
@@ -214,6 +218,14 @@
  building_group_bg_arts_allowed_collectivization_add_desc: "The minimum amount of $bg_arts$ [Concept('concept_building','$concept_buildings$')] that will be worker-owned."
  building_group_bg_manufacturing_allowed_collectivization_add: "Minimum Worker-Owned $bg_manufacturing$ $concept_building$ Levels"
  building_group_bg_manufacturing_allowed_collectivization_add_desc: "The minimum amount of $bg_manufacturing$ [Concept('concept_building','$concept_buildings$')] that will be worker-owned."
+ building_group_bg_agriculture_unincorporated_throughput_add: "$bg_agriculture$ $concept_throughput$ in $concept_unincorporated_states$"
+ building_group_bg_agriculture_unincorporated_throughput_add_desc: "A bonus or penalty to the [concept_throughput] of $bg_agriculture$ in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
+ building_group_bg_extraction_unincorporated_throughput_add: "$bg_extraction$ $concept_throughput$ in $concept_unincorporated_states$"
+ building_group_bg_extraction_unincorporated_throughput_add_desc: "A bonus or penalty to the [concept_throughput] of $bg_extraction$ in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
+ building_group_bg_light_industry_unincorporated_throughput_add: "$bg_light_industry$ $concept_throughput$ in $concept_unincorporated_states$"
+ building_group_bg_light_industry_unincorporated_throughput_add_desc: "A bonus or penalty to the [concept_throughput] of $bg_light_industry$ in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
+ building_group_bg_heavy_industry_unincorporated_throughput_add: "$bg_heavy_industry$ $concept_throughput$ in $concept_unincorporated_states$"
+ building_group_bg_heavy_industry_unincorporated_throughput_add_desc: "A bonus or penalty to the [concept_throughput] of $bg_heavy_industry$ in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
  # Building Group Modifiers
  building_group_bg_logging_greenhouses_throughput_add: "$bg_logging_greenhouses$ [concept_throughput]"
  building_group_bg_logging_greenhouses_throughput_add_desc: "A bonus or penalty to both input and output of $bg_logging_greenhouses$"
@@ -329,6 +341,7 @@
  modifier_character_extra_ten_percent_command: "$character_command_limit_mult$ Bonus"
  modifier_character_extra_ten_percent_command_desc: "Increases $character_command_limit_mult$"
  junker_compromise: "$ig_junkers$ Compromise"
+ modifier_technocratic_democracy: "Technocratic Democracy"
  
  zeppelins_modifier: "Universal Airships"
  state_trait_pearl_harbor: "Pearl Harbor"
@@ -345,6 +358,8 @@
  NO_MASS_COMMUNICATIONS:0 "The #v $mass_communication$#! [concept_technology] is not unlocked"
  TRIGGER_MODIFIER_LESS_OR_EQUAL:0 "Modifier #variable $MODIFIER_NAME$#! Value Less than or Equal to #variable $VALUE$#!"
  TRIGGER_MODIFIER_LESS:0 "Modifier #variable $MODIFIER_NAME$#! Value Less than #variable $VALUE$#!"
+ 
+ heritage_south_asian_diaspora: "South Asian Diaspora"
  
  ig_backbone_disrespected:0 "The Backbone of the State"
  ig_backbone_disrespected_desc:0 "It appears that the civilians forgot who protects them from enemies within and without. Perhaps a change in leadership is required."

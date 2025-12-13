@@ -55,9 +55,12 @@ pm_switch.1 = {
 		name = "Watertube Boiler"
 		trigger = {
 			has_technology_researched = watertube_boiler
-			NOT = { has_law = law_type:law_industry_banned }
+			NOR = {
+				has_law = law_type:law_industry_banned
+				has_technology_researched = conveyors
+			}
 		}
-		show_as_unavailable = { always = yes }
+		show_as_unavailable = { NOT = { has_technology_researched = conveyors } }
 		highlighted_option = yes
 		effect_watertube_boiler_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
@@ -67,9 +70,12 @@ pm_switch.1 = {
 		name = "Rotary-valve Engine"
 		trigger = {
 			has_technology_researched = rotary_valve_engine
-			NOT = { has_law = law_type:law_industry_banned }
+			NOR = {
+				has_law = law_type:law_industry_banned
+				has_technology_researched = conveyors
+			}
 		}
-		show_as_unavailable = { always = yes }
+		show_as_unavailable = { NOT = { has_technology_researched = conveyors } }
 		highlighted_option = yes
 		effect_rotary_valve_engine_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
@@ -88,29 +94,11 @@ pm_switch.1 = {
 		ai_chance = { base = 0 }
 	}
 	option = {
-		name = "Full Steam ahead!"
+		name = "I like trains."
 		trigger = { has_technology_researched = railways }
 		show_as_unavailable = { always = yes }
 		highlighted_option = yes
-		effect_steam_transport_switch = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = "I like (electric) trains."
-		trigger = { has_technology_researched = electric_railway }
-		show_as_unavailable = { always = yes }
-		highlighted_option = yes
-		effect_electric_transport_switch = yes
-		trigger_event = { id = pm_switch.1 popup = yes }
-		ai_chance = { base = 0 }
-	}
-	option = {
-		name = "I like (lizard-juice) trains."
-		trigger = { has_technology_researched = compression_ignition }
-		show_as_unavailable = { always = yes }
-		highlighted_option = yes
-		effect_diesel_transport_switch = yes
+		effect_transport_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}

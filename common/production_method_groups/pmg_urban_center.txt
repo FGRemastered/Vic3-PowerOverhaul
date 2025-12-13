@@ -15,7 +15,7 @@ pmg_public_transport = {
 		pm_no_public_transport
 		pm_public_trams
 		pm_public_motor_carriages
-		pm_extended_trams
+		# pm_extended_trams
 		pm_subways
 	}
 }

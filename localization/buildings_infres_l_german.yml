@@ -24,7 +24,7 @@
 
  building_infres_naval_base: "$building_naval_base$ Erweiterung"
  building_infres_barracks: "$building_barracks$ Erweiterung"
- building_infres_construction_sector: "$building_construction_sector$ Erweiterung"
+ building_construction_sector_extension: "$building_construction_sector$ Erweiterung"
 
  rule_infres_allows_ai_to_build: "IRB: Infinite Gebäude"
  setting_infres_player_only: "Nur Spieler"

@@ -84,15 +84,14 @@ pmg_serfdom = {
 	ai_selection = most_productive
 	production_methods = {
 		pm_serfdom
+		pm_corvee_labor
 		pm_serfdom_no
 		pm_homesteading_building_subsistence
 		pm_tools_disabled_subsistence
 		pm_tools_subsistence
 		pm_steam_threshers_subsistence
 		pm_tractors_subsistence
-		pm_compression_ignition_tractors_subsistence
-		pm_electric_tractors_subsistence
-		pm_green_tractors_subsistence
+		pm_modern_tractors_subsistence
 	}
 }
 pmg_harvesting_process_autark = {
@@ -103,9 +102,7 @@ pmg_harvesting_process_autark = {
 		pm_tools_subsistence
 		pm_steam_threshers_subsistence
 		pm_tractors_subsistence
-		pm_compression_ignition_tractors_subsistence
-		pm_electric_tractors_subsistence
-		pm_green_tractors_subsistence
+		pm_modern_tractors_subsistence
 		pm_decentralised_subsistence
 	}
 }

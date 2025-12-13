@@ -9,7 +9,7 @@ law_isolationism = {
 	can_enact = { is_in_power_bloc = no }
 	is_visible = {
 		NAND = {
-			any_primary_culture = { has_discrimination_trait = han_chinese }
+			any_primary_culture = { has_discrimination_trait = heritage_han }
 			any_scope_state = {
 				state_region = s:STATE_GUANGDONG
 				is_largest_state_in_region = yes
@@ -20,7 +20,7 @@ law_isolationism = {
 		is_in_power_bloc = no
 		hidden_trigger = {
 			NAND = {
-				any_primary_culture = { has_discrimination_trait = han_chinese }
+				any_primary_culture = { has_discrimination_trait = heritage_han }
 				any_scope_state = {
 					state_region = s:STATE_GUANGDONG
 					is_largest_state_in_region = yes
@@ -60,7 +60,7 @@ law_canton_system = {
 	progressiveness = -50
 	requires_law_or = { law_traditionalism }
 	is_visible = {
-		any_primary_culture = { has_discrimination_trait = han_chinese }
+		any_primary_culture = { has_discrimination_trait = heritage_han }
 		any_scope_state = {
 			state_region = s:STATE_GUANGDONG
 			is_largest_state_in_region = yes
@@ -68,7 +68,7 @@ law_canton_system = {
 	}
 	can_enact = {
 		is_in_power_bloc = no
-		any_primary_culture = { has_discrimination_trait = han_chinese }
+		any_primary_culture = { has_discrimination_trait = heritage_han }
 		any_scope_state = {
 			state_region = s:STATE_GUANGDONG
 			is_largest_state_in_region = yes
@@ -121,8 +121,8 @@ law_mercantilism = {
 	}
 	ai_will_do = {	# Don't change back to mercantilism once we have protectionism or free trade
 		NOR = {
-			has_law = law_type:law_protectionism
-			has_law = law_type:law_free_trade
+			has_law_or_variant = law_type:law_protectionism
+			has_law_or_variant = law_type:law_free_trade
 		}
 	}
 	ai_enact_weight_modifier = {	# Petitions
@@ -131,7 +131,14 @@ law_mercantilism = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				market.mg:grain = { market_goods_pricier >= 0.5 }
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}
@@ -155,7 +162,7 @@ law_protectionism = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}
@@ -199,7 +206,7 @@ law_free_trade = {
 		if = {
 			limit = {
 				has_journal_entry = je_meiji_diplomacy
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 			}
 			add = 1000
 		}

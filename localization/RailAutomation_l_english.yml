@@ -64,8 +64,8 @@
  pm_religious_bureaucrats_construction: "$pm_religious_bureaucrats$"
  pm_secular_bureaucrats_construction: "$pm_secular_bureaucrats$"
  
- pmg_base_infres_construction_sector: "Base"
- pm_default_infres_construction_sector: "$pm_default$"
+ pmg_base_construction_sector_extension: "Base"
+ pm_default_construction_sector_extension: "$pm_default$"
  pmg_base_infres_barracks: "Base"
  pm_default_infres_barracks: "$pm_default$"
  pmg_base_infres_naval_base: "Base"
@@ -95,7 +95,7 @@
  pm_independent_academia: "Independent Academia"
 
  pm_extended_trams: "Integrated $pm_public_trams$"
- pm_subways: "Subways"
+ pm_subways: "Metropolitan Trains"
 
  pmg_cash_register: "Cash Register"
  pm_no_cash_register: "Cashier"

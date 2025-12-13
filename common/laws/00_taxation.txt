@@ -21,16 +21,27 @@ law_consumption_based_taxation = {
 		tax_consumption_add	= 0.70	# Increased	- Doubled
 	}
 	tax_modifier_high = {
-		tax_consumption_add	= 0.85	# Increased	- Doubled
+		tax_consumption_add	= 0.80	# Increased	- Doubled
 	}
 	tax_modifier_very_high = {
 		tax_consumption_add	= 1.00	# Increased	- Doubled
 	}
 	on_impose = {}
-	ai_will_do = { always = no }	# AI shouldn't change to consumption-based-taxation as it's likely to wreck their economy
+	ai_will_do = {
+		NOR = {	# No system with forced privatisation
+			has_law_or_variant = law_type:law_laissez_faire
+			has_law_or_variant = law_type:law_extraction_economy
+		}
+		OR = {
+			has_technology_researched = conveyors				# Could theoretically nationalise to save themselves 
+			has_law_or_variant = law_type:law_command_economy	# Reliable alternative revenue stream
+			gdp < 1000000										# Too small to matter - Minting baseline is highest revenue stream
+		}
+	}	# AI shouldn't change to consumption-based-taxation as it's likely to wreck their economy
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
-		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = { limit = { has_law_or_variant = law_type:law_command_economy }	add = 250 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }
 	}
 }
 law_land_based_taxation = {
@@ -40,33 +51,34 @@ law_land_based_taxation = {
 	tax_modifier_very_low = {
 		tax_consumption_add	= 0.25	# Increased
 		tax_land_add		= 0.50	# Increased
-		tax_income_add		= 0.05	# Added
+		tax_per_capita_add	= 0.125	# Added
 	}
 	tax_modifier_low = {
 		tax_consumption_add	= 0.30	# Increased
 		tax_land_add		= 0.60	# Increased
-		tax_income_add		= 0.06	# Added
+		tax_per_capita_add	= 0.15	# Added
 	}
 	tax_modifier_medium = {
 		tax_consumption_add	= 0.35	# Increased
 		tax_land_add		= 0.70
-		tax_income_add		= 0.07	# Added
+		tax_per_capita_add	= 0.175	# Added
 	}
 	tax_modifier_high = {
 		tax_consumption_add	= 0.40	# Decreased
 		tax_land_add		= 0.80	# Decreased
-		tax_income_add		= 0.08	# Added
+		tax_per_capita_add	= 0.20	# Added
 	}
 	tax_modifier_very_high = {
 		tax_consumption_add	= 0.50	# Increased
 		tax_land_add		= 1.00
-		tax_income_add		= 0.10	# Added
+		tax_per_capita_add	= 0.25	# Added
 	}
 	on_impose = {}
-	ai_will_do = { has_law = law_type:law_consumption_based_taxation }	# AI shouldn't change to land based taxation from more advanced taxation forms
+	ai_will_do = { has_law_or_variant = law_type:law_consumption_based_taxation }	# AI shouldn't change to land based taxation from more advanced taxation forms
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
-		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = { limit = { NOT = { has_technology_researched = currency_standards } }		add = 250 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }			add = 750 }
 	}
 }
 law_per_capita_based_taxation = {
@@ -77,32 +89,32 @@ law_per_capita_based_taxation = {
 	unlocking_technologies = { currency_standards }
 	tax_modifier_very_low = {
 		tax_consumption_add	= 0.25	# Increased
-		tax_per_capita_add	= 0.40
 		tax_land_add		= 0.30	# Increased
+		tax_per_capita_add	= 0.40
 		tax_income_add		= 0.10	# Increased
 	}
 	tax_modifier_low = {
 		tax_consumption_add	= 0.30	# Increased
-		tax_per_capita_add	= 0.60	# Increased
 		tax_land_add		= 0.40	# Increased
+		tax_per_capita_add	= 0.60	# Increased
 		tax_income_add		= 0.15	# Increased
 	}
 	tax_modifier_medium = {
 		tax_consumption_add	= 0.35	# Increased
-		tax_per_capita_add	= 0.70
 		tax_land_add		= 0.50	# Increased
-		tax_income_add		= 0.15
+		tax_per_capita_add	= 0.70
+		tax_income_add		= 0.175	# Increased
 	}
 	tax_modifier_high = {
 		tax_consumption_add	= 0.40	# Increased
-		tax_per_capita_add	= 0.80	# Decreased
 		tax_land_add		= 0.60	# Increased
+		tax_per_capita_add	= 0.80	# Decreased
 		tax_income_add		= 0.20	# Increased
 	}
 	tax_modifier_very_high = {
 		tax_consumption_add	= 0.50	# Increased
-		tax_per_capita_add	= 1.00
 		tax_land_add		= 0.75	# Increased
+		tax_per_capita_add	= 1.00
 		tax_income_add		= 0.25	# Increased
 	}
 	on_impose = {}
@@ -116,8 +128,9 @@ law_per_capita_based_taxation = {
 					has_modifier = shogun_ig_forced_to_open_market
 					has_journal_entry = je_meiji_main
 					has_journal_entry = je_great_reforms_bureaucratic
+					has_journal_entry = je_hawaii
 				}
-				has_law = law_type:law_land_based_taxation
+				has_law_or_variant = law_type:law_land_based_taxation
 			}
 			add = 5000
 		}
@@ -172,8 +185,9 @@ law_proportional_taxation = {
 					has_journal_entry = je_sick_man_bureaucracy
 					has_modifier = shogun_ig_forced_to_open_market
 					has_journal_entry = je_meiji_main
+					has_journal_entry = je_hawaii
 				}
-				has_law = law_type:law_land_based_taxation
+				has_law_or_variant = law_type:law_land_based_taxation
 			}
 			add = 5000
 		}
@@ -185,7 +199,7 @@ law_proportional_taxation = {
 			add	= 500
 		}
 		if = {	# Added
-			limit = { scope:target_country = { has_law = law_type:law_graduated_taxation } }
+			limit = { scope:target_country = { has_law_or_variant = law_type:law_graduated_taxation } }
 			multiply = 0
 		}
 	}

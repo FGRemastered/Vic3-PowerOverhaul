@@ -2,10 +2,10 @@
 combat_unit_type_line_infantry = {
 	group = combat_unit_group_infantry
 	max_manpower = 1000
+    conscript_peasant_levies = yes	# Changed - I get that peasants are pretty dumb, but walking in a straight line should be doable... EDIT: PDX changed this
 	upkeep_modifier = {
 		goods_input_small_arms_add	= 1
 	}
-	# Changed - I get that peasants are pretty dumb, but walking in a straight line should be doable... EDIT: PDX changed this
 	battle_modifier = {
 		unit_offense_add			= 20
 		unit_defense_add			= 25
@@ -84,7 +84,7 @@ combat_unit_type_squad_infantry = {
 	upkeep_modifier = {
 		goods_input_tools_add		=  2	# Added
 		goods_input_small_arms_add	=  3
-		goods_input_ammunition_add	=  3
+		goods_input_ammunition_add	=  5	# Increased	- MG34/42
 		goods_input_radios_add		=  1
 	}
 	battle_modifier = {
@@ -163,7 +163,6 @@ combat_unit_type_mechanized_infantry = {
 combat_unit_type_mobile_artillery = {
 	group = combat_unit_group_artillery
 	max_manpower = 1000
-	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_artillery_add	= 2
 	}
@@ -206,7 +205,6 @@ combat_unit_type_mobile_artillery = {
 combat_unit_type_shrapnel_artillery = {
 	group = combat_unit_group_artillery
 	max_manpower = 1000
-	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_artillery_add	= 3
 		goods_input_ammunition_add	= 3
@@ -249,7 +247,6 @@ combat_unit_type_shrapnel_artillery = {
 combat_unit_type_heavy_tank = {
 	group = combat_unit_group_artillery
 	max_manpower = 1000
-	can_build = { NOT = { has_law = law_type:law_peasant_levies } }		# Changed from can_build_conscript
 	upkeep_modifier = {
 		goods_input_tanks_add		= 3
 		goods_input_artillery_add	= 4
@@ -278,8 +275,6 @@ combat_unit_type_heavy_tank = {
 combat_unit_type_dragoons = {
 	group = combat_unit_group_cavalry
 	max_manpower = 1000
-	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
-	# can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }	# Removed - If you can ride a horse, you can shoot while riding a horse. EDIT: Apparently riding a horse is too difficult for a peasant
 	upkeep_modifier = {
 		goods_input_grain_add		= 1
 		goods_input_small_arms_add	= 2
@@ -318,7 +313,6 @@ combat_unit_type_dragoons = {
 combat_unit_type_cuirassiers = {
 	group = combat_unit_group_cavalry
 	max_manpower = 1000
-	can_build_conscript = { NOT = { has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_grain_add		= 2
 		goods_input_small_arms_add	= 2
@@ -329,7 +323,7 @@ combat_unit_type_cuirassiers = {
 		unit_morale_loss_add	=  8
 		unit_occupation_mult	=  0.3
 	}
-	unlocking_technologies = { line_infantry }	# Changed
+	unlocking_technologies = { line_infantry }
 	combat_unit_image = {
 		trigger = { has_culture_graphics = east_asian }
 		texture = "gfx/unit_illustrations/cavalry_east_asian_cuirassier.dds"
@@ -357,7 +351,6 @@ combat_unit_type_cuirassiers = {
 combat_unit_type_lancers = {
 	group = combat_unit_group_cavalry
 	max_manpower = 1000
-	can_build_conscript = { NOT = {  has_law = law_type:law_peasant_levies } }
 	upkeep_modifier = {
 		goods_input_groceries_add	= 2		# Changed from grain
 		goods_input_small_arms_add	= 2
@@ -529,10 +522,10 @@ combat_unit_type_scout_cruiser = {
 	group = combat_unit_group_light_ship
 	max_manpower = 1000
 	upkeep_modifier = {
-		goods_input_ironclads_add	=   4	# Changed
-		goods_input_ammunition_add	=   4	# Changed
-		goods_input_artillery_add	=   4	# Changed
-		goods_input_radios_add		=   2	# Changed
+		goods_input_ironclads_add	=   4	# Increased
+		goods_input_ammunition_add	=   4	# Increased
+		goods_input_artillery_add	=   4	# Increased
+		goods_input_radios_add		=   2	# Increased
 	}
 	battle_modifier = {
 		unit_offense_add			=   50
@@ -599,9 +592,9 @@ combat_unit_type_battleship = {
 	max_manpower = 1000
 	upkeep_modifier = {
 		goods_input_ironclads_add	=   8
-		goods_input_artillery_add	=  12	# Changed
-		goods_input_ammunition_add	=  12	# Changed
-		goods_input_radios_add		=   4	# Changed
+		goods_input_artillery_add	=  12	# Increased
+		goods_input_ammunition_add	=  12	# Increased
+		goods_input_radios_add		=   4	# Increased
 	}
 	battle_modifier = {
 		unit_offense_add			=  100

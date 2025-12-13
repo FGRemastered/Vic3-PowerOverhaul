@@ -1,0 +1,121 @@
+african={
+	color= hsv{ 0.32 0.58 0.30 }
+	#color = { 30 100 0 }
+	religion = animist
+	heritage = heritage_african
+	language = language_swahili	# Most common one
+	traditions = { }
+	# traits = { african_heritage bantu ethiopian southern_african_culture_group west_african_culture_group central_african_culture_group east_african_culture_group }
+	male_common_first_names={
+		Aamir Aba Abadula Abareybon Abbas Abd_al-rahman Abd_al-Rahman Abdallahi Abdi Abdikarim Abdul Abdullah Abdullahi Abdus Abel Abisi Abraha Abu Abu-Sekkin Abubakar Abune Aburahman Adandozan Adebo Adelu Ademufekun Adeyemi Adham Adika Adlan Adolo Adongo Ag_Mama Agadja Agidigbo Agonglo Agosi Agyeman Ahmad Ahmadu Ahmed Ajang Ajikin Akawe Akenzua Akex Akoc Akpan Akyampon al-Amin Al-Buri Al-Hajj al-Mustafa Alemayehu Alfa Alhassan Alhassani Ali Ali_Buri Alier Alimirah Alula Amadi Amado Amadu Amanquatia Amara Amare Amda Ametefe Amha Amira Amiri Amodo Amsalu Andikan Anene Aney Aoua Aren Aruseb Asana Asani Asibong Asim Atakora Atepa Atiba Atsbaha Atsu Attici Atwa Aul Autshumato Averey Awin Awino Awkal Axmed Ayak Aytarel Azuka
+		Baba Babato Babemba Babu Badi Baeda Bahari Baka Bakan-Tam Bakar Bakari Bako Bakri Balobo Balozi Banga Banyingela Banza Baruti Bash Bassaru Bathoen Bayode Behanzin Bekele Bello Ben Benya Berhanu Berihun Beshi Bigo Bigomokero Bina Birawa Birayamb Birayma Birhenjira Bitalo Biton Bodyan Boipelu Borforh Boryee Brahima Brima Bubakar Bugaya Builsa Bul Bulad Bumi Burkomanda Bush
+		Cabdi Cabdiqani Cabdulle Cakasekene Cali Cawad Cetshwayo Chakoma Chane Chapwanya Chata Chekandino Chiemeka Chikumbu Chinouyazue Chionesu Chisisi Chol Ciasungu Cikombe Cikunyu Cimbindu Cingi Ciponge Cismaan Citiwala Coblah Coujoe Coutoucou Cumar Cusmaan
+		Daba Dabulamanzi Dakarai Dalmar Dan Darweshi Daud Dauda Davu Debela Dedunyal Dei Demissie Deng Desta Dibia Didwho Dingiswayo Dirribi Diu Do Dramani Dukuzumuremyi Dumaka Dume Dunama Dyori
+		Ebabruma Ededem Edegbe Edem Effefiong Effiom Ekpenyong Ekpo Elechi Enweleana Erediauwa Erevu Esigie Essomba Eweka Ewenetem Eyamba Eyo Ezoti
+		Faarax Fabunni Fadaka Fadyet Fafiti Famagan Famaghan Fambaltate Fara_Penda Faraji Farraj Fifen Foda Fode Fodey Fodi Forkay Fupi
+		Gabeb Gacoki Gaha Gahiji Gai Gaki Galasa Galib Galli Gamba Gaob Gaone Garcia Gawa Gawozi Gazari Gbadegesin Gbwe Gebru Gely Genet George Geteye Ghezo Gibril Gidey Girma Githinji Gitonga Glele Gobana Gondo Gorakhab Goredenna Guban Gunji Gyude
+		Hab Habimana Haile Hailu Hajari Hajib Hakizimana Hamu Hanab Hanfere Hanga Hargani Harun Haruni Hasan Hassab Hassan Hasso Hatab Hayyan Hehlokazulu Heile Henry Heri Hishima Hiuhu Hon Hoti Hungulu Huru Husani Hussein
+		Ibada Ibn_Muhammad Ibraahim Ibrahim Idris Ife Igodo Iheme Ikenna Ikinya Ikpiro Ilo Ilunga Imara In_Tayaden Isaias_2 Isingoma Islaman Isma_il Ismaaciil Ismail Issa Issay Issouf Issoufou Izuogu
+		Jabari Jabilo Jaguan Jahidi Jalaf Jalali Jaramobi Jawda Jawe Jideofor Jilcha Jiofo Jjunju Jlakon Juma Jumaane Jussuf
+		Kabare Kabelo Kabili Kabulu Kadhafo Kafeel Kagali Kagame Kahala Kai Kajombo Kakembembe Kakenya Kaladian Kaleefa Kalema Kalenga Kamari Kamwimbile Kanajeji Kangapu Kanja Kanji Kapendi Kapoko Kapola Kapungu Karamoko Kariuki Karuri Kase Kasim Kasongo Katuutire Kaumba Kayangula Kaye Kedafu Kedikilwe Kefentse Kege Kelile Kenje Kenyi Kere Khairi Khama Khamisi Kharut Khaub Khomab Kiara Kiddu Kifimbo Kigeli Kiir Kikulwe Kimnyole Kimoi Kindunda Kinjalla Kinjikitile Kinya Kioi Kirimi Kisempia Kisula Kitamba Kivuli Kivuzi Kiwanga Kiweewa Kodit Kofi Kokoroko Koloso Komla Kondo Kongongolo Konmlan Koom Korongo Koumbi Kourani-Sori Koyati Koyze Kpengla Kpodo Kuikon Kuma Kumbari Kumwimba Kur Kwabena Kwadker Kwakou Kwaku Kwame Kyabaggo
+		Labaan Ladopo Laganfyela Lansana Lat Lauru Lawani Lekuton Lenana Letsie Linje Livonge Loembe Losene Lukongolo Lumbwi Luol
+		M_voudoukousala M_voumbe Mabi Mach Machupa Maddar_Xirsi Magan Maghari Magobi Mahammad Mahengu Mahubulwana Majila Majotu Makalo Makare Makhado Makome Makua Malam Malamah Malla Maloba Malusi Mamane Mamari Mamuru Maniema Mansa Mansur Manute Manyang Manyonyoba Mapira Mari Masala Masaloma Mashama Masibuwa Massa Matayo Matola Matu Mauva Mavuli Mavumengwana Mawwolawde Maxamed Maxamuud Maymun Mba Mbala Mbanyi Mbatian Mbemchapa Mbilini Mbiya Mbogo Mbomou Mboro Mbulaeni Mbumb Mburu Mburumba Mbwana Meitikini Meles Mensa Mensah Mesfin Messaoud Mfutila Mgbawa Mgojana Mhavanginonya Miruts Mitslal_Muz Mkhosana Mnyamana Moetapele Mohammed Molefi Momi Monjou Morathi Morwe Mosambaye Mosegi Mosi Mothudi Moussa Mowen Mputa Mthuthuzeli Muchaneta Mudib Muhammad Muhammed Muiru Mujahid Mukanda Muko Mulay Murathi Muriu Musa Musanje Musawenkosi Mushidi Mustapha Mutand Mutarrif Muteba Mutesa Muthengi Muuse Mwanga Mwanyisa Mwerve
+		N_Gangue Na-khom Naleye Namkina Namugala Nanseb Naresib Nasir Nasr Nawej Nawwar Nday Ndaye Ndembo Ndengue Nderitu Negasi Neneh Ngabwe Ngapna Ngarmaba Ngarmane Ngelo Ngengi Ngigi Ngolinga Ngombe Ngosingosi Ngouhouno Ngundeng Nguvenge Nijam Nimene Nkundiushuti Nnaemeka Nnamdi Nnanna Nolizwe Nonceba Nonyelum Nounga Nsangou Nteve Ntsama Ntshingwayo Nul Nuur_Axmed Nyadwai Nyakambira Nyambre Nyamu Nyankol Nyenemba Nyennoh Nyidok Nyillingondo Nyuon
+		O-Naib Oasib Obalike Obeth Obijiaku Ochan Odayon Ode Odeleia Odongo Offiong Oji Okeyo Okoho Okoth Olaudah Olemeeli Oluewu Oluoch Omgba Onikepe Onsei Onyeka Opoku Orchivirigh Orji Orok Osahon Osayuki Osemwende Oso Othiamba Ovonramwen Owusu
+		Paki Pal Parasayip Pennon Pepukayi Petiri Petros Pintyeba Pntyeba Poaty Pratt Puot
+		Quaashie
+		Rahman Raimi Rajab Ranfa Rapuluchukwu Raqib Ras Razi Reth Riitho Rinyizea Rjoroza Roble Ruai Rugema Rugemaninzi Runako Runihura Runo Rutanganda Rwabuguri
+		Sabana Sabraddin Sacho Safi Said Saleh Salehe Salifu Salih Salim Salma Samba Samory Samsu Samuel Sana Sanum Sapilem Schabruma Sebahive Sebele Segi Sekawonyi Sekayi Sekethwayo Sekhukhune Sekonyela Sekou Sekouba Seku Semakookiro Sentambandu Sentwali Senzagkhona Shagi Sharif Sheka Shire Sigujana Sihayo Sikukuni Sipliwo Siyanbola Siye Somayou Somopho Songea Souau Soumaila Sulayman Suleimani Sundai Sundiata
+		Taabansi Taanor Taban Tabit Tabl Tahir Tale Tamim Tariq Tegbessou Teh Tehpoe Tejan Tekle Terwewalwa Tete Thabo Thandiwe Themba Thenga Tichawonna Tidiani Tigre Tikima Tilahun Togba Tohwechipi Tomo Tongyiik Toroitich Tsamiya Tsawub Tsegaye Tshilidzi Tuitoek Tukur Tunsam Turnelo Turukat Turukoro Tyeba Tyefolo Tyelgut
+		Uawula Ubada Udoka Ufayr Ulanga Umar Umar_Lel Umi Umpafu Unsa Usman Uthman Utni Uuka
+		Vekuii Vilombo Vipuakuje 
+		Waga Waitimu Wak Wambu Wamungunda Wamwara Wankoy Wanyanga Waqo Waranankong Warui Wasesse Wasil Waziri William Wiraj
+		Xamseb Xasan Xirsi_Amaan
+		Yaji Yakob Yamba Yameogo Yaqub Yar Yazid Yenseloh Yilma Yor Yuhi Yunus Yusuf Yusufu Yuusuf
+		Zakaria Zangabirou Zea Zebenjo Zenabu Zeresenay Zibhebhu Zinachukwudi Zoungrana Zuberi Zuhayr Zuka
+	}
+	female_common_first_names = {
+		Abibatu Abisagi Adebumi Adesemi Adla Afua Ahebi Aicha Aisha Aissa Ajok Akofa Akousua Akua Aluat Amarya Ambwene Amina Aminata Anisa Antoinette Anyango Arabang Asmau Assiga Ataui Awkusaku
+		Baghis Balgada Basuuta Batoul Beatriz Belaynesh Bintou Bourkou Bukelwa Bulanda
+		Catarina Channa Charwe Chima
+		Dadji Damali Danai Djaili Dossou
+		Ebla Edzimbi Emose Emtithal Esiteri
+		Fadhma Faduma Fatim Fatima Fatimah Fatime Fatoumata Fatuma Folashade Fuambai Fulu Funke
+		Gada Gloria Gwolyoowa
+		Habiba Hadiza Hadja Hadje Halima Hangbe Hasna Hwanjile
+		Idowu Ifeoma Igirgi Ilhan Inankinso Inaviposa Isabel
+		Jalila Jawahir Jilfidan Jokate
+		Kabon Kajala Kalsoume Kamboi Kameria Kankazi Kanuni Katana Kavidi Khadija Khalida Khalila Khalo Kimpa_Vita Koudpoko Kouta Kovambo Krotoa
+		Laakeeri Loyiroosa
+		Mabamba Mabela Mafory Magogo Mahawa Malika Mantsebo Maria Mary Maryam Masika Matodzi Matuka Mawuena Medina Menen_Asfaw Mferri Miriam Mkabayi Mmanthatisi Moussa Moza Mthaniya Mthethwa Mudima Muganzirwazzaza Mukashema Mulikat Mussasa Musue Mwanakitata
+		Nadia Nailantei Najjuka Nakangu Nakijoba Nalubowa Nalunga Nandi Nawaguma Ndate_Yalla Neema Neshani Nfambe Ngenzahayo Ngina Ngqumbazi Niara Nina Niyakire Nizpah Njembot Njinga Nogaweni Nolitha Noloyiso Nolusapho Nomaka Nondwe Nontathu Noura Nozamile Nthatisi Nthomeng Ntlo-Kholo Nwametu Nwanyieze Nwaoluchi Nwaozichi Nyamazana Nyandeng Nyiraburunga Nyirakabuga Nyiramakomali
+		Obianuju Oluremi Opo_Olu Opondo Orrorro
+		Penehupifo
+		Regina Ririkumutima
+		Safia Safiya Salama Salma Samali Samia Saraki Sayyida Sehin_Mikael Senate Serwaa_Nyarko Shariffa Sianto Sibusile Sidibe Silass Siti Soraya Souhila Soukda Sughiya Sy
+		Tamara Taonere Tapiwa Tejumade Tembandumba Temwa Thandi Thobeka Tirunesh Touria Touty Tsakana Tsakane Tsehai Tshepo Tshiambuaya Turai
+		Ugboaku
+		Vuyiswa
+		Wambui Wangu Wawira Wema
+		Yaa_Akyaa Yobnesh Youma
+		Zahra Zenab Zenebework Zina
+	}
+	noble_last_names = {
+		a_Doo a_Ewale Abaganwa Abalasangeye Abanyiginya Adadevoh Adelana Ademola Adhiambo Ag_Alhabib Agalawa Agame Agonglo Akaagerger Akahan Akenzua Akinsuroju al-Alawi al-Barwani al-Mahdi Al-Qassmy al-Zahrawi Al_Said al_Suwaylih Aladaxonou Aladesanmi Alakija Alenga Ali Ali_Aba_Deyas Aliab arap_Chebii Arap_Koilege arap_Moi Arap_Samoei Asante Askia Atangana Attikou
+		Ba_Traore Badjogo Baeta Bagalayze Bakgatla Bamokoteli Banda Bari Battuta Bayero ben_Gana Benaissa Bissogo Bo Bokondji Bolamba Bomboko Bong Bongo Bonoman Bukuru Busati Buthelezei Butiko
+		Cheptirim Cherecha Chisakamzondi Cisse Clayou Conde
+		Damot dan_Fodio Danhome Dantata Deng Denianke Denkyira Dericoyard Dgijama Diallo Diiriye Dinagde Diria Djellouli Djigla Dosunmu Douala Duguwa
+		El_Din Engida
+		Ffumbe Futa
+		Gareen Garoeb Gbeho Gboboh Gobroon Goeseb Gonjout Guedegbe Guxanus Gwelei
+		Habre Hindiro Houegbadja Hoveka Hungwe
+		Ichongo Idahosa Ikhia Ilunga Imam Ipusu
+		Jadesimi Jasa Jukwaa Jumbes
+		Kadafo kaDinuzulu kaGcaleka kaHintsa kaJama kaLanga Kalonga kaMaphitha Kambazembi kaNdaba Kandi Kanemi Kanza kaPhalo Kasanda kaSenzangakhona kaXaba Kaza Keenadiid Keira Keita Kenga Kgosiemang Kichidemi Kimpanzu Kinlaza Kodama_Komi Koirategui Kwande
+		Leno Londo Lugave
+		Mahamat Maharero Mai-Bornu Majerteen Makonnen Mankala Mara Masupha Matamba Mbande Mbili Mbodj Mgbokpo Missi Mogaji Mogale Moshoeshoe Moukala Muluzi
+		Naki Ndiaye Ngakoutou Nguvauva Niamody Niass Nikki Njoya Nkoebe Nnofo Nnubi Nobrega Nouri Nri Ntombazi Ntwero Nyiginya Nzou
+		Obaseki Odinga Ogbemudia Ojulari Okon Okoro Ologbenla Olumba Onuorah Oshodin Ouattara
+		Paraku
+		Qallu
+		Ribadu Rozwi Rukoro
+		Safo Salim-Suwari Sall Sankoh Sankre Saraki Sayfawa Sekou Selassie Sere-Burlay Sheriff Sibiya Sigcawu Solomon Sugulle
+		Tall Tinubu Tjilisamhulu Tombalbaye Toorodi Torwa Twe Tyiseseta
+		Udo_Udoma Ugbabe
+		Vungara Vzasenzi
+		wa_Gakure wa_Gathecha wa_Makeri wa_Ngengi Wachuku wad_Muhammad Walashma Warsangali Watuta Wobogu Woldu
+		Yabarow Yayyo
+		Zenab Zeraua Zobeir Zubayr Zwagendaba
+	}
+	common_last_names={
+		Abagba Abasama Abd_al-Aziz Abda_al-Karim Achebe Adeer Afrah Adeniran ag_Amastan ag_Amellal ag_Muhammad ag_Sidi Ageerdit Agidi Agodo Agogoja Agu Ahmad Ahmed Akengbedo Akenzua Akook Akperan al-Baitar al-Hajj al-Idrisi al-Kabir al-Kanemi al-Mahdi al-Majriti al-Qalasadi al-Rahman al-Sharif al-Tasashi al-Walid al-Zarqali Ali_Ibrahimu Alowolodu Aluor Amadu Amari Amiri Anya-Nya Anyieth Aram Arol Arous as-Saghir as-Sarhir Asani Asiba Atabong Atangana Atasa Atobatele Audu Avumbe Aydahis Ayiec Ayuel Azrak
+		Baba Babu Badl Bajjah Bakalaka Bakgalakgadi Bakgatla Baki Bakri Bakwna Balete Balozi Bamangwato Banguro Bangwaketse Banna Bany Bari Bari_Bwana Barolong Basagla Batawana Batlokwa Batsapong Behle Bello Beri Beyala Bezon bi_Faruku bi_Hama bi_Isa bi_Salifu bi_Saydu bi_Sori Bihamba Bira Boakai Bokote Bol Bolia Bombali Bongandu Bonsu Boum Broh Bucknor Bulgu Bulungute Buqul Butama Butiyi Bwana_Mkuu
+		Camakama Chadakogundo Chakwera Cham Chege Chimai Chinje Chizimu Chotper Ciira Cilemo Cimbungu Cimininyambo Cimtunga Cinene Cipfumba Congacou Coulibaly Cuma
+		Dacche Dadi Dalatumi Dambamupute dan_Tyeba Darweshi Dekiye Doreh Dhoobow Demba Dembele Demissie Dengese Derret_ibn_Jawda Diawara Digna Dinar Dinsa Diogo Dior Dipcharima Ditend Djimasta Dlamini Dosini Drame Dua Dudu Dumor Dwomo Dyan Dyara Dzakpe
+		Eabisa Efa Ehengbuda Ekonda Ekpe El-Fadl Ene Entabeni Equiano Erevu Ermanala Ewuare Eyamba
+		Faraji Farhenga Farma Feindouno Firnas Flo Fodio Fofie Fomumbod Fortu Foryoh Fotso Fupi
+		Gaach Gahindiro Gamab Gana Gaocho Garang Gathuru Gawrang Gbanka Gemeda Gessesse Ginocho Gisabo Gitau Gomol Gqunu Gurey Galaal Gwaza_Jere Gxarha
+		Hagos Haingura Hakawona Hamab Hamaria Hammuda Hanamab Hanfadhe Hanga Hano Hegebe Heri Hirsi Hishima Hlatshwayo Hundungulu Hungbo Huru Husani
+		Ibada ibn_Ali Ibn_Badi Ibn_Ismail ibn_Nul Ibn_Tabl ibn_Yusuf Ibrahim Imara Iregi Isot Issa
+		Jaabi Jabari Jahidi Jalali Jammeh Jiagge Juak Juma Jumaane Juuk
+		Kabale Kabe Kacingangu Kafeel Kalagho Kalimakudzulu Kallon Kalombo Kalong Kama kaMahole kaMaphitha Kamari KaMdlela Kamong kaMpande kaMvundlana Kandeya Kandie Kaneketela Kanene Kanneh Kanta Kapusukusu Karanja Karikari Kasang kaSihayo Kat Katsuva Kaura Kayuni Kazadi kaZikhala Keenadiid Keita Keryengole Keyna Khaari Khaldon Khalid Khamisi Khaumab Khawatu Khomaa Khoza Khumalo Kiapungo Kiarie Kifimbo Kindo Kingibe Kinuthia Kinyanjui Kiplagat Kivuli Koddu Kodu Kondo Konkola Konneh Kony Koro Kpengla Kuai Kukaya Kulei Kumong Kwayi Kwenda Kwira
+		Leabua Lefiami Lerotholi Lieth Likaylik Lobengula Lukeni Lumbwi Luth Luwum
+		Ma-Dyigen Ma_N_Sangou Ma_Nombo Mabuku Machupa Madogugu Maduna Maduot Madyan Magaya Maharero Maina Makonnen Makoto Malewezi Malokotela Malual Mamba Mamili Mamohato Manassee Mande Manduti Manjiri Maraire Marave Mari Mariam Maryam Masopha Mathathi Matou Matsaba Mayrumfa Mbangu Mbano Mbewe Mbikije Mbole Mbugua Mbwana Melekot Mengesha Mgayi Mideksa Mikael Minika Mirambo Mkasiwa Mkunkhuntha Mlimo Mmamba Mmbelwa Mnywasele Moerane Mohammed Molidi Moru Moshoeshoe Mosi Moungar Mpanzu Mpemvu Msemwa Msume Mtemi Mudimbe Mugosirima Muhammad Muhammad_Raja Muhigirwa Muhsini Muhuru Mujahid Mukaz Mukusedi Muna Munsensa Musa_Quanto Musinga Mutamo Mutara Muteba Mutiwapangome Muwayi Muyila Muzinga Mvemba Mwaita Mwale Mwamba Mwanawalifa Mwangi Mzilikazi
+		N_Dyaye N_Gombi Nabushi Nakhomab Naluma Nambing Namwan Naweej Ncuthu Ndagushimiye Ndahindurwa Ndemi Ndi Ndiga Ndunduma Nechocho Ngabi Nganga Ngatansou Nggam Ngo Ngombe Ngonge Ngwale Nimi Njambayamina Njenga Njeuma Njoroge Njovu Njuguna Nkulenu Nkutu Nogbaisi Nseenene Nsindi Nsit Nsungu Nta Ntabeni Ntayitunda Ntomba Nujumi Nyambe Nyandane nyasoro Nyembo Nyirambarato Nyondo Nyuot Nze_Nzoughe Nzimiro
+		O-Naimab Oasmab Obote Oculi Odingar Ogbebo Ohuhu Oku Oladigbolu Ole_Koyati Ole_Lenana Ole_Mbatian Ole_Parasayip Ole_Segi ole_Tameno Oneko Onyeso Opobo Orhogbua Orombi Orshi Ouedraogo Ould_Boulkheir Oyo
+		p_Bitek Paate Panja Panyin Penda Penick Petros Peya Phiri Pongo Prempeh
+		Qaalib Qadi Qadir Quiwonkpa
+		Rabihi Raja Ramogi Rhadebe Rugamba Rumfa Rushatsi Rushd Rutarindwa Rwogera
+		Sa_id_Tall Sabiri Sachi Safi Saghanughu Salehe Samba Sayfawa Seeku Seged Sehul Sekyere Sengele Senyamwisa Serushambo Seyon Seyoum Sharvit Sherocho Shixiri Sibale Sidibe Sikhosana Simbwaye Solee Songomeno Soshangane Sungilanga Suso Susso
+		Tam Tayrab Teklehaymanot Tembo Tene Tetela-Kusu Thiik Tjavikwa Tjimba Tofa Tona Tonkomo Tonmansa Tonyon Top Torkula Toure Tufail Tufoyn Turnsaa
+		Ubium Udene Umkubu_Muntu Usufu Uthman
+		vaKuvale Vasovava vaZemba
+		wad_Ajang wad_Akoc wad_Akwot wad_Kudit wad_Kur wad_Kwadker wad_Nyakwac wad_Nyidok wad_Rajab wad_Yor Wairia waMswati Wattara Weiu Wek Witbooi Woldetinsae Wossen
+		Xasan Xesibe
+		Yaago Yaava Yabarow Yale Yayyo Yessous Yohannes Younga Yuh
+		zaki Zaki Zamnagawa Zangwa Zedoko Ziyad Zuberi Zuhr Zumaw
+	}
+	ethnicities = { 1 = african }
+	graphics = african
+}
+

@@ -112,6 +112,7 @@ pm_mobile_warfare_tactics = {
 		workforce_scaled = {
 			goods_input_clothes_add				= 1.00
 			goods_input_furniture_add			= 1.00
+			goods_input_automobiles_add			= 1.00
 		}
 		level_scaled = {
 			building_training_rate_add			=  27
@@ -240,6 +241,7 @@ pm_mobile_warfare_tactics_conscription = {
 		workforce_scaled = {
 			goods_input_clothes_add				= 1.00
 			goods_input_furniture_add			= 1.00
+			goods_input_automobiles_add			= 1.00
 		}
 		level_scaled = {
 			building_training_rate_add			=  27

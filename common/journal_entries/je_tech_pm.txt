@@ -1,4 +1,4 @@
-# Art and former tech JEs
+﻿# Art and former tech JEs
 je_romanticism = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_technology

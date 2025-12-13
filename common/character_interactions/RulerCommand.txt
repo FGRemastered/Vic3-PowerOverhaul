@@ -19,17 +19,35 @@ grant_command_to_ruler = {
 		OR = {
 			is_female = no
 			has_trait = immortal
-			owner = { has_law = law_type:law_women_in_the_workplace }
-			owner = { has_law = law_type:law_womens_suffrage }
+			owner = { has_law_or_variant = law_type:law_women_in_the_workplace }
+			owner = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
 		owner = { ruler_can_have_command = yes }
 		exists = owner.capital.land_hq
 	}
 	effect = { add_character_role = general }
 	ai_chance = {
-		value = 5
+		value = 0
 		if = {
-			limit = { NOT = { owner = { any_scope_general = { exists = yes } } } }
+			limit = {
+				AND = {
+					age <= 50
+					OR = {
+						has_trait = reckless
+						has_trait = direct
+						has_trait = imposing
+					}
+					NOR = {
+						has_trait = psychological_affliction
+						has_trait = wounded
+						has_trait = shellshocked
+					}
+				}
+			}
+			add = 100
+		}
+		if = {
+			limit = { NOT = { OWNER = { any_scope_character = { has_role = general } } } }
 			add = 25
 		}
 		if = {
@@ -43,10 +61,7 @@ grant_command_to_ruler = {
 			}
 			add = 25
 		}
-		if = {
-			limit = { is_interest_group_type = ig_armed_forces }
-			add = 25
-		}
+		if = { limit = { is_interest_group_type = ig_armed_forces } add = 25 }
 		if = {
 			limit = { owner = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
 			add = 50
@@ -238,13 +253,12 @@ grant_command_to_agitator = {
 		owner = scope:actor
 	}
 	possible = {
-		# age >= define:NCharacters|ADULT_AGE
-		NOT = { has_trait = trait_child }		# Changed
+		NOT = { has_trait = trait_child }		# Changed - age >= define:NCharacters|ADULT_AGE
 		OR = {									# Changed
 			is_female = no
 			has_trait = immortal
-			owner = { has_law = law_type:law_women_in_the_workplace }
-			owner = { has_law = law_type:law_womens_suffrage }
+			owner = { has_law_or_variant = law_type:law_women_in_the_workplace }
+			owner = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
 		exists = owner.capital.land_hq
 	}
@@ -261,11 +275,11 @@ grant_command_to_agitator = {
 			add = 25
 		}	
 		if = {
-			limit = { NOT = { owner = {	 any_scope_general = { exists = yes } } } }
+			limit = { NOT = { OWNER = { any_scope_character = { has_role = general } } } }
 			add = 25
 		}
 		if = {
-			limit = { owner = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
+			limit = { OWNER = { any_scope_war = { any_scope_front = { is_vulnerable_front = root } } } }
 			add = 100
 		}
 	}

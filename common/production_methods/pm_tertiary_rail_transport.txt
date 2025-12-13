@@ -229,12 +229,13 @@ pm_rail_transport_construction = {
 			goods_input_transportation_add		=   10	# x-30	= -300
 		}
 		level_scaled = {
-			building_employment_laborers_add	= -500	# x-.02	=  +10	=> Breaks even at SoL 30
-		}
-		# unscaled = { building_throughput_add	= 0.10 }
+			building_employment_laborers_add	= -500	# x-.02	=  +10
+		}												#				=> Breaks even at SoL 30
 	}
 	state_modifiers = {
-		unscaled = { state_construction_mult	= 0.10 }
+		throughput_scaled = {
+			state_construction_mult				= 0.10
+		}
 	}
 	required_input_goods = transportation
 	ai_value = 5000

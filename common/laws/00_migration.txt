@@ -28,7 +28,7 @@ law_migration_controls = {
 					NOT = {
 						any_neighbouring_state = {
 							is_treaty_port = yes
-							owner = { religion = { has_discrimination_trait = christian } }
+							owner = { religion = { has_discrimination_trait = heritage_christian } }
 						}
 					}
 					has_variable = open_to_missionaries_state
@@ -69,7 +69,7 @@ law_closed_borders = {
 					NOT = {
 						any_neighbouring_state = {
 							is_treaty_port = yes
-							owner = { religion = { has_discrimination_trait = christian } }
+							owner = { religion = { has_discrimination_trait = heritage_christian } }
 						}
 					}
 					has_variable = open_to_missionaries_state

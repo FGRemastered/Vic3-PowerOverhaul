@@ -39,13 +39,13 @@ law_local_police = {
 	}
 	ai_will_do = {	# Don't return to local police if we have something more advanced
 		NOR = {
-			has_law = law_type:law_dedicated_police
-			has_law = law_type:law_militarized_police
+			has_law_or_variant = law_type:law_dedicated_police
+			has_law_or_variant = law_type:law_militarized_police
 		}
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_law = law_type:law_no_police }						add			= 500 }
+		if = { limit = { has_law_or_variant = law_type:law_no_police }			add			= 500 }
 		if = { limit = { has_technology_researched = law_enforcement }			subtract	= 750 } # Don't bother with local police if you can go for the real deal.
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add			= 750 }
 	}
@@ -53,15 +53,15 @@ law_local_police = {
 		value = 0
 		if = {
 			limit = {
-				has_law = law_type:law_local_police
+				has_law_or_variant = law_type:law_local_police
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = base_impose_law_weight
 		}
 		if = {
 			limit = {
-				has_law = law_type:law_local_police
-				scope:target_country = { has_law = law_type:law_no_police }
+				has_law_or_variant = law_type:law_local_police
+				scope:target_country = { has_law_or_variant = law_type:law_no_police }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10
@@ -96,7 +96,7 @@ law_dedicated_police = {
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_law = law_type:law_no_police }						add			= 500 }
+		if = { limit = { has_law_or_variant = law_type:law_no_police }						add			= 500 }
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add			= 750 }
 	}
 	ai_impose_chance = {
@@ -111,7 +111,7 @@ law_dedicated_police = {
 		if = {
 			limit = {
 				has_law = law_type:law_dedicated_police
-				scope:target_country = { has_law = law_type:law_no_police }
+				scope:target_country = { has_law_or_variant = law_type:law_no_police }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10
@@ -151,7 +151,7 @@ law_militarized_police = {
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
-		if = { limit = { has_law = law_type:law_no_police }						add			= 500 }
+		if = { limit = { has_law_or_variant = law_type:law_no_police }						add			= 500 }
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add			= 750 }
 	}
 	ai_impose_chance = {
@@ -166,7 +166,7 @@ law_militarized_police = {
 		if = {
 			limit = {
 				has_law = law_type:law_militarized_police
-				scope:target_country = { has_law = law_type:law_no_police }
+				scope:target_country = { has_law_or_variant = law_type:law_no_police }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10

@@ -76,5 +76,5 @@
 	building_company_regional_headquarter = {"generic_regionalcompanyhq_01_mesh"}
 	# Infres
 	building_infres_barracks = {"african_city_barracks_01_mesh"}
-	building_infres_construction_sector = {"african_manufactory_03_mesh"}
+	building_construction_sector_extension = {"african_manufactory_03_mesh"}
 }

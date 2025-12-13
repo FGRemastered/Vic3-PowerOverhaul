@@ -33,7 +33,7 @@
 
  building_infres_naval_base: "$building_naval_base$ Extension"
  building_infres_barracks: "$building_barracks$ Extension"
- building_infres_construction_sector: "$building_construction_sector$ Extension"
+ building_construction_sector_extension: "$building_construction_sector$ Extension"
 
  rule_infres_allows_ai_to_build: "IRB: Allowed to build Infinite Resource Buildings"
  setting_infres_player_only: "Player Only"

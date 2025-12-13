@@ -9,29 +9,49 @@ grant_leadership_to_agitator = {
 	show_requirements = yes
 	possible = {
 		interest_group = { is_in_government = yes }
-		character_acceptance = { target = scope:actor value >= acceptance_status_4 }
 		# ROOT.OWNER ?= { country_average_cultural_acceptance = { target = ROOT.culture value >= acceptance_status_4 } }
 		# trigger_if = {
-			# limit = { scope:actor ?= { has_law = law_type:law_state_religion } }
+			# limit = { scope:actor ?= { has_law_or_variant = law_type:law_state_religion } }
 			# religion = scope:actor.religion
 		# }
 		# trigger_else_if = {
-			# limit = { scope:actor ?= { has_law = law_type:law_freedom_of_conscience } }
+			# limit = { scope:actor ?= { has_law_or_variant = law_type:law_freedom_of_conscience } }
 			# religion = { shares_heritage_trait_with_state_religion = scope:actor }
 		# }
 		trigger_if = {
-			limit = { owner ?= { has_law = law_type:law_state_atheism } }
+			limit = {
+				scope:actor ?= {
+					has_law_or_variant = law_type:law_multicultural
+					OR = {
+						has_law_or_variant = law_type:law_total_separation
+						has_law_or_variant = law_type:law_state_atheism
+					}
+				}
+			}
+			character_acceptance = { target = scope:actor value >= acceptance_status_3 }	# In light of the Multiculturalism nerf
+		}
+		trigger_else = {
+			character_acceptance = { target = scope:actor value >= acceptance_status_4 }
+		}
+		trigger_if = {
+			limit = { scope:actor ?= { has_law_or_variant = law_type:law_state_atheism } }
 			NOR = {
+				# law_stance = { law = law_type:law_state_religion value > neutral }
 				has_ideology = ideology:ideology_theocrat
 				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_traditionalist
+				has_ideology = ideology:ideology_traditionalist_minoritarian
 			}
 		}
 		OR = {
 			is_female = no
-			scope:actor = { has_law = law_type:law_women_in_the_workplace }
-			scope:actor = { has_law = law_type:law_womens_suffrage }
+			scope:actor = { has_law_or_variant = law_type:law_women_in_the_workplace }
+			scope:actor = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
+		# custom_tooltip = {
+			# text = grant_leadership_must_be_pressured_ig
+			# political_movement ?= { any_influenced_interest_group = { this = root.interest_group } }
+		# }
 	}
 	effect = {
 		remove_character_role = agitator
@@ -40,8 +60,24 @@ grant_leadership_to_agitator = {
 			text = make_agitator_ig_leader_tt
 			set_as_interest_group_leader = yes
 		}
+		if = {
+			limit = {
+				scope:actor = { has_law_or_variant = law_type:law_state_atheism }
+				NOR = {
+					is_interest_group_type = ig_devout
+					has_ideology = ideology:ideology_theocrat
+					has_ideology = ideology:ideology_integralist
+					has_ideology = ideology:ideology_traditionalist
+					has_ideology = ideology:ideology_traditionalist_minoritarian
+					# law_stance = { law = law_type:law_state_religion value > neutral }
+					religion = rel:atheist
+					is_historical = yes
+				}
+			}
+			change_character_religion = rel:atheist
+		}
 	}
-	cooldown = { days = normal_modifier_time }
+	cooldown = { days = short_modifier_time }	# Changed
 	ai_chance = {
 		value = -50
 		if = {
@@ -76,40 +112,40 @@ invite_exile = {
 	possible = {
 		scope:actor ?= { empty_agitator_slots >= 1 }
 		can_agitate = scope:actor
-		trigger_if = {																	# Devout exiles must have country religion
+		trigger_if = {																		# Devout exiles must have country religion
 			limit = { is_interest_group_type = ig_devout }
 			custom_tooltip = { text = invite_exile_devout_tt religion = scope:actor.religion }
 		}
-		trigger_if = {
+		trigger_else_if = {
 			limit = {
-				NOT = { is_interest_group_type = ig_devout }
-				scope:actor ?= { has_law = law_type:law_state_religion }				# If you have state religion, exiles must have your religion
-				scope:actor ?= { has_law = law_type:law_migration_controls }			# Added - Who knows who came in if you don't control it?
+				scope:actor ?= { has_law_or_variant = law_type:law_state_religion }					# If you have state religion, exiles must have your religion
+				scope:actor ?= { has_law_or_variant = law_type:law_migration_controls }				# Added - Who knows who came in if you don't control it?
 			}
-			custom_tooltip = {
-				text = invite_exile_state_religion_tt
-				religion = scope:actor.religion
-			}
+			custom_tooltip = { text = invite_exile_state_religion_tt religion = scope:actor.religion }
 		}
-		trigger_if = {
-			limit = { scope:actor ?= { has_law = law_type:law_migration_controls } }	# Added - Who knows who came in if you don't control it?
-			character_acceptance = { target = scope:actor value >= acceptance_status_3 }			# cannot invite culturally discriminated exiles
+		trigger_else_if = {
+			limit = { scope:actor ?= { has_law_or_variant = law_type:law_migration_controls } }		# Added - Who knows who came in if you don't control it?
+			character_acceptance = { target = scope:actor value >= acceptance_status_3 }	# cannot invite culturally discriminated exiles
 		}
-		scope:actor ?= { NOT = { has_law = law_type:law_closed_borders } }				# Cannot invite exiles if you have Closed Borders
+		scope:actor ?= { NOT = { has_law_or_variant = law_type:law_closed_borders } }					# Cannot invite exiles if you have Closed Borders
 	}
 	effect = {
 		transfer_character = scope:actor
 		set_variable = exile_to_ruler_var
 		set_variable = { name = memento_mori_immunity months = 60 }
 		custom_tooltip = invite_exile_start_join_movement_effect
-		hidden_effect = { remove_modifier = in_exile_modifier }
 		hidden_effect = {
+			free_from_exile_effect = yes
 			if = {
 				limit = {
 					has_variable = mazzini_var
 					has_dlc_feature = voice_of_the_people_content
 				}
 				scope:actor ?= { trigger_event = { id = historical_agitators.7 days = 3 } }
+			}
+			if = {
+				limit = { has_variable = nightingale_var }
+				scope:actor ?= { trigger_event = { id = historical_agitators.23 days = 3 } }
 			}
 			if = {
 				limit = {
@@ -147,7 +183,7 @@ invite_exile = {
 		}
 		if = {
 			limit = {
-				scope:actor = { has_law = law_type:law_state_atheism }
+				scope:actor = { has_law_or_variant = law_type:law_state_atheism }
 				NOR = {
 					is_interest_group_type = ig_devout
 					religion = rel:atheist
@@ -157,7 +193,7 @@ invite_exile = {
 			change_character_religion = rel:atheist
 		}
 	}
-	cooldown = { days = normal_modifier_time }
+	cooldown = { days = short_modifier_time }
 	ai_chance = {
 		value = -85
 		if = {
@@ -185,15 +221,15 @@ invite_exile = {
 			add = 50
 		}
 		if = {
-			limit = { scope:actor ?= { has_law = law_type:law_closed_borders } }
+			limit = { scope:actor ?= { has_law_or_variant = law_type:law_closed_borders } }
 			add = -200
 		}
 		if = {
-			limit = { scope:actor ?= { has_law = law_type:law_no_migration_controls } }
+			limit = { scope:actor ?= { has_law_or_variant = law_type:law_no_migration_controls } }
 			add = 15
 		}
 		if = {
-			limit = { scope:actor ?= { has_law = law_type:law_multicultural } }
+			limit = { scope:actor ?= { has_law_or_variant = law_type:law_multicultural } }
 			add = 15
 		}
 		if = { 

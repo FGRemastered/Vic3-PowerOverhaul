@@ -64,9 +64,9 @@
  pm_manor_house_mechanized: "Mechanized Home"
  pm_manor_house_electrified: "Electified Home"
  
- modern_stratocratic_tt: "The [GetIdeology('ideology_stratocratic').GetName] [Concept('concept_ideology','$concept_ideologies$')]' stance on $law_serfdom$ will change due to increasing pressure from within and without."
- ideology_stratocratic_modern: "Modern $ideology_stratocratic$"
- ideology_stratocratic_modern_desc: "$ideology_stratocratic_desc$"
+ modern_hierarchic_tt: "The [GetIdeology('ideology_hierarchic').GetName] [Concept('concept_ideology','$concept_ideologies$')]' stance on $law_serfdom$ will change due to increasing pressure from within and without."
+ ideology_hierarchic_modern: "Modern $ideology_hierarchic$"
+ ideology_hierarchic_modern_desc: "$ideology_hierarchic_desc$"
  
  ideology_feminist_reformer:0 "$ideology_feminist$ $ideology_reformer$"
  ideology_feminist_reformer_desc:0 "$ideology_feminist_desc$"

@@ -17,8 +17,8 @@ company_basic_food = {
 		building_autarky_farm
 	}
 	extension_building_types = {
-		building_livestock_ranch
-		building_wheat_farm
+		# building_livestock_ranch
+		# building_wheat_farm
 		building_autarky_greenhouse
 	}
 	possible_prestige_goods = {
@@ -229,6 +229,7 @@ company_basic_weapons = {
 company_basic_colonial_plantations_1 = {
 	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	category = aristocrat_owned
 	flavored_company = no
 	uses_dynamic_naming = yes
 	dynamic_company_type_names = {
@@ -289,6 +290,7 @@ company_basic_colonial_plantations_1 = {
 company_basic_colonial_plantations_2 = {
 	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	category = aristocrat_owned
 	flavored_company = no
 	uses_dynamic_naming = yes
 	dynamic_company_type_names = {
@@ -472,33 +474,35 @@ company_basic_forestry = {
 company_sovereign_wealth_fund = {
 	icon = "gfx/interface/icons/company_icons/basic_metal_mining.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	category = bureaucrat_owned
 	building_types = {
 		building_tooling_workshops
 		building_steel_mills
+		building_gold_mine
+		building_rubber_plantation
+		building_oil_rig
 		building_logging_camp
-		building_fishing_wharf
-		building_whaling_station
+		building_railway
 		building_coal_mine
 		building_iron_mine
 		building_lead_mine
 		building_sulfur_mine
-		building_gold_mine
-		building_oil_rig
-		building_rubber_plantation
-		building_infres_fishing_wharf
-		building_infres_whaling_station
+		building_fishing_wharf
+		building_whaling_station
 		building_infres_coal_mine
 		building_infres_iron_mine
 		building_infres_lead_mine
 		building_infres_sulfur_mine
 		building_infres_gold_mine
 		building_infres_oil_rig
+		building_infres_fishing_wharf
+		building_infres_whaling_station
 		# building_logging_greenhouse
 		# building_rubber_greenhouse
+		building_autarky_farm
 	}
 	extension_building_types = {
-		building_motor_industry
-		building_railway
+		building_autarky_greenhouse
 		building_automotive_industry
 		building_electrics_industry
 	}
@@ -520,7 +524,7 @@ company_sovereign_wealth_fund = {
 		}
 	}
 	can_establish_in = {
-		trigger_capital_or_market_capital = yes
+		is_capital = yes	# trigger_capital_or_market_capital would also work, but we want to separate the admin and the economy side to make sure the capital stays the state with the highest admin level.
 	}
 	prosperity_modifier = {
 		country_max_companies_add									= 1
@@ -534,18 +538,10 @@ company_sovereign_wealth_fund = {
 		state_loyalists_from_political_movements_mult				= 0.10
 		state_colony_growth_speed_mult								= 0.10
 	}
-	ai_will_do = {
-		has_technology_researched = stock_exchange
-		OR = {
-			any_primary_culture = { has_discrimination_trait = scandinavian_culture_group }
-			any_primary_culture = { has_discrimination_trait = german_speaking }
-		}
-	}
+	ai_will_do = { trigger_ai_will_do_sovereign_resource_fund = yes }
 	ai_construction_targets = {
-		building_steel_mills = {
-			level = 5
-			state_trigger = { trigger_capital_or_market_capital = yes }
-		}
+		building_steel_mills		= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
+		building_tooling_workshops	= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
 	}
 	ai_weight = { value = 2 }	# Higher than normal weight
 }
@@ -553,9 +549,9 @@ company_sovereign_wealth_fund = {
 company_prussian_state_railways = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_kpev.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	building_types = {
-		# building_urban_center
 		building_port
 		building_railway
 		building_power_plant
@@ -563,9 +559,11 @@ company_prussian_state_railways = {
 	}
 	extension_building_types = {
 		building_automotive_industry
+		building_urban_center
 	}
 	possible_prestige_goods = {
 		prestige_good_schichau_engines
+		prestige_good_generic_merchant_marine
 	}
 	potential = {
 		OR = {
@@ -599,8 +597,8 @@ company_prussian_state_railways = {
 		has_technology_researched = railways
 		any_scope_state = {
 			OR = {
-				region = sr:region_north_germany
-				region = sr:region_south_germany
+				state_region = { is_homeland = cu:north_german }
+				state_region = { is_homeland = cu:south_german }
 			}
 			is_incorporated = yes
 		}
@@ -610,8 +608,8 @@ company_prussian_state_railways = {
 			level = 5
 			state_trigger = {
 				OR = {
-					region = sr:region_north_germany
-					region = sr:region_south_germany
+					state_region = { is_homeland = cu:north_german }
+					state_region = { is_homeland = cu:south_german }
 				}
 				is_incorporated = yes
 			}
@@ -672,8 +670,8 @@ company_krupp = {
 	}
 	ai_construction_targets = {
 		building_steel_mills			= { level = 5 state_trigger = { state_region = s:STATE_RUHR } }
-		building_arms_industry			= { level = 5 state_trigger = { state_region = s:STATE_RUHR } }
-		building_artillery_foundries	= { level = 5 state_trigger = { state_region = s:STATE_RUHR } }
+		# building_arms_industry			= { level = 5 state_trigger = { state_region = s:STATE_RUHR } }
+		# building_artillery_foundries	= { level = 5 state_trigger = { state_region = s:STATE_RUHR } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -738,8 +736,8 @@ company_rheinmetall = {
 		unit_combat_unit_type_shrapnel_artillery_offense_mult	= 0.10
 		unit_combat_unit_type_siege_artillery_offense_mult		= 0.10
 		unit_combat_unit_type_heavy_tank_offense_mult			= 0.10	# Added
-		unit_combat_unit_type_light_tank_offense_mult			= 0.10	# Added
 		unit_combat_unit_type_mechanized_infantry_offense_mult	= 0.10	# Added
+		unit_combat_unit_type_light_tank_offense_mult			= 0.10	# Added
 	}
 	ai_will_do = {
 		has_technology_researched = automatic_machine_guns
@@ -777,6 +775,7 @@ company_rheinmetall = {
 company_edeka = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/german_edeka.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	category = shopkeeper_owned
 	flavored_company = yes
 	building_types = {
 		# Industry
@@ -840,7 +839,6 @@ company_edeka = {
 	replaces_company = company_basic_food
 	can_establish_in = { state_region = s:STATE_BRANDENBURG }
 	prosperity_modifier = {
-		country_free_charters_add								= 1
 		country_production_tech_research_speed_mult				= 0.10
 		state_birth_rate_mult									= 0.10
 		state_loyalists_from_political_movements_mult			= 0.10
@@ -922,6 +920,7 @@ company_basf = {
 company_great_indian_railway = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/india_great_indian_peninsula_railway.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	building_types = {  
 		building_railway
@@ -940,29 +939,11 @@ company_great_indian_railway = {
 			has_interest_marker_in_region = region_punjab
 		}
 	}
-	attainable = {
-		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
-			any_scope_state = {
-				OR = {
-					region = sr:region_madras
-					region = sr:region_bombay
-					region = sr:region_bengal
-					region = sr:region_central_india
-					region = sr:region_punjab
-				}
-			}
-		}
-	}			
+	attainable = { hidden_trigger = { any_scope_state = { state_is_in_india	= yes } } }	# Hide attainable if it's always fulfilled by possible
 	possible = {
 		any_scope_state = {
-			OR = {
-				region = sr:region_madras
-				region = sr:region_bombay
-				region = sr:region_bengal
-				region = sr:region_central_india
-				region = sr:region_punjab
-			}
-			is_incorporated = yes
+			state_is_in_india	= yes
+			is_incorporated		= yes
 			has_building = building_railway
 			count >= 6
 		}
@@ -976,28 +957,16 @@ company_great_indian_railway = {
 	ai_will_do = {
 		has_technology_researched = railways
 		any_scope_state = {
-			OR = {
-				region = sr:region_madras
-				region = sr:region_bombay
-				region = sr:region_bengal
-				region = sr:region_central_india
-				region = sr:region_punjab
-			}
-			is_incorporated = yes
+			state_is_in_india	= yes
+			is_incorporated		= yes
 		}
 	}
 	ai_construction_targets = {
 		building_railway = {
 			level = 5
 			state_trigger = {
-				OR = {
-					region = sr:region_madras
-					region = sr:region_bombay
-					region = sr:region_bengal
-					region = sr:region_central_india
-					region = sr:region_punjab
-				}
-				is_incorporated = yes
+				state_is_in_india	= yes
+				is_incorporated		= yes
 			}
 		}
 	}
@@ -1007,6 +976,7 @@ company_great_indian_railway = {
 company_east_india_company = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/gb_eic.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	category = aristocrat_owned
 	flavored_company = yes
 	building_types = {
 		building_tea_plantation
@@ -1139,11 +1109,11 @@ company_united_fruit = {
 			state_region = s:STATE_LOUISIANA
 			is_incorporated = yes
 			OR = {
-				any_scope_building = { is_building_type = building_sugar_plantation			level >= 5 }
+				any_scope_building = { is_building_type = building_sugar_plantation	level >= 5 }
 				any_scope_building = { is_building_type = building_sugar_greenhouse	level >= 5 }
 			}
 		}
-		any_scope_state = {
+		any_state = {	# any_state to check for puppets
 			custom_tooltip = {
 				text = company_united_fruit_possible_tt
 				OR = {
@@ -1322,14 +1292,8 @@ company_mitsubishi = {
 		}
 	}
 	ai_construction_targets = {
-		building_paper_mills = {
-			level = 5
-			state_trigger = { state_region = s:STATE_CHUGOKU }
-		}
-		building_military_shipyards = {
-			level = 5
-			state_trigger = { state_region = s:STATE_CHUGOKU }
-		}
+		building_paper_mills		= { level = 5 state_trigger = { state_region = s:STATE_CHUGOKU } }
+		building_military_shipyards	= { level = 5 state_trigger = { state_region = s:STATE_CHUGOKU } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -1353,6 +1317,7 @@ company_mitsui = {
 	}
 	possible_prestige_goods = {
 		prestige_good_tomioka_silk
+		prestige_good_generic_clothes	# Added
 	}
 	potential = {
 		has_interest_marker_in_region = region_japan
@@ -1385,6 +1350,62 @@ company_mitsui = {
 	ai_construction_targets = {
 		building_textile_mills		= { level = 5 state_trigger = { state_region = s:STATE_KANSAI } }
 		building_silk_greenhouse	= { level = 5 state_trigger = { state_region = s:STATE_KANSAI } }
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+# Hanyang Arsenal
+company_hanyang_arsenal = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chinese_hanyang_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	category = bureaucrat_owned
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_HUBEI }
+	building_types = {
+		building_arms_industry
+		building_artillery_foundries
+		building_munition_plants
+		building_explosives_factory
+	}
+	extension_building_types = {
+	}
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+		prestige_good_generic_artillery		# Added
+		prestige_good_generic_explosives	# Added
+	}
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+	potential = { has_interest_marker_in_region = region_south_china }
+	attainable = { hidden_trigger = { any_scope_state = { state_region = s:STATE_EASTERN_HUBEI } } }	# Hide attainable if it's always fulfilled by possible
+	possible = {
+		has_technology_researched = breech_loading_artillery
+		any_scope_state = {
+			OR = {
+				custom_tooltip = { text = market_capital.tt THIS ?= OWNER.market_capital }
+				state_region = s:STATE_EASTERN_HUBEI
+			}
+			is_incorporated = yes
+			any_scope_building = { is_building_type = building_arms_industry level >= 5 }
+		}
+	}
+	prosperity_modifier = {
+		unit_combat_unit_type_shrapnel_artillery_offense_mult	= 0.20
+		unit_combat_unit_type_siege_artillery_offense_mult		= 0.20	# Added
+		unit_combat_unit_type_heavy_tank_offense_mult			= 0.20	# Added
+		unit_morale_recovery_mult								= 0.15
+	}
+	ai_will_do = {
+		has_technology_researched = breech_loading_artillery
+		any_scope_state = { state_region = s:STATE_EASTERN_HUBEI is_incorporated = yes }
+	}
+	ai_construction_targets = {
+		building_explosives_factory		= { level = 5 state_trigger = { state_region = s:STATE_EASTERN_HUBEI } }
+		building_arms_industry			= { level = 5 state_trigger = { THIS ?= OWNER.market_capital } }
+		building_artillery_foundries	= { level = 5 state_trigger = { THIS ?= OWNER.market_capital } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -1561,6 +1582,7 @@ company_ong_lung_sheng_tea_company = {
 company_vodka_monopoly = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/russian_vodka_monopoly.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_INGRIA STATE_MOSCOW }
 	building_types = {  
@@ -1785,6 +1807,7 @@ company_espana_industrial = {
 company_cgv = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_cgv.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	category = shopkeeper_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_CHAMPAGNE }
 	building_types = {
@@ -1836,6 +1859,7 @@ company_cgv = {
 company_maison_worth = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_maison_worth.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	category = shopkeeper_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_ILE_DE_FRANCE }
 	building_types = {
@@ -1932,6 +1956,7 @@ company_maple_and_co = {
 company_misr = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/misr.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_LOWER_EGYPT }
 	building_types = {
@@ -1979,12 +2004,13 @@ company_misr = {
 company_suez_company = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_SINAI }
 	building_types = {
 		building_suez_canal
-		building_trade_center
 		building_port
+		building_trade_center
 	}
 	extension_building_types = {
 		building_shipyards
@@ -2008,8 +2034,9 @@ company_suez_company = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_trade_center
+					is_building_type = building_suez_canal
 					is_building_type = building_port
+					# is_building_type = building_trade_center
 				}
 				level >= 5
 			}
@@ -2028,8 +2055,9 @@ company_suez_company = {
 		}
 	}
 	ai_construction_targets = {
-		building_trade_center	= { level = 5 state_trigger = { state_region = s:STATE_SINAI } }
-		building_port			= { level = 5 state_trigger = { state_region = s:STATE_SINAI } }
+		building_suez_canal		= { level = 1 state_trigger = { state_region = s:STATE_SINAI } }
+		building_port			= { level = 4 state_trigger = { state_region = s:STATE_SINAI } }
+		# building_trade_center	= { level = 5 state_trigger = { state_region = s:STATE_SINAI } }
 	}
 	ai_weight = { value = 10 }	# Free money!
 }
@@ -2037,12 +2065,13 @@ company_suez_company = {
 company_panama_company = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/panama_company.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	category = bureaucrat_owned
 	flavored_company = yes
 	preferred_headquarters = { STATE_PANAMA }
 	building_types = {
 		building_panama_canal
-		building_trade_center
 		building_port
+		building_trade_center
 	}
 	extension_building_types = {
 		building_shipyards
@@ -2069,8 +2098,9 @@ company_panama_company = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_trade_center
+					is_building_type = building_panama_canal
 					is_building_type = building_port
+					# is_building_type = building_trade_center
 				}
 				level >= 5
 			}
@@ -2089,8 +2119,9 @@ company_panama_company = {
 		}
 	}
 	ai_construction_targets = {
-		building_trade_center	= { level = 5 state_trigger = { state_region = s:STATE_PANAMA } }
-		building_port			= { level = 5 state_trigger = { state_region = s:STATE_PANAMA } }
+		building_panama_canal	= { level = 1 state_trigger = { state_region = s:STATE_PANAMA } }
+		building_port			= { level = 4 state_trigger = { state_region = s:STATE_PANAMA } }
+		# building_trade_center	= { level = 5 state_trigger = { state_region = s:STATE_PANAMA } }
 	}
 	ai_weight = { value = 10 }	# Free money!
 }

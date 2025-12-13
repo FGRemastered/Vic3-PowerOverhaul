@@ -80,5 +80,5 @@ default_city = {
 	building_company_regional_headquarter = {"generic_regionalcompanyhq_01_mesh"}
 	# Infres
 	building_infres_barracks = {}
-	building_infres_construction_sector = {}
+	building_construction_sector_extension = {}
 }

@@ -34,7 +34,7 @@ colonial_administration_events.1 = {
 			scope:newly_formed_colonial_nation_scope = {
 				set_variable = african_chartered_company_var
 				activate_law = law_type:law_presidential_republic
-				if = { limit = { ROOT = { has_law = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
+				if = { limit = { ROOT = { has_law_or_variant = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
 				else = { activate_law = law_type:law_oligarchy }
 				activate_law = law_type:law_racial_segregation
 				activate_law = law_type:law_extraction_economy
@@ -64,18 +64,9 @@ colonial_administration_events.1 = {
 		every_interest_group = {
 			limit = {
 				OR = {
-					law_stance = {
-						law = law_type:law_laissez_faire
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_free_trade
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_interventionism
-						value > neutral
-					}
+					law_stance = { law = law_type:law_interventionism	value > neutral }
+					law_stance = { law = law_type:law_laissez_faire		value > neutral }
+					law_stance = { law = law_type:law_free_trade		value > neutral }
 				}
 				is_marginal = no
 			}
@@ -90,22 +81,23 @@ colonial_administration_events.1 = {
 		highlighted_option = yes
 		trigger = {
 			OR = {
-				has_law = law_type:law_state_religion
-				has_law = law_type:law_freedom_of_conscience
-				has_law = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_state_religion
+				has_law_or_variant = law_type:law_freedom_of_conscience
+				has_law_or_variant = law_type:law_state_atheism
 			}
 		}
 		custom_tooltip = {
 			text = colonial_administration_events.1_tt_2
 			scope:newly_formed_colonial_nation_scope = {
 				activate_law = law_type:law_presidential_republic
-				if = { limit = { ROOT = { has_law = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
+				if = { limit = { ROOT = { has_law_or_variant = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
 				else = { activate_law = law_type:law_oligarchy }
 				activate_law = law_type:law_racial_segregation
 				activate_law = law_type:law_extraction_economy
 				activate_law = law_type:law_colonial_exploitation
-				activate_law = law_type:law_religious_schools
-				if = { limit = { ROOT = { has_law = law_type:law_state_atheism } } activate_law = law_type:law_state_atheism }
+				if = { limit = { ROOT = { has_law_or_variant = law_type:law_state_atheism } } activate_law = law_type:law_public_schools }
+				else = { activate_law = law_type:law_religious_schools }
+				if = { limit = { ROOT = { has_law_or_variant = law_type:law_state_atheism } } activate_law = law_type:law_state_atheism }
 				else = { activate_law = law_type:law_state_religion }
 				activate_law = law_type:law_no_health_system
 				activate_law = law_type:law_censorship
@@ -131,14 +123,8 @@ colonial_administration_events.1 = {
 		every_interest_group = {
 			limit = {
 				OR = {
-					law_stance = {
-						law = law_type:law_state_religion
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_religious_schools
-						value > neutral
-					}
+					law_stance = { law = law_type:law_state_religion	value > neutral }
+					law_stance = { law = law_type:law_religious_schools	value > neutral }
 				}
 				is_marginal = no
 			}
@@ -177,10 +163,7 @@ colonial_administration_events.1 = {
 		}
 		every_interest_group = {
 			limit = {
-				law_stance = {
-					law = law_type:law_colonial_resettlement
-					value > neutral
-				}
+				law_stance = { law = law_type:law_colonial_resettlement	value > neutral }
 				is_marginal = no
 			}
 			add_modifier = {
@@ -189,15 +172,12 @@ colonial_administration_events.1 = {
 			}
 		}
 	}
-
 	option = {
 		highlighted_option = yes
 		trigger = {
 			OR = {
-				has_law = law_type:law_no_workers_rights
-				NOT = {
-					has_law = law_type:law_slavery_banned
-				}
+				has_law_or_variant = law_type:law_no_workers_rights
+				NOT = { has_law_or_variant = law_type:law_slavery_banned }
 				ruler = {
 					OR = {
 						has_trait = cruel
@@ -241,18 +221,9 @@ colonial_administration_events.1 = {
 		every_interest_group = {
 			limit = {
 				OR = {
-					law_stance = {
-						law = law_type:law_no_workers_rights
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_legacy_slavery
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_professional_army
-						value > neutral
-					}
+					law_stance = { law = law_type:law_no_workers_rights	value > neutral }
+					law_stance = { law = law_type:law_legacy_slavery	value > neutral }
+					law_stance = { law = law_type:law_professional_army	value > neutral }
 				}
 				is_marginal = no
 			}
@@ -269,11 +240,14 @@ colonial_administration_events.1 = {
 			text = colonial_administration_events.1_tt_5
 			scope:newly_formed_colonial_nation_scope = {
 				copy_laws = ROOT
-				if = { limit = { NOT = { has_law = law_type:law_presidential_republic } } activate_law = law_type:law_presidential_republic }
-				if = { limit = { OVERLORD = { NOR = { has_law = law_type:law_autocracy has_law = law_type:law_oligarchy has_law = law_type:law_technocracy } } } activate_law = law_type:law_oligarchy }
-				if = { limit = { ROOT = { has_law = law_type:law_slave_trade } } activate_law = law_type:law_debt_slavery activate_law = law_type:law_national_supremacy }
-				if = { limit = { ROOT = { has_law = law_type:law_elected_bureaucrats } } activate_law = law_type:law_appointed_bureaucrats }
-				if = { limit = { ROOT = { NOT = { has_law = law_type:law_total_separation } } } activate_law = law_type:law_religious_schools }
+				if		= { limit = { NOT = { has_law_or_variant = law_type:law_presidential_republic } } activate_law = law_type:law_presidential_republic }
+				if		= { limit = { OVERLORD = { NOR = { has_law_or_variant = law_type:law_autocracy has_law = law_type:law_oligarchy has_law_or_variant = law_type:law_technocracy } } } activate_law = law_type:law_oligarchy }
+				if		= { limit = { OVERLORD = { OR = { has_law_or_variant = law_type:law_slave_trade has_law_or_variant = law_type:law_colonial_slavery } } } activate_law = law_type:law_debt_slavery activate_law = law_type:law_national_supremacy }
+				if		= { limit = { OVERLORD = { has_law_or_variant = law_type:law_elected_bureaucrats } } activate_law = law_type:law_appointed_bureaucrats }
+				if		= { limit = { NOR = { has_law_or_variant = law_type:law_total_separation has_law_or_variant = law_type:law_state_atheism } } activate_law = law_type:law_religious_schools }
+				else_if	= { limit = { NOT = { has_law_or_variant = law_type:law_public_schools } } activate_law = law_type:law_public_schools }
+				if		= { limit = { OVERLORD = { NOR = { has_law_or_variant = law_type:law_free_trade has_law_or_variant = law_type:law_isolationism } } } activate_law = law_type:law_mercantilism }
+				if		= { limit = { has_law_or_variant = law_type:law_graduated_taxation } activate_law = law_type:law_proportional_taxation }
 			}
 		}
 		scope:newly_formed_colonial_nation_scope = {
@@ -288,47 +262,32 @@ colonial_administration_events.1 = {
 		}
 	}
 }
-
 # Colonial Collapse event
 colonial_administration_events.2 = {
 	type = country_event
 	placement = root
-
 	title = colonial_administration_events.2.t
 	desc = colonial_administration_events.2.d
 	flavor = colonial_administration_events.2.f
-
-	event_image = {
-		video = "asia_sepoy_mutiny"
-	}
-
+	event_image = { video = "asia_sepoy_mutiny" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
 	duration = 3
-	
 	cooldown = { days = long_modifier_time }
-
 	trigger = {
 		is_subject = no
-		NOT = {
-			has_variable = colonial_collapse_var
-		}
-		OR = {
-			has_variable = senegal_subject_var
-			has_variable = niger_subject_var
-			has_variable = ethiopia_subject_var
-			has_variable = zanj_subject_var
-			has_variable = southern_africa_subject_var
-			has_variable = congo_subject_var
-		}
+		NOT = { has_variable = colonial_collapse_var }
+		trigger_colonial_variable = yes
+		# OR = {
+			# has_variable = senegal_subject_var
+			# has_variable = niger_subject_var
+			# has_variable = ethiopia_subject_var
+			# has_variable = zanj_subject_var
+			# has_variable = southern_africa_subject_var
+			# has_variable = congo_subject_var
+		# }
 	}
-
-	immediate = {
-		set_variable = colonial_collapse_var
-	}
-
+	immediate = { set_variable = colonial_collapse_var }
 	option = {
 		name = colonial_administration_events.2.a
 		default_option = yes

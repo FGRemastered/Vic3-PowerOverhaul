@@ -51,7 +51,7 @@ law_religious_schools = {
 					has_journal_entry = je_sick_man_education
 					has_journal_entry = je_terakoya
 				}
-				has_law = law_type:law_no_schools
+				has_law_or_variant = law_type:law_no_schools
 			}
 			add = 1000
 		}
@@ -60,15 +60,15 @@ law_religious_schools = {
 		value = 0
 		if = {
 			limit = {
-				has_law = law_type:law_religious_schools
+				has_law_or_variant = law_type:law_religious_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
 		}
 		if = {
 			limit = {
-				has_law = law_type:law_religious_schools
-				scope:target_country = { has_law = law_type:law_no_schools }
+				has_law_or_variant = law_type:law_religious_schools
+				scope:target_country = { has_law_or_variant = law_type:law_no_schools }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = 10
@@ -112,7 +112,7 @@ law_private_schools = {
 					has_journal_entry = je_sick_man_education
 					has_journal_entry = je_terakoya
 				}
-				has_law = law_type:law_no_schools
+				has_law_or_variant = law_type:law_no_schools
 			}
 			add = 1000
 		}
@@ -121,15 +121,15 @@ law_private_schools = {
 		value = 0
 		if = {
 			limit = {
-				has_law = law_type:law_private_schools
+				has_law_or_variant = law_type:law_private_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
 		}
 		if = {
 			limit = {
-				has_law = law_type:law_private_schools
-				scope:target_country = { has_law = law_type:law_no_schools }
+				has_law_or_variant = law_type:law_private_schools
+				scope:target_country = { has_law_or_variant = law_type:law_no_schools }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = 10
@@ -148,6 +148,7 @@ law_public_schools = {
 	}
 	institution = institution_schools
 	institution_modifier = {
+		country_education_fervor_add						= 5
 		state_assimilation_mult								= 0.20	# Increased (12.5% -> 20%)
 		state_education_access_add							= 0.20	# Increased (12.5% -> 20%)
 		state_conversion_mult								= 0.15	# Added - Ideally schools would be entirely unbiased, but that's hardly realistic.
@@ -174,7 +175,7 @@ law_public_schools = {
 					has_journal_entry = je_sick_man_education
 					has_journal_entry = je_terakoya
 				}
-				has_law = law_type:law_no_schools
+				has_law_or_variant = law_type:law_no_schools
 			}
 			add = 1000
 		}
@@ -183,15 +184,15 @@ law_public_schools = {
 		value = 0
 		if = {
 			limit = {
-				has_law = law_type:law_public_schools
+				has_law_or_variant = law_type:law_public_schools
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = base_impose_law_weight
 		}
 		if = {
 			limit = {
-				has_law = law_type:law_public_schools
-				scope:target_country = { has_law = law_type:law_no_schools }
+				has_law_or_variant = law_type:law_public_schools
+				scope:target_country = { has_law_or_variant = law_type:law_no_schools }
 				power_bloc ?= { has_principle_group = principle_group:principle_group_advanced_research }
 			}
 			add = 10

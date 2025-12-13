@@ -67,6 +67,40 @@ pm_automatic_power_looms = {
 	required_input_goods = electricity
 }
 # Furniture Maunfacturies
+pm_watertube_boiler_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	unlocking_technologies = { watertube_boiler }
+	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_furniture_manufacturies
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=    5
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+}
+pm_rotary_valve_engine_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	unlocking_technologies = { rotary_valve_engine }
+	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_furniture_manufacturies
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=   10
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-2000
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
 pm_assembly_lines_building_furniture_manufacturies = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 	unlocking_technologies = { conveyors }
@@ -132,6 +166,7 @@ pm_watertube_boiler_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_tooling_workshops
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_coal_add				=    5		# x-30	=  -150
@@ -147,6 +182,7 @@ pm_rotary_valve_engine_building_tooling_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_tooling_workshops
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_coal_add				=   10		# x-30	=  -300
@@ -179,11 +215,45 @@ pm_assembly_lines_building_tooling_workshops = {
 	required_input_goods = electricity
 }
 # Paper Mills
+pm_watertube_boiler_building_paper_mills = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	unlocking_technologies = { watertube_boiler }
+	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_paper_mills
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=    5
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+}
+pm_rotary_valve_engine_building_paper_mills = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	unlocking_technologies = { rotary_valve_engine }
+	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_paper_mills
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=   10
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-2000
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
 pm_assembly_lines_building_paper_mills = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }
-	unlocking_production_methods = {
+	unlocking_production_methods = {	# Base pm does not include machinists
 		pm_sulfite_pulping
 		pm_bleached_paper
 		pm_continous_bleached_paper
@@ -211,6 +281,7 @@ pm_watertube_boiler_building_chemical_plants = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_chemical_plants
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -227,6 +298,7 @@ pm_rotary_valve_engine_building_chemical_plants = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_chemical_plants
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -264,6 +336,7 @@ pm_assembly_lines_building_chemical_plants = {
 pm_watertube_boiler_building_steel_mills = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
+	replacement_if_valid = pm_assembly_lines_building_steel_mills
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    1		# x-60	=   -60
@@ -283,6 +356,7 @@ pm_watertube_boiler_building_steel_mills = {
 pm_rotary_valve_engine_building_steel_mills = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
+	replacement_if_valid = pm_assembly_lines_building_steel_mills
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    2		# x-60	=  -120
@@ -323,6 +397,40 @@ pm_assembly_lines_building_steel_mills = {
 	required_input_goods = electricity
 }
 # Motor Industry
+pm_watertube_boiler_building_motor_industry = {
+	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
+	unlocking_technologies = { watertube_boiler }
+	replacement_if_valid = pm_assembly_lines_building_motor_industry
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=    5
+		}
+		level_scaled = {
+			building_employment_laborers_add	= -500
+			building_employment_machinists_add	= -500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
+}
+pm_rotary_valve_engine_building_motor_industry = {
+	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
+	unlocking_technologies = { rotary_valve_engine }
+	replacement_if_valid = pm_assembly_lines_building_motor_industry
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tools_add				=    5
+			goods_input_coal_add				=   10
+		}
+		level_scaled = {
+			building_employment_laborers_add	=-1000
+			building_employment_machinists_add	= -500
+		}
+	}
+	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
+}
 pm_assembly_lines_building_motor_industry = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 	unlocking_technologies = { conveyors }
@@ -349,6 +457,7 @@ pm_watertube_boiler_building_arms_industry = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_arms_industry
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -366,6 +475,7 @@ pm_rotary_valve_engine_building_arms_industry = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_arms_industry
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -406,6 +516,7 @@ pm_watertube_boiler_building_munition_plants = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_munition_plants
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -422,6 +533,7 @@ pm_rotary_valve_engine_building_munition_plants = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_munition_plants
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -463,6 +575,7 @@ pm_watertube_boiler_building_shipyards = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_shipyards
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -480,6 +593,7 @@ pm_rotary_valve_engine_building_shipyards = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
+	replacement_if_valid = pm_assembly_lines_building_shipyards
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods

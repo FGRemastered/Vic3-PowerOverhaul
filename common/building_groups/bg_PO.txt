@@ -8,6 +8,7 @@ bg_infrastructure = {
 	foreign_investment_ai_factor = 0.75
 	can_use_slaves = yes
 	max_hiring_rate = 1.0
+	construction_efficiency_modifier = yes
 }
 bg_public_infrastructure = {
 	parent_group = bg_infrastructure
@@ -34,7 +35,7 @@ bg_construction = {
 }
 bg_inf_construction = {
 	parent_group = bg_construction
-	urbanization = 0	# important
+	urbanization = 0					# important
 }
 bg_power = {
 	category = development
@@ -42,14 +43,14 @@ bg_power = {
 	always_possible		= yes
 	subsidized			= yes
 	economy_of_scale	= yes
-	cash_reserves_max = 25000
+	cash_reserves_max	= 25000
 	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor = 1.5
-	foreign_investment_ai_factor = 0.5
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-	can_use_slaves = yes
-	max_hiring_rate = 0.35
+	economy_of_scale_ai_factor		= 1.5
+	foreign_investment_ai_factor	= 0.5
+	infrastructure_usage_per_level	= 2
+	urbanization					= 10
+	can_use_slaves					= yes
+	max_hiring_rate					= 0.35
 }
 bg_canals = {
 	parent_group = bg_private_infrastructure	# Changed
@@ -122,6 +123,7 @@ bg_government = {
 	lens = development
 	urbanization = 20
 	infrastructure_usage_per_level = 1
+	construction_efficiency_modifier = yes
 }
 bg_military = {
 	category = development
@@ -132,6 +134,7 @@ bg_military = {
 	lens = military
 	urbanization = 2
 	can_use_slaves = yes	# new
+	construction_efficiency_modifier = yes
 }
 bg_army = {
 	parent_group = bg_military
@@ -167,12 +170,14 @@ bg_light_industry = {
 	lens = light_industry
 	urbanization					= 20
 	infrastructure_usage_per_level	=  2
+	construction_efficiency_modifier = yes
 }
 bg_heavy_industry = {
 	parent_group = bg_manufacturing
 	lens = heavy_industry
 	urbanization					= 30	# Increased
 	infrastructure_usage_per_level	=  3
+	construction_efficiency_modifier = yes
 }
 bg_light_military_industry = {
 	parent_group = bg_light_industry
@@ -217,6 +222,7 @@ bg_agriculture = {
 	economy_of_scale_ai_factor = 1.5
 	foreign_investment_ai_factor = 0.75
 	cash_reserves_max = 25000
+	construction_efficiency_modifier = yes
 }
 bg_finite_agriculture = {
 	parent_group = bg_agriculture
@@ -268,7 +274,7 @@ bg_agricultural_greenhouses = {
 	default_building = building_autarky_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -291,6 +297,7 @@ bg_ranching = {
 	economy_of_scale_ai_factor		= 1.5
 	foreign_investment_ai_factor	= 0.75
 	should_auto_expand = { default_auto_expand_rule = yes }
+	construction_efficiency_modifier = yes
 }
 # Plantations
 bg_plantations = {
@@ -304,6 +311,7 @@ bg_plantations = {
 	should_auto_expand = { default_auto_expand_rule = yes }
 	economy_of_scale_ai_factor = 1.5
 	foreign_investment_ai_factor = 1.25
+	construction_efficiency_modifier = yes
 }
 bg_coffee_plantations = {
 	parent_group = bg_plantations
@@ -341,61 +349,15 @@ bg_banana_plantations = {
 	parent_group = bg_plantations
 	default_building = building_banana_plantation
 }
-# Finite
-bg_finite_coffee_plantations = {
-	parent_group = bg_coffee_plantations
-	default_building = building_coffee_plantation
-	land_usage = rural
-}
-bg_finite_cotton_plantations = {
-	parent_group = bg_cotton_plantations
-	default_building = building_cotton_plantation
-	land_usage = rural
-}
-bg_finite_silk_plantations = {
-	parent_group = bg_silk_plantations
-	default_building = building_silk_plantation
-	land_usage = rural
-}
-bg_finite_dye_plantations = {
-	parent_group = bg_dye_plantations
-	default_building = building_dye_plantation
-	land_usage = rural
-}
-bg_finite_opium_plantations = {
-	parent_group = bg_opium_plantations
-	default_building = building_opium_plantation
-	land_usage = rural
-}
-bg_finite_tea_plantations = {
-	parent_group = bg_tea_plantations
-	default_building = building_tea_plantation
-	land_usage = rural
-}
-bg_finite_tobacco_plantations = {
-	parent_group = bg_tobacco_plantations
-	default_building = building_tobacco_plantation
-	land_usage = rural
-}
-bg_finite_sugar_plantations = {
-	parent_group = bg_sugar_plantations
-	default_building = building_sugar_plantation
-	land_usage = rural
-}
-bg_finite_banana_plantations = {
-	parent_group = bg_banana_plantations
-	default_building = building_banana_plantation
-	land_usage = rural
-}
 # Infres - Important for achievements
 bg_greenhouses = {
 	parent_group = bg_plantations
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
+	economy_of_scale_ai_factor		= 10
+	foreign_investment_ai_factor	=  2
+	infrastructure_usage_per_level	=  2
+	urbanization					= 10
 }
 bg_vineyard_greenhouses = {
 	parent_group = bg_greenhouses
@@ -406,7 +368,7 @@ bg_coffee_greenhouses = {
 	default_building = building_coffee_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -416,7 +378,7 @@ bg_cotton_greenhouses = {
 	default_building = building_cotton_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -426,7 +388,7 @@ bg_silk_greenhouses = {
 	default_building = building_silk_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -436,7 +398,7 @@ bg_dye_greenhouses = {
 	default_building = building_dye_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -446,7 +408,7 @@ bg_opium_greenhouses = {
 	default_building = building_opium_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -456,7 +418,7 @@ bg_tea_greenhouses = {
 	default_building = building_tea_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -466,7 +428,7 @@ bg_tobacco_greenhouses = {
 	default_building = building_tobacco_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -476,7 +438,7 @@ bg_sugar_greenhouses = {
 	default_building = building_sugar_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10
@@ -486,7 +448,7 @@ bg_banana_greenhouses = {
 	default_building = building_banana_greenhouse
 	always_possible = yes
 	capped_by_resources = no
-	economy_of_scale_ai_factor = 3
+	economy_of_scale_ai_factor = 10
 	foreign_investment_ai_factor = 2
 	infrastructure_usage_per_level = 2
 	urbanization = 10

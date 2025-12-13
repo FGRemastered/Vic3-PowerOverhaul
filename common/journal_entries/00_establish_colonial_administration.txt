@@ -56,21 +56,7 @@
 		has_technology_researched = civilizing_mission
 		NOT = { is_country_type = colonial }
 	}
-	immediate = {
-		random_state_region = { limit = { region = sr:region_senegal }			save_scope_as = senegal_region_scope }
-		random_state_region = { limit = { region = sr:region_niger }			save_scope_as = niger_region_scope }
-		random_state_region = { limit = { region = sr:region_ethiopia }			save_scope_as = ethiopia_region_scope }
-		random_state_region = { limit = { region = sr:region_zanj }				save_scope_as = zanj_region_scope }
-		random_state_region = { limit = { region = sr:region_southern_africa }	save_scope_as = southern_africa_region_scope }
-		random_state_region = { limit = { region = sr:region_congo } save_scope_as = congo_region_scope }
-		random_state_region = { limit = { region = sr:region_indonesia } save_scope_as = indonesia_region_scope }
-		random_state_region = { limit = { region = sr:region_indochina } save_scope_as = indochina_region_scope }
-		random_state_region = { limit = { region = sr:region_arabic } save_scope_as = arabic_region_scope }
-		s:STATE_SOUTH_BENGAL = { save_scope_as = india_region_scope }
-		s:STATE_BEIJING = { save_scope_as = china_region_scope }
-		c:BIC = { if = { limit = { NOT = { has_variable = india_subject_var } }		set_variable = india_subject_var } }
-		c:DEI = { if = { limit = { NOT = { has_variable = indonesia_subject_var } }	set_variable = indonesia_subject_var } }
-	}
+	# immediate = {}
 	# Establish Colonial Administration
 	scripted_button = je_colonial_administration_button_senegal
 	scripted_button = je_colonial_administration_button_niger

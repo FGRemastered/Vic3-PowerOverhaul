@@ -80,6 +80,28 @@ modifier_silk_grand_reopening = {
 	building_silk_plantation_throughput_add				= 0.15
 	building_silk_greenhouse_throughput_add				= 0.15
 }
+modifier_radio_opium = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds
+	state_mortality_mult								= 0.025
+	goods_output_opium_mult								= 0.25
+}
+modifier_european_potato_famine = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	building_rye_farm_throughput_add						=-0.30
+	building_wheat_farm_throughput_add						=-0.15
+	building_autarky_farm_throughput_add					=-0.25
+	building_autarky_greenhouse_throughput_add				=-0.25
+	state_harvest_condition_disease_outbreak_impact_mult	= 0.50
+}
+modifier_european_potato_famine_relief = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	building_rye_farm_throughput_add						=-0.15
+	building_wheat_farm_throughput_add						=-0.10
+	building_autarky_farm_throughput_add					=-0.10
+	building_autarky_greenhouse_throughput_add				=-0.10
+	state_harvest_condition_disease_outbreak_impact_mult	= 0.25
+	state_import_advantage_mult								= 0.10
+}
 modifier_traditional_patronage = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 0.00
@@ -100,7 +122,13 @@ modifier_social_market_economy = {
 	state_farmers_investment_pool_efficiency_mult					= 0.10
 	interest_group_ig_trade_unions_approval_add						= 5
 }
-# Culture SoL
+modifier_technocratic_democracy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_academics_voting_power_add								= 50
+	country_officers_voting_power_add								= 50
+	country_engineers_voting_power_add								= 50
+}
+# Cultures
 african_standard_of_living_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
 	state_african_standard_of_living_add = 1
@@ -109,6 +137,14 @@ african_standard_of_living_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
 	state_african_standard_of_living_add = 1
 }
+african_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_african_cultural_acceptance_add = 1
+}
+african_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_african_cultural_acceptance_add = 1
+}
 anglo_indian_standard_of_living_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
 	state_anglo_indian_standard_of_living_add = 1
@@ -116,4 +152,20 @@ anglo_indian_standard_of_living_modifier_positive = {
 anglo_indian_standard_of_living_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
 	state_anglo_indian_standard_of_living_add = 1
+}
+anglo_indian_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_anglo_indian_cultural_acceptance_add = 1
+}
+anglo_indian_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_anglo_indian_cultural_acceptance_add = 1
+}
+heritage_group_south_asian_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	# country_anglo_indian_cultural_acceptance_add = 1
+}
+heritage_group_south_asian_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	# country_anglo_indian_cultural_acceptance_add = 1
 }

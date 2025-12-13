@@ -13,8 +13,8 @@ pm_muskets = {
 		level_scaled = {
 			building_employment_laborers_add	= 3500	# x-.02	=  -70
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -120	=> Stops breaking even at SoL 6.25
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -130	=> Stops breaking even at SoL 5 10/13
 	}
 }
 pm_rifles = {
@@ -32,8 +32,8 @@ pm_rifles = {
 		level_scaled = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -125	=> Stops breaking even at SoL 15.2
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -135	=> Stops breaking even at SoL 14 2/27
 	}
 }
 pm_repeaters = {
@@ -52,8 +52,8 @@ pm_repeaters = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -140	=> Stops breaking even at SoL 19 2/7
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -150	=> Stops breaking even at SoL 18
 	}
 }
 pm_bolt_action_rifles = {
@@ -113,8 +113,8 @@ pm_cannons = {
 		level_scaled = {
 			building_employment_laborers_add	= 3500	# x-.02	=  -70
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -120	=> Stops breaking even at SoL TBD
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -130	=> Stops breaking even at SoL 6 7/13
 	}
 }
 pm_smoothbores = {
@@ -131,8 +131,8 @@ pm_smoothbores = {
 		level_scaled = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -125	=> Stops breaking even at SoL TBD
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -135	=> Stops breaking even at SoL 15 25/27
 	}
 }
 pm_breech_loaders = {
@@ -190,8 +190,8 @@ pm_percussion_caps = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -140	=> Stops breaking even at SoL 5
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -150	=> Stops breaking even at SoL 4 2/3
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -210,8 +210,8 @@ pm_explosive_shells = {
 			building_employment_laborers_add	= 2500	# x-.02	=  -50
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -130	=> Stops breaking even at SoL 14.6
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -140	=> Stops breaking even at SoL 13 4/7
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
@@ -229,8 +229,8 @@ pm_steam_engines = {
 			building_employment_laborers_add	= 2500	# x-.02	=   -50
 			building_employment_machinists_add	= 1500	# x-.03	=   -45
 			building_employment_engineers_add	=  500	# x-.06	=   -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=   -20
-		}												#		=  -145	=> Stops breaking even at SoL 10 10/29
+			building_employment_shopkeepers_add	=  500	# x-.04	=   -30
+		}												#		=  -155	=> Stops breaking even at SoL 9 21/31
 		# unscaled = {
 			# goods_output_automobiles_mult		=-0.60
 			# goods_input_rubber_mult				=-0.60
@@ -252,8 +252,8 @@ pm_watertube_boiler_steam_engines = {
 			building_employment_laborers_add	= 2500	# x-.02	=   -50
 			building_employment_machinists_add	= 1500	# x-.03	=   -45
 			building_employment_engineers_add	=  500	# x-.06	=   -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=   -20
-		}												#		=  -145	=> Stops breaking even at SoL 14 24/29
+			building_employment_shopkeepers_add	=  500	# x-.04	=   -30
+		}												#		=  -155	=> Stops breaking even at SoL 13 27/31
 		# unscaled = {
 			# goods_output_automobiles_mult		=-0.50
 			# goods_input_rubber_mult				=-0.50
@@ -356,7 +356,7 @@ pm_hybrid_electric_engines = {
 	required_input_goods = electricity
 }
 pm_jet_engines = {
-	texture = "gfx/interface/icons/production_method_icons/unused/base5.dds"
+	texture = "gfx/interface/icons/production_method_icons/oil_fired_plant.dds"
 	unlocking_technologies = { oil_turbine }
 	building_modifiers = {
 		workforce_scaled = {
@@ -468,10 +468,10 @@ pm_mass_electric_automobile_production = {
 		}												#		=+3700
 		level_scaled = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
-			building_employment_machinists_add	=  500	# x-.03	=  -15
+			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		=  -95	=> Stops breaking even at SoL 38 18/19
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -120	=> Stops breaking even at SoL 30 5/6
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity
@@ -492,8 +492,8 @@ pm_mass_automobile_production = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -125	=> Stops breaking even at SoL 36.8
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -135	=> Stops breaking even at SoL 34 2/27
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -553,8 +553,8 @@ pm_basic_shipbuilding = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -140	=> Stops breaking even at SoL 6.4
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -150	=> Stops breaking even at SoL 6
 	}
 }
 pm_complex_shipbuilding = {
@@ -574,8 +574,8 @@ pm_complex_shipbuilding = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 2000	# x-.03	=  -60
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -150	=> Stops breaking even at SoL 10 2/3
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -160	=> Stops breaking even at SoL 10
 	}
 	required_input_goods = engines
 }
@@ -596,8 +596,8 @@ pm_metal_shipbuilding = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
 			building_employment_engineers_add	= 1000	# x-.06	=  -60
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -165	=> Stops breaking even at SoL 15.45
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -175	=> Stops breaking even at SoL 14 4/7
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -618,8 +618,8 @@ pm_arc_welding_shipbuilding = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	= 1500	# x-.06	=  -90
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -180	=> Stops breaking even at SoL 41.67
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -190	=> Stops breaking even at SoL 39 9/19
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
@@ -648,8 +648,8 @@ pm_arc_welding_shipbuilding_green = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	= 1500	# x-.06	=  -90
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -180	=> Stops breaking even at SoL 41.67
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -190	=> Stops breaking even at SoL 39 9/19
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
@@ -670,8 +670,8 @@ pm_military_shipbuilding_wooden = {
 			building_employment_laborers_add	= 3000	# x-.02	=  -60
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -140	=> Stops breaking even at SoL 8.93
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -150	=> Stops breaking even at SoL 8 1/3
 	}
 }
 pm_military_shipbuilding_wooden_2 = {
@@ -691,8 +691,8 @@ pm_military_shipbuilding_wooden_2 = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 2000	# x-.03	=  -60
 			building_employment_engineers_add	=  500	# x-.06	=  -30
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -150	=> Stops breaking even at SoL 15 2/3
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -160	=> Stops breaking even at SoL 14 1/16
 	}
 	required_input_goods = engines
 }
@@ -713,8 +713,8 @@ pm_military_shipbuilding_steam = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
 			building_employment_engineers_add	= 1000	# x-.06	=  -60
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -165	=> Stops breaking even at SoL 20
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
+		}												#		= -175	=> Stops breaking even at SoL 18 6/7
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
@@ -735,7 +735,7 @@ pm_military_shipbuilding_steam_2 = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	= 1500	# x-.06	=  -90
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
 		}												#		= -180	=> Stops breaking even at SoL 50
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
@@ -765,7 +765,7 @@ pm_military_shipbuilding_steam_2_green = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	= 1500	# x-.06	=  -90
-			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
+			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
 		}												#		= -180	=> Stops breaking even at SoL 50
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }

@@ -10,7 +10,7 @@ gfx_truck_condition_trigger = {
 	scope:state = {
 		OR = {
 			any_scope_building = { has_active_production_method = pm_public_motor_carriages }
-			any_scope_building = { has_active_production_method = pm_extended_trams }
+			# any_scope_building = { has_active_production_method = pm_extended_trams }
 			any_scope_building = { has_active_production_method = pm_subways }
 		}
 	}
@@ -21,12 +21,14 @@ gfx_tracktor_condition_trigger = {
 		any_scope_building = {
 			OR = {
 				has_active_production_method = pm_tractors
-				has_active_production_method = pm_compression_ignition_tractors
-				has_active_production_method = pm_electric_tractors
+				# has_active_production_method = pm_compression_ignition_tractors
+				# has_active_production_method = pm_electric_tractors
+				has_active_production_method = pm_modern_tractors
 				
 				has_active_production_method = pm_tractors_subsistence
-				has_active_production_method = pm_compression_ignition_tractors_subsistence
-				has_active_production_method = pm_electric_tractors_subsistence
+				# has_active_production_method = pm_compression_ignition_tractors_subsistence
+				# has_active_production_method = pm_electric_tractors_subsistence
+				has_active_production_method = pm_modern_tractors_subsistence
 			}
 		}
 	}

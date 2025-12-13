@@ -26,9 +26,9 @@ pm_early_power_plant = {
 		}												#		= +300	(+150)
 		level_scaled = {
 			building_employment_laborers_add	=  500	# x-.02	=  -10
-			building_employment_machinists_add	=  200	# x-.03	=   -6
-			building_employment_engineers_add	=   50	# x-.06	=   -3
-		}												#		=  -19	(-9)	=> Stops breaking even at SoL 15 15/19	(16 2/3)
+			building_employment_machinists_add	=  400	# x-.03	=  -12
+			building_employment_engineers_add	=  100	# x-.06	=   -6
+		}												#		=  -28	(-18)	=> Stops breaking even at SoL 10 5/7	(8 1/3)
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 30 } }
 }

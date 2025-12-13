@@ -3,8 +3,8 @@
 	male_ruler = "RULER_TITLE_CHANCELLOR"
 	female_ruler = "RULER_TITLE_CHANCELLOR"
 	possible = {
-		has_law = law_type:law_parliamentary_republic
-		has_law = law_type:law_oligarchy	# Changed from country_has_voting_franchise = no
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_oligarchy	# Changed from country_has_voting_franchise = no
 	}
 	on_government_type_change = { change_to_dictatorial = yes }
 	on_post_government_type_change = { post_change_to_dictatorial = yes }
@@ -15,8 +15,8 @@ gov_technate_parliamentary = {
 	male_ruler = "RULER_TITLE_CHIEF_ENGINEER"
 	female_ruler = "RULER_TITLE_CHIEF_ENGINEER"
 	possible = {
-		has_law = law_type:law_parliamentary_republic
-		has_law = law_type:law_technocracy
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_technocracy
 	}
 	on_government_type_change = { change_to_dictatorial = yes }
 	on_post_government_type_change = { post_change_to_dictatorial = yes }
@@ -27,8 +27,8 @@ gov_anarchist_republic = {
 	male_ruler = "RULER_REPRESENTATIVE"
 	female_ruler = "RULER_REPRESENTATIVE"
 	possible = {
-		has_law = law_type:law_parliamentary_republic
-		has_law = law_type:law_anarchy
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_anarchy
 	}
 	on_government_type_change = {
 		change_to_parliamentary_elective = yes
@@ -85,6 +85,6 @@ gov_colonial_administration = {
 			}
 		}
 	}
-	on_government_type_change		= { change_to_presidential_elective = yes }
-	on_post_government_type_change	= { post_change_to_presidential_elective = yes }
+	on_government_type_change		= { change_to_dictatorial = yes }
+	on_post_government_type_change	= { post_change_to_dictatorial = yes }
 }

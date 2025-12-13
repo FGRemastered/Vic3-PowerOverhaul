@@ -5,7 +5,7 @@
 	index = 4
 	ideologies = {
 		ideology_paternalistic
-		ideology_stratocratic
+		ideology_hierarchic
 		ideology_patriarchal
 	}
 	character_ideologies = {
@@ -173,7 +173,7 @@
 			limit = {
 				any_primary_culture = {
 					has_discrimination_trait = hispanophone
-					has_discrimination_trait = european_heritage
+					has_discrimination_trait = heritage_group_european
 					NOT = { has_discrimination_trait = iberian_culture_group }
 					NOT = { cu:caribeno = this }
 				}
@@ -188,7 +188,7 @@
 			limit = {
 				OR = {
 					c:BIC ?= this
-					any_primary_culture = { has_discrimination_trait = south_asian_heritage }
+					any_primary_culture = { has_discrimination_trait = heritage_group_south_asian }
 				}
 			}
 			ig:ig_landowners = {
@@ -219,7 +219,7 @@
 			is_pop_type = clergymen
 			is_pop_type = officers
 			is_pop_type = farmers
-			is_pop_type = peasants		# Added
+			# is_pop_type = peasants		# Added
 			is_pop_type = bureaucrats	# Added
 		}
 	}
@@ -234,23 +234,23 @@
 				limit = { is_pop_type = farmers }
 				value = 25
 				add = THIS.standard_of_living
-				if		= { limit = { owner = { has_law = law_type:law_homesteading } }					multiply = 10 }
-				else_if	= { limit = { owner = { has_law = law_type:law_commercialized_agriculture } }	multiply =  5 }
-				if		= { limit = { state = { is_slave_state = yes } }								multiply =  4 }
+				if		= { limit = { owner = { has_law_or_variant = law_type:law_homesteading } }					multiply = 10 }
+				else_if	= { limit = { owner = { has_law_or_variant = law_type:law_commercialized_agriculture } }	multiply =  5 }
+				if		= { limit = { state = { is_slave_state = yes } }											multiply =  4 }
 			}
 		}
-		add = {
-			desc = "POP_PEASANTS"
-			if = {
-				limit = { is_pop_type = peasants }
-				value = -10							# Only if they are wealthy
-				add = THIS.standard_of_living
-				if		= { limit = { owner = { has_law = law_type:law_homesteading } }					multiply = 5 }
-				else_if	= { limit = { owner = { has_law = law_type:law_commercialized_agriculture } }	multiply = 3 }
-				else	= {																				multiply = 0 }
-				min = 0
-			}
-		}
+		# add = {
+			# desc = "POP_PEASANTS"
+			# if = {
+				# limit = { is_pop_type = peasants }
+				# value = -10							# Only if they are wealthy
+				# add = THIS.standard_of_living
+				# if		= { limit = { owner = { has_law_or_variant = law_type:law_homesteading } }					multiply = 5 }
+				# else_if	= { limit = { owner = { has_law_or_variant = law_type:law_commercialized_agriculture } }	multiply = 3 }
+				# else	= {																							multiply = 0 }
+				# min = 0
+			# }
+		# }
 		add = {
 			desc = "POP_BUREAUCRATS"
 			if = {
@@ -260,16 +260,16 @@
 					multiply	= 20							# Breaks even with Intelligentisa at 25 SoL
 					divide		=  3							# Breaks even with Intelligentisa at 25 SoL
 				}
-				if		= { limit = { owner = { has_law = law_type:law_council_republic } }				multiply = 2.0 }	# Without an existing Upper Class, a new one emerges.
-				if		= { limit = { owner = { has_law = law_type:law_hereditary_bureaucrats } }		multiply = 0.0 }	# If they aren't professional, we have to.
-				else_if	= { limit = { owner = { has_law = law_type:law_elected_bureaucrats } }			multiply = 0.5 }	# Prefer Petty Bourgoise in this case.
+				if		= { limit = { owner = { has_law_or_variant = law_type:law_council_republic } }				multiply = 2.0 }	# Without an existing Upper Class, a new one emerges.
+				if		= { limit = { owner = { has_law_or_variant = law_type:law_hereditary_bureaucrats } }		multiply = 0.0 }	# If they aren't professional, we have to.
+				else_if	= { limit = { owner = { has_law_or_variant = law_type:law_elected_bureaucrats } }			multiply = 0.5 }	# Prefer Petty Bourgoise in this case.
 				min = 0
 			}
 		}
 		if = {
 			limit = {
 				c:BIC ?= owner
-				culture = { has_discrimination_trait = european_heritage }
+				culture = { has_discrimination_trait = heritage_group_european }
 			}
 			multiply = { desc = "POP_INDIA_COLONIAL_RULE" value = 0.1 }
 		}
@@ -327,9 +327,9 @@
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_serfdom
-						has_law = law_type:law_slave_trade
-						has_law = law_type:law_legacy_slavery
+						has_law_or_variant = law_type:law_serfdom
+						has_law_or_variant = law_type:law_slave_trade
+						has_law_or_variant = law_type:law_legacy_slavery
 					}
 				}
 			}
@@ -339,16 +339,16 @@
 			limit = {
 				owner = {
 					OR = {
-						has_law = law_type:law_oligarchy
-						has_law = law_type:law_autocracy
-						has_law = law_type:law_landed_voting
+						has_law_or_variant = law_type:law_oligarchy
+						has_law_or_variant = law_type:law_autocracy
+						has_law_or_variant = law_type:law_landed_voting
 					}
 				}
 			}
 			multiply = { value = 2 }
 		}
 		if = {	# Less likely with commercialised Agriculture	# Added
-			limit = { owner = { has_law = law_type:law_commercialized_agriculture } }
+			limit = { owner = { has_law_or_variant = law_type:law_commercialized_agriculture } }
 			multiply = { value = 0.75 }
 		}
 	}
@@ -364,57 +364,59 @@
 	female_commander_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.05 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.2 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.4 }
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.05 }	# Landed are backwards
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.25 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.5 }
 		}
 	}
 	female_agitator_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_no_womens_rights } }
+			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
 			add = { value = 0.05 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.1 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.25 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.5 }
 		}
 	}
 	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes
 		value = 0.5
-		if = {
-			limit = { exists = scope:character }	# scope:character is the most popular commander in the IG
-			multiply = { value = 1 add = scope:character.popularity min = 0 }
-		}
+		multiply = ig_commander_leader_chance_mult
+	}
+	# The chance that a executive belonging to this IG takes over leadership when it changes
+	# scope:character is the most popular executive in the IG
+	executive_leader_chance = {
+		value = 0.1
 	}
 }

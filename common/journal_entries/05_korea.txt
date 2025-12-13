@@ -2,6 +2,10 @@
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 	group = je_group_historical_content
+	is_shown_in_lobby = {
+		has_dlc_feature = ep1_content #Spheres of Influence
+		country_has_primary_culture = cu:korean
+	}
 	modifiers_while_active = { modifier_donghak_movement }
 	is_shown_when_inactive = {
 		country_has_primary_culture = cu:korean
@@ -10,12 +14,7 @@
 	}
 	possible = {
 		has_technology_researched = human_rights
-		NOT = { has_law = law_type:law_isolationism }
-		# any_power_bloc = {
-			# power_bloc_leader = { country_is_in_europe = yes }
-			# leverage_advantage = { target = ROOT value > 0 }
-		# }
-		# radical_fraction = { value >= 0.1 }
+		NOT = { has_law_or_variant = law_type:law_isolationism }
 		ig:ig_rural_folk = {	# Added
 			is_marginal = no
 			is_in_government = no
@@ -74,8 +73,8 @@ je_gyojo_shinwon = {
 		}
 	}
 	complete = {
-		has_law = law_type:law_isolationism
-		NOT = { has_law = law_type:law_state_religion }
+		has_law_or_variant = law_type:law_isolationism
+		NOT = { has_law_or_variant = law_type:law_state_religion }
 		ig:ig_landowners = {
 			is_powerful = no
 			is_in_government = no
@@ -152,7 +151,7 @@ je_korean_rebellion = {
 		}
 		add_modifier = {
 			name = modifier_victory_in_korean_intervention
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 	fail = {
@@ -218,7 +217,7 @@ je_korean_rebellion = {
 	on_fail = {
 		add_modifier = {
 			name = modifier_failed_korean_intervention
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 	weight = 1000

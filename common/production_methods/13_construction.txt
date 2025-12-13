@@ -225,14 +225,17 @@ pm_central_planned_construction = {
 			goods_input_telephones_add			=    5
 			goods_output_services_add			=    1
 		}
+		level_scaled = {
+			building_employment_machinists_add	=  250
+		}
 		unscaled = { building_throughput_add	= 0.10 }
 	}
 	state_modifiers = {
-		unscaled = { state_construction_mult	= 0.05 }
+		unscaled = { state_construction_mult	= 0.10 }
 	}
 	required_input_goods = telephones
 }
-pm_default_infres_construction_sector = {
+pm_default_construction_sector_extension = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
     state_modifiers = { level_scaled = { state_building_construction_sector_max_level_add = 5 } }
 }

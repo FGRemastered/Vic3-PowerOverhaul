@@ -293,11 +293,7 @@ state_atheism.3 = {
 		name = state_atheism.3.b
 		trigger = { NOT = { has_law = law_type:law_no_social_security } }
 		random_list = {
-			1 = {
-				add_enactment_modifier = {
-					name = state_welfare_disparaged
-				}
-			}
+			1 = { add_enactment_modifier = { name = state_welfare_disparaged } }
 			0 = {
 				modifier = { add = institution:institution_social_security.investment }
 				add_enactment_modifier = {

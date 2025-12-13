@@ -229,12 +229,25 @@
 			ig:ig_devout = { set_interest_group_name = ig_evangelical_church }
 		}
 		else_if = {		# Sunni Ulema
-			limit = { country_has_state_religion = rel:sunni }
+			limit = { OR = { country_has_state_religion = rel:sunni c:ZAN ?= this } }	# Ibadi Arab Zanzibar still gets a Sunni Devout IG to represent the non-Ibadi majority
 			ig:ig_devout = { set_interest_group_name = ig_sunni_madrasahs }
 		}
 		else_if = {		# Shi'a Ulema
 			limit = { country_has_state_religion = rel:shiite }
 			ig:ig_devout = { set_interest_group_name = ig_shia_madrasahs }
+		}
+		else_if = {	# Ibadi Ulema
+			limit = {
+				country_has_state_religion = rel:ibadi
+				NOT = { c:ZAN ?= this }
+			}
+			ig:ig_devout ?= {
+				set_interest_group_name = ig_ibadi_madrasahs
+				remove_ideology = ideology_moralist
+				remove_ideology = ideology_patriarchal
+				add_ideology = ideology_ibadi_shura
+				add_ideology = ideology_ibadi_imamate
+			}
 		}
 		else_if = {		# Oriental Orthodox Church
 			limit = { country_has_state_religion = rel:oriental_orthodox }
@@ -251,12 +264,26 @@
 					country_has_primary_culture = cu:russian
 					country_has_primary_culture = cu:byelorussian
 					country_has_primary_culture = cu:ukrainian
+					ROOT = c:MON
 				}
 			}
 			ig:ig_devout = { 
 				set_interest_group_name = ig_orthodox_church
 				remove_ideology = ideology_patriarchal
 				add_ideology = ideology_orthodox_patriarch
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = c:MON
+				country_has_state_religion = rel:orthodox
+			}
+			ig:ig_devout ?= {
+				set_interest_group_name = ig_orthodox_church
+				remove_ideology = ideology_patriarchal
+				add_ideology = ideology_orthodox_patriarch
+				remove_ideology = ideology_moralist
+				add_ideology = ideology_montenegrin_moralist
 			}
 		}
 		else_if = {		# Hindu Priesthood
@@ -320,6 +347,20 @@
 			}
 			cultures = { assamese avadhi baluchi bengali bihari gujarati kannada malayalam marathi oriya panjabi pathan rajput sindi tamil telegu hindustani bundeli pahari gondi bageli chhattisgarhi deccani anglo_indian }
 		}
+		rule = {
+			trigger = {
+				c:ZAN ?= this
+				any_primary_culture = { cu:bedouin = this }
+			}
+			cultures = { swahili }
+		}
+		rule = {
+			trigger = {
+				c:HAW ?= this
+				NOT = { has_variable = deported_americans }
+			}
+			cultures = { yankee dixie british hawaiian }
+		}
 	}
 	on_character_ig_membership = {
 		if = {
@@ -327,7 +368,15 @@
 			change_character_religion = rel:hindu
 		}
 		else_if = {
-			limit = { NOT = { owner = { has_law = law_type:law_state_atheism } } }
+			limit = { owner = { c:ZAN ?= this } }
+			change_character_religion = rel:sunni
+		}
+		else_if = {
+			limit = { owner = { c:JAP ?= this has_variable = meiji_restoration_complete } }
+			change_character_religion = rel:shinto
+		}
+		else_if = {
+			limit = { OWNER = { NOT = { has_law_or_variant = law_type:law_state_atheism } } }
 			change_character_religion = scope:interest_group.owner.religion
 		}
 		else = { change_character_religion = scope:interest_group.owner.country_definition.religion }
@@ -340,6 +389,11 @@
 				owner ?= c:BIC
 				has_pop_religion = hindu
 			}
+			AND = {
+				exists = c:ZAN
+				owner ?= c:ZAN
+				has_pop_religion = sunni
+			}
 		}
 		NOT = { has_pop_religion = atheist }
 	}
@@ -348,19 +402,19 @@
 		add = { desc = "POP_CLERGYMEN"	if = { limit = { is_pop_type = clergymen }	value = 250 } }
 		add = { desc = "POP_PEASANTS"	if = { limit = { is_pop_type = peasants }	value = 100 } }
 		if = {
-			limit = { owner = { has_law = law_type:law_state_atheism } }
+			limit = { owner = { has_law_or_variant = law_type:law_state_atheism } }
 			multiply = { desc = "STATE_ATHEISM_LAW" value = 0.1 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_state_religion } }
+			limit = { owner = { has_law_or_variant = law_type:law_state_religion } }
 			multiply = { desc = "STATE_RELIGION_LAW" value = 1.5 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_freedom_of_conscience } }
+			limit = { owner = { has_law_or_variant = law_type:law_freedom_of_conscience } }
 			multiply = { desc = "FREEDOM_OF_CONSCIENCE_LAW" value = 1.25 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_religious_schools } }
+			limit = { owner = { has_law_or_variant = law_type:law_religious_schools } }
 			multiply = {
 				desc = "RELIGIOUS_SCHOOLS_LAW"
 				value = owner.institution:institution_schools.investment
@@ -373,8 +427,8 @@
 				owner = {
 					has_technology_researched = corporatism
 					NOR = {	# Changed - You cannot have two laws of the samne group at once.
-						has_law = law_type:law_total_separation
-						has_law = law_type:law_state_atheism
+						has_law_or_variant = law_type:law_total_separation
+						has_law_or_variant = law_type:law_state_atheism
 					}
 				}
 			}
@@ -384,7 +438,7 @@
 			desc = "POP_LITERACY"
 			this = {
 				value = literacy_rate
-				multiply = -20
+				multiply = -15
 			}
 		}
 		multiply = {
@@ -438,16 +492,16 @@
 			multiply = { value = 2 }
 		}
 		if = {	# More likely with State Religion
-			limit = { owner = { has_law = law_type:law_state_religion } }
+			limit = { owner = { has_law_or_variant = law_type:law_state_religion } }
 			multiply = { value = 2 }
 		}
 		if = {	# Less likely without State Religion
-			limit = { owner = { NOT = { has_law = law_type:law_state_religion } } }
+			limit = { owner = { NOT = { has_law_or_variant = law_type:law_state_religion } } }
 			multiply = { value = 0.25 }
 		}
 		# Basically impossible with State Atheism
 		if = {
-			limit = { owner = { has_law = law_type:law_state_atheism } }
+			limit = { owner = { has_law_or_variant = law_type:law_state_atheism } }
 			multiply = { value = 0 }
 		}
 		if = {	# Muslims and Theravada more likely to adopt Devout
@@ -473,57 +527,59 @@
 	female_commander_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.05 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.2 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.4 }
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.05 }	# Devout are backwards
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.25 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.5 }
 		}
 	}
 	female_agitator_chance = {
 		value = 0.0
 		if = {
-			limit = { owner = { has_law = law_type:law_no_womens_rights } }
+			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
 			add = { value = 0.05 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_own_property } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
 			add = { value = 0.1 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_women_in_the_workplace } }
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
 			add = { value = 0.25 }
 		}
 		if = {
-			limit = { owner = { has_law = law_type:law_womens_suffrage } }
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
 			add = { value = 0.5 }
 		}
 	}
 	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes
 		value = 0.25
-		if = {
-			limit = { exists = scope:character }	# scope:character is the most popular commander in the IG
-			multiply = { value = 1 add = scope:character.popularity min = 0 }
-		}
+		multiply = ig_commander_leader_chance_mult
+	}
+	# The chance that a executive belonging to this IG takes over leadership when it changes
+	# scope:character is the most popular executive in the IG
+	executive_leader_chance = {
+		value = 0.25
 	}
 }

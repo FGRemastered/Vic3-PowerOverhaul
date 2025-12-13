@@ -49,7 +49,7 @@ pm_diesel_pump_building_coal_mine = {	# 4/3x Rotary
 }
 pm_electric_pump_building_coal_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -130,7 +130,7 @@ pm_diesel_pump_building_iron_mine = {	# 4/3x Rotary
 }
 pm_electric_pump_building_iron_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -211,7 +211,7 @@ pm_diesel_pump_building_lead_mine = {	# 4/3x Rotary
 }
 pm_electric_pump_building_lead_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -292,7 +292,7 @@ pm_diesel_pump_building_sulfur_mine = {	# 4/3x Rotary
 }
 pm_electric_pump_building_sulfur_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -374,7 +374,7 @@ pm_diesel_pump_building_gold_mine = {	# 4/3x Rotary
 }
 pm_electric_pump_building_gold_mine = {	# 2x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -513,7 +513,7 @@ pm_combustion_derricks = {
 }
 pm_electric_derricks = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
-	unlocking_technologies = { electric_railway }
+	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods

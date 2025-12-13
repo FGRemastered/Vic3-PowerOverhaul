@@ -107,7 +107,7 @@
 		# effect = {
 			# if = {
 				# limit = {
-					# has_law = law_type:law_council_republic
+					# has_law_or_variant = law_type:law_council_republic
 				# }
 				# change_variable = {
 					# name = je_communism_2_var
@@ -121,7 +121,7 @@
 		# scope:journal_entry = {
 			# is_goal_complete = yes
 		# }
-		# has_law = law_type:law_council_republic
+		# has_law_or_variant = law_type:law_council_republic
 		# has_revolution = no
 		# has_any_secessionists_broken_out = no 
 	# }
@@ -145,7 +145,7 @@
 	# icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	# complete = {
-		# has_law = law_type:law_anarchy
+		# has_law_or_variant = law_type:law_anarchy
 		# average_sol >= 15 # if you change this, also change event option in communism.2
 	# }
 
@@ -157,7 +157,7 @@
 	# }
 
 	# fail = {
-		# NOT = { has_law = law_type:law_council_republic }
+		# NOT = { has_law_or_variant = law_type:law_council_republic }
 	# }
 # }
 
@@ -191,7 +191,7 @@
 				# }
 			# }
 		# }
-		# has_law = law_type:law_single_party_state
+		# has_law_or_variant = law_type:law_single_party_state
 	# }
 
 	# on_complete = {
@@ -199,7 +199,7 @@
 	# }
 
 	# fail = {
-		# NOT = { has_law = law_type:law_council_republic }
+		# NOT = { has_law_or_variant = law_type:law_council_republic }
 	# }
 
 	# on_weekly_pulse = {
@@ -226,22 +226,22 @@
 	# complete = {
 		# # if you change this, also change event option in communism.2
 		# approaching_bureaucracy_shortage = no
-		# has_law = law_type:law_public_schools
+		# has_law_or_variant = law_type:law_public_schools
 		# institution_investment_level = {
 			# institution = institution_schools
 			# value = 5
 		# }
-		# has_law = law_type:law_public_health_insurance
+		# has_law_or_variant = law_type:law_public_health_insurance
 		# institution_investment_level = {
 			# institution = institution_health_system
 			# value = 5
 		# }
-		# has_law = law_type:law_old_age_pension
+		# has_law_or_variant = law_type:law_old_age_pension
 		# institution_investment_level = {
 			# institution = institution_social_security
 			# value = 5
 		# }
-		# has_law = law_type:law_worker_protections
+		# has_law_or_variant = law_type:law_worker_protections
 		# institution_investment_level = {
 			# institution = institution_workplace_safety
 			# value = 5
@@ -256,7 +256,7 @@
 	# }
 
 	# fail = {
-		# NOT = { has_law = law_type:law_council_republic }
+		# NOT = { has_law_or_variant = law_type:law_council_republic }
 	# }
 # }
 
@@ -271,8 +271,8 @@
 
 	# complete = {
 		# OR = {
-			# has_law = law_type:law_command_economy
-			# has_law = law_type:law_cooperative_ownership
+			# has_law_or_variant = law_type:law_command_economy
+			# has_law_or_variant = law_type:law_cooperative_ownership
 		# }
 		# custom_tooltip = {
 			# text = custom_loc_five_year_plan_goal
@@ -300,7 +300,7 @@
 	# }
 
 	# fail = {
-		# NOT = { has_law = law_type:law_council_republic }
+		# NOT = { has_law_or_variant = law_type:law_council_republic }
 	# }
 
 	# progressbar = yes

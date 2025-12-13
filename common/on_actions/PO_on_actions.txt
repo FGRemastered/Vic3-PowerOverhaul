@@ -1,6 +1,6 @@
-﻿on_monthly_pulse_state = {
-	effect = { effect_art_patronage_state = yes }
-}
+﻿# on_monthly_pulse_state = {
+	# effect = { effect_art_patronage_state = yes }
+# }
 on_monthly_pulse_country = {
 	effect = { effect_art_patronage = yes }
 }

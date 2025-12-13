@@ -8,7 +8,7 @@ law_peasant_levies = {
 		unit_experience_gain_mult							=-0.25
 		state_conscription_rate_add							= 0.05	# 4%	- Increased
 		country_aristocrats_pol_str_mult					= 0.50	# 25%	- Increased
-		country_officers_pol_str_mult						= 1.00
+		# country_officers_pol_str_mult						= 1.00
 		country_military_goods_cost_mult					=-0.10
 		state_building_barracks_max_level_add				=   50	# 25	- Increased
 		state_building_conscription_center_max_level_add	=  100	# 25	- Increased
@@ -28,11 +28,11 @@ law_peasant_levies = {
 	on_enact = {
 		custom_tooltip = QUALIFICATIONS_OFFICERS_PEASANT_LEVIES_DESC
 		if = {
-			limit = { NOT = { has_law = law_type:law_peasant_levies } }
+			limit = { NOT = { has_law_or_variant = law_type:law_peasant_levies } }
 			custom_tooltip = aristocrats_af_ig_shift_effect_tt
 		}
 		if = {
-			limit = { has_law = law_type:law_professional_army }
+			limit = { has_law_or_variant = law_type:law_professional_army }
 			custom_tooltip = military_pops_af_ig_shift_effect_negative_tt
 			custom_tooltip = non_military_pops_af_ig_shift_effect_negative_tt
 		}
@@ -51,8 +51,8 @@ law_professional_army = {
 	modifier = {
 		unit_morale_loss_mult								=-0.10
 		state_conscription_rate_add							= 0.01
-		country_officers_pol_str_mult						= 2.00
-		country_soldiers_pol_str_mult						= 0.50
+		country_officers_pol_str_mult						= 0.50
+		# country_soldiers_pol_str_mult						= 0.50
 		state_building_barracks_max_level_add				=  100
 		state_building_conscription_center_max_level_add	=  200	# 50 - Changed
 		unit_experience_gain_mult							= 1.00
@@ -73,11 +73,11 @@ law_professional_army = {
 	}
 	on_enact = {
 		if = {
-			limit = { has_law = law_type:law_peasant_levies }
+			limit = { has_law_or_variant = law_type:law_peasant_levies }
 			custom_tooltip = aristocrats_af_ig_shift_effect_negative_tt
 		}
 		if = {
-			limit = { NOT = { has_law = law_type:law_professional_army } }
+			limit = { NOT = { has_law_or_variant = law_type:law_professional_army } }
 			custom_tooltip = non_military_pops_af_ig_shift_effect_tt
 			custom_tooltip = military_pops_af_ig_shift_effect_tt
 		}
@@ -87,7 +87,7 @@ law_professional_army = {
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
 		if = {	# AI should really try to get out of Peasant Levies under the right circumstances
 			limit = {
-				has_law = law_type:law_peasant_levies
+				has_law_or_variant = law_type:law_peasant_levies
 				NOT = { has_strategy = ai_strategy_reactionary_agenda }
 				OR = {
 					has_journal_entry = je_sick_man_army	# Moved - Does not need its own logic.
@@ -111,9 +111,9 @@ law_national_militia = {
 	modifier = {
 		unit_morale_loss_mult								=-0.05
 		state_conscription_rate_add							= 0.05
-		country_officers_pol_str_mult						= 1.00
-		country_soldiers_pol_str_mult						= 1.00
 		country_leverage_resistance_mult					= 0.50
+		country_officers_pol_str_mult						=-0.25
+		# country_soldiers_pol_str_mult						= 1.00
 		building_training_rate_mult							= 0.50	# Added
 		state_building_barracks_max_level_add				=   10	# 5		- Increased
 		state_building_conscription_center_max_level_add	= 1000	# 100	- Increased
@@ -128,11 +128,11 @@ law_national_militia = {
 	}
 	on_enact = {
 		if = {
-			limit = { has_law = law_type:law_peasant_levies }
+			limit = { has_law_or_variant = law_type:law_peasant_levies }
 			custom_tooltip = aristocrats_af_ig_shift_effect_negative_tt
 		}
 		if = {
-			limit = { has_law = law_type:law_professional_army }
+			limit = { has_law_or_variant = law_type:law_professional_army }
 			custom_tooltip = military_pops_af_ig_shift_effect_negative_tt
 			custom_tooltip = non_military_pops_af_ig_shift_effect_negative_tt
 		}
@@ -155,8 +155,8 @@ law_mass_conscription = {
 		unit_morale_loss_mult								= 0.05
 		state_conscription_rate_add							= 0.03
 		building_training_rate_mult							= 1.00
-		country_officers_pol_str_mult						= 1.50
-		country_soldiers_pol_str_mult						= 1.00
+		country_officers_pol_str_mult						= 0.25
+		# country_soldiers_pol_str_mult						= 1.00
 		state_building_barracks_max_level_add				=  200	# 100	- Changed
 		state_building_conscription_center_max_level_add	= 1000	# 100	- Changed
 		military_formation_organization_gain_mult			=-0.10	# Added
@@ -175,11 +175,11 @@ law_mass_conscription = {
 	}
 	on_enact = {
 		if = {
-			limit = { has_law = law_type:law_peasant_levies }
+			limit = { has_law_or_variant = law_type:law_peasant_levies }
 			custom_tooltip = aristocrats_af_ig_shift_effect_negative_tt
 		}
 		if = {
-			limit = { has_law = law_type:law_professional_army }
+			limit = { has_law_or_variant = law_type:law_professional_army }
 			custom_tooltip = military_pops_af_ig_shift_effect_negative_tt
 			custom_tooltip = non_military_pops_af_ig_shift_effect_negative_tt
 		}
@@ -193,10 +193,11 @@ law_mass_conscription = {
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
 		if = {	# AI should really try to get out of Peasant Levies under the right circumstances
 			limit = {
-				has_law = law_type:law_peasant_levies
+				has_law_or_variant = law_type:law_peasant_levies
 				NOT = { has_strategy = ai_strategy_reactionary_agenda }
 				OR = {
 					has_journal_entry = je_sick_man_army	# Moved - Does not need its own logic.
+					has_journal_entry = je_great_reforms_military
 					NOT = { has_strategy = ai_strategy_conservative_agenda }
 					any_political_movement = { desired_law = law_type:law_professional_army }	
 					has_technology_researched = napoleonic_warfare

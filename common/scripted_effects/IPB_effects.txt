@@ -37,8 +37,8 @@ effect_republican_paternalistic = {
 				# limit = { has_ideology = ideology:ideology_paternalistic }
 				# remove_ideology = ideology_paternalistic
 				# add_ideology = ideology_republican_paternalistic
-				# if		= { limit = { has_ideology = ideology:ideology_stratocratic }				remove_ideology = ideology_stratocratic					add_ideology = ideology_stratocratic				}
-				# else_if	= { limit = { has_ideology = ideology:ideology_stratocratic_modern }		remove_ideology = ideology_stratocratic_modern			add_ideology = ideology_stratocratic_modern			}
+				# if		= { limit = { has_ideology = ideology:ideology_hierarchic }				remove_ideology = ideology_hierarchic					add_ideology = ideology_hierarchic				}
+				# else_if	= { limit = { has_ideology = ideology:ideology_hierarchic_modern }		remove_ideology = ideology_hierarchic_modern			add_ideology = ideology_hierarchic_modern			}
 				# if		= { limit = { has_ideology = ideology:ideology_patriarchal }				remove_ideology = ideology_patriarchal					add_ideology = ideology_patriarchal					}
 				# else_if	= { limit = { has_ideology = ideology:ideology_patriarchal_suffrage }		remove_ideology = ideology_patriarchal_suffrage			add_ideology = ideology_patriarchal_suffrage		}
 			# }

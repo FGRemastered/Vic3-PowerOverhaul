@@ -1,27 +1,31 @@
-ig_trait_be_fruitful_and_multiply = {
+ig_trait_be_fruitful_and_multiply = {						# DV
 	icon = "gfx/interface/icons/ig_trait_icons/be_fruitful_and_multiply.dds"
 	min_approval = loyal
 	modifier = {
 		state_birth_rate_mult								= 0.075
 	}
 }
-ig_trait_treasury_bonds = {
+ig_trait_treasury_bonds = {									# PB
 	icon = "gfx/interface/icons/ig_trait_icons/treasury_bonds.dds"
 	min_approval = loyal
 	modifier = {
 		country_loan_interest_rate_mult						=-0.10
 		country_gold_reserve_limit_mult						= 0.25
+		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
 	}
 }
-ig_trait_old_lady_of_threadneedle_street = {
+ig_trait_old_lady_of_threadneedle_street = {				# PB
 	icon = "gfx/interface/icons/ig_trait_icons/treasury_bonds.dds"
 	min_approval = loyal
 	modifier = {
 		country_loan_interest_rate_mult						=-0.15
 		country_gold_reserve_limit_mult						= 0.375
+		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
 	}
 }
-ig_trait_junkerdom = {
+ig_trait_junkerdom = {										# LO
 	icon = "gfx/interface/icons/ig_trait_icons/patriotic_fervor.dds"
 	min_approval = loyal
 	modifier = {
@@ -31,7 +35,18 @@ ig_trait_junkerdom = {
 		country_prestige_from_army_power_projection_mult	= 0.10
 	}
 }
-ig_trait_xenophobia = {
+ig_trait_biedermanner = {									# PB
+	icon = "gfx/interface/icons/ig_trait_icons/patriotic_fervor.dds"
+	min_approval = loyal
+	modifier = {
+		country_loan_interest_rate_mult						=-0.05	# Added back
+		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
+		state_radicals_from_political_movements_mult		=-0.05
+		state_middle_strata_expected_sol_add				=-1
+	}
+}
+ig_trait_xenophobia = {										# PB
 	icon = "gfx/interface/icons/ig_trait_icons/xenophobia.dds"
 	max_approval = unhappy
 	modifier = {
@@ -42,7 +57,7 @@ ig_trait_xenophobia = {
 		state_migration_pull_mult							=-0.25	# Added - Counters Intelligentsia
 	}
 }
-ig_trait_work_to_rule = {
+ig_trait_work_to_rule = {									# TU
 	icon = "gfx/interface/icons/ig_trait_icons/work_to_rule.dds"
 	max_approval = unhappy
 	modifier = {
@@ -51,7 +66,7 @@ ig_trait_work_to_rule = {
 		building_group_bg_service_throughput_add			=-0.10	# Added
 	}
 }
-ig_trait_social_criticism = {
+ig_trait_social_criticism = {								# INT
 	icon = "gfx/interface/icons/ig_trait_icons/social_criticism.dds"
 	max_approval = unhappy
 	modifier = {
@@ -60,21 +75,21 @@ ig_trait_social_criticism = {
 		country_government_dividends_waste_add				= 0.10	# Added
 	}
 }
-ig_trait_tax_avoidance = {
+ig_trait_tax_avoidance = {	 								# IND
 	icon = "gfx/interface/icons/ig_trait_icons/tax_avoidance.dds"
 	max_approval = unhappy
 	modifier = {
 		building_group_bg_financial_districts_tax_mult		=-0.10
 	}
 }
-ig_trait_zaibatsu_cooperation = {
+ig_trait_zaibatsu_cooperation = {							# IND
 	icon = "gfx/interface/icons/ig_trait_icons/job_creators.dds"
 	min_approval = loyal
 	modifier = {
 		building_group_bg_financial_districts_tax_mult		= 0.10
 	}
 }
-ig_trait_kommerskollegium = {
+ig_trait_kommerskollegium = {	 							# IND
 	icon = "gfx/interface/icons/ig_trait_icons/job_creators.dds"
 	min_approval = loyal
 	modifier = {
@@ -82,14 +97,14 @@ ig_trait_kommerskollegium = {
 		building_group_bg_financial_districts_tax_mult		= 0.10
 	}
 }
-ig_trait_noble_privileges = {
+ig_trait_noble_privileges = {								 # LO
 	icon = "gfx/interface/icons/ig_trait_icons/noble_privileges.dds"
 	max_approval = unhappy
 	modifier = {
 		building_group_bg_manor_houses_tax_mult				=-0.10
 	}
 }
-ig_trait_latifundios = {
+ig_trait_latifundios = {									# LO
 	icon = "gfx/interface/icons/ig_trait_icons/farmers_markets.dds"
 	min_approval = loyal
 	modifier = {
@@ -97,7 +112,7 @@ ig_trait_latifundios = {
 	}
 }
 # Prussia doesn't have unique army traits, which is frankly unacceptable.
-ig_army_with_a_state = {
+ig_army_with_a_state = {									# AF
 	icon = "gfx/interface/icons/ig_trait_icons/patriotic_fervor.dds"
 	min_approval = loyal
 	modifier = {
@@ -106,7 +121,7 @@ ig_army_with_a_state = {
 		building_group_bg_military_throughput_add			= 0.15
 	}
 }
-ig_prussian_military_admin = {
+ig_prussian_military_admin = {								# AF
 	icon = "gfx/interface/icons/ig_trait_icons/veteran_consultation.dds"
 	min_approval = happy
 	modifier = {
@@ -117,7 +132,7 @@ ig_prussian_military_admin = {
 		building_munition_plants_throughput_add				= 0.10
 	}
 }
-ig_backbone_disrespected = {
+ig_backbone_disrespected = {								# AF
 	icon = "gfx/interface/icons/ig_trait_icons/materiel_waste.dds"
 	max_approval = unhappy
 	modifier = {

@@ -1,3 +1,0 @@
-STATES = {
-	s:STATE_KENYA = { add_claim = c:OMA }
-}

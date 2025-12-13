@@ -8,7 +8,7 @@ mobilization_option_basic_supplies = {	# Unchanged for now
 		}
 	}
 	upkeep_modifier = {
-		goods_input_grain_add				= 0.50
+		goods_input_grain_add				= 1.00	# Increased
 	}
 	upkeep_modifier_unscaled = {
         goods_input_small_arms_mult			= 0.25
@@ -40,8 +40,8 @@ mobilization_option_extra_supplies = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_grain_add			=-0.50	# Added - Replaces grain need with Groceries
-		goods_input_groceries_add		= 1
+		goods_input_grain_add			=-1.00	# Added - Replaces grain need with Groceries
+		goods_input_groceries_add		= 2.00	# Increased
 	}
 	upkeep_modifier_unscaled = {
         goods_input_small_arms_mult		= 0.25
@@ -89,11 +89,11 @@ mobilization_option_luxurious_supplies = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_meat_add						= 1
-		goods_input_wine_add						= 1
-		goods_input_tea_add							= 1			# Added
-		goods_input_coffee_add						= 1			# Added
-		goods_input_ammunition_add					= 1			# Added
+		goods_input_meat_add						= 2.00	# Increased
+		goods_input_wine_add						= 2.00	# Increased
+		goods_input_tea_add							= 2.00	# Added
+		goods_input_coffee_add						= 2.00	# Added
+		goods_input_ammunition_add					= 1.00	# Added
 	}
 	upkeep_modifier_unscaled = {
         goods_input_small_arms_mult					= 0.50	# Changed
@@ -115,14 +115,33 @@ mobilization_option_luxurious_supplies = {
 	}	
 	unit_modifier = {
 		unit_morale_loss_mult						=-0.05
-		unit_offense_mult							= 0.15			# Increased
-		unit_defense_mult							= 0.15			# Increased
-		military_formation_organization_gain_mult	= 0.25			# Added
+		unit_morale_recovery_mult					= 0.10	# Added
+		unit_offense_mult							= 0.15	# Increased
+		unit_defense_mult							= 0.15	# Increased
+		military_formation_organization_gain_mult	= 0.25	# Added
 	}
 	ai_weight = { value = 1 }
 	group = supplies
 }
 # Supplements
+mobilization_option_chocolate = {
+	texture = "gfx/interface/icons/mobilization_options/chocolate.dds"
+	possible = { market ?= { mg:sugar ?= { has_potential_supply = yes } } }
+	on_deactivate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_when_you_remove_supplies_while_in_combat_tt
+			every_combat_unit = { add_morale = { value = morale multiply = -0.5 } }
+		}
+	}
+	upkeep_modifier = {
+		goods_input_sugar_add		= 2.0
+	}
+	unit_modifier = {
+		unit_morale_recovery_mult	= 0.10
+	}
+	ai_weight = { value = 1 }
+	group = supplements
+}
 mobilization_option_tobacco = {
 	texture = "gfx/interface/icons/mobilization_options/tobacco.dds"
 	possible = {
@@ -136,14 +155,14 @@ mobilization_option_tobacco = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_tobacco_add		= 0.5
+		goods_input_tobacco_add		= 1.0
 	}
 	unit_modifier = {
-		unit_morale_recovery_mult	= 0.1
+		unit_morale_recovery_mult	= 0.10
 	}
 	ai_weight = {
 		value = 1
-		if = { limit = { is_banning_goods = g:tobacco } multiply = 0 }
+		# if = { limit = { is_banning_goods = g:tobacco } value = 0 }
 	}
 	group = supplements
 }
@@ -160,14 +179,14 @@ mobilization_option_liquor = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_liquor_add		= 0.5
+		goods_input_liquor_add		= 2.0
 	}
 	unit_modifier = {
-		unit_morale_recovery_mult	= 0.1
+		unit_morale_recovery_mult	= 0.10
 	}
 	ai_weight = {
 		value = 1
-		if = { limit = { is_banning_goods = g:liquor } multiply = 0 }
+		# if = { limit = { is_banning_goods = g:liquor } value = 0 }
 	}
 	group = supplements
 }
@@ -184,14 +203,14 @@ mobilization_option_opium = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_opium_add		= 0.5
+		goods_input_opium_add		= 1.0
 	}
 	unit_modifier = {
-		unit_morale_recovery_mult	= 0.1
+		unit_morale_recovery_mult	= 0.10
 	}
 	ai_weight = {
 		value = 1
-		if = { limit = { is_banning_goods = g:opium } multiply = 0 }
+		# if = { limit = { is_banning_goods = g:opium } value = 0 }
 	}
 	group = supplements
 }
@@ -252,7 +271,7 @@ mobilization_option_truck_transport = {
 		military_formation_movement_speed_mult				= 0.30
 		military_formation_mobilization_speed_mult			= 0.40
 		character_battle_condition_broken_supply_line_mult	=-0.50
-		military_formation_attrition_risk_mult				=-0.20
+		military_formation_attrition_risk_mult				=-0.20	# Added
 	}
 	ai_weight = { value = 3 }
     group = transport
@@ -282,7 +301,7 @@ mobilization_option_rail_transport = {
 		military_formation_mobilization_speed_mult			= 0.60
 		character_battle_condition_broken_supply_line_mult	=-0.50
 		character_battle_condition_charted_terrain_mult		= 0.50	# Added
-		military_formation_attrition_risk_mult				=-0.10
+		military_formation_attrition_risk_mult				=-0.10	# Added
 	}
 	ai_weight = { value = 2 }
     group = transport
@@ -345,6 +364,8 @@ mobilization_option_machinegunners = {
 	unit_modifier = {
 		unit_offense_add			=    5
 		unit_defense_add			=   10
+		unit_offense_elevated_add	=    5	# Added
+		unit_defense_elevated_add	=   10	# Added
 		unit_morale_damage_mult		= 0.10
 		unit_kill_rate_add			= 0.10
 	}
@@ -379,6 +400,8 @@ mobilization_option_infiltrators = {
 	unit_modifier = {
 		unit_offense_add			=   10
 		unit_defense_add			=    5
+		unit_offense_developed_add	=   10	# Added
+		unit_defense_developed_add	=    5	# Added
 		unit_morale_damage_mult		= 0.15
 		unit_kill_rate_add			= 0.05	# Moved from tech
 	}
@@ -412,6 +435,8 @@ mobilization_option_flamethrowers = {
 	}
 	unit_modifier = {
 		unit_offense_add			=   15
+		unit_offense_forested_add	=   15	# Added
+		unit_defense_forested_add	=   -5	# Added	- Kind of dangerous
 		unit_devastation_mult		= 0.50
 		unit_morale_damage_mult		= 0.10
 		unit_kill_rate_add			= 0.10
@@ -446,6 +471,7 @@ mobilization_option_chemical_weapons = {
 	}
 	unit_modifier = {
 		unit_offense_add			=   20
+		unit_offense_flat_add		=   20	# Added
 		unit_kill_rate_add			= 0.50
 		unit_recovery_rate_add		=-0.20
 	}

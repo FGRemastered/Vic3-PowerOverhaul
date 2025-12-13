@@ -2,7 +2,7 @@
 building_government_administration = {
 	building_group = bg_bureaucracy
 	city_type = city
-	levels_per_mesh = 10
+	levels_per_mesh = 50
 	unlocking_technologies = { tech_bureaucracy }
 	production_method_groups = {
 		pmg_base_building_government_administration
@@ -46,7 +46,7 @@ building_skyscraper = {
 building_university = {
 	building_group = bg_technology
 	city_type = city
-	levels_per_mesh = 5
+	levels_per_mesh = 50
 	unlocking_technologies = { academia }
 	production_method_groups = {
 		pmg_base_building_university
