@@ -1,7 +1,7 @@
 ﻿# SUBSISTENCE
-building_subsistence_farms = {
+REPLACE:building_subsistence_farms = {
 	building_group = bg_subsistence_agriculture
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm_grain.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_farms
 		pmg_home_workshops
@@ -17,9 +17,9 @@ building_subsistence_farms = {
 	can_switch_owner = no
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_subsistence_orchards = {
+REPLACE:building_subsistence_orchards = {
 	building_group = bg_subsistence_agriculture
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm_fruit.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_orchards
 		pmg_home_workshops
@@ -35,9 +35,9 @@ building_subsistence_orchards = {
 	can_switch_owner = no
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_subsistence_pastures = {
-	building_group = bg_subsistence_agriculture
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+REPLACE:building_subsistence_pastures = {
+	building_group = bg_subsistence_ranching
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm_meat.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_pastures
 		pmg_home_workshops
@@ -53,9 +53,9 @@ building_subsistence_pastures = {
 	can_switch_owner = no
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_subsistence_fishing_villages = {
+REPLACE:building_subsistence_fishing_villages = {
 	building_group = bg_subsistence_agriculture
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm_fish.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_fishing_villages
 		pmg_home_workshops
@@ -71,9 +71,9 @@ building_subsistence_fishing_villages = {
 	can_switch_owner = no
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_subsistence_rice_paddies = {
+REPLACE:building_subsistence_rice_paddies = {
 	building_group = bg_subsistence_agriculture
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm_rice.dds"
 	production_method_groups = {
 		pmg_base_building_subsistence_rice_paddies
 		pmg_home_workshops
@@ -90,7 +90,7 @@ building_subsistence_rice_paddies = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 # Autarky farms
-building_autarky_farm = {
+REPLACE_OR_CREATE:building_autarky_farm = {
 	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -114,38 +114,11 @@ building_autarky_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 	should_auto_expand = { trigger_auto_expand_autarky = yes }
 }
-building_autarky_greenhouse = {
-	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
-	building_group = bg_agricultural_greenhouses
-	unlocking_technologies = { enclosure }
-	city_type = farm
-	levels_per_mesh = 50
-	production_method_groups = {
-		pmg_base_building_autarky_farm
-		pmg_home_workshops
-		pmg_greenhouse
-		pmg_harvesting_process_autark
-	}
-	min_raise_to_hire			= 0
-	ai_nationalization_desire	= 0.5		# AI is likely to nationalize this, to guarantee a stream of revenue
-	required_construction		= construction_cost_medium
-	ai_value = {
-		value = 1000
-		if		= { limit = { market.mg:grain = { market_goods_pricier >= 0.50 } }	value	= 10000 }	# Food is a matter of life or death, literally
-		else_if	= { limit = { market.mg:grain = { market_goods_pricier >= 0.25 } }	value	=  5000 }	# Food is a matter of life or death, literally
-		else_if	= { limit = { market.mg:grain = { market_goods_pricier >= 0.00 } }	value	=  2000 }	# Food is a matter of life or death, literally
-	}
-	# residence_points_per_level= 0.2
-	# slaves_role	= peasants	# Removed
-	ownership_type = self
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
-	should_auto_expand = { trigger_auto_expand_autarky = yes }
-}
 # Farms
-building_rye_farm = {
+REPLACE:building_rye_farm = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_rye_farms
+	building_group = bg_staple_crops
 	icon = "gfx/interface/icons/building_icons/rye_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -161,10 +134,10 @@ building_rye_farm = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_wheat_farm = {
+REPLACE:building_wheat_farm = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_wheat_farms
+	building_group = bg_staple_crops
 	icon = "gfx/interface/icons/building_icons/wheat_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -180,10 +153,10 @@ building_wheat_farm = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_rice_farm = {
+REPLACE:building_rice_farm = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_rice_farms
+	building_group = bg_staple_crops
 	icon = "gfx/interface/icons/building_icons/rice_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -199,10 +172,10 @@ building_rice_farm = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_maize_farm = {
+REPLACE:building_maize_farm = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_maize_farms
+	building_group = bg_staple_crops
 	icon = "gfx/interface/icons/building_icons/maize_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -218,10 +191,10 @@ building_maize_farm = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_millet_farm = {
+REPLACE:building_millet_farm = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_millet_farms
+	building_group = bg_staple_crops
 	icon = "gfx/interface/icons/building_icons/millet_farm.dds"
 	city_type = farm
 	levels_per_mesh = 50
@@ -238,10 +211,10 @@ building_millet_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 # Ranches
-building_livestock_ranch = {
+REPLACE:building_livestock_ranch = {
 	ai_value				= 0
 	potential				= { trigger_no_autarky_farms	= yes }
-	building_group = bg_livestock_ranches
+	building_group = bg_ranching
 	icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
 	city_type = farm
 	levels_per_mesh = 50

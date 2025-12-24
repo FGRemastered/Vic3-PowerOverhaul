@@ -1,0 +1,35 @@
+﻿
+INJECT:law_no_workers_rights = {
+	ai_will_do = {	# Added
+		exists = ruler
+		ruler	= { law_stance = { law = law_type:law_no_workers_rights value > neutral } }
+	}
+}
+INJECT:law_regulatory_bodies = {
+	institution_modifier = {
+		interest_group_ig_trade_unions_pop_attraction_mult	= 0.05	# Added
+		state_machinists_investment_pool_contribution_add	= 0.01	# Added
+		state_farmers_investment_pool_contribution_add		= 0.01	# Added
+		state_lower_strata_expected_sol_add					= 1		# Added
+	}
+	ai_enact_weight_modifier = {	# Petitions
+		value = 250	# Good law in general
+		if = { limit = { has_law_or_variant = law_type:law_worker_protections }	value	=   0 }
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add		= 750 }
+	}
+}
+INJECT:law_worker_protections = {
+	institution_modifier = {
+		interest_group_ig_trade_unions_pol_str_mult			= 0.05	# Added
+		interest_group_ig_trade_unions_pop_attraction_mult	= 0.10	# Added
+		state_machinists_investment_pool_contribution_add	= 0.02	# Added
+		state_farmers_investment_pool_contribution_add		= 0.02	# Added
+		state_lower_strata_expected_sol_add					= 2		# Added
+	}
+	ai_enact_weight_modifier = {	# Petitions
+		value = 0
+		if		= { limit = { has_law_or_variant = law_type:law_proportional_taxation }	value	= 250 }	# Quite synergistic
+		else_if	= { limit = { has_law_or_variant = law_type:law_graduated_taxation }	value	= 250 }	# Quite synergistic
+		if		= { limit = { ai_has_enact_weight_modifier_journal_entries = yes }		add		= 750 }
+	}
+}

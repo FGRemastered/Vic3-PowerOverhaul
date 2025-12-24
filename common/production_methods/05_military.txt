@@ -1,5 +1,5 @@
 ﻿# Professional
-pm_no_organization = {
+REPLACE:pm_no_organization = {
 	texture = "gfx/interface/icons/production_method_icons/no_specialists.dds"
 	is_default = yes
 	profession_ratio = {
@@ -15,7 +15,7 @@ pm_no_organization = {
 		}
 	}
 }
-pm_general_training = {
+REPLACE:pm_general_training = {
 	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
 	unlocking_technologies = { general_staff }
 	is_default = yes
@@ -37,7 +37,7 @@ pm_general_training = {
 		}
 	}
 }
-pm_advanced_tactics_training = {
+REPLACE:pm_advanced_tactics_training = {
 	texture = "gfx/interface/icons/production_method_icons/squad_infantry.dds"
 	unlocking_technologies = { military_statistics }
 	ai_value = 20000
@@ -58,7 +58,7 @@ pm_advanced_tactics_training = {
 		}
 	}
 }
-pm_training_streamlining = {
+REPLACE:pm_training_streamlining = {
 	texture = "gfx/interface/icons/production_method_icons/skirmish_infantry.dds"
 	unlocking_technologies = { wargaming }
 	ai_value = 30000
@@ -79,7 +79,7 @@ pm_training_streamlining = {
 		}
 	}
 }
-pm_nco_incorporation = {
+REPLACE:pm_nco_incorporation = {
 	texture = "gfx/interface/icons/production_method_icons/nco_incorporation.dds"
 	unlocking_technologies = { nco_training }
 	ai_value = 40000
@@ -100,7 +100,7 @@ pm_nco_incorporation = {
 		}
 	}
 }
-pm_mobile_warfare_tactics = {
+REPLACE:pm_mobile_warfare_tactics = {
 	texture = "gfx/interface/icons/production_method_icons/motorised_logistics.dds"
 	unlocking_technologies = { mobile_armor }
 	ai_value = 50000
@@ -123,7 +123,7 @@ pm_mobile_warfare_tactics = {
 	}
 }
 # Conscripts
-pm_no_organization_conscription = {
+REPLACE:pm_no_organization_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/no_specialists.dds"
 	is_default = yes
 	ai_value = 0
@@ -140,7 +140,7 @@ pm_no_organization_conscription = {
 		}
 	}
 }
-pm_general_training_conscription = {
+REPLACE:pm_general_training_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
 	unlocking_technologies = { general_staff }
 	is_default = yes
@@ -162,7 +162,7 @@ pm_general_training_conscription = {
 		}
 	}
 }
-pm_advanced_tactics_training_conscription = {
+REPLACE:pm_advanced_tactics_training_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/squad_infantry.dds"
 	unlocking_technologies = { military_statistics }
 	disallowing_laws = { law_peasant_levies }	
@@ -184,7 +184,7 @@ pm_advanced_tactics_training_conscription = {
 		}
 	}
 }
-pm_training_streamlining_conscription = {
+REPLACE:pm_training_streamlining_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/skirmish_infantry.dds"
 	unlocking_technologies = { wargaming }
 	disallowing_laws = { law_peasant_levies }	
@@ -206,7 +206,7 @@ pm_training_streamlining_conscription = {
 		}
 	}
 }
-pm_nco_incorporation_conscription = {
+REPLACE:pm_nco_incorporation_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/nco_incorporation.dds"
 	unlocking_technologies = { nco_training }
 	disallowing_laws = { law_peasant_levies }
@@ -228,7 +228,7 @@ pm_nco_incorporation_conscription = {
 		}
 	}
 }
-pm_mobile_warfare_tactics_conscription = {
+REPLACE:pm_mobile_warfare_tactics_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/motorised_logistics.dds"
 	unlocking_technologies = { mobile_armor }
 	disallowing_laws = { law_peasant_levies }
@@ -252,7 +252,7 @@ pm_mobile_warfare_tactics_conscription = {
 	}
 }
 # Navy
-pm_no_naval_theory = {
+REPLACE:pm_no_naval_theory = {
 	texture = "gfx/interface/icons/production_method_icons/no_naval_theory.dds"
 	ai_value = 0
 	profession_ratio = {
@@ -268,7 +268,7 @@ pm_no_naval_theory = {
 		}
 	}
 }
-pm_power_of_the_purse = {
+REPLACE:pm_power_of_the_purse = {
 	texture = "gfx/interface/icons/production_method_icons/power_of_the_purse.dds"
 	unlocking_technologies = { power_of_the_purse }
 	ai_value = 20000
@@ -291,7 +291,7 @@ pm_power_of_the_purse = {
 		}
 	}
 }
-pm_jeune_ecole = {
+REPLACE:pm_jeune_ecole = {
 	texture = "gfx/interface/icons/production_method_icons/jeune_ecole.dds"
 	unlocking_technologies = { jeune_ecole }
 	ai_value = 30000
@@ -314,7 +314,7 @@ pm_jeune_ecole = {
 		}
 	}
 }
-pm_sea_lane_strategies = {
+REPLACE:pm_sea_lane_strategies = {
 	texture = "gfx/interface/icons/production_method_icons/mahanian_thought.dds"
 	unlocking_technologies = { sea_lane_strategies }
 	ai_value = 40000
@@ -337,7 +337,7 @@ pm_sea_lane_strategies = {
 		}
 	}
 }
-pm_battlefleet_tactics = {
+REPLACE:pm_battlefleet_tactics = {
 	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
 	unlocking_technologies = { battlefleet_tactics }
 	ai_value = 50000
@@ -361,11 +361,11 @@ pm_battlefleet_tactics = {
 	}
 }
 # Infres
-pm_default_infres_barracks = {
+REPLACE:pm_default_infres_barracks = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
-    state_modifiers	= { level_scaled	= { state_building_barracks_max_level_add	= 10 } }
+    state_modifiers	= { level_scaled	= { state_building_barrack_max_level_add	= 10 } }
 }
-pm_default_infres_naval_base = {
+REPLACE:pm_default_infres_naval_base = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
     state_modifiers	= { level_scaled	= { state_building_naval_base_max_level_add	= 10 } }
 }

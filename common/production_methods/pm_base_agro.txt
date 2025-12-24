@@ -1,5 +1,5 @@
 ﻿# Default
-pm_simple_farming = {
+REPLACE_OR_CREATE:pm_simple_farming = {
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -11,7 +11,7 @@ pm_simple_farming = {
 		}													#		= -120	=> Stops breaking even at SoL 4
 	}
 }
-pm_soil_enriching_farming = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -25,7 +25,7 @@ pm_soil_enriching_farming = {
 		}													#		= -110	=> Stops breaking even at SoL 5
 	}
 }
-pm_fertilization = {
+REPLACE_OR_CREATE:pm_fertilization = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -40,7 +40,7 @@ pm_fertilization = {
 	}
 	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.05 } }
 }
-pm_chemical_fertilizer = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -55,7 +55,7 @@ pm_chemical_fertilizer = {
 	}
 	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.10 } }
 }
-pm_automatic_fertilization = {
+REPLACE_OR_CREATE:pm_automatic_fertilization = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -76,7 +76,7 @@ pm_automatic_fertilization = {
 	}
 }
 # Rice
-pm_simple_farming_rice_farm = {
+REPLACE_OR_CREATE:pm_simple_farming_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/simple_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -92,7 +92,7 @@ pm_simple_farming_rice_farm = {
 		}
 	}
 }
-pm_soil_enriching_farming_rice_farm = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -110,7 +110,7 @@ pm_soil_enriching_farming_rice_farm = {
 		}
 	}
 }
-pm_fertilization_rice_farm = {
+REPLACE_OR_CREATE:pm_fertilization_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -129,7 +129,7 @@ pm_fertilization_rice_farm = {
 	}
 	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.05 } }
 }
-pm_chemical_fertilizer_rice_farm = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -148,7 +148,7 @@ pm_chemical_fertilizer_rice_farm = {
 	}
 	state_modifiers = { unscaled = { state_harvest_condition_drought_impact_mult = 0.10 } }
 }
-pm_automatic_fertilization_rice_farm = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_rice_farm = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -173,7 +173,7 @@ pm_automatic_fertilization_rice_farm = {
 	}
 }
 # Ranches - Slaughtering
-pm_mechanized_slaughtering = {
+REPLACE_OR_CREATE:pm_mechanized_slaughtering = {
 	texture = "gfx/interface/icons/production_method_icons/mechanized_slaughtering.dds"	
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -190,7 +190,7 @@ pm_mechanized_slaughtering = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add		=   15 } }
 }
-pm_electrocution_slaughtering = {	# New
+REPLACE_OR_CREATE:pm_electrocution_slaughtering = {	# New
 	texture = "gfx/interface/icons/production_method_icons/mechanized_slaughtering.dds"
 	unlocking_global_technologies = { mechanized_farming }
 	unlocking_technologies = { electrical_capacitors }

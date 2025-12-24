@@ -1,9 +1,9 @@
 ﻿# Anglo-Indian Culture
-heritage_south_asian_diaspora = {
+REPLACE_OR_CREATE:heritage_south_asian_diaspora = {
 	type = heritage
 	trait_group = heritage_group_south_asian
 }
-heritage_african = {
+REPLACE_OR_CREATE:heritage_african = {
 	type = heritage
 	trait_group = heritage_group_african
 }

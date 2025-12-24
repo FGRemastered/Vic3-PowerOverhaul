@@ -1,5 +1,5 @@
 # Fishing
-pm_steam_trawlers = {	# Replaced tech with steamer input
+REPLACE_OR_CREATE:pm_steam_trawlers = {	# Replaced tech with steamer input
 	texture = "gfx/interface/icons/production_method_icons/steam_trawlers.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -17,7 +17,7 @@ pm_steam_trawlers = {	# Replaced tech with steamer input
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = steamers
 }
-pm_electric_fishing_boats = {
+REPLACE_OR_CREATE:pm_electric_fishing_boats = {
 	texture = "gfx/interface/icons/production_method_icons/steam_trawlers.dds"
 	unlocking_technologies = { radio }
 	building_modifiers = {
@@ -37,7 +37,7 @@ pm_electric_fishing_boats = {
 	required_input_goods = electricity
 }
 # Whaling
-pm_steam_whaling_ships = {	# Replaced tech with steamer input
+REPLACE_OR_CREATE:pm_steam_whaling_ships = {	# Replaced tech with steamer input
 	texture = "gfx/interface/icons/production_method_icons/steam_whaling_ships.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -56,7 +56,7 @@ pm_steam_whaling_ships = {	# Replaced tech with steamer input
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = steamers
 }
-pm_electic_whaling_ships = {
+REPLACE_OR_CREATE:pm_electic_whaling_ships = {
 	texture = "gfx/interface/icons/production_method_icons/steam_whaling_ships.dds"
 	unlocking_technologies = { radio }
 	building_modifiers = {

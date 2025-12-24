@@ -1,5 +1,5 @@
 # Dye
-pm_dye_production = {
+REPLACE_OR_CREATE:pm_dye_production = {
 	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -18,7 +18,7 @@ pm_dye_production = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 7 } }
 }
-pm_double_dye_production = {
+REPLACE_OR_CREATE:pm_double_dye_production = {
 	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -47,7 +47,7 @@ pm_double_dye_production = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 14 } }
 }
 # Silk
-pm_rayon_dye_focus = {
+REPLACE_OR_CREATE:pm_rayon_dye_focus = {
 	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
 	unlocking_technologies = { art_silk }
 	building_modifiers = {
@@ -64,7 +64,7 @@ pm_rayon_dye_focus = {
 		unscaled = { goods_output_dye_mult		=-0.25 }
 	}
 }
-pm_rayon = {
+REPLACE_OR_CREATE:pm_rayon = {
 	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
 	unlocking_technologies = { art_silk }
 	building_modifiers = {
@@ -81,7 +81,7 @@ pm_rayon = {
 		unscaled = { goods_output_dye_mult		=-0.50 }
 	}
 }
-pm_rayon_silk_focus = {
+REPLACE_OR_CREATE:pm_rayon_silk_focus = {
 	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
 	unlocking_technologies = { art_silk }
 	building_modifiers = {
@@ -98,7 +98,7 @@ pm_rayon_silk_focus = {
 		unscaled = { goods_output_dye_mult		=-0.75 }
 	}
 }
-pm_parallel_rayon = {
+REPLACE_OR_CREATE:pm_parallel_rayon = {
 	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
 	unlocking_technologies = { art_silk }
 	building_modifiers = {

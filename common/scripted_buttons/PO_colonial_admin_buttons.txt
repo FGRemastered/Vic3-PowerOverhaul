@@ -1,0 +1,601 @@
+﻿# Colony Buttons
+REPLACE_OR_CREATE:je_colonial_administration_button_senegal = {
+	name = "je_colonial_administration_button_senegal"
+	desc = "je_colonial_administration_button_senegal_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_senegal }
+			any_subject_or_below = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = senegal_subject_var } }
+			any_subject_or_below = { has_variable = senegal_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	possible = {
+		any_scope_state = {
+			region = sr:region_senegal
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = senegal } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_niger = {
+	name = "je_colonial_administration_button_niger"
+	desc = "je_colonial_administration_button_niger_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_niger }
+			any_subject_or_below = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = niger_subject_var } }
+			any_subject_or_below = { has_variable = niger_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_niger
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = niger } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_ethiopia = {
+	name = "je_colonial_administration_button_ethiopia"
+	desc = "je_colonial_administration_button_ethiopia_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_ethiopia }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = ethiopia_subject_var } }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		any_scope_state = { region = sr:region_ethiopia }
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = ethiopia_subject_var } }
+			any_subject_or_below = { has_variable = ethiopia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_ethiopia
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = ethiopia } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_zanj = {
+	name = "je_colonial_administration_button_zanj"
+	desc = "je_colonial_administration_button_zanj_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_zanj }
+			any_subject_or_below = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = zanj_subject_var } }
+			any_subject_or_below = { has_variable = zanj_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_zanj
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = zanj } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_southern_africa = {
+	name = "je_colonial_administration_button_southern_africa"
+	desc = "je_colonial_administration_button_southern_africa_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_southern_africa }
+			any_subject_or_below = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = southern_africa_subject_var } }
+			any_subject_or_below = { has_variable = southern_africa_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_southern_africa
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = southern_africa } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_congo = {
+	name = "je_colonial_administration_button_congo"
+	desc = "je_colonial_administration_button_congo_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		OR = {
+			any_scope_state = { region = sr:region_congo }
+			any_subject_or_below = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = congo_subject_var } }
+			any_subject_or_below = { has_variable = congo_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_congo
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = congo } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_indonesia = {
+	name = "je_colonial_administration_button_indonesia"
+	desc = "je_colonial_administration_button_indonesia_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_south_east_asia
+		OR = {
+			any_scope_state = { region = sr:region_indonesia }
+			any_subject_or_below = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = indonesia_subject_var } }
+			any_subject_or_below = { has_variable = indonesia_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = indonesia } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_indochina = {
+	name = "je_colonial_administration_button_indochina"
+	desc = "je_colonial_administration_button_indochina_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_south_east_asia
+		OR = {
+			any_scope_state = { region = sr:region_indochina }
+			any_subject_or_below = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = indochina_subject_var } }
+			any_subject_or_below = { has_variable = indochina_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_indochina
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = indochina } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_arabic = {
+	name = "je_colonial_administration_button_arabic"
+	desc = "je_colonial_administration_button_arabic_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_middle_east
+		OR = {
+			any_scope_state = { region = sr:region_arabic }
+			any_subject_or_below = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = arabic_subject_var } }
+			any_subject_or_below = { has_variable = arabic_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			region = sr:region_arabic
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation = { name = arabic } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_india = {
+	name = "je_colonial_administration_button_india"
+	desc = "je_colonial_administration_button_india_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_india
+		OR = {
+			any_scope_state = { is_in_geographic_region = geographic_region_india }
+			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = india_subject_var } }
+			any_subject_or_below = { has_variable = india_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		any_scope_state = {
+			is_in_geographic_region = geographic_region_india
+			is_largest_state_in_region = yes
+			trigger_if = { limit = { NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } } } NOT = { is_homeland_of_country_cultures = ROOT } }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation_geographic = { name = india } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_china = {
+	name = "je_colonial_administration_button_china"
+	desc = "je_colonial_administration_button_china_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_china
+		OR = {
+			any_scope_state = { is_in_geographic_region = geographic_region_china }
+			any_subject_or_below = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = china_subject_var } }
+			any_subject_or_below = { has_variable = china_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		NOT = { THIS ?= c:RUS }	# They historically take Outer Manchuria, but should not form a puppet China because of that.
+		any_scope_state = {
+			is_in_geographic_region = geographic_region_china
+			is_largest_state_in_region = yes
+			NOT = { is_homeland_of_country_cultures = ROOT }
+			count >= 2
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation_geographic = { name = china } }
+}
+# Expand Colonial Administration
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_senegal = {
+	name = "je_colonial_administration_button_expand_senegal"
+	desc = "je_colonial_administration_button_expand_senegal_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = senegal_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_senegal	is_under_colonization = no is_treaty_port = no trigger_owner_not_senegalese_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = senegal_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = senegal } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_niger = {
+	name = "je_colonial_administration_button_expand_niger"
+	desc = "je_colonial_administration_button_expand_niger_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = niger_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_niger	is_under_colonization = no is_treaty_port = no trigger_owner_not_nigerian_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = niger_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = niger } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_ethiopia = {
+	name = "je_colonial_administration_button_expand_ethiopia"
+	desc = "je_colonial_administration_button_expand_ethiopia_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = ethiopia_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_ethiopia	is_under_colonization = no is_treaty_port = no trigger_owner_not_ethiopian_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = ethiopia_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = ethiopia } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_zanj = {
+	name = "je_colonial_administration_button_expand_zanj"
+	desc = "je_colonial_administration_button_expand_zanj_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = zanj_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_zanj	is_under_colonization = no is_treaty_port = no trigger_owner_not_zanj_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = zanj_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = zanj } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_southern_africa = {
+	name = "je_colonial_administration_button_expand_southern_africa"
+	desc = "je_colonial_administration_button_expand_southern_africa_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = southern_africa_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_southern_africa	is_under_colonization = no is_treaty_port = no trigger_owner_not_saf_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = southern_africa_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = southern_africa } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_congo = {
+	name = "je_colonial_administration_button_expand_congo"
+	desc = "je_colonial_administration_button_expand_congo_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_africa
+		any_subject_or_below = { has_variable = congo_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_congo	is_under_colonization = no is_treaty_port = no trigger_owner_not_congo_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = congo_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = congo } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_indonesia = {
+	name = "je_colonial_administration_button_expand_indonesia"
+	desc = "je_colonial_administration_button_expand_indonesia_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_south_east_asia
+		any_subject_or_below = { has_variable = indonesia_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_indonesia	is_under_colonization = no is_treaty_port = no trigger_owner_not_indonesian_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = indonesia_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = indonesia } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_indochina = {
+	name = "je_colonial_administration_button_expand_indochina"
+	desc = "je_colonial_administration_button_expand_indochina_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_south_east_asia
+		any_subject_or_below = { has_variable = indochina_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_indochina	is_under_colonization = no is_treaty_port = no trigger_owner_not_indochinese_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = indochina_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = indochina } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_arabic = {
+	name = "je_colonial_administration_button_expand_arabic"
+	desc = "je_colonial_administration_button_expand_arabic_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_middle_east
+		any_subject_or_below = { has_variable = arabic_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { region = sr:region_arabic	is_under_colonization = no is_treaty_port = no trigger_owner_not_arabic_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = arabic_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge = { name = arabic } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_india = {
+	name = "je_colonial_administration_button_expand_india"
+	desc = "je_colonial_administration_button_expand_india_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_india
+		any_subject_or_below = { has_variable = india_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { is_in_geographic_region = geographic_region_india	is_under_colonization = no is_treaty_port = no trigger_owner_not_indian_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = india_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge_geographic = { name = india } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_china = {
+	name = "je_colonial_administration_button_expand_china"
+	desc = "je_colonial_administration_button_expand_china_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_china
+		any_subject_or_below = { has_variable = china_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { is_in_geographic_region = geographic_region_china	is_under_colonization = no is_treaty_port = no trigger_owner_not_chinese_subject = yes }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = china_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge_geographic = { name = china } }
+}

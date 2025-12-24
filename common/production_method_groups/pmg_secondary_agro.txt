@@ -1,6 +1,6 @@
 # Agrictultural Secondary
 # Cold (Rye)
-pmg_secondary_farm_cold = {
+REPLACE_OR_CREATE:pmg_secondary_farm_cold = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_no_secondary
@@ -17,7 +17,7 @@ pmg_secondary_farm_cold = {
 	}
 }
 # Temperate (Wheat & Maize)
-pmg_secondary_farm_temperate = {
+REPLACE_OR_CREATE:pmg_secondary_farm_temperate = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_no_secondary
@@ -34,7 +34,7 @@ pmg_secondary_farm_temperate = {
 	}
 }
 # Hot (Rice & Millet)
-pmg_secondary_farm_hot = {
+REPLACE_OR_CREATE:pmg_secondary_farm_hot = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_no_secondary

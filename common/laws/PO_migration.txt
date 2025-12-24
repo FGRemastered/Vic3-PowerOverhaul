@@ -1,0 +1,6 @@
+﻿INJECT:law_no_migration_controls = {
+	modifier = {
+		state_migration_pull_mult				= 0.25	# Added
+		country_mass_migration_attraction_mult	= 0.25	# Added
+	}
+}

@@ -1,4 +1,4 @@
-﻿ig_industrialists = {
+﻿REPLACE:ig_industrialists = {
 	color = hsv{ 0.06 0.60 0.89 }
 	texture = "gfx/interface/icons/ig_icons/industrialists.dds"
 	layer = "revolution_dynamic_industrialists"
@@ -23,7 +23,7 @@
 		ig_trait_tax_avoidance
 	}
 	on_enable = {
-		ig:ig_industrialists = {
+		ig:ig_industrialists ?= {
 			if = {
 				limit = { owner = { c:JAP ?= this } }
 				set_ig_trait = ig_trait:ig_trait_zaibatsu_withdrawal
@@ -120,6 +120,28 @@
 				NOT = { has_variable = deported_americans }
 			}
 			cultures = { yankee dixie british hawaiian }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				NOT = { has_variable = je_philippines_main_reliance_happened }
+				NOT = { any_primary_culture = { cu:filipino = this } }
+				NOT = { any_primary_culture = { cu:filipino_hispanophone = this } }
+				any_primary_culture = { cu:spanish = this }
+			}
+			cultures = { spanish filipino_mestizo }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				any_primary_culture = {
+					AND = {
+						cu:spanish = this
+						cu:filipino_hispanophone = this
+					}
+				}
+			}
+			cultures = { spanish filipino_hispanophone }
 		}
 	}
 
@@ -299,7 +321,7 @@
 	monarch_weight = {
 		value = 1
 		if = {	# Monarch is not likely to adopt a marginal IG
-			limit = { is_marginal = yes }
+			limit = { ig_counts_as_marginal = yes }
 			multiply = { value = 0.1 }
 		}
 		if = {	# Monarch is more likely to adopt a Powerful IG
@@ -338,59 +360,71 @@
 	agitator_weight = {
 		value = 0.25	# Agitators more likely to come from populist IG's rather than elitist
 		if = {			# Agitators will never be part of a marginalized IG
-			limit = { owner.ig:ig_industrialists = { is_marginal = yes } }
+			limit = { owner.ig:ig_industrialists = { ig_counts_as_marginal = yes } }
 			multiply = { value = 0 }
 		}
 	}
 	commander_weight = { value = 0.5 }
+	executive_weight = { value = 5.0 }
 	noble_chance = { value = 0.3 }
 	female_commander_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.05 }
+			value = 0.05
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.2 }
+			value = 0.20
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.4 }
+			value = 0.50
+		}
+	}
+	female_executive_chance = {
+		value = 0.0
+		if = {
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
+			value = 0.05
+		}
+		else_if = {
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
+			value = 0.20
+		}
+		else_if = {
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
+			value = 0.50
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	female_agitator_chance = {
-		value = 0.0
-		if = {
-			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
-			add = { value = 0.05 }
-		}
+		value = 0.05
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes
@@ -399,7 +433,5 @@
 	}
 	# The chance that a executive belonging to this IG takes over leadership when it changes
 	# scope:character is the most popular executive in the IG
-	executive_leader_chance = {
-		value = 0.75
-	}
+	executive_leader_chance = { value = 0.75 }
 }

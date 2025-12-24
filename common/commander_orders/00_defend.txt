@@ -1,19 +1,19 @@
-﻿defend = {
-	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
-	military_type = army
-	behavior = defend
-	is_basic_order_type = yes
-	visible = { has_role = general }
-	possible = { has_role = general }
-	modifier = {
-		unit_defense_mult = 0.1
-	}
-	entity_animation = "defend"
-	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
-	experience = 0.1 # This much extra experience per week while executing Order
-	ai_weight = { value = 1 }
-}
-defend_dig_in = {
+﻿# defend = {	# For reference
+	# texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	# military_type = army
+	# behavior = defend
+	# is_basic_order_type = yes
+	# visible = { has_role = general }
+	# possible = { has_role = general }
+	# modifier = {
+		# unit_defense_mult = 0.1
+	# }
+	# entity_animation = "defend"
+	# clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	# experience = 0.1 # This much extra experience per week while executing Order
+	# ai_weight = { value = 1 }
+# }
+REPLACE:defend_dig_in = {
 	texture = "gfx/interface/icons/commander_order_icons/defend_dig_in.dds"
 	military_type = army
 	behavior = defend
@@ -39,7 +39,7 @@ defend_dig_in = {
 	experience = 0.1 # This much extra experience per week while executing Order
 	ai_weight = { value = 2 }
 }
-defend_desperate_charge = {
+REPLACE:defend_desperate_charge = {
 	texture = "gfx/interface/icons/commander_order_icons/defend_desperate_charge.dds"
 	military_type = army
 	behavior = defend
@@ -99,7 +99,7 @@ defend_desperate_charge = {
 	experience = 0.1 # This much extra experience per week while executing Order
 	ai_weight = { value = 2 }
 }
-defend_last_stand = {
+REPLACE:defend_last_stand = {
 	texture = "gfx/interface/icons/commander_order_icons/defend_last_stand.dds"
 	military_type = army
 	behavior = defend
@@ -121,7 +121,7 @@ defend_last_stand = {
 	experience = 0.1 # This much extra experience per week while executing Order
 	ai_weight = { value = 2 }
 }
-defend_guerilla_warfare = {
+REPLACE:defend_guerilla_warfare = {
 	texture = "gfx/interface/icons/commander_order_icons/defend_guerilla_warfare.dds"
 	military_type = army
 	behavior = defend
@@ -173,5 +173,5 @@ defend_guerilla_warfare = {
 	entity_animation = "defend"
 	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
 	experience = 0.1 # This much extra experience per week while executing Order
-	ai_weight = { value = 2 }
+	ai_weight = { value = 5 }
 }

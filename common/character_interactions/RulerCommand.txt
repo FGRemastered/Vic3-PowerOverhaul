@@ -1,5 +1,5 @@
 
-grant_command_to_ruler = {
+REPLACE:grant_command_to_ruler = {
 	icon = "gfx/interface/character_panel/grant_command.dds"
 	clicksound = "event:/SFX/UI/Military/command_grant"
 	potential = {
@@ -68,7 +68,7 @@ grant_command_to_ruler = {
 		}
 	}
 }
-remove_command_from_ruler = {
+REPLACE:remove_command_from_ruler = {
 	icon = "gfx/interface/character_panel/grant_command_not.dds"
 	clicksound = "event:/SFX/UI/Military/command_remove"
 	potential = {
@@ -104,7 +104,7 @@ remove_command_from_ruler = {
 		}
 	}
 }
-retire_commander = {
+REPLACE:retire_commander = {
 	# icon = ""
 	clicksound = "event:/SFX/UI/Military/commander_retire"
 	potential = {
@@ -233,7 +233,7 @@ retire_commander = {
 		}
 	}
 }
-grant_command_to_agitator = {
+REPLACE:grant_command_to_agitator = {
 	icon = "gfx/interface/character_panel/grant_command.dds"
 	clicksound = "event:/SFX/UI/Military/command_grant"
 	potential = {

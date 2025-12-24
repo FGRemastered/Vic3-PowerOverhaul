@@ -1,4 +1,4 @@
-pmg_base_building_skyscraper = {
+REPLACE_OR_CREATE:pmg_base_building_skyscraper = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -8,7 +8,7 @@ pmg_base_building_skyscraper = {
 		pm_switch_boards_skyscraper
 	}
 }
-pmg_government_administration_bureaucrat_professionalism = {
+REPLACE_OR_CREATE:pmg_government_administration_bureaucrat_professionalism = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -18,7 +18,7 @@ pmg_government_administration_bureaucrat_professionalism = {
 		pm_military_admininistration
 	}
 }
-pmg_government_administration_religious_administration = {
+REPLACE_OR_CREATE:pmg_government_administration_religious_administration = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -27,7 +27,7 @@ pmg_government_administration_religious_administration = {
 		pm_atheist_admininistration
 	}
 }
-pmg_skyscraper_bureaucrat_professionalism = {
+REPLACE_OR_CREATE:pmg_skyscraper_bureaucrat_professionalism = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -38,7 +38,7 @@ pmg_skyscraper_bureaucrat_professionalism = {
 		pm_military_admininistration_skyscraper
 	}
 }
-pmg_university_academia = {
+REPLACE_OR_CREATE:pmg_university_academia = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -47,7 +47,7 @@ pmg_university_academia = {
 		pm_independent_academia
 	}
 }
-pmg_secondary_building_power_bloc_statue = {
+REPLACE_OR_CREATE:pmg_secondary_building_power_bloc_statue = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
 	production_methods = {

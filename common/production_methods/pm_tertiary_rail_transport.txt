@@ -1,10 +1,10 @@
 # Train Automation
 # Default
-pm_road_carts = {
+REPLACE_OR_CREATE:pm_road_carts = {
 	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
 	ai_value = 500	# -500
 }
-pm_rail_transport = {
+REPLACE_OR_CREATE:pm_rail_transport = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	unlocking_technologies = { railways }
 	building_modifiers = {
@@ -17,7 +17,7 @@ pm_rail_transport = {
 	}
 	required_input_goods = transportation
 }
-pm_truck_transport = {
+REPLACE_OR_CREATE:pm_truck_transport = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -39,7 +39,7 @@ pm_truck_transport = {
 }
 # Misc Resources
 # Logging Camps
-pm_log_carts = {
+REPLACE_OR_CREATE:pm_log_carts = {
 	texture = "gfx/interface/icons/production_method_icons/log_carts.dds"
 	unlocking_technologies = { steel_railway_cars }
 	building_modifiers = {
@@ -52,7 +52,7 @@ pm_log_carts = {
 	}
 	required_input_goods = transportation
 }
-pm_log_trucks = {
+REPLACE_OR_CREATE:pm_log_trucks = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -73,7 +73,7 @@ pm_log_trucks = {
 	}
 }
 # Oil Rigs + Synth Oil Plants
-pm_tanker_cars = {
+REPLACE_OR_CREATE:pm_tanker_cars = {
 	texture = "gfx/interface/icons/production_method_icons/tanker_cars.dds"
 	unlocking_technologies = { steel_railway_cars }
 	building_modifiers = {
@@ -88,11 +88,11 @@ pm_tanker_cars = {
 	required_input_goods = transportation
 }
 # Refrigerated Transport
-pm_unrefrigerated = {
+REPLACE_OR_CREATE:pm_unrefrigerated = {
 	texture = "gfx/interface/icons/production_method_icons/no_refrigeration.dds"
 }
 # Livestock
-pm_refrigerated_storage_building_livestock_ranch = {
+REPLACE_OR_CREATE:pm_refrigerated_storage_building_livestock_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_storage.dds"
 	unlocking_technologies = { pasteurization }
 	building_modifiers = {
@@ -105,7 +105,7 @@ pm_refrigerated_storage_building_livestock_ranch = {
 	}
 	required_input_goods = electricity
 }
-pm_refrigerated_rail_cars_building_livestock_ranch = {
+REPLACE_OR_CREATE:pm_refrigerated_rail_cars_building_livestock_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
@@ -120,7 +120,7 @@ pm_refrigerated_rail_cars_building_livestock_ranch = {
 	required_input_goods = transportation
 	required_input_goods = electricity
 }
-pm_flash_freezing_building_livestock_ranch = {
+REPLACE_OR_CREATE:pm_flash_freezing_building_livestock_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/flash_refrigerated.dds"
 	unlocking_technologies = { flash_freezing }
 	building_modifiers = {
@@ -137,7 +137,7 @@ pm_flash_freezing_building_livestock_ranch = {
 }
 # Heavy Industry
 # Power plant
-pm_rail_transport_power_plant = {
+REPLACE_OR_CREATE:pm_rail_transport_power_plant = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { steel_railway_cars }
 	building_modifiers = {
@@ -151,7 +151,7 @@ pm_rail_transport_power_plant = {
 	required_input_goods = transportation
 }
 # Port
-pm_steam_rail_transport_port = {
+REPLACE_OR_CREATE:pm_steam_rail_transport_port = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	unlocking_technologies = { railways }
 	building_modifiers = {
@@ -172,7 +172,7 @@ pm_steam_rail_transport_port = {
 	}
 	required_input_goods = transportation
 }
-pm_electric_rail_transport_port = {
+REPLACE_OR_CREATE:pm_electric_rail_transport_port = {
 	texture = "gfx/interface/icons/production_method_icons/unused/electric_rail_transport.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
@@ -193,7 +193,7 @@ pm_electric_rail_transport_port = {
 	required_input_goods = transportation
 	required_input_goods = electricity
 }
-pm_modern_port_rail_transport = {
+REPLACE_OR_CREATE:pm_modern_port_rail_transport = {
 	texture = "gfx/interface/icons/production_method_icons/refrigerated_rail_cars.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -221,7 +221,7 @@ pm_modern_port_rail_transport = {
 	required_input_goods = electricity
 }
 # Construction
-pm_rail_transport_construction = {
+REPLACE_OR_CREATE:pm_rail_transport_construction = {
 	texture = "gfx/interface/icons/production_method_icons/rail_transport.dds"
 	unlocking_technologies = { steel_railway_cars }
 	building_modifiers = {

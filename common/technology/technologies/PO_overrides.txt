@@ -1,104 +1,45 @@
 # Production
-sericulture = {
-	# Unlocks Mulberry Groves PM on Rice Farms
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
-	category = production
-	can_research = no
+INJECT:sericulture = {
 	modifier = {
-		building_silk_plantation_throughput_add				= 0.25
 		building_silk_greenhouse_throughput_add				= 0.25	# Added
 	}
-	ai_weight = { value = 1 }
 }
-cotton_gin = {
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
-	category = production
+INJECT:cotton_gin = {
 	modifier = {
-		building_cotton_plantation_throughput_add			= 0.25
 		building_cotton_greenhouse_throughput_add			= 0.25	# Added
 	}
-	unlocking_technologies = { manufacturies }
-	ai_weight = { value = 1 }
 }
-chemical_bleaching = {
-	# Unlocks Bone China PM in Glassworks
-	# Unlocks Sulfite Pulping PM in Paper Mills
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/chemical_bleaching.dds"
-	category = production
-	unlocking_technologies = { crystal_glass }
+INJECT:chemical_bleaching = {
 	on_researched = {	# Added - Makes AI forget that it can make more otherwise, and causes an unnatural hike in prices
 		every_scope_state = {
 			limit = { any_scope_building = { is_building_type = building_glassworks has_active_production_method = pm_ceramics_priority } }
 			activate_production_method = { building_type = building_glassworks	production_method = pm_bone_china }
 		}
 	}
-	ai_weight = { value = 1 }
 }
-reinforced_concrete = {	# +15% construction throughput
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/reinforced_concrete.dds"
-	category = production
+INJECT:reinforced_concrete = {
 	modifier = {
-		building_construction_sector_throughput_add			= 0.15
 		state_building_construction_sector_max_level_add	= 5		# Added
 	}
-	unlocking_technologies = { bessemer_process }
-	ai_weight = { value = 1.5 }
 }
-shift_work = {
+INJECT:shift_work = {
 	era = era_4	# Changed
-	texture = "gfx/interface/icons/invention_icons/shift_work.dds"
-	category = production
-	modifier = {
-		building_economy_of_scale_level_cap_add				= 20
-	}
 	unlocking_technologies = {
-		mechanized_workshops
 		electrical_generation	# Added - Makes little sense before electric light
 	}
-	ai_weight = { value = 1 }
 }
-pneumatic_tools = {
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/pneumatic_tools.dds"
-	category = production
+INJECT:pneumatic_tools = {
 	modifier = {
-		building_construction_sector_throughput_add		= 0.10	# +15% construction throughput
-		# goods_output_hardwood_mult					= 0.25	# Removed
-		country_resource_discovery_chance_mult			= 0.25	# Countries get a +25% chance of discovering new resources
+		goods_output_hardwood_mult						=-0.25	# Removed
 		building_group_bg_heavy_industry_throughput_add	= 0.10	# Added
 	}
-	unlocking_technologies = {	
-		rotary_valve_engine
-		reinforced_concrete
-	}
-	ai_weight = { value = 1 }
 }
-mechanized_farming = {	# Unlocks Tractors PM
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
-	category = production
+INJECT:mechanized_farming = {
 	unlocking_technologies = {	
-		threshing_machine
 		nitrogen_fixation
 	}
-	ai_weight = {
-		value = 1
-		if = {
-			limit = { 
-				OR = {
-					has_strategy = ai_strategy_agricultural_expansion 
-					has_strategy = ai_strategy_plantation_economy
-				}
-			}
-			add = 1
-		}	
-	}
 }
-telephone = {	# Unlocks Electrics Industry building
+REPLACE:telephone = {	# Unlocks Electrics Industry building
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/telephone.dds"
 	category = production
@@ -111,111 +52,59 @@ telephone = {	# Unlocks Electrics Industry building
 	}
 	ai_weight = { value = 1 }
 }
-automatic_bottle_blowers = {	# Unlocks the Automatic Bottle Blowers PM in Glassworks
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/automatic_bottle_blowers.dds"
-	category = production
+INJECT:automatic_bottle_blowers = {
 	unlocking_technologies = {
 		shift_work	# Added
-		vulcanization
 	}
-	ai_weight = { value = 1 }
 }
-dough_rollers = {	# Unlocks the Automated Bakery PM in Food Industries
+INJECT:dough_rollers = {
 	era = era_4		# Changed
-	texture = "gfx/interface/icons/invention_icons/rollers.dds"
-	category = production
 	unlocking_technologies = {
-		conveyors
-		automatic_bottle_blowers
+		automatic_bottle_blowers	# Added
 	}
-	ai_weight = { value = 1 }
 }
-arc_welding = {
-	# Unlocks Arc Welding PM for Shipbuilding in Shipyards and Construction
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
-	category = production
-	unlocking_technologies = {
-		electric_arc_process
-		pneumatic_tools
-	}
+INJECT:arc_welding = {
 	modifier = {
 		building_group_bg_heavy_industry_throughput_add		= 0.15	# Added
 		country_max_weekly_construction_progress_add		=   10	# Added
 	}
-	ai_weight = { value = 1 }
 }
 # Military
-line_infantry = {	# Unlocks Line Infantry PM in Barracks
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/line_infantry.dds"
-	category = military
+INJECT:line_infantry = {
 	unlocking_technologies = {
-		mandatory_service
 		gunsmithing				# Added
-		military_drill
 	}
-	ai_weight = { value = 2 }	# Important tech in general
 }
-shell_gun = {	# Unlocks Explosive Shell Artillery Production PM in Arms Industries
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
-	category = military
+INJECT:shell_gun = {
 	unlocking_technologies = {
-		artillery
 		percussion_cap	# Same as Rifling
 	}
-	ai_weight = { value = 1 }
 }
-floating_harbor = {	# Increases Port Level by 4
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
-	category = military
+INJECT:floating_harbor = {
 	unlocking_technologies = {
-		gantry_cranes
 		ironclad_tech	# Added to avoid getting ironclads too late
 	}
-	ai_weight = { value = 1 if = { limit = { navy_size >= 5 } add = 0.5 } }	# Important for anyone with a navy
 }
-military_statistics = {
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
-	category = military
+INJECT:military_statistics = {
 	modifier = {
-		military_formation_organization_gain_mult = 0.25	# Increased
+		military_formation_organization_gain_mult = 0.05	# Increased
 	}
-	unlocking_technologies = {	
-		electric_telegraph
-		general_staff
+	unlocking_technologies = {
 		modern_nursing
 		enlistment_offices
 	}
-	ai_weight = { value = 1 }
 }
-trench_works = {	# Unlocks Officer Training PM in Barracks and Trench Infantry
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/trench_works.dds"
-	category = military
+INJECT:trench_works = {	# Might have to change this back to REPLACE
 	unlocking_technologies = {
 		military_statistics		# Changed
 	}
-	ai_weight = { value = 2 }	# Important tech in general
 }
-defense_in_depth = {	# Increases defense
-	# Unlock Delay Order?
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/defense_in_depth.dds"
-	category = military
-	modifier = { unit_army_defense_mult = 0.1 }	# defensive bonus, either to the army or ideally to fortifications
-	unlocking_technologies = {	
-		trench_works
+INJECT:defense_in_depth = {
+	unlocking_technologies = {
 		wargaming	# Added
-		handcranked_machine_gun
 	}
-	ai_weight = { value = 2 }	# Important tech in general
 }
-nco_training = {	# Unlocks Advanced Officer Training PM in Barracks
+REPLACE:nco_training = {	# Unlocks Advanced Officer Training PM in Barracks
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/nco_training.dds"
 	category = military
@@ -224,7 +113,7 @@ nco_training = {	# Unlocks Advanced Officer Training PM in Barracks
 	}
 	ai_weight = { value = 2 }	# Important tech in general
 }
-stormtroopers = {	# Unlocks Infiltrators
+REPLACE:stormtroopers = {	# Unlocks Infiltrators
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
 	category = military
@@ -242,47 +131,30 @@ stormtroopers = {	# Unlocks Infiltrators
 	# }
 	ai_weight = { value = 1 }
 }
-flamethrowers = {	# Increases kill rate (lowers opponent survival rate)
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/flamethrowers.dds"
-	category = military
+INJECT:flamethrowers = {
 	unlocking_technologies = {
 		defense_in_depth	# Changed
-		stormtroopers		# Changed
+		# stormtroopers		# Changed
 	}
-	# modifier = {	# Moved to unit
-		# unit_kill_rate_add = 0.05
-	# }
-	ai_weight = { value = 1 }
+	modifier = {	# Moved to unit
+		unit_kill_rate_add =-0.05
+	}
 }
-chemical_warfare = {	# Unlocks Chemical Warfare
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/chemical_warfare.dds"
-	category = military
+INJECT:chemical_warfare = {
 	unlocking_technologies = {
 		defense_in_depth	# Changed
-		stormtroopers		# Changed
+		# stormtroopers		# Changed
 	}
-	ai_weight = { value = 1 }
 }
-battleship_tech = {	# Unlocks Battleships PM in Naval Bases
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/battleship_tech.dds"
-	category = military
-	unlocking_technologies = { dreadnought }
+INJECT:battleship_tech = {
 	modifier = {											# Added
 		unit_combat_unit_type_carrier_offense_add	= 30	# 150 total
 		unit_combat_unit_type_carrier_defense_add	= 15	#  75 total
 	}
-	ai_weight = { value = 1 if = { limit = { navy_size >= 20 } add = 0.5 } }	# Important for naval powers
 }
 # Society
-stock_exchange = {
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
-	category = society
+INJECT:stock_exchange = {
 	modifier = {
-		state_market_access_price_impact					= 0.10
 		# state_engineers_investment_pool_contribution_add	= 0.05	# Removed - Now base game
 		state_academics_investment_pool_contribution_add	= 0.05	# Added
 		state_officers_investment_pool_contribution_add		= 0.05	# Added
@@ -290,75 +162,24 @@ stock_exchange = {
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
 	}
-	unlocking_technologies = { international_trade }
-	ai_weight = { value = 1 }
 }
-empiricism = {
-	# Unlocks Total Separation - Church and State Law
-	era = era_1
-	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
-	category = society
-	modifier = {
-		country_influence_mult							=  0.25
-		country_diplomatic_play_maneuvers_add			= 10
-		country_institution_schools_max_investment_add	=  1
-		state_education_access_wealth_add				=  0.005
-	}
-	unlocking_technologies = { academia }
+INJECT:empiricism = {
 	on_researched = { effect_modern_hierarchic = yes }			# Added
-	ai_weight = { value = 1.5 }	# Important in general
 }
-realism = {	# Unlocks Realist Art PM in Art Academies
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/realism.dds"
-	category = society
-	modifier = {
-		country_prestige_mult								= 0.05
-	}
+INJECT:realism = {
 	on_researched = { create_political_movement = { type = movement_nihilist } }	# Added
-	unlocking_technologies = { romanticism empiricism }	# Added
-	ai_weight = { value = 1 }
+	unlocking_technologies = { empiricism }	# Added
 }
-egalitarianism = {	# Unchanged, but left here since it likely is going to change at some point
-	era = era_2		# Unlocks Universal Suffrage, Proportional Taxation and enables the Radical Ideology
-	texture = "gfx/interface/icons/invention_icons/egalitarianism.dds"
-	category = society
+INJECT:postal_savings = {
 	modifier = {
-		state_expected_sol_from_literacy						= 1
-		country_institution_social_security_max_investment_add	= 1	
-	}
-	unlocking_technologies = { democracy }
-	ai_weight = {
-		value = 1
-		if = { limit = { has_strategy = ai_strategy_progressive_agenda }	add = 2 }	
-		if = { limit = { trigger_backwards_agenda = yes }					add =-0.5 }	
-	}
-}
-postal_savings = {
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/postal_savings.dds"
-	category = society
-	modifier = {
-		state_farmers_investment_pool_efficiency_mult		= 0.15
-		state_shopkeepers_investment_pool_efficiency_mult	= 0.15
-		state_bureaucrats_investment_pool_efficiency_mult	= 0.15
-		state_machinists_investment_pool_efficiency_mult	= 0.15
-		state_engineers_investment_pool_efficiency_mult		= 0.25	# Increased
-		building_cash_reserves_mult							= 0.25	# Increased
+		state_engineers_investment_pool_efficiency_mult		= 0.10	# Increased
+		building_cash_reserves_mult							= 0.05	# Increased
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
 	}
-	unlocking_technologies = { stock_exchange }
-	ai_weight = { value = 1 }
 }
-mutual_funds = {
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/mutual_funds.dds"
-	category = society
+INJECT:mutual_funds = {
 	modifier = {
-		country_minting_mult								= 0.10
-		country_loan_interest_rate_add						=-0.02
-		state_max_trade_advantage_from_capacity_add			= 0.05
 		state_engineers_investment_pool_contribution_add	= 0.05	# Added
 		state_academics_investment_pool_contribution_add	= 0.05	# Added
 		state_officers_investment_pool_contribution_add		= 0.05	# Added
@@ -368,51 +189,21 @@ mutual_funds = {
 		building_nationalization_radicals_mult				=-0.25	# Added
 		building_nationalization_cost_mult					=-0.25	# Added
 	}
-	unlocking_technologies = {
-		central_banking
-		postal_savings
+}
+INJECT:elevator = {
+	modifier = {
+		state_building_construction_sector_max_level_add	=    5	# Increased
 	}
-	ai_weight = { value = 1 }
 }
-elevator = {	# Unlocks Arcades PM in Urban Center
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/elevator.dds"
-	category = society
+INJECT:international_exchange_standards = {
 	modifier = {
-		state_infrastructure_from_population_add			= 1
-		state_infrastructure_from_population_max_add		= 20
-		state_building_construction_sector_max_level_add	= 10	# Increased
-		country_max_weekly_construction_progress_add		= 5
-	}	
-	unlocking_technologies = { steel_frame_buildings }
-	ai_weight = { value = 1.5 }	# Important in general
-}
-international_exchange_standards = {
-	# #todo#! Does nothing at the moment
-	# Should increase trade power maybe
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/international_exchange_standards.dds"
-	category = society
-	modifier = {
-		country_minting_mult								= 0.10
-		country_loan_interest_rate_add						=-0.02
-		state_max_trade_advantage_from_capacity_add			= 0.05
 		state_engineers_investment_pool_efficiency_mult		= 0.25	# Added
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
 	}
-	unlocking_technologies = { mutual_funds }
-	ai_weight = { value = 1 }
 }
-paved_roads = {
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
-	category = society
-	should_update_map = yes # This technology adds paved roads to the map
+INJECT:paved_roads = {
 	modifier = {
-		state_infrastructure_from_automobiles_consumption_add	= 0.25
 		state_building_construction_sector_max_level_add		= 10	# Added
 	}
-	unlocking_technologies = { elevator }
-	ai_weight = { value = 2 }	# Important for those nice-looking roads!
 }

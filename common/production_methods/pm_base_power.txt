@@ -1,5 +1,5 @@
 # Power
-pm_hydroelectric_plant = {
+REPLACE_OR_CREATE:pm_hydroelectric_plant = {
 	texture = "gfx/interface/icons/production_method_icons/hydroelectric_plant.dds"
 	unlocking_laws = { law_traditionalism law_agrarianism law_industry_banned law_cooperative_ownership }
 	building_modifiers = {
@@ -14,10 +14,11 @@ pm_hydroelectric_plant = {
 		}												#		=  -19	(-9)	=> Stops breaking even at SoL 23 13/19	(33 1/3)
 	}
 }
-pm_early_power_plant = {
+REPLACE_OR_CREATE:pm_early_power_plant = {
 	texture = "gfx/interface/icons/production_method_icons/power_plant.dds"
 	disallowing_laws = { law_industry_banned }	# No fun allowed
 	is_default = yes
+	replacement_if_valid = pm_coal-fired_plant
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_engines_add				=    5	# x-60	= -300
@@ -32,7 +33,7 @@ pm_early_power_plant = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 30 } }
 }
-pm_coal-fired_plant = {
+REPLACE_OR_CREATE:pm_coal-fired_plant = {
 	texture = "gfx/interface/icons/production_method_icons/coal_fired_plant.dds"
 	unlocking_technologies = { steam_turbine }
 	disallowing_laws = { law_industry_banned }	# No fun allowed
@@ -50,7 +51,7 @@ pm_coal-fired_plant = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 50 } }
 }
-pm_oil-fired_plant = {
+REPLACE_OR_CREATE:pm_oil-fired_plant = {
 	texture = "gfx/interface/icons/production_method_icons/oil_fired_plant.dds"
 	unlocking_technologies = { oil_turbine }
 	disallowing_laws = { law_industry_banned }	# No fun allowed

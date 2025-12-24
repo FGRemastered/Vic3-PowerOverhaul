@@ -1,0 +1,63 @@
+﻿INJECT:law_serfdom = {
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult			=-0.25	# Removed
+		country_aristocrats_pol_str_mult					= 0.25	# Added
+	}
+}
+INJECT:law_manorialism = {
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult			=-0.15	# Removed
+		country_aristocrats_pol_str_mult					= 0.15	# Added
+		# state_peasants_internal_migration_disallowed_bool	= yes	# Added back
+		# state_peasants_mass_migration_disallowed_bool		= yes	# Added back
+	}
+}
+INJECT:law_tenant_farmers = {
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult			=-0.25	# Removed
+		country_aristocrats_pol_str_mult					= 0.25	# Added
+	}
+	ai_enact_weight_modifier = {	# Petitions
+		value = 0
+		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {
+			limit = {
+				OR = { has_journal_entry = je_meiji_main has_journal_entry = je_great_reforms_serfdom }
+				has_law_or_variant = law_type:law_serfdom
+			}
+			add = 10000	# Top priority for Meiji AI is to get out of Serfdom, likewise for Great Reforms
+		}
+		if = {	# AI should really try to get out of Serfdom under the right circumstances
+			limit = {
+				has_law_or_variant = law_type:law_serfdom
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { law_enactment_stance = { law = law_type:law_tenant_farmers value > neutral } political_movement_support >= 0.10 }
+				}
+			}
+			add = 1000
+		}
+	}
+}
+INJECT:law_commercialized_agriculture = {
+	modifier = {
+		state_political_strength_from_wealth_mult							= 0.25	# Added
+		building_group_bg_agriculture_throughput_add						= 0.10	# Added
+		building_group_bg_ranching_throughput_add							= 0.10	# Added
+		building_group_bg_plantations_throughput_add						= 0.10	# Added
+	}
+}
+INJECT:law_homesteading = {
+	modifier = {
+		country_farmers_pol_str_mult										= 0.25	# Increased
+		building_group_bg_agriculture_throughput_add						= 0.10	# Added
+		building_group_bg_ranching_throughput_add							= 0.10	# Added
+		building_group_bg_plantations_throughput_add						= 0.10	# Added
+	}
+}
+INJECT:law_collectivized_agriculture = {
+	modifier = {
+		country_bureaucrats_pol_str_mult									= 0.25	# Moved from law_command_economy
+	}
+}

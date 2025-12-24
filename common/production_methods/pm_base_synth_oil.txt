@@ -1,5 +1,5 @@
 ﻿###################	Oil	###################
-pm_coal_gasification = {							# Inefficient, but better than nothing
+REPLACE_OR_CREATE:pm_coal_gasification = {							# Inefficient, but better than nothing
 	texture = "gfx/interface/icons/production_method_icons/gas_streetlights.dds"
 	# replacement_if_valid = pm_synth_oil_production
 	# unlocking_technologies = { distillation }		# Making oil from coal is surprisingly easy
@@ -29,7 +29,7 @@ pm_coal_gasification = {							# Inefficient, but better than nothing
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_synth_oil_production = {
+REPLACE_OR_CREATE:pm_synth_oil_production = {
 	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
 	# unlocking_technologies = { electrical_generation }	# No more advanced than its predecessor, just with a different power source
 	building_modifiers = {
@@ -58,7 +58,7 @@ pm_synth_oil_production = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity	# Replaces electrical_generation tech requirement
 }
-pm_improved_synth_oil_production = {
+REPLACE_OR_CREATE:pm_improved_synth_oil_production = {
 	texture = "gfx/interface/icons/production_method_icons/nitrogen_fixation.dds"
 	unlocking_technologies = { nitrogen_fixation }						# Advancements in chemistry make this easier
 	disallowing_laws = { law_industry_banned law_extraction_economy }	# No fun allowed
@@ -92,7 +92,7 @@ pm_improved_synth_oil_production = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
 }
-pm_advanced_synth_oil_production = {
+REPLACE_OR_CREATE:pm_advanced_synth_oil_production = {
 	texture = "gfx/interface/icons/production_method_icons/electric_arc_process.dds"
 	unlocking_technologies = { chemical_warfare }						# Ze Warmachine requires fuel!
 	disallowing_laws = { law_industry_banned law_extraction_economy }	# No fun allowed
@@ -128,12 +128,12 @@ pm_advanced_synth_oil_production = {
 	required_input_goods = electricity
 }
 ##################	Rubber	##################
-pm_no_synth_rubber = {	# No Rubber?!
+REPLACE_OR_CREATE:pm_no_synth_rubber = {	# No Rubber?!
 	texture = "gfx/interface/icons/production_method_icons/no_artificial_silk.dds"
 	ai_value = 0
 }
 # Regular
-pm_synth_rubber_production = {
+REPLACE_OR_CREATE:pm_synth_rubber_production = {
 	texture = "gfx/interface/icons/production_method_icons/rayon.dds"
 	unlocking_technologies = { plastics }	# Requires advanced Oil processing knowledge
 	building_modifiers = {
@@ -147,7 +147,7 @@ pm_synth_rubber_production = {
 	}
 	ai_value = 1000
 }
-pm_synth_rubber_focus = {
+REPLACE_OR_CREATE:pm_synth_rubber_focus = {
 	texture = "gfx/interface/icons/production_method_icons/elastics.dds"
 	unlocking_technologies = { plastics }
 	building_modifiers = {
@@ -161,7 +161,7 @@ pm_synth_rubber_focus = {
 	}
 	ai_value = 1000
 }
-pm_synth_rubber_priority = {
+REPLACE_OR_CREATE:pm_synth_rubber_priority = {
 	texture = "gfx/interface/icons/production_method_icons/elastics2.dds"
 	unlocking_technologies = { plastics }
 	building_modifiers = {
@@ -175,7 +175,7 @@ pm_synth_rubber_priority = {
 	}
 	ai_value = 1000
 }
-pm_synth_rubber_only = {
+REPLACE_OR_CREATE:pm_synth_rubber_only = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation_secondary.dds"
 	unlocking_technologies = { plastics }
 	building_modifiers = {

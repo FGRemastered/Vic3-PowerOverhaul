@@ -1,0 +1,13 @@
+﻿
+INJECT:law_appointed_bureaucrats = {
+	modifier = {
+		country_bureaucracy_mult			= 0.25	# Added
+	}
+}
+INJECT:law_elected_bureaucrats = {
+	unlocking_technologies = { democracy }
+	disallowing_laws = {	# Why though?
+		law_autocracy 
+		law_oligarchy
+	}
+}

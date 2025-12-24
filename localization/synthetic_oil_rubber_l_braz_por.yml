@@ -1,8 +1,8 @@
 ﻿l_braz_por:
- building_synthetic_oil_plants: "Synthetic Oil Plants"
- building_synthetic_oil_plants_lens_option: "Expand $building_synthetic_oil_plants$"
+ building_synthetic_oil_plant: "Synthetic Oil Plants"
+ building_synthetic_oil_plant_lens_option: "Expand $building_synthetic_oil_plant$"
  
- pmg_base_building_synthetic_oil_plants: "Synthetic Oil"
+ pmg_base_building_synthetic_oil_plant: "Synthetic Oil"
  pm_coal_gasification: "Coal Gasification"
  pm_synth_oil_production: "Synthetic Oil Production"
  pm_improved_synth_oil_production: "Improved Synthetic Oil Production"

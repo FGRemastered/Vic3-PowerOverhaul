@@ -1,4 +1,4 @@
-﻿building_suez_canal = {
+﻿REPLACE:building_suez_canal = {
 	building_group = bg_canals
 	icon = "gfx/interface/icons/building_icons/suez_canal.dds"
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
@@ -38,7 +38,7 @@
 	}
 	ownership_type = self	# Added
 }
-building_panama_canal = {
+REPLACE:building_panama_canal = {
 	building_group = bg_canals
 	icon = "gfx/interface/icons/building_icons/panama_canal.dds"
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"

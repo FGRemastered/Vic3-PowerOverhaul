@@ -1,4 +1,4 @@
-colonial_zanj = {
+REPLACE_OR_CREATE:colonial_zanj = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "blue"
@@ -16,7 +16,7 @@ colonial_zanj = {
 		instance = { scale = { 0.45 0.45 } position = { 0.75 0.5 } }
 	}
 }
-colonial_ethiopia = {
+REPLACE_OR_CREATE:colonial_ethiopia = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "blue"
@@ -27,7 +27,7 @@ colonial_ethiopia = {
 		instance = { position = { 1 0.5 } }
 	}
 }
-colonial_southern_africa = {
+REPLACE_OR_CREATE:colonial_southern_africa = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "red"
@@ -51,7 +51,7 @@ colonial_southern_africa = {
 		instance = { scale = { 0.35 0.35 } position = { 0.75 0.5 } }				
 	}
 }
-colonial_congo = {
+REPLACE_OR_CREATE:colonial_congo = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "blue"
@@ -61,7 +61,7 @@ colonial_congo = {
 		instance = { scale = { 0.5 0.5 } position = { 0.70 0.5 } }
 	}
 }
-colonial_niger = {
+REPLACE_OR_CREATE:colonial_niger = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "blue"
@@ -78,7 +78,7 @@ colonial_niger = {
 		instance = { scale = { 0.55 0.55 } position = { 0.75 0.5 } }				
 	}
 }
-colonial_senegal = {
+REPLACE_OR_CREATE:colonial_senegal = {
 	pattern = "pattern_solid.tga"
 	color1 = "yellow"
 	color2 = "yellow"
@@ -91,7 +91,7 @@ colonial_senegal = {
 	}
 }
 # New
-colonial_indochina = {
+REPLACE_OR_CREATE:colonial_indochina = {
 	pattern = "pattern_solid.tga"
 	color1 = "yellow"
 	color2 = "yellow"

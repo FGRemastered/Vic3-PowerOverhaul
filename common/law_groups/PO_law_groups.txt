@@ -1,0 +1,4 @@
+﻿
+INJECT:lawgroup_economic_system = {
+	affected_by_regime_change = yes	# Added - Breaks with Anarchy otherwise
+}

@@ -1,4 +1,4 @@
-﻿ig_devout = {
+﻿REPLACE:ig_devout = {
 	color = hsv{ 0.50 0.30 0.67 }
 	texture = "gfx/interface/icons/ig_icons/devout.dds"
 	layer = "revolution_dynamic_devout"
@@ -73,6 +73,7 @@
 						OR = {
 							country_has_state_religion = rel:sunni
 							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
 						}
 						NOT = { c:TUR ?= this }
 					}
@@ -105,7 +106,7 @@
 				country_has_state_religion = rel:mahayana
 				country_has_primary_culture = cu:japanese
 			}
-			ig:ig_devout = {
+			ig:ig_devout ?= {
 				set_interest_group_name = ig_buddhist_monks
 				remove_ideology = ideology_moralist
 				add_ideology = ideology_buddhist_moralist
@@ -116,7 +117,7 @@
 				country_has_state_religion = rel:shinto
 				country_has_primary_culture = cu:japanese
 			}
-			ig:ig_devout = {
+			ig:ig_devout ?= {
 				set_interest_group_name = ig_shinto_monks
 				remove_ideology = ideology_moralist
 				add_ideology = ideology_shinto_moralist
@@ -127,8 +128,21 @@
 				country_has_state_religion = rel:protestant
 				country_has_primary_culture = cu:hawaiian
 			}
-			ig:ig_devout = {
+			ig:ig_devout ?= {
 				set_interest_group_name = ig_christian_missionaries
+				add_ideology = ideology_laissez_faire
+			}
+		}
+		else_if = {	# London Missionary Society (in South Africa)
+			limit = {
+				country_has_state_religion = rel:protestant
+				OR = {
+					c:WBL ?= this
+					c:PHL ?= this
+				}
+			}
+			ig:ig_devout = {
+				set_interest_group_name = ig_london_missionary_society
 				add_ideology = ideology_laissez_faire
 			}
 		}
@@ -209,7 +223,7 @@
 					country_has_primary_culture = cu:cherokee
 				}
 			}
-			ig:ig_devout = { set_interest_group_name = ig_evangelicals }
+			ig:ig_devout ?= { set_interest_group_name = ig_evangelicals }
 		}
 		else_if = {		# Roman Curia
 			limit = { c:PAP ?= this }
@@ -251,7 +265,7 @@
 		}
 		else_if = {		# Oriental Orthodox Church
 			limit = { country_has_state_religion = rel:oriental_orthodox }
-			ig:ig_devout = { 
+			ig:ig_devout ?= { 
 				set_interest_group_name = ig_oriental_orthodox_church
 				remove_ideology = ideology_patriarchal
 				add_ideology = ideology_oriental_orthodox_patriarch
@@ -267,7 +281,7 @@
 					ROOT = c:MON
 				}
 			}
-			ig:ig_devout = { 
+			ig:ig_devout ?= { 
 				set_interest_group_name = ig_orthodox_church
 				remove_ideology = ideology_patriarchal
 				add_ideology = ideology_orthodox_patriarch
@@ -288,7 +302,7 @@
 		}
 		else_if = {		# Hindu Priesthood
 			limit = { OR = { country_has_state_religion = rel:hindu c:BIC ?= this } }
-			ig:ig_devout = {
+			ig:ig_devout ?= {
 				set_interest_group_name = ig_hindu_priesthood
 				if = {
 					limit = { owner = { c:BIC ?= this } }
@@ -335,7 +349,7 @@
 		}
 		if = {	### Corporatism
 			limit = { has_technology_researched = corporatism }
-			ig:ig_devout = { remove_ideology = ideology_pious add_ideology = ideology_corporatist }
+			ig:ig_devout ?= { remove_ideology = ideology_pious add_ideology = ideology_corporatist }
 		}
 	}
 	on_disable = {}
@@ -361,25 +375,58 @@
 			}
 			cultures = { yankee dixie british hawaiian }
 		}
+		rule = {
+			trigger = {
+				country_has_state_religion = rel:protestant
+				OR = {
+					c:WBL ?= this
+					c:PHL ?= this
+				}
+				c:GBR ?= { country_rank >= rank_value:major_power }
+			}
+			cultures = { british scottish }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				NOT = { has_variable = je_philippines_main_reliance_happened }
+				NOT = { any_primary_culture = { cu:filipino = this } }
+				NOT = { any_primary_culture = { cu:filipino_hispanophone = this } }
+				any_primary_culture = { cu:spanish = this }
+			}
+			cultures = { spanish filipino_mestizo }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				any_primary_culture = {
+					AND = {
+						cu:spanish = this
+						cu:filipino_hispanophone = this
+					}
+				}
+			}
+			cultures = { spanish filipino_hispanophone }
+		}
 	}
 	on_character_ig_membership = {
 		if = {
-			limit = { owner = { c:BIC ?= this } }
+			limit = { OWNER = { c:BIC ?= this } }
 			change_character_religion = rel:hindu
 		}
 		else_if = {
-			limit = { owner = { c:ZAN ?= this } }
+			limit = { OWNER = { c:ZAN ?= this } }
 			change_character_religion = rel:sunni
 		}
 		else_if = {
-			limit = { owner = { c:JAP ?= this has_variable = meiji_restoration_complete } }
+			limit = { OWNER = { c:JAP ?= this has_variable = meiji_restoration_complete } }
 			change_character_religion = rel:shinto
 		}
-		else_if = {
-			limit = { OWNER = { NOT = { has_law_or_variant = law_type:law_state_atheism } } }
-			change_character_religion = scope:interest_group.owner.religion
+		else_if = {	# Atheism - Flipped this and the else
+			limit = { OWNER = { has_law_or_variant = law_type:law_state_atheism } }
+			change_character_religion = scope:interest_group.owner.country_definition.religion
 		}
-		else = { change_character_religion = scope:interest_group.owner.country_definition.religion }
+		else = { change_character_religion = scope:interest_group.owner.religion }
 	}
 	pop_potential = {
 		OR = {
@@ -484,7 +531,7 @@
 	monarch_weight = {
 		value = 1.0
 		if = {	# Monarch is not likely to adopt a marginal IG
-			limit = { is_marginal = yes }
+			limit = { ig_counts_as_marginal = yes }
 			multiply = { value = 0.1 }
 		}
 		if = {	# Monarch is more likely to adopt a Powerful IG
@@ -509,6 +556,7 @@
 				OR = {
 					owner.religion = rel:sunni
 					owner.religion = rel:shiite
+					owner.religion = rel:ibadi
 					owner.religion = rel:theravada
 				}
 			}
@@ -517,60 +565,85 @@
 	}
 	agitator_weight = {	# Agitators more likely to come from populist IG's rather than elitist
 		value = 0.5
-			if = {		# Agitators will never be part of a marginalized IG
-			limit = { owner.ig:ig_devout = { is_marginal = yes } }
+		if = {		# Agitators will never be part of a marginalized IG
+			limit = { owner.ig:ig_devout = { ig_counts_as_marginal = yes } }
 			multiply = { value = 0 }
 		}
 	}
 	commander_weight = { value = 1.0 }
+	executive_weight = {
+		value = 1.0
+		if = {	# The company owning BIC should not get non-industrialist executives
+			limit = {
+				exists = scope:company
+				exists = c:BIC
+				c:BIC ?= {
+					exists = owning_company
+					owning_company = scope:company
+				}
+			}
+			multiply = { value = 0 }
+		}
+	}
 	noble_chance = { value = 0.5 }
 	female_commander_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.05 }
+			value = 0.05
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.2 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.4 }
+			value = 0.25
+		}
+	}
+	female_executive_chance = {
+		value = 0.0
+		if = {
+			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
+			value = 0.05
+		}
+		else_if = {
+			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
+			value = 0.10
+		}
+		else_if = {
+			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
+			value = 0.25
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.05 }	# Devout are backwards
+			value = 0.05	# Devout are backwards
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.20
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.40
 		}
 	}
 	female_agitator_chance = {
-		value = 0.0
-		if = {
-			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
-			add = { value = 0.05 }
-		}
+		value = 0.05	# Jeanne d'Arc
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.20
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.40
 		}
 	}
 	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes
@@ -579,7 +652,5 @@
 	}
 	# The chance that a executive belonging to this IG takes over leadership when it changes
 	# scope:character is the most popular executive in the IG
-	executive_leader_chance = {
-		value = 0.25
-	}
+	executive_leader_chance = { value = 0.25 }
 }

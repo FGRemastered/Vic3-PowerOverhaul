@@ -553,13 +553,13 @@ effect_CHI_army = {
 	if = {
 		limit = {
 			any_scope_state = {
-				any_scope_building = { is_building_type = building_barracks }
-				b:building_barracks = { level < 50 }
+				any_scope_building = { is_building_type = building_barrack }
+				b:building_barrack = { level < 50 }
 			}
 		}
 		custom_tooltip = {
 			text = effect_delete_less_than_50_barracks.tt
-			every_scope_state = { remove_building = building_barracks }
+			every_scope_state = { remove_building = building_barrack }
 		}
 	}
 	effect_CHI_capital_army		= yes
@@ -681,15 +681,15 @@ effect_north_china_army = {
 				any_scope_state = {
 					owner = ROOT
 					OR = {
-						any_scope_building = { is_building_type = building_barracks level < 50 }
-						NOT = { exists = b:building_barracks }
+						any_scope_building = { is_building_type = building_barrack level < 50 }
+						NOT = { exists = b:building_barrack }
 					}
 				}
 			}
 		}
 		custom_tooltip = {
 			text = effect_delete_barracks_north_china.tt
-			sr:region_north_china = { every_scope_state = { limit = { owner = ROOT NOT = { state_region = s:STATE_BEIJING } } remove_building = building_barracks } }
+			sr:region_north_china = { every_scope_state = { limit = { owner = ROOT NOT = { state_region = s:STATE_BEIJING } } remove_building = building_barrack } }
 		}
 		custom_tooltip = {
 			text = effect_north_qing_army_1.tt
@@ -746,15 +746,15 @@ effect_south_china_army = {
 				any_scope_state = {
 					owner = ROOT
 					OR = {
-						any_scope_building = { is_building_type = building_barracks level < 50 }
-						NOT = { exists = b:building_barracks }
+						any_scope_building = { is_building_type = building_barrack level < 50 }
+						NOT = { exists = b:building_barrack }
 					}
 				}
 			}
 		}
 		custom_tooltip = {
 			text = effect_delete_barracks_south_china.tt
-			sr:region_south_china = { every_scope_state = { limit = { owner = ROOT } remove_building = building_barracks } }
+			sr:region_south_china = { every_scope_state = { limit = { owner = ROOT } remove_building = building_barrack } }
 		}
 		custom_tooltip = {
 			text = effect_south_qing_army_1.tt
@@ -1311,7 +1311,7 @@ effect_delete_army_dixie = {
 		sr:region_dixie = {
 			every_scope_state = {
 				limit = { trigger_delete_army_dixie = yes }
-				remove_building = building_barracks
+				remove_building = building_barrack
 				remove_building = building_conscription_center
 			}
 		}
@@ -1322,7 +1322,7 @@ effect_dixie_army = {
 		trigger = has_law
 		law_type:law_peasant_levies = {
 			if = {
-				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barracks level < 50 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barrack level < 50 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_dixie = yes
 				custom_tooltip = {
 					text = effect_dixie_army_1.tt
@@ -1381,7 +1381,7 @@ effect_dixie_army = {
 		}
 		law_type:law_professional_army = {
 			if = {
-				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_dixie = yes
 				custom_tooltip = {
 					text = effect_dixie_army_1.tt
@@ -1440,7 +1440,7 @@ effect_dixie_army = {
 		}
 		law_type:law_national_militia = {
 			if = {
-				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barracks level < 5 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barrack level < 5 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_dixie = yes
 				custom_tooltip = {
 					text = effect_dixie_army_1.tt
@@ -1536,7 +1536,7 @@ effect_dixie_army = {
 		}
 		law_type:law_mass_conscription = {
 			if = {
-				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_dixie = yes
 				custom_tooltip = {
 					text = effect_dixie_army_1.tt
@@ -1593,7 +1593,7 @@ effect_dixie_army = {
 				custom_tooltip = { text = cost_110M ROOT = { change_variable = { name = loans_var add = 110.0 } } }	# Every building costs 100 points x 1k/point in Millions
 			}
 			if = {
-				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barracks level < 200 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_dixie = { any_scope_state = { trigger_delete_army_dixie = yes OR = { any_scope_building = { is_building_type = building_barrack level < 200 } NOT = { exists = b:building_barrack } } } } }
 				custom_tooltip = {
 					text = effect_dixie_army_2.tt
 					create_military_formation = {	# STATE_DELAWARE STATE_OKLAHOMA STATE_DISTRICT_OF_COLUMBIA
@@ -1657,7 +1657,7 @@ effect_delete_army_new_england = {
 		sr:region_new_england = {
 			every_scope_state = {
 				limit = { trigger_delete_army_new_england = yes }
-				remove_building = building_barracks
+				remove_building = building_barrack
 				remove_building = building_conscription_center
 			}
 		}
@@ -1668,7 +1668,7 @@ effect_new_england_army = {
 		trigger = has_law
 		law_type:law_peasant_levies = {
 			if = {
-				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barracks level < 50 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barrack level < 50 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_new_england = yes
 				custom_tooltip = {
 					text = effect_new_england_army_1.tt
@@ -1719,7 +1719,7 @@ effect_new_england_army = {
 		}
 		law_type:law_professional_army = {
 			if = {
-				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_new_england = yes
 				custom_tooltip = {
 					text = effect_new_england_army_1.tt
@@ -1770,7 +1770,7 @@ effect_new_england_army = {
 		}
 		law_type:law_national_militia = {
 			if = {
-				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barracks level < 5 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barrack level < 5 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_new_england = yes
 				custom_tooltip = {
 					text = effect_new_england_army_1.tt
@@ -1858,7 +1858,7 @@ effect_new_england_army = {
 		}
 		law_type:law_mass_conscription = {
 			if = {
-				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_new_england = yes
 				custom_tooltip = {
 					text = effect_new_england_army_1.tt
@@ -1907,7 +1907,7 @@ effect_new_england_army = {
 				custom_tooltip = { text = cost_90M ROOT = { change_variable = { name = loans_var add = 90.0 } } }	# Every building costs 100 points x 1k/point in Millions
 			}
 			if = {
-				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barracks level < 200 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_new_england = { any_scope_state = { trigger_delete_army_new_england = yes OR = { any_scope_building = { is_building_type = building_barrack level < 200 } NOT = { exists = b:building_barrack } } } } }
 				custom_tooltip = {
 					text = effect_new_england_army_2.tt
 					create_military_formation = {	# STATE_NEW_BRUNSWICK STATE_BERMUDA
@@ -1963,7 +1963,7 @@ effect_delete_army_midwest = {
 		sr:region_the_midwest = {
 			every_scope_state = {
 				limit = { trigger_delete_army_midwest = yes }
-				remove_building = building_barracks
+				remove_building = building_barrack
 				remove_building = building_conscription_center
 			}
 		}
@@ -1974,7 +1974,7 @@ effect_midwest_army = {
 		trigger = has_law
 		law_type:law_peasant_levies = {
 			if = {
-				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barracks level < 50 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barrack level < 50 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_midwest = yes
 				custom_tooltip = {
 					text = effect_midwest_army_1.tt
@@ -2033,7 +2033,7 @@ effect_midwest_army = {
 		}
 		law_type:law_professional_army = {
 			if = {
-				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_midwest = yes
 				custom_tooltip = {
 					text = effect_midwest_army_1.tt
@@ -2092,7 +2092,7 @@ effect_midwest_army = {
 		}
 		law_type:law_national_militia = {
 			if = {
-				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barracks level < 5 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barrack level < 5 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_midwest = yes
 				custom_tooltip = {
 					text = effect_midwest_army_1.tt
@@ -2196,7 +2196,7 @@ effect_midwest_army = {
 		}
 		law_type:law_mass_conscription = {
 			if = {
-				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_midwest = yes
 				custom_tooltip = {
 					text = effect_midwest_army_1.tt
@@ -2253,7 +2253,7 @@ effect_midwest_army = {
 				custom_tooltip = { text = cost_110M ROOT = { change_variable = { name = loans_var add = 110.0 } } }	# Every building costs 100 points x 1k/point in Millions
 			}
 			if = {
-				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barracks level < 200 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_the_midwest = { any_scope_state = { trigger_delete_army_midwest = yes OR = { any_scope_building = { is_building_type = building_barrack level < 200 } NOT = { exists = b:building_barrack } } } } }
 				custom_tooltip = {
 					text = effect_midwest_army_2.tt
 					create_military_formation = {
@@ -2317,7 +2317,7 @@ effect_delete_army_great_plains = {
 		sr:region_great_plains = {
 			every_scope_state = {
 				limit = { trigger_delete_army_great_plains = yes }
-				remove_building = building_barracks
+				remove_building = building_barrack
 				remove_building = building_conscription_center
 			}
 		}
@@ -2328,7 +2328,7 @@ effect_great_plains_army = {
 		trigger = has_law
 		law_type:law_peasant_levies = {
 			if = {
-				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barracks level < 50 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barrack level < 50 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_great_plains = yes
 				custom_tooltip = {
 					text = effect_great_plains_army_1.tt
@@ -2375,7 +2375,7 @@ effect_great_plains_army = {
 		}
 		law_type:law_professional_army = {
 			if = {
-				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_great_plains = yes
 				custom_tooltip = {
 					text = effect_great_plains_army_1.tt
@@ -2422,7 +2422,7 @@ effect_great_plains_army = {
 		}
 		law_type:law_national_militia = {
 			if = {
-				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barracks level < 5 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barrack level < 5 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_great_plains = yes
 				custom_tooltip = {
 					text = effect_great_plains_army_1.tt
@@ -2502,7 +2502,7 @@ effect_great_plains_army = {
 		}
 		law_type:law_mass_conscription = {
 			if = {
-				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_great_plains = yes
 				custom_tooltip = {
 					text = effect_great_plains_army_1.tt
@@ -2547,7 +2547,7 @@ effect_great_plains_army = {
 				custom_tooltip = { text = cost_80M ROOT = { change_variable = { name = loans_var add = 80.0 } } }	# Every building costs 100 points x 1k/point in Millions
 			}
 			if = {
-				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barracks level < 200 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_great_plains = { any_scope_state = { trigger_delete_army_great_plains = yes OR = { any_scope_building = { is_building_type = building_barrack level < 200 } NOT = { exists = b:building_barrack } } } } }
 				custom_tooltip = {
 					text = effect_great_plains_army_2.tt
 					create_military_formation = {	# STATE_ALBERTA STATE_SASKATCHEWAN
@@ -2599,7 +2599,7 @@ effect_delete_army_pacific_coast = {
 		sr:region_great_plains = {
 			every_scope_state = {
 				limit = { trigger_delete_army_pacific_coast = yes }
-				remove_building = building_barracks
+				remove_building = building_barrack
 				remove_building = building_conscription_center
 			}
 		}
@@ -2610,7 +2610,7 @@ effect_pacific_coast_army = {
 		trigger = has_law
 		law_type:law_peasant_levies = {
 			if = {
-				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barracks level < 50 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barrack level < 50 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_pacific_coast = yes
 				custom_tooltip = {
 					text = effect_pacific_coast_army_1.tt
@@ -2657,7 +2657,7 @@ effect_pacific_coast_army = {
 		}
 		law_type:law_professional_army = {
 			if = {
-				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_pacific_coast = yes
 				custom_tooltip = {
 					text = effect_pacific_coast_army_1.tt
@@ -2704,7 +2704,7 @@ effect_pacific_coast_army = {
 		}
 		law_type:law_national_militia = {
 			if = {
-				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barracks level < 5 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barrack level < 5 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_pacific_coast = yes
 				custom_tooltip = {
 					text = effect_pacific_coast_army_1.tt
@@ -2784,7 +2784,7 @@ effect_pacific_coast_army = {
 		}
 		law_type:law_mass_conscription = {
 			if = {
-				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barracks level < 100 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barrack level < 100 } NOT = { exists = b:building_barrack } } } } }
 				effect_delete_army_pacific_coast = yes
 				custom_tooltip = {
 					text = effect_pacific_coast_army_1.tt
@@ -2829,7 +2829,7 @@ effect_pacific_coast_army = {
 				custom_tooltip = { text = cost_80M ROOT = { change_variable = { name = loans_var add = 80.0 } } }	# Every building costs 100 points x 1k/point in Millions
 			}
 			if = {
-				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barracks level < 200 } NOT = { exists = b:building_barracks } } } } }
+				limit = { sr:region_pacific_coast = { any_scope_state = { trigger_delete_army_pacific_coast = yes OR = { any_scope_building = { is_building_type = building_barrack level < 200 } NOT = { exists = b:building_barrack } } } } }
 				custom_tooltip = {
 					text = effect_pacific_coast_army_2.tt
 					create_military_formation = {	# STATE_BAJA_CALIFORNIA STATE_YUKON_TERRITORY STATE_BRITISH_COLUMBIA
@@ -2888,9 +2888,15 @@ effect_CHI_navy = {
 		}
 		remove_building = building_naval_base
 	}
+	effect_instant_build_naval_base_extensions = yes
+	# battlefleet_tactics	= 60 + 40 = 100
+	# sea_lane_strategies	= 50 + 40 =  90
+	# jeune_ecole			= 40 + 40 =  80
+	# power_of_the_purse	= 30 + 40 =  70
+	# admiralty				= 20 + 40 =  60
 	switch = {
 		trigger = has_technology_researched
-		battlefleet_tactics = {
+		battlefleet_tactics = {	# 100
 			custom_tooltip = {
 				text = effect_CHI_basic_navy.tt
 				create_military_formation = {
@@ -2898,21 +2904,21 @@ effect_CHI_navy = {
 					hq_region = sr:region_north_china
 					name = Bohai_Gulf_Fleet
 					# STATE_SHANDONG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHANDONG				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHANDONG				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHANDONG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHANDONG				count =  40 }
 					# STATE_BEIJING
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_BEIJING				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_BEIJING				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_BEIJING				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_BEIJING				count =  40 }
 					# STATE_ZHILI
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_ZHILI				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHILI				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_ZHILI				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHILI				count =  40 }
 					# STATE_JIANGSU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_JIANGSU				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_JIANGSU				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_JIANGSU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_JIANGSU				count =  40 }
 					save_scope_as = bohai_gulf_fleet
 				}
 				create_military_formation = {
@@ -2920,29 +2926,29 @@ effect_CHI_navy = {
 					hq_region = sr:region_south_china
 					name = Guangdong_Fleet
 					# STATE_SHAOZHOU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHAOZHOU				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHAOZHOU				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHAOZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHAOZHOU				count =  40 }
 					# STATE_GUANGDONG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_GUANGDONG			count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_GUANGDONG			count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_GUANGDONG			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_GUANGDONG			count =  40 }
 					# STATE_FUJIAN
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_FUJIAN				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FUJIAN				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_FUJIAN				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FUJIAN				count =  40 }
 					# STATE_FORMOSA
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_FORMOSA				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FORMOSA				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_FORMOSA				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FORMOSA				count =  40 }
 					# STATE_ZHEJIANG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_ZHEJIANG				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHEJIANG				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_ZHEJIANG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHEJIANG				count =  40 }
 					# STATE_SUZHOU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SUZHOU				count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SUZHOU				count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SUZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SUZHOU				count =  40 }
 					save_scope_as = guangdong_fleet
 				}
 				create_military_formation = {
@@ -2950,22 +2956,22 @@ effect_CHI_navy = {
 					hq_region = sr:region_manchuria
 					name = "Golden Horn Fleet"
 					# STATE_SHENGJING
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHENGJING			count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHENGJING			count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_SHENGJING			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHENGJING			count =  40 }
 					# STATE_OUTER_MANCHURIA
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_OUTER_MANCHURIA		count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_OUTER_MANCHURIA		count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_OUTER_MANCHURIA		count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_OUTER_MANCHURIA		count =  40 }
 					# STATE_AMUR
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  30 }
-					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_AMUR					count =   6 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_AMUR					count =  24 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_battleship			state_region = s:STATE_AMUR					count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_AMUR					count =  40 }
 					save_scope_as = golden_horn_fleet
 				}
 			}
 		}
-		carrier_tech = {
+		carrier_tech = {	# 90
 			custom_tooltip = {
 				text = effect_CHI_basic_navy.tt
 				create_military_formation = {
@@ -2973,21 +2979,21 @@ effect_CHI_navy = {
 					hq_region = sr:region_north_china
 					name = Bohai_Gulf_Fleet
 					# STATE_SHANDONG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHANDONG				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHANDONG				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHANDONG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHANDONG				count =  30 }
 					# STATE_BEIJING
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_BEIJING				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_BEIJING				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_BEIJING				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_BEIJING				count =  30 }
 					# STATE_ZHILI
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHILI				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHILI				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHILI				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHILI				count =  30 }
 					# STATE_JIANGSU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_JIANGSU				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_JIANGSU				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_JIANGSU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_JIANGSU				count =  30 }
 					save_scope_as = bohai_gulf_fleet
 				}
 				create_military_formation = {
@@ -2995,29 +3001,29 @@ effect_CHI_navy = {
 					hq_region = sr:region_south_china
 					name = Guangdong_Fleet
 					# STATE_SHAOZHOU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHAOZHOU				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHAOZHOU				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHAOZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHAOZHOU				count =  30 }
 					# STATE_GUANGDONG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_GUANGDONG			count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_GUANGDONG			count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_GUANGDONG			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_GUANGDONG			count =  30 }
 					# STATE_FUJIAN
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FUJIAN				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FUJIAN				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FUJIAN				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FUJIAN				count =  30 }
 					# STATE_FORMOSA
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FORMOSA				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FORMOSA				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FORMOSA				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_FORMOSA				count =  30 }
 					# STATE_ZHEJIANG
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHEJIANG				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHEJIANG				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHEJIANG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_ZHEJIANG				count =  30 }
 					# STATE_SUZHOU
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SUZHOU				count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SUZHOU				count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SUZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SUZHOU				count =  30 }
 					save_scope_as = guangdong_fleet
 				}
 				create_military_formation = {
@@ -3025,22 +3031,22 @@ effect_CHI_navy = {
 					hq_region = sr:region_manchuria
 					name = "Golden Horn Fleet"
 					# STATE_SHENGJING
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHENGJING			count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHENGJING			count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHENGJING			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_SHENGJING			count =  30 }
 					# STATE_OUTER_MANCHURIA
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_OUTER_MANCHURIA		count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_OUTER_MANCHURIA		count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_OUTER_MANCHURIA		count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
 					# STATE_AMUR
-					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  25 }
-					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_AMUR					count =   5 }
-					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_AMUR					count =  20 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_AMUR					count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_carrier				state_region = s:STATE_AMUR					count =  30 }
 					save_scope_as = golden_horn_fleet
 				}
 			}
 		}
-		fallback = {
+		dreadnought = {	# 90
 			custom_tooltip = {
 				text = effect_CHI_basic_navy.tt
 				create_military_formation = {
@@ -3048,16 +3054,588 @@ effect_CHI_navy = {
 					hq_region = sr:region_north_china
 					name = Bohai_Gulf_Fleet
 					# STATE_SHANDONG
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHANDONG				count =  40 }
+					# STATE_BEIJING
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_BEIJING				count =  40 }
+					# STATE_ZHILI
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHILI				count =  40 }
+					# STATE_JIANGSU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_JIANGSU				count =  40 }
+					save_scope_as = bohai_gulf_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_south_china
+					name = Guangdong_Fleet
+					# STATE_SHAOZHOU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHAOZHOU				count =  40 }
+					# STATE_GUANGDONG
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_GUANGDONG			count =  40 }
+					# STATE_FUJIAN
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FUJIAN				count =  40 }
+					# STATE_FORMOSA
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_FORMOSA				count =  40 }
+					# STATE_ZHEJIANG
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_ZHEJIANG				count =  40 }
+					# STATE_SUZHOU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SUZHOU				count =  40 }
+					save_scope_as = guangdong_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_manchuria
+					name = "Golden Horn Fleet"
+					# STATE_SHENGJING
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_SHENGJING			count =  40 }
+					# STATE_OUTER_MANCHURIA
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_OUTER_MANCHURIA		count =  40 }
+					# STATE_AMUR
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_dreadnought			state_region = s:STATE_AMUR					count =  40 }
+					save_scope_as = golden_horn_fleet
+				}
+			}
+		}
+		sea_lane_strategies = {	# 90
+			custom_tooltip = {
+				text = effect_CHI_basic_navy.tt
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_north_china
+					name = Bohai_Gulf_Fleet
+					# STATE_SHANDONG
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHANDONG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  40 }
+					# STATE_BEIJING
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_BEIJING				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  40 }
+					# STATE_ZHILI
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHILI				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  40 }
+					# STATE_JIANGSU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_JIANGSU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  40 }
+					save_scope_as = bohai_gulf_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_south_china
+					name = Guangdong_Fleet
+					# STATE_SHAOZHOU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHAOZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  40 }
+					# STATE_GUANGDONG
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_GUANGDONG			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  40 }
+					# STATE_FUJIAN
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FUJIAN				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  40 }
+					# STATE_FORMOSA
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_FORMOSA				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  40 }
+					# STATE_ZHEJIANG
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_ZHEJIANG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  40 }
+					# STATE_SUZHOU
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SUZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  40 }
+					save_scope_as = guangdong_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_manchuria
+					name = "Golden Horn Fleet"
+					# STATE_SHENGJING
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_SHENGJING			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  40 }
+					# STATE_OUTER_MANCHURIA
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  40 }
+					# STATE_AMUR
+					combat_unit = { type = unit_type:combat_unit_type_scout_cruiser			state_region = s:STATE_AMUR					count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  40 }
+					save_scope_as = golden_horn_fleet
+				}
+			}
+		}
+		self_propelled_torpedoes = {	# 80
+			custom_tooltip = {
+				text = effect_CHI_basic_navy.tt
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_north_china
+					name = Bohai_Gulf_Fleet
+					# STATE_SHANDONG
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_SHANDONG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  30 }
+					# STATE_BEIJING
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_BEIJING				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  30 }
+					# STATE_ZHILI
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_ZHILI				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  30 }
+					# STATE_JIANGSU
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_JIANGSU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  30 }
+					save_scope_as = bohai_gulf_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_south_china
+					name = Guangdong_Fleet
+					# STATE_SHAOZHOU
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_SHAOZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  30 }
+					# STATE_GUANGDONG
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_GUANGDONG			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  30 }
+					# STATE_FUJIAN
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_FUJIAN				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  30 }
+					# STATE_FORMOSA
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_FORMOSA				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  30 }
+					# STATE_ZHEJIANG
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_ZHEJIANG				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  30 }
+					# STATE_SUZHOU
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_SUZHOU				count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  30 }
+					save_scope_as = guangdong_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_manchuria
+					name = "Golden Horn Fleet"
+					# STATE_SHENGJING
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_SHENGJING			count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  30 }
+					# STATE_OUTER_MANCHURIA
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
+					# STATE_AMUR
+					combat_unit = { type = unit_type:combat_unit_type_torpedo_boat			state_region = s:STATE_AMUR					count =  50 }
+					combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  30 }
+					save_scope_as = golden_horn_fleet
+				}
+			}
+		}
+		jeune_ecole = {	# 80
+			if = {
+				limit = {
+					has_technology_researched = ironclad_tech
+					has_technology_researched = monitor_tech
+				}
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  30 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  30 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  30 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  30 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  30 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  30 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  30 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  30 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  30 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  30 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  30 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  30 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+			else_if = {
+				limit = { has_technology_researched = ironclad_tech }
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  30 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  30 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  30 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  30 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  30 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  30 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  30 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  30 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  30 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  30 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  30 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  30 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+			else = {
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHANDONG				count =  30 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_BEIJING				count =  30 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHILI				count =  30 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_JIANGSU				count =  30 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHAOZHOU				count =  30 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_GUANGDONG			count =  30 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FUJIAN				count =  30 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FORMOSA				count =  30 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHEJIANG				count =  30 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SUZHOU				count =  30 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHENGJING			count =  30 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_OUTER_MANCHURIA		count =  30 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_AMUR					count =  30 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+		}
+		power_of_the_purse = {	# 70
+			if = {
+				limit = {
+					has_technology_researched = ironclad_tech
+					has_technology_researched = monitor_tech
+				}
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  20 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  20 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  20 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  20 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  20 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  20 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  20 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  20 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  20 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  20 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  20 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  20 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_monitor				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  20 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+			else_if = {
+				limit = { has_technology_researched = ironclad_tech }
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHANDONG				count =  20 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_BEIJING				count =  20 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHILI				count =  20 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_JIANGSU				count =  20 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHAOZHOU				count =  20 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_GUANGDONG			count =  20 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FUJIAN				count =  20 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_FORMOSA				count =  20 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_ZHEJIANG				count =  20 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SUZHOU				count =  20 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_SHENGJING			count =  20 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_OUTER_MANCHURIA		count =  20 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_ironclad				state_region = s:STATE_AMUR					count =  20 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+			else = {
+				custom_tooltip = {
+					text = effect_CHI_basic_navy.tt
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_north_china
+						name = Bohai_Gulf_Fleet
+						# STATE_SHANDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHANDONG				count =  20 }
+						# STATE_BEIJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_BEIJING				count =  20 }
+						# STATE_ZHILI
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHILI				count =  20 }
+						# STATE_JIANGSU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_JIANGSU				count =  20 }
+						save_scope_as = bohai_gulf_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_south_china
+						name = Guangdong_Fleet
+						# STATE_SHAOZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHAOZHOU				count =  20 }
+						# STATE_GUANGDONG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_GUANGDONG			count =  20 }
+						# STATE_FUJIAN
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FUJIAN				count =  20 }
+						# STATE_FORMOSA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FORMOSA				count =  20 }
+						# STATE_ZHEJIANG
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHEJIANG				count =  20 }
+						# STATE_SUZHOU
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SUZHOU				count =  20 }
+						save_scope_as = guangdong_fleet
+					}
+					create_military_formation = {
+						type = fleet
+						hq_region = sr:region_manchuria
+						name = "Golden Horn Fleet"
+						# STATE_SHENGJING
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHENGJING			count =  20 }
+						# STATE_OUTER_MANCHURIA
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_OUTER_MANCHURIA		count =  20 }
+						# STATE_AMUR
+						combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
+						combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_AMUR					count =  20 }
+						save_scope_as = golden_horn_fleet
+					}
+				}
+			}
+		}
+		drydocks = {	# 60
+			custom_tooltip = {
+				text = effect_CHI_basic_navy.tt
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_north_china
+					name = Bohai_Gulf_Fleet
+					# STATE_SHANDONG
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHANDONG				count =  10 }
 					# STATE_BEIJING
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_BEIJING				count =  10 }
 					# STATE_ZHILI
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHILI				count =  10 }
 					# STATE_JIANGSU
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_JIANGSU				count =  10 }
 					save_scope_as = bohai_gulf_fleet
 				}
@@ -3066,22 +3644,22 @@ effect_CHI_navy = {
 					hq_region = sr:region_south_china
 					name = Guangdong_Fleet
 					# STATE_SHAOZHOU
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHAOZHOU				count =  10 }
 					# STATE_GUANGDONG
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_GUANGDONG			count =  10 }
 					# STATE_FUJIAN
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FUJIAN				count =  10 }
 					# STATE_FORMOSA
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_FORMOSA				count =  10 }
 					# STATE_ZHEJIANG
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_ZHEJIANG				count =  10 }
 					# STATE_SUZHOU
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SUZHOU				count =  10 }
 					save_scope_as = guangdong_fleet
 				}
@@ -3090,14 +3668,63 @@ effect_CHI_navy = {
 					hq_region = sr:region_manchuria
 					name = "Golden Horn Fleet"
 					# STATE_SHENGJING
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_SHENGJING			count =  10 }
 					# STATE_OUTER_MANCHURIA
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_OUTER_MANCHURIA		count =  10 }
 					# STATE_AMUR
-					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  10 }
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
 					combat_unit = { type = unit_type:combat_unit_type_man_o_war				state_region = s:STATE_AMUR					count =  10 }
+					save_scope_as = golden_horn_fleet
+				}
+			}
+		}
+		admiralty = {	# 60
+			custom_tooltip = {
+				text = effect_CHI_basic_navy.tt
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_north_china
+					name = Bohai_Gulf_Fleet
+					# STATE_SHANDONG
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHANDONG				count =  50 }
+					# STATE_BEIJING
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_BEIJING				count =  50 }
+					# STATE_ZHILI
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHILI				count =  50 }
+					# STATE_JIANGSU
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_JIANGSU				count =  50 }
+					save_scope_as = bohai_gulf_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_south_china
+					name = Guangdong_Fleet
+					# STATE_SHAOZHOU
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHAOZHOU				count =  50 }
+					# STATE_GUANGDONG
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_GUANGDONG			count =  50 }
+					# STATE_FUJIAN
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FUJIAN				count =  50 }
+					# STATE_FORMOSA
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_FORMOSA				count =  50 }
+					# STATE_ZHEJIANG
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_ZHEJIANG				count =  50 }
+					# STATE_SUZHOU
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SUZHOU				count =  50 }
+					save_scope_as = guangdong_fleet
+				}
+				create_military_formation = {
+					type = fleet
+					hq_region = sr:region_manchuria
+					name = "Golden Horn Fleet"
+					# STATE_SHENGJING
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_SHENGJING			count =  50 }
+					# STATE_OUTER_MANCHURIA
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_OUTER_MANCHURIA		count =  50 }
+					# STATE_AMUR
+					combat_unit = { type = unit_type:combat_unit_type_frigate				state_region = s:STATE_AMUR					count =  50 }
 					save_scope_as = golden_horn_fleet
 				}
 			}

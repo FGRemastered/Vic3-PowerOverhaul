@@ -1,5 +1,5 @@
 ﻿# Art and former tech JEs
-je_romanticism = {
+REPLACE:je_romanticism = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -10,15 +10,13 @@ je_romanticism = {
 	possible = {
 		has_technology_researched = romanticism
 		NOT = { has_technology_researched = realism }
-		any_scope_state = {
-			has_building = building_urban_center
-		}
+		any_scope_state = { has_building = building_urban_center }
 	}
 	immediate = {}
 	complete = {
 		game_date > 1836.1.14
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			has_active_production_method = pm_traditional_art
 			occupancy >= 0.9
 			level >= 2
@@ -31,7 +29,7 @@ je_romanticism = {
 	fail = { has_technology_researched = realism }
 	timeout = 3650
 }
-je_realism = {
+REPLACE:je_realism = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -43,12 +41,12 @@ je_realism = {
 	possible = {
 		has_technology_researched = realism
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 		}
 	}
 	complete = {
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			occupancy >= 0.9
 			level >= 3
 			has_active_production_method = pm_realist_art
@@ -60,7 +58,7 @@ je_realism = {
 	}
 	timeout = 3650
 }
-je_camera = {
+REPLACE:je_camera = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -72,18 +70,18 @@ je_camera = {
 	possible = {
 		has_technology_researched = camera
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			level >= 3
 		}
 	}
 	complete = {
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			level >= 3
 			has_active_production_method = pm_photographic_art
 		}
 		any_scope_building = {
-			filter = { is_building_type = building_arts_academy }
+			filter = { is_building_type = building_art_academy }
 			percent > 0.75
 			has_active_production_method = pm_photographic_art
 			occupancy > 0.75
@@ -96,7 +94,7 @@ je_camera = {
 	invalid = { has_technology_researched = film }
 	timeout = 3650
 }
-je_film = {
+REPLACE:je_film = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -107,18 +105,18 @@ je_film = {
 	possible = {
 		has_technology_researched = film
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			level >= 3
 		}
 	}
 	complete = {
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			level >= 3
 			has_active_production_method = pm_film_art
 		}
 		any_scope_building = {
-			filter = { is_building_type = building_arts_academy }
+			filter = { is_building_type = building_art_academy }
 			percent > 0.75
 			has_active_production_method = pm_film_art
 			occupancy > 0.75

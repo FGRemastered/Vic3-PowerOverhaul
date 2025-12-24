@@ -1,0 +1,368 @@
+# Green Energy
+REPLACE_OR_CREATE:pm_no_green_power = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+}
+# TODO: Rework the values and incorporate telephone and radio cost.
+REPLACE_OR_CREATE:pm_early_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	1 engine : 5 power
+			goods_input_engines_add				=    2	# x-60	= -120
+			# output goods
+			goods_output_electricity_add		=    5	# x+30	= +150
+		}											 	#		=  +30	=> Never stops breaking even
+	}
+}
+REPLACE_OR_CREATE:pm_large_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    5	# x-50	= -250
+			# output goods							 	#		= -550
+			goods_output_electricity_add		=   25	# x+30	= +750
+		}											 	#		= +200
+		level_scaled = {
+			building_employment_machinists_add 	=  100	# x-0.03=   -3	=> Stops breaking even at SoL 66 2/3
+		}
+	}
+}
+REPLACE_OR_CREATE:pm_solar_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=    5	# x-50	= -250
+			goods_input_glass_add				=    5	# x-40	= -200
+			# output goods							 	#		=-1050
+			goods_output_electricity_add		=   50	# x+30	=+1500
+		}											 	#		= +450
+		level_scaled = {
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=   -6	=> Stops breaking even at SoL 75
+	}
+}
+REPLACE_OR_CREATE:pm_large_solar_windpark = {				# Improved
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { radio }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_steel_add				=   10	# x-50	= -500
+			goods_input_glass_add				=   10	# x-40	= -400
+			# output goods							 	#		=-2100
+			goods_output_electricity_add		=  100	# x+30	=+3000
+		}											 	#		= +900
+		level_scaled = {
+			building_employment_machinists_add 	=  200	# x-0.03=   -6
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=   -9	=> Stops breaking even at SoL 100
+	}
+}
+REPLACE_OR_CREATE:pm_huge_solar_windpark = {				# Advanced
+	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 5 steel	|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   40	# x-60	=-2400
+			goods_input_steel_add				=   20	# x-50	=-1000
+			goods_input_glass_add				=   20	# x-40	= -800
+			# output goods								#		=-4200
+			goods_output_electricity_add		=  200	# x+30	=+6000
+		}											 	#		=+1800
+		level_scaled = {
+			building_employment_machinists_add 	=  400	# x-0.03=  -12
+			building_employment_engineers_add	=  100	# x-0.06=   -6
+		}												#		=  -18	=> Stops breaking even at SoL 100
+	}
+}
+# Green Ranches
+REPLACE_OR_CREATE:pm_power_self_sufficient_ranch = {	# Early wind turbines
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=    2	# x-60	= -120
+			goods_input_iron_add				=    2	# x-40	=  -80
+			# output goods								#		= -200
+			goods_output_electricity_add		=    3	# x+30	=  +90
+		}												#		= -110
+		level_scaled = {
+			building_employment_laborers_add	=-1500	# x-0.02=  +30	=> Breaks even at SoL 3 2/3
+		}
+	}
+}
+REPLACE_OR_CREATE:pm_large_windpark_ranch = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    5	# x-50	= -250
+			# output goods								#		= -550
+			goods_output_electricity_add		=   23	# x+30	= +690
+		}												#		= +140
+		level_scaled = {
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+		}												#		=  +27	=> Stops breaking even at SoL 5 5/27
+	}
+}
+REPLACE_OR_CREATE:pm_solar_windpark_ranch = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=    5	# x-50	= -250
+			goods_input_glass_add				=    5	# x-40	= -200
+			# output goods								#		=-1050
+			goods_output_electricity_add		=   48	# x+30	=+1440
+		}												#		= +360
+		level_scaled = {
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		= -300	# x-0.04=  +12
+			building_employment_machinists_add 	=  100	# x-0.03=   -3
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=  +36	=> Stops breaking even at SoL 10
+	}
+}
+REPLACE_OR_CREATE:pm_large_solar_windpark_ranch = {				# Improved
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { radio }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_steel_add				=   10	# x-50	= -500
+			goods_input_glass_add				=   10	# x-40	= -400
+			# output goods								#		=-2100
+			goods_output_electricity_add		=   98	# x+30	=+2940
+		}												#		= +840
+		level_scaled = {
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		= -500	# x-0.04=  +20
+			building_employment_machinists_add 	=  200	# x-0.03=   -6
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=  +41	=> Stops breaking even at SoL 20.4870...
+	}
+}
+REPLACE_OR_CREATE:pm_huge_solar_windpark_ranch = {				# Advanced
+	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=	30	# x-60	=-1800
+			goods_input_steel_add				=	15	# x-50	= -750
+			goods_input_glass_add				=   15	# x-40	= -600
+			# output goods								#		=-3150
+			goods_output_electricity_add		=  148	# x+30	=+4440
+		}											 	#		=+1260
+		level_scaled = {
+			building_employment_laborers_add	=-1500	# x-0.02=  +30
+			building_employment_farmers_add		=-1000	# x-0.04=  +40
+			building_employment_machinists_add 	=  400	# x-0.03=  -12
+			building_employment_engineers_add	=  100	# x-0.06=   -6
+		}												#		=  +52	=> Stops breaking even at SoL 24...
+	}
+}
+# Offshore Power
+REPLACE_OR_CREATE:pm_no_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+}
+REPLACE_OR_CREATE:pm_on_shore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	1 engine : 10 power
+			goods_input_engines_add				=    2	# x-60	= -120
+			# output goods
+			goods_output_electricity_add		=   10	# x+30	= +300
+		}											 	#		= +180	=> Never stops breaking even
+	}
+}
+REPLACE_OR_CREATE:pm_early_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods	-	1 engine : 10 power
+			goods_input_engines_add				=    2.5# x-60	= -150
+			goods_input_steel_add				=    5	# x-50	= -250
+			# output goods								#		= -400
+			goods_output_electricity_add		=   25	# x+30	= +750
+		}												#		= +350
+		level_scaled = {
+			building_employment_machinists_add 	=  200	# x-0.03=   -6	=> Stops breaking even at SoL 58 1/3
+		}
+	}
+}
+REPLACE_OR_CREATE:pm_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=   10	# x-50	= -500
+			# output goods								#		= -800
+			goods_output_electricity_add		=   50	# x+30	=+1500
+		}												#		= +700
+		level_scaled = {
+			building_employment_machinists_add 	=  200	# x-0.03=   -6
+			building_employment_engineers_add	=   50	# x-0.06=   -3
+		}												#		=   -9	=> Stops breaking even at SoL 77 7/9
+	}
+}
+REPLACE_OR_CREATE:pm_large_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { radio }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=   20	# x-50	=-1000
+			# output goods								#		=-1600
+			goods_output_electricity_add		=  100	# x+30	=+3000
+		}												#		=+1400
+		level_scaled = {
+			building_employment_machinists_add 	=  400	# x-0.03=  -12
+			building_employment_engineers_add	=  100	# x-0.06=   -6
+		}											 	#		=  -18	=> Stops breaking even at SoL 77 7/9
+	}
+}
+REPLACE_OR_CREATE:pm_huge_offshore_windpark = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
+	unlocking_technologies = { arc_welding }
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_engines_add				=	20	# x-60	=-1200
+			goods_input_steel_add				=	40	# x-50	=-2000
+			# output goods								#		=-3200
+			goods_output_electricity_add		=  200	# x+30	=+6000
+		}											 	#		=+2800
+		level_scaled = {
+			building_employment_machinists_add 	=  800	# x-0.03=  -24
+			building_employment_engineers_add	=  200	# x-0.06=  -12
+		}												#		=  -36	=> Stops breaking even at SoL 77 7/9
+	}
+}
+# Subsistence
+REPLACE_OR_CREATE:pm_early_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_generation }
+	unlocking_production_methods = {
+		pm_home_workshops_no	# Required for Autark Worshops
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
+	building_modifiers = {
+		level_scaled = {
+			# input goods	-	1 engine : 5 power
+			goods_input_engines_add				=    2	# x-60	= -120
+			# output goods
+			goods_output_electricity_add		=   10	# x+30	= +300
+		}
+	}												 	#		= +180
+}
+REPLACE_OR_CREATE:pm_large_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"		#TODO: Make new icons
+	unlocking_technologies = { electrical_capacitors }
+	unlocking_production_methods = {
+		pm_home_workshops_no	# Required for Autark Worshops
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
+	building_modifiers = {
+		level_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=    5	# x-60	= -300
+			goods_input_steel_add				=    4	# x-50	= -200
+			# output goods							 	#		= -500
+			goods_output_electricity_add		=   25	# x+30	= +750
+		}
+	}												 	#		= +250
+}
+REPLACE_OR_CREATE:pm_solar_windpark_subsistence = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
+	unlocking_technologies = { telephone }
+	unlocking_production_methods = {
+		pm_home_workshops_no	# Required for Autark Worshops
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
+	building_modifiers = {
+		level_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_steel_add				=    4	# x-50	= -200
+			goods_input_glass_add				=    5	# x-40	= -200
+			# output goods							 	#		=-1000
+			goods_output_electricity_add		=   50	# x+30	=+1500
+		}
+	}												 	#		= +500
+}
+REPLACE_OR_CREATE:pm_large_solar_windpark_subsistence = {	# Improved
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
+	unlocking_technologies = { radio }
+	unlocking_production_methods = {
+		pm_home_workshops_no	# Required for Autark Worshops
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
+	building_modifiers = {
+		level_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   20	# x-60	=-1200
+			goods_input_steel_add				=    8	# x-50	= -400
+			goods_input_glass_add				=   10	# x-40	= -400
+			# output goods							 	#		=-2000
+			goods_output_electricity_add		=  100	# x+30	=+3000
+		}
+	}												 	#		=+1000
+	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
+}
+REPLACE_OR_CREATE:pm_huge_solar_windpark_subsistence = {	# Advanced
+	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
+	unlocking_technologies = { arc_welding }
+	unlocking_production_methods = {
+		pm_home_workshops_no	# Required for Autark Worshops
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
+	building_modifiers = {
+		level_scaled = {
+			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
+			goods_input_engines_add				=   30	# x-60	=-1800
+			goods_input_steel_add				=   12	# x-50	= -600
+			goods_input_glass_add				=   15	# x-40	= -600
+			# output goods								#		=-3000
+			goods_output_electricity_add		=  150	# x+30	=+4500
+		}
+	}													#		=+1500
+}

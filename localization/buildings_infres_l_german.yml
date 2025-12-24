@@ -22,8 +22,8 @@
  building_infres_fishing_wharf: "Inf. $building_fishing_wharf$"
  building_infres_whaling_station: "Inf. $building_whaling_station$"
 
- building_infres_naval_base: "$building_naval_base$ Erweiterung"
- building_infres_barracks: "$building_barracks$ Erweiterung"
+ building_naval_base_extension: "$building_naval_base$ Erweiterung"
+ building_barrack_extension: "$building_barrack$ Erweiterung"
  building_construction_sector_extension: "$building_construction_sector$ Erweiterung"
 
  rule_infres_allows_ai_to_build: "IRB: Infinite Gebäude"

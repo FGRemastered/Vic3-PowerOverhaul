@@ -1,6 +1,7 @@
-﻿je_opium_obsession = {
+﻿REPLACE:je_opium_obsession = {	# What did I even change?
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 	group = je_group_internal_affairs
+	is_shown_in_lobby = { c:CHI = THIS }
 	scripted_button = ban_opium_button
 	scripted_button = unban_opium_button
 	on_monthly_pulse = {
@@ -69,7 +70,7 @@
 	weight = 10000
 	should_be_pinned_by_default = yes
 }
-je_opium_wars = {
+REPLACE:je_opium_wars = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 	group = je_group_foreign_affairs
 	complete = {

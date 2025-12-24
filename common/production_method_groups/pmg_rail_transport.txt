@@ -1,5 +1,5 @@
 # There's absolutely no reason to have a separate one for each of them...
-pmg_train_automation = {
+REPLACE_OR_CREATE:pmg_train_automation = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
@@ -7,7 +7,7 @@ pmg_train_automation = {
 		pm_truck_transport
 	}
 }
-pmg_transportation_building_logging_camp = {
+REPLACE_OR_CREATE:pmg_transportation_building_logging_camp = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
@@ -16,7 +16,7 @@ pmg_transportation_building_logging_camp = {
 		pm_log_trucks
 	}
 }
-pmg_transportation_building_oil_rig = {
+REPLACE_OR_CREATE:pmg_transportation_building_oil_rig = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
@@ -24,7 +24,7 @@ pmg_transportation_building_oil_rig = {
 		pm_tanker_cars
 	}
 }
-pmg_refrigeration_building_livestock_ranch = {
+REPLACE_OR_CREATE:pmg_refrigeration_building_livestock_ranch = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_unrefrigerated
@@ -33,14 +33,14 @@ pmg_refrigeration_building_livestock_ranch = {
 		pm_flash_freezing_building_livestock_ranch
 	}
 }
-pmg_train_automation_power_plant = {
+REPLACE_OR_CREATE:pmg_train_automation_power_plant = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
 		pm_rail_transport_power_plant
 	}
 }
-pmg_train_automation_port = {
+REPLACE_OR_CREATE:pmg_train_automation_port = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts
@@ -49,7 +49,7 @@ pmg_train_automation_port = {
 		pm_modern_port_rail_transport
 	}
 }
-pmg_train_automation_construction = {
+REPLACE_OR_CREATE:pmg_train_automation_construction = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_road_carts

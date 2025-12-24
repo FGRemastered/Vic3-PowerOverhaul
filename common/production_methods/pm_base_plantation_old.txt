@@ -1,6 +1,6 @@
 # # Plantation default pms
 # # Wine
-# default_building_vineyard_plantation = {
+# pm_default_vineyard_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -81,7 +81,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Coffee
-# default_building_coffee_plantation = {
+# pm_default_coffee_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -162,7 +162,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Cotton
-# default_building_cotton_plantation = {
+# pm_default_cotton_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -243,7 +243,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Dye
-# default_building_dye_plantation = {
+# pm_default_dye_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -324,7 +324,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Opium
-# default_building_opium_plantation = {
+# pm_default_opium_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -405,7 +405,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Tea
-# default_building_tea_plantation = {
+# pm_default_tea_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -487,7 +487,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Tobacco
-# default_building_tobacco_plantation = {
+# pm_default_tobacco_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -568,7 +568,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Sugar
-# default_building_sugar_plantation = {
+# pm_default_sugar_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -649,7 +649,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Silk
-# default_building_silk_plantation = {
+# pm_default_silk_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -730,7 +730,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # # Fruit - Banana
-# default_building_banana_plantation = {
+# pm_default_banana_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {
@@ -811,7 +811,7 @@
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 # }
 # ##############	Rubber	###############
-# default_building_rubber_plantation = {
+# pm_default_rubber_plantation = {
 	# texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	# building_modifiers = {
 		# workforce_scaled = {

@@ -1,4 +1,4 @@
-grant_leadership_to_agitator = {
+REPLACE:grant_leadership_to_agitator = {
 	icon = "gfx/interface/character_panel/grant_command_not.dds"
 	clicksound = "event:/SFX/DLC/1.3_ip1/UI/agitator_promote"
 	potential = {
@@ -102,7 +102,7 @@ grant_leadership_to_agitator = {
 		}
 	}
 }
-invite_exile = {
+REPLACE:invite_exile = {
 	# icon = ""
 	clicksound = "event:/SFX/DLC/1.3_ip1/UI/character_invite"
 	should_ai_evaluate = { empty_agitator_slots >= 1 }	# Checks against actor country scope and skips the interaction completely if false, before even looking at any characters

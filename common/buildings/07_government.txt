@@ -1,5 +1,5 @@
 # Government Buldings
-building_government_administration = {
+REPLACE:building_government_administration = {
 	building_group = bg_bureaucracy
 	city_type = city
 	levels_per_mesh = 50
@@ -16,7 +16,7 @@ building_government_administration = {
 	required_construction = construction_cost_very_low
 	slaves_role = clerks
 }
-building_skyscraper = {
+REPLACE:building_skyscraper = {
 	building_group				= bg_skyscraper
 	city_type					= city
 	levels_per_mesh				= 1
@@ -43,7 +43,7 @@ building_skyscraper = {
 	can_build_private = { always = no }
 	slaves_role = clerks
 }
-building_university = {
+REPLACE:building_university = {
 	building_group = bg_technology
 	city_type = city
 	levels_per_mesh = 50

@@ -1,8 +1,8 @@
 ﻿l_german:
- building_synthetic_oil_plants: "Synthetische Ölraffinerie"
- building_synthetic_oil_plants_lens_option: "Erweitere $building_synthetic_oil_plants$"
+ building_synthetic_oil_plant: "Synthetische Ölraffinerie"
+ building_synthetic_oil_plant_lens_option: "Erweitere $building_synthetic_oil_plant$"
  
- pmg_base_building_synthetic_oil_plants: "Synthetische Ölproduktion"
+ pmg_base_building_synthetic_oil_plant: "Synthetische Ölproduktion"
  pm_coal_gasification: "Kohlevergasung"
  pm_synth_oil_production: "Fischer-Tropsch-Synthese"
  pm_improved_synth_oil_production: "Verbesserte Kohleverflüssigung"

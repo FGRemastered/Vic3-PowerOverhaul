@@ -1,6 +1,6 @@
 ﻿# Base
 # Coal
-pm_rotary_valve_pump_building_coal_mine = {	# 1.5x Condensing
+REPLACE_OR_CREATE:pm_rotary_valve_pump_building_coal_mine = {	# 1.5x Condensing
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -22,7 +22,7 @@ pm_rotary_valve_pump_building_coal_mine = {	# 1.5x Condensing
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_coal_mine = {	# 4/3x Rotary
+REPLACE_OR_CREATE:pm_diesel_pump_building_coal_mine = {	# 4/3x Rotary
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -47,7 +47,7 @@ pm_diesel_pump_building_coal_mine = {	# 4/3x Rotary
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_coal_mine = {	# 1.5x Diesel
+REPLACE_OR_CREATE:pm_electric_pump_building_coal_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
@@ -79,7 +79,7 @@ pm_electric_pump_building_coal_mine = {	# 1.5x Diesel
 	required_input_goods = electricity
 }
 # Iron
-pm_rotary_valve_pump_building_iron_mine = {	# 1.5x Condensing
+REPLACE_OR_CREATE:pm_rotary_valve_pump_building_iron_mine = {	# 1.5x Condensing
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -102,7 +102,7 @@ pm_rotary_valve_pump_building_iron_mine = {	# 1.5x Condensing
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_iron_mine = {	# 4/3x Rotary
+REPLACE_OR_CREATE:pm_diesel_pump_building_iron_mine = {	# 4/3x Rotary
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -128,7 +128,7 @@ pm_diesel_pump_building_iron_mine = {	# 4/3x Rotary
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_iron_mine = {	# 1.5x Diesel
+REPLACE_OR_CREATE:pm_electric_pump_building_iron_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
@@ -160,7 +160,7 @@ pm_electric_pump_building_iron_mine = {	# 1.5x Diesel
 	required_input_goods = electricity
 }
 # Lead
-pm_rotary_valve_pump_building_lead_mine = {	# 1.5x Condensing
+REPLACE_OR_CREATE:pm_rotary_valve_pump_building_lead_mine = {	# 1.5x Condensing
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -183,7 +183,7 @@ pm_rotary_valve_pump_building_lead_mine = {	# 1.5x Condensing
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_lead_mine = {	# 4/3x Rotary
+REPLACE_OR_CREATE:pm_diesel_pump_building_lead_mine = {	# 4/3x Rotary
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -209,7 +209,7 @@ pm_diesel_pump_building_lead_mine = {	# 4/3x Rotary
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_lead_mine = {	# 1.5x Diesel
+REPLACE_OR_CREATE:pm_electric_pump_building_lead_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
@@ -241,7 +241,7 @@ pm_electric_pump_building_lead_mine = {	# 1.5x Diesel
 	required_input_goods = electricity
 }
 # Sulfur
-pm_rotary_valve_pump_building_sulfur_mine = {	# 1.5x Condensing
+REPLACE_OR_CREATE:pm_rotary_valve_pump_building_sulfur_mine = {	# 1.5x Condensing
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -264,7 +264,7 @@ pm_rotary_valve_pump_building_sulfur_mine = {	# 1.5x Condensing
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_diesel_pump_building_sulfur_mine = {	# 4/3x Rotary
+REPLACE_OR_CREATE:pm_diesel_pump_building_sulfur_mine = {	# 4/3x Rotary
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -290,7 +290,7 @@ pm_diesel_pump_building_sulfur_mine = {	# 4/3x Rotary
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_electric_pump_building_sulfur_mine = {	# 1.5x Diesel
+REPLACE_OR_CREATE:pm_electric_pump_building_sulfur_mine = {	# 1.5x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
@@ -322,7 +322,7 @@ pm_electric_pump_building_sulfur_mine = {	# 1.5x Diesel
 	required_input_goods = electricity
 }
 # Gold
-pm_rotary_valve_pump_building_gold_mine = {	# 1.5x Condensing
+REPLACE_OR_CREATE:pm_rotary_valve_pump_building_gold_mine = {	# 1.5x Condensing
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -346,7 +346,7 @@ pm_rotary_valve_pump_building_gold_mine = {	# 1.5x Condensing
 	state_modifiers		= { workforce_scaled = { state_pollution_generation_add	=   15 } }
 	country_modifiers	= { workforce_scaled = { country_minting_add			= 1000 } }
 }
-pm_diesel_pump_building_gold_mine = {	# 4/3x Rotary
+REPLACE_OR_CREATE:pm_diesel_pump_building_gold_mine = {	# 4/3x Rotary
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -372,7 +372,7 @@ pm_diesel_pump_building_gold_mine = {	# 4/3x Rotary
 	state_modifiers		= { workforce_scaled = { state_pollution_generation_add	=   15 } }
 	country_modifiers	= { workforce_scaled = { country_minting_add			= 1500 } }
 }
-pm_electric_pump_building_gold_mine = {	# 2x Diesel
+REPLACE_OR_CREATE:pm_electric_pump_building_gold_mine = {	# 2x Diesel
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {
@@ -405,10 +405,10 @@ pm_electric_pump_building_gold_mine = {	# 2x Diesel
 	required_input_goods = electricity
 }
 # Explosives
-pm_no_explosives = {
+REPLACE_OR_CREATE:pm_no_explosives = {
 	texture = "gfx/interface/icons/production_method_icons/no_explosives.dds"
 }
-pm_nitroglycerin_building_mine = {
+REPLACE_OR_CREATE:pm_nitroglycerin_building_mine = {
 	texture = "gfx/interface/icons/production_method_icons/nitroglycerin.dds"
 	unlocking_technologies = { nitroglycerin }
 	building_modifiers = {
@@ -427,7 +427,7 @@ pm_nitroglycerin_building_mine = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	ai_value = 30000
 }
-pm_dynamite_building_mine = {
+REPLACE_OR_CREATE:pm_dynamite_building_mine = {
 	texture = "gfx/interface/icons/production_method_icons/dynamite.dds"
 	unlocking_technologies = { dynamite }	
 	building_modifiers = {
@@ -443,7 +443,7 @@ pm_dynamite_building_mine = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	ai_value = 500000
 }
-pm_nitroglycerin_building_gold_mine = {
+REPLACE_OR_CREATE:pm_nitroglycerin_building_gold_mine = {
 	texture = "gfx/interface/icons/production_method_icons/nitroglycerin.dds"
 	unlocking_technologies = { nitroglycerin }
 	building_modifiers = {
@@ -460,7 +460,7 @@ pm_nitroglycerin_building_gold_mine = {
 	country_modifiers	= { workforce_scaled = { country_minting_add			= 250 } }
 	ai_value = 30000
 }
-pm_dynamite_building_gold_mine = {
+REPLACE_OR_CREATE:pm_dynamite_building_gold_mine = {
 	texture = "gfx/interface/icons/production_method_icons/dynamite.dds"
 	unlocking_technologies = { dynamite }	
 	building_modifiers = {
@@ -473,7 +473,7 @@ pm_dynamite_building_gold_mine = {
 	ai_value = 500000
 }
 # Oil
-pm_steam_derricks = {
+REPLACE_OR_CREATE:pm_steam_derricks = {
 	texture = "gfx/interface/icons/production_method_icons/simple_oil_extraction.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -492,7 +492,7 @@ pm_steam_derricks = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
-pm_combustion_derricks = {
+REPLACE_OR_CREATE:pm_combustion_derricks = {
 	texture = "gfx/interface/icons/production_method_icons/combustion_derricks.dds"
 	unlocking_technologies = { combustion_engine }
 	building_modifiers = {
@@ -511,7 +511,7 @@ pm_combustion_derricks = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 40 } }
 }
-pm_electric_derricks = {
+REPLACE_OR_CREATE:pm_electric_derricks = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { elevator }	# arc_welding
 	building_modifiers = {

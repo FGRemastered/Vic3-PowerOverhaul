@@ -895,7 +895,7 @@ fascism_events.8 = { #national anthem
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_arts_academy
+				is_building_type = building_art_academy
 				is_under_construction = no
 				occupancy > 0.5
 			}
@@ -986,13 +986,13 @@ fascism_events.8 = { #national anthem
 			limit = {
 				is_incorporated = yes
 				any_scope_building = {
-					is_building_type = building_arts_academy
+					is_building_type = building_art_academy
 				}
 			}
 			save_scope_as = anthem_state
 			random_scope_building = {
 				limit = {
-					is_building_type = building_arts_academy
+					is_building_type = building_art_academy
 				}
 				save_scope_as = anthem_building
 			}
@@ -1295,15 +1295,15 @@ fascism_events.11 = { # March on Rome
 		name = fascism_events.11.a
 		trigger = {
 			NOT = {
-				has_law = law_type:law_council_republic
+				has_law_or_variant = law_type:law_council_republic
 			}
 		}
 		if = {
 			limit = {
 				OR = {
-					has_law = law_type:law_parliamentary_republic
-					has_law = law_type:law_presidential_republic
-					has_law = law_type:law_theocracy
+					has_law_or_variant = law_type:law_parliamentary_republic
+					has_law_or_variant = law_type:law_presidential_republic
+					has_law_or_variant = law_type:law_theocracy
 				}
 			}
 			scope:fascist_leader = {
@@ -1379,7 +1379,7 @@ fascism_events.11 = { # March on Rome
 		name = fascism_events.11.c
 		trigger = {
 			NOT = {
-				has_law = law_type:law_protected_speech
+				has_law_or_variant = law_type:law_protected_speech
 			}
 		}
 		hidden_effect = {

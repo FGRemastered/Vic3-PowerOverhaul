@@ -1,4 +1,4 @@
-pmg_ownership_building_manor_house = {
+REPLACE_OR_CREATE:pmg_ownership_building_manor_house = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -6,7 +6,7 @@ pmg_ownership_building_manor_house = {
 		# pm_manor_house_principle_divine_economics_2
 	}
 }
-pmg_additional_ownership_building_manor_house = {
+REPLACE_OR_CREATE:pmg_additional_ownership_building_manor_house = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -16,7 +16,7 @@ pmg_additional_ownership_building_manor_house = {
 		pm_manor_house_academic_ownership
 	}
 }
-pmg_manor_house_automation = {
+REPLACE_OR_CREATE:pmg_manor_house_automation = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -25,7 +25,7 @@ pmg_manor_house_automation = {
 		pm_manor_house_electrified
 	}
 }
-pmg_ownership_building_financial_district = {
+REPLACE_OR_CREATE:pmg_ownership_building_financial_district = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -36,7 +36,7 @@ pmg_ownership_building_financial_district = {
 		pm_council_of_reason
 	}
 }
-pmg_ownership_building_company_headquarter = {
+REPLACE_OR_CREATE:pmg_ownership_building_company_headquarter = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -57,7 +57,7 @@ pmg_ownership_building_company_headquarter = {
 		pm_council_of_reason
 	}
 }
-pmg_trade_quantity_trade_center = {
+REPLACE_OR_CREATE:pmg_trade_quantity_trade_center = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	ai_selection = most_productive
 	production_methods = {

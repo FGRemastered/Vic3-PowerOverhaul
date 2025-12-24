@@ -32,11 +32,16 @@ colonial_administration_events.1 = {
 		custom_tooltip = {
 			text = colonial_administration_events.1_tt_1
 			scope:newly_formed_colonial_nation_scope = {
-				set_variable = african_chartered_company_var
-				activate_law = law_type:law_presidential_republic
+				activate_law = law_type:law_colonial_administration
 				if = { limit = { ROOT = { has_law_or_variant = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
 				else = { activate_law = law_type:law_oligarchy }
-				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_subjecthood
+				active_law:lawgroup_citizenship ?= { # Subjecthood
+					add_amendment = {
+						type = amendment_racialized_subjecthood
+						sponsor = PREV.ig:ig_armed_forces
+					}
+				}
 				activate_law = law_type:law_extraction_economy
 				activate_law = law_type:law_colonial_exploitation
 				activate_law = law_type:law_no_schools
@@ -54,7 +59,7 @@ colonial_administration_events.1 = {
 				name = resource_extraction_charter_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists = {
+			ig:ig_industrialists ?= {
 				if = {
 					limit = { has_ideology = ideology:ideology_laissez_faire }
 					effect_colonialist_industrialists = yes
@@ -68,7 +73,7 @@ colonial_administration_events.1 = {
 					law_stance = { law = law_type:law_laissez_faire		value > neutral }
 					law_stance = { law = law_type:law_free_trade		value > neutral }
 				}
-				is_marginal = no
+				ig_counts_as_marginal = no
 			}
 			add_modifier = {
 				name = colonial_enterprise_modifier
@@ -89,10 +94,16 @@ colonial_administration_events.1 = {
 		custom_tooltip = {
 			text = colonial_administration_events.1_tt_2
 			scope:newly_formed_colonial_nation_scope = {
-				activate_law = law_type:law_presidential_republic
+				activate_law = law_type:law_colonial_administration
 				if = { limit = { ROOT = { has_law_or_variant = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
 				else = { activate_law = law_type:law_oligarchy }
-				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_subjecthood
+				active_law:lawgroup_citizenship ?= { # Subjecthood
+					add_amendment = {
+						type = amendment_racialized_subjecthood
+						sponsor = PREV.ig:ig_armed_forces
+					}
+				}
 				activate_law = law_type:law_extraction_economy
 				activate_law = law_type:law_colonial_exploitation
 				if = { limit = { ROOT = { has_law_or_variant = law_type:law_state_atheism } } activate_law = law_type:law_public_schools }
@@ -113,7 +124,7 @@ colonial_administration_events.1 = {
 				name = religious_missions_colonial_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists = {
+			ig:ig_industrialists ?= {
 				if = {
 					limit = { has_ideology = ideology:ideology_laissez_faire }
 					effect_colonialist_industrialists = yes
@@ -126,7 +137,7 @@ colonial_administration_events.1 = {
 					law_stance = { law = law_type:law_state_religion	value > neutral }
 					law_stance = { law = law_type:law_religious_schools	value > neutral }
 				}
-				is_marginal = no
+				ig_counts_as_marginal = no
 			}
 			add_modifier = {
 				name = civilizing_mission_modifier
@@ -139,10 +150,16 @@ colonial_administration_events.1 = {
 		custom_tooltip = {
 			text = colonial_administration_events.1_tt_3
 			scope:newly_formed_colonial_nation_scope = {
-				activate_law = law_type:law_presidential_republic
-				if = { limit = { ROOT = { has_law = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
+				activate_law = law_type:law_colonial_administration
+				if = { limit = { ROOT = { has_law_or_variant = law_type:law_technocracy } } activate_law = law_type:law_technocracy }
 				else = { activate_law = law_type:law_oligarchy }
-				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_subjecthood
+				active_law:lawgroup_citizenship ?= { # Subjecthood
+					add_amendment = {
+						type = amendment_racialized_subjecthood
+						sponsor = PREV.ig:ig_armed_forces
+					}
+				}
 				activate_law = law_type:law_agrarianism
 				activate_law = law_type:law_colonial_resettlement
 				activate_law = law_type:law_no_schools
@@ -164,7 +181,7 @@ colonial_administration_events.1 = {
 		every_interest_group = {
 			limit = {
 				law_stance = { law = law_type:law_colonial_resettlement	value > neutral }
-				is_marginal = no
+				ig_counts_as_marginal = no
 			}
 			add_modifier = {
 				name = settler_colonialism_modifier
@@ -190,9 +207,15 @@ colonial_administration_events.1 = {
 		custom_tooltip = {
 			text = colonial_administration_events.1_tt_4
 			scope:newly_formed_colonial_nation_scope = {
-				activate_law = law_type:law_presidential_republic
+				activate_law = law_type:law_colonial_administration
 				activate_law = law_type:law_autocracy
-				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_subjecthood
+				active_law:lawgroup_citizenship ?= { # Subjecthood
+					add_amendment = {
+						type = amendment_racialized_subjecthood
+						sponsor = PREV.ig:ig_armed_forces
+					}
+				}
 				activate_law = law_type:law_extraction_economy
 				activate_law = law_type:law_colonial_exploitation
 				activate_law = law_type:law_no_schools
@@ -211,7 +234,7 @@ colonial_administration_events.1 = {
 				name = resource_extraction_colony_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists = {
+			ig:ig_industrialists ?= {
 				if = {
 					limit = { has_ideology = ideology:ideology_laissez_faire }
 					effect_colonialist_industrialists = yes
@@ -225,7 +248,7 @@ colonial_administration_events.1 = {
 					law_stance = { law = law_type:law_legacy_slavery	value > neutral }
 					law_stance = { law = law_type:law_professional_army	value > neutral }
 				}
-				is_marginal = no
+				ig_counts_as_marginal = no
 			}
 			add_modifier = {
 				name = unbridled_profits_modifier
@@ -240,14 +263,24 @@ colonial_administration_events.1 = {
 			text = colonial_administration_events.1_tt_5
 			scope:newly_formed_colonial_nation_scope = {
 				copy_laws = ROOT
-				if		= { limit = { NOT = { has_law_or_variant = law_type:law_presidential_republic } } activate_law = law_type:law_presidential_republic }
+				if		= { limit = { NOT = { has_law = law_type:law_colonial_administration } } activate_law = law_type:law_colonial_administration }
 				if		= { limit = { OVERLORD = { NOR = { has_law_or_variant = law_type:law_autocracy has_law = law_type:law_oligarchy has_law_or_variant = law_type:law_technocracy } } } activate_law = law_type:law_oligarchy }
-				if		= { limit = { OVERLORD = { OR = { has_law_or_variant = law_type:law_slave_trade has_law_or_variant = law_type:law_colonial_slavery } } } activate_law = law_type:law_debt_slavery activate_law = law_type:law_national_supremacy }
+				if		= { limit = { OVERLORD = { OR = { has_law_or_variant = law_type:law_slave_trade has_law_or_variant = law_type:law_colonial_slavery } } } activate_law = law_type:law_debt_slavery }
+				if = {
+					limit = { OVERLORD = { NOT = { has_law_or_variant = law_type:law_multicultural } } }
+					activate_law = law_type:law_subjecthood
+					active_law:lawgroup_citizenship ?= { # Subjecthood
+						add_amendment = {
+							type = amendment_racialized_subjecthood
+							sponsor = PREV.ig:ig_armed_forces
+						}
+					}
+				}
 				if		= { limit = { OVERLORD = { has_law_or_variant = law_type:law_elected_bureaucrats } } activate_law = law_type:law_appointed_bureaucrats }
 				if		= { limit = { NOR = { has_law_or_variant = law_type:law_total_separation has_law_or_variant = law_type:law_state_atheism } } activate_law = law_type:law_religious_schools }
 				else_if	= { limit = { NOT = { has_law_or_variant = law_type:law_public_schools } } activate_law = law_type:law_public_schools }
 				if		= { limit = { OVERLORD = { NOR = { has_law_or_variant = law_type:law_free_trade has_law_or_variant = law_type:law_isolationism } } } activate_law = law_type:law_mercantilism }
-				if		= { limit = { has_law_or_variant = law_type:law_graduated_taxation } activate_law = law_type:law_proportional_taxation }
+				if		= { limit = { NOT = { has_law_or_variant = law_type:law_proportional_taxation } } activate_law = law_type:law_proportional_taxation }
 			}
 		}
 		scope:newly_formed_colonial_nation_scope = {
@@ -287,14 +320,78 @@ colonial_administration_events.2 = {
 			# has_variable = congo_subject_var
 		# }
 	}
-	immediate = { set_variable = colonial_collapse_var }
+	immediate = {
+		set_variable = colonial_collapse_var
+		ordered_state = {
+			limit = { is_homeland_of_country_cultures = root }
+			order_by = gdp
+			save_scope_as = colonial_evacuation_state
+		}
+	}
 	option = {
 		name = colonial_administration_events.2.a
 		default_option = yes
+		custom_tooltip = {
+			text = most_european_pops_abandon_africa_tt
+			every_scope_pop = {
+				limit = { culture = { has_discrimination_trait_group = heritage_group_european } }	# TODO: Make check dynamic
+				random_list = {
+					25 = { move_pop = scope:colonial_evacuation_state }
+					75 = {}
+				}
+			}
+		}
 		every_scope_culture = {
 			limit = { root = { cultural_acceptance_base = { target = prev value <= acceptance_status_4 } } }
 			PREV = { add_radicals = { culture = PREV value = 0.8 } }
 		}
 		add_modifier = { name = colony_alone_modifier days = long_modifier_time }
+	}
+	option = {
+		name = colonial_administration_events.2.b
+		trigger = {
+			has_technology_researched = nationalism
+			OR = {
+				has_law_or_variant = law_type:law_no_colonial_affairs
+				has_law_or_variant = law_type:law_multicultural
+				has_law_or_variant = law_type:law_council_republic
+				any_political_movement = { is_political_movement_type = movement_cultural_minority political_movement_support >= 0.10 }
+			}
+		}
+		highlighted_option = yes
+		custom_tooltip = {
+			text = most_european_pops_abandon_africa_tt
+			every_scope_pop = {
+				limit = { culture = { has_discrimination_trait_group = heritage_group_european } }	# TODO: Make check dynamic
+				random_list = {
+					75 = { move_pop = scope:colonial_evacuation_state }
+					25 = {}
+				}
+			}
+		}
+		capital = {
+			every_scope_culture = {
+				limit = {
+					has_homeland = prev
+					NOT = { is_primary_culture_of = prev.owner }
+				}
+				prev.owner = { add_primary_culture = prev }
+			}
+		}
+		every_primary_culture = {
+			limit = { has_discrimination_trait_group = heritage_group_european }	# TODO: Make check dynamic
+			prev = { remove_primary_culture = prev }
+		}
+		hidden_effect = {
+			country_remove_colonial_variables = yes
+			every_scope_character = {
+				limit = {
+					culture = { has_discrimination_trait_group = heritage_group_european }	# TODO: Make check dynamic
+					is_immortal = no
+				}
+				kill_character = { hidden = yes }
+			}
+		}
+		trigger_event = { id = independence.2 }
 	}
 }

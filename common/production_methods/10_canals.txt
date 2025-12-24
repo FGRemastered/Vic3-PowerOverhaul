@@ -1,6 +1,6 @@
 ﻿# Canals
 # Mode of Operation
-pm_canal = {
+REPLACE:pm_canal = {
 	texture = "gfx/interface/icons/production_method_icons/canals.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -16,7 +16,7 @@ pm_canal = {
 		unscaled = { goods_output_services_mult		= 0.05 }
 	}
 }
-pm_canal_tolls = {
+REPLACE_OR_CREATE:pm_canal_tolls = {
 	texture = "gfx/interface/icons/production_method_icons/canals_minting.dds"
 	unlocking_technologies = { central_banking }
 	building_modifiers = {
@@ -38,7 +38,7 @@ pm_canal_tolls = {
 		unscaled = { goods_output_services_mult		= 0.10 }
 	}
 }
-pm_canal_telephones = {
+REPLACE_OR_CREATE:pm_canal_telephones = {
 	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
 	unlocking_technologies = { central_planning }
 	building_modifiers = {
@@ -64,7 +64,7 @@ pm_canal_telephones = {
 	required_input_goods = telephones
 }
 # Power
-pm_canal_manual_labour = {
+REPLACE_OR_CREATE:pm_canal_manual_labour = {
 	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -93,7 +93,7 @@ pm_canal_manual_labour = {
 		unscaled			= { goods_output_transportation_mult= 0.05 }
 	}
 }
-pm_canal_steam = {
+REPLACE_OR_CREATE:pm_canal_steam = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	unlocking_technologies = { atmospheric_engine }
 	is_default = yes
@@ -128,7 +128,7 @@ pm_canal_steam = {
 		}
 	}
 }
-pm_canal_eletric = {
+REPLACE_OR_CREATE:pm_canal_eletric = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
@@ -163,7 +163,7 @@ pm_canal_eletric = {
 	}
 	required_input_goods = electricity
 }
-pm_canal_oil = {
+REPLACE_OR_CREATE:pm_canal_oil = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {

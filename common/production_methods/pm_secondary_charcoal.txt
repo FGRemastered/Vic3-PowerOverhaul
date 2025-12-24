@@ -1,8 +1,8 @@
 ################	Charcoal	##################
-pm_no_charcoal = {
+REPLACE_OR_CREATE:pm_no_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/no_hardwood_selection.dds"
 }
-pm_charcoal = {	# This doesn't break even. Only activate this when you don't have coal.
+REPLACE_OR_CREATE:pm_charcoal = {	# This doesn't break even. Only activate this when you don't have coal.
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
 	building_modifiers = {
 		workforce_scaled = {	# Realistic would be 100:30 but that's too inefficient to ever use
@@ -18,7 +18,7 @@ pm_charcoal = {	# This doesn't break even. Only activate this when you don't hav
 	}													#				=> Stops breaking even at SoL 10
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 }
-pm_hardwood_coking = {	# This doesn't break even. Only activate this when you don't have coal.
+REPLACE_OR_CREATE:pm_hardwood_coking = {	# This doesn't break even. Only activate this when you don't have coal.
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
 	building_modifiers = {
 		workforce_scaled = {	# Realistic would be 100:30 but that's too inefficient to ever use
@@ -35,7 +35,7 @@ pm_hardwood_coking = {	# This doesn't break even. Only activate this when you do
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 }
 # Steel
-pm_secondary_basic_oxygen_process = { # Linz-Donawitz
+REPLACE_OR_CREATE:pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation_secondary.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -57,7 +57,7 @@ pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }	# not as smelly
 	ai_value = 10000
 }
-pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Process
+REPLACE_OR_CREATE:pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Process
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -80,7 +80,7 @@ pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Proce
 	ai_value = 10000
 }
 # Oil
-pm_secondary_biofuel = {
+REPLACE_OR_CREATE:pm_secondary_biofuel = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_evaporation_secondary.dds"
 	unlocking_technologies = { combustion_engine }
 	building_modifiers = {
@@ -94,7 +94,7 @@ pm_secondary_biofuel = {
 	}													#		=    0	x1-3
 	ai_value = 2000
 }
-pm_secondary_carbon_capture_oil = { # Future tech
+REPLACE_OR_CREATE:pm_secondary_carbon_capture_oil = { # Future tech
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {

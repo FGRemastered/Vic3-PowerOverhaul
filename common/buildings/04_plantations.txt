@@ -1,6 +1,6 @@
 ﻿# Misc. Resources
 # Logging
-building_logging_camp = {
+REPLACE:building_logging_camp = {
 	building_group = bg_logging
 	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
@@ -16,7 +16,7 @@ building_logging_camp = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
-building_rubber_plantation = {
+REPLACE:building_rubber_plantation = {
 	building_group = bg_rubber
 	icon = "gfx/interface/icons/building_icons/rubber_lodge.dds"
 	required_construction = construction_cost_low
@@ -35,7 +35,7 @@ building_rubber_plantation = {
 	ai_value = 3000
 }
 # Fishing
-building_fishing_wharf = {
+REPLACE:building_fishing_wharf = {
 	possible = { is_sea_adjacent = yes }
 	building_group = bg_fishing
 	icon = "gfx/interface/icons/building_icons/fishing_wharf.dds"
@@ -50,7 +50,7 @@ building_fishing_wharf = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
 }
-building_whaling_station = {
+REPLACE:building_whaling_station = {
 	possible = { is_sea_adjacent = yes }
 	building_group = bg_whaling
 	icon = "gfx/interface/icons/building_icons/whaling_station.dds"
@@ -67,7 +67,7 @@ building_whaling_station = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
 }
 # Infinite Fishing
-building_infres_fishing_wharf = {
+REPLACE_OR_CREATE:building_infres_fishing_wharf = {
 	potential				= { trigger_infres_fishing_allowed	= yes }
 	can_build_private		= { OWNER = { any_primary_culture = { has_cultural_obsession = fish } } }
 	can_build_government	= { trigger_gov_construction		= yes }
@@ -85,7 +85,7 @@ building_infres_fishing_wharf = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
 }
-building_infres_whaling_station = {
+REPLACE_OR_CREATE:building_infres_whaling_station = {
 	potential				= { trigger_infres_whaling_allowed	= yes }
 	can_build_private		= { always							= no }
 	can_build_government	= { trigger_gov_construction		= yes }
@@ -105,26 +105,27 @@ building_infres_whaling_station = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
 }
 # Agriculture
-building_vineyard_plantation = {
-	building_group = bg_vineyard_plantations
+REPLACE:building_vineyard = {
+	aliases = { building_vineyard_plantations }
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/vineyards.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
 	city_type = farm
 	levels_per_mesh = 50
-	# land_usage = rural
 	production_method_groups = {
 		pmg_base_building_vineyard_plantation
 		pmg_harvesting_process_tractors
 		pmg_tertiary_agri_power
 		pmg_train_automation
 	}
+	possible	= { NOT = { any_scope_building = { is_building_type = building_vineyard_greenhouse } } }	# The AI loves to spam vineyards everywhere for some reason.
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
 ############# PLANTATIONS
-building_coffee_plantation = {
-	building_group = bg_coffee_plantations
+REPLACE:building_coffee_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -140,8 +141,8 @@ building_coffee_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_tea_plantation = {
-	building_group = bg_tea_plantations
+REPLACE:building_tea_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -157,8 +158,8 @@ building_tea_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_sugar_plantation = {
-	building_group = bg_sugar_plantations
+REPLACE:building_sugar_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/sugar_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -174,8 +175,8 @@ building_sugar_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_banana_plantation = {
-	building_group = bg_banana_plantations
+REPLACE:building_banana_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -191,8 +192,8 @@ building_banana_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_opium_plantation = {
-	building_group = bg_opium_plantations
+REPLACE:building_opium_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/opium_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -209,8 +210,8 @@ building_opium_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_tobacco_plantation = {
-	building_group = bg_tobacco_plantations
+REPLACE:building_tobacco_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -227,8 +228,8 @@ building_tobacco_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_cotton_plantation = {
-	building_group = bg_cotton_plantations
+REPLACE:building_cotton_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -244,8 +245,8 @@ building_cotton_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_dye_plantation = {
-	building_group = bg_dye_plantations
+REPLACE:building_dye_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/dye_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -261,8 +262,8 @@ building_dye_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_silk_plantation = {
-	building_group = bg_silk_plantations
+REPLACE:building_silk_plantation = {
+	building_group = bg_finite_plantations
 	icon = "gfx/interface/icons/building_icons/silk_plantation.dds"
 	required_construction = construction_cost_low
 	unlocking_technologies = { enclosure }
@@ -278,10 +279,37 @@ building_silk_plantation = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-# Infinite Plantations
-building_vineyard_greenhouse = {
+# Greenhouses
+REPLACE_OR_CREATE:building_autarky_greenhouse = {
+	icon = "gfx/interface/icons/building_icons/building_subsistence_farm.dds"
+	building_group = bg_agricultural_greenhouses
+	unlocking_technologies = { enclosure }
+	city_type = farm
+	levels_per_mesh = 50
+	production_method_groups = {
+		pmg_base_building_autarky_farm
+		pmg_home_workshops
+		pmg_greenhouse
+		pmg_harvesting_process_autark
+	}
+	min_raise_to_hire			= 0
+	ai_nationalization_desire	= 0.5		# AI is likely to nationalize this, to guarantee a stream of revenue
+	required_construction		= construction_cost_medium
+	ai_value = {
+		value = 1000
+		if		= { limit = { market.mg:grain = { market_goods_pricier >= 0.50 } }	value	= 10000 }	# Food is a matter of life or death, literally
+		else_if	= { limit = { market.mg:grain = { market_goods_pricier >= 0.25 } }	value	=  5000 }	# Food is a matter of life or death, literally
+		else_if	= { limit = { market.mg:grain = { market_goods_pricier >= 0.00 } }	value	=  2000 }	# Food is a matter of life or death, literally
+	}
+	# residence_points_per_level= 0.2
+	# slaves_role	= peasants	# Removed
+	ownership_type = self
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+	should_auto_expand = { trigger_auto_expand_autarky = yes }
+}
+REPLACE_OR_CREATE:building_vineyard_greenhouse = {
 	possible = { trigger_vineyard_greenhouse_allowed = yes }
-	building_group = bg_vineyard_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/vineyards.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -296,9 +324,9 @@ building_vineyard_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_coffee_greenhouse = {
+REPLACE_OR_CREATE:building_coffee_greenhouse = {
 	possible = { trigger_coffee_greenhouse_allowed = yes }
-	building_group = bg_coffee_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -313,9 +341,9 @@ building_coffee_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_tea_greenhouse = {
+REPLACE_OR_CREATE:building_tea_greenhouse = {
 	possible = { trigger_tea_greenhouse_allowed = yes }
-	building_group = bg_tea_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -330,9 +358,9 @@ building_tea_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_sugar_greenhouse = {
+REPLACE_OR_CREATE:building_sugar_greenhouse = {
 	possible = { trigger_sugar_greenhouse_allowed = yes }
-	building_group = bg_sugar_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/sugar_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -347,9 +375,9 @@ building_sugar_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_banana_greenhouse = {
+REPLACE_OR_CREATE:building_banana_greenhouse = {
 	possible = { trigger_banana_greenhouse_allowed = yes }
-	building_group = bg_banana_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -364,9 +392,9 @@ building_banana_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_opium_greenhouse = {
+REPLACE_OR_CREATE:building_opium_greenhouse = {
 	possible	= { trigger_opium_greenhouse_allowed = yes }
-	building_group = bg_opium_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/opium_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -381,9 +409,9 @@ building_opium_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_tobacco_greenhouse = {
+REPLACE_OR_CREATE:building_tobacco_greenhouse = {
 	possible = { trigger_tobacco_greenhouse_allowed = yes }
-	building_group = bg_tobacco_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -398,9 +426,9 @@ building_tobacco_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_cotton_greenhouse = {
+REPLACE_OR_CREATE:building_cotton_greenhouse = {
 	possible = { trigger_cotton_greenhouse_allowed = yes }
-	building_group = bg_cotton_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -415,9 +443,9 @@ building_cotton_greenhouse = {
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_dye_greenhouse = {
+REPLACE_OR_CREATE:building_dye_greenhouse = {
 	possible = { trigger_dye_greenhouse_allowed = yes }
-	building_group = bg_dye_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/dye_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -429,12 +457,20 @@ building_dye_greenhouse = {
 		pmg_greenhouse
 		pmg_train_automation
 	}
+	ai_value = {
+		value	= 1000
+		OWNER = {
+			if		= { limit = { has_technology_researched = aniline }					value		=    0 }
+			if		= { limit = { trigger_agrarian_economy = yes }						value		= 1000 }
+			if		= { limit = { has_law = law_type:law_cooperative_ownership }		multiply	=    2 }	# Added
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-building_silk_greenhouse = {
+REPLACE_OR_CREATE:building_silk_greenhouse = {
 	possible = { trigger_silk_greenhouse_allowed = yes }
-	building_group = bg_silk_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/silk_plantation.dds"
 	required_construction = construction_cost_medium
 	unlocking_technologies = { enclosure }
@@ -446,13 +482,21 @@ building_silk_greenhouse = {
 		pmg_greenhouse
 		pmg_train_automation
 	}
+	ai_value = {
+		value	= 1000
+		OWNER = {
+			if		= { limit = { has_technology_researched = art_silk }				value		=    0 }
+			if		= { limit = { trigger_agrarian_economy = yes }						value		= 1000 }
+			if		= { limit = { has_law = law_type:law_cooperative_ownership }		multiply	=    2 }	# Added
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }
-# Logging Greenhouse
-building_logging_greenhouse = {
+# Logging Greenhouses
+REPLACE_OR_CREATE:building_logging_greenhouse = {
 	possible	= { trigger_logging_greenhouse_allowed	= yes }
-	building_group = bg_logging_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
 	required_construction = construction_cost_medium
@@ -464,13 +508,13 @@ building_logging_greenhouse = {
 		pmg_greenhouse
 		pmg_transportation_building_logging_camp
 	}
+	ai_value = 500 # Make AI less likely to build if there is still potentional of normal resources
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"	# Changed
-	ai_value = 500 # Make AI less likely to build if there is still potentional of normal resources
 }
-building_rubber_greenhouse = {
+REPLACE_OR_CREATE:building_rubber_greenhouse = {
 	possible	= { trigger_rubber_greenhouse_allowed	= yes }
-	building_group = bg_rubber_greenhouses
+	building_group = bg_greenhouses
 	icon = "gfx/interface/icons/building_icons/rubber_lodge.dds"
 	required_construction = construction_cost_medium
 	terrain_manipulator = forestry
@@ -482,6 +526,14 @@ building_rubber_greenhouse = {
 		pmg_equipment	# Rubber is closer to Logging than anything else
 		pmg_greenhouse
 		pmg_transportation_building_logging_camp
+	}
+	ai_value = {
+		value	= 500
+		OWNER = {
+			if		= { limit = { has_technology_researched = plastics }				multiply	=    0 }
+			if		= { limit = { trigger_agrarian_economy = yes }						value		= 1000 }
+			if		= { limit = { has_law = law_type:law_cooperative_ownership }		multiply	=    2 }	# Added
+		}
 	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"

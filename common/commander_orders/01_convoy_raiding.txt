@@ -1,4 +1,4 @@
-﻿raid_convoys = {
+﻿REPLACE:raid_convoys = {
 	texture = "gfx/interface/icons/commander_order_icons/raid_convoys.dds"
 	military_type = navy
 	behavior = raid_convoys
@@ -18,7 +18,7 @@
 	indicator_position_angle_for_enemy = 295		# Enemy order position on indicator in degrees
 	ai_weight = { value = 1 }
 }
-raid_unrestricted_sub = {
+REPLACE:raid_unrestricted_sub = {
 	texture = "gfx/interface/icons/commander_order_icons/raid_unrestricted_sub.dds"
 	military_type = navy
 	behavior = raid_convoys

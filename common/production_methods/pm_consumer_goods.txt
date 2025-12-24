@@ -1,7 +1,7 @@
 ﻿# Consumer Goods
 # Food
 # Bread
-pm_bakery = {
+REPLACE_OR_CREATE:pm_bakery = {
 	texture = "gfx/interface/icons/production_method_icons/bakeries.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -16,7 +16,7 @@ pm_bakery = {
 		}												#		= -110	=> Stops breaking even at SoL 6 4/11
 	}
 }		
-pm_sweeteners = {
+REPLACE_OR_CREATE:pm_sweeteners = {
 	texture = "gfx/interface/icons/production_method_icons/sweeteners.dds"
 	unlocking_technologies = { distillation }				
 	building_modifiers = {
@@ -34,7 +34,7 @@ pm_sweeteners = {
 		}												#		= -115	=> Stops breaking even at SoL 8 16/23
 	}
 }
-pm_baking_powder = {
+REPLACE_OR_CREATE:pm_baking_powder = {
 	texture = "gfx/interface/icons/production_method_icons/baking_powder.dds"
 	unlocking_technologies = { baking_powder }
 	building_modifiers = {
@@ -54,7 +54,7 @@ pm_baking_powder = {
 	}
 }
 # Canning
-pm_cannery = {
+REPLACE_OR_CREATE:pm_cannery = {
 	texture = "gfx/interface/icons/production_method_icons/canneries.dds"
 	unlocking_technologies = { canneries }
 	building_modifiers = {
@@ -73,7 +73,7 @@ pm_cannery = {
 		}
 	}
 }
-pm_cannery_fish = {
+REPLACE_OR_CREATE:pm_cannery_fish = {
 	texture = "gfx/interface/icons/production_method_icons/canneries.dds"
 	unlocking_technologies = { canneries }
 	building_modifiers = {
@@ -92,7 +92,7 @@ pm_cannery_fish = {
 		}
 	}
 }
-pm_vacuum_canning = {
+REPLACE_OR_CREATE:pm_vacuum_canning = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_canning.dds"
 	unlocking_technologies = { vacuum_canning }
 	building_modifiers = {
@@ -114,7 +114,7 @@ pm_vacuum_canning = {
 	}
 }
 # Liquor
-pm_pot_stills = {
+REPLACE_OR_CREATE:pm_pot_stills = {
 	texture = "gfx/interface/icons/production_method_icons/pot_stills.dds"
 	unlocking_technologies = { distillation }
 	building_modifiers = {
@@ -130,7 +130,7 @@ pm_pot_stills = {
 		}
 	}
 }
-pm_patent_stills = {
+REPLACE_OR_CREATE:pm_patent_stills = {
 	texture = "gfx/interface/icons/production_method_icons/patent_stills.dds"
 	unlocking_technologies = { fractional_distillation }
 	building_modifiers = {
@@ -151,7 +151,7 @@ pm_patent_stills = {
 	}
 }
 # Clothes
-pm_handsewn_clothes = {
+REPLACE_OR_CREATE:pm_handsewn_clothes = {
 	texture = "gfx/interface/icons/production_method_icons/handsewn_clothes.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -166,7 +166,7 @@ pm_handsewn_clothes = {
 		}
 	}
 }
-pm_dye_workshops = {
+REPLACE_OR_CREATE:pm_dye_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/dye_workshops.dds"
 	unlocking_technologies = { lathe }
 	building_modifiers = {
@@ -184,7 +184,7 @@ pm_dye_workshops = {
 		}
 	}
 }			
-pm_sewing_machines = {
+REPLACE_OR_CREATE:pm_sewing_machines = {
 	texture = "gfx/interface/icons/production_method_icons/sewing_machines.dds"
 	unlocking_technologies = { mechanized_workshops }
 	building_modifiers = {
@@ -209,7 +209,7 @@ pm_sewing_machines = {
 		}
 	}
 }
-pm_electric_sewing_machines = {
+REPLACE_OR_CREATE:pm_electric_sewing_machines = {
 	texture = "gfx/interface/icons/production_method_icons/electric_sewing_machines.dds"
 	unlocking_technologies = { electrical_capacitors }
 	building_modifiers = {
@@ -236,7 +236,7 @@ pm_electric_sewing_machines = {
 	required_input_goods = electricity
 }
 # Luxury Clothes
-pm_craftsman_sewing = {
+REPLACE_OR_CREATE:pm_craftsman_sewing = {
 	texture = "gfx/interface/icons/production_method_icons/craftsman_sewing.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -253,7 +253,7 @@ pm_craftsman_sewing = {
 		# }
 	}
 }
-pm_craftsman_sewing_priority = {
+REPLACE_OR_CREATE:pm_craftsman_sewing_priority = {
 	texture = "gfx/interface/icons/production_method_icons/craftsman_sewing2.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -271,7 +271,7 @@ pm_craftsman_sewing_priority = {
 		# }
 	}
 }
-pm_elastics = {
+REPLACE_OR_CREATE:pm_elastics = {
 	texture = "gfx/interface/icons/production_method_icons/elastics.dds"
 	unlocking_technologies = { vulcanization }
 	building_modifiers = {
@@ -293,7 +293,7 @@ pm_elastics = {
 	required_input_goods = silk
 	required_input_goods = rubber
 }
-pm_elastics_priority = {
+REPLACE_OR_CREATE:pm_elastics_priority = {
 	texture = "gfx/interface/icons/production_method_icons/elastics2.dds"
 	unlocking_technologies = { vulcanization }
 	building_modifiers = {
@@ -316,7 +316,7 @@ pm_elastics_priority = {
 	required_input_goods = rubber
 }
 # Furniture
-pm_handcrafted_furniture = {
+REPLACE_OR_CREATE:pm_handcrafted_furniture = {
 	texture = "gfx/interface/icons/production_method_icons/furniture_handicraft.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -332,7 +332,7 @@ pm_handcrafted_furniture = {
 		}												#		= -110	=> Stops breaking even at SoL 5
 	}
 }		
-pm_lathe = {
+REPLACE_OR_CREATE:pm_lathe = {
 	texture = "gfx/interface/icons/production_method_icons/lathes.dds"
 	unlocking_technologies = { lathe }
 	building_modifiers = {
@@ -352,7 +352,7 @@ pm_lathe = {
 		}
 	}
 }
-pm_mechanized_workshops = {
+REPLACE_OR_CREATE:pm_mechanized_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/mechanized_workshops.dds"
 	unlocking_technologies = { mechanized_workshops }
 	building_modifiers = {
@@ -379,7 +379,7 @@ pm_mechanized_workshops = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Luxury Furniture
-pm_luxury_furniture = {
+REPLACE_OR_CREATE:pm_luxury_furniture = {
 	texture = "gfx/interface/icons/production_method_icons/luxury_furniture.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -391,7 +391,7 @@ pm_luxury_furniture = {
 		}													#		=  650
 	}
 }
-pm_luxury_furniture_priority = {
+REPLACE_OR_CREATE:pm_luxury_furniture_priority = {
 	texture = "gfx/interface/icons/production_method_icons/luxury_furniture2.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -404,7 +404,7 @@ pm_luxury_furniture_priority = {
 		}													#		=  650
 	}
 }
-pm_precision_tools = {
+REPLACE_OR_CREATE:pm_precision_tools = {
 	texture = "gfx/interface/icons/production_method_icons/precision_tools.dds"
 	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
@@ -420,7 +420,7 @@ pm_precision_tools = {
 	}
 	required_input_goods = silk
 }
-pm_precision_tools_priority = {
+REPLACE_OR_CREATE:pm_precision_tools_priority = {
 	texture = "gfx/interface/icons/production_method_icons/precision_tools2.dds"
 	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
@@ -438,7 +438,7 @@ pm_precision_tools_priority = {
 	required_input_goods = silk
 }
 # Glass
-pm_forest_glass = {
+REPLACE_OR_CREATE:pm_forest_glass = {
 	texture = "gfx/interface/icons/production_method_icons/forest_glass.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -457,7 +457,7 @@ pm_forest_glass = {
 		}
 	}
 }		
-pm_leaded_glass = {
+REPLACE_OR_CREATE:pm_leaded_glass = {
 	texture = "gfx/interface/icons/production_method_icons/leaded_glass.dds"
 	unlocking_technologies = { lathe }
 	building_modifiers = {
@@ -480,7 +480,7 @@ pm_leaded_glass = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_crystal_glass = {
+REPLACE_OR_CREATE:pm_crystal_glass = {
 	texture = "gfx/interface/icons/production_method_icons/crystal_glass.dds"
 	unlocking_technologies = { crystal_glass }
 	building_modifiers = {
@@ -499,7 +499,7 @@ pm_crystal_glass = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_houseware_plastics = {
+REPLACE_OR_CREATE:pm_houseware_plastics = {
 	texture = "gfx/interface/icons/production_method_icons/houseware_plastics.dds"
 	unlocking_technologies = { plastics }
 	building_modifiers = {
@@ -525,11 +525,11 @@ pm_houseware_plastics = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 }
 # Ceramics
-pm_disabled_ceramics = {
+REPLACE_OR_CREATE:pm_disabled_ceramics = {
 	texture = "gfx/interface/icons/production_method_icons/no_ceramics.dds"
 	ai_value = 0
 }
-pm_ceramics = {
+REPLACE_OR_CREATE:pm_ceramics = {
 	texture = "gfx/interface/icons/production_method_icons/ceramics.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -545,7 +545,7 @@ pm_ceramics = {
 		}
 	}
 }
-pm_ceramics_priority = {
+REPLACE_OR_CREATE:pm_ceramics_priority = {
 	texture = "gfx/interface/icons/production_method_icons/ceramics2.dds"
 	replacement_if_valid = pm_bone_china
 	building_modifiers = {
@@ -563,7 +563,7 @@ pm_ceramics_priority = {
 		}
 	}
 }
-pm_bone_china = {
+REPLACE_OR_CREATE:pm_bone_china = {
 	texture = "gfx/interface/icons/production_method_icons/bone_china.dds"
 	unlocking_technologies = { chemical_bleaching }
 	building_modifiers = {
@@ -580,7 +580,7 @@ pm_bone_china = {
 		}
 	}
 }
-pm_bone_china_priority = {
+REPLACE_OR_CREATE:pm_bone_china_priority = {
 	texture = "gfx/interface/icons/production_method_icons/bone_china2.dds"
 	unlocking_technologies = { chemical_bleaching }
 	building_modifiers = {

@@ -1,4 +1,4 @@
-﻿ig_armed_forces = {
+﻿REPLACE:ig_armed_forces = {
 	color = hsv{ 0.09 0.29 0.39 }
 	texture = "gfx/interface/icons/ig_icons/armed_forces.dds"
 	layer = "revolution_dynamic_armed_forces"
@@ -20,7 +20,7 @@
 		ig_trait_materiel_waste
 	}
 	on_enable = {
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			if = {
 				limit = { owner = { c:CHI ?= THIS } }
 				set_ig_trait = ig_trait:ig_trait_newly_created_army
@@ -141,24 +141,38 @@
 		rule = {
 			trigger = {
 				c:BIC ?= this
-				any_primary_culture = { 
-					cu:british = this
-				}
+				any_primary_culture = { cu:british = this }
 			}
-			cultures = {
-				british scottish irish
-			}
+			cultures = { british scottish irish }
 		}
 		rule = {
 			trigger = {
 				c:ZAN ?= this
+				any_primary_culture = { cu:bedouin = this }
+			}
+			cultures = { bedouin swahili baluchi }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				NOT = { has_variable = je_philippines_main_reliance_happened }
+				NOT = { any_primary_culture = { cu:filipino = this } }
+				NOT = { any_primary_culture = { cu:filipino_hispanophone = this } }
+				any_primary_culture = { cu:spanish = this }
+			}
+			cultures = { spanish filipino_mestizo }
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
 				any_primary_culture = {
-					cu:bedouin = this
+					AND = {
+						cu:spanish = this
+						cu:filipino_hispanophone = this
+					}
 				}
 			}
-			cultures = {
-				bedouin swahili baluchi
-			}
+			cultures = { spanish filipino_hispanophone }
 		}
 	}
 	on_character_ig_membership = {}
@@ -249,6 +263,7 @@
 				}
 				value = 100
 			}
+		}
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
@@ -294,7 +309,7 @@
 	monarch_weight = {
 		value = 1
 		if = {	# Monarch is not likely to adopt a marginal IG
-			limit = { is_marginal = yes }
+			limit = { ig_counts_as_marginal = yes }
 			multiply = { value = 0.1 }
 		}
 		if = {	# Monarch is more likely to adopt a Powerful IG
@@ -343,60 +358,70 @@
 	}
 	agitator_weight = {	# Agitators more likely to come from populist IG's rather than elitist
 		value = 0.5
-			if = {	# Agitators will never be part of a marginalized IG
-			limit = { owner.ig:ig_armed_forces = { is_marginal = yes } }
+		if = {	# Agitators will never be part of a marginalized IG
+			limit = { owner.ig:ig_armed_forces = { ig_counts_as_marginal = yes } }
 			multiply = { value = 0 }
 		}
 	}
 	commander_weight = { value = 5.0 }
+	executive_weight = {
+		value = 0.2
+		if = {	# The company owning BIC should not get non-industrialist executives
+			limit = {
+				exists = scope:company
+				exists = c:BIC
+				c:BIC ?= {
+					exists = owning_company
+					owning_company = scope:company
+				}
+			}
+			multiply = { value = 0 }
+		}
+	}
 	noble_chance = { value = 0.5 }
 	female_commander_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.05 }
+			value = 0.05
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.2 }
+			value = 0.20
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.4 }
+			value = 0.50
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	female_agitator_chance = {
-		value = 0.0
-		if = {
-			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
-			add = { value = 0.05 }
-		}
+		value = 0.05
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	commander_leader_chance = {						# The chance that a commander belonging to this IG takes over leadership when it changes

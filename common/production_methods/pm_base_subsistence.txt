@@ -1,6 +1,6 @@
 ﻿# Subsistence base pms
 # Farms
-default_building_subsistence_farms = {
+REPLACE_OR_CREATE:pm_default_subsistence_farms = {
 	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -15,7 +15,7 @@ default_building_subsistence_farms = {
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.1 } }
 	ai_value = 0
 }
-pm_enriched_subsistence_farms = {				#x1.5
+REPLACE_OR_CREATE:pm_enriched_subsistence_farms = {				#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -36,7 +36,7 @@ pm_enriched_subsistence_farms = {				#x1.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
 	ai_value = 2000
 }
-pm_fertilized_subsistence_farms = {				#x3
+REPLACE_OR_CREATE:pm_fertilized_subsistence_farms = {				#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -57,7 +57,7 @@ pm_fertilized_subsistence_farms = {				#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 30000
 }
-pm_chem_fertilized_subsistence_farms = {		#x4.5
+REPLACE_OR_CREATE:pm_chem_fertilized_subsistence_farms = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	unlocking_production_methods = {
@@ -84,7 +84,7 @@ pm_chem_fertilized_subsistence_farms = {		#x4.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.75 } }
 	ai_value = 500000
 }
-pm_auto_fertilized_subsistence_farms = {		#x7.5
+REPLACE_OR_CREATE:pm_auto_fertilized_subsistence_farms = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {
@@ -118,7 +118,7 @@ pm_auto_fertilized_subsistence_farms = {		#x7.5
 	ai_value = 1000000
 }
 # Orchards
-default_building_subsistence_orchards = {
+REPLACE_OR_CREATE:pm_default_subsistence_orchards = {
 	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -133,7 +133,7 @@ default_building_subsistence_orchards = {
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.1 } }
 	ai_value = 0
 }
-pm_enriched_subsistence_orchards = {	#x1.5
+REPLACE_OR_CREATE:pm_enriched_subsistence_orchards = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -154,7 +154,7 @@ pm_enriched_subsistence_orchards = {	#x1.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
 	ai_value = 2000
 }
-pm_fertilized_subsistence_orchards = {		#x3
+REPLACE_OR_CREATE:pm_fertilized_subsistence_orchards = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -175,7 +175,7 @@ pm_fertilized_subsistence_orchards = {		#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 30000
 }
-pm_chem_fertilized_subsistence_orchards = {		#x4.5
+REPLACE_OR_CREATE:pm_chem_fertilized_subsistence_orchards = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	unlocking_production_methods = {
@@ -202,7 +202,7 @@ pm_chem_fertilized_subsistence_orchards = {		#x4.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.75 } }
 	ai_value = 500000
 }
-pm_auto_fertilized_subsistence_orchards = {		#x7.5
+REPLACE_OR_CREATE:pm_auto_fertilized_subsistence_orchards = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {
@@ -236,7 +236,7 @@ pm_auto_fertilized_subsistence_orchards = {		#x7.5
 	ai_value = 1000000
 }
 # Pastures/Ranches
-default_building_subsistence_pastures = {
+REPLACE_OR_CREATE:pm_default_subsistence_pastures = {
 	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -252,7 +252,7 @@ default_building_subsistence_pastures = {
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.1 } }
 	ai_value = 0
 }
-pm_enriched_subsistence_pastures = {	#x1.5
+REPLACE_OR_CREATE:pm_enriched_subsistence_pastures = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -273,7 +273,7 @@ pm_enriched_subsistence_pastures = {	#x1.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
 	ai_value = 2000
 }
-pm_fertilized_subsistence_pastures = {		#x3
+REPLACE_OR_CREATE:pm_fertilized_subsistence_pastures = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -294,7 +294,7 @@ pm_fertilized_subsistence_pastures = {		#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 30000
 }
-pm_chem_fertilized_subsistence_pastures = {		#x4.5
+REPLACE_OR_CREATE:pm_chem_fertilized_subsistence_pastures = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	unlocking_production_methods = {
@@ -321,7 +321,7 @@ pm_chem_fertilized_subsistence_pastures = {		#x4.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.75 } }
 	ai_value = 500000
 }
-pm_auto_fertilized_subsistence_pastures = {		#x7.5
+REPLACE_OR_CREATE:pm_auto_fertilized_subsistence_pastures = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {
@@ -354,7 +354,7 @@ pm_auto_fertilized_subsistence_pastures = {		#x7.5
 	ai_value = 1000000
 }
 # Fishing
-default_building_subsistence_fishing_villages = {										# I am very aware that this makes little to no sense, but humor me for the sake of balance pls.
+REPLACE_OR_CREATE:pm_default_subsistence_fishing_villages = {										# I am very aware that this makes little to no sense, but humor me for the sake of balance pls.
 	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -371,7 +371,7 @@ default_building_subsistence_fishing_villages = {										# I am very aware tha
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.1 } }
 	ai_value = 0
 }
-pm_enriched_subsistence_fishing_villages = {	#x1.5
+REPLACE_OR_CREATE:pm_enriched_subsistence_fishing_villages = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -396,7 +396,7 @@ pm_enriched_subsistence_fishing_villages = {	#x1.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.25 } }
 	ai_value = 2000
 }
-pm_fertilized_subsistence_fishing_villages = {		#x3
+REPLACE_OR_CREATE:pm_fertilized_subsistence_fishing_villages = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -421,7 +421,7 @@ pm_fertilized_subsistence_fishing_villages = {		#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 30000
 }
-pm_chem_fertilized_subsistence_fishing_villages = {		#x4.5
+REPLACE_OR_CREATE:pm_chem_fertilized_subsistence_fishing_villages = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	unlocking_production_methods = {
@@ -452,7 +452,7 @@ pm_chem_fertilized_subsistence_fishing_villages = {		#x4.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.75 } }
 	ai_value = 500000
 }
-pm_auto_fertilized_subsistence_fishing_villages = {		#x7.5
+REPLACE_OR_CREATE:pm_auto_fertilized_subsistence_fishing_villages = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {
@@ -490,7 +490,7 @@ pm_auto_fertilized_subsistence_fishing_villages = {		#x7.5
 	ai_value = 1000000
 }
 # Welcome to the Rice fields motherf***er
-default_building_subsistence_rice_paddies = {										# All values below are doubled compared to the base farms at the start.
+REPLACE_OR_CREATE:pm_default_subsistence_rice_paddies = {										# All values below are doubled compared to the base farms at the start.
 	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -517,7 +517,7 @@ default_building_subsistence_rice_paddies = {										# All values below are do
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.2 } }
 	ai_value = 0
 }
-pm_enriched_subsistence_rice_paddies = {	#x1.5
+REPLACE_OR_CREATE:pm_enriched_subsistence_rice_paddies = {	#x1.5
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -549,7 +549,7 @@ pm_enriched_subsistence_rice_paddies = {	#x1.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.5 } }
 	ai_value = 2000
 }
-pm_fertilized_subsistence_rice_paddies = {		#x3
+REPLACE_OR_CREATE:pm_fertilized_subsistence_rice_paddies = {		#x3
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -581,7 +581,7 @@ pm_fertilized_subsistence_rice_paddies = {		#x3
 	country_modifiers = { workforce_scaled = { country_construction_add	= 0.75 } }
 	ai_value = 30000
 }
-pm_chem_fertilized_subsistence_rice_paddies = {		#x4.5
+REPLACE_OR_CREATE:pm_chem_fertilized_subsistence_rice_paddies = {		#x4.5
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	unlocking_production_methods = {
@@ -619,7 +619,7 @@ pm_chem_fertilized_subsistence_rice_paddies = {		#x4.5
 	country_modifiers = { workforce_scaled = { country_construction_add	= 1 } }
 	ai_value = 500000
 }
-pm_auto_fertilized_subsistence_rice_paddies = {		#x7.5
+REPLACE_OR_CREATE:pm_auto_fertilized_subsistence_rice_paddies = {		#x7.5
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {

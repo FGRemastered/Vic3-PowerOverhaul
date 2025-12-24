@@ -1,210 +1,215 @@
 # Modifers for use in other files
 # Input
 # Linear
-goods_input_furniture_add										= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_services_add										= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }	# Does not exist for some reason.
-goods_input_fine_art_add										= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_luxury_clothes_add									= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_luxury_furniture_add								= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_porcelain_add										= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_tea_add												= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
-goods_input_coffee_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_furniture_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_services_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }	# Does not exist for some reason.
+REPLACE_OR_CREATE:goods_input_fine_art_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_luxury_clothes_add									= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_luxury_furniture_add									= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_porcelain_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_tea_add												= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_coffee_add											= { decimals = 1	color =  bad	percent = no	game_data = { ai_value = 0 } }
 # Multiplicative
-goods_input_grain_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_coal_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_iron_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_lead_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_wood_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_hardwood_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_sulfur_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_rubber_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_dye_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_silk_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_fertilizer_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_explosives_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_clippers_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_steamers_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_groceries_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_fabric_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_tools_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_glass_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_sugar_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_clothes_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_furniture_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_luxury_clothes_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_luxury_furniture_mult								= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_liquor_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_tobacco_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_opium_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_engines_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_automobiles_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_oil_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }	# decimals 0 -> 1
-goods_input_merchant_marine_mult								= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_services_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_transportation_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
-goods_input_electricity_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_grain_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_coal_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_iron_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_lead_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_wood_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_hardwood_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_sulfur_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_rubber_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_dye_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_silk_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_fertilizer_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_explosives_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_clippers_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_steamers_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_groceries_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_fabric_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_tools_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_glass_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_sugar_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_clothes_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_furniture_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_luxury_clothes_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_luxury_furniture_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_liquor_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_tobacco_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_opium_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_engines_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_automobiles_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_oil_mult												= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }	# decimals 0 -> 1
+REPLACE_OR_CREATE:goods_input_merchant_marine_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_services_mult											= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_transportation_mult									= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_input_electricity_mult										= { decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }
 # Output
-building_production_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_grain_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_fish_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_fruit_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_meat_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_sugar_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_groceries_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_liquor_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_clothes_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_furniture_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_fabric_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_coffee_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_tea_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_opium_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_wood_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_hardwood_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_coal_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_iron_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_lead_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_sulfur_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_gold_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_oil_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_rubber_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_steel_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_tobacco_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# I equate tobacco to chemical warfare.
-goods_output_engines_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_automobiles_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_dye_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_silk_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_fertilizer_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_explosives_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_tanks_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_luxury_clothes_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_luxury_furniture_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_glass_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_porcelain_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_telephones_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_radios_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Base game has a typo
-goods_output_merchant_marine_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_services_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 100 } }
-goods_output_transportation_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-goods_output_electricity_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_production_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_grain_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_fish_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_fruit_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_meat_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_sugar_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_groceries_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_liquor_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_clothes_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_furniture_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_fabric_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_coffee_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_tea_mult												= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_opium_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_wood_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_hardwood_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_coal_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_iron_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_lead_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_sulfur_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_gold_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_oil_mult												= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_rubber_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_steel_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_tobacco_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# I equate tobacco to chemical warfare.
+REPLACE_OR_CREATE:goods_output_engines_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_automobiles_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_dye_mult												= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_silk_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_fertilizer_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_explosives_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_tanks_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_luxury_clothes_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_luxury_furniture_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_glass_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_porcelain_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_telephones_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_radios_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Base game has a typo
+REPLACE_OR_CREATE:goods_output_merchant_marine_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_services_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 100 } }
+REPLACE_OR_CREATE:goods_output_transportation_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:goods_output_electricity_mult										= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Buildings
-building_autarky_farm_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Hungry 40s
-building_autarky_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Hungry 40s
-building_vineyard_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
-building_cotton_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
-building_coffee_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
-building_sugar_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
-building_tobacco_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
-building_silk_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
-building_synthetic_oil_plants_throughput_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# BASF
+REPLACE_OR_CREATE:building_autarky_farm_throughput_add								= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Hungry 40s
+REPLACE_OR_CREATE:building_autarky_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Hungry 40s
+REPLACE_OR_CREATE:building_vineyard_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
+REPLACE_OR_CREATE:building_coffee_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Coffee River	(Brazil)
+REPLACE_OR_CREATE:building_tea_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_sugar_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sugar Coast	(Brazil)
+REPLACE_OR_CREATE:building_banana_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_opium_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_tobacco_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Reconcavo		(Brazil)
+REPLACE_OR_CREATE:building_cotton_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Cotton Gin
+REPLACE_OR_CREATE:building_dye_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_silk_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Sericulture
+REPLACE_OR_CREATE:building_logging_greenhouse_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# Black Forest
+REPLACE_OR_CREATE:building_rubber_greenhouse_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_charcoal_burner_throughput_add							= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# 
+REPLACE_OR_CREATE:building_synthetic_oil_plant_throughput_add						= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }	# BASF
 # Shares
-building_peasants_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
-building_farmers_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
-building_academics_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
-building_engineers_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
-building_officers_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
-building_government_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_peasants_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_farmers_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_academics_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_engineers_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_officers_shares_add										= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_government_shares_add									= { decimals = 0	color = neutral					game_data = { ai_value = 0 } }
 # Investment Pool Contribution
-state_peasants_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_laborers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-# state_machinists_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-# state_bureaucrats_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-# state_engineers_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_academics_investment_pool_contribution_add				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_officers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_peasants_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_laborers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_academics_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_officers_investment_pool_contribution_add					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 # ... Efficiency
-state_peasants_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_laborers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_machinists_investment_pool_efficiency_mult				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_bureaucrats_investment_pool_efficiency_mult				= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_academics_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_engineers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_officers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_peasants_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_laborers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_machinists_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_bureaucrats_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_academics_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_engineers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_officers_investment_pool_efficiency_mult					= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Building Groups
-building_group_bg_logging_greenhouses_throughput_add			= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_rubber_greenhouses_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_arts_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_trade_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_manor_houses_tax_mult							= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_financial_districts_tax_mult					= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_extraction_tax_mult							= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_agriculture_unincorporated_throughput_add		= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }		# Unused
-building_group_bg_extraction_unincorporated_throughput_add		= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_light_industry_unincorporated_throughput_add	= { decimals = 0 	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_group_bg_heavy_industry_unincorporated_throughput_add	= { decimals = 0 	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_logging_greenhouses_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_rubber_greenhouses_throughput_add				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_arts_throughput_add								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_trade_throughput_add							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_manor_houses_tax_mult							= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_financial_districts_tax_mult					= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_extraction_tax_mult								= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_arts_tax_mult									= {	decimals = 0	color =	neutral	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_agriculture_unincorporated_throughput_add		= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }		# Unused
+REPLACE_OR_CREATE:building_group_bg_extraction_unincorporated_throughput_add		= { decimals = 0	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_light_industry_unincorporated_throughput_add	= { decimals = 0 	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_group_bg_heavy_industry_unincorporated_throughput_add	= { decimals = 0 	color = good	percent = yes	game_data = { ai_value = 0 } }
 # Units
-unit_combat_unit_type_carrier_offense_add						= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
-unit_combat_unit_type_carrier_defense_add						= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:unit_combat_unit_type_carrier_offense_add							= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:unit_combat_unit_type_carrier_defense_add							= {	decimals = 0	color = good					game_data = { ai_value = 0 } }
 # Pops
-building_employment_peasants_add								= {	decimals = 0	color = neutral 				game_data = { ai_value = 0.1 } }	# Changed - Each peasant off the streets is equal to 5£ per year
-building_employment_mult										= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_slaves_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_peasants_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_laborers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_machinists_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_clergymen_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_clerks_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_soldiers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_shopkeepers_mult							= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_farmers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_engineers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_bureaucrats_mult							= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_academics_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_officers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_capitalists_mult							= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_employment_aristocrats_mult							= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-
-building_slaves_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_peasants_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_laborers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_machinists_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_clergymen_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_clerks_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_soldiers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_shopkeepers_birth_rate_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_farmers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_engineers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_bureaucrats_birth_rate_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_academics_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_officers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_capitalists_birth_rate_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-building_aristocrats_birth_rate_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-
-state_peasants_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_birth_rate_peasants_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Perhaps it was the wrong way around?
-
-building_slaves_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_peasants_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_laborers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_machinists_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_clergymen_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_clerks_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_soldiers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_shopkeepers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_farmers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_engineers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_bureaucrats_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_academics_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_officers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_capitalists_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_aristocrats_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
-building_fertility_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_employment_peasants_add									= {	decimals = 0	color = neutral 				game_data = { ai_value = 0.1 } }	# Changed - Each peasant off the streets is equal to 5£ per year
+REPLACE_OR_CREATE:building_employment_mult											= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_slaves_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_peasants_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_laborers_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_machinists_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_clergymen_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_clerks_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_soldiers_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_shopkeepers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_farmers_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_engineers_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_bureaucrats_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_academics_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_officers_mult									= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_capitalists_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_employment_aristocrats_mult								= { decimals = 1	color = neutral	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:
+REPLACE_OR_CREATE:building_slaves_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_peasants_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_laborers_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_machinists_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_clergymen_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_clerks_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_soldiers_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_shopkeepers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_farmers_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_engineers_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_bureaucrats_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_academics_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_officers_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_capitalists_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:building_aristocrats_birth_rate_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:
+REPLACE_OR_CREATE:state_peasants_birth_rate_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_birth_rate_peasants_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Perhaps it was the wrong way around?
+REPLACE_OR_CREATE:
+REPLACE_OR_CREATE:building_slaves_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_peasants_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_laborers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_machinists_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_clergymen_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_clerks_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_soldiers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_shopkeepers_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_farmers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_engineers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_bureaucrats_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_academics_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_officers_fertility_mult									= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_capitalists_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_aristocrats_fertility_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }		# Localised, but not initialised
+REPLACE_OR_CREATE:building_fertility_mult											= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
 # State
-state_building_barracks_max_level_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-state_conscription_rate_add										= {	decimals = 2	color = good	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 2
-state_education_access_wealth_add								= {	decimals = 2	color = good	suffix	= "per_wealth"	percent = yes	game_data ={ ai_value = 0 } }	# Increased decimals to 2
-state_birth_rate_wealth_mult									= {	decimals = 2	color = good	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Added - Unused for now
-state_mortality_wealth_mult										= {	decimals = 2	color =  bad	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Increased decimals to 2
-state_birth_rate_mult											= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 1
-state_mortality_mult											= {	decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }		
-state_birth_rate_full_acceptance_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }					# Increased decimals to 1
+REPLACE_OR_CREATE:state_building_barrack_max_level_mult							= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_conscription_rate_add										= {	decimals = 2	color = good	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 2
+REPLACE_OR_CREATE:state_education_access_wealth_add									= {	decimals = 2	color = good	suffix	= "per_wealth"	percent = yes	game_data ={ ai_value = 0 } }	# Increased decimals to 2
+REPLACE_OR_CREATE:state_birth_rate_wealth_mult										= {	decimals = 2	color = good	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Added - Unused for now
+REPLACE_OR_CREATE:state_mortality_wealth_mult										= {	decimals = 2	color =  bad	suffix	= "per_wealth"	percent = yes	game_data = { ai_value = 0 } }	# Increased decimals to 2
+REPLACE_OR_CREATE:state_birth_rate_mult												= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }							# Increased decimals to 1
+REPLACE_OR_CREATE:state_mortality_mult												= {	decimals = 1	color =  bad	percent = yes	game_data = { ai_value = 0 } }		
+REPLACE_OR_CREATE:state_birth_rate_full_acceptance_mult								= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }					# Increased decimals to 1
 # Country
-country_law_enactment_success_add								= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Changed the decimals to 1, because that looks weird in some tooltips.
-country_birth_rate_from_grain_consumption_mult					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-country_birth_rate_from_groceries_consumption_mult				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
-country_law_enactment_stall_mult								= {	decimals = 1	color = bad		percent = yes	game_data = { ai_value = 0 } }	# Swapped good to bad, since it's good thing to decreases, thus a bad to increase.
-country_institution_cost_institution_social_security_mult		= {	decimals = 0	color = bad		percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:country_law_enactment_success_add									= {	decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }	# Changed the decimals to 1, because that looks weird in some tooltips.
+REPLACE_OR_CREATE:country_birth_rate_from_grain_consumption_mult					= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:country_birth_rate_from_groceries_consumption_mult				= { decimals = 1	color = good	percent = yes	game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:country_law_enactment_stall_mult									= {	decimals = 1	color = bad		percent = yes	game_data = { ai_value = 0 } }	# Swapped good to bad, since it's good thing to decreases, thus a bad to increase.
+REPLACE_OR_CREATE:country_institution_cost_institution_social_security_mult			= {	decimals = 0	color = bad		percent = yes	game_data = { ai_value = 0 } }
 # Culture
-state_african_standard_of_living_add							= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
-state_anglo_indian_standard_of_living_add						= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
-country_african_cultural_acceptance_add							= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
-country_anglo_indian_cultural_acceptance_add					= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_african_standard_of_living_add								= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:state_anglo_indian_standard_of_living_add							= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:country_african_cultural_acceptance_add							= {	decimals = 1	color = good					game_data = { ai_value = 0 } }
+REPLACE_OR_CREATE:country_anglo_indian_cultural_acceptance_add						= {	decimals = 1	color = good					game_data = { ai_value = 0 } }

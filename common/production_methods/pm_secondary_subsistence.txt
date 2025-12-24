@@ -1,10 +1,10 @@
 # Home Workshops
-pm_home_workshops_no = {
+REPLACE_OR_CREATE:pm_home_workshops_no = {
 	texture = "gfx/interface/icons/production_method_icons/no_home_workshops.dds"
 	unlocking_laws = { law_collectivized_agriculture }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_farmers_add		=  250
+			building_employment_farmers_add		=  500
 		}
 		unscaled = {
 			goods_output_groceries_mult			=-1.00
@@ -21,7 +21,7 @@ pm_home_workshops_no = {
 		}
 	}
 }
-pm_home_workshops = {
+REPLACE_OR_CREATE:pm_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/home_workshops.dds"
 	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_production_methods = {
@@ -44,7 +44,7 @@ pm_home_workshops = {
 	}
 	ai_value = 0
 }
-pm_lathe_home_workshops = {
+REPLACE_OR_CREATE:pm_lathe_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/newspapers.dds"
 	unlocking_technologies = { lathe }
 	disallowing_laws = { law_collectivized_agriculture }
@@ -59,7 +59,7 @@ pm_lathe_home_workshops = {
 			goods_output_coal_add				= 1.00	# x+30	= +30
 		}												#		= +80
 		level_scaled = {
-			building_employment_farmers_add		=  250
+			building_employment_farmers_add		=  500
 		}
 		unscaled = {
 			goods_output_fertilizer_mult		= 0.50
@@ -74,7 +74,7 @@ pm_lathe_home_workshops = {
 	}
 	ai_value = 10000
 }
-pm_mechanized_home_workshops = {
+REPLACE_OR_CREATE:pm_mechanized_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/printing_presses.dds"
 	unlocking_technologies = { mechanized_workshops }
 	disallowing_laws = { law_collectivized_agriculture }
@@ -109,7 +109,7 @@ pm_mechanized_home_workshops = {
 	ai_value = 50000
 	required_input_goods = transportation
 }
-pm_electric_home_workshops = {
+REPLACE_OR_CREATE:pm_electric_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/vacuum_tubes.dds"
 	unlocking_technologies = { electrical_capacitors }
 	replacement_if_valid = pm_autark_home_workshops
@@ -144,7 +144,7 @@ pm_electric_home_workshops = {
 	required_input_goods = transportation
 	required_input_goods = electricity
 }
-pm_autark_home_workshops = {
+REPLACE_OR_CREATE:pm_autark_home_workshops = {
 	texture = "gfx/interface/icons/production_method_icons/unused/vacuum_tubes.dds"
 	unlocking_technologies = { electrical_capacitors }
 	is_hidden_when_unavailable = yes

@@ -1,4 +1,4 @@
-pmg_base_building_railway = {
+REPLACE_OR_CREATE:pmg_base_building_railway = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -12,7 +12,7 @@ pmg_base_building_railway = {
 		pm_maglev_trains
 	}
 }
-pmg_passenger_trains = {
+REPLACE_OR_CREATE:pmg_passenger_trains = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -22,7 +22,7 @@ pmg_passenger_trains = {
 		pm_high_speed_rail
 	}
 }
-pmg_train_rails = {
+REPLACE_OR_CREATE:pmg_train_rails = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_normal_rails
@@ -31,7 +31,7 @@ pmg_train_rails = {
 		pm_rail_signals
 	}
 }
-pmg_base_building_power_plant = {
+REPLACE_OR_CREATE:pmg_base_building_power_plant = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_hydroelectric_plant

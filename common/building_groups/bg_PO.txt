@@ -1,217 +1,100 @@
 # Infrastructure
-bg_infrastructure = {
-	category = development
-	always_possible = yes
-	lens = development
-	stateregion_max_level = yes
-	economy_of_scale_ai_factor = 1.5
-	foreign_investment_ai_factor = 0.75
+INJECT:bg_infrastructure = {
 	can_use_slaves = yes
 	max_hiring_rate = 1.0
-	construction_efficiency_modifier = yes
 }
-bg_public_infrastructure = {
-	parent_group = bg_infrastructure
-	is_government_funded = yes
-	urbanization = 5
+INJECT:bg_public_infrastructure = {
 	max_hiring_rate = 0.35
 }
-bg_private_infrastructure = {
-	parent_group = bg_infrastructure
-	is_government_funded	= no
-	subsidized				= yes
-	cash_reserves_max = 25000
-	urbanization = 5
+INJECT:bg_private_infrastructure = {
 	max_hiring_rate = 0.35
 }
-bg_construction = {
-	parent_group = bg_public_infrastructure
-	infrastructure_usage_per_level = 2
-	is_government_funded = yes
-	can_use_slaves = yes
-	urbanization = 5
-	economy_of_scale_ai_factor = 5.0
-	max_hiring_rate = 0.5				# Added
+INJECT:bg_construction = {
+	max_hiring_rate = 0.5
 }
-bg_inf_construction = {
+REPLACE_OR_CREATE:bg_inf_construction = {
 	parent_group = bg_construction
 	urbanization = 0					# important
 }
-bg_power = {
-	category = development
-	lens = development
-	always_possible		= yes
-	subsidized			= yes
-	economy_of_scale	= yes
-	cash_reserves_max	= 25000
-	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor		= 1.5
-	foreign_investment_ai_factor	= 0.5
-	infrastructure_usage_per_level	= 2
-	urbanization					= 10
-	can_use_slaves					= yes
-	max_hiring_rate					= 0.35
+INJECT:bg_power = {
+	subsidized		= yes
+	can_use_slaves	= yes
+	max_hiring_rate	= 0.35
 }
-bg_canals = {
-	parent_group = bg_private_infrastructure	# Changed
-	lens = special
-	# is_government_funded		= yes
-	subsidized					= yes	# Added
-	inheritable_construction	= yes
-	urbanization				= 100
+INJECT:bg_canals = {
+	parent_group = bg_private_infrastructure
+	is_government_funded		= no
+	subsidized					= yes
 	max_hiring_rate				= 1.0
 }
-bg_urban_facilities = {
+INJECT:bg_service = {
 	category = development
-	lens = development
-	always_possible = yes
-	economy_of_scale = yes
-	cash_reserves_max = 25000
-	urbanization = 20
-	infrastructure_usage_per_level = 2
-	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor = 2.0
-	foreign_investment_ai_factor = 0.25
+	can_use_slaves = yes
 }
-bg_arts = {
-	category = urban					# Added
-	parent_group = bg_urban_facilities
+INJECT:bg_urban_facilities = {
+	category = development
+}
+INJECT:bg_arts = {
+	lens = urban
+	category = urban					# Added - Since bg_urban_facilities has been changed to development
 	infrastructure_usage_per_level = 1	# Increased
 }
-bg_trade = {
-	parent_group = bg_private_infrastructure
+INJECT:bg_trade = {
 	category = development
-	stateregion_max_level	= no
-	lens = trade
-	subsidized				= no
-	has_trade_revenue		= yes
-	economy_of_scale		= no
 	min_hiring_rate			= 1.0
 	proportionality_limit	= 1.0
-	can_use_slaves			= yes		# Added
-	infrastructure_usage_per_level = 0.5
 	should_auto_expand = { trigger_auto_expand_trade = yes }
-	default_building = building_trade_center
 }
-bg_owner_buildings = {
-	parent_group = bg_urban_facilities
-	min_productivity_to_hire = 10.0
-	category = development				# Changed
-	lens = trade
-	always_possible = yes
-	can_use_slaves = yes
-	auto_place_buildings = yes
-	owns_other_buildings = yes
+INJECT:bg_owner_buildings = {
+	category = development
 	min_hiring_rate = 1.0
 	max_hiring_rate = 1.0
-	ignores_productivity_when_hiring = yes
-	proportionality_limit = 1.0
-	economy_of_scale = no
-	always_self_owning = yes
-	default_building = building_financial_district
-	cash_reserves_max = 100000			# Changed
+	cash_reserves_max = 100000
 	urbanization = 5
-	infrastructure_usage_per_level = 0.1
 }
 # Government
-bg_government = {
-	category = development
-	always_possible = yes
-	is_government_funded = yes
-	economy_of_scale = yes
+INJECT:bg_government = {
 	can_use_slaves = yes
-	lens = development
-	urbanization = 20
-	infrastructure_usage_per_level = 1
-	construction_efficiency_modifier = yes
 }
-bg_military = {
-	category = development
-	always_possible = yes
-	is_military = yes
-	is_government_funded = yes
-	infrastructure_usage_per_level = 0.2
-	lens = military
-	urbanization = 2
-	can_use_slaves = yes	# new
-	construction_efficiency_modifier = yes
-}
-bg_army = {
-	parent_group = bg_military
+INJECT:bg_military = {
+	lens = military	# Might need to change for development
 	can_use_slaves = yes	# new
 }
-bg_conscription = {
-	parent_group = bg_army
-	urbanization = 0
-	fired_pops_become_radical = no
+INJECT:bg_army = {
 	can_use_slaves = yes	# new
 }
-bg_navy = {
-	parent_group = bg_military
+INJECT:bg_conscription = {
 	can_use_slaves = yes	# new
 }
-bg_inf_military = {
+INJECT:bg_navy = {
+	can_use_slaves = yes	# new
+}
+REPLACE_OR_CREATE:bg_inf_military = {
 	parent_group = bg_government
 	urbanization = 0
 }
 # Industry
-bg_manufacturing = {
-	category = urban
-	always_possible = yes
-	economy_of_scale = yes
+INJECT:bg_manufacturing = {
 	can_use_slaves = yes
-	cash_reserves_max = 25000
-	should_auto_expand = { default_auto_expand_rule = yes }
 	economy_of_scale_ai_factor = 2.0
-	foreign_investment_ai_factor = 0.25
 }
-bg_light_industry = {
-	parent_group = bg_manufacturing
-	lens = light_industry
-	urbanization					= 20
+INJECT:bg_light_industry = {
 	infrastructure_usage_per_level	=  2
-	construction_efficiency_modifier = yes
 }
-bg_heavy_industry = {
-	parent_group = bg_manufacturing
-	lens = heavy_industry
-	urbanization					= 30	# Increased
+INJECT:bg_heavy_industry = {
+	urbanization					= 30	# Increased - TODO: Check whether this increses BY 30 or TO 30
 	infrastructure_usage_per_level	=  3
-	construction_efficiency_modifier = yes
 }
-bg_light_military_industry = {
+REPLACE_OR_CREATE:bg_light_military_industry = {
 	parent_group = bg_light_industry
 	max_hiring_rate = 0.35
 }
-bg_heavy_military_industry = {
+REPLACE_OR_CREATE:bg_heavy_military_industry = {
 	parent_group = bg_heavy_industry
 	max_hiring_rate = 0.35
 }
-bg_shipyards = {
-	parent_group = bg_heavy_military_industry
-	urbanization = 20
-	infrastructure_usage_per_level = 1
-}
-bg_military_shipyards = {
-	parent_group = bg_heavy_military_industry
-	urbanization = 20
-	infrastructure_usage_per_level = 2
-}
-bg_service = {
-	category = development
-	land_usage = urban
-	always_possible = yes
-	auto_place_buildings = yes
-	always_self_owning = yes
-	economy_of_scale = yes
-	default_building = building_urban_center
-	can_use_slaves = yes
-	always_self_owning = yes
-	cash_reserves_max = 25000
-	can_use_slaves = yes		# Added
-}
 # Agriculture
-bg_agriculture = {
+REPLACE:bg_agriculture = {	# Removed: land_usage = rural
 	category = rural
 	lens = agriculture
 	economy_of_scale = yes
@@ -219,57 +102,31 @@ bg_agriculture = {
 	urbanization = 5
 	infrastructure_usage_per_level = 1
 	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor = 1.5
+	economy_of_scale_ai_factor = 2
 	foreign_investment_ai_factor = 0.75
 	cash_reserves_max = 25000
 	construction_efficiency_modifier = yes
+	self_investment_chance_modifier = yes
 }
-bg_finite_agriculture = {
-	parent_group = bg_agriculture
+INJECT:bg_staple_crops = {
 	land_usage = rural
 }
-bg_autarky_farms = {
-	parent_group = bg_finite_agriculture
+REPLACE_OR_CREATE:bg_autarky_farms = {
+	parent_group = bg_staple_crops
 	always_possible = yes
 	ignores_productivity_when_hiring = yes
+	fired_pops_become_radical = no
 	hires_unemployed_only = yes
 	cash_reserves_max = 100000
 	max_hiring_rate = 1.0
 	default_building = building_autarky_farm
 }
-bg_rye_farms = {
-	parent_group = bg_finite_agriculture
-	default_building = building_rye_farm
-}
-bg_wheat_farms = {
-	parent_group = bg_finite_agriculture
-	default_building = building_wheat_farm
-}
-bg_rice_farms = {
-	parent_group = bg_finite_agriculture
-	default_building = building_rice_farm
-}
-bg_maize_farms = {
-	parent_group = bg_finite_agriculture
-	default_building = building_maize_farm
-}
-bg_millet_farms = {
-	parent_group = bg_finite_agriculture
-	default_building = building_millet_farm
-}
-bg_subsistence_agriculture = {
-	parent_group = bg_finite_agriculture
-	always_possible = yes
-	auto_place_buildings = yes
-	is_subsistence = yes
+INJECT:bg_subsistence_agriculture = {
+	parent_group = bg_staple_crops
 	cash_reserves_max = 100000
-	default_building = building_subsistence_farms
-	fired_pops_become_radical = no
-	hires_unemployed_only = yes
-	ignores_productivity_when_hiring = yes
 	max_hiring_rate = 1.0
 }
-bg_agricultural_greenhouses = {
+REPLACE_OR_CREATE:bg_agricultural_greenhouses = {
 	parent_group = bg_agriculture
 	default_building = building_autarky_greenhouse
 	always_possible = yes
@@ -279,28 +136,9 @@ bg_agricultural_greenhouses = {
 	infrastructure_usage_per_level = 2
 	urbanization = 10
 }
-# Wine - Vineyards
-bg_vineyard_plantations = {	# Greenhouse Vineyards moved to other Greenhouses
-	parent_group = bg_agriculture
-	default_building = building_vineyard_plantation
-	land_usage = rural
-}
-# Ranching
-bg_ranching = {
-	category	= rural
-	land_usage	= rural
-	lens = agriculture
-	economy_of_scale	= yes
-	can_use_slaves		= yes
-	urbanization					= 5
-	infrastructure_usage_per_level	= 1
-	economy_of_scale_ai_factor		= 1.5
-	foreign_investment_ai_factor	= 0.75
-	should_auto_expand = { default_auto_expand_rule = yes }
-	construction_efficiency_modifier = yes
-}
+# Ranching - Unchanged from base
 # Plantations
-bg_plantations = {
+REPLACE:bg_plantations = {	# Removed: land_usage = rural
 	category = rural
 	economy_of_scale = yes
 	lens = plantation
@@ -309,231 +147,50 @@ bg_plantations = {
 	urbanization = 5
 	infrastructure_usage_per_level = 1
 	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor = 1.5
+	economy_of_scale_ai_factor = 3
 	foreign_investment_ai_factor = 1.25
 	construction_efficiency_modifier = yes
+	self_investment_chance_modifier = yes
 }
-bg_coffee_plantations = {
+REPLACE_OR_CREATE:bg_finite_plantations = {
 	parent_group = bg_plantations
-	default_building = building_coffee_plantation
-}
-bg_cotton_plantations = {
-	parent_group = bg_plantations
-	default_building = building_cotton_plantation
-}
-bg_silk_plantations = {
-	parent_group = bg_plantations
-	default_building = building_silk_plantation
-}
-bg_dye_plantations = {
-	parent_group = bg_plantations
-	default_building = building_dye_plantation
-}
-bg_opium_plantations = {
-	parent_group = bg_plantations
-	default_building = building_opium_plantation
-}
-bg_tea_plantations = {
-	parent_group = bg_plantations
-	default_building = building_tea_plantation
-}
-bg_tobacco_plantations = {
-	parent_group = bg_plantations
-	default_building = building_tobacco_plantation
-}
-bg_sugar_plantations = {
-	parent_group = bg_plantations
-	default_building = building_sugar_plantation
-}
-bg_banana_plantations = {
-	parent_group = bg_plantations
-	default_building = building_banana_plantation
+	land_usage = rural
 }
 # Infres - Important for achievements
-bg_greenhouses = {
+REPLACE_OR_CREATE:bg_greenhouses = {
 	parent_group = bg_plantations
-	always_possible = yes
-	capped_by_resources = no
+	always_possible					= yes
+	capped_by_resources				= no
 	economy_of_scale_ai_factor		= 10
 	foreign_investment_ai_factor	=  2
 	infrastructure_usage_per_level	=  2
 	urbanization					= 10
 }
-bg_vineyard_greenhouses = {
-	parent_group = bg_greenhouses
-	default_building = building_vineyard_greenhouse
-}
-bg_coffee_greenhouses = {
-	parent_group = bg_coffee_plantations
-	default_building = building_coffee_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_cotton_greenhouses = {
-	parent_group = bg_cotton_plantations
-	default_building = building_cotton_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_silk_greenhouses = {
-	parent_group = bg_silk_plantations
-	default_building = building_silk_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_dye_greenhouses = {
-	parent_group = bg_dye_plantations
-	default_building = building_dye_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_opium_greenhouses = {
-	parent_group = bg_opium_plantations
-	default_building = building_opium_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_tea_greenhouses = {
-	parent_group = bg_tea_plantations
-	default_building = building_tea_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_tobacco_greenhouses = {
-	parent_group = bg_tobacco_plantations
-	default_building = building_tobacco_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_sugar_greenhouses = {
-	parent_group = bg_sugar_plantations
-	default_building = building_sugar_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-bg_banana_greenhouses = {
-	parent_group = bg_banana_plantations
-	default_building = building_banana_greenhouse
-	always_possible = yes
-	capped_by_resources = no
-	economy_of_scale_ai_factor = 10
-	foreign_investment_ai_factor = 2
-	infrastructure_usage_per_level = 2
-	urbanization = 10
-}
-# Logging
-bg_logging_greenhouses = {
-	parent_group = bg_greenhouses
-	default_building = building_logging_greenhouse
-}
-bg_rubber_greenhouses = {
-	parent_group = bg_greenhouses
-	default_building = building_rubber_greenhouse
-}
 # Resources
 # Mining
-bg_mining = {
-	parent_group = bg_extraction
-	category = rural
-	economy_of_scale = yes
-	can_use_slaves = yes
-	lens = mine
-	cash_reserves_max = 25000
-	urbanization = 10
-	infrastructure_usage_per_level = 2
-	should_auto_expand = { default_auto_expand_rule = yes }
-	economy_of_scale_ai_factor = 2.0
-	foreign_investment_ai_factor = 1.0
-}
-bg_finite_mining = {
+INJECT:bg_gold_fields = {
 	parent_group = bg_mining
-	capped_by_resources = yes
-}
-bg_gold_fields = {
-	parent_group = bg_finite_mining
 	can_use_slaves = no
-	auto_place_buildings = yes
-	discoverable_resource = yes
-	depletable_resource = yes
-	pays_taxes = no
-	always_self_owning = yes
-	default_building = building_gold_fields
-	fired_pops_become_radical = no
 }
-bg_gold_mining = {
-	parent_group = bg_finite_mining
-	default_building = building_gold_mine
-}
-bg_coal_mining = {
-	parent_group = bg_finite_mining
-	default_building = building_coal_mine
-}
-bg_iron_mining = {
-	parent_group = bg_finite_mining
-	default_building = building_iron_mine
-}
-bg_lead_mining = {
-	parent_group = bg_finite_mining
-	default_building = building_lead_mine
-}
-bg_sulfur_mining = {
-	parent_group = bg_finite_mining
-	default_building = building_sulfur_mine
-}
-bg_infinite_mining = {
+REPLACE_OR_CREATE:bg_infinite_mining = {
 	lens = mine
 	parent_group = bg_mining
 	always_possible = yes
 	capped_by_resources = no
-	fired_pops_become_radical = no
-	max_hiring_rate = 1.0
+	max_hiring_rate = 0.35
 }
 # Fishing
-bg_infinite_fishing = {
+REPLACE_OR_CREATE:bg_infinite_fishing = {
 	parent_group = bg_fishing
 	always_possible = yes
 	capped_by_resources = no
-	fired_pops_become_radical = no
 	default_building = building_infres_fishing_wharf
-	max_hiring_rate = 1.0
+	max_hiring_rate = 0.35
 }
-bg_infinite_whaling = {
+REPLACE_OR_CREATE:bg_infinite_whaling = {
 	parent_group = bg_whaling
 	always_possible = yes
 	capped_by_resources = no
-	fired_pops_become_radical = no
 	default_building = building_infres_whaling_station
-	max_hiring_rate = 1.0
+	max_hiring_rate = 0.35
 }

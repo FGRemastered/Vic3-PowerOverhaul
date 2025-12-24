@@ -1,5 +1,5 @@
 # Base
-pmg_mining_equipment_building_coal_mine = {
+REPLACE_OR_CREATE:pmg_mining_equipment_building_coal_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_picks_and_shovels_building_coal_mine
@@ -10,7 +10,7 @@ pmg_mining_equipment_building_coal_mine = {
 		pm_electric_pump_building_coal_mine
 	}
 }
-pmg_mining_equipment_building_iron_mine = {
+REPLACE_OR_CREATE:pmg_mining_equipment_building_iron_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_picks_and_shovels_building_iron_mine
@@ -21,7 +21,7 @@ pmg_mining_equipment_building_iron_mine = {
 		pm_electric_pump_building_iron_mine
 	}
 }
-pmg_mining_equipment_building_lead_mine = {
+REPLACE_OR_CREATE:pmg_mining_equipment_building_lead_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_picks_and_shovels_building_lead_mine
@@ -32,7 +32,7 @@ pmg_mining_equipment_building_lead_mine = {
 		pm_electric_pump_building_lead_mine
 	}
 }
-pmg_mining_equipment_building_sulfur_mine = {
+REPLACE_OR_CREATE:pmg_mining_equipment_building_sulfur_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_picks_and_shovels_building_sulfur_mine
@@ -43,7 +43,7 @@ pmg_mining_equipment_building_sulfur_mine = {
 		pm_electric_pump_building_sulfur_mine
 	}
 }
-pmg_mining_equipment_building_gold_mine = {
+REPLACE_OR_CREATE:pmg_mining_equipment_building_gold_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_picks_and_shovels_building_gold_mine
@@ -55,7 +55,7 @@ pmg_mining_equipment_building_gold_mine = {
 	}
 }
 # Explosives
-pmg_explosives_building_mine = {	# PDX forgot to add multiplicative production output modifiers
+REPLACE_OR_CREATE:pmg_explosives_building_mine = {	# PDX forgot to add multiplicative production output modifiers
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	# ai_selection = most_productive
 	production_methods = {
@@ -65,7 +65,7 @@ pmg_explosives_building_mine = {	# PDX forgot to add multiplicative production o
 	}
 }
 # Oil Derricks
-pmg_base_building_oil_rig = {
+REPLACE_OR_CREATE:pmg_base_building_oil_rig = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_steam_derricks

@@ -1,5 +1,5 @@
 ﻿# Base
-pm_wooden_buildings = {
+REPLACE:pm_wooden_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/wooden_buildings.dds"
 	is_default = yes
 	building_modifiers = {							# OV = Original Value | OP = Original Price
@@ -28,7 +28,7 @@ pm_wooden_buildings = {
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	= 2.5   } }
 }
-pm_hardwood_frame_buildings = {	# Sidegrade to Iron-Frame for countries with little to no iron deposits.
+REPLACE_OR_CREATE:pm_hardwood_frame_buildings = {	# Sidegrade to Iron-Frame for countries with little to no iron deposits.
 	texture = "gfx/interface/icons/production_method_icons/mechanized_workshops.dds"
 	unlocking_technologies = { urban_planning }
 	building_modifiers = {
@@ -60,7 +60,7 @@ pm_hardwood_frame_buildings = {	# Sidegrade to Iron-Frame for countries with lit
 	}
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    4.5 } }
 }
-pm_iron_frame_buildings = {
+REPLACE:pm_iron_frame_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/iron_frame_buildings.dds"
 	unlocking_technologies = { urban_planning }
 	building_modifiers = {
@@ -93,7 +93,7 @@ pm_iron_frame_buildings = {
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    5 } }
 	required_input_goods = iron
 }
-pm_steel_frame_buildings = {
+REPLACE:pm_steel_frame_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/steel_frame_buildings.dds"
 	unlocking_technologies = { steel_frame_buildings }
 	building_modifiers = {
@@ -126,7 +126,7 @@ pm_steel_frame_buildings = {
 	country_modifiers	= { workforce_scaled = { country_construction_add	=    10 } }
 	required_input_goods = steel
 }
-pm_arc_welded_buildings = {
+REPLACE:pm_arc_welded_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_buildings.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -160,7 +160,7 @@ pm_arc_welded_buildings = {
 	required_input_goods = electricity
 }
 # Professtionalism
-pm_hereditary_bureaucrats_construction = {
+REPLACE_OR_CREATE:pm_hereditary_bureaucrats_construction = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	# unlocking_laws = { law_hereditary_bureaucrats }	# You can always go back to this.
 	building_modifiers = {
@@ -175,7 +175,7 @@ pm_hereditary_bureaucrats_construction = {
 	}
 	ai_value = 0
 }
-pm_professional_bureaucrats_construction = {
+REPLACE_OR_CREATE:pm_professional_bureaucrats_construction = {
 	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
 	disallowing_laws = { law_hereditary_bureaucrats }
 	building_modifiers = {
@@ -186,7 +186,7 @@ pm_professional_bureaucrats_construction = {
 	}
 	is_default = yes
 }
-pm_academic_admininistration_construction = {
+REPLACE_OR_CREATE:pm_academic_admininistration_construction = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
 	unlocking_laws = { law_appointed_bureaucrats }
 	building_modifiers = {
@@ -198,7 +198,7 @@ pm_academic_admininistration_construction = {
 		unscaled = { building_throughput_add	= 0.10 }
 	}
 }
-pm_military_admininistration_construction = {
+REPLACE_OR_CREATE:pm_military_admininistration_construction = {
 	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
 	disallowing_laws = {
 		law_no_police
@@ -217,7 +217,7 @@ pm_military_admininistration_construction = {
 		unscaled = { state_construction_mult	= 0.05 }
 	}
 }
-pm_central_planned_construction = {
+REPLACE_OR_CREATE:pm_central_planned_construction = {
 	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
 	unlocking_technologies = { central_planning }
 	building_modifiers = {
@@ -235,7 +235,7 @@ pm_central_planned_construction = {
 	}
 	required_input_goods = telephones
 }
-pm_default_construction_sector_extension = {
+REPLACE_OR_CREATE:pm_default_construction_sector_extension = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
     state_modifiers = { level_scaled = { state_building_construction_sector_max_level_add = 5 } }
 }

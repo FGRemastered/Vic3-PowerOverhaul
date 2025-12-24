@@ -8,83 +8,37 @@ state_atheism.1 = {
 	flavor = state_atheism.1.f
 	category = enactment
 	event_image = {
-		trigger = {
-			religion = rel:jewish
-		}
+		trigger = { trigger_country_is_jewish = yes }
 		video = "europenorthamerica_judaism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				religion = rel:protestant
-				religion = rel:catholic
-				religion = rel:orthodox
-				religion = rel:oriental_orthodox
-			}
-		}
+		trigger = { trigger_country_is_christian = yes }
 		video = "southamerica_christianity"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				religion = rel:hindu
-				religion = rel:sikh
-			}
-		}
+		trigger = { trigger_country_is_hindu = yes }
 		video = "asia_hinduism_sikhism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				religion = rel:shinto
-				religion = rel:confucian
-			}
-		}
+		trigger = { trigger_country_is_confucian_or_shinto = yes }
 		video = "asia_confucianism_shinto"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				religion = rel:mahayana
-				religion = rel:gelugpa
-				religion = rel:theravada
-			}
-		}
+		trigger = { trigger_country_is_buddhist = yes }
 		video = "asia_buddhism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				religion = rel:sunni
-				religion = rel:shiite
-			}
-		}
+		trigger = { trigger_country_is_muslim = yes }
 		video = "middleeast_islam"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			NOR = {
-				religion = rel:jewish
-				religion = rel:protestant
-				religion = rel:catholic
-				religion = rel:orthodox
-				religion = rel:oriental_orthodox
-				religion = rel:mahayana
-				religion = rel:gelugpa
-				religion = rel:theravada
-				religion = rel:shinto
-				religion = rel:hindu
-				religion = rel:sikh
-				religion = rel:sunni
-				religion = rel:shiite
-			}
-		}
+		trigger = { trigger_country_is_animist = yes }
 		video = "africa_animism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
@@ -125,6 +79,7 @@ state_atheism.1 = {
 			}
 			any_primary_culture = { NOT = { has_cultural_obsession = opium } }
 		}
+		highlighted_option = yes
 		random_primary_culture = {
 			limit = { NOT = { has_cultural_obsession = opium } }
 			add_cultural_obsession = opium
@@ -183,7 +138,7 @@ state_atheism.2 = {
 				save_scope_as = godless_pop
 			}
 		}
-		ig:ig_intelligentsia = {
+		ig:ig_intelligentsia ?= {
 			save_scope_as = godless_ig
 			leader = {
 				save_scope_as = godless_leader
@@ -218,10 +173,10 @@ state_atheism.2 = {
 	option = { # new atheist intelligentsia leader
 		name = state_atheism.2.c
 		trigger = {
-			ig:ig_intelligentsia = {
-				is_marginal = no
+			ig:ig_intelligentsia ?= {
+				ig_counts_as_marginal = no
 				leader = {
-					NOT = { has_ideology = ideology:ideology_atheist }
+					NOT = { has_ideology = ideology:ideology_nihilist }
 				}
 			}
 		}
@@ -234,7 +189,7 @@ state_atheism.2 = {
 				ig_leader = yes
 				interest_group = ig_intelligentsia
 				religion = rel:atheist
-				ideology = ideology_atheist
+				ideology = ideology_nihilist
 			}
 		}
 	}
@@ -257,7 +212,7 @@ state_atheism.3 = {
 		is_enacting_law = law_type:law_state_atheism
 		any_interest_group = {
 			is_in_government = no
-			is_marginal = no
+			ig_counts_as_marginal = no
 			law_stance = {
 				law = owner.currently_enacting_law.type
 				value < neutral
@@ -273,7 +228,7 @@ state_atheism.3 = {
 		random_interest_group = {
 			limit = {
 				is_in_government = no
-				is_marginal = no
+				ig_counts_as_marginal = no
 				law_stance = {
 					law = owner.currently_enacting_law.type
 					value < neutral
@@ -292,6 +247,7 @@ state_atheism.3 = {
 	option = {
 		name = state_atheism.3.b
 		trigger = { NOT = { has_law = law_type:law_no_social_security } }
+		highlighted_option = yes
 		random_list = {
 			1 = { add_enactment_modifier = { name = state_welfare_disparaged } }
 			0 = {
@@ -373,7 +329,7 @@ state_atheism.4 = {
 			}
 			save_scope_as = missionary_nation
 		}
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			save_scope_as = devout_ig
 		}
 		random_interest_group = {
@@ -414,7 +370,7 @@ state_atheism.4 = {
 	}
 	option = {
 		name = state_atheism.4.c
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_modifier = {
 				name = modifier_expelled_devouts_friends
 				days = short_modifier_time
@@ -445,12 +401,12 @@ state_atheism.5 = {
 	duration = 3
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
-		ig:ig_intelligentsia = {
-			is_marginal = no
+		ig:ig_intelligentsia ?= {
+			ig_counts_as_marginal = no
 			leader = {
 				OR = {
 					has_ideology = ideology:ideology_radical
-					has_ideology = ideology:ideology_atheist
+					has_ideology = ideology:ideology_nihilist
 					has_ideology = ideology:ideology_communist
 					has_ideology = ideology:ideology_vanguardist
 					has_ideology = ideology:ideology_anarchist
@@ -464,10 +420,10 @@ state_atheism.5 = {
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
 		}
-		ig:ig_intelligentsia = {
+		ig:ig_intelligentsia ?= {
 			save_scope_as = intelligentsia_ig
 		}
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			save_scope_as = devout_ig
 		}
 	}
@@ -516,83 +472,37 @@ state_atheism.6 = {
 	flavor = state_atheism.6.f
 	category = enactment
 	event_image = {
-		trigger = {
-			country_has_state_religion = rel:jewish
-		}
+		trigger = { trigger_country_is_jewish = yes }
 		video = "europenorthamerica_judaism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				country_has_state_religion = rel:protestant
-				country_has_state_religion = rel:catholic
-				country_has_state_religion = rel:orthodox
-				country_has_state_religion = rel:oriental_orthodox
-			}
-		}
+		trigger = { trigger_country_is_christian = yes }
 		video = "southamerica_christianity"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				country_has_state_religion = rel:hindu
-				country_has_state_religion = rel:sikh
-			}
-		}
+		trigger = { trigger_country_is_hindu = yes }
 		video = "asia_hinduism_sikhism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				country_has_state_religion = rel:shinto
-				country_has_state_religion = rel:confucian
-			}
-		}
+		trigger = { trigger_country_is_confucian_or_shinto = yes }
 		video = "asia_confucianism_shinto"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				country_has_state_religion = rel:mahayana
-				country_has_state_religion = rel:gelugpa
-				country_has_state_religion = rel:theravada
-			}
-		}
+		trigger = { trigger_country_is_buddhist = yes }
 		video = "asia_buddhism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			OR = {
-				country_has_state_religion = rel:sunni
-				country_has_state_religion = rel:shiite
-			}
-		}
+		trigger = { trigger_country_is_muslim = yes }
 		video = "middleeast_islam"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
 	event_image = {
-		trigger = {
-			NOR = {
-				country_has_state_religion = rel:jewish
-				country_has_state_religion = rel:protestant
-				country_has_state_religion = rel:catholic
-				country_has_state_religion = rel:orthodox
-				country_has_state_religion = rel:oriental_orthodox
-				country_has_state_religion = rel:mahayana
-				country_has_state_religion = rel:gelugpa
-				country_has_state_religion = rel:theravada
-				country_has_state_religion = rel:shinto
-				country_has_state_religion = rel:hindu
-				country_has_state_religion = rel:sikh
-				country_has_state_religion = rel:sunni
-				country_has_state_religion = rel:shiite
-			}
-		}
+		trigger = { trigger_country_is_animist = yes }
 		video = "africa_animism"
 		on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	}
@@ -601,9 +511,9 @@ state_atheism.6 = {
 	duration = 3
 	trigger = {
 		is_enacting_law = law_type:law_state_atheism
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			ig_approval >= 0
-			is_marginal = no
+			ig_counts_as_marginal = no
 		}
 	}
 	cancellation_trigger = { NOT = { currently_enacting_law = scope:current_law_scope } }

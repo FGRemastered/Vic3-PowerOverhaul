@@ -1,4 +1,4 @@
-pmg_base_charcoal = {
+REPLACE_OR_CREATE:pmg_base_charcoal = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_charcoal_kiln
@@ -6,7 +6,7 @@ pmg_base_charcoal = {
 		pm_machine_coal
 	}
 }
-pmg_secondary_charcoal_filters = {
+REPLACE_OR_CREATE:pmg_secondary_charcoal_filters = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_unfiltered
@@ -16,7 +16,7 @@ pmg_secondary_charcoal_filters = {
 		pm_carbon_capture_charcoal
 	}
 }
-pmg_automation_charcoal = {
+REPLACE_OR_CREATE:pmg_automation_charcoal = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_automation_disabled

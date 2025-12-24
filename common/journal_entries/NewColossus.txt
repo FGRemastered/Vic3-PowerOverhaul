@@ -1,5 +1,5 @@
 ﻿# Path to Liberalism
-je_liberalism_1 = {
+REPLACE:je_liberalism_1 = {
 	icon = "gfx/interface/icons/event_icons/event_election.dds"
 	group = je_group_internal_affairs
 	is_shown_when_inactive = {
@@ -66,7 +66,7 @@ je_liberalism_1 = {
 	weight = 10000
 }
 # Freedom of Thought
-je_liberalism_3 = {
+REPLACE:je_liberalism_3 = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_internal_affairs
 	complete = {
@@ -85,7 +85,7 @@ je_liberalism_3 = {
 			occupancy > 0.9
 		}
 		any_scope_building = {
-			is_building_type = building_arts_academy
+			is_building_type = building_art_academy
 			level >= 3
 			occupancy > 0.9
 		}
@@ -94,7 +94,7 @@ je_liberalism_3 = {
 	weight = 5000
 }
 # The New Colossus
-je_liberalism_4 = {
+REPLACE:je_liberalism_4 = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_internal_affairs
 	complete = {

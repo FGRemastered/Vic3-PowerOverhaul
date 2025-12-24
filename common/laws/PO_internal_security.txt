@@ -1,0 +1,20 @@
+﻿
+INJECT:law_national_guard = {
+	progressiveness = 0			# Changed
+	institution_modifier = {
+		country_suppression_attraction_factor				=-0.05	# Added
+	}
+}
+INJECT:law_secret_police = {
+	progressiveness = -50	#-25
+	institution_modifier = {
+		state_conscription_rate_mult						= 0.05	# Added - A better overview of your people makes conscription easier
+	}
+}
+INJECT:law_guaranteed_liberties = {
+	institution_modifier = {
+		political_movement_radicalism_add					=-0.01	# Added
+		country_bolster_attraction_factor					= 0.20	# Added - Money can solve anything
+		state_conscription_rate_mult						= 0.05	# Added - A better overview of your people makes conscription easier
+	}
+}

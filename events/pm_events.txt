@@ -14,8 +14,8 @@ pm_events.1 = {
 	cooldown = { days = stupidly_long_modifier_time }
 	trigger = {
 		OR = {
-			has_law = law_type:law_no_workers_rights
-			has_law = law_type:law_serfdom
+			has_law_or_variant = law_type:law_no_workers_rights
+			has_law_or_variant = law_type:law_serfdom
 		}
 		any_scope_state = {
 			has_industrialized_pm = yes
@@ -84,7 +84,7 @@ pm_events.2 = {
 	duration = 3
 	cooldown = { days = stupidly_long_modifier_time }
 	trigger = {
-		has_law = law_type:law_child_labor_allowed
+		has_law_or_variant = law_type:law_child_labor_allowed
 		any_scope_state = {
 			has_industrialized_pm = yes
 		}
@@ -159,7 +159,7 @@ pm_events.3 = {
 				has_modifier = liquor_production_restrictions
 			}
 		}
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			NOR = {
 				has_modifier = permitted_limited_liquor_production
 				has_modifier = permitted_unrestricted_liquor_production
@@ -212,7 +212,7 @@ pm_events.3 = {
 				days = normal_modifier_time
 			}
 		}
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_modifier = {
 				name = permitted_limited_liquor_production
 				days = normal_modifier_time
@@ -229,7 +229,7 @@ pm_events.3 = {
 	}
 	option = {
 		name = pm_events.3.c
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_modifier = {
 				name = permitted_unrestricted_liquor_production
 				days = normal_modifier_time
@@ -337,16 +337,8 @@ pm_events.5 = {
 	trigger = {
 		any_scope_state = {
 			OR = {
-				is_production_method_active = { building_type = building_vineyard_plantation production_method = default_building_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = default_building_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_soil_enriching_farming_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_fertilization_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_chemical_fertilizer_vineyard_plantation }
-				is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_automatic_fertilization_vineyard_plantation }
+				any_scope_building = { building_type = building_vineyard }
+				any_scope_building = { building_type = building_vineyard_greenhouse }
 			}
 		}
 	}
@@ -355,16 +347,8 @@ pm_events.5 = {
 		random_scope_state = {
 			limit = {
 				OR = {
-					is_production_method_active = { building_type = building_vineyard_plantation production_method = default_building_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_soil_enriching_farming_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_fertilization_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_chemical_fertilizer_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_plantation production_method = pm_automatic_fertilization_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = default_building_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_soil_enriching_farming_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_fertilization_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_chemical_fertilizer_vineyard_plantation }
-					is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_automatic_fertilization_vineyard_plantation }
+					any_scope_building = { building_type = building_vineyard }
+					any_scope_building = { building_type = building_vineyard_greenhouse }
 				}
 			}
 			save_scope_as = vinyard_state

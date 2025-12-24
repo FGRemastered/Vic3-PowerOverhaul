@@ -1,4 +1,4 @@
-﻿je_opium = {
+﻿REPLACE:je_opium = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 	group = je_group_foreign_affairs
 	is_shown_when_inactive = {
@@ -13,7 +13,7 @@
 		}
 	}
 	possible = {
-		any_scope_building = { OR = { is_building_type = building_opium_plantation is_building_type = building_opium_greenhouse } }
+		any_scope_building = { OR = { is_building_type = building_opium_plantation is_building_type = building_opium_greenhouse } }	# Added Greenhouse
 		NOT = { any_primary_culture = { has_cultural_obsession = opium } }
 	}
 	complete = {

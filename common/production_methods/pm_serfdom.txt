@@ -1,8 +1,8 @@
 # Serfdom
-pm_serfdom = {
+REPLACE_OR_CREATE:pm_serfdom = {
 	texture = "gfx/interface/icons/production_method_icons/serfdom.dds"
 	unlocking_laws = { law_serfdom }
-	disallowing_laws = { law_tenant_farmers law_commercialized_agriculture law_homesteading law_collectivized_agriculture }
+	# disallowing_laws = { law_tenant_farmers law_commercialized_agriculture law_homesteading law_collectivized_agriculture }
 	replacement_if_valid = pm_corvee_labor
 	building_modifiers = {
 		level_scaled	= { building_employment_peasants_add	= 5000 }
@@ -18,7 +18,7 @@ pm_serfdom = {
 		level_scaled = { state_migration_pull_add				=-1 }
 	}
 }
-pm_corvee_labor = {
+REPLACE_OR_CREATE:pm_corvee_labor = {
 	texture = "gfx/interface/icons/production_method_icons/corvee_labor.dds"
 	unlocking_laws = { law_manorialism }
 	is_hidden_when_unavailable = yes
@@ -38,16 +38,16 @@ pm_corvee_labor = {
 	}
 }
 # Freedom
-pm_serfdom_no = {
+REPLACE_OR_CREATE:pm_serfdom_no = {
 	texture = "gfx/interface/icons/production_method_icons/no_serfdom.dds"
-	unlocking_laws = { law_tenant_farmers law_commercialized_agriculture law_collectivized_agriculture }
-	disallowing_laws = { law_serfdom law_manorialism }
+	unlocking_laws = { law_tenant_farmers law_commercialized_agriculture law_collectivized_agriculture law_latifundias law_expanded_latifundias }
+	# disallowing_laws = { law_serfdom law_manorialism }
 	building_modifiers = {
 		level_scaled	= { building_employment_peasants_add	= 5000 }
 		unscaled		= { building_subsistence_output_add		= 4 }
 	}
 }
-pm_homesteading_building_subsistence = {
+REPLACE_OR_CREATE:pm_homesteading_building_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
 	unlocking_laws = { law_homesteading }
 	building_modifiers = {
@@ -71,7 +71,7 @@ pm_homesteading_building_subsistence = {
 		unscaled			= { state_migration_pull_add		=-1 }
 	}
 }
-pm_decentralised_subsistence = {
+REPLACE_OR_CREATE:pm_decentralised_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
 	unlocking_laws = { law_consumption_based_taxation law_land_based_taxation law_per_capita_based_taxation law_homesteading }
 	# is_hidden_when_unavailable = yes

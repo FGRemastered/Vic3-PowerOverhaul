@@ -1,5 +1,5 @@
 ﻿# Admin Buildings
-pm_simple_organization = {
+REPLACE_OR_CREATE:pm_simple_organization = {
 	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
 	building_modifiers = {
 		level_scaled = {
@@ -10,7 +10,7 @@ pm_simple_organization = {
 	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=    5 } }
 	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=   30 } }
 }
-pm_horizontal_drawer_cabinets = {
+REPLACE_OR_CREATE:pm_horizontal_drawer_cabinets = {
 	texture = "gfx/interface/icons/production_method_icons/horizontal_drawer_cabinets.dds"
 	unlocking_technologies = { centralization }
 	building_modifiers = {
@@ -27,7 +27,7 @@ pm_horizontal_drawer_cabinets = {
 	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=   10 } }
 	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=   50 } }
 }
-pm_vertical_filing_cabinets = {
+REPLACE_OR_CREATE:pm_vertical_filing_cabinets = {
 	texture = "gfx/interface/icons/production_method_icons/vertical_filing_cabinets.dds"
 	unlocking_technologies = { central_archives }
 	building_modifiers = {
@@ -44,7 +44,7 @@ pm_vertical_filing_cabinets = {
 	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=   15 } }
 	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=   75 } }
 }
-pm_switch_boards = {
+REPLACE_OR_CREATE:pm_switch_boards = {
 	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
 	unlocking_technologies = { central_planning }
 	building_modifiers = {
@@ -60,7 +60,7 @@ pm_switch_boards = {
 	country_modifiers = { workforce_scaled = { country_bureaucracy_add	=  150 } }
 }
 # White House
-pm_default_building_white_house = {
+REPLACE_OR_CREATE:pm_default_building_white_house = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes
 	building_modifiers = {
@@ -76,7 +76,7 @@ pm_default_building_white_house = {
 	}
 }
 # Skyscrapers
-pm_simple_organization_skyscraper = {
+REPLACE_OR_CREATE:pm_simple_organization_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
 	building_modifiers = {
 		level_scaled = {
@@ -89,7 +89,7 @@ pm_simple_organization_skyscraper = {
 			state_tax_capacity_add								=   20	# 5
 			building_government_administration_throughput_add	= 0.10
 			building_railway_throughput_add						= 0.10
-			building_paper_mills_throughput_add					= 0.10
+			building_paper_mill_throughput_add					= 0.10
 		}
 	}
 	country_modifiers = {
@@ -102,7 +102,7 @@ pm_simple_organization_skyscraper = {
 		}
 	}
 }
-pm_horizontal_drawer_cabinets_skyscraper = {
+REPLACE_OR_CREATE:pm_horizontal_drawer_cabinets_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/horizontal_drawer_cabinets.dds"
 	unlocking_technologies = { centralization }
 	building_modifiers = {
@@ -121,7 +121,7 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 			state_tax_capacity_add								=   50	# 10
 			building_government_administration_throughput_add	= 0.20
 			building_railway_throughput_add						= 0.20
-			building_paper_mills_throughput_add					= 0.20
+			building_paper_mill_throughput_add					= 0.20
 		}
 	}
 	country_modifiers = {
@@ -134,7 +134,7 @@ pm_horizontal_drawer_cabinets_skyscraper = {
 		}
 	}
 }
-pm_vertical_filing_cabinets_skyscraper = {
+REPLACE_OR_CREATE:pm_vertical_filing_cabinets_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/vertical_filing_cabinets.dds"
 	unlocking_technologies = { central_archives }
 	is_default = yes
@@ -154,7 +154,7 @@ pm_vertical_filing_cabinets_skyscraper = {
 			state_tax_capacity_add								=  100	# 15
 			building_government_administration_throughput_add	= 0.25
 			building_railway_throughput_add						= 0.25
-			building_paper_mills_throughput_add					= 0.25
+			building_paper_mill_throughput_add					= 0.25
 		}
 	}
 	country_modifiers = {
@@ -167,7 +167,7 @@ pm_vertical_filing_cabinets_skyscraper = {
 		}
 	}
 }
-pm_switch_boards_skyscraper = {
+REPLACE_OR_CREATE:pm_switch_boards_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
 	unlocking_technologies = { central_planning }
 	building_modifiers = {
@@ -193,7 +193,7 @@ pm_switch_boards_skyscraper = {
 			state_tax_capacity_add								=  100
 			building_government_administration_throughput_add	= 0.30
 			building_railway_throughput_add						= 0.30
-			building_paper_mills_throughput_add					= 0.30
+			building_paper_mill_throughput_add					= 0.30
 			state_trade_capacity_mult							= 0.50
 			state_trade_advantage_mult							= 0.50
 			country_improve_relations_speed_mult				= 0.50
@@ -203,7 +203,7 @@ pm_switch_boards_skyscraper = {
 	required_input_goods = telephones
 }
 # Airship
-pm_airship_mooring_post = {
+REPLACE_OR_CREATE:pm_airship_mooring_post = {
 	texture = "gfx/interface/icons/production_method_icons/airship_mooring_post.dds"
 	unlocking_technologies = { zeppelins }
 	country_modifiers = {
@@ -220,7 +220,7 @@ pm_airship_mooring_post = {
 	}
 }
 # University
-pm_scholastic_education = {
+REPLACE_OR_CREATE:pm_scholastic_education = {
 	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -245,7 +245,7 @@ pm_scholastic_education = {
 		}
 	}
 }
-pm_philosophy_department = {
+REPLACE_OR_CREATE:pm_philosophy_department = {
 	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
 	unlocking_technologies = { dialectics }
 	building_modifiers = {
@@ -275,7 +275,7 @@ pm_philosophy_department = {
 		}
 	}
 }
-pm_analytical_philosophy_department = {
+REPLACE_OR_CREATE:pm_analytical_philosophy_department = {
 	texture = "gfx/interface/icons/production_method_icons/analytical_philosophy_department.dds"
 	unlocking_technologies = { analytical_philosophy }
 	building_modifiers = {
@@ -306,7 +306,7 @@ pm_analytical_philosophy_department = {
 	}
 }
 # Professionalism
-pm_hereditary_bureaucrats = {
+REPLACE_OR_CREATE:pm_hereditary_bureaucrats = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	# unlocking_laws = { law_hereditary_bureaucrats law_crownland_diets }	# Removed - You can always go back to this.
 	building_modifiers = {
@@ -320,7 +320,7 @@ pm_hereditary_bureaucrats = {
 	}
 	ai_value = 0	# Added
 }
-pm_religious_bureaucrats = {
+REPLACE_OR_CREATE:pm_religious_bureaucrats = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	disallowing_laws = {
 		law_total_separation
@@ -336,7 +336,7 @@ pm_religious_bureaucrats = {
 		throughput_scaled = { state_conversion_mult	= 0.50 }
 	}
 }
-pm_atheist_admininistration = {
+REPLACE_OR_CREATE:pm_atheist_admininistration = {
 	texture = "gfx/interface/icons/production_method_icons/state_atheism.dds"
 	unlocking_laws = { law_state_atheism }
 	building_modifiers = {
@@ -352,7 +352,7 @@ pm_atheist_admininistration = {
 		}
 	}
 }
-pm_professional_bureaucrats = {
+REPLACE_OR_CREATE:pm_professional_bureaucrats = {
 	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
 	disallowing_laws = { law_hereditary_bureaucrats law_crownland_diets }
 	building_modifiers = {
@@ -362,7 +362,7 @@ pm_professional_bureaucrats = {
 	}
 	is_default = yes	# Added
 }
-pm_academic_admininistration = {
+REPLACE_OR_CREATE:pm_academic_admininistration = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
 	unlocking_laws = { law_appointed_bureaucrats }
 	building_modifiers = {
@@ -376,7 +376,7 @@ pm_academic_admininistration = {
 		throughput_scaled = { state_education_access_add	= 0.10 }
 	}
 }
-pm_military_admininistration = {
+REPLACE_OR_CREATE:pm_military_admininistration = {
 	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
 	disallowing_laws = {
 		law_no_police
@@ -398,7 +398,7 @@ pm_military_admininistration = {
 		}
 	}
 }
-pm_hereditary_bureaucrats_skyscraper = {
+REPLACE_OR_CREATE:pm_hereditary_bureaucrats_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	building_modifiers = {
 		level_scaled = {
@@ -411,7 +411,7 @@ pm_hereditary_bureaucrats_skyscraper = {
 	}
 	ai_value = 0
 }
-pm_religious_bureaucrats_skyscraper = {
+REPLACE_OR_CREATE:pm_religious_bureaucrats_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	disallowing_laws = { law_total_separation law_state_atheism }
 	building_modifiers = {
@@ -424,7 +424,7 @@ pm_religious_bureaucrats_skyscraper = {
 		throughput_scaled = { state_conversion_mult	= 1.00 }
 	}
 }
-pm_professional_bureaucrats_skyscraper = {
+REPLACE_OR_CREATE:pm_professional_bureaucrats_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
 	disallowing_laws = { law_hereditary_bureaucrats law_crownland_diets law_state_religion }
 	building_modifiers = {
@@ -434,7 +434,7 @@ pm_professional_bureaucrats_skyscraper = {
 	}
 	is_default = yes
 }	
-pm_academic_admininistration_skyscraper = {
+REPLACE_OR_CREATE:pm_academic_admininistration_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
 	unlocking_laws = { law_appointed_bureaucrats }
 	building_modifiers = {
@@ -448,7 +448,7 @@ pm_academic_admininistration_skyscraper = {
 		throughput_scaled = { state_education_access_add	= 0.10 }
 	}
 }
-pm_military_admininistration_skyscraper = {
+REPLACE_OR_CREATE:pm_military_admininistration_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
 	disallowing_laws = {
 		law_no_police
@@ -470,7 +470,7 @@ pm_military_admininistration_skyscraper = {
 		}
 	}
 }
-pm_religious_academia = {
+REPLACE_OR_CREATE:pm_religious_academia = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	disallowing_laws = { law_total_separation law_state_atheism }	
 	building_modifiers = {
@@ -483,7 +483,7 @@ pm_religious_academia = {
 		throughput_scaled = { state_conversion_mult	= 1.00 }
 	}
 }
-pm_secular_academia = {
+REPLACE_OR_CREATE:pm_secular_academia = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_bureaucrats.dds"
 	disallowing_laws = { law_state_religion }
 	building_modifiers = {
@@ -493,7 +493,7 @@ pm_secular_academia = {
 		}
 	}
 }
-pm_independent_academia = {
+REPLACE_OR_CREATE:pm_independent_academia = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
 	disallowing_laws = { law_state_religion law_freedom_of_conscience }
 	building_modifiers = {
@@ -503,10 +503,10 @@ pm_independent_academia = {
 		unscaled = { building_throughput_add	= 0.10 }
 	}
 }
-pm_no_secondary_building_power_bloc_statue = {
+REPLACE_OR_CREATE:pm_no_secondary_building_power_bloc_statue = {
 	texture = "gfx/interface/icons/production_method_icons/no_radios.dds"
 }
-pm_radio_tower = {
+REPLACE_OR_CREATE:pm_radio_tower = {
 	texture = "gfx/interface/icons/production_method_icons/unused/radio_stations.dds"
 	unlocking_technologies = { radio }
 	building_modifiers = {

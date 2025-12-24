@@ -1,4 +1,4 @@
-﻿je_communal_divides = {
+﻿REPLACE:je_communal_divides = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	group = je_group_british_india
 	scripted_button = je_communal_divides_federal_solution

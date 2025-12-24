@@ -75,7 +75,7 @@
 	building_gold_mine = {
 		"generic_rural_mining_processing_01_mesh"
 	}	
-	building_gold_fields = {
+	building_gold_field = {
 		"generic_rural_mining_processing_01_mesh"
 	}
 	building_sulfur_mine = {
@@ -96,9 +96,6 @@
 		"american_mining_oilrig_01_mesh"
 	}
 	building_infres_gold_mine = {
-		"generic_rural_mining_processing_01_mesh"
-	}
-	building_infres_gold_fields = {
 		"generic_rural_mining_processing_01_mesh"
 	}
 	building_infres_sulfur_mine = {

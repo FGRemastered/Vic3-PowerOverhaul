@@ -1,4 +1,4 @@
-decree_violent_suppression = {
+REPLACE:decree_violent_suppression = {
 	texture = "gfx/interface/icons/decree/decree_violent_suppression.dds"
 	unlocking_technologies = { standing_army }
 	state_trigger = {
@@ -44,7 +44,7 @@ decree_violent_suppression = {
 		}
 	}
 }
-decree_emergency_relief = {
+REPLACE:decree_emergency_relief = {
 	texture = "gfx/interface/icons/decree/decree_emergency_relief.dds"
 	unlocking_technologies = { centralization }
 	modifier = {
@@ -107,7 +107,7 @@ decree_emergency_relief = {
 		# if = { limit = { scope:country = { has_any_secessionists_possible = yes } } multiply = 2 }	# Added
 	}
 }
-decree_promote_national_values = {
+REPLACE:decree_promote_national_values = {
 	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"
 	unlocking_technologies = { nationalism }
 	country_trigger = {
@@ -194,7 +194,7 @@ decree_promote_national_values = {
 		}
 	}
 }
-decree_encourage_manufacturing_industry = {
+REPLACE:decree_encourage_manufacturing_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_manufacturing_industry.dds"
 	unlocking_technologies = { manufacturies }
 	state_trigger = {
@@ -234,7 +234,7 @@ decree_encourage_manufacturing_industry = {
 		}
 	}
 }
-decree_encourage_agricultural_industry = {
+REPLACE:decree_encourage_agricultural_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_agricultural_industry.dds"
 	unlocking_technologies = { enclosure }
 	state_trigger = {
@@ -307,7 +307,7 @@ decree_encourage_agricultural_industry = {
 		}
 	}
 }
-decree_encourage_resource_industry = {
+REPLACE:decree_encourage_resource_industry = {
 	texture = "gfx/interface/icons/decree/decree_encourage_resource_industry.dds"
 	unlocking_technologies = { shaft_mining }
 	state_trigger = {
@@ -361,7 +361,7 @@ decree_encourage_resource_industry = {
 		}
 	}
 }
-decree_greener_grass_campaign = {
+REPLACE:decree_greener_grass_campaign = {
 	texture = "gfx/interface/icons/decree/decree_greener_grass_campaign.dds"
 	unlocking_technologies = { romanticism }
 	state_trigger = { trigger_greener_grass_state = yes }

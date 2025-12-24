@@ -1,5 +1,5 @@
 # Paper
-pm_pulp_pressing = {
+REPLACE_OR_CREATE:pm_pulp_pressing = {
 	texture = "gfx/interface/icons/production_method_icons/pulp_pressing.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -14,7 +14,7 @@ pm_pulp_pressing = {
 		}
 	}
 }
-pm_sulfite_pulping = {
+REPLACE_OR_CREATE:pm_sulfite_pulping = {
 	texture = "gfx/interface/icons/production_method_icons/sulfite_pulping.dds"
 	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
@@ -33,7 +33,7 @@ pm_sulfite_pulping = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 3 } }
 }
-pm_bleached_paper = {
+REPLACE_OR_CREATE:pm_bleached_paper = {
 	texture = "gfx/interface/icons/production_method_icons/bleached_paper.dds"
 	unlocking_technologies = { chemical_bleaching }
 	building_modifiers = {
@@ -55,7 +55,7 @@ pm_bleached_paper = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_continous_bleached_paper = {
+REPLACE_OR_CREATE:pm_continous_bleached_paper = {
 	texture = "gfx/interface/icons/production_method_icons/bleached_paper.dds"
 	unlocking_technologies = { pasteurization }
 	building_modifiers = {

@@ -1,5 +1,5 @@
 # Small Arms
-pm_muskets = {
+REPLACE_OR_CREATE:pm_muskets = {
 	texture = "gfx/interface/icons/production_method_icons/muskets.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -17,7 +17,7 @@ pm_muskets = {
 		}												#		= -130	=> Stops breaking even at SoL 5 10/13
 	}
 }
-pm_rifles = {
+REPLACE_OR_CREATE:pm_rifles = {
 	texture = "gfx/interface/icons/production_method_icons/rifles.dds"
 	unlocking_technologies = { rifling }
 	building_modifiers = {
@@ -36,7 +36,7 @@ pm_rifles = {
 		}												#		= -135	=> Stops breaking even at SoL 14 2/27
 	}
 }
-pm_repeaters = {
+REPLACE_OR_CREATE:pm_repeaters = {
 	texture = "gfx/interface/icons/production_method_icons/repeaters.dds"
 	unlocking_technologies = { repeaters }
 	building_modifiers = {
@@ -56,7 +56,7 @@ pm_repeaters = {
 		}												#		= -150	=> Stops breaking even at SoL 18
 	}
 }
-pm_bolt_action_rifles = {
+REPLACE_OR_CREATE:pm_bolt_action_rifles = {
 	texture = "gfx/interface/icons/production_method_icons/bolt_action_rifles.dds"
 	unlocking_technologies = { bolt_action_rifles }
 	building_modifiers = {
@@ -77,7 +77,7 @@ pm_bolt_action_rifles = {
 		}												#		= -160	=> Stops breaking even at SoL 21.25
 	}
 }
-pm_machine_pistols = {
+REPLACE_OR_CREATE:pm_machine_pistols = {
 	texture = "gfx/interface/icons/production_method_icons/infiltrators.dds"
 	unlocking_technologies = { stormtroopers }
 	building_modifiers = {
@@ -99,7 +99,7 @@ pm_machine_pistols = {
 	}
 }
 # Artillery
-pm_cannons = {
+REPLACE_OR_CREATE:pm_cannons = {
 	texture = "gfx/interface/icons/production_method_icons/artillery_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -117,7 +117,7 @@ pm_cannons = {
 		}												#		= -130	=> Stops breaking even at SoL 6 7/13
 	}
 }
-pm_smoothbores = {
+REPLACE_OR_CREATE:pm_smoothbores = {
 	texture = "gfx/interface/icons/production_method_icons/smoothbores.dds"
 	unlocking_technologies = { shell_gun }
 	building_modifiers = {
@@ -135,7 +135,7 @@ pm_smoothbores = {
 		}												#		= -135	=> Stops breaking even at SoL 15 25/27
 	}
 }
-pm_breech_loaders = {
+REPLACE_OR_CREATE:pm_breech_loaders = {
 	texture = "gfx/interface/icons/production_method_icons/breech_loading_artillery_production.dds"
 	unlocking_technologies = { breech_loading_artillery }
 	building_modifiers = {
@@ -155,7 +155,7 @@ pm_breech_loaders = {
 		}												#		= -160	=> Stops breaking even at SoL TBD
 	}
 }
-pm_recoiled_barrels = {
+REPLACE_OR_CREATE:pm_recoiled_barrels = {
 	texture = "gfx/interface/icons/production_method_icons/recoil_mechanism_artillery_production.dds"
 	unlocking_technologies = { automatic_machine_guns }
 	building_modifiers = {
@@ -176,7 +176,7 @@ pm_recoiled_barrels = {
 	}
 }
 # Munition
-pm_percussion_caps = {
+REPLACE_OR_CREATE:pm_percussion_caps = {
 	texture = "gfx/interface/icons/production_method_icons/percussion_caps.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -195,7 +195,7 @@ pm_percussion_caps = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_explosive_shells = {
+REPLACE_OR_CREATE:pm_explosive_shells = {
 	texture = "gfx/interface/icons/production_method_icons/explosive_shells.dds"
 	unlocking_technologies = { dynamite }
 	building_modifiers = {
@@ -216,7 +216,7 @@ pm_explosive_shells = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
 # Motor Industry
-pm_steam_engines = {
+REPLACE_OR_CREATE:pm_steam_engines = {
 	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -238,7 +238,7 @@ pm_steam_engines = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }	# The engines themselves aren't that stinky. Using them is.
 }
-pm_watertube_boiler_steam_engines = {
+REPLACE_OR_CREATE:pm_watertube_boiler_steam_engines = {
 	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
 	unlocking_technologies = { watertube_boiler }
 	building_modifiers = {
@@ -261,7 +261,7 @@ pm_watertube_boiler_steam_engines = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }	# The engines themselves aren't that stinky. Using them is.
 }
-pm_rotary_valve_engines = {
+REPLACE_OR_CREATE:pm_rotary_valve_engines = {
 	texture = "gfx/interface/icons/production_method_icons/diesel_pump.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	building_modifiers = {
@@ -284,7 +284,7 @@ pm_rotary_valve_engines = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }	# The engines themselves aren't that stinky. Using them is.
 }
-pm_electric_engines = {
+REPLACE_OR_CREATE:pm_electric_engines = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
@@ -305,7 +305,7 @@ pm_electric_engines = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 	required_input_goods = electricity
 }
-pm_diesel_engines = {
+REPLACE_OR_CREATE:pm_diesel_engines = {
 	texture = "gfx/interface/icons/production_method_icons/diesel_engines.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -329,7 +329,7 @@ pm_diesel_engines = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_hybrid_electric_engines = {
+REPLACE_OR_CREATE:pm_hybrid_electric_engines = {
 	texture = "gfx/interface/icons/production_method_icons/unused/base4.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
@@ -355,7 +355,7 @@ pm_hybrid_electric_engines = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 	required_input_goods = electricity
 }
-pm_jet_engines = {
+REPLACE_OR_CREATE:pm_jet_engines = {
 	texture = "gfx/interface/icons/production_method_icons/oil_fired_plant.dds"
 	unlocking_technologies = { oil_turbine }
 	building_modifiers = {
@@ -382,7 +382,7 @@ pm_jet_engines = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity
 }
-pm_jet_electric_engines = {
+REPLACE_OR_CREATE:pm_jet_electric_engines = {
 	texture = "gfx/interface/icons/production_method_icons/unused/base6.dds"
 	unlocking_technologies = { flash_freezing }
 	building_modifiers = {
@@ -410,7 +410,7 @@ pm_jet_electric_engines = {
 	required_input_goods = electricity
 }
 # Automobiles
-pm_electric_automobile_production = {
+REPLACE_OR_CREATE:pm_electric_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { electric_railway }
 	building_modifiers = {
@@ -432,7 +432,7 @@ pm_electric_automobile_production = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity
 }
-pm_automobile_production = {
+REPLACE_OR_CREATE:pm_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
 	unlocking_technologies = { combustion_engine }
 	is_default = yes
@@ -454,7 +454,7 @@ pm_automobile_production = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_mass_electric_automobile_production = {
+REPLACE_OR_CREATE:pm_mass_electric_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/unused/base3.dds"
 	unlocking_technologies = { conveyors }
 	building_modifiers = {
@@ -476,7 +476,7 @@ pm_mass_electric_automobile_production = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity
 }
-pm_mass_automobile_production = {
+REPLACE_OR_CREATE:pm_mass_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/standardized_automobiles.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -497,10 +497,10 @@ pm_mass_automobile_production = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_no_aeroplane_production = {
+REPLACE_OR_CREATE:pm_no_aeroplane_production = {
 	texture = "gfx/interface/icons/production_method_icons/no_aeroplanes.dds"
 }
-pm_aeroplane_production = {
+REPLACE_OR_CREATE:pm_aeroplane_production = {
 	texture = "gfx/interface/icons/production_method_icons/aeroplanes.dds"
 	unlocking_technologies = { military_aviation carrier_tech }
 	building_modifiers = {
@@ -517,10 +517,10 @@ pm_aeroplane_production = {
 		}
 	}
 }
-pm_no_tank_production = {
+REPLACE_OR_CREATE:pm_no_tank_production = {
 	texture = "gfx/interface/icons/production_method_icons/no_tanks.dds"
 }
-pm_tank_production = {
+REPLACE_OR_CREATE:pm_tank_production = {
 	texture = "gfx/interface/icons/production_method_icons/tanks.dds"
 	unlocking_technologies = { mobile_armor }
 	building_modifiers = {
@@ -538,7 +538,7 @@ pm_tank_production = {
 }
 # Civilian Ships
 # Wood
-pm_basic_shipbuilding = {
+REPLACE_OR_CREATE:pm_basic_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/wooden_ships.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -557,7 +557,7 @@ pm_basic_shipbuilding = {
 		}												#		= -150	=> Stops breaking even at SoL 6
 	}
 }
-pm_complex_shipbuilding = {
+REPLACE_OR_CREATE:pm_complex_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/reinforced_wooden_ships.dds"
 	unlocking_technologies = { screw_frigate }
 	building_modifiers = {
@@ -580,7 +580,7 @@ pm_complex_shipbuilding = {
 	required_input_goods = engines
 }
 # Steel
-pm_metal_shipbuilding = {
+REPLACE_OR_CREATE:pm_metal_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
 	unlocking_technologies = { ironclad_tech }
 	building_modifiers = {
@@ -601,7 +601,7 @@ pm_metal_shipbuilding = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_arc_welding_shipbuilding = {
+REPLACE_OR_CREATE:pm_arc_welding_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_steam_ships.dds"
 	unlocking_technologies = { arc_welding }
 	replacement_if_valid = pm_arc_welding_shipbuilding_green
@@ -624,7 +624,7 @@ pm_arc_welding_shipbuilding = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
 }
-pm_arc_welding_shipbuilding_green = {
+REPLACE_OR_CREATE:pm_arc_welding_shipbuilding_green = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_steam_ships.dds"
 	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {
@@ -655,7 +655,7 @@ pm_arc_welding_shipbuilding_green = {
 }
 # Military Ships
 # Wood
-pm_military_shipbuilding_wooden = {
+REPLACE_OR_CREATE:pm_military_shipbuilding_wooden = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_wooden.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -674,7 +674,7 @@ pm_military_shipbuilding_wooden = {
 		}												#		= -150	=> Stops breaking even at SoL 8 1/3
 	}
 }
-pm_military_shipbuilding_wooden_2 = {
+REPLACE_OR_CREATE:pm_military_shipbuilding_wooden_2 = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_wooden_2.dds"
 	unlocking_technologies = { screw_frigate }
 	building_modifiers = {
@@ -697,7 +697,7 @@ pm_military_shipbuilding_wooden_2 = {
 	required_input_goods = engines
 }
 # Steel
-pm_military_shipbuilding_steam = {
+REPLACE_OR_CREATE:pm_military_shipbuilding_steam = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam.dds"
 	unlocking_technologies = { ironclad_tech }
 	building_modifiers = {
@@ -718,7 +718,7 @@ pm_military_shipbuilding_steam = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_military_shipbuilding_steam_2 = {
+REPLACE_OR_CREATE:pm_military_shipbuilding_steam_2 = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam_2.dds"
 	unlocking_technologies = { arc_welding }
 	replacement_if_valid = pm_military_shipbuilding_steam_2_green
@@ -741,7 +741,7 @@ pm_military_shipbuilding_steam_2 = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 	required_input_goods = electricity
 }
-pm_military_shipbuilding_steam_2_green = {
+REPLACE_OR_CREATE:pm_military_shipbuilding_steam_2_green = {
 	texture = "gfx/interface/icons/production_method_icons/military_shipbuilding_steam_2.dds"
 	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {

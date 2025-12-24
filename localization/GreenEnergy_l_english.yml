@@ -62,7 +62,7 @@
  pmg_base_building_farm: "$pmg_base_building_rye_farm$"
  pm_simple_farming_rice_farm: "$pm_simple_farming$"
  
- default_building_wood_plantation: "$pm_default$"
+ pm_default_wood_plantation: "$pm_default$"
  pmg_base_building_wood_plantation: "$pm_base$"
  
  pm_soil_enriching_farming_rice_farm: "$pm_soil_enriching_farming$"
@@ -159,7 +159,7 @@
  pm_electrocution_slaughtering_ranch: "$pm_electrocution_slaughtering$"
  
  pmg_base_building_autarky_farm: "$pm_base$"
- default_building_autarky_farm: "$pm_default$"
+ pm_default_autarky_farm: "$pm_default$"
  pm_enriched_autarky_farm: "$pm_soil_enriching_farming$"
  pm_fertilized_autarky_farm: "$pm_fertilization$"
  pm_chem_fertilized_autarky_farm: "$pm_chemical_fertilizer$"

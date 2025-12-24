@@ -1,5 +1,5 @@
 # Telephones
-pm_telephones = {
+REPLACE_OR_CREATE:pm_telephones = {
 	texture = "gfx/interface/icons/production_method_icons/telephones.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -21,7 +21,7 @@ pm_telephones = {
 		}												#		=  -120	=> Stops breaking even at SoL 20
 	}
 }
-pm_double_telephones = {
+REPLACE_OR_CREATE:pm_double_telephones = {
 	texture = "gfx/interface/icons/production_method_icons/telephones.dds"
 	unlocking_technologies = { plastics }
 	building_modifiers = {
@@ -46,7 +46,7 @@ pm_double_telephones = {
 	}
 }
 # Radios
-pm_radios = {
+REPLACE_OR_CREATE:pm_radios = {
 	texture = "gfx/interface/icons/production_method_icons/radios.dds"
 	unlocking_technologies = { radio }
 	building_modifiers = {
@@ -64,7 +64,7 @@ pm_radios = {
 	}
 	required_input_goods = electricity
 }
-pm_double_radios = {
+REPLACE_OR_CREATE:pm_double_radios = {
 	texture = "gfx/interface/icons/production_method_icons/radios.dds"
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {

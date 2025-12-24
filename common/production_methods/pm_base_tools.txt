@@ -1,4 +1,5 @@
-pm_crude_tools = {
+# Tools
+REPLACE_OR_CREATE:pm_crude_tools = {
 	texture = "gfx/interface/icons/production_method_icons/crude_tools.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -13,7 +14,7 @@ pm_crude_tools = {
 		}
 	}
 }
-pm_hardwood_tools = {
+REPLACE_OR_CREATE:pm_hardwood_tools = {
 	texture = "gfx/interface/icons/production_method_icons/lathes.dds"
 	unlocking_technologies = { steelworking }	# Simple tools wear out too fast	- Changed from lathe
 	building_modifiers = {
@@ -31,7 +32,7 @@ pm_hardwood_tools = {
 		}
 	}
 }
-pm_pig_iron = {
+REPLACE_OR_CREATE:pm_pig_iron = {
 	texture = "gfx/interface/icons/production_method_icons/pig_iron_tools.dds"
 	unlocking_technologies = { steelworking }	
 	building_modifiers = {
@@ -49,7 +50,7 @@ pm_pig_iron = {
 		}
 	}
 }
-pm_steel = {
+REPLACE_OR_CREATE:pm_steel = {
 	texture = "gfx/interface/icons/production_method_icons/saw_mills.dds"
 	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
@@ -69,7 +70,7 @@ pm_steel = {
 		}
 	}
 }
-pm_rubber_grips = {
+REPLACE_OR_CREATE:pm_rubber_grips = {
 	texture = "gfx/interface/icons/production_method_icons/steel_tools.dds"
 	unlocking_technologies = { vulcanization }
 	building_modifiers = {
@@ -88,7 +89,7 @@ pm_rubber_grips = {
 		}
 	}
 }
-pm_early_machine_tools = {
+REPLACE_OR_CREATE:pm_early_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/steamworks.dds"
 	unlocking_technologies = { pneumatic_tools }
 	disallowing_laws = { law_industry_banned }
@@ -110,7 +111,7 @@ pm_early_machine_tools = {
 		}
 	}
 }
-pm_machine_tools = {
+REPLACE_OR_CREATE:pm_machine_tools = {
 	texture = "gfx/interface/icons/production_method_icons/arc_welded_buildings.dds"
 	unlocking_technologies = { arc_welding }
 	disallowing_laws = { law_industry_banned }
@@ -119,7 +120,7 @@ pm_machine_tools = {
 			# input goods
 			goods_input_rubber_add				=   35	# x-40	= -1400
 			goods_input_engines_add				=   25	# x-60	= -1500
-			goods_input_steel_add				=   20	# x-50	= -1000
+			goods_input_oil_add					=   25	# x-40	= -1000
 			goods_input_electricity_add			=   20	# x-30	=  -600
 			# output goods								#		= -4500
 			goods_output_tools_add				=  300	# x+40	=+12000

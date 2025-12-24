@@ -1,5 +1,5 @@
 ﻿# (Soft-) Wood
-# pm_no_softwood = {
+# REPLACE_OR_CREATE:pm_no_softwood = {
 	# texture = "gfx/interface/icons/production_method_icons/no_softwood.dds"
 	# unlocking_production_methods = {
 		# pm_hardwood
@@ -13,7 +13,7 @@
 	# }
 	# ai_value = 0
 # }
-pm_simple_forestry = {
+REPLACE_OR_CREATE:pm_simple_forestry = {
 	texture = "gfx/interface/icons/production_method_icons/simple_forestry.dds"
 	is_default = yes
 	building_modifiers = {
@@ -26,7 +26,7 @@ pm_simple_forestry = {
 		}										#10000
 	}
 }
-pm_saw_mills = {
+REPLACE_OR_CREATE:pm_saw_mills = {
 	texture = "gfx/interface/icons/production_method_icons/saw_mills.dds"
 	unlocking_technologies = { steelworking }				
 	building_modifiers = {
@@ -44,7 +44,7 @@ pm_saw_mills = {
 		unscaled = { goods_output_hardwood_mult	= 2.00 }
 	}
 }	
-pm_electric_saw_mills = {
+REPLACE_OR_CREATE:pm_electric_saw_mills = {
 	texture = "gfx/interface/icons/production_method_icons/electric_saw_mills.dds"
 	unlocking_technologies = { electrical_generation }
 	building_modifiers = {
@@ -65,13 +65,13 @@ pm_electric_saw_mills = {
 	required_input_goods = electricity
 }
 # Hardwood
-pm_no_hardwood = {
+REPLACE_OR_CREATE:pm_no_hardwood = {
 	texture = "gfx/interface/icons/production_method_icons/no_hardwood_selection.dds"
 	building_modifiers = {
 		unscaled = { goods_output_wood_mult		= 1.00 }
 	}
 }
-pm_hardwood = {
+REPLACE_OR_CREATE:pm_hardwood = {
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
 	building_modifiers = {
 		workforce_scaled = {

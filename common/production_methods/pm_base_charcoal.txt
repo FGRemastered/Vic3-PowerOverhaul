@@ -1,6 +1,6 @@
 # Charcoal Plant
 # Base
-pm_charcoal_kiln = {
+REPLACE_OR_CREATE:pm_charcoal_kiln = {
 	texture = "gfx/interface/icons/production_method_icons/charcoal_kiln.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -16,7 +16,7 @@ pm_charcoal_kiln = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 50 } }	# Very stinky
 }
-pm_combustion_chamber = {
+REPLACE_OR_CREATE:pm_combustion_chamber = {
 	texture = "gfx/interface/icons/production_method_icons/combustion_chamber.dds"
 	unlocking_technologies = { mechanical_tools }
 	building_modifiers = {
@@ -36,7 +36,7 @@ pm_combustion_chamber = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 	required_input_goods = porcelain
 }
-pm_machine_coal = {
+REPLACE_OR_CREATE:pm_machine_coal = {
 	texture = "gfx/interface/icons/production_method_icons/machine_coal.dds"
 	unlocking_technologies = { mechanized_workshops }
 	disallowing_laws = { law_industry_banned }
@@ -60,12 +60,12 @@ pm_machine_coal = {
 	required_input_goods = porcelain
 }
 # Refining
-pm_unfiltered = {
+REPLACE_OR_CREATE:pm_unfiltered = {
 	texture = "gfx/interface/icons/production_method_icons/no_filters.dds"
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 	ai_value = 0
 }
-pm_dust_separation_charcoal = {
+REPLACE_OR_CREATE:pm_dust_separation_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/dust_separation.dds"
 	unlocking_technologies = { distillation }
 	is_default = yes
@@ -78,7 +78,7 @@ pm_dust_separation_charcoal = {
 		}												#		=   +50
 	}
 }
-pm_chemical_refining_charcoal = {
+REPLACE_OR_CREATE:pm_chemical_refining_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_refining.dds"
 	unlocking_technologies = { fractional_distillation }
 	unlocking_production_methods = { pm_combustion_chamber pm_machine_coal }
@@ -96,7 +96,7 @@ pm_chemical_refining_charcoal = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= -5 } }
 }
-pm_environmental_refining_charcoal = {
+REPLACE_OR_CREATE:pm_environmental_refining_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/environmental_refining.dds"
 	unlocking_technologies = { pneumatic_tools }
 	unlocking_production_methods = { pm_machine_coal }
@@ -115,7 +115,7 @@ pm_environmental_refining_charcoal = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-10 } }
 }
-pm_carbon_capture_charcoal = {
+REPLACE_OR_CREATE:pm_carbon_capture_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
 	unlocking_technologies = { arc_welding }
 	disallowing_laws = { law_industry_banned }
@@ -143,7 +143,7 @@ pm_carbon_capture_charcoal = {
 	required_input_goods = porcelain
 }
 # Automation
-pm_watertube_boiler_charcoal = {
+REPLACE_OR_CREATE:pm_watertube_boiler_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 	unlocking_technologies = { watertube_boiler }
 	disallowing_laws = { law_industry_banned }
@@ -159,7 +159,7 @@ pm_watertube_boiler_charcoal = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_rotary_valve_engine_charcoal = {
+REPLACE_OR_CREATE:pm_rotary_valve_engine_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 	unlocking_technologies = { rotary_valve_engine }
 	disallowing_laws = { law_industry_banned }
@@ -175,7 +175,7 @@ pm_rotary_valve_engine_charcoal = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_assembly_lines_charcoal = {
+REPLACE_OR_CREATE:pm_assembly_lines_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 	unlocking_technologies = { conveyors }
 	disallowing_laws = { law_industry_banned }

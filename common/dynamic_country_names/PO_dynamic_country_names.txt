@@ -1,0 +1,52 @@
+﻿INJECT:DEFAULT = {
+	dynamic_country_name = {
+		name = colonial_admin_indonesia
+		adjective = colonial_admin_indonesia_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = indonesia_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_indochina
+		adjective = colonial_admin_indochina_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = indochina_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_arabic
+		adjective = colonial_admin_arabic_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = arabic_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_india
+		adjective = colonial_admin_india_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = india_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_china
+		adjective = colonial_admin_china_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = china_subject_var }
+		}
+	}
+}

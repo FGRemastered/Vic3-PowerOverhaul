@@ -1,0 +1,17 @@
+﻿# social security / welfare
+INJECT:law_wage_subsidies = {
+	institution_modifier = {
+		building_minimum_wage_mult						=-0.04	# Decreased	- 5x10% from labor rights + 5x(10-4)% = 50% + 30% = 80%
+		state_birth_rate_mult							= 0.02	# Added		- Cancels Literacy rate at lvl 5
+		state_migration_pull_mult						= 0.03	# Added		- People don't like countries, they like the institutions they have implemented
+		building_subsistence_output_mult				= 0.05	# Added		- To make it possible for autarky farms to hire
+	}
+}
+INJECT:law_old_age_pension = {
+	institution_modifier = {
+		building_minimum_wage_mult						=-0.06	# Decreased	- 5x10% from labor rights + 5x(15-6)% = 50% + 45% = 95%
+		state_birth_rate_mult							= 0.05	# Added		- Cancels Literacy rate at lvl 2
+		state_migration_pull_mult						= 0.05	# Added		- People don't like countries, they like the institutions they have implemented
+		building_subsistence_output_mult				= 0.10	# Added		- To make it possible for autarky farms to hire
+	}
+}

@@ -1,0 +1,30 @@
+﻿# Geographic Regions
+INJECT:geographic_region_china = {
+	state_regions = {
+		STATE_SOUTHERN_MANCHURIA
+		STATE_NORTHERN_MANCHURIA
+		STATE_SHENGJING
+		STATE_OUTER_MANCHURIA
+		STATE_AMUR
+		STATE_DZUNGARIA
+		STATE_TIANSHAN
+		STATE_JETISY
+		# STATE_KIRGHIZIA	# Belongs to China at game start, but split.
+		# STATE_HIMALAYAS
+		STATE_LHASA
+		STATE_NGARI
+		# STATE_KASHMIR		# Claimed by BIC
+		STATE_QINGHAI
+		STATE_EASTERN_HIMALAYAS
+	}
+}
+REPLACE_OR_CREATE:geographic_region_korea = {	# TODO: Localize
+	short_key = "korea"
+	state_regions = {
+		STATE_SEOUL
+		STATE_BUSAN
+		STATE_SARIWON
+		STATE_PYONGYANG
+		STATE_YANGHO
+	}
+}

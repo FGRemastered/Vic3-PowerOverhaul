@@ -1,0 +1,97 @@
+﻿INJECT:law_subjecthood = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+}
+INJECT:law_ethnostate = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+}
+INJECT:law_national_supremacy = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+}
+INJECT:law_racial_segregation = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+}
+INJECT:law_cultural_exclusion = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+}
+INJECT:law_multicultural = {
+	on_activate = {
+		if = {
+			limit = {
+				any_primary_culture = { THIS ?= cu:british }
+				OR = {
+					NOT = { any_primary_culture = { THIS ?= cu:anglo_indian } }
+					has_modifier = anglo_indian_cultural_acceptance_modifier_negative
+					has_modifier = heritage_group_south_asian_cultural_acceptance_modifier_negative
+				}
+			}
+			effect_add_anglo_indian_acceptance = yes
+		}
+	}
+	acceptance_modifier = {
+		# Assimilation
+		country_assimilation_cultural_erasure_mult					= 0.25
+		country_assimilation_open_prejudice_mult					= 0.50
+		country_assimilation_second_rate_citizen_mult				= 0.50
+		country_assimilation_full_acceptance_mult					= 1.00
+	}
+}

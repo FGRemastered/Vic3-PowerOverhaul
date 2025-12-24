@@ -1,4 +1,4 @@
-﻿ig_rural_folk = {
+﻿REPLACE:ig_rural_folk = {
 	color = hsv{ 0.32 0.45 0.47 }
 	texture = "gfx/interface/icons/ig_icons/rural_folk.dds"
 	layer = "revolution_dynamic_rural_folk"
@@ -282,7 +282,7 @@
 	monarch_weight = {
 		value = 0.25 # this is just inherently unlikely
 		if = {	# Monarch is not likely to adopt a marginal IG
-			limit = { is_marginal = yes }
+			limit = { ig_counts_as_marginal = yes }
 			multiply = { value = 0.1 }
 		}
 		if = {	# Monarch is more likely to adopt a Powerful IG
@@ -301,59 +301,69 @@
 	agitator_weight = {
 		value = 1.0	# Agitators more likely to come from populist IG's rather than elitist
 		if = {		# Agitators will never be part of a marginalized IG
-			limit = { owner.ig:ig_rural_folk = { is_marginal = yes } }
+			limit = { owner.ig:ig_rural_folk = { ig_counts_as_marginal = yes } }
 			multiply = { value = 0 }
 		}
 	}
 	commander_weight = { value = 1.0 }
+	executive_weight = {
+		value = 0.1
+		if = {	# The company owning BIC should not get non-industrialist executives
+			limit = {
+				exists = scope:company
+				exists = c:BIC
+				c:BIC ?= {
+					exists = owning_company
+					owning_company = scope:company
+				}
+			}
+			multiply = { value = 0 }
+		}
+	}
 	noble_chance = { value = 0.2 }
 	female_commander_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.05 }
+			value = 0.05
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.2 }
+			value = 0.20
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.4 }
+			value = 0.50
 		}
 	}
 	female_politician_chance = {
 		value = 0.0
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	female_agitator_chance = {
-		value = 0.0
-		if = {
-			limit = { owner = { has_law_or_variant = law_type:law_no_womens_rights } }
-			add = { value = 0.05 }
-		}
+		value = 0.05
 		if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_own_property } }
-			add = { value = 0.1 }
+			value = 0.10
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_women_in_the_workplace } }
-			add = { value = 0.25 }
+			value = 0.25
 		}
-		if = {
+		else_if = {
 			limit = { owner = { has_law_or_variant = law_type:law_womens_suffrage } }
-			add = { value = 0.5 }
+			value = 0.50
 		}
 	}
 	commander_leader_chance = {	# The chance that a commander belonging to this IG takes over leadership when it changes
@@ -362,7 +372,5 @@
 	}
 	# The chance that a executive belonging to this IG takes over leadership when it changes
 	# scope:character is the most popular executive in the IG
-	executive_leader_chance = {
-		value = 0.2
-	}
+	executive_leader_chance = { value = 0.2 }
 }

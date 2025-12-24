@@ -1,5 +1,5 @@
 # Fine Art
-pm_traditional_art = {
+REPLACE_OR_CREATE:pm_traditional_art = {
 	texture = "gfx/interface/icons/production_method_icons/traditional_art.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -15,7 +15,7 @@ pm_traditional_art = {
 		}												#		=  -130	=> Stops breaking even at SoL 5
 	}
 }
-pm_realist_art = {
+REPLACE_OR_CREATE:pm_realist_art = {
 	texture = "gfx/interface/icons/production_method_icons/realist_art.dds"
 	unlocking_technologies = { realism }
 	building_modifiers = {
@@ -33,7 +33,7 @@ pm_realist_art = {
 		}												#		=  -130	=> Stops breaking even at SoL 10
 	}
 }
-pm_photographic_art = {
+REPLACE_OR_CREATE:pm_photographic_art = {
 	texture = "gfx/interface/icons/production_method_icons/photographic_art.dds"
 	unlocking_technologies = { camera }
 	building_modifiers = {
@@ -52,7 +52,7 @@ pm_photographic_art = {
 		}												#		=  -110	=> Stops breaking even at SoL 20
 	}
 }
-pm_film_art = {
+REPLACE_OR_CREATE:pm_film_art = {
 	texture = "gfx/interface/icons/production_method_icons/film_art.dds"
 	unlocking_technologies = { film }
 	building_modifiers = {
@@ -74,11 +74,11 @@ pm_film_art = {
 	required_input_goods = electricity
 }
 # Ownership
-pm_traditional_patronage = {
+REPLACE_OR_CREATE:pm_traditional_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	disallowing_laws = { law_cooperative_ownership }
 }
-pm_bourgeoisie_patronage = {
+REPLACE_OR_CREATE:pm_bourgeoisie_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 	unlocking_technologies = { stock_exchange }
 	disallowing_laws = {
@@ -91,7 +91,7 @@ pm_bourgeoisie_patronage = {
 	}
 	ai_value = 5000
 }
-pm_independent_artists = {
+REPLACE_OR_CREATE:pm_independent_artists = {
 	texture = "gfx/interface/icons/production_method_icons/independent_artists.dds"
 	disallowing_laws = {
 		law_traditionalism

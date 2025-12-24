@@ -1,4 +1,4 @@
-﻿ideology_social_liberal = {
+﻿REPLACE_OR_CREATE:ideology_social_liberal = {
 	icon	= "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_positivist.dds"
 	character_ideology	= yes
 	lawgroup_governance_principles = {	# Don't care as long as I'm boss.
@@ -154,7 +154,7 @@
 	leader_weight = { value = { value	= 0 } } # event only
 	possible = {}	# event only
 }
-ideology_royal_social_liberal = {
+REPLACE_OR_CREATE:ideology_royal_social_liberal = {
 	icon	= "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_junker_paternalistic.dds"
 	character_ideology	= yes
 	lawgroup_governance_principles = {	# Now that I'm in charge...

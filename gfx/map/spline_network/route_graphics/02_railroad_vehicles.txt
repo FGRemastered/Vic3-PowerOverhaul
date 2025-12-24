@@ -219,7 +219,7 @@ mining_train = {
 		diesel			= { trigger = { gfx_diesel_locomotive_trigger		= yes } }
 		coal			= { trigger = { gfx_coal_mine_trigger				= yes } }
 		iron			= { trigger = { gfx_iron_mine_trigger				= yes } }
-		steel			= { trigger = { scope:state = { has_building = building_steel_mills } } }
+		steel			= { trigger = { scope:state = { has_building = building_steel_mill } } }
 		sulfur			= { trigger = { gfx_sulfur_mine_trigger				= yes } }
 	}
 	route_entities = {
@@ -538,7 +538,7 @@ forestry_train = {
 	routes_to_caravans_ratio = 0.2
 	max_count = 30
 	max_path_length = 5
-	possible = { gfx_mining_train_trigger = yes }
+	possible = { gfx_forestry_train_trigger = yes }
 	tags = {
 		british			= { trigger = { gfx_has_british_trains_trigger		= yes } }
 		german			= { trigger = { gfx_has_german_trains_trigger		= yes } }
@@ -794,6 +794,9 @@ forestry_train = {
 		}
 	}
 }
+#################################################################
+#####				TRADE ROUTE GRAPHICS END				#####
+#################################################################
 #################################################################
 #####				MILITARY MOBILIZATION					#####
 #################################################################

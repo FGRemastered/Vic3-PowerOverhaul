@@ -1,4 +1,4 @@
-﻿gov_parliamentary_oligarchy = {
+﻿REPLACE:gov_parliamentary_oligarchy = {
 	transfer_of_power = dictatorial
 	male_ruler = "RULER_TITLE_CHANCELLOR"
 	female_ruler = "RULER_TITLE_CHANCELLOR"
@@ -9,7 +9,7 @@
 	on_government_type_change = { change_to_dictatorial = yes }
 	on_post_government_type_change = { post_change_to_dictatorial = yes }
 }
-gov_technate_parliamentary = {
+REPLACE_OR_CREATE:gov_technate_parliamentary = {
 	transfer_of_power = dictatorial
 	new_leader_on_reform_government = yes		# Added
 	male_ruler = "RULER_TITLE_CHIEF_ENGINEER"
@@ -21,7 +21,7 @@ gov_technate_parliamentary = {
 	on_government_type_change = { change_to_dictatorial = yes }
 	on_post_government_type_change = { post_change_to_dictatorial = yes }
 }
-gov_anarchist_republic = {
+REPLACE_OR_CREATE:gov_anarchist_republic = {
 	transfer_of_power = parliamentary_elective
 	new_leader_on_reform_government = yes
 	male_ruler = "RULER_REPRESENTATIVE"
@@ -37,16 +37,13 @@ gov_anarchist_republic = {
 		post_change_to_parliamentary_elective = yes
 	}
 }
-gov_colonial_administration = {
+REPLACE:gov_colonial_administration = {
 	transfer_of_power = presidential_elective
 	new_leader_on_reform_government = no
 	male_ruler		= "RULER_TITLE_GOVERNOR_GENERAL"
 	female_ruler	= "RULER_TITLE_GOVERNOR_GENERAL"
 	possible = {
-		OR = {
-			is_subject_type = law_presidential_republic
-			is_subject_type = law_corporate_state
-		}
+		is_subject_type = law_colonial_administration
 		OR = {
 			is_subject_type = subject_type_colony
 			is_subject_type = subject_type_dominion
@@ -58,14 +55,31 @@ gov_colonial_administration = {
 				AND = { exists = c:DEI c:DEI = ROOT }
 				is_subject_type = subject_type_dominion
 			}
-			AND = {
-				exists = c:SPA
-				is_subject_of = c:SPA
+			NOT = { #handled in gov_colonial_administration_spa
+				overlord ?= {
+					c:SPA ?= this
+				}
 				is_subject_type = subject_type_colony
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
-				any_primary_culture = { has_discrimination_trait = european_heritage }
-				country_is_in_europe = no
+				any_primary_culture = {
+					has_discrimination_trait_group = heritage_group_european
+				}
+				is_not_in_geographic_region = geographic_region_europe
+				is_not_in_geographic_region = geographic_region_africa
+			}
+			NOT = { #handled in gov_colonial_administration_spa
+				is_subject_type = subject_type_colony
+				is_country_type = colonial
+				top_overlord = { NOT = { is_country_type = colonial } }
+				top_overlord = {
+					was_formed_from = SPA
+				}
+				any_primary_culture = {
+					has_discrimination_trait_group = heritage_group_european
+				}
+				is_not_in_geographic_region = geographic_region_europe
+				is_not_in_geographic_region = geographic_region_africa
 			}
 			has_variable = senegal_subject_var
 			has_variable = niger_subject_var

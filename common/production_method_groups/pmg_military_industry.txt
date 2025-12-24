@@ -1,5 +1,5 @@
 # Motor Industry
-pmg_base_building_motor_industry = {
+REPLACE_OR_CREATE:pmg_base_building_motor_industry = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
 		pm_steam_engines
@@ -12,7 +12,7 @@ pmg_base_building_motor_industry = {
 		pm_jet_electric_engines
 	}
 }
-pmg_automobile_production = {
+REPLACE_OR_CREATE:pmg_automobile_production = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
 	production_methods = {
 		pm_electric_automobile_production
@@ -22,7 +22,7 @@ pmg_automobile_production = {
 	}
 }
 # Arms Industry
-pmg_firearms_manufacturing = {
+REPLACE_OR_CREATE:pmg_firearms_manufacturing = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -33,7 +33,7 @@ pmg_firearms_manufacturing = {
 		pm_machine_pistols
 	}
 }
-pmg_foundries = {
+REPLACE_OR_CREATE:pmg_foundries = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -43,7 +43,7 @@ pmg_foundries = {
 		pm_recoiled_barrels
 	}
 }
-pmg_base_building_shipyards = {
+REPLACE_OR_CREATE:pmg_base_building_shipyard = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
@@ -54,7 +54,7 @@ pmg_base_building_shipyards = {
 		pm_arc_welding_shipbuilding_green	# Added - Only visible once arc_welding has been unlocked.
 	}
 }
-pmg_military_base = {
+REPLACE_OR_CREATE:pmg_military_base = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"	# Changed
 	ai_selection = most_productive
 	production_methods = {

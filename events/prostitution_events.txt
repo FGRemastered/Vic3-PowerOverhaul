@@ -72,14 +72,14 @@ prostitution.1 = {
 					}
 					NOT = {
 						leader = {
-							law_stance = { law = law_type:law_womens_suffrage value < neutral }
+							is_feminist = yes
 						}
 					}
 				}
 			}
 		}
 		any_primary_culture = { # these attitudes are fairly specific to the West
-			has_discrimination_trait = european_heritage
+			has_discrimination_trait_group = heritage_group_european
 		}
 	}
 
@@ -114,7 +114,7 @@ prostitution.1 = {
 						}
 						NOT = {
 							leader = {
-								law_stance = { law = law_type:law_womens_suffrage value < neutral }
+								is_feminist = yes
 							}
 						}
 					}
@@ -129,7 +129,7 @@ prostitution.1 = {
 
 	option = {
 		name = prostitution.1.a
-		default_option = yes
+		# default_option = yes
 		scope:cda_state = {
 			add_modifier = {
 				name = cda_enacted
@@ -145,6 +145,7 @@ prostitution.1 = {
 	}
 	option = {
 		name = prostitution.1.b
+		default_option = yes
 		scope:cda_ig = {
 			add_modifier = {
 				name = cda_not_enacted_ig
@@ -203,7 +204,7 @@ prostitution.2 = {
 		}
 		any_interest_group = {
 			leader = {
-				law_stance = { law = law_type:law_womens_suffrage value < neutral }
+				is_feminist = yes
 			}
 		}
 	}
@@ -223,7 +224,7 @@ prostitution.2 = {
 		random_interest_group = {
 			limit = {
 				leader = {
-					law_stance = { law = law_type:law_womens_suffrage value < neutral }
+					is_feminist = yes
 				}
 			}
 			save_scope_as = feminist_cda_ig
@@ -239,7 +240,7 @@ prostitution.2 = {
 		scope:feminist_cda_ig = {
 			add_modifier = {
 				name = cda_abolished
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		scope:feminist_cda_state = {
@@ -255,7 +256,7 @@ prostitution.2 = {
 		scope:feminist_cda_ig = {
 			add_modifier = {
 				name = cda_abolished
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		if = {
@@ -272,7 +273,7 @@ prostitution.2 = {
 							}
 							NOT = {
 								leader = {
-									law_stance = { law = law_type:law_womens_suffrage value < neutral }
+									is_feminist = yes
 								}
 							}
 						}
@@ -292,7 +293,7 @@ prostitution.2 = {
 							}
 							NOT = {
 								leader = {
-									law_stance = { law = law_type:law_womens_suffrage value < neutral }
+									is_feminist = yes
 								}
 							}
 						}
@@ -347,13 +348,13 @@ prostitution.3 = {
 	trigger = {
 		NOT = { has_variable = police_cooldown }
 		any_primary_culture = { # doesn't fit that well outside of the West
-			has_discrimination_trait = european_heritage
+			has_discrimination_trait_group = heritage_group_european
 		}
 		institution_investment_level = {
 			institution = institution_police
 			value = 3
 		}
-		NOT = { has_law = law_type:law_outlawed_dissent }
+		NOT = { has_law_or_variant = law_type:law_outlawed_dissent }
 		any_interest_group = {
 			is_in_government = yes
 			OR = {
@@ -409,6 +410,7 @@ prostitution.3 = {
 		trigger = {
 			scope:scandal_character = {
 				is_monarch = no
+				is_immortal = no
 			}
 		}
 		custom_tooltip = prostitution.3.a.tt
@@ -428,14 +430,14 @@ prostitution.3 = {
 				modifier = {
 					if = {
 						limit = {
-							has_law = law_type:law_protected_speech
+							has_law_or_variant = law_type:law_protected_speech
 						}
 						add = 25
 					}
 				}
 				if = {
 					limit = {
-						NOT = { has_law = law_type:law_censorship }
+						NOT = { has_law_or_variant = law_type:law_censorship }
 					}
 					add_modifier = {
 						name = coverup_discovered
@@ -453,7 +455,7 @@ prostitution.3 = {
 				modifier = {
 					if = {
 						limit = {
-							has_law = law_type:law_censorship
+							has_law_or_variant = law_type:law_censorship
 						}
 						add = 25
 					}
@@ -501,7 +503,7 @@ prostitution.4 = {
 				institution = institution_police
 				value >= 3
 			}
-			has_law = law_type:law_militarized_police
+			has_law_or_variant = law_type:law_militarized_police
 		}
 		any_scope_state = {
 			is_incorporated = yes

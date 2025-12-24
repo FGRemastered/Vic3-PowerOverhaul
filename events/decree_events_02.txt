@@ -16,24 +16,24 @@ type = country_event
 			any_scope_building = {
 				OR = {
 					is_building_type = building_food_industry
-					is_building_type = building_textile_mills
-					is_building_type = building_furniture_manufacturies
+					is_building_type = building_textile_mill
+					is_building_type = building_furniture_manufactory
 					is_building_type = building_glassworks
-					is_building_type = building_tooling_workshops
-					is_building_type = building_paper_mills
-					is_building_type = building_chemical_plants
+					is_building_type = building_tooling_workshop
+					is_building_type = building_paper_mill
+					is_building_type = building_chemical_plant
 					is_building_type = building_explosives_factory
-					is_building_type = building_synthetics_plants
-					is_building_type = building_steel_mills
+					is_building_type = building_synthetics_plant
+					is_building_type = building_steel_mill
 					is_building_type = building_motor_industry
-					is_building_type = building_shipyards
+					is_building_type = building_shipyard
 					is_building_type = building_automotive_industry
 					is_building_type = building_electrics_industry
 					is_building_type = building_arms_industry
-					is_building_type = building_munition_plants
+					is_building_type = building_munition_plant
 					is_building_type = building_power_plant
 					is_building_type = building_charcoal_burner
-					is_building_type = building_synthetic_oil_plants
+					is_building_type = building_synthetic_oil_plant
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -59,24 +59,24 @@ type = country_event
 				limit = {
 					OR = {
 						is_building_type = building_food_industry
-						is_building_type = building_textile_mills
-						is_building_type = building_furniture_manufacturies
+						is_building_type = building_textile_mill
+						is_building_type = building_furniture_manufactory
 						is_building_type = building_glassworks
-						is_building_type = building_tooling_workshops
-						is_building_type = building_paper_mills
-						is_building_type = building_chemical_plants
+						is_building_type = building_tooling_workshop
+						is_building_type = building_paper_mill
+						is_building_type = building_chemical_plant
 						is_building_type = building_explosives_factory
-						is_building_type = building_synthetics_plants
-						is_building_type = building_steel_mills
+						is_building_type = building_synthetics_plant
+						is_building_type = building_steel_mill
 						is_building_type = building_motor_industry
-						is_building_type = building_shipyards
+						is_building_type = building_shipyard
 						is_building_type = building_automotive_industry
 						is_building_type = building_electrics_industry
 						is_building_type = building_arms_industry
-						is_building_type = building_munition_plants
+						is_building_type = building_munition_plant
 						is_building_type = building_power_plant
 						is_building_type = building_charcoal_burner
-						is_building_type = building_synthetic_oil_plants
+						is_building_type = building_synthetic_oil_plant
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -128,24 +128,24 @@ type = country_event
 			any_scope_building = {
 				OR = {
 					is_building_type = building_food_industry
-					is_building_type = building_textile_mills
-					is_building_type = building_furniture_manufacturies
+					is_building_type = building_textile_mill
+					is_building_type = building_furniture_manufactory
 					is_building_type = building_glassworks
-					is_building_type = building_tooling_workshops
-					is_building_type = building_paper_mills
-					is_building_type = building_chemical_plants
+					is_building_type = building_tooling_workshop
+					is_building_type = building_paper_mill
+					is_building_type = building_chemical_plant
 					is_building_type = building_explosives_factory
-					is_building_type = building_synthetics_plants
-					is_building_type = building_steel_mills
+					is_building_type = building_synthetics_plant
+					is_building_type = building_steel_mill
 					is_building_type = building_motor_industry
-					is_building_type = building_shipyards
+					is_building_type = building_shipyard
 					is_building_type = building_automotive_industry
 					is_building_type = building_electrics_industry
 					is_building_type = building_arms_industry
-					is_building_type = building_munition_plants
+					is_building_type = building_munition_plant
 					is_building_type = building_power_plant
 					is_building_type = building_charcoal_burner
-					is_building_type = building_synthetic_oil_plants
+					is_building_type = building_synthetic_oil_plant
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -173,24 +173,24 @@ type = country_event
 				limit = {
 					OR = {
 						is_building_type = building_food_industry
-						is_building_type = building_textile_mills
-						is_building_type = building_furniture_manufacturies
+						is_building_type = building_textile_mill
+						is_building_type = building_furniture_manufactory
 						is_building_type = building_glassworks
-						is_building_type = building_tooling_workshops
-						is_building_type = building_paper_mills
-						is_building_type = building_chemical_plants
+						is_building_type = building_tooling_workshop
+						is_building_type = building_paper_mill
+						is_building_type = building_chemical_plant
 						is_building_type = building_explosives_factory
-						is_building_type = building_synthetics_plants
-						is_building_type = building_steel_mills
+						is_building_type = building_synthetics_plant
+						is_building_type = building_steel_mill
 						is_building_type = building_motor_industry
-						is_building_type = building_shipyards
+						is_building_type = building_shipyard
 						is_building_type = building_automotive_industry
 						is_building_type = building_electrics_industry
 						is_building_type = building_arms_industry
-						is_building_type = building_munition_plants
+						is_building_type = building_munition_plant
 						is_building_type = building_power_plant
 						is_building_type = building_charcoal_burner
-						is_building_type = building_synthetic_oil_plants
+						is_building_type = building_synthetic_oil_plant
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -259,17 +259,19 @@ type = country_event
 					is_building_type = building_millet_farm
 					is_building_type = building_livestock_ranch
 					is_building_type = building_autarky_farm
-					# Infres
-					is_building_infres_type = building_autarky_greenhouse
-					is_building_infres_type = building_coffee_greenhouse
-					is_building_infres_type = building_cotton_greenhouse
-					is_building_infres_type = building_dye_greenhouse
-					is_building_infres_type = building_opium_greenhouse
-					is_building_infres_type = building_tea_greenhouse
-					is_building_infres_type = building_tobacco_greenhouse
-					is_building_infres_type = building_sugar_greenhouse
-					is_building_infres_type = building_banana_greenhouse
-					is_building_infres_type = building_silk_greenhouse
+					# Greenhouses
+					is_building_type = building_autarky_greenhouse
+					is_building_type = building_coffee_greenhouse
+					is_building_type = building_cotton_greenhouse
+					is_building_type = building_dye_greenhouse
+					is_building_type = building_opium_greenhouse
+					is_building_type = building_tea_greenhouse
+					is_building_type = building_tobacco_greenhouse
+					is_building_type = building_sugar_greenhouse
+					is_building_type = building_banana_greenhouse
+					is_building_type = building_silk_greenhouse
+					is_building_type = building_logging_greenhouse
+					is_building_type = building_rubber_greenhouse
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -310,17 +312,19 @@ type = country_event
 						is_building_type = building_millet_farm
 						is_building_type = building_livestock_ranch
 						is_building_type = building_autarky_farm
-						# Infres
-						is_building_infres_type = building_autarky_greenhouse
-						is_building_infres_type = building_coffee_greenhouse
-						is_building_infres_type = building_cotton_greenhouse
-						is_building_infres_type = building_dye_greenhouse
-						is_building_infres_type = building_opium_greenhouse
-						is_building_infres_type = building_tea_greenhouse
-						is_building_infres_type = building_tobacco_greenhouse
-						is_building_infres_type = building_sugar_greenhouse
-						is_building_infres_type = building_banana_greenhouse
-						is_building_infres_type = building_silk_greenhouse
+						# Greenhouses
+						is_building_type = building_autarky_greenhouse
+						is_building_type = building_coffee_greenhouse
+						is_building_type = building_cotton_greenhouse
+						is_building_type = building_dye_greenhouse
+						is_building_type = building_opium_greenhouse
+						is_building_type = building_tea_greenhouse
+						is_building_type = building_tobacco_greenhouse
+						is_building_type = building_sugar_greenhouse
+						is_building_type = building_banana_greenhouse
+						is_building_type = building_silk_greenhouse
+						is_building_type = building_logging_greenhouse
+						is_building_type = building_rubber_greenhouse
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -387,17 +391,19 @@ type = country_event
 					is_building_type = building_millet_farm
 					is_building_type = building_livestock_ranch
 					is_building_type = building_autarky_farm
-					# Infres
-					is_building_infres_type = building_autarky_greenhouse
-					is_building_infres_type = building_coffee_greenhouse
-					is_building_infres_type = building_cotton_greenhouse
-					is_building_infres_type = building_dye_greenhouse
-					is_building_infres_type = building_opium_greenhouse
-					is_building_infres_type = building_tea_greenhouse
-					is_building_infres_type = building_tobacco_greenhouse
-					is_building_infres_type = building_sugar_greenhouse
-					is_building_infres_type = building_banana_greenhouse
-					is_building_infres_type = building_silk_greenhouse
+					# Greenhouses
+					is_building_type = building_autarky_greenhouse
+					is_building_type = building_coffee_greenhouse
+					is_building_type = building_cotton_greenhouse
+					is_building_type = building_dye_greenhouse
+					is_building_type = building_opium_greenhouse
+					is_building_type = building_tea_greenhouse
+					is_building_type = building_tobacco_greenhouse
+					is_building_type = building_sugar_greenhouse
+					is_building_type = building_banana_greenhouse
+					is_building_type = building_silk_greenhouse
+					is_building_type = building_logging_greenhouse
+					is_building_type = building_rubber_greenhouse
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -440,17 +446,19 @@ type = country_event
 						is_building_type = building_millet_farm
 						is_building_type = building_livestock_ranch
 						is_building_type = building_autarky_farm
-						# Infres
-						is_building_infres_type = building_autarky_greenhouse
-						is_building_infres_type = building_coffee_greenhouse
-						is_building_infres_type = building_cotton_greenhouse
-						is_building_infres_type = building_dye_greenhouse
-						is_building_infres_type = building_opium_greenhouse
-						is_building_infres_type = building_tea_greenhouse
-						is_building_infres_type = building_tobacco_greenhouse
-						is_building_infres_type = building_sugar_greenhouse
-						is_building_infres_type = building_banana_greenhouse
-						is_building_infres_type = building_silk_greenhouse
+						# Greenhouses
+						is_building_type = building_autarky_greenhouse
+						is_building_type = building_coffee_greenhouse
+						is_building_type = building_cotton_greenhouse
+						is_building_type = building_dye_greenhouse
+						is_building_type = building_opium_greenhouse
+						is_building_type = building_tea_greenhouse
+						is_building_type = building_tobacco_greenhouse
+						is_building_type = building_sugar_greenhouse
+						is_building_type = building_banana_greenhouse
+						is_building_type = building_silk_greenhouse
+						is_building_type = building_logging_greenhouse
+						is_building_type = building_rubber_greenhouse
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -505,23 +513,21 @@ type = country_event
 					is_building_type = building_iron_mine
 					is_building_type = building_lead_mine
 					is_building_type = building_sulfur_mine
-					is_building_type = building_gold_fields
+					is_building_type = building_gold_field
 					is_building_type = building_gold_mine
 					is_building_type = building_fishing_wharf
 					is_building_type = building_whaling_station
 					is_building_type = building_oil_rig
 					is_building_type = building_rubber_plantation
-					# Infres
-					is_building_infres_type = building_logging_greenhouse
-					is_building_infres_type = building_infres_coal_mine
-					is_building_infres_type = building_infres_iron_mine
-					is_building_infres_type = building_infres_lead_mine
-					is_building_infres_type = building_infres_sulfur_mine
-					is_building_infres_type = building_infres_gold_mine
-					is_building_infres_type = building_infres_fishing_wharf
-					is_building_infres_type = building_infres_whaling_station
-					is_building_infres_type = building_infres_oil_rig
-					is_building_infres_type = building_rubber_greenhouse
+					# Infinite
+					is_building_type = building_infres_coal_mine
+					is_building_type = building_infres_iron_mine
+					is_building_type = building_infres_lead_mine
+					is_building_type = building_infres_sulfur_mine
+					is_building_type = building_infres_gold_mine
+					is_building_type = building_infres_fishing_wharf
+					is_building_type = building_infres_whaling_station
+					is_building_type = building_infres_oil_rig
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -552,23 +558,21 @@ type = country_event
 						is_building_type = building_iron_mine
 						is_building_type = building_lead_mine
 						is_building_type = building_sulfur_mine
+						is_building_type = building_gold_field
 						is_building_type = building_gold_mine
-						is_building_type = building_gold_fields
 						is_building_type = building_fishing_wharf
 						is_building_type = building_whaling_station
 						is_building_type = building_oil_rig
 						is_building_type = building_rubber_plantation
-						# Infres buildings count too.
-						is_building_infres_type = building_logging_greenhouse
-						is_building_infres_type = building_infres_coal_mine
-						is_building_infres_type = building_infres_iron_mine
-						is_building_infres_type = building_infres_lead_mine
-						is_building_infres_type = building_infres_sulfur_mine
-						is_building_infres_type = building_infres_gold_mine
-						is_building_infres_type = building_infres_fishing_wharf
-						is_building_infres_type = building_infres_whaling_station
-						is_building_infres_type = building_infres_oil_rig
-						is_building_infres_type = building_rubber_greenhouse
+						# Infinite
+						is_building_type = building_infres_coal_mine
+						is_building_type = building_infres_iron_mine
+						is_building_type = building_infres_lead_mine
+						is_building_type = building_infres_sulfur_mine
+						is_building_type = building_infres_gold_mine
+						is_building_type = building_infres_fishing_wharf
+						is_building_type = building_infres_whaling_station
+						is_building_type = building_infres_oil_rig
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -627,22 +631,20 @@ type = country_event
 					is_building_type = building_lead_mine
 					is_building_type = building_sulfur_mine
 					is_building_type = building_gold_mine
-					is_building_type = building_gold_fields
+					is_building_type = building_gold_field
 					is_building_type = building_fishing_wharf
 					is_building_type = building_whaling_station
 					is_building_type = building_oil_rig
 					is_building_type = building_rubber_plantation
-					# Infres
-					is_building_infres_type = building_logging_greenhouse
-					is_building_infres_type = building_infres_coal_mine
-					is_building_infres_type = building_infres_iron_mine
-					is_building_infres_type = building_infres_lead_mine
-					is_building_infres_type = building_infres_sulfur_mine
-					is_building_infres_type = building_infres_gold_mine
-					is_building_infres_type = building_infres_fishing_wharf
-					is_building_infres_type = building_infres_whaling_station
-					is_building_infres_type = building_infres_oil_rig
-					is_building_infres_type = building_rubber_greenhouse
+					# Infinite
+					is_building_type = building_infres_coal_mine
+					is_building_type = building_infres_iron_mine
+					is_building_type = building_infres_lead_mine
+					is_building_type = building_infres_sulfur_mine
+					is_building_type = building_infres_gold_mine
+					is_building_type = building_infres_fishing_wharf
+					is_building_type = building_infres_whaling_station
+					is_building_type = building_infres_oil_rig
 				}
 				weekly_profit > 0
 				cash_reserves_ratio > 0.5
@@ -675,22 +677,20 @@ type = country_event
 						is_building_type = building_lead_mine
 						is_building_type = building_sulfur_mine
 						is_building_type = building_gold_mine
-						is_building_type = building_gold_fields
+						is_building_type = building_gold_field
 						is_building_type = building_fishing_wharf
 						is_building_type = building_whaling_station
 						is_building_type = building_oil_rig
 						is_building_type = building_rubber_plantation
-						# Infres buildings count too.
-						is_building_infres_type = building_logging_greenhouse
-						is_building_infres_type = building_infres_coal_mine
-						is_building_infres_type = building_infres_iron_mine
-						is_building_infres_type = building_infres_lead_mine
-						is_building_infres_type = building_infres_sulfur_mine
-						is_building_infres_type = building_infres_gold_mine
-						is_building_infres_type = building_infres_fishing_wharf
-						is_building_infres_type = building_infres_whaling_station
-						is_building_infres_type = building_infres_oil_rig
-						is_building_infres_type = building_rubber_greenhouse
+						# Infinite
+						is_building_type = building_infres_coal_mine
+						is_building_type = building_infres_iron_mine
+						is_building_type = building_infres_lead_mine
+						is_building_type = building_infres_sulfur_mine
+						is_building_type = building_infres_gold_mine
+						is_building_type = building_infres_fishing_wharf
+						is_building_type = building_infres_whaling_station
+						is_building_type = building_infres_oil_rig
 					}
 					weekly_profit > 0
 					cash_reserves_ratio > 0.5
@@ -737,13 +737,13 @@ type = country_event
 	trigger = {
 		any_scope_state = {
 			is_incorporated = yes
-			has_building = building_barracks
+			has_building = building_barrack
 			has_decree = decree_enlistment_efforts
 			any_neighbouring_state = {
 				owner = ROOT
 				is_incorporated = yes
 				NOT = { has_decree = decree_enlistment_efforts }
-				has_building = building_barracks
+				has_building = building_barrack
 			}	
 		}
 		NOR = {
@@ -755,13 +755,13 @@ type = country_event
 		random_scope_state = {
 			limit = {
 				is_incorporated = yes
-				has_building = building_barracks
+				has_building = building_barrack
 				has_decree = decree_enlistment_efforts
 				any_neighbouring_state = {
 					owner = ROOT
 					is_incorporated = yes
 					NOT = { has_decree = decree_enlistment_efforts }
-					has_building = building_barracks
+					has_building = building_barrack
 				}
 			}
 			save_scope_as = decree_enlistment_origin
@@ -774,7 +774,7 @@ type = country_event
 				}
 				is_incorporated = yes
 				NOT = { has_decree = decree_enlistment_efforts }
-				has_building = building_barracks
+				has_building = building_barrack
 			}
 			save_scope_as = decree_enlistment
 		}

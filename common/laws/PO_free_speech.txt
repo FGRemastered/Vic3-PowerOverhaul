@@ -1,0 +1,29 @@
+﻿INJECT:law_outlawed_dissent = {
+	progressiveness = -100	# -50
+	modifier = {
+		country_bolster_attraction_factor			= 0.50	#+50% -> +100%
+		# country_suppression_attraction_factor		=-0.50	#-50%
+		building_art_academy_throughput_add		=-0.50	# Added
+	}
+}
+INJECT:law_censorship = {
+	progressiveness = -50	# 0
+	modifier = {
+		country_bolster_attraction_factor			= 0.40	#+40% -> +80%
+		# country_suppression_attraction_factor		=-0.40
+		building_art_academy_throughput_add		=-0.25	# Added
+	}
+}
+INJECT:law_right_of_assembly = {
+	progressiveness = 0	# +50
+	modifier = {
+		country_bolster_attraction_factor			= 0.30	#+30% -> +60%
+		# country_suppression_attraction_factor		=-0.30
+	}
+}
+INJECT:law_protected_speech = {
+	modifier = {
+		country_bolster_attraction_factor			= 1.00
+		building_art_academy_throughput_add		= 0.25		# Added
+	}
+}

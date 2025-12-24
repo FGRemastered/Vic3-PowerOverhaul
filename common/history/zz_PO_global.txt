@@ -1,4 +1,2 @@
 ﻿# This is executed last among all history
-GLOBAL = {
-	effect_general_setup = yes
-}
+GLOBAL = { effect_general_setup = yes }

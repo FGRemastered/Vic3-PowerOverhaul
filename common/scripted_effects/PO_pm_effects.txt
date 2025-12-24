@@ -6,78 +6,78 @@ effect_activate_pm_for_building = {
 	}
 }
 effect_reset_automation_switch = {
-	effect_activate_pm_for_building = { building = building_furniture_manufacturies					pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_tooling_workshops						pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_paper_mills								pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_motor_industry							pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_automotive_industry						pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_electrics_industry						pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_artillery_foundries						pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_munition_plants							pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_automation_disabled }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_artillery_foundry						pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_munition_plant							pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_automation_disabled }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_automation_disabled }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_automation_disabled }
 }
 effect_watertube_boiler_switch = {
 	hidden_effect = { effect_reset_automation_switch = yes }
-	effect_activate_pm_for_building = { building = building_furniture_manufacturies					pm = pm_watertube_boiler_building_furniture_manufacturies }
-	effect_activate_pm_for_building = { building = building_tooling_workshops						pm = pm_watertube_boiler_building_tooling_workshops }
-	effect_activate_pm_for_building = { building = building_paper_mills								pm = pm_watertube_boiler_building_paper_mills }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_watertube_boiler_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_watertube_boiler_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_watertube_boiler_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_watertube_boiler_building_steel_mills }
+	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_watertube_boiler_building_furniture_manufactory }
+	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_watertube_boiler_building_tooling_workshop }
+	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_watertube_boiler_building_paper_mill }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_watertube_boiler_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_watertube_boiler_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_watertube_boiler_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_watertube_boiler_building_steel_mill }
 	effect_activate_pm_for_building = { building = building_motor_industry							pm = pm_watertube_boiler_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_automotive_industry						pm = pm_watertube_boiler_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_electrics_industry						pm = pm_watertube_boiler_building_motor_industry }
-	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_watertube_boiler_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_artillery_foundries						pm = pm_watertube_boiler_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_munition_plants							pm = pm_watertube_boiler_building_munition_plants }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_watertube_boiler_building_shipyards }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_watertube_boiler_building_shipyards }
+	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_watertube_boiler_arms_industry }
+	effect_activate_pm_for_building = { building = building_artillery_foundry						pm = pm_watertube_boiler_arms_industry }
+	effect_activate_pm_for_building = { building = building_munition_plant							pm = pm_watertube_boiler_munition_plant }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_watertube_boiler_shipyards }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_watertube_boiler_shipyards }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_watertube_boiler_charcoal }
 }
 effect_rotary_valve_engine_switch = {
 	hidden_effect = { effect_reset_automation_switch = yes }
-	effect_activate_pm_for_building = { building = building_furniture_manufacturies					pm = pm_rotary_valve_engine_building_furniture_manufacturies }
-	effect_activate_pm_for_building = { building = building_tooling_workshops						pm = pm_rotary_valve_engine_building_tooling_workshops }
-	effect_activate_pm_for_building = { building = building_paper_mills								pm = pm_rotary_valve_engine_building_paper_mills }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_rotary_valve_engine_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_rotary_valve_engine_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_rotary_valve_engine_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_rotary_valve_engine_building_steel_mills }
+	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_rotary_valve_engine_building_furniture_manufactory }
+	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_rotary_valve_engine_building_tooling_workshop }
+	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_rotary_valve_engine_building_paper_mill }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_rotary_valve_engine_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_rotary_valve_engine_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_rotary_valve_engine_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_rotary_valve_engine_building_steel_mill }
 	effect_activate_pm_for_building = { building = building_motor_industry							pm = pm_rotary_valve_engine_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_automotive_industry						pm = pm_rotary_valve_engine_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_electrics_industry						pm = pm_rotary_valve_engine_building_motor_industry }
-	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_rotary_valve_engine_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_artillery_foundries						pm = pm_rotary_valve_engine_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_munition_plants							pm = pm_rotary_valve_engine_building_munition_plants }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_rotary_valve_engine_building_shipyards }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_rotary_valve_engine_building_shipyards }
+	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_rotary_valve_engine_arms_industry }
+	effect_activate_pm_for_building = { building = building_artillery_foundry						pm = pm_rotary_valve_engine_arms_industry }
+	effect_activate_pm_for_building = { building = building_munition_plant							pm = pm_rotary_valve_engine_munition_plant }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_rotary_valve_engine_shipyards }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_rotary_valve_engine_shipyards }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_rotary_valve_engine_charcoal }
 }
 effect_assembly_lines_switch = {
 	hidden_effect = { effect_reset_automation_switch = yes }	
-	effect_activate_pm_for_building = { building = building_furniture_manufacturies					pm = pm_assembly_lines_building_furniture_manufacturies }
-	effect_activate_pm_for_building = { building = building_tooling_workshops						pm = pm_assembly_lines_building_tooling_workshops }
-	effect_activate_pm_for_building = { building = building_paper_mills								pm = pm_assembly_lines_building_paper_mills }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_assembly_lines_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_assembly_lines_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_assembly_lines_building_chemical_plants }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_assembly_lines_building_steel_mills }
+	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_assembly_lines_building_furniture_manufactory }
+	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_assembly_lines_building_tooling_workshop }
+	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_assembly_lines_building_paper_mill }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_assembly_lines_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_assembly_lines_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_assembly_lines_building_chemical_plant }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_assembly_lines_building_steel_mill }
 	effect_activate_pm_for_building = { building = building_motor_industry							pm = pm_assembly_lines_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_automotive_industry						pm = pm_assembly_lines_building_motor_industry }
 	effect_activate_pm_for_building = { building = building_electrics_industry						pm = pm_assembly_lines_building_motor_industry }
-	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_assembly_lines_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_artillery_foundries						pm = pm_assembly_lines_building_arms_industry }
-	effect_activate_pm_for_building = { building = building_munition_plants							pm = pm_assembly_lines_building_munition_plants }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_assembly_lines_building_shipyards }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_assembly_lines_building_shipyards }
+	effect_activate_pm_for_building = { building = building_arms_industry							pm = pm_assembly_lines_arms_industry }
+	effect_activate_pm_for_building = { building = building_artillery_foundry						pm = pm_assembly_lines_arms_industry }
+	effect_activate_pm_for_building = { building = building_munition_plant							pm = pm_assembly_lines_munition_plant }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_assembly_lines_shipyards }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_assembly_lines_shipyards }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_assembly_lines_charcoal }
 }
 effect_reset_transport_switch = {
@@ -87,13 +87,13 @@ effect_reset_transport_switch = {
 	# Industry
 	effect_activate_pm_for_building = { building = building_glassworks								pm = pm_manual_glassblowing }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_synthetic_oil_plants					pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_synthetic_oil_plant					pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_power_plant								pm = pm_road_carts }
 	# Logging + Rubber
 	effect_activate_pm_for_building = { building = building_logging_camp							pm = pm_road_carts }
@@ -176,7 +176,7 @@ effect_transport_switch = {
 		effect_activate_pm_for_building = { building = building_glassworks							pm = pm_electric_bottle_blowers }
 	}
 	else_if = {	# Glassworks
-		limit = { has_technology_researched = automatic_bottle_blowers }
+		limit = { has_technology_researched = railways }
 		effect_activate_pm_for_building = { building = building_glassworks							pm = pm_rail_transport }
 	}
 	switch = {	# Port
@@ -194,7 +194,7 @@ effect_transport_switch = {
 			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_log_carts }
 			effect_activate_pm_for_building = { building = building_oil_rig							pm = pm_tanker_cars }
 			effect_activate_pm_for_building = { building = building_infres_oil_rig					pm = pm_tanker_cars }
-			effect_activate_pm_for_building = { building = building_synthetic_oil_plants			pm = pm_tanker_cars }
+			effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_tanker_cars }
 		}
 		railways	= {
 			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_rail_transport }
@@ -203,7 +203,7 @@ effect_transport_switch = {
 			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_oil_rig							pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_infres_oil_rig					pm = pm_rail_transport }
-			effect_activate_pm_for_building = { building = building_synthetic_oil_plants			pm = pm_rail_transport }
+			effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_rail_transport }
 		}
 	}
 	switch = {	# Food Industry
@@ -293,12 +293,12 @@ effect_transport_switch = {
 	}
 	# Industry
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_chemical_plants							pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_synthetics_plants						pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_steel_mills								pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_shipyards								pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_military_shipyards						pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_rail_transport }
 	# Mines
 	effect_activate_pm_for_building = { building = building_coal_mine								pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_iron_mine								pm = pm_rail_transport }

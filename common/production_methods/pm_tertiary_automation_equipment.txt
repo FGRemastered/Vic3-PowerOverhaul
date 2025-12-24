@@ -1,9 +1,9 @@
 # Automation Equipment
-pm_no_steam_automation = {
+REPLACE_OR_CREATE:pm_no_steam_automation = {
 	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
 }
 # Mines
-pm_steam_donkey_mine = {
+REPLACE_OR_CREATE:pm_steam_donkey_mine = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	unlocking_technologies = { steam_donkey }
 	disallowing_laws = { law_industry_banned }
@@ -27,7 +27,7 @@ pm_steam_donkey_mine = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_powered_lift_mine = {
+REPLACE_OR_CREATE:pm_powered_lift_mine = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
 	unlocking_technologies = { elevator }
 	disallowing_laws = { law_industry_banned }
@@ -54,7 +54,7 @@ pm_powered_lift_mine = {
 	required_input_goods = electricity
 }
 # Coal Mine
-pm_steam_donkey_building_coal_mine = {
+REPLACE_OR_CREATE:pm_steam_donkey_building_coal_mine = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	unlocking_technologies = { steam_donkey }
 	disallowing_laws = { law_industry_banned }
@@ -76,7 +76,7 @@ pm_steam_donkey_building_coal_mine = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Logging Camps
-pm_steam_powered_winch = {
+REPLACE_OR_CREATE:pm_steam_powered_winch = {
 	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
 	unlocking_technologies = { steam_donkey }
 	disallowing_laws = { law_industry_banned }
@@ -98,7 +98,7 @@ pm_steam_powered_winch = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
-pm_chainsaws = {
+REPLACE_OR_CREATE:pm_chainsaws = {
 	texture = "gfx/interface/icons/production_method_icons/chainsaws.dds"
 	unlocking_technologies = { combustion_engine }
 	disallowing_laws = { law_industry_banned }
@@ -120,10 +120,10 @@ pm_chainsaws = {
 	}
 }
 # Harvesting Tools
-pm_tools_disabled = {
+REPLACE_OR_CREATE:pm_tools_disabled = {
 	texture = "gfx/interface/icons/production_method_icons/no_tool_use.dds"
 }
-pm_tools = {
+REPLACE_OR_CREATE:pm_tools = {
 	texture = "gfx/interface/icons/production_method_icons/harvesting_tools.dds"
 	# unlocking_technologies = { manufacturies }
 	building_modifiers = {
@@ -137,7 +137,7 @@ pm_tools = {
 		unscaled = { building_throughput_add	= 0.05 }
 	}
 }
-pm_steam_threshers = {
+REPLACE_OR_CREATE:pm_steam_threshers = {
 	texture = "gfx/interface/icons/production_method_icons/steam_powered_threshers.dds"
 	unlocking_technologies = { threshing_machine }
 	building_modifiers = {
@@ -154,7 +154,7 @@ pm_steam_threshers = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
-pm_tractors = {
+REPLACE_OR_CREATE:pm_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -171,7 +171,7 @@ pm_tractors = {
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
-pm_modern_tractors = {
+REPLACE_OR_CREATE:pm_modern_tractors = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition_tractors.dds"
 	unlocking_technologies = { compression_ignition }
 	building_modifiers = {
@@ -189,7 +189,7 @@ pm_modern_tractors = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
 # Subsistence Tools
-pm_tools_disabled_subsistence = {
+REPLACE_OR_CREATE:pm_tools_disabled_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/no_tool_use.dds"
 	unlocking_technologies = { enclosure }
 	building_modifiers = {
@@ -203,9 +203,10 @@ pm_tools_disabled_subsistence = {
 	}
 	# state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
 }
-pm_tools_subsistence = {
+REPLACE_OR_CREATE:pm_tools_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/harvesting_tools.dds"
 	unlocking_technologies = { manufacturies }
+	disallowing_laws = { law_serfdom law_manorialism }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    1
@@ -223,12 +224,19 @@ pm_tools_subsistence = {
 	}
 	# state_modifiers = { level_scaled	= { state_migration_pull_add	= -1 } }
 }
-pm_steam_threshers_subsistence = {
+REPLACE_OR_CREATE:pm_steam_threshers_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/steam_powered_threshers.dds"
 	unlocking_technologies = { threshing_machine }
+	disallowing_laws = { law_serfdom law_manorialism }
+	unlocking_production_methods = {
+		pm_lathe_home_workshops
+		pm_mechanized_home_workshops
+		pm_electric_home_workshops
+		pm_autark_home_workshops
+	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add				=    2
+			goods_input_tools_add				=    1	# +1 from home workshops
 			goods_input_coal_add				=    2
 		}
 		level_scaled = {
@@ -248,11 +256,12 @@ pm_steam_threshers_subsistence = {
 		# level_scaled		= { state_migration_pull_add		= -1 }
 	}
 }
-pm_tractors_subsistence = {
+REPLACE_OR_CREATE:pm_tractors_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/tractors.dds"
 	unlocking_technologies = { mechanized_farming }
+	disallowing_laws = { law_serfdom law_manorialism }
 	unlocking_production_methods = {
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -265,7 +274,7 @@ pm_tractors_subsistence = {
 		}
 		level_scaled = {
 			building_employment_machinists_add	= 1000	# +500 from base pm - same as plantations
-			building_employment_farmers_add		= 1000
+			building_employment_farmers_add		=  500
 		}
 		throughput_scaled = {
 			goods_output_services_mult			=-1.00
@@ -279,9 +288,10 @@ pm_tractors_subsistence = {
 		# level_scaled		= { state_migration_pull_add		= -1 }
 	}
 }
-pm_modern_tractors_subsistence = {
+REPLACE_OR_CREATE:pm_modern_tractors_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/compression_ignition_tractors.dds"
 	unlocking_technologies = { compression_ignition }
+	disallowing_laws = { law_serfdom law_manorialism }
 	unlocking_production_methods = {
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops

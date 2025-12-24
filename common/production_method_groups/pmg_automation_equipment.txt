@@ -1,5 +1,5 @@
 # Automation Equipment
-pmg_steam_automation_building_coal_mine = {
+REPLACE_OR_CREATE:pmg_steam_automation_building_coal_mine = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_no_steam_automation
@@ -7,7 +7,7 @@ pmg_steam_automation_building_coal_mine = {
 		pm_powered_lift_mine
 	}
 }
-pmg_steam_automation = {
+REPLACE_OR_CREATE:pmg_steam_automation = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_no_steam_automation
@@ -15,7 +15,7 @@ pmg_steam_automation = {
 		pm_powered_lift_mine
 	}
 }
-pmg_equipment = {
+REPLACE_OR_CREATE:pmg_equipment = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_no_equipment
@@ -24,14 +24,14 @@ pmg_equipment = {
 	}
 }
 # Harvesting methods
-pmg_harvesting_process_simple = {
+REPLACE_OR_CREATE:pmg_harvesting_process_simple = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_tools_disabled
 		pm_tools
 	}
 }
-pmg_harvesting_process_tractors = {
+REPLACE_OR_CREATE:pmg_harvesting_process_tractors = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
 	production_methods = {
 		pm_tools_disabled

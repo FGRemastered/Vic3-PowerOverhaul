@@ -52,7 +52,7 @@
 	building_gold_mine = {
 		"latin_mining_processing_01_mesh"
 	}	
-	building_gold_fields = {
+	building_gold_field = {
 		"latin_mining_processing_01_mesh"
 	}
 	building_sulfur_mine = {
@@ -74,9 +74,6 @@
 		"generic_oil_drill_01_mesh"
 	}
 	building_infres_gold_mine = {
-		"latin_mining_processing_01_mesh"
-	}
-	building_infres_gold_fields = {
 		"latin_mining_processing_01_mesh"
 	}
 	building_infres_sulfur_mine = {

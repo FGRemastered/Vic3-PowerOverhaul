@@ -1,5 +1,5 @@
 # Ban
-ban_tobacco = {
+REPLACE_OR_CREATE:ban_tobacco = {
 	is_shown = {
 		exists = market
 		any_primary_culture = { has_discrimination_trait = german_speaking }
@@ -37,7 +37,7 @@ ban_tobacco = {
     }
 }
 # Renew
-ban_tobacco_again = {
+REPLACE_OR_CREATE:ban_tobacco_again = {
 	is_shown = {
 		is_banning_goods = g:tobacco
 		exists = market
@@ -81,7 +81,7 @@ ban_tobacco_again = {
     }
 }
 # Rescind
-remove_tobacco_ban = {
+REPLACE_OR_CREATE:remove_tobacco_ban = {
 	is_shown = {
 		is_banning_goods = g:tobacco
 		exists = market

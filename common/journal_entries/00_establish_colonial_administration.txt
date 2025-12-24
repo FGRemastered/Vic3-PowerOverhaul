@@ -1,11 +1,11 @@
-﻿je_colonial_administration = {
+﻿REPLACE:je_colonial_administration = {
 	icon = "gfx/interface/icons/invention_icons/colonization.dds"
 	group = je_group_foreign_affairs
 	is_shown_when_inactive = {
 		NOT = { is_country_type = colonial }
 		OR = {
 			AND = {
-				country_is_in_africa = no
+				is_not_in_geographic_region = geographic_region_africa
 				OR = {
 					has_interest_marker_in_region = sr:region_senegal
 					has_interest_marker_in_region = sr:region_niger
@@ -16,19 +16,19 @@
 				}
 			}
 			AND = {
-				country_is_in_southeast_asia = no
+				is_not_in_geographic_region = geographic_region_south_east_asia
 				has_interest_marker_in_region = sr:region_indonesia
 			}
 			AND = {
-				country_is_in_southeast_asia = no
+				is_not_in_geographic_region = geographic_region_south_east_asia
 				has_interest_marker_in_region = sr:region_indochina
 			}
 			AND = {
-				country_is_in_middle_east = no
+				is_not_in_geographic_region = geographic_region_middle_east
 				has_interest_marker_in_region = sr:region_arabic
 			}
 			AND = {
-				country_is_in_india = no
+				is_not_in_geographic_region = geographic_region_india
 				OR = {
 					has_interest_marker_in_region = sr:region_bengal
 					has_interest_marker_in_region = sr:region_madras
@@ -39,9 +39,9 @@
 				}
 			}
 			AND = {
-				country_is_in_china = no
+				is_not_in_geographic_region = geographic_region_china
 				any_state = {
-					trigger_chinese_state = yes
+					is_in_geographic_region = geographic_region_china
 					owner = {
 						OR = {
 							THIS ?= ROOT

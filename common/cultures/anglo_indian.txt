@@ -1,4 +1,4 @@
-﻿anglo_indian = {
+﻿REPLACE_OR_CREATE:anglo_indian = {
 	color= hsv{ 0.79 0.37 0.36 }
 	religion = hindu
 	heritage = heritage_south_asian_diaspora

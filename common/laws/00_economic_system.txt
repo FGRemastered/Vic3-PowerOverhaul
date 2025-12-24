@@ -1,4 +1,14 @@
-﻿law_traditionalism = {
+﻿# Economic Systems - I made so many changes that it's easier to ask what I did NOT change...
+# Changed Order:
+# law_agrarianism before law_interventionism
+# law_industry_banned and law_extraction_economy moved to the end
+# Major changes:
+# Moved government reinvestment to taxes and adjusted values here
+# EcS that delete buildings on activation have had some of the buildings exempt and their pms adjusted.
+# LF now allows for nationalisation at 4x the cost
+# law_extraction_economy now forces privatisation to benefit exploiting country
+# law_cooperative_ownership no longer gifts your investments in other countries away. Whose idea was that?
+REPLACE_OR_CREATE:law_traditionalism = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/traditionalism.dds"
 	progressiveness = -50
@@ -7,14 +17,19 @@
 		law_proportional_taxation
 		law_graduated_taxation
 		law_anarchy
+		law_factory_councils
 	}
 	on_activate = {}
 	modifier = {
 		state_shopkeepers_investment_pool_efficiency_mult			=-0.50
+		state_bureaucrats_investment_pool_efficiency_mult			=-0.50
 		state_capitalists_investment_pool_efficiency_mult			=-0.50
 		state_farmers_investment_pool_efficiency_mult				=-0.50	
 		state_clergymen_investment_pool_efficiency_mult				=-0.50	
 		state_aristocrats_investment_pool_efficiency_mult			=-0.50
+		state_engineers_investment_pool_efficiency_mult				=-0.50	# Added
+		state_academics_investment_pool_efficiency_mult				=-0.50	# Added
+		state_officers_investment_pool_efficiency_mult				=-0.50	# Added
 		state_bureaucracy_population_base_cost_factor_mult			=-0.25
 		country_government_dividends_reinvestment_add				=-0.25	# Decreased - Moved to taxes
 		state_tax_capacity_mult										=-0.25
@@ -23,6 +38,7 @@
 		building_nationalization_investment_return_add				= 0.10
 		country_leverage_resistance_mult							= 0.25
 		state_market_access_price_impact							=-0.15
+		building_self_investment_chance_add							= 0.25
 		building_group_bg_manufacturing_allowed_collectivization_add= 0.20	# Added
 		country_disable_nationalization_without_compensation_bool	= yes
 	}
@@ -32,11 +48,11 @@
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
 	}
 }
-law_agrarianism = {
+REPLACE_OR_CREATE:law_agrarianism = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/agrarianism.dds"
 	progressiveness = 0
-	disallowing_laws = { law_anarchy law_women_in_the_fields }	
+	disallowing_laws = { law_anarchy law_women_in_the_fields law_factory_councils }	
 	unlocking_technologies = { romanticism }
 	on_activate = {}
 	modifier = {
@@ -46,45 +62,56 @@ law_agrarianism = {
 		state_capitalists_investment_pool_efficiency_mult			=-0.25
 		country_private_construction_allocation_mult				= 0.50
 		building_nationalization_investment_return_add				= 0.50
-		country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
+		# country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.30
-		country_disable_nationalization_without_compensation_bool	= yes
 		country_free_charters_add									= 1
+		country_disable_nationalization_without_compensation_bool	= yes
 	}
 	ai_will_do = {
 		OR = {
-			has_law = law_type:law_traditionalism
+			has_law_or_variant = law_type:law_traditionalism
 			literacy_rate < 0.4
 		}
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {	# Once the AI gets to a certain society tech level they should try to ditch Traditionalism for either Agrarianism or Interventionism
+			limit = {
+				OR = {
+					has_technology_researched = civilizing_mission
+					has_technology_researched = human_rights
+					has_technology_researched = pan-nationalism
+				}
+				has_law_or_variant = law_type:law_traditionalism
+			}
+			add = 1000
+		}
 		if = {
 			limit = { 
 				has_journal_entry = je_sick_man_bureaucracy
-				has_law = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_traditionalism
 			}
 			add = 10000 # Top priority for Tanzimat AI is to get out of Traditionalism
 		}	
 		if = {	# AI should really try to get out of Traditionalism under the right circumstances
 			limit = {
-				has_law = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_traditionalism
 				NOT = { has_strategy = ai_strategy_reactionary_agenda }
 				OR = {
 					NOT = { has_strategy = ai_strategy_conservative_agenda }
-					any_political_movement = { desired_law = law_type:law_agrarianism }				
+					any_political_movement = { law_enactment_stance = { law = law_type:law_agrarianism value > neutral } political_movement_support >= 0.10 }
 				}	
 			}
 			add = 1000
 		}		
 	}
 }
-law_interventionism = {
+REPLACE_OR_CREATE:law_interventionism = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/interventionism.dds"
 	progressiveness = 50
-	disallowing_laws = { law_serfdom law_anarchy law_women_in_the_fields }
+	disallowing_laws = { law_serfdom law_anarchy law_women_in_the_fields law_factory_councils }
 	on_activate = {}
 	on_impose = {}
 	unlocking_technologies = { manufacturies }
@@ -94,40 +121,52 @@ law_interventionism = {
 		building_nationalization_investment_return_add				= 0.50
 		country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.25
-		building_nationalization_radicals_mult						=-0.25	# Added
 		country_free_charters_add									= 1
-		country_loan_interest_rate_mult								=-0.10	# Added
+		building_nationalization_radicals_mult						=-0.10	# Added
+		country_loan_interest_rate_mult								=-0.05	# Added
 		country_authority_mult										= 0.10	# Added
-		# tax_dividends_add											= 0.05	# Added
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes } add = 750 }
+		if = {	# Once the AI gets to a certain society tech level they should try to ditch Traditionalism for either Agrarianism or Interventionism
+			limit = {
+				OR = {
+					has_technology_researched = civilizing_mission
+					has_technology_researched = human_rights
+					has_technology_researched = pan-nationalism
+				}
+				has_law_or_variant = law_type:law_traditionalism
+			}
+			add = 1000
+		}
 		if = {
 			limit = { 
 				OR = {
 					has_journal_entry = je_sick_man_bureaucracy
 					has_modifier = shogun_ig_forced_to_open_market
 					has_journal_entry = je_meiji_main
+					has_journal_entry = je_great_reforms_serfdom
+					has_journal_entry = je_hawaii
 				}
-				has_law = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_traditionalism
 			}
 			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
 		}
 		if = {	# AI should really try to get out of Traditionalism under the right circumstances
 			limit = {
-				has_law = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_traditionalism
 				NOT = { has_strategy = ai_strategy_reactionary_agenda }
 				OR = {
 					NOT = { has_strategy = ai_strategy_conservative_agenda }
-					any_political_movement = { desired_law = law_type:law_interventionism }				
+					any_political_movement = { law_enactment_stance = { law = law_type:law_interventionism value > neutral } political_movement_support >= 0.10 }
 				}	
 			}
 			add = 1000
 		}
 	}
 }
-law_laissez_faire = {
+REPLACE_OR_CREATE:law_laissez_faire = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/laissez_faire.dds"
 	progressiveness = 50
@@ -136,6 +175,7 @@ law_laissez_faire = {
 		law_isolationism
 		law_anarchy
 		law_guild_system
+		law_factory_councils
 		law_women_in_the_fields
 	}
 	unlocking_technologies = { international_trade }
@@ -144,6 +184,9 @@ law_laissez_faire = {
 		country_loan_interest_rate_mult								=-0.25
 		state_shopkeepers_investment_pool_efficiency_mult			= 0.25
 		state_capitalists_investment_pool_efficiency_mult			= 0.25
+		state_engineers_investment_pool_efficiency_mult				= 0.25	# Added
+		state_academics_investment_pool_efficiency_mult				= 0.25	# Added
+		state_officers_investment_pool_efficiency_mult				= 0.25	# Added
 		country_private_construction_allocation_mult				= 0.75
 		country_government_dividends_reinvestment_add				= 0.50	# Decreased - Moved to taxes
 		# country_max_companies_add									= 1
@@ -163,28 +206,32 @@ law_laissez_faire = {
 			add = 750
 		}
 		if = {
-			limit = { 
-				has_modifier = shogun_ig_forced_to_open_market
-				has_journal_entry = je_meiji_main
-				has_law = law_type:law_traditionalism
+			limit = {
+				OR = {
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main
+					has_journal_entry = je_great_reforms_serfdom
+					has_journal_entry = je_hawaii
+				}
+				has_law_or_variant = law_type:law_traditionalism
 			}
 			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
 		}	
 		# AI should really try to get out of Traditionalism under the right circumstances
 		if = {
 			limit = {
-				has_law = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_traditionalism
 				NOT = { has_strategy = ai_strategy_reactionary_agenda }
 				OR = {
 					NOT = { has_strategy = ai_strategy_conservative_agenda }
-					any_political_movement = { desired_law = law_type:law_laissez_faire }				
+					any_political_movement = { law_enactment_stance = { law = law_type:law_laissez_faire value > neutral } political_movement_support >= 0.10 }
 				}	
 			}
 			add = 1000
 		}		
 	}	
 }
-law_cooperative_ownership = {
+REPLACE_OR_CREATE:law_cooperative_ownership = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/cooperative_ownership.dds"
 	progressiveness = 100
@@ -195,15 +242,17 @@ law_cooperative_ownership = {
 		# country_subsidies_all = yes
 		state_shopkeepers_investment_pool_efficiency_mult						= 0.25
 		state_farmers_investment_pool_efficiency_mult							= 0.25
+		state_engineers_investment_pool_efficiency_mult							= 0.25	# Added
+		state_academics_investment_pool_efficiency_mult							= 0.25	# Added
+		state_officers_investment_pool_efficiency_mult							= 0.25	# Added
 		country_private_construction_allocation_mult							= 0.35
 		country_government_dividends_reinvestment_add							= 0.50	# Decreased - Moved to taxes
+		building_company_worker_dividends_add									= 0.75
 		building_group_bg_manufacturing_allowed_collectivization_add			= 1.00
-		# building_group_bg_mining_allowed_collectivization_add					= 1.00
 		building_group_bg_extraction_allowed_collectivization_add				= 1.00
 		building_group_bg_power_allowed_collectivization_add					= 1.00
 		building_group_bg_private_infrastructure_allowed_collectivization_add	= 1.00
 		building_group_bg_arts_allowed_collectivization_add 					= 1.00
-		state_engineers_investment_pool_efficiency_mult							= 0.25	# Added
 		country_authority_mult													= 0.10	# Added
 		country_free_charters_add												= 1
 		country_foreign_collectivization_bool									= no	# Disabled
@@ -211,14 +260,14 @@ law_cooperative_ownership = {
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }
-		if = { limit = { has_law = law_type:law_council_republic }				add = 250 }
+		if = { limit = { has_law_or_variant = law_type:law_council_republic }	add = 250 }
 	}
 	ai_impose_chance = {
 		value = 0
-		if = { limit = { has_law = law_type:law_cooperative_ownership }	add = base_impose_law_weight	multiply = 10.0 }
+		if = { limit = { has_law_or_variant = law_type:law_cooperative_ownership }	add = base_impose_law_weight	multiply = 10.0 }
 	}
 }
-law_command_economy = {
+REPLACE_OR_CREATE:law_command_economy = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/command_economy.dds"
 	progressiveness = 100
@@ -240,12 +289,14 @@ law_command_economy = {
 	}
 	modifier = {
 		country_disable_investment_pool_bool						= yes
+		state_bureaucrats_investment_pool_efficiency_mult			= 0.25
 		country_authority_mult										= 0.25
 		# country_bureaucrats_pol_str_mult							= 0.25	# Moved to law_collectivized_agriculture 
 		country_government_dividends_reinvestment_add				=-0.50	# Decreased - Moved to taxes
 		building_nationalization_cost_mult							=-0.50
 		building_nationalization_radicals_mult						=-0.75
 		country_government_dividends_efficiency_add					= 0.40
+		building_company_government_dividends_add					= 0.75
 		country_leverage_resistance_mult							= 0.25
 		country_private_construction_allocation_mult				= 0.10
 		country_disable_non_company_privatization_bool				= yes
@@ -253,9 +304,9 @@ law_command_economy = {
 	}
 	ai_will_do = {
 		OR = {
-			has_law = law_type:law_technocracy
+			has_law_or_variant = law_type:law_technocracy
 			AND = {
-				has_law	= law_type:law_council_republic
+				has_law_or_variant	= law_type:law_council_republic
 				ruler	= { law_stance = { law = law_type:law_command_economy value > neutral } }
 			}
 		}
@@ -263,32 +314,33 @@ law_command_economy = {
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }
-		if = { limit = { has_law = law_type:law_council_republic }				add = 250 }
-		if = { limit = { has_law = law_type:law_technocracy }					add = 100 }
+		if = { limit = { has_law_or_variant = law_type:law_council_republic }	add = 250 }
+		if = { limit = { has_law_or_variant = law_type:law_technocracy }		add = 100 }
 	}
 	ai_impose_chance = {
 		value = 0
-		if = { limit = { has_law = law_type:law_command_economy }	add = base_impose_law_weight	multiply = 10.0 }
+		if = { limit = { has_law_or_variant = law_type:law_command_economy }	add = base_impose_law_weight	multiply = 10.0 }
 	}
 }
-law_industry_banned = {
+REPLACE_OR_CREATE:law_industry_banned = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/industry_banned.dds"
-	progressiveness = -50	# Changed
+	progressiveness = -50
 	unlocking_technologies = { romanticism }
+	disallowing_laws = { law_anarchy law_factory_councils }
 	on_activate = {
 		custom_tooltip = industry_banned_tt
 		custom_tooltip = {
 			text = industry_banned_destroy_tt
 			every_scope_state = {
-				# if = { limit = { has_building = building_chemical_plants }		remove_building = building_chemical_plants }
+				# if = { limit = { has_building = building_chemical_plant }		remove_building = building_chemical_plant }
 				# if = { limit = { has_building = building_explosives_factory }	remove_building = building_explosives_factory }	# PDX forgot them.
-				if = { limit = { has_building = building_synthetics_plants }	remove_building = building_synthetics_plants }
-				# if = { limit = { has_building = building_steel_mills }			remove_building = building_steel_mills }
-				if = { limit = { has_building = building_power_plant }			remove_building = building_power_plant }
+				if = { limit = { has_building = building_synthetics_plant }	remove_building = building_synthetics_plant }
+				# if = { limit = { has_building = building_steel_mill }			remove_building = building_steel_mill }
+				# if = { limit = { has_building = building_power_plant }			remove_building = building_power_plant }	# Removed and replaced with eco-friendly pm
 				if = { limit = { has_building = building_motor_industry }		remove_building = building_motor_industry }
 				if = { limit = { has_building = building_electrics_industry }	remove_building = building_electrics_industry }
-				if = { limit = { has_building = building_munition_plants }		remove_building = building_munition_plants }
+				if = { limit = { has_building = building_munition_plant }		remove_building = building_munition_plant }
 				if = { limit = { has_building = building_automotive_industry }	remove_building = building_automotive_industry }
 			}
 		}
@@ -296,6 +348,7 @@ law_industry_banned = {
 	modifier = {
 		building_group_bg_heavy_industry_throughput_add				=-0.25	# Added
 		building_group_bg_agriculture_throughput_add				= 0.10
+		building_group_bg_ranching_throughput_add					= 0.10	# Added
 		building_group_bg_plantations_throughput_add				= 0.10
 		state_expected_sol_mult										=-0.10
 		interest_group_ig_rural_folk_pol_str_mult					= 0.50
@@ -320,29 +373,26 @@ law_industry_banned = {
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }
 	}
 }
-law_extraction_economy = {
+REPLACE_OR_CREATE:law_extraction_economy = {
 	group = lawgroup_economic_system
 	icon = "gfx/interface/icons/law_icons/extraction_economy.dds"
 	progressiveness = 0
 	unlocking_technologies = { colonization }
-	disallowing_laws = { law_anarchy law_women_in_the_fields }
-	can_enact = {
-		trigger_if = { limit = { game_date > 1836.1.1 } is_subject = yes }	# Subject relationships load after laws' validities are checked
-		trigger_else = { always = yes }
-	}
+	disallowing_laws = { law_anarchy law_women_in_the_fields law_factory_councils }	# This is split in two in the base for some reason
+	can_enact = { is_subject = yes }
 	on_activate = {
 		custom_tooltip = industry_banned_tt
 		custom_tooltip = {
 			text = industry_banned_destroy_tt
 			every_scope_state = {
-				# if = { limit = { has_building = building_chemical_plants }		remove_building = building_chemical_plants }
+				# if = { limit = { has_building = building_chemical_plant }		remove_building = building_chemical_plant }
 				# if = { limit = { has_building = building_explosives_factory }	remove_building = building_explosives_factory }	# PDX forgot them.
-				if = { limit = { has_building = building_synthetics_plants }	remove_building = building_synthetics_plants }
-				# if = { limit = { has_building = building_steel_mills }			remove_building = building_steel_mills }
+				if = { limit = { has_building = building_synthetics_plant }	remove_building = building_synthetics_plant }
+				# if = { limit = { has_building = building_steel_mill }			remove_building = building_steel_mill }
 				# if = { limit = { has_building = building_power_plant }			remove_building = building_power_plant }
 				if = { limit = { has_building = building_motor_industry }		remove_building = building_motor_industry }
 				if = { limit = { has_building = building_electrics_industry }	remove_building = building_electrics_industry }
-				# if = { limit = { has_building = building_munition_plants }		remove_building = building_munition_plants }
+				# if = { limit = { has_building = building_munition_plant }		remove_building = building_munition_plant }
 				if = { limit = { has_building = building_automotive_industry }	remove_building = building_automotive_industry }
 			}
 		}
@@ -351,21 +401,29 @@ law_extraction_economy = {
 		building_group_bg_light_industry_throughput_add				=-0.25	# Added
 		building_group_bg_heavy_industry_throughput_add				=-0.50	# Added
 		building_group_bg_agriculture_throughput_add				= 0.25	# Increased
-		building_group_bg_ranching_throughput_add					= 0.25	# Increased
+		building_group_bg_ranching_throughput_add					= 0.25	# Added
 		building_group_bg_plantations_throughput_add				= 0.25	# Increased
 		building_group_bg_extraction_throughput_add					= 0.25	# Increased
 		state_shopkeepers_investment_pool_efficiency_mult			=-0.50
+		state_bureaucrats_investment_pool_efficiency_mult			=-0.50
 		state_capitalists_investment_pool_efficiency_mult			=-0.25
 		state_farmers_investment_pool_efficiency_mult				=-0.75
 		state_clergymen_investment_pool_efficiency_mult				=-0.75
 		state_aristocrats_investment_pool_efficiency_mult			=-0.75
+		state_engineers_investment_pool_efficiency_mult				=-0.50	# Added
+		state_academics_investment_pool_efficiency_mult				=-0.50	# Added
+		state_officers_investment_pool_efficiency_mult				=-0.50	# Added
 		country_private_construction_allocation_mult				= 0.50
 		building_nationalization_investment_return_add				= 0.50
 		country_disable_nationalization_without_compensation_bool	= yes
 		country_economic_dependence_on_overlord_add					= 0.50
 		country_force_privatization_bool							= yes	# Added
 	}
-	ai_will_do = { always = no }
+	ai_will_do = {	# Added
+		is_subject = yes
+		has_law = law_type:law_colonial_administration
+		country_has_building_group_levels = { type = bg_heavy_industry value < 100 }
+	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
 		if = { limit = { ai_has_enact_weight_modifier_journal_entries = yes }	add = 750 }

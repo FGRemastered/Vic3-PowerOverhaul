@@ -1,10 +1,11 @@
 # Agrictultural Secondary
-pm_no_secondary = {
+REPLACE_OR_CREATE:pm_no_secondary = {
 	texture = "gfx/interface/icons/production_method_icons/no_orchards.dds"
 }
+# TODO: Add sugar beets!
 # Cold (Rye)
 # Potatoes (4x Input : 3x Output)
-pm_potatoes = {
+REPLACE_OR_CREATE:pm_potatoes = {
 	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -13,7 +14,7 @@ pm_potatoes = {
 		}
 	}
 }
-pm_potatoes_enriched = {
+REPLACE_OR_CREATE:pm_potatoes_enriched = {
 	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
 	unlocking_production_methods = {
 		pm_soil_enriching_farming
@@ -28,7 +29,7 @@ pm_potatoes_enriched = {
 		}
 	}
 }
-pm_potatoes_fertilizer = {
+REPLACE_OR_CREATE:pm_potatoes_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
 	unlocking_production_methods = {
 		pm_fertilization
@@ -42,7 +43,7 @@ pm_potatoes_fertilizer = {
 		}
 	}
 }
-pm_potatoes_chemical_fertilizer = {
+REPLACE_OR_CREATE:pm_potatoes_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
 	unlocking_production_methods = {
 		pm_chemical_fertilizer
@@ -55,7 +56,7 @@ pm_potatoes_chemical_fertilizer = {
 		}
 	}
 }
-pm_potatoes_auto = {
+REPLACE_OR_CREATE:pm_potatoes_auto = {
 	texture = "gfx/interface/icons/production_method_icons/potatoes.dds"
 	unlocking_production_methods = {
 		pm_automatic_fertilization
@@ -68,7 +69,7 @@ pm_potatoes_auto = {
 	}
 }
 # Apples (2:1 Fruit:Sugar)
-pm_apple_orchards = {
+REPLACE_OR_CREATE:pm_apple_orchards = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -78,7 +79,7 @@ pm_apple_orchards = {
 		}
 	}
 }
-pm_apples_enriched = {
+REPLACE_OR_CREATE:pm_apples_enriched = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_soil_enriching_farming
@@ -94,7 +95,7 @@ pm_apples_enriched = {
 		}
 	}
 }
-pm_apples_fertilizer = {
+REPLACE_OR_CREATE:pm_apples_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_fertilization
@@ -109,7 +110,7 @@ pm_apples_fertilizer = {
 		}
 	}
 }
-pm_apples_chemical_fertilizer = {
+REPLACE_OR_CREATE:pm_apples_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_chemical_fertilizer
@@ -123,7 +124,7 @@ pm_apples_chemical_fertilizer = {
 		}
 	}
 }
-pm_apples_auto = {
+REPLACE_OR_CREATE:pm_apples_auto = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_automatic_fertilization
@@ -138,7 +139,7 @@ pm_apples_auto = {
 }
 # Temperate (Wheat & Maize)
 # Citrus Fruit (3:2 Fruit:Sugar)
-pm_citrus_orchards = {
+REPLACE_OR_CREATE:pm_citrus_orchards = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -148,7 +149,7 @@ pm_citrus_orchards = {
 		}
 	}
 }
-pm_citrus_enriched = {
+REPLACE_OR_CREATE:pm_citrus_enriched = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_soil_enriching_farming
@@ -164,7 +165,7 @@ pm_citrus_enriched = {
 		}
 	}
 }
-pm_citrus_fertilizer = {
+REPLACE_OR_CREATE:pm_citrus_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_fertilization
@@ -179,7 +180,7 @@ pm_citrus_fertilizer = {
 		}
 	}
 }
-pm_citrus_chemical_fertilizer = {
+REPLACE_OR_CREATE:pm_citrus_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_chemical_fertilizer
@@ -193,7 +194,7 @@ pm_citrus_chemical_fertilizer = {
 		}
 	}
 }
-pm_citrus_auto = {
+REPLACE_OR_CREATE:pm_citrus_auto = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_automatic_fertilization
@@ -208,7 +209,7 @@ pm_citrus_auto = {
 }
 # Hot (Rice & Millet)
 # Figs (2:3 Fruit:Sugar)
-pm_fig_orchards = {
+REPLACE_OR_CREATE:pm_fig_orchards = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -218,7 +219,7 @@ pm_fig_orchards = {
 		}
 	}
 }
-pm_figs_enriched = {
+REPLACE_OR_CREATE:pm_figs_enriched = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_soil_enriching_farming
@@ -238,7 +239,7 @@ pm_figs_enriched = {
 		}
 	}
 }
-pm_figs_fertilizer = {
+REPLACE_OR_CREATE:pm_figs_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_fertilization
@@ -256,7 +257,7 @@ pm_figs_fertilizer = {
 		}
 	}
 }
-pm_figs_chemical_fertilizer = {
+REPLACE_OR_CREATE:pm_figs_chemical_fertilizer = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_chemical_fertilizer
@@ -272,7 +273,7 @@ pm_figs_chemical_fertilizer = {
 		}
 	}
 }
-pm_figs_auto = {
+REPLACE_OR_CREATE:pm_figs_auto = {
 	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
 	unlocking_production_methods = {
 		pm_automatic_fertilization
@@ -287,7 +288,7 @@ pm_figs_auto = {
 	}
 }
 # Ranch
-pm_simple_ranch = {	# Unchaged
+REPLACE_OR_CREATE:pm_simple_ranch = {	# Unchaged
 	texture = "gfx/interface/icons/production_method_icons/sheep_ranch.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -295,7 +296,7 @@ pm_simple_ranch = {	# Unchaged
 		}
 	}
 }
-pm_intensive_grazing_ranch = {
+REPLACE_OR_CREATE:pm_intensive_grazing_ranch = {
 	texture = "gfx/interface/icons/production_method_icons/large_sheep_ranch.dds"
 	unlocking_technologies = { mechanized_farming }
 	unlocking_production_methods = {
