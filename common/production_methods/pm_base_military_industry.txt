@@ -413,24 +413,26 @@ REPLACE_OR_CREATE:pm_jet_electric_engines = {
 REPLACE_OR_CREATE:pm_electric_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
 	unlocking_technologies = { electric_railway }
+	replacement_if_valid = pm_mass_electric_automobile_production
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    5	# x-60	= -300
 			goods_input_rubber_add				=    5	# x-40	= -200
-			goods_input_electricity_add			=    5	# x-30	= -150
+			goods_input_lead_add				= 0.75	# x-40	=  -30
+			goods_input_sulfur_add				=    2	# x-50	= -100
 			# output goods
 			goods_output_automobiles_add		=   25	# x+100	= 2500
-		}												#		=+1850
+		}												#		=+1820
 		level_scaled = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	= 1000	# x-.06	=  -60
 			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -140	=> Stops breaking even at SoL 13 3/14
+		}												#		= -140	=> Stops breaking even at SoL 13
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
-	required_input_goods = electricity
+	# required_input_goods = electricity	# The engines themselves already use electricity
 }
 REPLACE_OR_CREATE:pm_automobile_production = {
 	texture = "gfx/interface/icons/production_method_icons/automobiles.dds"
@@ -439,39 +441,41 @@ REPLACE_OR_CREATE:pm_automobile_production = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=   10	# x-60	= -600
+			goods_input_engines_add				=    5	# x-60	= -300
 			goods_input_rubber_add				=    5	# x-40	= -200
 			goods_input_oil_add					=    5	# x-40	= -200
 			# output goods
 			goods_output_automobiles_add		=   30	# x+100	= 3000
-		}												#		=+2000
+		}												#		=+2300
 		level_scaled = {
 			building_employment_laborers_add	= 2000	# x-.02	=  -40
 			building_employment_machinists_add	= 1500	# x-.03	=  -45
 			building_employment_engineers_add	= 1000	# x-.06	=  -60
 			building_employment_shopkeepers_add	=  500	# x-.04	=  -20
-		}												#		= -165	=> Stops breaking even at SoL 12 4/33
+		}												#		= -165	=> Stops breaking even at SoL 13 31/33
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 }
 REPLACE_OR_CREATE:pm_mass_electric_automobile_production = {
-	texture = "gfx/interface/icons/production_method_icons/unused/base3.dds"
-	unlocking_technologies = { conveyors }
+	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"	# unused/base3
+	unlocking_technologies = { radio }	# conveyors
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=   10	# x-60	= -600
 			goods_input_rubber_add				=   10	# x-40	= -400
-			goods_input_electricity_add			=   10	# x-30	= -300
+			goods_input_electricity_add			=    3	# x-30	=  -90
+			goods_input_lead_add				=    1	# x-40	=  -40
+			goods_input_sulfur_add				=    5	# x-50	= -250
 			# output goods
 			goods_output_automobiles_add		=   50	# x+100	= 5000
-		}												#		=+3700
+		}												#		=+3620
 		level_scaled = {
 			building_employment_laborers_add	= 1500	# x-.02	=  -30
 			building_employment_machinists_add	= 1000	# x-.03	=  -30
 			building_employment_engineers_add	=  500	# x-.06	=  -30
 			building_employment_shopkeepers_add	=  500	# x-.06	=  -30
-		}												#		= -120	=> Stops breaking even at SoL 30 5/6
+		}												#		= -120	=> Stops breaking even at SoL 30 1/6
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 10 } }
 	required_input_goods = electricity

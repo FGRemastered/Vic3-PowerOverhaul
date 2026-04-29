@@ -70,6 +70,7 @@ REPLACE_OR_CREATE:pm_no_hardwood = {
 	building_modifiers = {
 		unscaled = { goods_output_wood_mult		= 1.00 }
 	}
+	ai_value = 500
 }
 REPLACE_OR_CREATE:pm_hardwood = {
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
@@ -78,4 +79,15 @@ REPLACE_OR_CREATE:pm_hardwood = {
 			goods_output_hardwood_add			=   15
 		}
 	}
+	ai_value = 1000
+}
+REPLACE_OR_CREATE:pm_increased_hardwood = {
+	texture = "gfx/interface/icons/production_method_icons/increased_hardwood.dds"
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_hardwood_add			=   22.5
+		}
+		unscaled = { goods_output_wood_mult		=-0.50 }
+	}
+	ai_value = 500
 }

@@ -5,6 +5,7 @@ INJECT:law_peasant_levies = {
 		country_aristocrats_pol_str_mult					= 0.25	# 25%	- Increased
 		state_building_barrack_max_level_add				=   25	# 25	- Increased
 		state_building_conscription_center_max_level_add	=   75	# 25	- Increased
+	}
 }
 REPLACE:law_professional_army = {
 	group = lawgroup_army_model

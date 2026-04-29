@@ -1,6 +1,6 @@
 ﻿l_english:
  pm_watertube_boiler_steam_trains: "Water-tube Boiler Steam Trains"
- pm_rotary_valve_steam_trains: "Rotary Valve Engine Trains"
+ pm_rotary_valve_steam_trains: "Duplex Steam Trains" # Rotary Valve Engine
  pm_diesel_electric_trains: "Diesel-Electric Trains"
  pm_jet_electric_trains: "Hybrid-Electric Jet Trains"
  pm_maglev_trains: "Magnetic Levitation Trains"
@@ -16,7 +16,9 @@
  pm_electric_rail_transport: "Electric Rail Transportation"
  pm_truck_transport: "Truck Transportation"
 
- pm_log_trucks: "Logging Trucks"
+ pmg_transportation_flatbed: "$pm_rail_transport$"
+ pm_flatbed_carts: "Flatbed Carts"
+ pm_flatbed_trucks: "Flatbed Trucks"
  pm_rail_transport_construction: "$pm_rail_transport$"
 
  pm_flash_freezing_building_livestock_ranch: "Flash Freezing"

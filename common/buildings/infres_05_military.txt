@@ -1,6 +1,6 @@
 ﻿############ BARRACKS
 REPLACE_OR_CREATE:building_barrack_extension = {
-	icon = "gfx/interface/icons/building_icons/building_barrack.dds"
+	icon = "gfx/interface/icons/building_icons/building_barracks.dds"
 	can_build_private = { always = no }
 	can_build_government = { owner = { is_player = yes } }
 	ai_value = 1

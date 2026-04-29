@@ -15,6 +15,10 @@ REPLACE_OR_CREATE:pm_dye_production = {
 			building_employment_engineers_add	=  500	# x-.06	=   -30
 			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
 		}												#		=  -125	=> Stops breaking even at SoL 25.6
+		unscaled = {
+			goods_input_wood_mult				= 1.333	# x7/3
+			goods_input_hardwood_mult			=-1.00	# x0
+		}
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 7 } }
 }
@@ -36,11 +40,10 @@ REPLACE_OR_CREATE:pm_double_dye_production = {
 			building_employment_academics_add	=  500	# x-.08	=   -40
 			building_employment_shopkeepers_add	=  500	# x-.06	=   -30
 		}												#		=  -165	=> Stops breaking even at SoL 38 26/33
-		level_scaled = {
-			building_employment_shopkeepers_add	=  500
-		}
 		unscaled = {
 			goods_input_wood_mult				= 1.00	# x2
+			goods_input_hardwood_mult			= 1.00	# x2
+			goods_input_transportation_mult		= 1.00	# x2
 			goods_output_silk_mult				= 1.00	# x2
 		}
 	}
@@ -53,7 +56,8 @@ REPLACE_OR_CREATE:pm_rayon_dye_focus = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   35
+			goods_input_wood_add				=   15	# x-20	= -300
+			goods_input_hardwood_add			=   10	# x-40	= -400
 			# output goods
 			goods_output_silk_add				=   35
 		}
@@ -70,7 +74,8 @@ REPLACE_OR_CREATE:pm_rayon = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   70
+			goods_input_wood_add				=   30	# x-20	= -600
+			goods_input_hardwood_add			=   20	# x-40	= -800
 			# output goods
 			goods_output_silk_add				=   70
 		}
@@ -87,7 +92,8 @@ REPLACE_OR_CREATE:pm_rayon_silk_focus = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=  105
+			goods_input_wood_add				=   45	# x-20	= -900
+			goods_input_hardwood_add			=   30	# x-40	=-1200
 			# output goods
 			goods_output_silk_add				=  105
 		}
@@ -104,7 +110,9 @@ REPLACE_OR_CREATE:pm_parallel_rayon = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   70
+			goods_input_wood_add				=   30	# x-20	= -600
+			goods_input_hardwood_add			=   20	# x-40	= -800
+			goods_input_services_add			=    5
 			# output goods
 			goods_output_silk_add				=   70
 		}

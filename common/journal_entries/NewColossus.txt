@@ -1,5 +1,5 @@
 ﻿# Path to Liberalism
-REPLACE:je_liberalism_1 = {
+REPLACE_OR_CREATE:je_liberalism_1 = {
 	icon = "gfx/interface/icons/event_icons/event_election.dds"
 	group = je_group_internal_affairs
 	is_shown_when_inactive = {
@@ -66,7 +66,7 @@ REPLACE:je_liberalism_1 = {
 	weight = 10000
 }
 # Freedom of Thought
-REPLACE:je_liberalism_3 = {
+REPLACE_OR_CREATE:je_liberalism_3 = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_internal_affairs
 	complete = {
@@ -94,7 +94,7 @@ REPLACE:je_liberalism_3 = {
 	weight = 5000
 }
 # The New Colossus
-REPLACE:je_liberalism_4 = {
+REPLACE_OR_CREATE:je_liberalism_4 = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_internal_affairs
 	complete = {

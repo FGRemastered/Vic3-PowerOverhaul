@@ -14,16 +14,20 @@ REPLACE:grant_command_to_ruler = {
 		owner = scope:actor
 	}
 	possible = {
-		# age >= define:NCharacters|ADULT_AGE
-		NOT = { has_trait = trait_child }		# Changed
+		age >= define:NCharacters|ADULT_AGE
+		# trigger_if = {	# Added
+			# limit = { age >= define:NCharacters|ADULT_AGE }
+			# show_as_tooltip = { age >= define:NCharacters|ADULT_AGE }
+			# NOT = { has_trait = trait_child }
+		# }
 		OR = {
 			is_female = no
 			has_trait = immortal
-			owner = { has_law_or_variant = law_type:law_women_in_the_workplace }
-			owner = { has_law_or_variant = law_type:law_womens_suffrage }
+			OWNER = { has_law_or_variant = law_type:law_women_in_the_workplace }
+			OWNER = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
-		owner = { ruler_can_have_command = yes }
-		exists = owner.capital.land_hq
+		OWNER = { ruler_can_have_command = yes }
+		exists = OWNER.capital.land_hq
 	}
 	effect = { add_character_role = general }
 	ai_chance = {
@@ -263,7 +267,7 @@ REPLACE:grant_command_to_agitator = {
 		exists = owner.capital.land_hq
 	}
 	effect = { add_character_role = general }
-	cooldown = { months = normal_modifier_time }
+	cooldown = { days = normal_modifier_time }
 	ai_chance = {
 		value = 0
 		if = {

@@ -1,4 +1,4 @@
-# Production
+﻿# Production
 INJECT:sericulture = {
 	modifier = {
 		building_silk_greenhouse_throughput_add				= 0.25	# Added
@@ -173,10 +173,14 @@ INJECT:realism = {
 INJECT:postal_savings = {
 	modifier = {
 		state_engineers_investment_pool_efficiency_mult		= 0.10	# Increased
+		state_bureaucrats_investment_pool_efficiency_mult	= 0.10	# Increased
 		building_cash_reserves_mult							= 0.05	# Increased
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
 	}
+}
+INJECT:feminism = {
+	on_researched = { upgrade_liberal_movement_effect = yes }		# Added
 }
 INJECT:mutual_funds = {
 	modifier = {
@@ -186,6 +190,7 @@ INJECT:mutual_funds = {
 		state_engineers_investment_pool_efficiency_mult		= 0.25	# Added
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
+		state_bureaucrats_investment_pool_efficiency_mult	= 0.25	# Added
 		building_nationalization_radicals_mult				=-0.25	# Added
 		building_nationalization_cost_mult					=-0.25	# Added
 	}
@@ -200,6 +205,7 @@ INJECT:international_exchange_standards = {
 		state_engineers_investment_pool_efficiency_mult		= 0.25	# Added
 		state_academics_investment_pool_efficiency_mult		= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult		= 0.25	# Added
+		state_bureaucrats_investment_pool_efficiency_mult	= 0.25	# Added
 	}
 }
 INJECT:paved_roads = {

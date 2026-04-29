@@ -1,4 +1,4 @@
-﻿REPLACE:je_silkworm_diseases = {
+﻿REPLACE_OR_CREATE:je_silkworm_diseases = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	group = je_group_crises
 	#Activated by event
@@ -32,6 +32,7 @@
 							has_decree = decree_encourage_agricultural_industry
 							is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_electric_heat_exchanger }
 							is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_autark_greenhouse }
+							is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_oil_furnace }
 						}
 						percent > 0.75
 					}

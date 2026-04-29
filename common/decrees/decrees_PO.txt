@@ -1,3 +1,10 @@
+INJECT:decree_road_maintenance = {
+	modifier = {
+		building_group_bg_government_construction_efficiency_add		= 0.10
+		building_group_bg_military_construction_efficiency_add			= 0.10
+		building_group_bg_infrastructure_construction_efficiency_add	= 0.10
+	}
+}
 REPLACE:decree_violent_suppression = {
 	texture = "gfx/interface/icons/decree/decree_violent_suppression.dds"
 	unlocking_technologies = { standing_army }
@@ -54,6 +61,7 @@ REPLACE:decree_emergency_relief = {
 		state_food_security_add								= 0.05
 		state_welfare_payments_add							= 0.50	# Added back
 		building_minimum_wage_mult							= 0.25	# Added
+		state_devastation_decay_mult						= 0.50	# Added
 		state_radicals_from_political_movements_mult		=-0.10	# Added
 		state_loyalists_from_political_movements_mult		= 0.10	# Added
 		state_mortality_mult								=-0.50	# Added
@@ -120,6 +128,13 @@ REPLACE:decree_promote_national_values = {
 		OR = {
 			has_assimilating_pops				= yes
 			has_converting_pops					= yes
+			any_scope_culture = {
+				NOT = { is_primary_culture_of = ROOT.OWNER }
+				OR = {
+					shares_heritage_trait_group_with_any_primary_culture	= ROOT.OWNER
+					shares_language_trait_group_with_any_primary_culture	= ROOT.OWNER
+				}
+			}
 		}
 	}
 	modifier = {
@@ -179,15 +194,15 @@ REPLACE:decree_promote_national_values = {
 			}
 			multiply = 1.5
 		}
-		if = {	# Added - Anti-lag measure
+		if = {
 			limit = {
 				any_scope_culture = {
-					NOT = { is_primary_culture_of = OWNER }
+					filter = { NOT = { is_primary_culture_of = ROOT.OWNER } }	# Filter to only check cultures that are relevant here. ROOT.OWNER since we cannot scope to the owner of a culture.
+					count >= 10 		# This now correctly counts the number of cultures found
 					any_scope_pop = {
-						filter = { state.owner = root }
-						percent >= 0.01
+						filter = { STATE = ROOT }	# We left the state scope when we entered culture scope.
+						percent >= 0.01				# We check if that pop makes up >1% of the state
 					}
-					count >= 10
 				}
 			}
 			add = 1000
@@ -204,14 +219,17 @@ REPLACE:decree_encourage_manufacturing_industry = {
 		}
 	}
 	modifier = {
-		building_group_bg_manufacturing_throughput_add	= 0.25	# 20% -> 25%
-		building_group_bg_service_throughput_add		= 0.25	# 20% -> 25%
+		building_group_bg_manufacturing_throughput_add					= 0.25	# 20% -> 25%
+		building_group_bg_service_throughput_add						= 0.25	# 20% -> 25%
 		# New
-		building_group_bg_arts_throughput_add			= 0.25
-		building_group_bg_trade_throughput_add			= 0.25
-		state_infrastructure_from_population_add		=    1
-		state_infrastructure_from_population_max_add	=   20
-		state_construction_mult							= 0.10
+		building_group_bg_arts_throughput_add							= 0.25
+		building_group_bg_trade_throughput_add							= 0.25
+		state_infrastructure_from_population_add						=    1
+		state_infrastructure_from_population_max_add					=   20
+		# state_construction_mult										= 0.10
+		building_group_bg_manufacturing_construction_efficiency_add		= 0.10
+		building_group_bg_arts_construction_efficiency_add				= 0.10
+		building_group_bg_trade_construction_efficiency_add				= 0.10
 	}
 	cost = 100
 	ai_weight = {
@@ -245,13 +263,16 @@ REPLACE:decree_encourage_agricultural_industry = {
 		}
 	}
 	modifier = {
-		building_group_bg_agriculture_throughput_add	= 0.25	# 20% -> 25%
-		building_group_bg_ranching_throughput_add		= 0.25	# 20% -> 25%
-		building_group_bg_plantations_throughput_add	= 0.25	# 20% -> 25%
+		building_group_bg_agriculture_throughput_add				= 0.25	# 20% -> 25%
+		building_group_bg_ranching_throughput_add					= 0.25	# 20% -> 25%
+		building_group_bg_plantations_throughput_add				= 0.25	# 20% -> 25%
 		# New
-		state_infrastructure_from_population_add		=    1
-		state_infrastructure_from_population_max_add	=   20
-		state_construction_mult							= 0.10
+		state_infrastructure_from_population_add					=    1
+		state_infrastructure_from_population_max_add				=   20
+		# state_construction_mult									= 0.10
+		building_group_bg_agriculture_construction_efficiency_add	= 0.10
+		building_group_bg_ranching_construction_efficiency_add		= 0.10
+		building_group_bg_plantations_construction_efficiency_add	= 0.10
 	}
 	cost = 100
 	ai_weight = {
@@ -318,11 +339,12 @@ REPLACE:decree_encourage_resource_industry = {
 		}
 	}
 	modifier = {
-		building_group_bg_extraction_throughput_add			= 0.25	# 20% -> 25%	# Consolidated from bg_mining bg_logging bg_fishing bg_whaling bg_oil_extraction bg_rubber
+		building_group_bg_extraction_throughput_add					= 0.25	# 20% -> 25%	# Consolidated from bg_mining bg_logging bg_fishing bg_whaling bg_oil_extraction bg_rubber
 		# New
-		state_infrastructure_from_population_add			=    1
-		state_infrastructure_from_population_max_add		=   20
-		state_construction_mult								= 0.10
+		state_infrastructure_from_population_add					=    1
+		state_infrastructure_from_population_max_add				=   20
+		# state_construction_mult									= 0.10
+		building_group_bg_extraction_construction_efficiency_add	= 0.10
 	}
 	cost = 100
 	ai_weight = {
@@ -366,10 +388,14 @@ REPLACE:decree_greener_grass_campaign = {
 	unlocking_technologies = { romanticism }
 	state_trigger = { trigger_greener_grass_state = yes }
 	modifier = {
-		state_migration_pull_add	= 20
-		state_migration_pull_mult	=  4.0	# Increased 25% -> 400%
-		state_slave_import_mult		=  4.0	# Added
-		state_birth_rate_mult		=  4.0	# Added
+		state_migration_pull_add					=    20
+		state_migration_pull_mult					=  4.00	# Increased 25% -> 400%
+		state_slave_import_mult						=  4.00	# Added
+		# Pro-Natalist Policies
+		state_birth_rate_mult						=  4.00	# Added
+		state_welfare_payments_add					=  0.50	# Added
+		# building_minimum_wage_mult				=  0.50	# Added
+		building_peasants_job_attractiveness_mult	= -0.50	# Added
 	}
 	cost = 100
 	ai_weight = {
@@ -443,5 +469,10 @@ REPLACE:decree_greener_grass_campaign = {
 			}
 			multiply = 0
 		}
+	}
+}
+INJECT:decree_enlistment_efforts = {
+	modifier = {
+		unit_experience_gain_mult	= 1.00
 	}
 }

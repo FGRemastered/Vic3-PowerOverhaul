@@ -1,10 +1,9 @@
 ﻿l_english:
  building_autarky_farm: "Autark Farm"
- building_autarky_farm_lens_option: "Expand $building_autarky_farm$"
- building_autarky_greenhouse: "Autark $building_greenhouse$"
- building_autarky_greenhouse_lens_option: "Expand $building_autarky_greenhouse$"
  building_greenhouse: "#green Greenhouse#!"
  bg_greenhouses: "#green Greenhouses#!"
+ bg_agricultural_greenhouses: "Agricultural $bg_greenhouses$"
+ building_autarky_greenhouse: "Autark $building_greenhouse$"
  building_vineyard_greenhouse: "Vineyard $building_greenhouse$"
  building_banana_greenhouse: "Banana $building_greenhouse$"
  building_coffee_greenhouse: "Coffee $building_greenhouse$"
@@ -17,9 +16,8 @@
  building_sugar_greenhouse: "Sugar $building_greenhouse$"
  building_tea_greenhouse: "Tea $building_greenhouse$"
  building_tobacco_greenhouse: "Tobacco $building_greenhouse$"
- 
- bg_logging_greenhouses: "Forestry $bg_greenhouses$"
- bg_rubber_greenhouses: "Rubber $bg_greenhouses$"
+ BUILDING_GROUP_AGRICULTURAL_GREENHOUSES_TYPES: "• [GetBuildingType('building_autarky_greenhouse').GetName]"
+ BUILDING_GROUP_GREENHOUSES_TYPES: "• [GetBuildingType('building_vineyard_greenhouse').GetName]\n• [GetBuildingType('building_coffee_greenhouse').GetName]\n• [GetBuildingType('building_tea_greenhouse').GetName]\n• [GetBuildingType('building_sugar_greenhouse').GetName]\n• [GetBuildingType('building_banana_greenhouse').GetName]\n• [GetBuildingType('building_opium_greenhouse').GetName]\n• [GetBuildingType('building_tobacco_greenhouse').GetName]\n• [GetBuildingType('building_cotton_greenhouse').GetName]\n• [GetBuildingType('building_dye_greenhouse').GetName]\n• [GetBuildingType('building_silk_greenhouse').GetName]\n• [GetBuildingType('building_logging_greenhouse').GetName]\n• [GetBuildingType('building_rubber_greenhouse').GetName]\n"
 
  building_infres_coal_mine: "Inf. $building_coal_mine$"
  building_infres_gold_mine: "Inf. $building_gold_mine$"

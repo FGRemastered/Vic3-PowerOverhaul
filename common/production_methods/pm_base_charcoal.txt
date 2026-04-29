@@ -43,12 +43,12 @@ REPLACE_OR_CREATE:pm_machine_coal = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   60	# x-20	= -1200
+			goods_input_wood_add				=   75	# x-20	= -1500
 			goods_input_porcelain_add			=    2	# x-70	=  -140
 			goods_input_tools_add				=    5	# x-40	=  -200
 			# output goods
-			goods_output_coal_add				=   90	# x+30	= +2700
-		}												#		= +1160
+			goods_output_coal_add				=  125	# x+30	= +3750	# Atmospheric x ( Steam Donkey + Dynamite ) = 100 | Condensing x ( Steam Donkey + Dynamite ) = 150 | Rotary x ( Steam Donkey + Dynamite ) = 200
+		}												#		= +1960
 		level_scaled = {
 			building_employment_laborers_add	= 3000
 			building_employment_machinists_add	= 1000
@@ -123,15 +123,16 @@ REPLACE_OR_CREATE:pm_carbon_capture_charcoal = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=  -60	# x-20	=+1200
+			goods_input_wood_add				=  -50	# x-20	=+1000
 			goods_input_tools_add				=  -10	# x-40	= +400
 			goods_input_electricity_add			=   90	# x-30	=-2700
 			goods_input_porcelain_add			=   20	# x-70	=-1400
 			# output goods
 			goods_output_iron_add				=   20	# x+40	= +800
 			goods_output_lead_add				=    5	# x+40	= +200
-			goods_output_sulfur_add				=   40	# x+50	=+2000
-		}												#		= +500
+			goods_output_sulfur_add				=   30	# x+50	=+1500
+			goods_output_gold_add				=    5	# x+100	=+ 500
+		}												#		= +300
 		level_scaled = {
 			building_employment_machinists_add	=-1000
 			building_employment_engineers_add	=  500

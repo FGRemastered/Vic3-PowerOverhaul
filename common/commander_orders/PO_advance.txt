@@ -41,11 +41,12 @@ INJECT:advance_heavy_barrage = {
 	modifier = {
 		character_advancement_speed_add	= 0.5	# Changed (+.5)
 		unit_offense_mult				= 0.25	# Added
+		battle_casualties_mult			=-0.05	# Added	- Opposite of cavalry assault
 	}
 }
-INJECT:advance_cavalry_assualt = {
+INJECT:advance_cavalry_assualt = {	# PDX typo
 	texture = "gfx/interface/icons/commander_order_icons/advance_cavalry_assault.dds"
-	possible = {
+	possible = {	# Maybe also allow with mobilization_option_truck_transport active?
 		ai_subject_can_advance_front	= yes
 		ai_ally_can_advance_front		= yes
 	}

@@ -1,4 +1,4 @@
-﻿REPLACE:ig_intelligentsia = {
+﻿REPLACE_OR_CREATE:ig_intelligentsia = {
 	color = hsv{ 0.13 0.64 0.99 }
 	texture = "gfx/interface/icons/ig_icons/intelligensia.dds"
 	layer = "revolution_dynamic_intelligentsia"
@@ -129,6 +129,14 @@
 				remove_ideology = ideology_republican
 				add_ideology = ideology_constitutionalist
 			}
+		}
+		else_if = {	# German Technocratic Intelligentsia - Neither Austria nor Switzerland
+			limit = {
+				has_technology_researched = central_archives
+				any_primary_culture = { has_discrimination_trait = language_germanophone }
+				NOT = { THIS ?= c:SWI }
+			}
+			ig:ig_intelligentsia ?= { effect_technocratic_intelligentsia = yes }
 		}
 		if = {
 			limit = { has_technology_researched = feminism }

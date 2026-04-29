@@ -5,8 +5,10 @@
 	can_enact = { is_country_type = decentralized }
 	is_visible = { is_country_type = decentralized }
 	modifier = {
-		country_legitimacy_headofstate_add	=   20
-		country_authority_add				=  100
+		country_legitimacy_headofstate_add							=   20
+		country_authority_add										=  100
+		building_group_bg_agriculture_allowed_collectivization_add	= 1.00	# Added
+		building_group_bg_ranching_allowed_collectivization_add		= 1.00	# Added
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0

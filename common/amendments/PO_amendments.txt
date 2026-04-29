@@ -1,0 +1,239 @@
+﻿# Amendments
+amendment_upper_strata_tax_cuts_small = {
+	parent = law_per_capita_based_taxation
+	allowed_laws = {	# Only applicable to laws with dividends taxes.
+		law_proportional_taxation
+		law_graduated_taxation
+	}
+	modifier = {
+		building_group_bg_manor_houses_tax_mult						=-0.10
+		building_group_bg_financial_districts_tax_mult				=-0.10
+		building_group_bg_company_headquarter_tax_mult				=-0.10
+		building_group_bg_company_regional_headquarter_tax_mult		=-0.10
+		# interest_group_ig_industrialists_approval_add				= 1
+		# interest_group_ig_landowners_approval_add					= 1
+	}
+	sponsor_modifier = {
+		interest_group_pol_str_mult									= 0.10
+		interest_group_approval_add									= 2
+	}
+	possible = {
+		# always = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					is_enacting_law = law_type:law_proportional_taxation
+					is_enacting_law = law_type:law_graduated_taxation
+				}
+			}
+			NOR = {
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+		trigger_else = {
+			NOR = {
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+	}
+	would_sponsor = {
+		OR = {
+			# law_stance = { law = law_type:law_per_capita_based_taxation value >= neutral }	# Would also include AF and PB
+			has_ideology = ideology:ideology_hierarchic			# LO
+			has_ideology = ideology:ideology_hierarchic_modern	# LO
+			has_ideology = ideology:ideology_plutocratic		# IND
+			has_ideology = ideology:ideology_malthusian			# IND
+			has_ideology = ideology:ideology_market_liberal		# INT/PB
+			has_trait = grifter
+		}
+		AND = {
+			exists = scope:approval
+			scope:approval > 0
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			OR = {
+				law_stance = { law = law_type:law_per_capita_based_taxation	value < approve }
+				law_stance = { law = law_type:law_hereditary_bureaucrats	value < approve }
+			}
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 1.0
+}
+amendment_upper_strata_tax_cuts_medium = {
+	parent = law_per_capita_based_taxation
+	allowed_laws = {	# Only applicable to laws with dividends taxes.
+		law_proportional_taxation
+		law_graduated_taxation
+	}
+	modifier = {
+		building_group_bg_manor_houses_tax_mult						=-0.25
+		building_group_bg_financial_districts_tax_mult				=-0.25
+		building_group_bg_company_headquarter_tax_mult				=-0.25
+		building_group_bg_company_regional_headquarter_tax_mult		=-0.25
+		# interest_group_ig_industrialists_approval_add				= 3
+		# interest_group_ig_landowners_approval_add					= 3
+	}
+	sponsor_modifier = {
+		interest_group_pol_str_mult									= 0.25
+		interest_group_approval_add									= 5
+	}
+	possible = {
+		# always = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					is_enacting_law = law_type:law_proportional_taxation
+					is_enacting_law = law_type:law_graduated_taxation
+				}
+			}
+			NOR = {
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+		trigger_else = {
+			NOR = {
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+	}
+	would_sponsor = {
+		OR = {
+			# law_stance = { law = law_type:law_per_capita_based_taxation value >= neutral }	# Would also include AF and PB
+			has_ideology = ideology:ideology_hierarchic			# LO
+			has_ideology = ideology:ideology_hierarchic_modern	# LO
+			has_ideology = ideology:ideology_plutocratic		# IND
+			has_ideology = ideology:ideology_malthusian			# IND
+			has_ideology = ideology:ideology_market_liberal		# INT/PB
+			has_trait = grifter
+		}
+		AND = {
+			exists = scope:approval
+			scope:approval > -5
+			scope:approval <= 0
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			OR = {
+				law_stance = { law = law_type:law_per_capita_based_taxation	value < approve }
+				law_stance = { law = law_type:law_hereditary_bureaucrats	value < approve }
+			}
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 1.5
+}
+amendment_upper_strata_tax_cuts_large = {
+	parent = law_per_capita_based_taxation
+	allowed_laws = {	# Only applicable to laws with dividends taxes.
+		law_proportional_taxation
+		law_graduated_taxation
+	}
+	modifier = {
+		building_group_bg_manor_houses_tax_mult						=-0.50
+		building_group_bg_financial_districts_tax_mult				=-0.50
+		building_group_bg_company_headquarter_tax_mult				=-0.50
+		building_group_bg_company_regional_headquarter_tax_mult		=-0.50
+		# interest_group_ig_industrialists_approval_add				= 5
+		# interest_group_ig_landowners_approval_add					= 5
+	}
+	sponsor_modifier = {
+		interest_group_pol_str_mult									= 0.50
+		interest_group_approval_add									= 5
+	}
+	possible = {
+		# always = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					is_enacting_law = law_type:law_proportional_taxation
+					is_enacting_law = law_type:law_graduated_taxation
+				}
+			}
+			NOR = {
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+		trigger_else = {
+			NOR = {
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+				active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+			}
+		}
+	}
+	would_sponsor = {
+		OR = {
+			# law_stance = { law = law_type:law_per_capita_based_taxation value >= neutral }	# Would also include AF and PB
+			has_ideology = ideology:ideology_hierarchic			# LO
+			has_ideology = ideology:ideology_hierarchic_modern	# LO
+			has_ideology = ideology:ideology_plutocratic		# IND
+			has_ideology = ideology:ideology_malthusian			# IND
+			has_ideology = ideology:ideology_market_liberal		# INT/PB
+			has_trait = grifter
+		}
+		AND = {
+			exists = scope:approval
+			scope:approval <= -5
+		}
+	}
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			OR = {
+				law_stance = { law = law_type:law_per_capita_based_taxation	value < approve }
+				law_stance = { law = law_type:law_hereditary_bureaucrats	value < approve }
+			}
+		}
+	}
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 2.5
+}
+amendment_apprenticeships = {
+	parent = law_guild_system
+	allowed_laws = {
+		law_religious_schools
+		law_private_schools
+		law_public_schools
+	}
+	modifier = {
+		country_machinists_pol_str_mult								= 0.05
+		country_engineers_pol_str_mult								= 0.25
+	}
+	institution = institution_schools
+	institution_modifier = {
+		state_pop_qualifications_mult								= 0.10	# Cancels malus from law_guild_system at Lvl. 3
+	}
+	sponsor_modifier = {
+		interest_group_pol_str_mult									= 0.25
+	}
+	possible = {
+		always = yes
+		# OR = {
+			# has_variable = apprenticeships_var
+			# has_law_or_variant = law_type:law_guild_system
+			# any_primary_culture = { has_discrimination_trait = language_germanophone }
+		# }
+	}
+	would_sponsor = { law_stance = { law = law_type:law_guild_system value > neutral } }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 1.0
+	on_activate		= { if = { limit = { NOT = { has_variable = apprenticeships_var } }	set_variable = apprenticeships_var } }
+	# on_deactivate	= { if = { limit = { has_variable = apprenticeships_var }			remove_variable = apprenticeships_var } }
+}

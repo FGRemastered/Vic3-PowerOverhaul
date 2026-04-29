@@ -339,12 +339,22 @@ REPLACE_OR_CREATE:je_colonial_administration_button_china = {
 	}
 	cooldown = { days = 30 }
 	possible = {
-		NOT = { THIS ?= c:RUS }	# They historically take Outer Manchuria, but should not form a puppet China because of that.
-		any_scope_state = {
-			is_in_geographic_region = geographic_region_china
-			is_largest_state_in_region = yes
-			NOT = { is_homeland_of_country_cultures = ROOT }
-			count >= 2
+		trigger_if = {	# They historically take Outer Manchuria, but should not form a puppet China because of that.
+			limit = { THIS ?= c:RUS }
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_china
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 6
+			}
+		}
+		trigger_else = {
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_china
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 2
+			}
 		}
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
@@ -356,12 +366,163 @@ REPLACE_OR_CREATE:je_colonial_administration_button_china = {
 	ai_chance = { value = 100 }
 	effect = { effect_shared_colonial_creation_geographic = { name = china } }
 }
+REPLACE_OR_CREATE:je_colonial_administration_button_north_america = {
+	name = "je_colonial_administration_button_north_america"
+	desc = "je_colonial_administration_button_north_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		NOT = { country_has_primary_culture = cu:spanish }			# TODO: Allow it if they haven't taken the reconquista route
+		OR = {
+			any_scope_state = { is_in_geographic_region = geographic_region_north_america }
+			any_subject_or_below = { has_variable = north_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = north_america_subject_var } }
+			any_subject_or_below = { has_variable = north_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		trigger_if = {	# Britain starts with a few states in the Americas, but should not consolidate them like their African holdings.
+			limit = {
+				OR = {
+					THIS ?= c:GBR
+					was_formed_from = GBR
+				}
+			}
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_north_america
+				is_largest_state_in_region = yes
+				NOR = {
+					is_homeland_of_country_cultures = ROOT
+					state_region = { is_homeland = cu:anglo_canadian }
+					state_region = { is_homeland = cu:franco_canadian }
+				}
+				count >= 6
+			}
+		}
+		trigger_else = {
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_north_america
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 2
+			}
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation_geographic = { name = north_america } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_central_america = {
+	name = "je_colonial_administration_button_central_america"
+	desc = "je_colonial_administration_button_central_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		NOT = { country_has_primary_culture = cu:spanish }			# TODO: Allow it if they haven't taken the reconquista route
+		OR = {
+			any_scope_state = { is_in_geographic_region = geographic_region_central_america }
+			any_subject_or_below = { has_variable = central_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = central_america_subject_var } }
+			any_subject_or_below = { has_variable = central_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		trigger_if = {	# Britain starts with a few states in the Americas, but should not consolidate them like their African holdings.
+			limit = {
+				OR = {
+					THIS ?= c:GBR
+					was_formed_from = GBR
+				}
+			}
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_central_america
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 6
+			}
+		}
+		trigger_else = {
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_central_america
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 2
+			}
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation_geographic = { name = central_america } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_south_america = {
+	name = "je_colonial_administration_button_south_america"
+	desc = "je_colonial_administration_button_south_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		NOT = { country_has_primary_culture = cu:spanish }			# TODO: Allow it if they haven't taken the reconquista route
+		OR = {
+			any_scope_state = { is_in_geographic_region = geographic_region_south_america }
+			any_subject_or_below = { has_variable = south_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+		OR = {
+			NOT = { any_subject_or_below = { has_variable = south_america_subject_var } }
+			any_subject_or_below = { has_variable = south_america_subject_var NOT = { any_primary_culture = { NOT = { is_primary_culture_of = ROOT } } } }
+		}
+	}
+	cooldown = { days = 30 }
+	possible = {
+		trigger_if = {	# Britain starts with a few states in the Americas, but should not consolidate them like their African holdings.
+			limit = {
+				OR = {
+					THIS ?= c:GBR
+					was_formed_from = GBR
+				}
+			}
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_south_america
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 6
+			}
+		}
+		trigger_else = {
+			any_scope_state = {
+				is_in_geographic_region = geographic_region_south_america
+				is_largest_state_in_region = yes
+				NOT = { is_homeland_of_country_cultures = ROOT }
+				count >= 2
+			}
+		}
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = { any_subject_or_below = { has_variable = newly_formed_colonial_nation_var } }
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_creation_geographic = { name = south_america } }
+}
 # Expand Colonial Administration
 REPLACE_OR_CREATE:je_colonial_administration_button_expand_senegal = {
 	name = "je_colonial_administration_button_expand_senegal"
 	desc = "je_colonial_administration_button_expand_senegal_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_senegal }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = senegal_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -369,7 +530,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_senegal = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_senegal	is_under_colonization = no is_treaty_port = no trigger_owner_not_senegalese_subject = yes }
+			any_state = { region = sr:region_senegal	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_senegal_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = senegal_subject_var	count >= 2 }
@@ -383,7 +544,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_niger = {
 	name = "je_colonial_administration_button_expand_niger"
 	desc = "je_colonial_administration_button_expand_niger_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_niger }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = niger_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -391,7 +552,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_niger = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_niger	is_under_colonization = no is_treaty_port = no trigger_owner_not_nigerian_subject = yes }
+			any_state = { region = sr:region_niger	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_niger_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = niger_subject_var	count >= 2 }
@@ -405,7 +566,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_ethiopia = {
 	name = "je_colonial_administration_button_expand_ethiopia"
 	desc = "je_colonial_administration_button_expand_ethiopia_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_ethiopia }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = ethiopia_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -413,7 +574,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_ethiopia = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_ethiopia	is_under_colonization = no is_treaty_port = no trigger_owner_not_ethiopian_subject = yes }
+			any_state = { region = sr:region_ethiopia	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_ethiopia_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = ethiopia_subject_var	count >= 2 }
@@ -427,7 +588,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_zanj = {
 	name = "je_colonial_administration_button_expand_zanj"
 	desc = "je_colonial_administration_button_expand_zanj_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_zanj }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = zanj_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -435,7 +596,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_zanj = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_zanj	is_under_colonization = no is_treaty_port = no trigger_owner_not_zanj_subject = yes }
+			any_state = { region = sr:region_zanj	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_zanj_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = zanj_subject_var	count >= 2 }
@@ -449,7 +610,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_southern_africa = {
 	name = "je_colonial_administration_button_expand_southern_africa"
 	desc = "je_colonial_administration_button_expand_southern_africa_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_southern_africa }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = southern_africa_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -457,7 +618,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_southern_africa = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_southern_africa	is_under_colonization = no is_treaty_port = no trigger_owner_not_saf_subject = yes }
+			any_state = { region = sr:region_southern_africa	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_southern_africa_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = southern_africa_subject_var	count >= 2 }
@@ -471,7 +632,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_congo = {
 	name = "je_colonial_administration_button_expand_congo"
 	desc = "je_colonial_administration_button_expand_congo_desc"
 	visible = {
-		is_not_in_geographic_region = geographic_region_africa
+		NOT = { capital.region ?= sr:region_congo }	# is_not_in_geographic_region = geographic_region_africa
 		any_subject_or_below = { has_variable = congo_subject_var }
 	}
 	cooldown = { days = 30 }
@@ -479,7 +640,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_congo = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_congo	is_under_colonization = no is_treaty_port = no trigger_owner_not_congo_subject = yes }
+			any_state = { region = sr:region_congo	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_congo_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = congo_subject_var	count >= 2 }
@@ -501,7 +662,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_indonesia = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_indonesia	is_under_colonization = no is_treaty_port = no trigger_owner_not_indonesian_subject = yes }
+			any_state = { region = sr:region_indonesia	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_indonesia_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = indonesia_subject_var	count >= 2 }
@@ -523,7 +684,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_indochina = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_indochina	is_under_colonization = no is_treaty_port = no trigger_owner_not_indochinese_subject = yes }
+			any_state = { region = sr:region_indochina	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_indochina_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = indochina_subject_var	count >= 2 }
@@ -545,7 +706,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_arabic = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { region = sr:region_arabic	is_under_colonization = no is_treaty_port = no trigger_owner_not_arabic_subject = yes }
+			any_state = { region = sr:region_arabic	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_arabic_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = arabic_subject_var	count >= 2 }
@@ -567,7 +728,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_india = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { is_in_geographic_region = geographic_region_india	is_under_colonization = no is_treaty_port = no trigger_owner_not_indian_subject = yes }
+			any_state = { is_in_geographic_region = geographic_region_india	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_india_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = india_subject_var	count >= 2 }
@@ -589,7 +750,7 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_china = {
 		is_diplomatic_play_committed_participant = no
 		is_at_war = no
 		OR = {
-			any_state = { is_in_geographic_region = geographic_region_china	is_under_colonization = no is_treaty_port = no trigger_owner_not_chinese_subject = yes }
+			any_state = { is_in_geographic_region = geographic_region_china	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_china_subject = no } }
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = { has_variable = china_subject_var	count >= 2 }
@@ -598,4 +759,70 @@ REPLACE_OR_CREATE:je_colonial_administration_button_expand_china = {
 	}
 	ai_chance = { value = 100 }
 	effect = { effect_shared_colonial_merge_geographic = { name = china } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_north_america = {
+	name = "je_colonial_administration_button_expand_north_america"
+	desc = "je_colonial_administration_button_expand_north_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		any_subject_or_below = { has_variable = north_america_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { is_in_geographic_region = geographic_region_north_america	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_north_america_subject = no } }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = north_america_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge_geographic = { name = north_america } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_central_america = {
+	name = "je_colonial_administration_button_expand_central_america"
+	desc = "je_colonial_administration_button_expand_central_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		any_subject_or_below = { has_variable = central_america_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { is_in_geographic_region = geographic_region_central_america	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_central_america_subject = no } }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = central_america_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge_geographic = { name = central_america } }
+}
+REPLACE_OR_CREATE:je_colonial_administration_button_expand_south_america = {
+	name = "je_colonial_administration_button_expand_south_america"
+	desc = "je_colonial_administration_button_expand_south_america_desc"
+	visible = {
+		is_not_in_geographic_region = geographic_region_americas	# We don't want Mexico to form them for example.
+		any_subject_or_below = { has_variable = south_america_subject_var }
+	}
+	cooldown = { days = 30 }
+	possible = {
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+		OR = {
+			any_state = { is_in_geographic_region = geographic_region_south_america	is_under_colonization = no is_treaty_port = no OWNER ?= { trigger_south_america_subject = no } }
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = { has_variable = south_america_subject_var	count >= 2 }
+			}
+		}
+	}
+	ai_chance = { value = 100 }
+	effect = { effect_shared_colonial_merge_geographic = { name = south_america } }
 }

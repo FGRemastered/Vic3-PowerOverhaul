@@ -1,6 +1,6 @@
 ﻿l_german:
  pm_watertube_boiler_steam_trains: "Dampfzüge mit Wasserrohrkessel"
- pm_rotary_valve_steam_trains: "Drehventilmotorzüge"
+ pm_rotary_valve_steam_trains: "Duplexdampfzüge"
  pm_diesel_electric_trains: "Dieselelektrische Züge"
  pm_jet_electric_trains: "Elektrische Düsenzüge"
  pm_maglev_trains: "Magnetschwebebahnen"
@@ -16,7 +16,9 @@
  pm_electric_rail_transport: "Strombetriebener Eisenbahntransport"
  pm_truck_transport: "Lastwagentransport"
 
- pm_log_trucks: "Baumstammlaster"
+ pmg_transportation_flatbed: "$pm_rail_transport$"
+ pm_flatbed_carts: "Flachbettwaggons"
+ pm_flatbed_trucks: "Flachbettlaster"
  pm_rail_transport_construction: "$pm_rail_transport$"
 
  pm_flash_freezing_building_livestock_ranch: "Schockfrosten"

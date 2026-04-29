@@ -20,8 +20,11 @@
 		}
 	}
 	institution = institution_colonial_affairs
-	modifier = { state_migration_pull_unincorporated_mult	= 1 }	# Changed - It's much easier to convince someone to move to a new state if they can do it by themselves.
-	institution_modifier = { interest_group_ig_rural_folk_approval_add	= 1 }
+	modifier = { state_migration_pull_unincorporated_mult				= 1 }	# Changed - It's much easier to convince someone to move to a new state if they can do it by themselves.
+	institution_modifier = {
+		interest_group_ig_rural_folk_approval_add						= 1
+		interest_group_ig_petty_bourgeoisie_approval_add				= 1
+	}
 	can_impose = {
 		OR = {
 			AND = {
@@ -61,12 +64,16 @@
 	}
 }
 INJECT:law_colonial_resettlement = {
-	institution_modifier = { interest_group_ig_landowners_approval_add		= 1 }
+	institution_modifier = {
+		interest_group_ig_landowners_approval_add						= 1
+		interest_group_ig_petty_bourgeoisie_approval_add				= 1
+	}
 }
 INJECT:law_colonial_exploitation = {
 	modifier = {
 		building_group_bg_heavy_industry_unincorporated_throughput_add	=-0.30	# Base 20% +30%
 		building_group_bg_plantations_unincorporated_throughput_add		= 0.05	# Plantations, but not agriculture
+		building_group_bg_greenhouses_unincorporated_throughput_add		=-0.25	# Cancels out Plantations buff
 		building_group_bg_extraction_unincorporated_throughput_add		= 0.25	# Replaced others
 		building_group_bg_rubber_unincorporated_throughput_add			=-0.20	# Originally doesn't include fishing and whaling for some reason
 		building_group_bg_logging_unincorporated_throughput_add			=-0.20	# Originally doesn't include fishing and whaling for some reason
@@ -75,6 +82,7 @@ INJECT:law_colonial_exploitation = {
 	}
 	institution_modifier = {
 		interest_group_ig_industrialists_approval_add					= 1
+		interest_group_ig_petty_bourgeoisie_approval_add				= 1
 		country_infamy_generation_against_unrecognized_mult				=-0.05	# From Colonial Offices
 	}
 }

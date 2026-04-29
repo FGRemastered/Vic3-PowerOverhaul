@@ -1,4 +1,5 @@
-tobacco_ban_authority = {
+﻿# I have no idea why, but the game hates this file.
+REPLACE_OR_CREATE:tobacco_ban_authority = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	country_authority_add								=  -50
 	interest_group_ig_petty_bourgeoisie_approval_add	= 3
@@ -9,36 +10,29 @@ tobacco_ban_authority = {
 	state_mortality_mult								=-0.05
 	unit_morale_recovery_mult							= 0.10
 }
-decree_manufacturing_throughput = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_group_bg_manufacturing_throughput_add		= 0.10
-	building_group_bg_service_throughput_add			= 0.10
+INJECT:decree_manufacturing_throughput = {
 	building_group_bg_arts_throughput_add				= 0.10	# Added
 	building_group_bg_trade_throughput_add				= 0.10	# Added
 }
-decree_resource_throughput = {
+REPLACE:decree_resource_throughput = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_group_bg_extraction_throughput_add			= 0.10
 }
-dynamite_production_modifier = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+INJECT:dynamite_production_modifier = {
 	building_chemical_plant_throughput_add				= 0.33
-	building_explosives_factory_throughput_add			= 0.33
 }
-mining_production_modifier = {
+REPLACE:mining_production_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_group_bg_mining_throughput_add				= 0.25
 }
-modifier_character_extra_ten_percent_command = {
+REPLACE_OR_CREATE:modifier_character_extra_ten_percent_command = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	character_command_limit_mult						= 0.10
 }
-antireligious_policies = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	state_conversion_mult								= 1.00
+INJECT:antireligious_policies = {
 	tax_heathen_add										= 0.50	# New
 }
-zeppelins_modifier = {
+REPLACE_OR_CREATE:zeppelins_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	unit_army_offense_add								=   30
 	country_trade_route_quantity_mult					= 0.25
@@ -46,126 +40,105 @@ zeppelins_modifier = {
 	interest_group_ig_industrialists_approval_add		= 1
 	interest_group_ig_armed_forces_approval_add			= 1
 }
-automobile_regulations = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-	building_motor_industry_throughput_add				=-0.10
+INJECT:automobile_regulations = {
 	building_automotive_industry_throughput_add			=-0.10
 	country_authority_mult								= 0.10
 }
-sided_with_workers_over_scrips = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add							=-2
+INJECT:sided_with_workers_over_scrips = {
 	interest_group_pol_str_mult							=-0.10
 }
-sided_with_capitalists_over_scrips = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	interest_group_approval_add							= 2
+INJECT:sided_with_capitalists_over_scrips = {
 	interest_group_pol_str_mult							= 0.10
 }
-junker_compromise = {
+junker_compromise = {	# TODO: Turn into amendment
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_aristocrats_pol_str_mult					= 0.50
 }
-radio_production_modifier = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	goods_output_radios_mult							= 0.50	# PDX forgot the s in radios
-}
-modifier_pebrine_state_modifier = {												# Something about this one in particular is fucked and I have no clue why.
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
-	building_silk_plantation_throughput_add				=-0.75
+INJECT:modifier_pebrine_state_modifier = {
 	building_silk_greenhouse_throughput_add				=-0.75
 }
-modifier_silk_grand_reopening = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_silk_plantation_throughput_add				= 0.15
+INJECT:modifier_silk_grand_reopening = {
 	building_silk_greenhouse_throughput_add				= 0.15
 }
-modifier_radio_opium = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds
-	state_mortality_mult								= 0.025
+INJECT:modifier_radio_opium = {
+	building_opium_plantation_throughput_add			=-0.25
 	goods_output_opium_mult								= 0.25
 }
-modifier_european_potato_famine = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
-	building_rye_farm_throughput_add						=-0.30
-	building_wheat_farm_throughput_add						=-0.15
-	building_autarky_farm_throughput_add					=-0.25
-	building_autarky_greenhouse_throughput_add				=-0.25
-	state_harvest_condition_disease_outbreak_impact_mult	= 0.50
+INJECT:opium_production_modifier = {
+	building_opium_greenhouse_throughput_add			= 0.33
 }
-modifier_european_potato_famine_relief = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
-	building_rye_farm_throughput_add						=-0.15
-	building_wheat_farm_throughput_add						=-0.10
-	building_autarky_farm_throughput_add					=-0.10
-	building_autarky_greenhouse_throughput_add				=-0.10
-	state_harvest_condition_disease_outbreak_impact_mult	= 0.25
-	state_import_advantage_mult								= 0.10
+INJECT:modifier_european_potato_famine = {
+	building_autarky_farm_throughput_add				=-0.25
+	building_autarky_greenhouse_throughput_add			=-0.25
 }
-modifier_traditional_patronage = {
+INJECT:modifier_european_potato_famine_relief = {
+	building_autarky_farm_throughput_add				=-0.10
+	building_autarky_greenhouse_throughput_add			=-0.10
+}
+REPLACE_OR_CREATE:modifier_traditional_patronage = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 0.00
 }
-modifier_bourgeoisie_patronage = {
+REPLACE_OR_CREATE:modifier_bourgeoisie_patronage = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 0.50
 }
-modifier_independent_artists = {
+REPLACE_OR_CREATE:modifier_independent_artists = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	building_group_bg_arts_allowed_collectivization_add	= 1.00
 }
-modifier_social_market_economy = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	building_group_bg_manufacturing_allowed_collectivization_add	= 0.50
-	building_group_bg_extraction_allowed_collectivization_add		= 0.50
-	state_shopkeepers_investment_pool_efficiency_mult				= 0.10
-	state_farmers_investment_pool_efficiency_mult					= 0.10
-	interest_group_ig_trade_unions_approval_add						= 5
-}
-modifier_technocratic_democracy = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	country_academics_voting_power_add								= 50
-	country_officers_voting_power_add								= 50
-	country_engineers_voting_power_add								= 50
-}
+# modifier_social_market_economy = {	# TODO: Turn into amendment
+	# icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	# building_group_bg_manufacturing_allowed_collectivization_add	= 0.50
+	# building_group_bg_extraction_allowed_collectivization_add		= 0.50
+	# state_shopkeepers_investment_pool_efficiency_mult				= 0.10
+	# state_farmers_investment_pool_efficiency_mult					= 0.10
+	# interest_group_ig_trade_unions_approval_add						= 5
+# }
+# modifier_technocratic_democracy = {	# TODO: Turn into amendment
+	# icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	# country_academics_voting_power_add								= 50
+	# country_officers_voting_power_add								= 50
+	# country_engineers_voting_power_add								= 50
+# }
 # Cultures
-african_standard_of_living_modifier_positive = {
+REPLACE_OR_CREATE:african_standard_of_living_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
-	state_african_standard_of_living_add = 1
+	state_african_standard_of_living_add			= 1
 }
-african_standard_of_living_modifier_negative = {
+REPLACE_OR_CREATE:african_standard_of_living_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
-	state_african_standard_of_living_add = 1
+	state_african_standard_of_living_add			= 1
 }
-african_cultural_acceptance_modifier_positive = {
+REPLACE_OR_CREATE:african_cultural_acceptance_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
-	country_african_cultural_acceptance_add = 1
+	country_african_cultural_acceptance_add			= 1
 }
-african_cultural_acceptance_modifier_negative = {
+REPLACE_OR_CREATE:african_cultural_acceptance_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
-	country_african_cultural_acceptance_add = 1
+	country_african_cultural_acceptance_add			= 1
 }
-anglo_indian_standard_of_living_modifier_positive = {
+REPLACE_OR_CREATE:anglo_indian_standard_of_living_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
-	state_anglo_indian_standard_of_living_add = 1
+	state_anglo_indian_standard_of_living_add		= 1
 }
-anglo_indian_standard_of_living_modifier_negative = {
+REPLACE_OR_CREATE:anglo_indian_standard_of_living_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
-	state_anglo_indian_standard_of_living_add = 1
+	state_anglo_indian_standard_of_living_add		= 1
 }
-anglo_indian_cultural_acceptance_modifier_positive = {
+REPLACE_OR_CREATE:anglo_indian_cultural_acceptance_modifier_positive = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
-	country_anglo_indian_cultural_acceptance_add = 1
+	country_anglo_indian_cultural_acceptance_add	= 1
 }
-anglo_indian_cultural_acceptance_modifier_negative = {
+REPLACE_OR_CREATE:anglo_indian_cultural_acceptance_modifier_negative = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
-	country_anglo_indian_cultural_acceptance_add = 1
+	country_anglo_indian_cultural_acceptance_add	= 1
 }
-heritage_group_south_asian_cultural_acceptance_modifier_positive = {	# See interest group definitions for the list
+REPLACE_OR_CREATE:heritage_group_south_asian_cultural_acceptance_modifier_positive = {	# See interest group definitions for the list
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
 	country_assamese_cultural_acceptance_add		= 1
 	country_avadhi_cultural_acceptance_add			= 1
-	country_baluchi_cultural_acceptance_add			= 1
+	# country_baluchi_cultural_acceptance_add			= 1	# Doesn't share the south_asian heritage group
 	country_bengali_cultural_acceptance_add			= 1
 	country_bihari_cultural_acceptance_add			= 1
 	country_gujarati_cultural_acceptance_add		= 1
@@ -186,12 +159,16 @@ heritage_group_south_asian_cultural_acceptance_modifier_positive = {	# See inter
 	country_bageli_cultural_acceptance_add			= 1
 	country_chhattisgarhi_cultural_acceptance_add	= 1
 	country_deccani_cultural_acceptance_add			= 1
+	country_nepali_cultural_acceptance_add			= 1
+	country_kashmiri_cultural_acceptance_add		= 1
+	country_sinhala_cultural_acceptance_add			= 1
+	country_kho_cultural_acceptance_add				= 1	# Chitrali in loc
 }
-heritage_group_south_asian_cultural_acceptance_modifier_negative = {	# See interest group definitions for the list
+REPLACE_OR_CREATE:heritage_group_south_asian_cultural_acceptance_modifier_negative = {	# See interest group definitions for the list
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
 	country_assamese_cultural_acceptance_add		= 1
 	country_avadhi_cultural_acceptance_add			= 1
-	country_baluchi_cultural_acceptance_add			= 1
+	# country_baluchi_cultural_acceptance_add			= 1	# Doesn't share the south_asian heritage group
 	country_bengali_cultural_acceptance_add			= 1
 	country_bihari_cultural_acceptance_add			= 1
 	country_gujarati_cultural_acceptance_add		= 1
@@ -212,4 +189,8 @@ heritage_group_south_asian_cultural_acceptance_modifier_negative = {	# See inter
 	country_bageli_cultural_acceptance_add			= 1
 	country_chhattisgarhi_cultural_acceptance_add	= 1
 	country_deccani_cultural_acceptance_add			= 1
+	country_nepali_cultural_acceptance_add			= 1
+	country_kashmiri_cultural_acceptance_add		= 1
+	country_sinhala_cultural_acceptance_add			= 1
+	country_kho_cultural_acceptance_add				= 1	# Chitrali in loc
 }

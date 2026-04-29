@@ -38,6 +38,20 @@ pm_switch.1 = {
 		ai_chance = { base = 0 }
 	}
 	option = {
+		name = "Gimme the newest Pumps"
+		trigger = { has_technology_researched = atmospheric_engine }
+		effect_mining_pumps_switch = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Would you like to explode?"
+		trigger = { has_technology_researched = nitroglycerin }
+		effect_dynamite_switch = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
 		name = "Upgrade the Green Power Grid (Limited)"
 		trigger = { has_technology_researched = electrical_generation }
 		effect_green_power_switch_limited = yes
@@ -48,6 +62,52 @@ pm_switch.1 = {
 		name = "Upgrade the Green Power Grid"
 		trigger = { has_technology_researched = electrical_generation }
 		effect_green_power_switch = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Set the Default Import and Export rules"
+		trigger = {
+			MARKET.OWNER = {
+				NOT = { has_law = law_type:law_isolationism }
+				# NOR = {
+					# has_law = law_type:law_isolationism
+					# has_law = law_type:law_free_trade
+				# }
+			}
+		}
+		highlighted_option = yes
+		show_as_unavailable = { always = yes }
+		MARKET.OWNER = { effect_default_import_export = yes }
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Export everything but metals"
+		trigger = {
+			MARKET.OWNER ?= {
+				NOT = { has_law = law_type:law_isolationism }
+				# NOR = {
+					# has_law = law_type:law_isolationism
+					# has_law = law_type:law_free_trade
+				# }
+			}
+		}
+		highlighted_option = yes
+		show_as_unavailable = { always = yes }
+		MARKET.OWNER = { effect_export_everything_but_metal = yes }
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Reset Automation"
+		trigger = {
+			has_technology_researched = watertube_boiler
+			NOT = { has_law = law_type:law_industry_banned }
+		}
+		show_as_unavailable = { NOT = { has_technology_researched = conveyors } }
+		highlighted_option = yes
+		effect_reset_automation_switch = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}
@@ -99,6 +159,77 @@ pm_switch.1 = {
 		show_as_unavailable = { always = yes }
 		highlighted_option = yes
 		effect_transport_switch = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Primitive Greenhouses"
+		trigger = {
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_primitive_greenhouse } }
+		}
+		show_as_unavailable = { has_technology_researched = mechanical_tools }
+		highlighted_option = yes
+		effect_primitive_greenhouses = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Coal-heated Greenhouses"
+		trigger = {
+			# has_technology_researched = mechanical_tools
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_coal_furnace } }
+		}
+		show_as_unavailable = { has_technology_researched = mechanical_tools }
+		highlighted_option = yes
+		effect_coal_heating_greenhouses = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Electricity-heated Greenhouses"
+		trigger = {
+			has_technology_researched = electrical_generation
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_electric_furnace } }
+		}
+		show_as_unavailable = { has_technology_researched = electrical_generation }
+		highlighted_option = yes
+		effect_electric_heating_greenhouses = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Greenhouse A/C"
+		trigger = {
+			has_technology_researched = pasteurization
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_electric_heat_exchanger } }
+		}
+		show_as_unavailable = { has_technology_researched = pasteurization }
+		highlighted_option = yes
+		effect_heat_exchanger_greenhouses = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Autark Greenhouses"
+		trigger = {
+			has_technology_researched = radio
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_autark_greenhouse } }
+		}
+		show_as_unavailable = { has_technology_researched = radio }
+		highlighted_option = yes
+		effect_autark_greenhouses = yes
+		trigger_event = { id = pm_switch.1 popup = yes }
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = "Oil-powered Greenhouses"
+		trigger = {
+			has_technology_researched = oil_turbine
+			any_scope_building = { trigger_is_greenhouse = yes NOT = { has_active_production_method = pm_oil_furnace } }	# OR = { is_building_type = building_autarky_greenhouse is_building_group = bg_greenhouses }
+		}
+		show_as_unavailable = { has_technology_researched = oil_turbine }
+		highlighted_option = yes
+		effect_oil_heated_greenhouses = yes
 		trigger_event = { id = pm_switch.1 popup = yes }
 		ai_chance = { base = 0 }
 	}

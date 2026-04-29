@@ -11,8 +11,8 @@ REPLACE_OR_CREATE:pm_blister_steel_process = {	# Zementstahl
 			goods_output_sulfur_add				=    5
 		}
 		level_scaled = {
-			building_employment_laborers_add	= 3000
-			building_employment_machinists_add	= 1000
+			building_employment_laborers_add	= 2500
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	=  500
 			building_employment_shopkeepers_add	=  500
 		}										# 5000
@@ -33,10 +33,10 @@ REPLACE_OR_CREATE:pm_bessemer_process = {			# Thomas
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2500
-			building_employment_machinists_add	= 1000
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	=  500
 			building_employment_shopkeepers_add	=  500
-		}										# 4500
+		}										# 5000
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }
 }
@@ -55,10 +55,10 @@ REPLACE_OR_CREATE:pm_open_hearth_process = {		# Siemens-Martin
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	=  750
 			building_employment_shopkeepers_add	=  500
-		}										# 4250
+		}										# 4750
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }
 }
@@ -78,10 +78,10 @@ REPLACE_OR_CREATE:pm_electric_arc_process = {		# Lichtbogen
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	= 1000
 			building_employment_shopkeepers_add	=  500
-		}										# 4500
+		}										# 5000
 	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 25 } }
 }
@@ -102,7 +102,7 @@ REPLACE_OR_CREATE:pm_basic_oxygen_process = {		# Linz-Donawitz
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	= 1000
 			building_employment_academics_add	=  500
 			building_employment_shopkeepers_add	=  500
@@ -125,7 +125,7 @@ REPLACE_OR_CREATE:pm_carbon_capture_steel_process = { # Future tech - Sidegrade 
 		}
 		level_scaled = {
 			building_employment_laborers_add	= 2000
-			building_employment_machinists_add	= 1000
+			building_employment_machinists_add	= 1500
 			building_employment_engineers_add	=  750
 			building_employment_academics_add	=  750
 			building_employment_shopkeepers_add	=  500

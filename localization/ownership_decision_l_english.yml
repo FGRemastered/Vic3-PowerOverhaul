@@ -70,6 +70,5 @@
  
  ideology_feminist_reformer:0 "$ideology_feminist$ $ideology_reformer$"
  ideology_feminist_reformer_desc:0 "$ideology_feminist_desc$"
- anglo_indian: "Anglo-Indian"
  gov_anarchist_republic: "$gov_anarchist_commune$"
  gov_anarchist_republic_desc: "$gov_anarchist_commune_desc$"

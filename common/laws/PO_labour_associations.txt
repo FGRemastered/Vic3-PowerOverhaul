@@ -1,0 +1,18 @@
+﻿# Labour Associations
+INJECT:law_guild_system = {
+	modifier = {
+		# building_group_bg_agricultural_greenhouses_allowed_collectivization_add	= 0.25	# Handled by land reform
+		building_group_bg_greenhouses_allowed_collectivization_add				= 0.25
+	}
+}
+INJECT:law_factory_councils = {
+	modifier = {
+		# building_group_bg_agricultural_greenhouses_allowed_collectivization_add	= 0.50	# Handled by land reform
+		building_group_bg_greenhouses_allowed_collectivization_add				= 0.50
+	}
+}
+INJECT:law_corporatized_unions = {
+	modifier = {
+		building_minimum_wage_mult												=-0.25
+	}
+}

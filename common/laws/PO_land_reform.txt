@@ -1,21 +1,24 @@
 ﻿INJECT:law_serfdom = {
 	modifier = {
-		interest_group_ig_landowners_pol_str_mult			=-0.25	# Removed
-		country_aristocrats_pol_str_mult					= 0.25	# Added
+		interest_group_ig_landowners_pol_str_mult							=-0.25	# Removed
+		country_aristocrats_pol_str_mult									= 0.25	# Added
+		building_group_bg_infrastructure_construction_efficiency_add		= 0.05	# Added
 	}
 }
 INJECT:law_manorialism = {
 	modifier = {
-		interest_group_ig_landowners_pol_str_mult			=-0.15	# Removed
-		country_aristocrats_pol_str_mult					= 0.15	# Added
-		# state_peasants_internal_migration_disallowed_bool	= yes	# Added back
-		# state_peasants_mass_migration_disallowed_bool		= yes	# Added back
+		interest_group_ig_landowners_pol_str_mult							=-0.15	# Removed
+		country_aristocrats_pol_str_mult									= 0.15	# Added
+		# state_peasants_internal_migration_disallowed_bool					= yes	# Added back
+		# state_peasants_mass_migration_disallowed_bool						= yes	# Added back
+		building_group_bg_infrastructure_construction_efficiency_add		= 0.05	# Added
 	}
 }
 INJECT:law_tenant_farmers = {
 	modifier = {
-		interest_group_ig_landowners_pol_str_mult			=-0.25	# Removed
-		country_aristocrats_pol_str_mult					= 0.25	# Added
+		interest_group_ig_landowners_pol_str_mult							=-0.25	# Removed
+		country_aristocrats_pol_str_mult									= 0.25	# Added
+		# building_group_bg_infrastructure_construction_efficiency_add		= 0.00	# Added
 	}
 	ai_enact_weight_modifier = {	# Petitions
 		value = 0
@@ -40,24 +43,37 @@ INJECT:law_tenant_farmers = {
 		}
 	}
 }
+# INJECT:law_latifundias = {
+	# modifier = {
+		# building_group_bg_infrastructure_construction_efficiency_add		= 0.00	# Added
+	# }
+# }
+# INJECT:law_expanded_latifundias = {
+	# modifier = {
+		# building_group_bg_infrastructure_construction_efficiency_add		= 0.00	# Added
+	# }
+# }
 INJECT:law_commercialized_agriculture = {
 	modifier = {
 		state_political_strength_from_wealth_mult							= 0.25	# Added
-		building_group_bg_agriculture_throughput_add						= 0.10	# Added
-		building_group_bg_ranching_throughput_add							= 0.10	# Added
-		building_group_bg_plantations_throughput_add						= 0.10	# Added
+		# building_group_bg_agriculture_throughput_add						= 0.10	# Added
+		# building_group_bg_ranching_throughput_add							= 0.10	# Added
+		# building_group_bg_plantations_throughput_add						= 0.10	# Added
+		building_group_bg_infrastructure_construction_efficiency_add		=-0.10	# Added
 	}
 }
 INJECT:law_homesteading = {
 	modifier = {
 		country_farmers_pol_str_mult										= 0.25	# Increased
-		building_group_bg_agriculture_throughput_add						= 0.10	# Added
-		building_group_bg_ranching_throughput_add							= 0.10	# Added
-		building_group_bg_plantations_throughput_add						= 0.10	# Added
+		# building_group_bg_agriculture_throughput_add						= 0.10	# Added
+		# building_group_bg_ranching_throughput_add							= 0.10	# Added
+		# building_group_bg_plantations_throughput_add						= 0.10	# Added
+		building_group_bg_infrastructure_construction_efficiency_add		=-0.25	# Added
 	}
 }
 INJECT:law_collectivized_agriculture = {
 	modifier = {
 		country_bureaucrats_pol_str_mult									= 0.25	# Moved from law_command_economy
+		building_group_bg_infrastructure_construction_efficiency_add		= 0.25	# Added
 	}
 }

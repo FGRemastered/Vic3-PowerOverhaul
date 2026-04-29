@@ -10,59 +10,59 @@ REPLACE_OR_CREATE:pmg_base_building_autarky_farm = {
 		pm_auto_fertilized_autarky_farm
 	}
 }
-REPLACE_OR_CREATE:pmg_base_building_subsistence_farms = {
+REPLACE_OR_CREATE:pmg_base_building_subsistence_farm = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_default_subsistence_farms
-		pm_enriched_subsistence_farms
-		pm_fertilized_subsistence_farms
-		pm_chem_fertilized_subsistence_farms
-		pm_auto_fertilized_subsistence_farms
+		pm_default_subsistence_farm
+		pm_enriched_subsistence_farm
+		pm_fertilized_subsistence_farm
+		pm_chem_fertilized_subsistence_farm
+		pm_auto_fertilized_subsistence_farm
 	}
 }
-REPLACE_OR_CREATE:pmg_base_building_subsistence_orchards = {
+REPLACE_OR_CREATE:pmg_base_building_subsistence_orchard = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_default_subsistence_orchards
-		pm_enriched_subsistence_orchards
-		pm_fertilized_subsistence_orchards
-		pm_chem_fertilized_subsistence_orchards
-		pm_auto_fertilized_subsistence_orchards
+		pm_default_subsistence_orchard
+		pm_enriched_subsistence_orchard
+		pm_fertilized_subsistence_orchard
+		pm_chem_fertilized_subsistence_orchard
+		pm_auto_fertilized_subsistence_orchard
 	}
 }
-REPLACE_OR_CREATE:pmg_base_building_subsistence_pastures = {
+REPLACE_OR_CREATE:pmg_base_building_subsistence_pasture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_default_subsistence_pastures
-		pm_enriched_subsistence_pastures
-		pm_fertilized_subsistence_pastures
-		pm_chem_fertilized_subsistence_pastures
-		pm_auto_fertilized_subsistence_pastures
+		pm_default_subsistence_pasture
+		pm_enriched_subsistence_pasture
+		pm_fertilized_subsistence_pasture
+		pm_chem_fertilized_subsistence_pasture
+		pm_auto_fertilized_subsistence_pasture
 	}
 }
-REPLACE_OR_CREATE:pmg_base_building_subsistence_fishing_villages = {
+REPLACE_OR_CREATE:pmg_base_building_subsistence_fishing_village = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_default_subsistence_fishing_villages
-		pm_enriched_subsistence_fishing_villages
-		pm_fertilized_subsistence_fishing_villages
-		pm_chem_fertilized_subsistence_fishing_villages
-		pm_auto_fertilized_subsistence_fishing_villages
+		pm_default_subsistence_fishing_village
+		pm_enriched_subsistence_fishing_village
+		pm_fertilized_subsistence_fishing_village
+		pm_chem_fertilized_subsistence_fishing_village
+		pm_auto_fertilized_subsistence_fishing_village
 	}
 }
-REPLACE_OR_CREATE:pmg_base_building_subsistence_rice_paddies = {
+REPLACE_OR_CREATE:pmg_base_building_subsistence_rice_farm = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_default_subsistence_rice_paddies
-		pm_enriched_subsistence_rice_paddies
-		pm_fertilized_subsistence_rice_paddies
-		pm_chem_fertilized_subsistence_rice_paddies
-		pm_auto_fertilized_subsistence_rice_paddies
+		pm_default_subsistence_rice_farm
+		pm_enriched_subsistence_rice_farm
+		pm_fertilized_subsistence_rice_farm
+		pm_chem_fertilized_subsistence_rice_farm
+		pm_auto_fertilized_subsistence_rice_farm
 	}
 }
 # Home Workshops

@@ -12,6 +12,8 @@ REPLACE_OR_CREATE:pm_serfdom = {
 			goods_output_fish_mult								= 0.25
 			goods_output_fruit_mult								= 0.25
 			goods_output_meat_mult								= 0.25
+			building_peasants_job_attractiveness_mult			=-0.25
+			# building_minimum_wage_mult							=-0.25
 		}
 	}
 	state_modifiers = {
@@ -30,6 +32,8 @@ REPLACE_OR_CREATE:pm_corvee_labor = {
 			goods_output_fish_mult								= 0.25
 			goods_output_fruit_mult								= 0.25
 			goods_output_meat_mult								= 0.25
+			building_peasants_job_attractiveness_mult			=-0.25
+			# building_minimum_wage_mult							=-0.25
 		}
 	}
 	state_modifiers = {
@@ -62,6 +66,9 @@ REPLACE_OR_CREATE:pm_homesteading_building_subsistence = {
 			goods_output_fish_mult								= 0.25
 			goods_output_fruit_mult								= 0.25
 			goods_output_meat_mult								= 0.25
+			# building_peasants_job_attractiveness_mult			= 0.25
+			# building_farmers_job_attractiveness_mult			= 0.25
+			building_minimum_wage_mult							=-0.25
 		}
 	}
 	state_modifiers = {		# Yes, it has to be this complicated.
@@ -73,7 +80,7 @@ REPLACE_OR_CREATE:pm_homesteading_building_subsistence = {
 }
 REPLACE_OR_CREATE:pm_decentralised_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/homesteading.dds"
-	unlocking_laws = { law_consumption_based_taxation law_land_based_taxation law_per_capita_based_taxation law_homesteading }
+	# unlocking_laws = { law_consumption_based_taxation law_land_based_taxation law_per_capita_based_taxation law_homesteading }
 	# is_hidden_when_unavailable = yes
 	building_modifiers = {
 		level_scaled = {
@@ -83,6 +90,9 @@ REPLACE_OR_CREATE:pm_decentralised_subsistence = {
 			building_employment_peasants_add					= -500
 			building_employment_farmers_add						=  500
 			building_subsistence_output_add						=    5
+			# building_peasants_job_attractiveness_mult			= 0.50
+			# building_farmers_job_attractiveness_mult			= 0.50
+			building_minimum_wage_mult							=-0.25
 		}
 	}
 	ai_value = 0

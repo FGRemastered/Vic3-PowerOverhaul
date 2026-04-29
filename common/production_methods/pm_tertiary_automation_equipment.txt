@@ -35,11 +35,14 @@ REPLACE_OR_CREATE:pm_powered_lift_mine = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add				=    1
+			goods_input_automobiles_add			=    1
 			goods_input_electricity_add			=    5
+			goods_input_services_add			=    5
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-1000
-			building_employment_machinists_add 	= -500
+			building_employment_machinists_add	= -500
+			building_employment_shopkeepers_add	= -500
 		}
 		unscaled = {
 			goods_input_transportation_mult		= 1.00
@@ -48,9 +51,11 @@ REPLACE_OR_CREATE:pm_powered_lift_mine = {
 			goods_output_lead_mult				= 1.00
 			goods_output_sulfur_mult			= 1.00
 			goods_output_gold_mult				= 1.00
+			# building_employment_shopkeepers_mult	=-0.90
 		}
 		# unscaled = { building_throughput_add	= 1.00 }
 	}
+	# required_input_goods = services
 	required_input_goods = electricity
 }
 # Coal Mine
@@ -104,14 +109,17 @@ REPLACE_OR_CREATE:pm_chainsaws = {
 	disallowing_laws = { law_industry_banned }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_engines_add				=    2
+			goods_input_automobiles_add			=    1
 			goods_input_electricity_add			=    1
 			goods_input_oil_add					=    4
+			goods_input_services_add			=    5
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-3000
+			# building_employment_shopkeepers_add	= -500	# Removed - Causes issues with Rubber and Greenhouses
 		}
 		unscaled = {
+			# building_employment_shopkeepers_mult=-1.00	# Removed - Causes issues with Rubber and Greenhouses
 			goods_input_transportation_mult		= 1.00
 			goods_output_wood_mult				= 1.00
 			goods_output_hardwood_mult			= 1.00
@@ -178,6 +186,7 @@ REPLACE_OR_CREATE:pm_modern_tractors = {
 		workforce_scaled = {
 			goods_input_tools_add				=    1
 			goods_input_automobiles_add			=    1	# The energy is supplied in the assembly pm
+			goods_input_services_add			=    9
 		}
 		level_scaled = {
 			building_employment_laborers_add	=-2500
@@ -206,7 +215,7 @@ REPLACE_OR_CREATE:pm_tools_disabled_subsistence = {
 REPLACE_OR_CREATE:pm_tools_subsistence = {
 	texture = "gfx/interface/icons/production_method_icons/harvesting_tools.dds"
 	unlocking_technologies = { manufacturies }
-	disallowing_laws = { law_serfdom law_manorialism }
+	# disallowing_laws = { law_serfdom law_manorialism }
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add				=    1

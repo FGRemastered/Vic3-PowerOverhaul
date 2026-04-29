@@ -1,6 +1,7 @@
 ﻿# Missing/Broken base-game triggers
 has_monarchist_ideology = {
 	OR = {
+		law_stance = { law = law_type:law_monarchy value > neutral }
 		has_ideology = ideology:ideology_royalist
 		has_ideology = ideology:ideology_orleanist
 		has_ideology = ideology:ideology_bonapartist
@@ -38,6 +39,35 @@ is_feminist = {	# Doesn't exist yet, but would be called that.
 		has_ideology = ideology:ideology_feminist
 		has_ideology = ideology:ideology_humanitarian
 		has_ideology = ideology:ideology_humanitarian_royalist
+	}
+}
+trigger_reactionary_character = {
+	OR = {
+		has_ideology = ideology:ideology_traditionalist
+		has_ideology = ideology:ideology_traditionalist_minoritarian
+		has_ideology = ideology:ideology_theocrat
+		has_ideology = ideology:ideology_luddite
+		has_ideology = ideology:ideology_ethno_nationalist
+		has_ideology = ideology:ideology_fascist
+		has_ideology = ideology:ideology_integralist
+		# has_ideology = ideology:ideology_authoritarian
+		# has_ideology = ideology:ideology_market_liberal
+	}
+}
+trigger_reactionary_movement = {
+	OR = {
+		is_political_movement_type = movement_pro_slavery
+		is_political_movement_type = movement_reactionary
+		# is_political_movement_type = movement_corporatist
+		is_political_movement_type = movement_fascist
+		is_political_movement_type = movement_cultural_majority
+		is_political_movement_type = movement_india_pan_national
+		is_political_movement_type = movement_religious_majority
+		is_political_movement_type = movement_religious_minority
+		is_political_movement_type = movement_hindu_nationalist
+		is_political_movement_type = movement_muslim_nationalist
+		is_political_movement_type = movement_carlist
+		is_political_movement_type = movement_miguelist
 	}
 }
 trigger_country_is_jewish = {
@@ -158,6 +188,53 @@ trigger_country_is_animist = {
 		country_definition.religion = rel:ibadi
 	}
 }
+# ethiopian_clothes_trigger = {	# There are no female Ethiopian clothes!
+	# exists = scope:character
+	# scope:character = {
+		# culture = { has_discrimination_trait = heritage_abyssinian }
+		# OR = {
+			# religion = { has_discrimination_trait = heritage_christian }
+			# religion = { has_discrimination_trait_group = heritage_group_non_spiritual }	# Atheist
+		# }
+	# }
+# }
+# arabic_clothes_trigger = {
+	# exists = scope:character
+	# scope:character = {
+		# OR = {
+			# culture = {
+				# OR = {
+					# has_discrimination_trait_group = heritage_group_middle_eastern
+					# has_discrimination_trait_group = heritage_group_central_asian		# Currently no point having a different check
+				# }
+			# }
+			# AND = {
+				# culture = { has_discrimination_trait = heritage_abyssinian }
+				# NOR = {
+					# religion = { has_discrimination_trait = heritage_christian }
+					# religion = { has_discrimination_trait_group = heritage_group_non_spiritual }	# Atheist
+				# }
+			# }
+			# culture = cu:circassian
+			# AND = { # Albanian characters serving either the Ottomans or Egyptians should wear that country's clothing.
+				# culture = cu:albanian
+				# exists = home_country
+				# OR = {
+					# home_country = {
+						# exists = c:TUR
+						# c:TUR = this
+						# c:TUR ?= { has_law = law_type:law_monarchy }
+					# }
+					# home_country = {
+						# exists = c:EGY
+						# c:EGY = this
+						# c:EGY ?= { has_law = law_type:law_monarchy }
+					# }
+				# }
+			# }
+		# }
+	# }
+# }
 has_corporatist_ideology = {
 	OR = {
 		has_ideology = ideology:ideology_fascist
@@ -342,13 +419,16 @@ trigger_chose_not_ethno_nationalism = {
 		has_variable = chose_fascism
 	}
 }
-trigger_no_republican_monarch = {
-	NAND = {	# Monarchs cannot be republicans
-		OWNER = { has_law	= law_type:law_monarchy }
-		OR = {
-			is_ruler	= yes
-			is_heir		= yes
-		}
+trigger_ruler_or_heir = {
+	OR = {
+		is_ruler	= yes
+		is_heir		= yes
+	}
+}
+trigger_no_republican_monarch = {	# Monarchs cannot be republicans
+	NAND = {
+		OWNER ?= { has_law	= law_type:law_monarchy }
+		trigger_ruler_or_heir = yes
 	}
 }
 trigger_BIC_british_dictate = {
@@ -380,6 +460,44 @@ trigger_ai_will_do_sovereign_resource_fund = {
 		any_primary_culture = { has_discrimination_trait = language_germanophone }
 	}
 }
+trigger_ai_will_do_sovereign_growth_fund = {
+	# has_technology_researched = stock_exchange
+	# NOR = {
+		# is_banning_goods	= g:opium
+		# any_primary_culture = { has_discrimination_trait = language_scandinavian }
+		# any_primary_culture = { has_discrimination_trait = language_germanophone }
+	# }
+	always = no
+}
+trigger_german_edeka_possible = {
+	has_technology_researched = corporate_charters
+	OR = {
+		any_scope_state = {
+			state_region = s:STATE_BRANDENBURG
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_food_industry
+					is_building_type = building_trade_center
+				}
+				level >= 5
+			}
+		}
+		trigger_if = {
+			limit = { is_not_in_geographic_region = geographic_region_europe }
+			any_overlord_or_above = { country_has_primary_culture = cu:north_german }
+		}
+	}
+}
+trigger_modern_trains_active = {	# Non-Steam
+	OR = {
+		is_production_method_active = { building_type = building_railway production_method = pm_electric_trains }
+		is_production_method_active = { building_type = building_railway production_method = pm_diesel_trains }
+		is_production_method_active = { building_type = building_railway production_method = pm_diesel_electric_trains }
+		is_production_method_active = { building_type = building_railway production_method = pm_jet_electric_trains }
+		is_production_method_active = { building_type = building_railway production_method = pm_maglev_trains }
+	}
+}
 trigger_junker_landowners = {
 	any_interest_group = { has_ideology = ideology:ideology_junker_paternalistic }
 }
@@ -400,11 +518,264 @@ trigger_PREV_has_investment_rights = {
 		}
 	}
 }
+trigger_all_states_can_have_infrastructure = {
+	OR = {
+		has_technology_researched = railways	# Railways tech is to make sure you can have enough infrastructure
+		trigger_if = { limit = { is_subject = yes } OVERLORD ?= { has_technology_researched = railways } }
+		any_scope_state = { has_building = building_port count = all }
+	}
+}
+# Tech triggers
+trigger_missing_production_tech_era_1 = {
+	OR = {
+		NOT = { has_technology_researched = sericulture }
+		NOT = { has_technology_researched = enclosure }
+		NOT = { has_technology_researched = manufacturies }
+		NOT = { has_technology_researched = shaft_mining }
+		NOT = { has_technology_researched = cotton_gin }
+		NOT = { has_technology_researched = lathe }
+		NOT = { has_technology_researched = distillation }
+		NOT = { has_technology_researched = steelworking }
+		NOT = { has_technology_researched = prospecting }
+	}
+}
+trigger_missing_production_tech_era_2 = {
+	OR = {
+		NOT = { has_technology_researched = intensive_agriculture }
+		NOT = { has_technology_researched = mechanical_tools }
+		NOT = { has_technology_researched = atmospheric_engine }
+		NOT = { has_technology_researched = railways }
+		NOT = { has_technology_researched = bessemer_process }
+		NOT = { has_technology_researched = watertube_boiler }
+		NOT = { has_technology_researched = crystal_glass }
+		NOT = { has_technology_researched = fractional_distillation }
+		NOT = { has_technology_researched = canneries }
+		NOT = { has_technology_researched = chemical_bleaching }
+		NOT = { has_technology_researched = mechanized_workshops }
+		NOT = { has_technology_researched = baking_powder }
+		NOT = { has_technology_researched = nitroglycerin }
+	}
+}
+trigger_missing_production_tech_era_3 = {
+	OR = {
+		NOT = { has_technology_researched = improved_fertilizer }
+		NOT = { has_technology_researched = dynamite }
+		NOT = { has_technology_researched = steam_donkey }
+		NOT = { has_technology_researched = open_hearth_process }
+		NOT = { has_technology_researched = reinforced_concrete }
+		NOT = { has_technology_researched = rotary_valve_engine }
+		NOT = { has_technology_researched = steel_railway_cars }
+		NOT = { has_technology_researched = shift_work }
+		NOT = { has_technology_researched = vacuum_canning }
+		NOT = { has_technology_researched = rubber_mastication }
+		NOT = { has_technology_researched = vulcanization }
+		NOT = { has_technology_researched = aniline }
+		NOT = { has_technology_researched = threshing_machine }
+		NOT = { has_technology_researched = pumpjacks }
+		NOT = { has_technology_researched = electrical_generation }
+	}
+}
+trigger_missing_production_tech_era_4 = {
+	OR = {
+		NOT = { has_technology_researched = nitrogen_fixation }
+		NOT = { has_technology_researched = mechanized_farming }
+		NOT = { has_technology_researched = electric_arc_process }
+		NOT = { has_technology_researched = plastics }
+		NOT = { has_technology_researched = pneumatic_tools }
+		NOT = { has_technology_researched = steam_turbine }
+		NOT = { has_technology_researched = combustion_engine }
+		NOT = { has_technology_researched = electrical_capacitors }
+		NOT = { has_technology_researched = pasteurization }
+		NOT = { has_technology_researched = electric_railway }
+		NOT = { has_technology_researched = telephone }
+		NOT = { has_technology_researched = radio }
+		NOT = { has_technology_researched = conveyors }
+		NOT = { has_technology_researched = automatic_bottle_blowers }
+		NOT = { has_technology_researched = art_silk }
+	}
+}
+trigger_missing_production_tech_era_5 = {
+	OR = {
+		NOT = { has_technology_researched = dough_rollers }
+		NOT = { has_technology_researched = compression_ignition }
+		NOT = { has_technology_researched = arc_welding }
+		NOT = { has_technology_researched = oil_turbine }
+		NOT = { has_technology_researched = flash_freezing }
+	}
+}
+trigger_missing_military_tech_era_1 = {
+	OR = {
+		NOT = { has_technology_researched = standing_army }
+		NOT = { has_technology_researched = mandatory_service }
+		NOT = { has_technology_researched = gunsmithing }
+		NOT = { has_technology_researched = military_drill }
+		NOT = { has_technology_researched = line_infantry }
+		NOT = { has_technology_researched = army_reserves }
+		NOT = { has_technology_researched = artillery }
+		NOT = { has_technology_researched = napoleonic_warfare }
+		NOT = { has_technology_researched = navigation }
+		NOT = { has_technology_researched = drydocks }
+		NOT = { has_technology_researched = admiralty }
+		NOT = { has_technology_researched = paddle_steamer }
+	}
+}
+trigger_missing_military_tech_era_2 = {
+	OR = {
+		NOT = { has_technology_researched = percussion_cap }
+		NOT = { has_technology_researched = general_staff }
+		NOT = { has_technology_researched = rifling }
+		NOT = { has_technology_researched = shell_gun }
+		NOT = { has_technology_researched = field_works }
+		NOT = { has_technology_researched = logistics }
+		NOT = { has_technology_researched = triage }
+		NOT = { has_technology_researched = screw_frigate }
+		NOT = { has_technology_researched = power_of_the_purse }
+		NOT = { has_technology_researched = hydraulic_cranes }
+	}
+}
+trigger_missing_military_tech_era_3 = {
+	OR = {
+		NOT = { has_technology_researched = modern_nursing }
+		NOT = { has_technology_researched = repeaters }
+		NOT = { has_technology_researched = breech_loading_artillery }
+		NOT = { has_technology_researched = handcranked_machine_gun }
+		NOT = { has_technology_researched = enlistment_offices }
+		NOT = { has_technology_researched = electric_telegraph }
+		NOT = { has_technology_researched = military_statistics }
+		NOT = { has_technology_researched = ironclad_tech }
+		NOT = { has_technology_researched = gantry_cranes }
+		NOT = { has_technology_researched = jeune_ecole }
+		NOT = { has_technology_researched = floating_harbor }
+		NOT = { has_technology_researched = self_propelled_torpedoes }
+		NOT = { has_technology_researched = monitor_tech }
+	}
+}
+trigger_missing_military_tech_era_4 = {
+	OR = {
+		NOT = { has_technology_researched = bolt_action_rifles }
+		NOT = { has_technology_researched = war_propaganda }
+		NOT = { has_technology_researched = wargaming }
+		NOT = { has_technology_researched = trench_works }
+		NOT = { has_technology_researched = defense_in_depth }
+		NOT = { has_technology_researched = automatic_machine_guns }
+		NOT = { has_technology_researched = submarine }
+		NOT = { has_technology_researched = destroyer }
+		NOT = { has_technology_researched = landing_craft }
+		NOT = { has_technology_researched = sea_lane_strategies }
+		NOT = { has_technology_researched = concrete_dockyards }
+		NOT = { has_technology_researched = dreadnought }
+	}
+}
+trigger_missing_military_tech_era_5 = {
+	OR = {
+		NOT = { has_technology_researched = stormtroopers }
+		NOT = { has_technology_researched = nco_training }
+		NOT = { has_technology_researched = concrete_fortifications }
+		NOT = { has_technology_researched = flamethrowers }
+		NOT = { has_technology_researched = chemical_warfare }
+		NOT = { has_technology_researched = military_aviation }
+		NOT = { has_technology_researched = mobile_armor }
+		NOT = { has_technology_researched = battleship_tech }
+		NOT = { has_technology_researched = carrier_tech }
+		NOT = { has_technology_researched = battlefleet_tactics }
+	}
+}
+trigger_missing_society_tech_era_1 = {
+	OR = {
+		NOT = { has_technology_researched = urbanization }
+		NOT = { has_technology_researched = urban_planning }
+		NOT = { has_technology_researched = tech_bureaucracy }
+		NOT = { has_technology_researched = law_enforcement }
+		NOT = { has_technology_researched = international_trade }
+		NOT = { has_technology_researched = stock_exchange }
+		NOT = { has_technology_researched = centralization }
+		NOT = { has_technology_researched = currency_standards }
+		NOT = { has_technology_researched = banking }
+		NOT = { has_technology_researched = international_relations }
+		NOT = { has_technology_researched = colonization }
+		NOT = { has_technology_researched = rationalism }
+		NOT = { has_technology_researched = democracy }
+		NOT = { has_technology_researched = mass_communication }
+		NOT = { has_technology_researched = academia }
+		NOT = { has_technology_researched = romanticism }
+		NOT = { has_technology_researched = medical_degrees }
+		NOT = { has_technology_researched = empiricism }
+	}
+}
+trigger_missing_society_tech_era_2 = {
+	OR = {
+		NOT = { has_technology_researched = corporate_charters }
+		NOT = { has_technology_researched = joint_stock_companies }
+		NOT = { has_technology_researched = egalitarianism }
+		NOT = { has_technology_researched = nationalism }
+		NOT = { has_technology_researched = pharmaceuticals }
+		NOT = { has_technology_researched = modern_sewerage }
+		NOT = { has_technology_researched = quinine }
+		NOT = { has_technology_researched = organized_sports }
+		NOT = { has_technology_researched = central_archives }
+		NOT = { has_technology_researched = central_banking }
+		NOT = { has_technology_researched = dialectics }
+		NOT = { has_technology_researched = psychiatry }
+		NOT = { has_technology_researched = realism }
+		NOT = { has_technology_researched = labor_movement }
+		NOT = { has_technology_researched = postal_savings }
+	}
+}
+trigger_missing_society_tech_era_3 = {
+	OR = {
+		NOT = { has_technology_researched = corporatism }
+		NOT = { has_technology_researched = human_rights }
+		NOT = { has_technology_researched = feminism }
+		NOT = { has_technology_researched = steel_frame_buildings }
+		NOT = { has_technology_researched = civilizing_mission }
+		NOT = { has_technology_researched = anarchism }
+		NOT = { has_technology_researched = socialism }
+		NOT = { has_technology_researched = pan-nationalism }
+		NOT = { has_technology_researched = mutual_funds }
+		NOT = { has_technology_researched = investment_banks }
+		NOT = { has_technology_researched = camera }
+		NOT = { has_technology_researched = philosophical_pragmatism }
+		NOT = { has_technology_researched = identification_documents }
+	}
+}
+trigger_missing_society_tech_era_4 = {
+	OR = {
+		NOT = { has_technology_researched = corporate_management }
+		NOT = { has_technology_researched = elevator }
+		NOT = { has_technology_researched = zeppelins }
+		NOT = { has_technology_researched = malaria_prevention }
+		NOT = { has_technology_researched = central_planning }
+		NOT = { has_technology_researched = political_agitation }
+		NOT = { has_technology_researched = international_exchange_standards }
+		NOT = { has_technology_researched = psychoanalysis }
+		NOT = { has_technology_researched = film }
+		NOT = { has_technology_researched = multilateral_alliances }
+	}
+}
+trigger_missing_society_tech_era_5 = {
+	OR = {
+		NOT = { has_technology_researched = mass_surveillance }
+		NOT = { has_technology_researched = antibiotics }
+		NOT = { has_technology_researched = mass_propaganda }
+		NOT = { has_technology_researched = modern_financial_instruments }
+		NOT = { has_technology_researched = macroeconomics }
+		NOT = { has_technology_researched = behaviorism }
+		NOT = { has_technology_researched = analytical_philosophy }
+		NOT = { has_technology_researched = paved_roads }
+	}
+}
 trigger_bureacracy_admin_state = {
+	trigger_if = {
+		limit = { OWNER = { has_technology_researched = tech_bureaucracy } }
+		OR = {
+			any_scope_building = { is_building_type = building_skyscraper }
+			has_variable = must_destroy_admin
+		}
+	}
 	OR = {
 		is_capital = yes
 		any_scope_building = { is_building_type = building_skyscraper }
-		OWNER = { has_law = law_type:law_elected_bureaucrats }
+		OWNER ?= { has_law_or_variant = law_type:law_elected_bureaucrats }
 	}
 }
 trigger_valid_pop_spawn_state = {
@@ -433,8 +804,8 @@ trade_center_construction_allowed = {
 	trigger_if = {
 		limit = {
 			OR = {
-				OWNER = { has_law = law_type:law_canton_system } 
-				scope:investor_country = { has_law = law_type:law_canton_system }
+				OWNER ?= { has_law = law_type:law_canton_system } 
+				scope:investor_country ?= { has_law = law_type:law_canton_system }
 			}
 		}
 		custom_tooltip = {
@@ -446,33 +817,57 @@ trade_center_construction_allowed = {
 			}
 		}
 	}
-	trigger_else_if = {
-		limit = {
-			OR = {
-				OWNER = { is_player = yes }
-				OWNER = { has_law_or_variant = law_type:law_mercantilism }
-				scope:investor_country = { has_law_or_variant = law_type:law_mercantilism }
-			}
-		}
-		OR = {
-			trigger_capital_or_market_capital = yes
-			is_treaty_port = yes
+	# trigger_else_if = {	# Replaced by AI value
+		# limit = {
+			# OR = {
+				# OWNER = { is_player = yes }
+				# OWNER = { has_law_or_variant = law_type:law_mercantilism }
+				# scope:investor_country = { has_law_or_variant = law_type:law_mercantilism }
+			# }
+		# }
+		# OR = {
+			# trigger_capital_or_market_capital = yes
+			# is_treaty_port = yes
+		# }
+	# }
+	trigger_else = {
+		NOT = { OWNER ?= { has_law = law_type:law_isolationism } }
+		trigger_if = {
+			limit = { OWNER != scope:investor_country }
+			NOT = { scope:investor_country = { has_law = law_type:law_isolationism } }
 		}
 	}
-	trigger_else = {
-		NOT = { owner = { has_law = law_type:law_isolationism } }
-		trigger_if = {
-			limit = { owner != scope:investor_country }
-			NOT = { scope:investor_country = { has_law = law_type:law_isolationism } }
-		}	
+}
+trigger_green_pm_active_state = {
+	OR = {
+		is_production_method_active = { building_type		= building_autarky_greenhouse	production_method = pm_autark_greenhouse }
+		any_scope_building			= { is_building_group	= bg_greenhouses				has_active_production_method = pm_autark_greenhouse }
+		is_production_method_active = { building_type		= building_urban_center			production_method = pm_solar_roofing }
+		is_production_method_active = { building_type		= building_urban_center			production_method = pm_air_scrubber }
+	}
+}
+trigger_power_plant_allowed = {
+	OR = {
+		AND = {
+			OWNER ?= { NOT = { has_law_or_variant = law_type:law_industry_banned } }
+			trigger_green_pm_active_state = no
+		}
+		is_in_geographic_region = geographic_region_hydropower
+	}
+}
+trigger_is_private_infrastructure = {
+	OR = {
+		is_building_type = building_railway
+		is_building_type = building_power_plant
+		is_building_type = building_trade_center
 	}
 }
 trigger_auto_expand_autarky = {
 	state.market_access	> 0.95
 	occupancy			> 0.95
 	OR = {
-		state = { state_unemployment_rate > 0.01 }							# Tooltip is broken, but it works
-		state = { any_scope_pop = { is_employed = no total_size > 1000 } }	# Tooltip is broken, but it works
+		STATE ?= { state_unemployment_rate > 0.01 }							# Tooltip is broken, but it works
+		STATE ?= { any_scope_pop = { is_employed = no total_size > 1000 } }	# Tooltip is broken, but it works
 		market.mg:grain	= { market_goods_pricier >= 0.25 }
 		market.mg:fish	= { market_goods_pricier >= 0.25 }
 		market.mg:fruit	= { market_goods_pricier >= 0.25 }
@@ -483,13 +878,24 @@ trigger_auto_expand_autarky = {
 }
 trigger_auto_expand_trade = {
 	default_auto_expand_rule = yes
-	state = {
-		OR = {
-			trigger_capital_or_market_capital = yes
-			is_treaty_port = yes
+	trigger_if = {
+		limit = { OWNER = { any_scope_state = { is_incorporated = yes count > 2 } } }
+		STATE ?= {
+			OR = {
+				trigger_capital_or_market_capital = yes
+				is_treaty_port = yes
+			}
 		}
-		# modifier:state_trade_capacity_add <= 10
 	}
+	trigger_else = {
+		STATE ?= {
+			OR = {
+				is_incorporated = yes
+				is_treaty_port = yes
+			}
+		}
+	}
+	# modifier:state_trade_capacity_add <= 10
 }
 trigger_auto_expand_railway = {
 	OR = {
@@ -498,16 +904,16 @@ trigger_auto_expand_railway = {
 	}
 	OR = {
 		weekly_profit		>= 10000
-		state = { sg:transportation = { state_goods_pricier > 0 } }	# Changed
-		state = {
-			trigger_if		= { limit = { OWNER = { has_technology_researched = paved_roads } }	infrastructure_delta < define:NGraphics|ROUTE_PAVED_ROAD_MIN_INFRASTRUCTURE }
-			trigger_else	= {																	infrastructure_delta < 1 }
+		STATE ?= { sg:transportation = { state_goods_pricier > 0 } }	# Changed
+		STATE ?= {
+			trigger_if		= { limit = { OWNER ?= { has_technology_researched = paved_roads } }	infrastructure_delta < define:NGraphics|ROUTE_PAVED_ROAD_MIN_INFRASTRUCTURE }
+			trigger_else	= {																		infrastructure_delta < 1 }
 		} # relative_infrastructure
 		# state.market_access < 1	# Causes issue when you are a puppet connected by convoys
 	}
-	state = { sg:transportation = { state_goods_cheaper < 0.75 } }
+	STATE ?= { sg:transportation = { state_goods_cheaper < 0.75 } }
 	occupancy > 0.975 # Don't try to expand unless sufficient employment
-	state = { NOT = { is_isolated_from_market = yes } }	# Needs to be this way.
+	STATE ?= { NOT = { is_isolated_from_market = yes } }	# Needs to be this way.
 	building_has_goods_shortage = no					# Added
 }
 trigger_auto_expand_power = {
@@ -517,9 +923,9 @@ trigger_auto_expand_power = {
 	}
 	OR = {
 		weekly_profit		>= 10000
-		state = { sg:electricity = { state_goods_pricier > 0 } }	
+		STATE ?= { sg:electricity = { state_goods_pricier > 0 } }	
 	}
-	state = { sg:electricity = { state_goods_cheaper < 0.75 } }
+	STATE ?= { sg:electricity = { state_goods_cheaper < 0.75 } }
 	state.market_access	> 0.9
 	occupancy			> 0.95
 	building_has_goods_shortage = no
@@ -530,25 +936,25 @@ trigger_auto_expand_admin = {
 		state.tax_capacity < state.tax_capacity_usage
 		# tax_capacity_balance < tax_capacity_per_admin
 		AND = {
-			STATE = { trigger_bureacracy_admin_state = yes }
+			STATE ?= { trigger_bureacracy_admin_state = yes }
 			OR = {
-				OWNER = { bureaucracy <= 0 }
-				OWNER = { approaching_bureaucracy_shortage = yes }
+				OWNER ?= { bureaucracy <= 0 }
+				OWNER ?= { approaching_bureaucracy_shortage = yes }
 			}
 		}
 	}
 	building_has_goods_shortage = no
 	state.market_access > 0.9
 }
-trigger_auto_expand_port = {
+trigger_auto_expand_port = {	# building scope
 	OR = {
 		trigger_if = {
-			limit = { OWNER = { NOT = { has_technology_researched = railways } } }	# Placeholder for land adjacency
-			state = { market_access < 1 }
+			limit = { OWNER ?= { NOT = { has_technology_researched = railways } } }	# Placeholder for land adjacency
+			STATE ?= { market_access < 1 }
 		}
 		custom_tooltip = {
 			text = insufficient_convoys.tt
-			OWNER = {
+			OWNER ?= {
 				modifier:country_convoy_contribution_to_market_owner_add < 1
 				OR = {
 					num_convoys_available < num_convoys_required
@@ -557,7 +963,7 @@ trigger_auto_expand_port = {
 			}
 		}
 		trigger_if = {
-			limit = { NOT = { OWNER = market.OWNER } state = { is_incorporated = yes } }
+			limit = { NOT = { OWNER ?= market.OWNER } STATE ?= { is_incorporated = yes } }
 			custom_tooltip = {
 				text = market_owner_insufficient_convoys.tt
 				market.OWNER = {
@@ -570,7 +976,13 @@ trigger_auto_expand_port = {
 		}
 		AND = {
 			weekly_profit > 0
-			market = { mg:merchant_marine = { market_goods_pricier > 0 } }
+			OR = {
+				market ?= { mg:merchant_marine = { market_goods_pricier > 0 } }
+				AND = {
+					NOT = { has_active_production_method = pm_no_offshore_windpark }
+					STATE ?= { sg:electricity = { state_goods_pricier > 0 } }
+				}
+			}
 		}
 	}
 	occupancy = 1
@@ -591,7 +1003,7 @@ trigger_modern_agrarian_economy = {
 		has_law = law_type:law_extraction_economy
 	}
 }
-trigger_forbidden_heavy_industry = {	# Using a NOT and OR seperately instead of NOR to make it more versatile
+trigger_forbidden_heavy_industry = {	# Using a NOT and OR separately instead of NOR to make it more versatile
 	OR = {
 		has_law = law_type:law_industry_banned
 		has_law = law_type:law_extraction_economy
@@ -613,9 +1025,12 @@ trigger_gov_construction = {
 	}
 }
 trigger_no_autarky_farms = {
-	NOR = { 
-		any_scope_building = { is_building_type = building_autarky_farm }
-		any_scope_building = { is_building_type = building_autarky_greenhouse }
+	trigger_if = {
+		limit = { game_date > 1836.1.1 }
+		NOR = {
+			any_scope_building = { is_building_type = building_autarky_farm }
+			any_scope_building = { is_building_type = building_autarky_greenhouse }
+		}
 	}
 }
 trigger_incorporated_or_incorporating = {
@@ -629,7 +1044,7 @@ trigger_inhospitable_terrain = {
 		# text = trigger_inhospitable_terrain_tt
 		OR = {
 			arable_land		= 0										# Nothing is more inhospitable than having nothing at all.
-			modifier:building_group_bg_plantations_throughput_add <= -0.50
+			modifier:building_group_bg_plantations_throughput_add <=-0.50
 			has_state_trait = state_trait_the_great_basin_desert
 			has_state_trait = state_trait_atacama_desert
 			has_state_trait = state_trait_sahara_desert
@@ -674,57 +1089,61 @@ trigger_microstate = {
 	}
 }
 trigger_shipyards_allowed = {
-	trigger_if = {
-		limit = { OWNER = { is_player = yes } }
-		OR = {
-			is_capital = yes
-			THIS = s:STATE_NEW_YORK.region_state:USA
-			THIS = s:STATE_GUANGDONG.region_state:CHI
-			has_building = building_shipyard
-			has_building = building_military_shipyard
-			has_decree = decree_encourage_manufacturing_industry
-		}
-		trigger_if = {
-			limit = { is_capital = no }
-			NOT = { OWNER.capital = { any_scope_building = { is_building_type = building_shipyard } } }
-		}
-		trigger_if = {
-			limit = { is_capital = yes }
-			NOR = {
-				OWNER = { any_scope_state = { THIS = s:STATE_NEW_YORK.region_state:USA } }
-				OWNER = { any_scope_state = { THIS = s:STATE_GUANGDONG.region_state:CHI } }
-			}
-		}
-		# NOT = { trigger_microstate = yes }
-	}
 	is_coastal = yes
-}
-trigger_mil_shipyards_allowed = {
 	trigger_if = {
-		limit = { OWNER = { is_player = yes } }
+		limit = { OWNER ?= { is_player = yes } }
 		OR = {
-			is_capital = yes
-			THIS = s:STATE_NEW_YORK.region_state:USA
-			THIS = s:STATE_GUANGDONG.region_state:CHI
-			has_building = building_shipyard
-			has_building = building_military_shipyard
-			has_decree = decree_encourage_manufacturing_industry
-		}
-		trigger_if = {
-			limit = { is_capital = no }
-			NOT = { owner.capital = { any_scope_building = { is_building_type = building_military_shipyard } } }
-		}
-		trigger_if = {
-			limit = { is_capital = yes }
-			NOR = {
-				OWNER = { any_scope_state = { THIS = s:STATE_NEW_YORK.region_state:USA } }
-				OWNER = { any_scope_state = { THIS = s:STATE_GUANGDONG.region_state:CHI } }
+			AND = {	# The market capital is coastal, the capital is irrelevant
+				OWNER ?= market.OWNER
+				OWNER.market_capital ?= { is_coastal = yes }
+				THIS ?= OWNER.market_capital
 			}
+			AND = {	# The market capital is either not coastal, or we are not the owner of the market capital, but our capital is coastal
+				NAND = {
+					OWNER ?= market.OWNER
+					OWNER.market_capital ?= { is_coastal = yes }
+					THIS ?= OWNER.market_capital
+				}
+				OWNER.capital ?= { is_coastal = yes }
+				THIS ?= OWNER.capital
+			}
+			AND = {	# Both are inland or we are not in charge of the market capital
+				NOR = {
+					AND = {
+						OWNER ?= market.OWNER
+						OWNER.market_capital ?= { is_coastal = yes }
+					}
+					OWNER.capital ?= { is_coastal = yes }
+				}
+				OR = {
+					has_building = building_shipyard
+					has_building = building_military_shipyard
+					has_decree = decree_encourage_manufacturing_industry
+				}
+			}
+			NOT = { THIS.market ?= OWNER.market }	# treaty_port
 		}
-		# NOT = { trigger_microstate = yes }
+		# trigger_if = {
+			# limit = {
+				# OWNER ?= market.OWNER
+				# OWNER.market_capital ?= { is_coastal = yes }
+			# }
+			# THIS ?= OWNER.market_capital
+		# }
+		# trigger_else_if = {
+			# limit = { OWNER.capital ?= { is_coastal = yes } }
+			# THIS ?= OWNER.capital
+		# }
+		# trigger_else = {
+			# OR = {
+				# has_building = building_shipyard
+				# has_building = building_military_shipyard
+				# has_decree = decree_encourage_manufacturing_industry
+			# }
+		# }
 	}
-	is_coastal = yes
 }
+trigger_mil_shipyards_allowed = { trigger_shipyards_allowed = yes }
 trigger_arms_industry_allowed = {
 	trigger_if = {
 		limit = { OWNER = { is_player = yes } }
@@ -808,45 +1227,70 @@ trigger_infres_oil_allowed		= {
 	}
 	NOT = { any_scope_building = { is_building_type = building_synthetic_oil_plant } }
 }
+trigger_vineyard_plantation_allowed = {	# The AI loves to spam vineyards everywhere for some reason.
+	OWNER ?= { NOT = { is_banning_goods	= g:wine } }
+	NOT = { has_building = building_vineyard_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_vineyard_greenhouse } } }
+}
+trigger_coffee_plantation_allowed = {
+	NOT = { has_building = building_coffee_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_coffee_greenhouse } } }
+}
+trigger_tea_plantation_allowed = {
+	NOT = { has_building = building_tea_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_tea_greenhouse } } }
+}
+trigger_sugar_plantation_allowed = {
+	NOT = { has_building = building_sugar_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_sugar_greenhouse } } }
+}
+trigger_banana_plantation_allowed = {
+	NOT = { has_building = building_banana_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_banana_greenhouse } } }
+}
+trigger_opium_plantation_allowed = {
+	OWNER ?= { NOT = { is_banning_goods	= g:opium } }
+	NOT = { has_building = building_opium_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } } }
+}
+trigger_tobacco_plantation_allowed = {
+	OWNER ?= { NOT = { is_banning_goods	= g:tobacco } }
+	NOT = { has_building = building_tobacco_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } } }
+}
+trigger_cotton_plantation_allowed = {
+	NOT = { has_building = building_cotton_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } } }
+}
+trigger_dye_plantation_allowed = {
+	NOT = { has_building = building_dye_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_dye_greenhouse } } }
+}
+trigger_silk_plantation_allowed = {
+	NOT = { has_building = building_silk_greenhouse }
+	hidden_trigger = { NOT = { any_scope_building = { is_building_type = building_silk_greenhouse } } }
+}
 trigger_greenhouse_allowed = {
-	OR = {
-		has_decree = decree_encourage_agricultural_industry
-		OWNER = {
-			trigger_if = {
-				limit = { is_player = no }
-				OR = {
-					trigger_modern_agrarian_economy = yes
-					has_law_or_variant = law_type:law_isolationism
-					OWNER.OVERLORD = { is_player = yes }
-				}
-			}
-		}
-		scope:investor_country = { is_player = yes }
-	}
-}
-trigger_logging_greenhouse_allowed	= {
 	# OR = {
-		# NOT = { has_potential_resource = bg_logging }
-		# any_scope_building = { is_building_group = bg_logging			NOT = { can_queue_building_levels = 1 } }
-		# exists = b:building_logging_greenhouse									# Allowed to expand if it already exists
+		# has_decree = decree_encourage_agricultural_industry
+		# OWNER = {
+			# trigger_if = {
+				# limit = { is_player = no }
+				# OR = {
+					# trigger_modern_agrarian_economy = yes
+					# has_law_or_variant = law_type:law_isolationism
+					# OWNER.OVERLORD = { is_player = yes }
+				# }
+			# }
+		# }
+		# scope:investor_country = { is_player = yes }
 	# }
-	# NOT = { trigger_microstate = yes }
-	OR = {
-		trigger_greenhouse_allowed	= yes
-		has_potential_resource = bg_logging
-	}
-}
-trigger_rubber_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed	= yes
-		has_potential_resource = bg_rubber
-	}
-	OWNER = { trigger_if = { limit = { trigger_modern_agrarian_economy = no } NOT = { has_technology_researched = plastics } } }
+	OWNER ?= { has_technology_researched = urban_planning }
 }
 trigger_infres_fishing_allowed	= {
 	is_sea_adjacent = yes
 	OR = {
-		NOT = { has_potential_resource = bg_fishing }
+		NOT = { has_potential_resource = building_fishing_wharf }
 		any_scope_building = { is_building_type = building_fishing_wharf NOT = { can_queue_building_levels = 1 } }
 		exists = b:building_infres_fishing_wharf								# Allowed to expand if it already exists
 	}
@@ -854,166 +1298,239 @@ trigger_infres_fishing_allowed	= {
 trigger_infres_whaling_allowed	= {
 	is_sea_adjacent = yes
 	OR = {
-		NOT = { has_potential_resource = bg_whaling }
+		NOT = { has_potential_resource = building_whaling_station }
 		any_scope_building = { is_building_type = building_whaling_station NOT = { can_queue_building_levels = 1 } }
 		exists = b:building_infres_whaling_station								# Allowed to expand if it already exists
 	}
 }
 trigger_vineyard_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_vineyard_plantations
-		has_building = building_vineyard_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_vineyard
+		# has_building = building_vineyard_greenhouse
+	# }
+	always = yes
 }
 trigger_coffee_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_coffee_plantations
-		has_building = building_coffee_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_coffee_plantation
+		# has_building = building_coffee_greenhouse
+	# }
+	always = yes
 }
 trigger_tea_greenhouse_allowed		= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_tea_plantations
-		has_building = building_tea_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_tea_plantation
+		# has_building = building_tea_greenhouse
+	# }
+	always = yes
 }
 trigger_sugar_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_sugar_plantations
-		has_building = building_sugar_greenhouse
-	}
-	OR = {
-		AND = {
-			game_date > 1836.1.30
-			OR = {
-				market.mg:sugar = { market_goods_pricier >= 0.5 }
-				# market = { market_imports_reliance = { value >= 0.25 goods = sugar } }
-				has_building = building_sugar_greenhouse
-			}
-		}
-		OWNER = { has_company = company_type:company_united_fruit }
-		OWNER.OVERLORD = { has_company = company_type:company_united_fruit }
-		OWNER = {
-			any_primary_culture = {
-				OR = {
-					has_cultural_obsession = sugar
-					THIS ?= cu:brazilian
-					THIS ?= cu:afro_brazilian
-					THIS ?= cu:yankee
-					THIS ?= cu:dixie
-					THIS ?= cu:afro_american
-				}
-			}
-		}
-		OWNER.OVERLORD = {
-			any_primary_culture = {
-				OR = {
-					has_cultural_obsession = sugar
-					THIS ?= cu:brazilian
-					THIS ?= cu:afro_brazilian
-					THIS ?= cu:yankee
-					THIS ?= cu:dixie
-					THIS ?= cu:afro_american
-				}
-			}
-		}
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_sugar_plantation
+		# has_building = building_sugar_greenhouse
+	# }
+	always = yes
+	# OR = {
+		# AND = {
+			# game_date > 1836.1.30
+			# OR = {
+				# market.mg:sugar = { market_goods_pricier >= 0.5 }
+				# market.mg:sugar = { import_tariff_level = max_subventions }
+				# market.mg:sugar = { import_tariff_level = high_subventions }
+				# market.mg:sugar = { import_tariff_level = low_subventions }
+				# trigger_if = {
+					# limit = { sg:sugar = { import_tariff_level = max_tariffs } }
+					# sg:sugar = { import_tariff_level = max_tariffs }
+					# market = { market_imports_reliance = { value >= 0.10 goods = sugar } }
+				# }
+				# trigger_else_if = {
+					# limit = { sg:sugar = { import_tariff_level = high_tariffs } }
+					# sg:sugar = { import_tariff_level = high_tariffs }
+					# market = { market_imports_reliance = { value >= 0.25 goods = sugar } }
+				# }
+				# trigger_else = {
+					# market = { market_imports_reliance = { value >= 0.50 goods = sugar } }
+				# }
+				# has_building = building_sugar_greenhouse
+			# }
+		# }
+		# OWNER = { has_company = company_type:company_united_fruit }
+		# OWNER.OVERLORD = { has_company = company_type:company_united_fruit }
+		# OWNER = {
+			# any_primary_culture = {
+				# OR = {
+					# has_cultural_obsession = sugar
+					# THIS ?= cu:brazilian
+					# THIS ?= cu:afro_brazilian
+					# THIS ?= cu:yankee
+					# THIS ?= cu:dixie
+					# THIS ?= cu:afro_american
+					# THIS ?= cu:hawaiian
+				# }
+			# }
+		# }
+		# OWNER.OVERLORD = {
+			# any_primary_culture = {
+				# OR = {
+					# has_cultural_obsession = sugar
+					# THIS ?= cu:brazilian
+					# THIS ?= cu:afro_brazilian
+					# THIS ?= cu:yankee
+					# THIS ?= cu:dixie
+					# THIS ?= cu:afro_american
+					# THIS ?= cu:hawaiian
+				# }
+			# }
+		# }
+	# }
 }
 trigger_banana_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_banana_plantations
-		has_building = building_banana_greenhouse
-	}
-	OR = {
-		AND = {
-			game_date > 1836.1.30
-			OR = {
-				market.mg:fruit = { market_goods_pricier >= 0.5 }
-				# market = { market_imports_reliance = { value >= 0.25 goods = fruit } }
-				has_building = building_banana_greenhouse
-			}
-		}
-		OWNER = { has_company = company_type:company_united_fruit }
-		OWNER.OVERLORD = { has_company = company_type:company_united_fruit }
-		OWNER = {
-			any_primary_culture = {
-				OR = {
-					has_cultural_obsession = fruit
-					THIS ?= cu:yankee
-					THIS ?= cu:dixie
-					THIS ?= cu:afro_american
-				}
-			}
-		}
-		OWNER.OVERLORD = {
-			any_primary_culture = {
-				OR = {
-					has_cultural_obsession = fruit
-					THIS ?= cu:yankee
-					THIS ?= cu:dixie
-					THIS ?= cu:afro_american
-				}
-			}
-		}
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_banana_plantation
+		# has_building = building_banana_greenhouse
+	# }
+	always = yes
+	# OR = {
+		# AND = {
+			# game_date > 1836.1.30
+			# OR = {
+				# market.mg:fruit = { market_goods_pricier >= 0.5 }
+				# market.mg:fruit = { import_tariff_level = max_subventions }
+				# market.mg:fruit = { import_tariff_level = high_subventions }
+				# market.mg:fruit = { import_tariff_level = low_subventions }
+				# trigger_if = {
+					# limit = { sg:fruit = { import_tariff_level = max_tariffs } }
+					# sg:fruit = { import_tariff_level = max_tariffs }
+					# market = { market_imports_reliance = { value >= 0.10 goods = fruit } }
+				# }
+				# trigger_else_if = {
+					# limit = { sg:fruit = { import_tariff_level = high_tariffs } }
+					# sg:fruit = { import_tariff_level = high_tariffs }
+					# market = { market_imports_reliance = { value >= 0.25 goods = fruit } }
+				# }
+				# trigger_else = {
+					# market = { market_imports_reliance = { value >= 0.50 goods = fruit } }
+				# }
+				# has_building = building_banana_greenhouse
+			# }
+		# }
+		# OWNER = { has_company = company_type:company_united_fruit }
+		# OWNER.OVERLORD = { has_company = company_type:company_united_fruit }
+		# OWNER = {
+			# any_primary_culture = {
+				# OR = {
+					# has_cultural_obsession = fruit
+					# THIS ?= cu:yankee
+					# THIS ?= cu:dixie
+					# THIS ?= cu:afro_american
+					# THIS ?= cu:hawaiian
+				# }
+			# }
+		# }
+		# OWNER.OVERLORD = {
+			# any_primary_culture = {
+				# OR = {
+					# has_cultural_obsession = fruit
+					# THIS ?= cu:yankee
+					# THIS ?= cu:dixie
+					# THIS ?= cu:afro_american
+					# THIS ?= cu:hawaiian
+				# }
+			# }
+		# }
+	# }
 }
 trigger_opium_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_opium_plantations
-		has_building = building_opium_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_opium_plantation
+		# has_building = building_opium_greenhouse
+	# }
 	OWNER = { NOT = { is_banning_goods	= g:opium } }
 }
 trigger_tobacco_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_tobacco_plantations
-		has_building = building_tobacco_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_tobacco_plantation
+		# has_building = building_tobacco_greenhouse
+	# }
 	OWNER = { NOT = { is_banning_goods	= g:tobacco } }
 }
 trigger_cotton_greenhouse_allowed	= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_cotton_plantations
-		has_building = building_cotton_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_cotton_plantation
+		# has_building = building_cotton_greenhouse
+	# }
+	always = yes
 }
 trigger_dye_greenhouse_allowed		= {
-	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_dye_plantations
-		has_building = building_dye_greenhouse
-	}
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_dye_plantation
+		# has_building = building_dye_greenhouse
+	# }
 	OWNER = { trigger_if = { limit = { trigger_modern_agrarian_economy = no } NOT = { has_technology_researched = aniline } } }
 }
-trigger_silk_greenhouse_allowed		= {
+trigger_has_prestige_silk_company = {
 	OR = {
-		trigger_greenhouse_allowed		= yes
-		has_potential_resource = bg_silk_plantations
-		has_building = building_silk_greenhouse
+		has_company = company_type:company_jiangnan_weaving_bureaus
+		has_company = company_type:company_mitsui
+		has_company = company_type:company_mantero_seta
 	}
+}
+trigger_silk_greenhouse_allowed		= {
+	# OR = {
+		# trigger_greenhouse_allowed		= yes
+		# has_potential_resource = building_silk_plantation
+		# has_building = building_silk_greenhouse
+	# }
 	OWNER = {
 		trigger_if = {
 			limit = { trigger_modern_agrarian_economy = no }
 			OR = {
 				NOT = { has_technology_researched = art_silk }
-				has_company = company_type:company_jiangnan_weaving_bureaus
-				has_company = company_type:company_mitsui
-				has_company = company_type:company_mantero_seta
+				trigger_has_prestige_silk_company = yes
 			}
 		}
 	}
 }
+trigger_logging_greenhouse_allowed	= {
+	# OR = {
+		# NOT = { has_potential_resource = building_logging_camp }
+		# any_scope_building = { is_building_group = bg_logging			NOT = { can_queue_building_levels = 1 } }
+		# exists = b:building_logging_greenhouse									# Allowed to expand if it already exists
+	# }
+	# NOT = { trigger_microstate = yes }
+	# OR = {
+		# trigger_greenhouse_allowed	= yes
+		# has_potential_resource = building_logging_camp
+	# }
+	always = yes
+}
+trigger_rubber_greenhouse_allowed	= {
+	# OR = {
+		# trigger_greenhouse_allowed	= yes
+		# has_potential_resource = building_rubber_plantation
+	# }
+	OR = {	# Used in seeding setup
+		OWNER ?= { has_technology_researched = rubber_mastication }
+		scope:investor_country ?= { has_technology_researched = rubber_mastication }
+	}
+	OWNER ?= {
+		trigger_if = { limit = { trigger_modern_agrarian_economy = no } NOT = { has_technology_researched = plastics } }
+		# trigger_modern_agrarian_economy = no
+		# NOT = { has_technology_researched = plastics }
+	}
+}
 trigger_finite_plantation = {
 	OR = {
-		is_building_type = building_vineyard_plantation
+		is_building_type = building_vineyard
 		is_building_type = building_coffee_plantation
 		is_building_type = building_cotton_plantation
 		is_building_type = building_dye_plantation
@@ -1027,18 +1544,8 @@ trigger_finite_plantation = {
 }
 trigger_is_greenhouse = {	# Necessary because bg_greenhouses doesn't work
 	OR = {
-		# is_building_type = building_vineyard_greenhouse
-		# is_building_type = building_coffee_greenhouse
-		# is_building_type = building_tea_greenhouse
-		# trigger_if = { limit = { OWNER = { NOT = { is_banning_goods = g:opium } } }			is_building_type = building_opium_greenhouse }
-		# trigger_if = { limit = { OWNER = { NOT = { is_banning_goods = g:tobacco } } }		is_building_type = building_tobacco_greenhouse }
-		# is_building_type = building_sugar_greenhouse
-		# trigger_if = { limit = { STATE = { has_building = building_banana_greenhouse } }	is_building_type = building_banana_greenhouse }
-		# is_building_type = building_cotton_greenhouse
-		# trigger_if = { limit = { trigger_dye_greenhouse_allowed = yes }						is_building_type = building_dye_greenhouse }
-		# trigger_if = { limit = { trigger_silk_greenhouse_allowed = yes }					is_building_type = building_silk_greenhouse }
-		# is_building_type = building_logging_greenhouse
-		# trigger_if = { limit = { trigger_rubber_greenhouse_allowed = yes }					is_building_type = building_rubber_greenhouse }
+		is_building_type	= building_autarky_greenhouse
+		# is_building_group	= bg_greenhouses
 		trigger_if = {
 			limit = { STATE = { trigger_vineyard_greenhouse_allowed	= yes } }
 			is_building_type = building_vineyard_greenhouse
@@ -1098,15 +1605,42 @@ trigger_factory_bt = {
 		is_building_type = building_tooling_workshop
 		is_building_type = building_paper_mill
 		is_building_type = building_charcoal_burner
-		trigger_if = { limit = { OWNER = { has_technology_researched = distillation } }																										is_building_type = building_chemical_plant }
-		trigger_if = { limit = { OWNER = { has_technology_researched = distillation } }																										is_building_type = building_explosives_factory }
-		trigger_if = { limit = { OWNER = { has_technology_researched = steelworking } }																										is_building_type = building_steel_mill }
-		trigger_if = { limit = { trigger_forbidden_heavy_industry = no OWNER = { has_technology_researched = atmospheric_engine } }															is_building_type = building_motor_industry }
-		trigger_if = { limit = { trigger_forbidden_heavy_industry = no OWNER = { OR = { has_technology_researched = electric_railway has_technology_researched = combustion_engine } } }	is_building_type = building_automotive_industry }
-		trigger_if = { limit = { trigger_forbidden_heavy_industry = no OWNER = { has_technology_researched = aniline } }																	is_building_type = building_synthetics_plant }
-		trigger_if = { limit = { OWNER = { has_technology_researched = distillation } }																										is_building_type = building_synthetic_oil_plant }
-		trigger_if = { limit = { trigger_forbidden_heavy_industry = no OWNER = { has_technology_researched = telephone } }																	is_building_type = building_electrics_industry }
-		trigger_if = { limit = { OWNER = { has_technology_researched = romanticism } }																										is_building_type = building_art_academy }
+		trigger_if = {
+			limit = { OWNER ?= { has_technology_researched = distillation } }
+			is_building_type = building_chemical_plant
+		}
+		trigger_if = {
+			limit = { OWNER ?= { has_technology_researched = distillation } }
+			is_building_type = building_explosives_factory
+		}
+		trigger_if = {
+			limit = { OWNER ?= { has_technology_researched = steelworking } }
+			is_building_type = building_steel_mill
+		}
+		trigger_if = {
+			limit = { trigger_forbidden_heavy_industry = no OWNER ?= { has_technology_researched = atmospheric_engine } }
+			is_building_type = building_motor_industry
+		}
+		trigger_if = {
+			limit = { trigger_forbidden_heavy_industry = no OWNER ?= { OR = { has_technology_researched = electric_railway has_technology_researched = combustion_engine } } }
+			is_building_type = building_automotive_industry
+		}
+		trigger_if = {
+			limit = { trigger_forbidden_heavy_industry = no OWNER ?= { has_technology_researched = aniline } }
+			is_building_type = building_synthetics_plant
+		}
+		trigger_if = {
+			limit = { OWNER ?= { has_technology_researched = distillation	trigger_forbidden_heavy_industry = no } }
+			is_building_type = building_synthetic_oil_plant
+		}
+		trigger_if = {
+			limit = { trigger_forbidden_heavy_industry = no OWNER ?= { has_technology_researched = telephone } }
+			is_building_type = building_electrics_industry
+		}
+		trigger_if = {
+			limit = { OWNER ?= { has_technology_researched = romanticism } }
+			is_building_type = building_art_academy
+		}
 	}
 }
 trigger_infres_resource = {
@@ -1118,7 +1652,7 @@ trigger_infres_resource = {
 trigger_instant_seed_autarky = {
 	any_country = {
 		OR = {
-			THIS = ROOT
+			THIS ?= ROOT
 			trigger_PREV_has_investment_rights = yes
 		}
 		any_scope_state = { NOT = { has_building = building_autarky_farm } }
@@ -1126,7 +1660,7 @@ trigger_instant_seed_autarky = {
 	}
 }
 trigger_seed_greenhouses_state = {
-	NOT = { trigger_inhospitable_terrain = yes }
+	trigger_inhospitable_terrain = no
 	trigger_if = { limit = { is_capital = no } trigger_microstate = no }
 	is_treaty_port = no
 	OR = {
@@ -1138,14 +1672,6 @@ trigger_seed_greenhouses_state = {
 		trigger_if = {
 			limit = { trigger_coffee_greenhouse_allowed		= yes }
 			NOT = { any_scope_building = { is_building_type = building_coffee_greenhouse } }
-		}
-		trigger_if = {
-			limit = { trigger_cotton_greenhouse_allowed		= yes }
-			NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } }
-		}
-		trigger_if = {
-			limit = { trigger_logging_greenhouse_allowed	= yes }
-			NOT = { any_scope_building = { is_building_type = building_logging_greenhouse } }
 		}
 		trigger_if = {
 			limit = { trigger_sugar_greenhouse_allowed		= yes }
@@ -1160,6 +1686,18 @@ trigger_seed_greenhouses_state = {
 			NOT = { any_scope_building = { is_building_type = building_tea_greenhouse } }
 		}
 		trigger_if = {
+			limit = { trigger_opium_greenhouse_allowed		= yes }
+			NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } }
+		}
+		trigger_if = {
+			limit = { trigger_tobacco_greenhouse_allowed	= yes }
+			NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }
+		}
+		trigger_if = {
+			limit = { trigger_cotton_greenhouse_allowed		= yes }
+			NOT = { any_scope_building = { is_building_type = building_cotton_greenhouse } }
+		}
+		trigger_if = {
 			limit = { trigger_dye_greenhouse_allowed		= yes }
 			NOT = { any_scope_building = { is_building_type = building_dye_greenhouse } }
 		}
@@ -1168,32 +1706,32 @@ trigger_seed_greenhouses_state = {
 			NOT = { any_scope_building = { is_building_type = building_silk_greenhouse } }
 		}
 		trigger_if = {
-			limit = { trigger_opium_greenhouse_allowed		= yes }
-			NOT = { any_scope_building = { is_building_type = building_opium_greenhouse } }
+			limit = { trigger_logging_greenhouse_allowed	= yes }
+			NOT = { any_scope_building = { is_building_type = building_logging_greenhouse } }
 		}
 		trigger_if = {
-			limit = { trigger_tobacco_greenhouse_allowed	= yes }
-			NOT = { any_scope_building = { is_building_type = building_tobacco_greenhouse } }
+			limit = { trigger_rubber_greenhouse_allowed	= yes }
+			NOT = { any_scope_building = { is_building_type = building_rubber_greenhouse } }
 		}
 	}
 }
 trigger_seed_greenhouses = {
-	has_technology_researched = enclosure
+	has_technology_researched = urban_planning
 	any_scope_state = { trigger_seed_greenhouses_state = yes }
 }
 trigger_seed_greenhouses_private = {
-	has_technology_researched = enclosure
+	has_technology_researched = urban_planning
 	any_scope_state = { trigger_seed_greenhouses_state = yes trigger_incorporated_or_incorporating = yes }
 }
 trigger_seed_logging_state = {
 	OR = {
 		AND = {
-			has_potential_resource = bg_logging
+			has_potential_resource = building_logging_camp
 			can_construct_building = building_logging_camp
 			NOT = { any_scope_building = { is_building_type = building_logging_camp } }
 		}
 		AND = {
-			has_potential_resource = bg_rubber
+			has_potential_resource = building_rubber_plantation
 			can_construct_building = building_rubber_plantation
 			NOT = { any_scope_building = { is_building_type = building_rubber_plantation } }
 			OWNER = { has_technology_researched = rubber_mastication }
@@ -1211,61 +1749,83 @@ trigger_seed_resorces = {
 		is_treaty_port = no	# Corresponding effect only checks for regular states
 		OR = {
 			AND = {
-				has_potential_resource = bg_logging
+				has_potential_resource = building_logging_camp
 				can_construct_building = building_logging_camp
 				NOT = { any_scope_building = { is_building_type = building_logging_camp } }
 			}
+			AND = {	# Undiscovered Gold
+				NOR = {
+					any_scope_building = { is_building_type = building_gold_field }
+					any_scope_building = { is_building_type = building_gold_mine }
+				}
+				has_potential_resource = building_gold_mine
+				OWNER = { has_technology_researched = prospecting }
+			}
+			AND = {	# Undepleted Gold
+				any_scope_building = { is_building_type = building_gold_field }
+				OWNER = { has_technology_researched = prospecting }
+			}
 			AND = {
-				has_potential_resource = bg_gold_mining
+				has_potential_resource = building_gold_mine
 				can_construct_building = building_gold_mine
 				NOT = { any_scope_building = { is_building_type = building_gold_mine } }
 				OWNER = { has_technology_researched = prospecting }
 			}
 			AND = {
-				has_potential_resource = bg_coal_mining
+				has_potential_resource = building_coal_mine
 				can_construct_building = building_coal_mine
 				NOT = { any_scope_building = { is_building_type = building_coal_mine } }
 				OWNER = { has_technology_researched = shaft_mining }
 			}
 			AND = {
-				has_potential_resource = bg_iron_mining
+				has_potential_resource = building_iron_mine
 				can_construct_building = building_iron_mine
 				NOT = { any_scope_building = { is_building_type = building_iron_mine } }
 				OWNER = { has_technology_researched = shaft_mining }
 			}
 			AND = {
-				has_potential_resource = bg_lead_mining
+				has_potential_resource = building_lead_mine
 				can_construct_building = building_lead_mine
 				NOT = { any_scope_building = { is_building_type = building_lead_mine } }
 				OWNER = { has_technology_researched = shaft_mining }
 			}
 			AND = {
-				has_potential_resource = bg_sulfur_mining
+				has_potential_resource = building_sulfur_mine
 				can_construct_building = building_sulfur_mine
 				NOT = { any_scope_building = { is_building_type = building_sulfur_mine } }
 				OWNER = { has_technology_researched = shaft_mining }
 			}
+			AND = {	# Undiscovered Rubber
+				NOT = { any_scope_building = { is_building_type = building_rubber_plantation } }
+				has_potential_resource = building_rubber_plantation
+				OWNER = { has_technology_researched = pumpjacks }
+			}
 			AND = {
-				has_potential_resource = bg_rubber
+				has_potential_resource = building_rubber_plantation
 				can_construct_building = building_rubber_plantation
 				NOT = { any_scope_building = { is_building_type = building_rubber_plantation } }
 				OWNER = { has_technology_researched = rubber_mastication }
 			}
+			AND = {	# Undiscovered Oil
+				NOT = { any_scope_building = { is_building_type = building_oil_rig } }
+				has_potential_resource = building_oil_rig
+				OWNER = { has_technology_researched = pumpjacks }
+			}
 			AND = {
-				has_potential_resource = bg_oil_extraction
+				has_potential_resource = building_oil_rig
 				can_construct_building = building_oil_rig
 				NOT = { any_scope_building = { is_building_type = building_oil_rig } }
 				OWNER = { has_technology_researched = pumpjacks }
 			}
 			AND = {
 				is_coastal = yes
-				has_potential_resource = bg_fishing
+				has_potential_resource = building_fishing_wharf
 				can_construct_building = building_fishing_wharf
 				NOT = { any_scope_building = { is_building_type = building_fishing_wharf } }
 			}
 			AND = {
 				is_coastal = yes
-				has_potential_resource = bg_whaling
+				has_potential_resource = building_whaling_station
 				can_construct_building = building_whaling_station
 				NOT = { any_scope_building = { is_building_type = building_whaling_station } }
 				OWNER = { has_technology_researched = navigation }
@@ -1301,34 +1861,37 @@ trigger_seed_industry = {
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_synthetic_oil_plant } }
-					OWNER = { has_technology_researched = distillation }
+					OWNER = {
+						has_technology_researched = distillation
+						trigger_forbidden_heavy_industry = no
+					}
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_motor_industry } }
 					OWNER = {
 						has_technology_researched = atmospheric_engine
-						NOT = { trigger_forbidden_heavy_industry = yes }
+						trigger_forbidden_heavy_industry = no
 					}
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_automotive_industry } }
 					OWNER = {
 						OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway }
-						NOT = { trigger_forbidden_heavy_industry = yes }
+						trigger_forbidden_heavy_industry = no
 					}
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_synthetics_plant } }
 					OWNER = {
 						has_technology_researched = aniline
-						NOT = { trigger_forbidden_heavy_industry = yes }
+						trigger_forbidden_heavy_industry = no
 					}
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_electrics_industry } }
 					OWNER = {
 						has_technology_researched = telephone
-						NOT = { trigger_forbidden_heavy_industry = yes }
+						trigger_forbidden_heavy_industry = no
 					}
 				}
 			}
@@ -1347,7 +1910,14 @@ trigger_seed_inf_resorces = {
 	any_scope_state = {
 		is_treaty_port = no	# Corresponding effect only checks for regular states
 		OR = {
-			NOT = { any_scope_building = { is_building_type = building_logging_greenhouse } }
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_logging_greenhouse } }
+				trigger_logging_greenhouse_allowed = yes
+			}
+			AND = {
+				NOT = { any_scope_building = { is_building_type = building_rubber_greenhouse } }
+				trigger_rubber_greenhouse_allowed = yes
+			}
 			AND = {
 				NOT = { any_scope_building = { is_building_type = building_infres_iron_mine } }
 				OWNER = { has_technology_researched = shaft_mining }
@@ -1371,7 +1941,7 @@ trigger_seed_inf_resorces = {
 trigger_seed_military_industry = {
 	has_technology_researched = manufacturies
 	# trigger_if = {
-		# limit = { THIS = c:USA any_scope_state = { state_region = s:STATE_NEW_YORK } }
+		# limit = { THIS ?= c:USA any_scope_state = { state_region = s:STATE_NEW_YORK } }
 		# s:STATE_NEW_YORK.region_state:USA = {
 			# OR = {
 				# AND = {
@@ -1397,7 +1967,7 @@ trigger_seed_military_industry = {
 				# }
 				# AND = {
 					# NOT = { any_scope_building = { is_building_type = building_automotive_industry } }
-					# OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } NOT = { trigger_forbidden_heavy_industry = yes } }
+					# OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } trigger_forbidden_heavy_industry = no }
 				# }
 				# AND = {
 					# NOT = { any_scope_building = { is_building_type = building_military_shipyard } }
@@ -1433,7 +2003,7 @@ trigger_seed_military_industry = {
 				# }
 				# AND = {
 					# NOT = { any_scope_building = { is_building_type = building_automotive_industry } }
-					# OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } NOT = { trigger_forbidden_heavy_industry = yes } }
+					# OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } trigger_forbidden_heavy_industry = no }
 				# }
 				# AND = {
 					# NOT = { any_scope_building = { is_building_type = building_military_shipyard } }
@@ -1456,6 +2026,18 @@ trigger_seed_military_industry = {
 					OWNER = { has_technology_researched = navigation }
 				}
 				AND = {
+					NOT = { any_scope_building = { is_building_type = building_steel_mill } }
+					OWNER = { has_technology_researched = steelworking }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_chemical_plant } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
 					NOT = { any_scope_building = { is_building_type = building_arms_industry } }
 					OWNER = { has_technology_researched = gunsmithing }
 				}
@@ -1469,7 +2051,7 @@ trigger_seed_military_industry = {
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_automotive_industry } }
-					OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } NOT = { trigger_forbidden_heavy_industry = yes } }
+					OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } trigger_forbidden_heavy_industry = no }
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_military_shipyard } }
@@ -1485,6 +2067,18 @@ trigger_seed_military_industry = {
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_tooling_workshop } }
 					OWNER = { has_technology_researched = manufacturies }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_steel_mill } }
+					OWNER = { has_technology_researched = steelworking }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_chemical_plant } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+					OWNER = { has_technology_researched = distillation }
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_arms_industry } }
@@ -1507,7 +2101,7 @@ trigger_seed_military_industry = {
 		has_technology_researched = navigation
 		NOT = {
 			any_scope_state = {
-				filter = { is_coastal = yes }
+				is_coastal = yes
 				OR = {
 					any_scope_building = { is_building_type	= building_shipyard }
 					any_scope_building = { is_building_type	= building_military_shipyard }
@@ -1528,6 +2122,18 @@ trigger_seed_military_industry = {
 					OWNER = { has_technology_researched = navigation }
 				}
 				AND = {
+					NOT = { any_scope_building = { is_building_type = building_steel_mill } }
+					OWNER = { has_technology_researched = steelworking }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_chemical_plant } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
 					NOT = { any_scope_building = { is_building_type = building_arms_industry } }
 					OWNER = { has_technology_researched = gunsmithing }
 				}
@@ -1541,7 +2147,7 @@ trigger_seed_military_industry = {
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_automotive_industry } }
-					OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } NOT = { trigger_forbidden_heavy_industry = yes } }
+					OWNER = { OR = { has_technology_researched = combustion_engine has_technology_researched = electric_railway } trigger_forbidden_heavy_industry = no }
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_military_shipyard } }
@@ -1557,6 +2163,18 @@ trigger_seed_military_industry = {
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_tooling_workshop } }
 					OWNER = { has_technology_researched = manufacturies }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_steel_mill } }
+					OWNER = { has_technology_researched = steelworking }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_chemical_plant } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+					OWNER = { has_technology_researched = distillation }
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_arms_industry } }
@@ -1579,7 +2197,7 @@ trigger_seed_military_industry = {
 		has_technology_researched = navigation
 		NOT = {
 			any_scope_state = {
-				filter = { is_coastal = yes }
+				is_coastal = yes
 				OR = {
 					any_scope_building = { is_building_type	= building_shipyard }
 					any_scope_building = { is_building_type	= building_military_shipyard }
@@ -1593,6 +2211,18 @@ trigger_seed_military_industry = {
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_tooling_workshop } }
 					OWNER = { has_technology_researched = manufacturies }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_steel_mill } }
+					OWNER = { has_technology_researched = steelworking }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_chemical_plant } }
+					OWNER = { has_technology_researched = distillation }
+				}
+				AND = {
+					NOT = { any_scope_building = { is_building_type = building_explosives_factory } }
+					OWNER = { has_technology_researched = distillation }
 				}
 				AND = {
 					NOT = { any_scope_building = { is_building_type = building_arms_industry } }
@@ -1638,6 +2268,7 @@ trigger_seed_infrastructure = {
 			}
 			AND = {
 				NOT = { any_scope_building = { is_building_type = building_power_plant } }
+				trigger_power_plant_allowed = yes
 				OWNER = { has_technology_researched = electrical_generation }
 			}
 		}
@@ -1646,12 +2277,12 @@ trigger_seed_infrastructure = {
 trigger_build_logging_state = {
 	OR = {
 		AND = {
-			has_potential_resource = bg_logging
+			has_potential_resource = building_logging_camp
 			can_construct_building = building_logging_camp
 			any_scope_building = { is_building_type = building_logging_camp			can_queue_building_levels = 1 }
 		}
 		AND = {
-			has_potential_resource = bg_rubber
+			has_potential_resource = building_rubber_plantation
 			can_construct_building = building_rubber_plantation
 			any_scope_building = { is_building_type = building_rubber_plantation	can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = rubber_mastication }
@@ -1661,12 +2292,12 @@ trigger_build_logging_state = {
 trigger_build_fishing_state = {
 	OR = {
 		AND = {
-			has_potential_resource = bg_fishing
+			has_potential_resource = building_fishing_wharf
 			any_scope_building = { is_building_type = building_fishing_wharf		can_queue_building_levels = 1 }	# Whaling is a subgroup of Fishing
 			is_coastal = yes
 		}
 		AND = {
-			has_potential_resource = bg_whaling
+			has_potential_resource = building_whaling_station
 			any_scope_building = { is_building_type = building_whaling_station		can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = navigation }
 			is_coastal = yes
@@ -1678,32 +2309,32 @@ trigger_build_resources_state = {
 		trigger_build_logging_state = yes
 		trigger_build_fishing_state = yes
 		AND = {
-			has_potential_resource = bg_gold_mining
-			any_scope_building = { is_building_group = bg_gold_mining				can_queue_building_levels = 1 }
+			has_potential_resource = building_gold_mine
+			any_scope_building = { is_building_type = building_gold_mine			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = prospecting }
 		}
 		AND = {
-			has_potential_resource = bg_coal_mining
-			any_scope_building = { is_building_group = bg_coal_mining				can_queue_building_levels = 1 }
+			has_potential_resource = building_coal_mine
+			any_scope_building = { is_building_type = building_coal_mine			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = shaft_mining }
 		}
 		AND = {
-			has_potential_resource = bg_iron_mining
-			any_scope_building = { is_building_group = building_iron_mine			can_queue_building_levels = 1 }
+			has_potential_resource = building_iron_mine
+			any_scope_building = { is_building_type = building_iron_mine			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = shaft_mining }
 		}
 		AND = {
-			has_potential_resource = bg_lead_mining
-			any_scope_building = { is_building_group = bg_lead_mining				can_queue_building_levels = 1 }
+			has_potential_resource = building_lead_mine
+			any_scope_building = { is_building_type = building_lead_mine			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = shaft_mining }
 		}
 		AND = {
-			has_potential_resource = bg_sulfur_mining
-			any_scope_building = { is_building_group = bg_sulfur_mining				can_queue_building_levels = 1 }
+			has_potential_resource = building_sulfur_mine
+			any_scope_building = { is_building_type = building_sulfur_mine			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = shaft_mining }
 		}
 		AND = {
-			has_potential_resource = bg_oil_extraction
+			has_potential_resource = building_oil_rig
 			any_scope_building = { is_building_group = bg_oil_extraction			can_queue_building_levels = 1 }
 			OWNER = { has_technology_researched = pumpjacks }
 		}
@@ -1729,11 +2360,15 @@ trigger_delete_unincorporated_industry = {
 	}
 }
 trigger_invalid_trade_center = {
-	NOR = {
-		trigger_capital_or_market_capital = yes
-		is_treaty_port = yes
+	trigger_if = {
+		limit = { OWNER ?= { any_scope_state = { filter = { is_incorporated = yes } count > 2 } } }
+		trigger_capital_or_market_capital = no
+		is_treaty_port = no
 	}
-	any_scope_building = { is_building_type = building_trade_center }
+	trigger_else = {
+		is_incorporated = no
+		is_treaty_port = no
+	}
 }
 trigger_build_industry_state = {
 	trigger_incorporated_or_incorporating = yes
@@ -1761,7 +2396,7 @@ trigger_build_industry = {
 	any_scope_state = { trigger_build_industry_state = yes }
 }
 trigger_build_greenhouses_state = {
-	trigger_inhospitable_terrain = no
+	trigger_if = { limit = { OWNER = { any_scope_state = { count > 2 } } } trigger_inhospitable_terrain = no }
 	OR = {
 		var:agro_target		> 0
 		var:sugar_target	> 0
@@ -1769,6 +2404,7 @@ trigger_build_greenhouses_state = {
 		var:coffee_target	> 0
 		var:cotton_target	> 0
 		var:logging_target	> 0
+		var:rubber_target	> 0
 		var:tea_target		> 0
 		var:dye_target		> 0
 		var:silk_target		> 0
@@ -1801,6 +2437,10 @@ trigger_build_greenhouses_max_state = {
 			b:building_logging_greenhouse.level_after_queued_constructions	> OWNER.economy_of_scale_target
 		}
 		AND = {
+			trigger_rubber_greenhouse_allowed = yes
+			b:building_rubber_greenhouse.level_after_queued_constructions	> OWNER.economy_of_scale_target
+		}
+		AND = {
 			trigger_tea_greenhouse_allowed = yes
 			b:building_tea_greenhouse.level_after_queued_constructions		> OWNER.economy_of_scale_target
 		}
@@ -1823,7 +2463,7 @@ trigger_build_greenhouses_max_state = {
 	}
 }
 trigger_build_greenhouses = {
-	has_technology_researched = enclosure
+	has_technology_researched = urban_planning
 	any_scope_state = { trigger_build_greenhouses_state = yes }
 }
 trigger_build_inf_resources_state = {
@@ -1954,11 +2594,11 @@ trigger_merge_bic = {	# How did I mess this up?
 			}
 		}
 		any_country = {
-			filter = { is_in_geographic_region = geographic_region_india }
+			is_in_geographic_region = geographic_region_india
 			OR = {
 				has_variable = india_subject_var
-				THIS = c:BIC
-				THIS = c:BHT
+				THIS ?= c:BIC
+				THIS ?= c:BHT
 			}
 		}
 	}
@@ -2024,10 +2664,10 @@ trigger_merge_dei = {
 			is_homeland = cu:malay
 			is_homeland = cu:moluccan
 			is_homeland = cu:sumatran
-			THIS = s:STATE_WESTERN_NEW_GUINEA
-			THIS = s:STATE_EASTERN_NEW_GUINEA
+			THIS ?= s:STATE_WESTERN_NEW_GUINEA
+			THIS ?= s:STATE_EASTERN_NEW_GUINEA
 		}
-		NOT = { THIS = s:STATE_MALAYA }		# Belongs to Britain
+		NOT = { THIS ?= s:STATE_MALAYA }		# Belongs to Britain
 		any_scope_state = {
 			NOR = {
 				OWNER = c:DEI
@@ -2035,6 +2675,78 @@ trigger_merge_dei = {
 				OWNER = c:BNL
 				OWNER = c:IDN
 				OWNER = c:UNL
+			}
+		}
+	}
+}
+trigger_UBD_setup = {
+	any_state = {
+		state_region = {
+			NOT = { is_homeland = cu:north_german }	# Ostpreußen
+			OR = {
+				is_homeland = cu:lithuanian
+				is_homeland = cu:latvian
+				is_homeland = cu:estonian
+			}
+		}
+		NOT = { OWNER ?= c:UBD }
+	}
+}
+trigger_claim_homelands = {
+	OR = {
+		any_state = {
+			is_homeland_of_country_cultures = ROOT
+			NOR = { OWNER ?= ROOT has_claim_by = ROOT }
+		}
+		any_state_region = {
+			NOT = { is_homeland = cu:north_german }
+			OR = {
+				is_homeland = cu:lithuanian
+				is_homeland = cu:latvian
+				is_homeland = cu:estonian
+			}
+			any_scope_state = {
+				NOR = {
+					OWNER ?= c:UBD
+					has_claim_by = c:UBD
+				}
+			}
+		}
+		any_state_region = {
+			region = sr:region_arabic
+			any_scope_state = {
+				OR = {
+					OWNER ?= c:EGY
+					OWNER ?= { is_subject_of = c:EGY }
+				}
+				NOT = { has_claim_by = c:TUR }
+			}
+		}
+	}
+}
+trigger_take_homelands = {
+	OR = {
+		any_state = {
+			is_homeland_of_country_cultures = ROOT
+			NOT = { OWNER ?= ROOT }
+		}
+		any_state_region = {
+			NOT = { is_homeland = cu:north_german }
+			OR = {
+				is_homeland = cu:lithuanian
+				is_homeland = cu:latvian
+				is_homeland = cu:estonian
+			}
+			any_scope_state = { NOT = { OWNER ?= c:UBD } }
+		}
+		any_state_region = {
+			region = sr:region_arabic
+			any_scope_state = {
+				OR = {
+					OWNER ?= c:EGY
+					OWNER ?= { is_subject_of = c:EGY }
+				}
+				NOT = { has_claim_by = c:TUR }
 			}
 		}
 	}
@@ -2055,6 +2767,14 @@ trigger_subsistence_building_has_tools = {
 		has_active_production_method = pm_modern_tractors_subsistence
 	}
 }
+trigger_subsistence_building_uses_tools = {
+	OR = {
+		has_active_production_method = pm_tools_subsistence
+		has_active_production_method = pm_steam_threshers_subsistence
+		has_active_production_method = pm_tractors_subsistence
+		has_active_production_method = pm_modern_tractors_subsistence
+	}
+}
 trigger_subsistence_building_uses_transportation = {
 	OR = {
 		has_active_production_method = pm_mechanized_home_workshops
@@ -2064,6 +2784,8 @@ trigger_subsistence_building_uses_transportation = {
 }
 trigger_green_pm_active = {
 	OR = {
+		has_active_production_method = pm_autark_greenhouse
+		
 		has_active_production_method = pm_early_windpark
 		has_active_production_method = pm_large_windpark
 		has_active_production_method = pm_solar_windpark
@@ -2099,7 +2821,7 @@ trigger_ROOT_initiator = {
 					target_is		= ROOT
 				}
 			}
-			any_scope_initiator_ally = { THIS = ROOT }
+			any_scope_initiator_ally = { THIS ?= ROOT }
 		}
 	}
 }
@@ -2113,7 +2835,7 @@ trigger_ROOT_target = {
 					target_is		= ROOT
 				}
 			}
-			any_scope_target_ally = { THIS = ROOT }
+			any_scope_target_ally = { THIS ?= ROOT }
 		}
 	}
 }
@@ -2229,7 +2951,7 @@ trigger_african_remover = {
 		}
 	}
 }
-trigger_colonial_variable = {
+trigger_colonial_african_country = {
 	OR = {
 		has_variable = senegal_subject_var
 		has_variable = niger_subject_var
@@ -2237,6 +2959,10 @@ trigger_colonial_variable = {
 		has_variable = zanj_subject_var
 		has_variable = southern_africa_subject_var
 		has_variable = congo_subject_var
+	}
+}
+trigger_colonial_asian_country = {
+	OR = {
 		has_variable = indonesia_subject_var
 		has_variable = indochina_subject_var
 		has_variable = arabic_subject_var
@@ -2244,9 +2970,23 @@ trigger_colonial_variable = {
 		has_variable = china_subject_var
 	}
 }
+trigger_colonial_american_country = {
+	OR = {
+		has_variable = north_america_subject_var
+		has_variable = central_america_subject_var
+		has_variable = south_america_subject_var
+	}
+}
+trigger_colonial_country = {
+	OR = {
+		trigger_colonial_african_country	= yes
+		trigger_colonial_asian_country		= yes
+		trigger_colonial_american_country	= yes
+	}
+}
 trigger_colonial_subject = {
 	is_subject = yes
-	trigger_colonial_variable = yes
+	trigger_colonial_country = yes
 }
 trigger_peasant_workplace = {
 	OR = {
@@ -2254,7 +2994,7 @@ trigger_peasant_workplace = {
 		is_building_type = building_autarky_farm
 		is_building_type = building_autarky_greenhouse
 	}
-	NOT = { trigger_subsistence_building_has_tools = yes }
+	trigger_subsistence_building_has_tools = no
 }
 trigger_state_has_peasant_workplace = {
 	any_scope_building = { trigger_peasant_workplace = yes }
@@ -2330,11 +3070,89 @@ trigger_greater_german_state = {
 	}
 	NOT = { state_region = s:STATE_TRANSDANUBIA }
 }
+trigger_ki_TTC_state = {	# Thirteen Colonies
+	OR = {
+		state_region = s:STATE_MAINE
+		state_region = s:STATE_NEW_HAMPSHIRE
+		state_region = s:STATE_MASSACHUSETTS
+		state_region = s:STATE_RHODE_ISLAND
+		state_region = s:STATE_CONNECTICUT
+		state_region = s:STATE_VERMONT
+		state_region = s:STATE_NEW_YORK
+		state_region = s:STATE_NEW_JERSEY
+		state_region = s:STATE_PENNSYLVANIA
+		state_region = s:STATE_DELAWARE
+		state_region = s:STATE_MARYLAND
+		state_region = s:STATE_VIRGINIA
+		state_region = s:STATE_NORTH_CAROLINA
+		state_region = s:STATE_SOUTH_CAROLINA
+		state_region = s:STATE_GEORGIA
+		state_region = s:STATE_DISTRICT_OF_COLUMBIA
+	}
+}
+trigger_ki_DIX_state = {	# Dixie
+	OR = {
+		state_region = s:STATE_ALABAMA
+		state_region = s:STATE_LOUISIANA
+		state_region = s:STATE_FLORIDA
+		state_region = s:STATE_GEORGIA
+		state_region = s:STATE_SOUTH_CAROLINA
+		state_region = s:STATE_ARKANSAS
+		state_region = s:STATE_TENNESSEE
+		state_region = s:STATE_MISSISSIPPI
+		state_region = s:STATE_NORTH_CAROLINA
+		state_region = s:STATE_KENTUCKY
+	}
+}
+trigger_ki_PAS_state = {	# Pacific States
+	OR = {
+		state_region = s:STATE_CALIFORNIA
+		state_region = s:STATE_OREGON
+		state_region = s:STATE_WASHINGTON
+		state_region = s:STATE_BRITISH_COLUMBIA
+		state_region = s:STATE_YUKON_TERRITORY
+		state_region = s:STATE_ALASKA
+		state_region = s:STATE_BAJA_CALIFORNIA
+		state_region = s:STATE_NEVADA
+		state_region = s:STATE_ARIZONA	# Forgot this one!
+	}
+}
+trigger_ki_GLR_state = {	# Great Lakes
+	OR = {
+		state_region = s:STATE_MICHIGAN
+		state_region = s:STATE_WISCONSIN
+		state_region = s:STATE_ILLINOIS
+		state_region = s:STATE_INDIANA
+		state_region = s:STATE_OHIO
+	}
+}
+trigger_ki_ROK_state = {	# Rockies
+	OR = {
+		state_region = s:STATE_UTAH
+		state_region = s:STATE_IDAHO
+		state_region = s:STATE_MONTANA
+		state_region = s:STATE_COLORADO
+		state_region = s:STATE_WYOMING
+		state_region = s:STATE_NEVADA
+		state_region = s:STATE_NEW_MEXICO
+	}
+}
+trigger_ki_MWR_state = {	# Midwest
+	OR = {
+		state_region = s:STATE_NORTH_DAKOTA
+		state_region = s:STATE_SOUTH_DAKOTA
+		state_region = s:STATE_NEBRASKA
+		state_region = s:STATE_KANSAS
+		state_region = s:STATE_MINNESOTA
+		state_region = s:STATE_IOWA
+		state_region = s:STATE_MISSOURI
+	}
+}
 trigger_state_to_populate = {
 	is_treaty_port = no
 	state_unemployment_rate < 0.01
 	OR = {
-		any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.10 }
+		any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.90 }
 		AND = {
 			NOT = { any_scope_pop = { has_state_religion = yes } }
 			any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.50 }
@@ -2349,7 +3167,7 @@ trigger_treaty_port_to_populate = {
 	is_treaty_port = yes
 	state_unemployment_rate < 0.01
 	OR = {
-		any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.10 }
+		any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.90 }
 		AND = {
 			NOT = { any_scope_pop = { has_state_religion = yes } }
 			any_scope_building = { trigger_peasant_workplace = yes occupancy < 0.50 }
@@ -2367,9 +3185,11 @@ trigger_ROOT_committed_participant = {
 trigger_add_war_reps = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no NOT = { is_country_type = decentralized } }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
 			ROOT = {
 				NOR = {
 					play_participant_has_war_goal_of_type_against = {
@@ -2388,6 +3208,18 @@ trigger_add_war_reps = {
 							target_country = THIS
 						}
 					}
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
 				}
 			}
 		}
@@ -2396,11 +3228,15 @@ trigger_add_war_reps = {
 trigger_add_military_access = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
 			ROOT = {
 				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 					play_participant_has_war_goal_of_type_against = {
 						type = enforce_treaty_article
 						article = {
@@ -2426,9 +3262,11 @@ trigger_add_transit_rights = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	NOT = { any_scope_state = { is_coastal = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
 			ROOT = {
 				NOR = {
 					play_participant_has_war_goal_of_type_against = {
@@ -2447,6 +3285,18 @@ trigger_add_transit_rights = {
 							target_country = THIS
 						}
 					}
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
 				}
 			}
 		}
@@ -2455,11 +3305,16 @@ trigger_add_transit_rights = {
 trigger_enforce_state_atheism = {	# TODO: Add mutual exclusivity with demilitarisation and slavery ban/enforcement
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { any_scope_play_involved = { THIS = ROOT  } }
+		any_scope_play_involved = { THIS ?= ROOT }
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT OR = { is_subject = no is_subject_of = ROOT } NOT = { has_law = law_type:law_state_atheism } }
+			is_diplomatic_play_enemy_of = ROOT
+			OR = { is_subject = no is_subject_of = ROOT }
+			NOT = { is_country_type = decentralized }
+			NOT = { has_law = law_type:law_state_atheism }
 			ROOT = {
 				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 					play_participant_has_war_goal_of_type_against = {
 						type = enforce_treaty_article
 						target = PREV
@@ -2486,11 +3341,14 @@ trigger_enforce_state_atheism = {	# TODO: Add mutual exclusivity with demilitari
 	}
 }
 trigger_add_demilitarisation = {	# TODO: Add mutual exclusivity with state atheism and slavery ban/enforcement
-	hidden_trigger = { any_diplomatic_play = { any_scope_play_involved = { THIS = ROOT  } } }
+	hidden_trigger = { any_diplomatic_play = { any_scope_play_involved = { THIS ?= ROOT  } } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no NOT = { has_law = law_type:law_national_militia } }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
+			NOT = { has_law = law_type:law_national_militia }
 			ROOT = {
 				NOR = {
 					play_participant_has_war_goal_of_type_against = {
@@ -2513,6 +3371,18 @@ trigger_add_demilitarisation = {	# TODO: Add mutual exclusivity with state athei
 							target_country = THIS
 						}
 					}
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					# play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					# war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
 				}
 			}
 		}
@@ -2521,12 +3391,16 @@ trigger_add_demilitarisation = {	# TODO: Add mutual exclusivity with state athei
 trigger_add_humiliation = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
 			# ROOT = { has_diplomatic_pact = { who = PREV type = rivalry is_initiator = yes } }
 			ROOT = {
 				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 					play_participant_has_war_goal_of_type_against = {
 						type = humiliation
 						target = PREV
@@ -2543,24 +3417,28 @@ trigger_add_humiliation = {
 trigger_add_regime_change = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT }
+			is_diplomatic_play_enemy_of = ROOT
+			NOT = { is_country_type = decentralized }
 			ROOT = {
 				NOR = {
-					play_participant_has_war_goal_of_type_against	= { type = regime_change target = PREV }
-					war_participant_has_war_goal_of_type_against	= { type = regime_change target = PREV }
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = regime_change		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = regime_change		target = PREV }
 				}
 			}
 		}
 	}
 }
-trigger_add_investment_rights = {
+trigger_add_trade_privilege = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT market.owner = THIS }
+			is_diplomatic_play_enemy_of = ROOT
+			market.owner = THIS
 			NOR = {
 				is_country_type = decentralized
 				is_subject_of = ROOT
@@ -2585,16 +3463,141 @@ trigger_add_investment_rights = {
 						}
 					}
 				}
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
 			}
+		}
+	}
+}
+trigger_add_investment_rights = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			market.owner = THIS
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				# ROOT = { play_participant_has_war_goal_of_type_against = { type = foreign_investment_rights target = PREV } }
+				ROOT = {
+					play_participant_has_war_goal_of_type_against = {
+						type = enforce_treaty_article
+						article = {
+							article = foreign_investment_rights
+							source_country = PREV
+							target_country = THIS
+						}
+					}
+				}
+				ROOT = {
+					war_participant_has_war_goal_of_type_against = {
+						type = enforce_treaty_article
+						article = {
+							article = foreign_investment_rights
+							source_country = PREV
+							target_country = THIS
+						}
+					}
+				}
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+		}
+	}
+}
+trigger_add_treaty_port_in_state_region = {
+	# NOT = { any_scope_state = { state_region = s:$state_region$ controls_treaty_port_province = yes } }
+	NOR = {
+		owns_entire_state_region	= $state_region$												# The entire state_region
+		owns_treaty_port_in			= $state_region$												# treaty_port
+		# any_scope_state = { state_region = s:$state_region$ controls_treaty_port_province = yes }	# Just the treaty port province - Breaks when occupied!
+	}
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+			}
+			ROOT = {
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+				}
+			}
+			any_scope_state = { state_region = s:$state_region$ controls_treaty_port_province = yes }
+		}
+	}
+}
+trigger_add_treaty_port_in_market_capital = {
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+			}
+			THIS ?= MARKET.OWNER
+			ROOT = {
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+					play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+				}
+			}
+			any_scope_state = { is_coastal = yes controls_treaty_port_province = yes }
 		}
 	}
 }
 trigger_add_nationalisation = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT }
+			is_diplomatic_play_enemy_of = ROOT
+			NOT = { is_country_type = decentralized }
 			ROOT = {
 				NOR = {
 					play_participant_has_war_goal_of_type_against = {
@@ -2605,6 +3608,8 @@ trigger_add_nationalisation = {
 						type = force_nationalization
 						target = PREV
 					}
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 				}
 			}
 			# OR = {
@@ -2628,24 +3633,264 @@ trigger_add_nationalisation = {
 		}
 	}
 }
+trigger_add_annexation = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			country_rank < rank_value:unrecognized_major_power
+			NOR = {
+				is_country_type = decentralized
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+		}
+	}
+}
 trigger_add_subjugation = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = {
-				is_diplomatic_play_enemy_of = ROOT
-				is_subject = no
-				country_rank < rank_value:unrecognized_major_power
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			country_rank < rank_value:unrecognized_major_power
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
 			}
-			ROOT = {
-				NOR = {
-					play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
-					war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
-					play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
-					war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
-					play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
-					war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+		}
+	}
+}
+trigger_reduce_autonomy_in_play = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject_of = ROOT
+			NOR = {
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+		}
+	}
+}
+trigger_transfer_subject_in_play = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+			any_subject_or_below = {
+				NOT = { is_diplomatic_play_ally_of = ROOT }
+				is_subject = yes
+				NOT = { is_subject_of = ROOT }
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_transfer_recognised_subject_in_play = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+			any_subject_or_below = {
+				NOT = { is_diplomatic_play_ally_of = ROOT }
+				is_subject = yes
+				is_country_type = recognized
+				NOT = { is_subject_of = ROOT }
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_transfer_unrecognised_subject_in_play = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+			any_subject_or_below = {
+				NOT = { is_diplomatic_play_ally_of = ROOT }
+				is_subject = yes
+				is_country_type = unrecognized
+				NOT = { is_subject_of = ROOT }
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_transfer_colonial_subject_in_play = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			NOR = {
+				is_country_type = decentralized
+				is_subject_of = ROOT
+				ROOT = { play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV } }
+			}
+			any_subject_or_below = {
+				NOT = { is_diplomatic_play_ally_of = ROOT }
+				is_subject = yes
+				country_is_colonial_or_company = yes
+				NOT = { is_subject_of = ROOT }
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_tributary		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_dominion		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = make_protectorate	target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = transfer_subject		target = PREV }
+						play_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+						war_participant_has_war_goal_of_type_against	= { type = reduce_autonomy		target = PREV }
+					}
 				}
 			}
 		}
@@ -2654,13 +3899,16 @@ trigger_add_subjugation = {
 trigger_add_slavery_ban = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT }
+			is_diplomatic_play_enemy_of = ROOT
+			NOT = { is_country_type = decentralized }
 			NOR = {
 				has_law = law_type:law_slavery_banned
-				ROOT = { play_participant_has_war_goal_of_type_against	= { type = ban_slavery target = PREV } }
-				ROOT = { war_participant_has_war_goal_of_type_against	= { type = ban_slavery target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = annex_country			target = PREV } }
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = annex_country			target = PREV } }
+				ROOT = { play_participant_has_war_goal_of_type_against	= { type = enforce_treaty_article	target = PREV } }	# ban_slavery wargoal is broken
+				ROOT = { war_participant_has_war_goal_of_type_against	= { type = enforce_treaty_article	target = PREV } }	# ban_slavery wargoal is broken
 			}
 		}
 	}
@@ -2669,11 +3917,16 @@ trigger_add_slavery_enforcement = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	has_law = law_type:law_slave_trade
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT is_subject = no NOT = { has_law = law_type:law_debt_slavery } }
+			is_diplomatic_play_enemy_of = ROOT
+			is_subject = no
+			NOT = { is_country_type = decentralized }
+			NOT = { has_law = law_type:law_debt_slavery }
 			ROOT = {
 				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 					play_participant_has_war_goal_of_type_against = {
 						type = enforce_treaty_article
 						article = {
@@ -2700,10 +3953,10 @@ trigger_add_slavery_enforcement = {
 trigger_revoke_enemy_claims_in_play = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		save_temporary_scope_as = play_scope
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT }
+			is_diplomatic_play_enemy_of = ROOT
 			save_temporary_scope_as = enemy_scope
 			ROOT = {
 				any_scope_state = {
@@ -2716,26 +3969,63 @@ trigger_revoke_enemy_claims_in_play = {
 						# }
 					# }
 				}
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+				}
 			}
 		}
 	}
 }
-trigger_should_claim = {	# Keep this and trigger_ally_state seperate to avoid unwinnable wars.
-	$claimant$ = {
-		is_subject = yes
-		is_country_type = colonial
+trigger_should_claim = {	# Keep this and trigger_ally_state separate to avoid unwinnable wars.
+	exists = $claimant$
+	OR = {
+		trigger_if = {
+			limit = { $claimant$ ?= { OR = { THIS ?= c:LIB was_formed_from = LIB } } }
+			region = sr:region_senegal
+		}
+		trigger_else_if = {
+			limit = { $claimant$ ?= { OR = { THIS ?= c:PHI was_formed_from = PHI } } }
+			region = sr:region_indonesia
+		}
+		trigger_else_if = {
+			limit = { $claimant$ ?= { OR = { THIS ?= c:BIC was_formed_from = BIC } } }
+			OR = {
+				is_in_geographic_region = geographic_region_india
+				region = sr:region_indochina
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				$claimant$ ?= {
+					is_subject = yes
+					country_is_colonial_or_company = yes
+					# NOR = {
+						# THIS ?= c:LIB
+						# was_formed_from = LIB
+						# THIS ?= c:PHI
+						# was_formed_from = PHI
+						# THIS ?= c:BIC
+						# was_formed_from = BIC
+					# }
+				}
+			}
+			trigger_if		= { limit = { $claimant$ ?= { has_variable = senegal_subject_var } }			region = sr:region_senegal }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = niger_subject_var } }				region = sr:region_niger }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = ethiopia_subject_var } }			region = sr:region_ethiopia }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = zanj_subject_var } }				region = sr:region_zanj }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = southern_africa_subject_var } }	region = sr:region_southern_africa }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = congo_subject_var } }				region = sr:region_congo }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = indonesia_subject_var } }			region = sr:region_indonesia }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = indochina_subject_var } }			region = sr:region_indochina }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = arabic_subject_var } }				region = sr:region_arabic }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = india_subject_var } }				is_in_geographic_region = geographic_region_india }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = china_subject_var } }				is_in_geographic_region = geographic_region_china }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = north_america_subject_var } }		is_in_geographic_region = geographic_region_north_america }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = central_america_subject_var } }	is_in_geographic_region = geographic_region_central_america }
+			trigger_else_if	= { limit = { $claimant$ ?= { has_variable = south_america_subject_var } }		is_in_geographic_region = geographic_region_south_america }
+		}
 	}
-	trigger_if		= { limit = { $claimant$ = { has_variable = senegal_subject_var } }			region = sr:region_senegal }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = niger_subject_var } }			region = sr:region_niger }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = ethiopia_subject_var } }		region = sr:region_ethiopia }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = zanj_subject_var } }			region = sr:region_zanj }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = southern_africa_subject_var } }	region = sr:region_southern_africa }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = congo_subject_var } }			region = sr:region_congo }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = indonesia_subject_var } }		region = sr:region_indonesia }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = indochina_subject_var } }		region = sr:region_indochina }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = arabic_subject_var } }			region = sr:region_arabic }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = india_subject_var } }			is_in_geographic_region = geographic_region_india }
-	trigger_else_if	= { limit = { $claimant$ = { has_variable = china_subject_var } }			is_in_geographic_region = geographic_region_china }
 }
 trigger_should_own = {
 	OR = {
@@ -2747,14 +4037,21 @@ trigger_should_own = {
 trigger_transfer_homeland_in_play = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		any_scope_play_involved = {
-			filter = { is_diplomatic_play_enemy_of = ROOT }
+			is_diplomatic_play_enemy_of = ROOT
 			any_scope_state = {
 				OR = {
 					is_homeland_of_country_cultures = ROOT
 					has_claim_by = ROOT
 					trigger_should_claim = { claimant = ROOT }
+					trigger_if	= { limit = { OR = { THIS ?= c:LIB was_formed_from = LIB } }	region = sr:region_senegal }
+				}
+			}
+			ROOT = {
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
 				}
 			}
 		}
@@ -2762,39 +4059,207 @@ trigger_transfer_homeland_in_play = {
 }
 trigger_ally_state = {
 	NOR = {
-		trigger_if		= { limit = { NOT = { is_country_type = colonial } }												is_homeland_of_country_cultures	= ROOT }
-		trigger_if		= { limit = { scope:ally_scope = { NAND = { is_subject_of = ROOT is_country_type = colonial } } }	has_claim_by = ROOT }
+		trigger_if		= { limit = { country_is_colonial_or_company = no }															is_homeland_of_country_cultures	= ROOT }
+		trigger_if		= { limit = { scope:ally_scope = { NAND = { is_subject_of = ROOT country_is_colonial_or_company = yes } } }	has_claim_by = ROOT }
 	}
 	OR = {
-		trigger_if		= { limit = { scope:ally_scope = { THIS ?= c:CHI } }																				is_in_geographic_region = geographic_region_china }
-		trigger_else_if	= { limit = { scope:ally_scope = { any_primary_culture = { THIS ?= cu:japanese } NOT = { is_country_type = colonial } } }			region = sr:region_japan }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = senegal_subject_var } }			region = sr:region_senegal }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = niger_subject_var } }				region = sr:region_niger }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = ethiopia_subject_var } }			region = sr:region_ethiopia }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = zanj_subject_var } }				region = sr:region_zanj }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = southern_africa_subject_var } }	region = sr:region_southern_africa }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = congo_subject_var } }				region = sr:region_congo }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = indonesia_subject_var } }			region = sr:region_indonesia }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = indochina_subject_var } }			region = sr:region_indochina }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = arabic_subject_var } }			region = sr:region_arabic }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = india_subject_var } }				is_in_geographic_region = geographic_region_india }
-		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT is_country_type = colonial has_variable = china_subject_var } }				is_in_geographic_region = geographic_region_china }
-		trigger_else_if	= { limit = { scope:ally_scope = { NOT = { is_country_type = colonial } } }															is_homeland_of_country_cultures = scope:ally_scope }
 		has_claim_by = scope:ally_scope
+		trigger_if		= { limit = { scope:ally_scope = { THIS ?= c:CHI } }																						is_in_geographic_region = geographic_region_china }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:LAN } }																						region = sr:region_indonesia }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:MON } }																						state_region = s:STATE_MONTENEGRO }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_TTC } }																						trigger_ki_TTC_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_DIX } }																						trigger_ki_DIX_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_PAS } }																						trigger_ki_PAS_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_GLR } }																						trigger_ki_GLR_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_ROK } }																						trigger_ki_ROK_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { THIS ?= c:ki_MWR } }																						trigger_ki_MWR_state	= yes }
+		trigger_else_if	= { limit = { scope:ally_scope = { any_primary_culture = { THIS ?= cu:japanese } country_is_colonial_or_company = no } }					region = sr:region_japan }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = senegal_subject_var } }			region = sr:region_senegal }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = niger_subject_var } }			region = sr:region_niger }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = ethiopia_subject_var } }		region = sr:region_ethiopia }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = zanj_subject_var } }			region = sr:region_zanj }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = southern_africa_subject_var } }	region = sr:region_southern_africa }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = congo_subject_var } }			region = sr:region_congo }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = indonesia_subject_var } }		region = sr:region_indonesia }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = indochina_subject_var } }		region = sr:region_indochina }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = arabic_subject_var } }			region = sr:region_arabic }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = india_subject_var } }			is_in_geographic_region = geographic_region_india }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = china_subject_var } }			is_in_geographic_region = geographic_region_china }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = north_america_subject_var } }	is_in_geographic_region = geographic_region_north_america }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = central_america_subject_var } }	is_in_geographic_region = geographic_region_central_america }
+		trigger_else_if	= { limit = { scope:ally_scope = { is_subject_of = ROOT country_is_colonial_or_company = yes has_variable = south_america_subject_var } }	is_in_geographic_region = geographic_region_south_america }
+		trigger_else_if	= { limit = { scope:ally_scope = { country_is_colonial_or_company = no } }																	is_homeland_of_country_cultures = scope:ally_scope }
 	}
 }
 trigger_transfer_homeland_in_play_to_ally = {
 	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
 	any_diplomatic_play = {
-		filter = { trigger_ROOT_committed_participant = yes }
+		trigger_ROOT_committed_participant = yes
 		save_temporary_scope_as = play_scope
 		any_scope_play_involved = {
-			is_diplomatic_play_ally_of = ROOT
+			trigger_diplomatic_alliance = { TARGET = ROOT }	# is_diplomatic_play_ally_of = ROOT
+			NOT = { is_diplomatic_play_enemy_of = ROOT }	# It is possible to end up in opposite sides of a war despite being allies.
 			save_temporary_scope_as = ally_scope
 			scope:play_scope = {
 				any_scope_play_involved = {
-					filter = { is_diplomatic_play_enemy_of = ROOT }
+					is_diplomatic_play_enemy_of = ROOT
 					any_scope_state = { trigger_ally_state = yes }
+				}
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_transfer_homeland_in_play_to_subject = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		save_temporary_scope_as = play_scope
+		any_country = {
+			NOT = { is_diplomatic_play_enemy_of = ROOT }
+			is_subject_of = ROOT
+			save_temporary_scope_as = ally_scope
+			scope:play_scope = {
+				any_scope_play_involved = {
+					is_diplomatic_play_enemy_of = ROOT
+					any_scope_state = { trigger_ally_state = yes }
+				}
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_transfer_homeland_in_play_to_temp_ally = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		save_temporary_scope_as = play_scope
+		any_scope_play_involved = {
+			is_diplomatic_play_ally_of = ROOT
+			NOT = { is_subject_of = ROOT }
+			save_temporary_scope_as = ally_scope
+			scope:play_scope = {
+				any_scope_play_involved = {
+					is_diplomatic_play_enemy_of = ROOT
+					any_scope_state = { trigger_ally_state = yes }
+				}
+				ROOT = {
+					NOR = {
+						play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+						war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					}
+				}
+			}
+		}
+	}
+}
+trigger_crusade_against_communism = {
+	hidden_trigger = { NOT = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } } }
+	trigger_if = {
+		limit = { is_subject = yes }
+		custom_tooltip = {
+			text = "DIPLOMATIC_PACT_REQUIREMENT_DIPLOMATIC_AUTONOMY"
+			aggressive_diplomatic_plays_permitted = yes
+		}
+	}
+	any_country = {
+		has_law_or_variant = law_type:law_council_republic
+		is_revolutionary = no
+		is_subject = no
+	}
+}
+trigger_crusade_against_fascism = {
+	hidden_trigger = { NOT = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } } }
+	trigger_if = {
+		limit = { is_subject = yes }
+		custom_tooltip = {
+			text = "DIPLOMATIC_PACT_REQUIREMENT_DIPLOMATIC_AUTONOMY"
+			aggressive_diplomatic_plays_permitted = yes
+		}
+	}
+	any_country = {
+		has_law_or_variant = law_type:law_corporate_state
+		is_revolutionary = no
+		is_subject = no
+	}
+}
+trigger_annex_indian_subjects = {
+	# hidden_trigger = { NOT = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } } }
+	trigger_if = {
+		limit = { is_subject = yes }
+		custom_tooltip = {
+			text = "DIPLOMATIC_PACT_REQUIREMENT_DIPLOMATIC_AUTONOMY"
+			aggressive_diplomatic_plays_permitted = yes
+		}
+	}
+	any_country = {
+		is_in_geographic_region = geographic_region_india
+		is_subject_of		= ROOT
+		is_revolutionary	= no
+		NOT = { has_variable = india_subject_var }
+	}
+}
+trigger_liberate_siberia = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		save_temporary_scope_as = play_scope
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			any_scope_state = { state_region = { is_homeland = cu:siberian } }
+			NOT = { any_primary_culture = { THIS ?= cu:siberian } }
+			ROOT = {
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+				}
+			}
+		}
+	}
+}
+trigger_liberate_bulgaria = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		save_temporary_scope_as = play_scope
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			any_scope_state = { state_region = { is_homeland = cu:bulgarian } }
+			NOT = { any_primary_culture = { THIS ?= cu:bulgarian } }
+			ROOT = {
+				NOR = {
+					play_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+					war_side_has_war_goal_of_type_against			= { type = annex_country		target = PREV }
+				}
+			}
+		}
+	}
+}
+trigger_liberate_US_breakaways = {
+	hidden_trigger = { any_diplomatic_play = { trigger_ROOT_committed_participant = yes } }
+	any_diplomatic_play = {
+		trigger_ROOT_committed_participant = yes
+		save_temporary_scope_as = play_scope
+		any_scope_play_involved = {
+			is_diplomatic_play_enemy_of = ROOT
+			any_scope_state = { 
+				OR = {
+					trigger_ki_TTC_state	= yes
+					trigger_ki_DIX_state	= yes
+					trigger_ki_PAS_state	= yes
+					trigger_ki_GLR_state	= yes
+					trigger_ki_ROK_state	= yes
+					trigger_ki_MWR_state	= yes
 				}
 			}
 		}
@@ -2856,7 +4321,10 @@ trigger_culture_can_assimilate = {
 		NOT = { has_homeland = PREV.STATE }
 		AND = {
 			PREV.OWNER = { any_primary_culture = { has_discrimination_trait_group = $trait_group$ } }
-			PREV.STATE = is_homeland_of_country_cultures = ROOT
+			PREV.STATE = {
+				is_homeland_of_country_cultures = ROOT
+				has_decree = decree_promote_national_values
+			}
 		}
 	}
 }
@@ -2891,90 +4359,34 @@ trigger_diplomatic_alliance = {
 		}
 	}
 }
-trigger_asian_subject = {
-	OR = {
-		has_variable = indonesia_subject_var
-		has_variable = indochina_subject_var
-		has_variable = arabic_subject_var
-		has_variable = india_subject_var
-		has_variable = china_subject_var
+trigger_could_supply_transit_rights_for = {
+	THIS ?= MARKET.OWNER
+	MARKET ?= {
+		any_scope_country = { has_strategic_land_adjacency = $target$ }
+		any_scope_country = { any_scope_state = { is_coastal = yes } }
+		mg:merchant_marine = { market_goods_sell_orders > 0 }
+	}
+	NOT = {
+		any_scope_treaty = {
+			binds = $target$
+			any_scope_article = { has_type = transit_rights }
+		}
 	}
 }
-trigger_ki_TTC_state = {	# Thirteen Colonies
-	OR = {
-		state_region = s:STATE_MAINE
-		state_region = s:STATE_NEW_HAMPSHIRE
-		state_region = s:STATE_MASSACHUSETTS
-		state_region = s:STATE_RHODE_ISLAND
-		state_region = s:STATE_CONNECTICUT
-		state_region = s:STATE_VERMONT
-		state_region = s:STATE_NEW_YORK
-		state_region = s:STATE_NEW_JERSEY
-		state_region = s:STATE_PENNSYLVANIA
-		state_region = s:STATE_DELAWARE
-		state_region = s:STATE_MARYLAND
-		state_region = s:STATE_VIRGINIA
-		state_region = s:STATE_NORTH_CAROLINA
-		state_region = s:STATE_SOUTH_CAROLINA
-		state_region = s:STATE_GEORGIA
-		state_region = s:STATE_DISTRICT_OF_COLUMBIA
-	}
+trigger_create_transit_treaty = {
+	NOT = { MARKET ?= { any_scope_country = { any_scope_state = { is_coastal = yes } } } }
+	any_country = { trigger_could_supply_transit_rights_for = { target = ROOT } }
 }
-trigger_ki_DIX_state = {	# Dixie
-	OR = {
-		state_region = s:STATE_ALABAMA
-		state_region = s:STATE_LOUISIANA
-		state_region = s:STATE_FLORIDA
-		state_region = s:STATE_GEORGIA
-		state_region = s:STATE_SOUTH_CAROLINA
-		state_region = s:STATE_ARKANSAS
-		state_region = s:STATE_TENNESSEE
-		state_region = s:STATE_MISSISSIPPI
-		state_region = s:STATE_NORTH_CAROLINA
-		state_region = s:STATE_KENTUCKY
-	}
-}
-trigger_ki_PAS_state = {	# Pacific States
-	OR = {
-		state_region = s:STATE_CALIFORNIA
-		state_region = s:STATE_OREGON
-		state_region = s:STATE_WASHINGTON
-		state_region = s:STATE_BRITISH_COLUMBIA
-		state_region = s:STATE_YUKON_TERRITORY
-		state_region = s:STATE_ALASKA
-		state_region = s:STATE_BAJA_CALIFORNIA
-		state_region = s:STATE_NEVADA
-	}
-}
-trigger_ki_GLR_state = {	# Great Lakes
-	OR = {
-		state_region = s:STATE_MICHIGAN
-		state_region = s:STATE_WISCONSIN
-		state_region = s:STATE_ILLINOIS
-		state_region = s:STATE_INDIANA
-		state_region = s:STATE_OHIO
-	}
-}
-trigger_ki_ROK_state = {	# Rockies
-	OR = {
-		state_region = s:STATE_UTAH
-		state_region = s:STATE_IDAHO
-		state_region = s:STATE_MONTANA
-		state_region = s:STATE_COLORADO
-		state_region = s:STATE_WYOMING
-		state_region = s:STATE_NEVADA
-		state_region = s:STATE_NEW_MEXICO
-	}
-}
-trigger_ki_MWR_state = {	# Midwest
-	OR = {
-		state_region = s:STATE_NORTH_DAKOTA
-		state_region = s:STATE_SOUTH_DAKOTA
-		state_region = s:STATE_NEBRASKA
-		state_region = s:STATE_KANSAS
-		state_region = s:STATE_MINNESOTA
-		state_region = s:STATE_IOWA
-		state_region = s:STATE_MISSOURI
+trigger_create_investment_rights_treaty_tp = {
+	any_country = {
+		ROOT ?= { owns_treaty_port_in = PREV }
+		NOT = {
+			any_scope_treaty = {
+				binds = ROOT
+				binds = PREV
+				any_scope_article = { has_type = foreign_investment_rights }
+			}
+		}
 	}
 }
 trigger_colonial_government = {
@@ -2991,15 +4403,525 @@ trigger_colonial_government = {
 		has_government_type = gov_colonial_administration_fallback
 	}
 }
+trigger_anglo_indian_country = {	# Trigger for whether the anglo-indian culture rules should apply to this country.
+	any_primary_culture = { THIS ?= cu:british }
+	any_scope_state = {
+		is_in_geographic_region = geographic_region_india
+		is_split_state = no
+	}
+	# trigger_if = {
+		# limit = { OR = { THIS ?= c:GBR was_formed_from = GBR } }
+		# NOR = {
+			# any_country = { has_variable = india_subject_var is_subject_of = PREV }
+			# any_country = { THIS ?= c:BIC is_subject_of = PREV }
+			# any_country = { THIS ?= c:BHT is_subject_of = PREV }
+		# }
+	# }
+	# OR = {
+		# is_in_geographic_region = geographic_region_india
+		# NOT = {
+			# any_country = {
+				# OR = {
+					# has_variable = india_subject_var
+					# THIS ?= c:BIC
+					# THIS ?= c:BHT
+				# }
+				# is_subject_of = c:GBR
+			# }
+		# }
+	# }
+}
+trigger_add_all_good_laws = {
+	NAND = {
+		has_law = law_type:law_technocracy
+		has_law = law_type:law_slavery_banned
+		has_law = law_type:law_multicultural
+		has_law = law_type:law_state_atheism
+		has_law = law_type:law_appointed_bureaucrats
+		has_law = law_type:law_professional_army
+		has_law = law_type:law_guaranteed_liberties
+		OR = {
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_cooperative_ownership
+		}
+		has_law = law_type:law_free_trade
+		has_law = law_type:law_graduated_taxation
+		has_law = law_type:law_commercialized_agriculture
+		has_law = law_type:law_colonial_exploitation
+		has_law = law_type:law_militarized_police
+		has_law = law_type:law_public_schools
+		has_law = law_type:law_public_health_insurance
+		has_law = law_type:law_protected_speech
+		has_law = law_type:law_worker_protections
+		has_law = law_type:law_compulsory_primary_school
+		has_law = law_type:law_womens_suffrage
+		has_law = law_type:law_old_age_pension
+		has_law = law_type:law_no_migration_controls
+		has_law = law_type:law_right_to_associate
+	}
+}
 # Used in colonial buttons - DO NOT RENAME!
-trigger_owner_not_senegal_subject			= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = senegal_subject_var } } } } }
-trigger_owner_not_niger_subject				= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = niger_subject_var } } } } }
-trigger_owner_not_ethiopia_subject			= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = ethiopia_subject_var } } } } }
-trigger_owner_not_zanj_subject				= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = zanj_subject_var } } } } }
-trigger_owner_not_southern_africa_subject	= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = southern_africa_subject_var } } } } }
-trigger_owner_not_congo_subject				= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = congo_subject_var } } } } }
-trigger_owner_not_indonesia_subject			= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = indonesia_subject_var } } } } }
-trigger_owner_not_indochina_subject			= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOR = { has_variable = indochina_subject_var THIS ?= c:BIC THIS ?= c:BHT } } } } }	# BIC/BHT special case
-trigger_owner_not_arabic_subject			= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = arabic_subject_var } } } } }
-trigger_owner_not_india_subject				= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = india_subject_var } } } } }
-trigger_owner_not_china_subject				= { OWNER = { OR = { THIS ?= ROOT AND = { is_subject_of = ROOT NOT = { has_variable = china_subject_var } } } } }
+trigger_senegal_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = senegal_subject_var THIS ?= c:LIB THIS ?= c:SIL } }	# Liberia and Sierra Leone
+trigger_niger_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = niger_subject_var } }
+trigger_ethiopia_subject		= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = ethiopia_subject_var } }
+trigger_zanj_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = zanj_subject_var } }
+trigger_southern_africa_subject	= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = southern_africa_subject_var THIS ?= c:SAF } }
+trigger_congo_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = congo_subject_var } }
+trigger_indonesia_subject		= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = indonesia_subject_var THIS ?= c:PHI } }
+trigger_indochina_subject		= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = indochina_subject_var THIS ?= c:BIC THIS ?= c:BHT } }	# BIC/BHT special case
+trigger_arabic_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = arabic_subject_var } }
+trigger_india_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = india_subject_var THIS ?= c:BIC THIS ?= c:BHT } }
+trigger_china_subject			= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = china_subject_var } }
+trigger_north_america_subject	= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = north_america_subject_var } }
+trigger_central_america_subject	= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = central_america_subject_var } }
+trigger_south_america_subject	= { NOT = { THIS ?= ROOT } OR = { NOT = { is_subject_of = ROOT } has_variable = south_america_subject_var } }
+# Amendments
+trigger_add_amendment_veteran_pensions = {
+	OR = {
+		has_law_or_variant = law_type:law_old_age_pension
+		is_enacting_law = law_type:law_old_age_pension
+	}
+	trigger_if = {
+		limit = { is_enacting_law = law_type:law_old_age_pension }
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_veterans_pensions } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_welfare ?= { has_amendment = amendment_type:amendment_veterans_pensions } }
+	}
+}
+trigger_add_amendment_vertically_integrated_agriculture = {
+	OR = {
+		has_law_or_variant = law_type:law_commercialized_agriculture
+		is_enacting_law = law_type:law_commercialized_agriculture
+	}
+	trigger_if = {
+		limit = { is_enacting_law = law_type:law_commercialized_agriculture }
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_vertically_integrated_agriculture } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_land_reform ?= { has_amendment = amendment_type:amendment_vertically_integrated_agriculture } }
+	}
+}
+trigger_add_amendment_welfare_pro_employer_bias = {
+	OR = {
+		# has_law_or_variant = law_type:law_poor_laws
+		has_law_or_variant = law_type:law_wage_subsidies
+		has_law_or_variant = law_type:law_old_age_pension
+		# is_enacting_law = law_type:law_poor_laws
+		is_enacting_law = law_type:law_wage_subsidies
+		is_enacting_law = law_type:law_old_age_pension
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				# is_enacting_law = law_type:law_poor_laws
+				is_enacting_law = law_type:law_wage_subsidies
+				is_enacting_law = law_type:law_old_age_pension
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_welfare_pro_employer_bias } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_welfare ?= { has_amendment = amendment_type:amendment_welfare_pro_employer_bias } }
+	}
+}
+trigger_remove_amendment_short_term_tax_cuts = {
+	OR = {
+		any_law = { has_amendment = amendment_type:amendment_short_term_tax_cuts }
+		currently_enacting_law = { has_amendment = amendment_type:amendment_short_term_tax_cuts }
+	}
+}
+trigger_remove_amendment_upper_strata_tax_cuts = {
+	OR = {
+		any_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		any_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+		any_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+		currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+		currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+	}
+}
+trigger_add_amendment_prussian_education = {
+	OR = {
+		NOT = { has_law_or_variant = law_type:law_no_schools }
+		is_enacting_law = law_type:law_religious_schools
+		is_enacting_law = law_type:law_private_schools
+		is_enacting_law = law_type:law_public_schools
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_religious_schools
+				is_enacting_law = law_type:law_private_schools
+				is_enacting_law = law_type:law_public_schools
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_prussian_education } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_education_system ?= { has_amendment = amendment_type:amendment_prussian_education } }
+	}
+}
+trigger_add_amendment_co_ed_schools = {
+	OR = {
+		is_enacting_law = law_type:law_public_schools
+		has_law_or_variant = law_type:law_public_schools
+	}
+	trigger_if = {
+		limit = { is_enacting_law = law_type:law_public_schools }
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_co_ed_schools } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_education_system ?= { has_amendment = amendment_type:amendment_co_ed_schools } }
+	}
+}
+trigger_add_amendment_secular_school_system = {
+	OR = {
+		is_enacting_law = law_type:law_public_schools
+		has_law_or_variant = law_type:law_public_schools
+	}
+	trigger_if = {
+		limit = { is_enacting_law = law_type:law_public_schools }
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_secular_school_system } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_education_system ?= { has_amendment = amendment_type:amendment_secular_school_system } }
+	}
+}
+trigger_add_amendment_apprenticeships = {
+	OR = {
+		NOT = { has_law_or_variant = law_type:law_no_schools }
+		is_enacting_law = law_type:law_religious_schools
+		is_enacting_law = law_type:law_private_schools
+		is_enacting_law = law_type:law_public_schools
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_religious_schools
+				is_enacting_law = law_type:law_private_schools
+				is_enacting_law = law_type:law_public_schools
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_apprenticeships } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_education_system ?= { has_amendment = amendment_type:amendment_apprenticeships } }
+	}
+}
+trigger_add_amendment_state_anti_clericalism = {
+	OR = {
+		is_enacting_law = law_type:law_state_religion
+		is_enacting_law = law_type:law_freedom_of_conscience
+		is_enacting_law = law_type:law_total_separation
+		has_law_or_variant = law_type:law_state_religion
+		has_law_or_variant = law_type:law_freedom_of_conscience
+		has_law_or_variant = law_type:law_total_separation
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_state_religion
+				is_enacting_law = law_type:law_freedom_of_conscience
+				is_enacting_law = law_type:law_total_separation
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_state_anti_clericalism } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_church_and_state ?= { has_amendment = amendment_type:amendment_state_anti_clericalism } }
+	}
+}
+trigger_add_amendment_racialized_subjecthood = {
+	has_law = law_type:law_colonial_administration
+	OR = {
+		is_enacting_law = law_type:law_subjecthood
+		has_law_or_variant = law_type:law_subjecthood
+	}
+	trigger_if = {
+		limit = { is_enacting_law = law_type:law_subjecthood }
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_racialized_subjecthood } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_citizenship ?= { has_amendment = amendment_type:amendment_racialized_subjecthood } }
+	}
+}
+trigger_add_amendment_tradition_of_free_elections = {
+	OR = {
+		is_enacting_law = law_type:law_oligarchy
+		is_enacting_law = law_type:law_landed_voting
+		is_enacting_law = law_type:law_wealth_voting
+		is_enacting_law = law_type:law_census_voting
+		is_enacting_law = law_type:law_universal_suffrage
+		has_law_or_variant = law_type:law_oligarchy
+		has_law_or_variant = law_type:law_landed_voting
+		has_law_or_variant = law_type:law_wealth_voting
+		has_law_or_variant = law_type:law_census_voting
+		has_law_or_variant = law_type:law_universal_suffrage
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_oligarchy
+				is_enacting_law = law_type:law_landed_voting
+				is_enacting_law = law_type:law_wealth_voting
+				is_enacting_law = law_type:law_census_voting
+				is_enacting_law = law_type:law_universal_suffrage
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_tradition_of_free_elections } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_distribution_of_power ?= { has_amendment = amendment_type:amendment_tradition_of_free_elections } }
+	}
+}
+trigger_add_amendment_redemption_payments = {
+	OR = {
+		is_enacting_law = law_type:law_subjecthood
+		has_law_or_variant = law_type:law_subjecthood
+	}
+	trigger_if = {
+		limit = {
+			has_law_or_variant = law_type:law_serfdom
+			OR = {
+				is_enacting_law = law_type:law_tenant_farmers
+				is_enacting_law = law_type:law_commercialized_agriculture
+				is_enacting_law = law_type:law_homesteading
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_redemption_payments } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_land_reform ?= { has_amendment = amendment_type:amendment_redemption_payments } }
+	}
+}
+trigger_add_amendment_individual_redemption_payments = {
+	OR = {
+		is_enacting_law = law_type:law_tenant_farmers
+		is_enacting_law = law_type:law_commercialized_agriculture
+		is_enacting_law = law_type:law_homesteading
+		has_law_or_variant = law_type:law_tenant_farmers
+		has_law_or_variant = law_type:law_commercialized_agriculture
+		has_law_or_variant = law_type:law_homesteading
+	}
+	trigger_if = {
+		limit = {
+			has_law_or_variant = law_type:law_serfdom
+			OR = {
+				is_enacting_law = law_type:law_tenant_farmers
+				is_enacting_law = law_type:law_commercialized_agriculture
+				is_enacting_law = law_type:law_homesteading
+			}
+		}
+		NOT = { currently_enacting_law = { has_amendment = amendment_type:amendment_individual_redemption_payments } }
+	}
+	trigger_else = {
+		NOT = { active_law:lawgroup_land_reform ?= { has_amendment = amendment_type:amendment_individual_redemption_payments } }
+	}
+}
+trigger_add_amendment_upper_strata_tax_cuts_small = {
+	OR = {
+		is_enacting_law = law_type:law_proportional_taxation
+		is_enacting_law = law_type:law_graduated_taxation
+		has_law_or_variant = law_type:law_proportional_taxation
+		has_law_or_variant = law_type:law_graduated_taxation
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_proportional_taxation
+				is_enacting_law = law_type:law_graduated_taxation
+			}
+		}
+		NOR = {
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+	trigger_else = {
+		NOR = {
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+}
+trigger_add_amendment_upper_strata_tax_cuts_medium = {
+	OR = {
+		is_enacting_law = law_type:law_proportional_taxation
+		is_enacting_law = law_type:law_graduated_taxation
+		has_law_or_variant = law_type:law_proportional_taxation
+		has_law_or_variant = law_type:law_graduated_taxation
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_proportional_taxation
+				is_enacting_law = law_type:law_graduated_taxation
+			}
+		}
+		NOR = {
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+	trigger_else = {
+		NOR = {
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+}
+trigger_add_amendment_upper_strata_tax_cuts_large = {
+	OR = {
+		is_enacting_law = law_type:law_proportional_taxation
+		is_enacting_law = law_type:law_graduated_taxation
+		has_law_or_variant = law_type:law_proportional_taxation
+		has_law_or_variant = law_type:law_graduated_taxation
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				is_enacting_law = law_type:law_proportional_taxation
+				is_enacting_law = law_type:law_graduated_taxation
+			}
+		}
+		NOR = {
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			currently_enacting_law = { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+	trigger_else = {
+		NOR = {
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_small }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_medium }
+			active_law:lawgroup_taxation ?= { has_amendment = amendment_type:amendment_upper_strata_tax_cuts_large }
+		}
+	}
+}
+# trigger_historical_cancer = {	# We cannot scope to the character template to check for a trait, but we can hard-code it and periodically check for changes.
+	# OR = {	# Some historical characters get the trait later in life per event or effect, so this list is incomplete.
+		# has_template = ada_lovelace_template
+		# has_template = ruler_ada_lovelace
+		# has_template = JHN_raghunath_newalkar_template
+	# }
+# }
+trigger_historical_grifter = {	# We cannot scope to the character template to check for a trait, but we can hard-code it and periodically check for changes.
+	OR = {
+		has_template = ONT_william_allan
+		has_template = QUE_peter_mcgill
+		has_template = can_allan_macnab
+		has_template = CHL_jorge_gonzalez_von_marees
+		has_template = VNZ_rafael_simon_urbina
+	}
+}
+trigger_historical_expensive_tastes = {	# We cannot scope to the character template to check for a trait, but we can hard-code it and periodically check for changes.
+	custom_tooltip = {
+		text = historical_expensive_tastes.tt
+		OR = {
+			has_template = BIC_dwarkanath_tagore
+			has_template = BIC_henry_petty-fitzmaurice
+			has_template = NBS_thomas_baillie
+			has_template = ONT_james_fitzgibbon
+			has_template = chi_gong_character_template
+			has_template = ECU_Juan_Jose_Flores
+			has_template = FRA_ferdinand_philippe
+			has_template = FRA_alfonso_de_bourbon
+			has_template = GBR_john_maynard_keynes						# Keynesian Economics at work
+			has_template = JAP_ienari_tokugawa
+			has_template = KRA_Jozef_Haller
+			has_template = mug_bahadur_ii
+			has_template = mug_hamid_ali_khan
+			has_template = pan_kharak_singh
+			has_template = pan_nau_nihal_singh							# Loses it at some point - See below
+			has_template = PEU_jose_rufino_echenique
+			has_template = POR_miguel_maximiliano_de_braganca_template
+			has_template = POR_jose_da_silva_carvalho
+			has_template = PRG_carlos_antonio_lopez
+			has_template = PRG_juan_bautista_gill
+			has_template = RUS_alexander_ageevich_abaza
+			has_template = USA_cornelius_vanderbilt
+			has_template = usa_cornelius_vanderbilt_character_template
+			has_template = VNZ_joaquin_crespo
+			has_template = zan_richard_palmer_waters
+			has_template = zan_mwinyi_mkuu_muhammad
+			has_template = canonic_esterhazy_character_template
+			has_template = fra_general_dorleans
+			has_template = AWA_nasir_ud_din_haidar_nishapuri_template
+			has_template = ASM_purandar_singha_swargadeo_template
+			has_template = HYD_nasir_ud_daulah_asaf_jah_template
+			has_template = JHN_raghunath_newalkar_template
+			has_modifier = well_connected								# election_contextual_events.4
+			has_template = pan_duleep_singh								# sikh_empire.9
+		}
+		NOT = { has_modifier = nau_nihal_survives }						# sikh_empire.6 removes trait
+	}
+}
+trigger_has_negative_affliction = {
+	OR = {
+		has_trait = psychological_affliction
+		has_trait = shellshocked
+		has_trait = alcoholic
+		has_trait = opium_addiction
+		has_trait = syphilis
+		AND = {
+			is_historical = no
+			OR = {
+				has_trait = cancer
+				has_trait = kidney_stones
+				has_trait = inept
+				has_trait = sickly
+			}
+		}
+		has_modifier = modifier_commander_with_addiction
+		has_modifier = public_shame_modifier
+		trigger_if = {	# Well, which one is it?
+			limit = { trigger_ruler_or_heir = yes }
+			has_trait = bigoted
+			has_modifier = modifier_scandalous_lover
+		}
+		trigger_if = {
+			limit = { trigger_historical_grifter = no }
+			has_trait = grifter
+		}
+		trigger_if = {
+			limit = { trigger_historical_expensive_tastes = no }
+			has_trait = expensive_tastes
+		}
+	}
+}
+trigger_transfer_indian_subjects_to_BIC = {
+	any_country = {
+		is_subject_of = c:BIC.OVERLORD
+		NOR = {
+			THIS ?= c:BIC
+			is_subject_of = c:BIC
+		}
+		OR = {
+			is_in_geographic_region = geographic_region_india
+			is_in_geographic_region = geographic_region_south_east_asia
+		}
+	}
+}
+trigger_owner_wants_immigration = {
+	OWNER ?= {
+		NOR = {	# Don't bother if you don't have the conditions for immigration
+			has_law_or_variant = law_type:law_serfdom
+			has_law_or_variant = law_type:law_tenant_farmers	# Does this make sense?
+			has_law_or_variant = law_type:law_closed_borders
+			has_law_or_variant = law_type:law_subjecthood
+			AND = {
+				has_law_or_variant = law_type:law_migration_controls
+				OR = {
+					has_law_or_variant = law_type:law_ethnostate
+					has_law_or_variant = law_type:law_national_supremacy
+				}
+			}
+		}
+		has_technology_researched = steel_railway_cars	# paved_roads - Moved condition for check ahead, because high infrastructure means high migration, which we want, but not too early - Doesn't make sense before steel_railway_cars
+	}
+}

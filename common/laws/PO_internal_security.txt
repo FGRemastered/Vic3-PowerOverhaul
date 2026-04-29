@@ -13,7 +13,9 @@ INJECT:law_secret_police = {
 }
 INJECT:law_guaranteed_liberties = {
 	institution_modifier = {
-		political_movement_radicalism_add					=-0.01	# Added
+		political_movement_radicalism_add					=-0.025	# Added	- We may not offer draconian punishments, but we're no paper-tiger either.
+		country_support_separatism_resistance_mult			= 0.025	# Added	- We may not offer draconian punishments, but we're no paper-tiger either.
+		country_amenability_add								= 1		# Added	- Money!
 		country_bolster_attraction_factor					= 0.20	# Added - Money can solve anything
 		state_conscription_rate_mult						= 0.05	# Added - A better overview of your people makes conscription easier
 	}

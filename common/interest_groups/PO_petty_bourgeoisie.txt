@@ -1,4 +1,4 @@
-﻿REPLACE:ig_petty_bourgeoisie = {
+﻿REPLACE_OR_CREATE:ig_petty_bourgeoisie = {
 	color = hsv{ 0.65 0.54 0.52 }
 	texture = "gfx/interface/icons/ig_icons/petty_bourgeoisie.dds"
 	layer = "revolution_dynamic_petty_bourgeoisie"
@@ -75,7 +75,7 @@
 					owner = { 
 						OR = {
 							c:BIC ?= this
-							any_primary_culture = { has_discrimination_trait = heritage_group_south_asian }
+							any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
 						}
 					}
 				}

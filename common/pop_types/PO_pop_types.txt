@@ -1,6 +1,9 @@
 ﻿INJECT:bureaucrats = {
-	wage_weight				= 3		# Changed	- TODO: Check whether this needs to be this or -1
+	wage_weight				= 3
 }
 INJECT:soldiers = {
-	wage_weight				= 2		# Changed	- TODO: Check whether this needs to be this or +.5
+	wage_weight				= 2
 }
+# INJECT:farmers = {
+	# subsistence_income		= yes
+# }

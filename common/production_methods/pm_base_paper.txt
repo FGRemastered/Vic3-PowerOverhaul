@@ -61,8 +61,9 @@ REPLACE_OR_CREATE:pm_continous_bleached_paper = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=   30	# x-20	= -600
-			goods_input_fabric_add				=   30	# x-20	= -600
+			goods_input_wood_add				=   20	# x-20	= -400
+			goods_input_hardwood_add			=   10	# x-40	= -400
+			goods_input_fabric_add				=   20	# x-20	= -400
 			goods_input_fertilizer_add			=   30	# x-30	= -900
 			goods_input_dye_add					=   30	# x-40	=-1200
 			# output goods

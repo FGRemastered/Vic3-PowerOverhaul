@@ -1,4 +1,4 @@
-REPLACE_OR_CREATE:colonial_zanj = {
+﻿REPLACE_OR_CREATE:colonial_zanj = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "blue"
@@ -94,5 +94,6 @@ REPLACE_OR_CREATE:colonial_senegal = {
 REPLACE_OR_CREATE:colonial_indochina = {
 	pattern = "pattern_solid.tga"
 	color1 = "yellow"
-	color2 = "yellow"
+	# color2 = "yellow"
+	# colored_emblem = {}
 }

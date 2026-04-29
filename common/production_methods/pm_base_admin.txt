@@ -64,8 +64,15 @@ REPLACE_OR_CREATE:pm_default_building_white_house = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes
 	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add							=  500
+		# level_scaled = {
+			# building_employment_bureaucrats_add							=  500	# Moved to Professionalism
+		# }
+		unscaled = {
+			building_employment_aristocrats_mult						=-0.50
+			building_employment_clergymen_mult							=-0.50
+			building_employment_bureaucrats_mult						=-0.50
+			building_employment_academics_mult							=-0.50
+			building_employment_officers_mult							=-0.50
 		}
 	}
 	state_modifiers = { workforce_scaled = { state_tax_capacity_add		=  100 } }	# Added
@@ -225,7 +232,7 @@ REPLACE_OR_CREATE:pm_scholastic_education = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_paper_add				=    5		# x-30	= -150
-			goods_output_services_add			=    5		# x+30	= +150
+			# goods_output_services_add			=    5		# x+30	= +150
 		}													#		=    0
 		level_scaled = {
 			building_employment_clerks_add		=  500
@@ -237,6 +244,7 @@ REPLACE_OR_CREATE:pm_scholastic_education = {
 		}
 		throughput_scaled = {
 			state_education_access_wealth_add	= 0.01
+			building_urban_center_throughput_add= 0.10
 		}
 	}
 	country_modifiers = {
@@ -250,12 +258,12 @@ REPLACE_OR_CREATE:pm_philosophy_department = {
 	unlocking_technologies = { dialectics }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_groceries_add			=    1		# x-30	=  -30
-			goods_input_clothes_add				=    1		# x-30	=  -30
-			goods_input_furniture_add			=    1		# x-30	=  -30
+			# goods_input_groceries_add			=    1		# x-30	=  -30
+			# goods_input_clothes_add				=    1		# x-30	=  -30
+			# goods_input_furniture_add			=    1		# x-30	=  -30
 			goods_input_paper_add				=    5		# x-30	= -150
 			goods_input_fine_art_add			=    0.75	# x-200	= -150
-			goods_output_services_add			=   12		# x+30	= +360
+			# goods_output_services_add			=   12		# x+30	= +360
 		}													#		=    0
 		level_scaled = {
 			building_employment_clerks_add		=  500
@@ -267,6 +275,7 @@ REPLACE_OR_CREATE:pm_philosophy_department = {
 		}
 		throughput_scaled = {
 			state_education_access_wealth_add	= 0.01
+			building_urban_center_throughput_add= 0.25
 		}
 	}
 	country_modifiers = {
@@ -280,12 +289,12 @@ REPLACE_OR_CREATE:pm_analytical_philosophy_department = {
 	unlocking_technologies = { analytical_philosophy }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_groceries_add			=    5		# x-30	= -150
-			goods_input_clothes_add				=    5		# x-30	= -150
-			goods_input_furniture_add			=    5		# x-30	= -150
+			# goods_input_groceries_add			=    5		# x-30	= -150
+			# goods_input_clothes_add				=    5		# x-30	= -150
+			# goods_input_furniture_add			=    5		# x-30	= -150
 			goods_input_paper_add				=    5		# x-30	= -150
 			goods_input_fine_art_add			=    1.5	# x-200	= -300
-			goods_output_services_add			=   25		# x+30	= +750
+			# goods_output_services_add			=   25		# x+30	= +750
 		}													#		=    0
 		level_scaled = {
 			building_employment_bureaucrats_add	=  500
@@ -297,6 +306,7 @@ REPLACE_OR_CREATE:pm_analytical_philosophy_department = {
 		}
 		throughput_scaled = {
 			state_education_access_wealth_add	= 0.01
+			building_urban_center_throughput_add= 0.50
 		}
 	}
 	country_modifiers = {
@@ -314,50 +324,18 @@ REPLACE_OR_CREATE:pm_hereditary_bureaucrats = {
 			goods_output_services_add			=    1
 		}
 		level_scaled = {
-			building_employment_aristocrats_add = 250
-			building_employment_bureaucrats_add = 250
+			building_employment_aristocrats_add =  250
+			building_employment_bureaucrats_add =  250
 		}
 	}
 	ai_value = 0	# Added
-}
-REPLACE_OR_CREATE:pm_religious_bureaucrats = {
-	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
-	disallowing_laws = {
-		law_total_separation
-		law_state_atheism
-	}
-	building_modifiers = {
-		level_scaled = {
-			building_employment_clergymen_add	= 250
-			building_employment_bureaucrats_add	= 250
-		}
-	}
-	state_modifiers = {
-		throughput_scaled = { state_conversion_mult	= 0.50 }
-	}
-}
-REPLACE_OR_CREATE:pm_atheist_admininistration = {
-	texture = "gfx/interface/icons/production_method_icons/state_atheism.dds"
-	unlocking_laws = { law_state_atheism }
-	building_modifiers = {
-		level_scaled = {
-			building_employment_bureaucrats_add	=  250
-			building_employment_academics_add	=  250
-		}
-	}
-	state_modifiers = {
-		throughput_scaled = {
-			state_education_access_add			= 0.10
-			state_conversion_mult				= 0.25
-		}
-	}
 }
 REPLACE_OR_CREATE:pm_professional_bureaucrats = {
 	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
 	disallowing_laws = { law_hereditary_bureaucrats law_crownland_diets }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_bureaucrats_add = 500
+			building_employment_bureaucrats_add =  500
 		}
 	}
 	is_default = yes	# Added
@@ -395,6 +373,39 @@ REPLACE_OR_CREATE:pm_military_admininistration = {
 			state_turmoil_effects_mult			=-0.05
 			battle_offense_owned_province_mult	= 0.10
 			battle_defense_owned_province_mult	= 0.10
+			unit_experience_gain_mult			= 0.10
+		}
+	}
+}
+REPLACE_OR_CREATE:pm_religious_bureaucrats = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+	disallowing_laws = {
+		law_total_separation
+		law_state_atheism
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add	= 250
+			building_employment_bureaucrats_add	= 250
+		}
+	}
+	state_modifiers = {
+		throughput_scaled = { state_conversion_mult	= 0.50 }
+	}
+}
+REPLACE_OR_CREATE:pm_atheist_admininistration = {
+	texture = "gfx/interface/icons/production_method_icons/state_atheism.dds"
+	unlocking_laws = { law_state_atheism }
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add	=  250
+			building_employment_academics_add	=  250
+		}
+	}
+	state_modifiers = {
+		throughput_scaled = {
+			state_education_access_add			= 0.10
+			state_conversion_mult				= 0.25
 		}
 	}
 }
@@ -421,11 +432,11 @@ REPLACE_OR_CREATE:pm_religious_bureaucrats_skyscraper = {
 		}
 	}
 	country_modifiers = {
-		throughput_scaled = { state_conversion_mult	= 1.00 }
+		throughput_scaled = { state_conversion_mult	= 0.25 }
 	}
 }
 REPLACE_OR_CREATE:pm_professional_bureaucrats_skyscraper = {
-	texture = "gfx/interface/icons/production_method_icons/professional_bureaucrats.dds"
+	texture = "gfx/interface/icons/production_method_icons/ownership_bureacrats.dds"	# professional_bureaucrats
 	disallowing_laws = { law_hereditary_bureaucrats law_crownland_diets law_state_religion }
 	building_modifiers = {
 		level_scaled = {
@@ -436,7 +447,7 @@ REPLACE_OR_CREATE:pm_professional_bureaucrats_skyscraper = {
 }	
 REPLACE_OR_CREATE:pm_academic_admininistration_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_academics.dds"
-	unlocking_laws = { law_appointed_bureaucrats }
+	unlocking_laws = { law_appointed_bureaucrats law_state_atheism }
 	building_modifiers = {
 		level_scaled = {
 			building_employment_bureaucrats_add	=  500
@@ -450,11 +461,7 @@ REPLACE_OR_CREATE:pm_academic_admininistration_skyscraper = {
 }
 REPLACE_OR_CREATE:pm_military_admininistration_skyscraper = {
 	texture = "gfx/interface/icons/production_method_icons/unused/guns.dds"
-	disallowing_laws = {
-		law_no_police
-		law_national_militia
-		law_elected_bureaucrats
-	}
+	disallowing_laws = { law_no_police law_national_militia law_elected_bureaucrats }
 	building_modifiers = {
 		level_scaled = {
 			building_employment_bureaucrats_add	=  500
@@ -467,6 +474,7 @@ REPLACE_OR_CREATE:pm_military_admininistration_skyscraper = {
 			state_turmoil_effects_mult			=-0.05
 			battle_offense_owned_province_mult	= 0.10
 			battle_defense_owned_province_mult	= 0.10
+			unit_experience_gain_mult			= 0.10
 		}
 	}
 }

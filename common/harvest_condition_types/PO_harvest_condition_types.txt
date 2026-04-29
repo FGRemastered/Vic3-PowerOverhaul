@@ -1,0 +1,103 @@
+﻿INJECT:drought = {				# Greenhouses as Manufacturing
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:flood = {				# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.01	# Ahrtal - July 2021
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:frost = {				# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.01	# Infamously deadly
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:wildfire = {				# Greenhouses as Plantation
+	modifier = {
+		state_mortality_mult										= 0.03	# Infamously deadly
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Doubles the effect
+	}
+}
+INJECT:hailstorm = {			# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.01	# Infamously deadly
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Doubles the effect
+	}
+}
+INJECT:locust_swarm = {			# Greenhouses as Manufacturing
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:heatwave = {				# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.01	# Infamously deadly
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:disease_outbreak = {		# Greenhouses as Plantation
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Doubles the effect
+	}
+}
+INJECT:extreme_winds = {		# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.02	# Infamously deadly
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:torrential_rains = {		# Greenhouses as Manufacturing
+	modifier = {
+		state_mortality_mult										= 0.02
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Cancels the effect
+	}
+}
+INJECT:pollinator_surge = {		# Greenhouses as Manufacturing
+	modifier = {
+		building_bureaucrats_standard_of_living_add					=-0.50	# Allergies
+		building_academics_standard_of_living_add					=-0.50	# Allergies
+		building_aristocrats_standard_of_living_add					=-0.50	# Allergies
+		building_group_bg_greenhouses_throughput_add				=-0.10	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Cancels the effect
+	}
+}
+INJECT:optimal_sunlight = {		# Greenhouses as Plantation
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	= 0.05	# Doubles the effect
+	}
+}
+INJECT:moderate_rainfall = {	# Greenhouses as Manufacturing
+	modifier = {
+		building_bureaucrats_standard_of_living_add					= 0.50	# Allergies
+		building_academics_standard_of_living_add					= 0.50	# Allergies
+		building_aristocrats_standard_of_living_add					= 0.50	# Allergies
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Cancels the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Cancels the effect
+	}
+}
+INJECT:tsunami = {				# Greenhouses as Plantation
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Doubles the effect
+	}
+}
+INJECT:earthquake = {			# Greenhouses as Plantation
+	modifier = {
+		building_group_bg_greenhouses_throughput_add				=-0.05	# Doubles the effect
+		building_group_bg_agricultural_greenhouses_throughput_add	=-0.05	# Doubles the effect
+	}
+}

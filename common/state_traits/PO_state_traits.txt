@@ -1,4 +1,4 @@
-# State Traits
+﻿# State Traits
 # 00 Generic
 INJECT:state_trait_natural_harbors = {
 	modifier = {
@@ -11,6 +11,11 @@ INJECT:state_trait_terra_rossa = {
 	}
 }
 # 01 Scandinavia
+INJECT:state_trait_scandinavian_forests = {
+	modifier = {
+		building_logging_greenhouse_throughput_add				= 0.20
+	}
+}
 INJECT:state_trait_trondhjemsfjorden = {
 	modifier = {
 		building_shipyard_throughput_add						= 0.10
@@ -58,6 +63,16 @@ INJECT:state_trait_northern_canadian_terrain = {
 		building_group_bg_plantations_throughput_add			=-0.50	# Growing something in the arctic circle is hopeless
 	}
 }
+INJECT:state_trait_sierra_maestra = {
+	modifier = {
+		building_coffee_greenhouse_throughput_add				= 0.10
+	}
+}
+INJECT:state_trait_northern_california_coastal_forests = {
+	modifier = {
+		building_logging_greenhouse_throughput_add				= 0.20
+	}
+}
 # 04 South America
 INJECT:state_trait_mata_atlantica = {
 	modifier = {
@@ -97,6 +112,7 @@ INJECT:state_trait_canales_patagonicos = {
 }
 INJECT:state_trait_gran_chaco = {
 	modifier = {
+		# building_logging_greenhouse_throughput_add			=-0.10	# Handled under bg_plantations
 		building_group_bg_ranching_throughput_add				=-0.20	# PDX mistakenly assumed Agriculture and Ranching are the same group
 		building_group_bg_plantations_throughput_add			=-0.20	# Growing something in the desert is hopeless
 	}
@@ -113,6 +129,7 @@ INJECT:state_trait_hamburger_hafen = {
 }
 INJECT:state_trait_black_forest = {
 	modifier = {
+		building_group_bg_logging_throughput_add				= 0.15
 		building_logging_greenhouse_throughput_add				= 0.25
 	}
 }
@@ -177,6 +194,16 @@ INJECT:state_trait_seine_river = {
 		building_group_bg_plantations_throughput_add			= 0.05
 	}
 }
+INJECT:state_trait_douro_valley = {
+	modifier = {
+		building_vineyard_greenhouse_throughput_add				= 0.10
+	}
+}
+INJECT:state_trait_great_terroir = {
+	modifier = {
+		building_vineyard_greenhouse_throughput_add				= 0.10
+	}
+}
 # 06 Eastern Europe
 INJECT:state_trait_gulf_of_trieste = {
 	modifier = {
@@ -222,6 +249,16 @@ INJECT:state_trait_black_soil = {
 		building_group_bg_plantations_throughput_add			= 0.35
 	}
 }
+INJECT:state_trait_hermoupolis = {
+	modifier = {
+		state_building_naval_base_max_level_add					=   6	# 4 -> 10
+	}
+}
+INJECT:state_trait_russian_forest = {
+	modifier = {
+		building_logging_greenhouse_throughput_add				= 0.20
+	}
+}
 # 07 Africa
 REPLACE_OR_CREATE:state_trait_natural_harbors_djibouti = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
@@ -257,8 +294,39 @@ INJECT:state_trait_bam_narmashir = {
 		goods_output_dye_mult									= 0.25
 	}
 }
+INJECT:state_trait_hyrcanian_forests = {
+	modifier = {
+		building_logging_greenhouse_throughput_add				= 0.10
+	}
+}
+INJECT:state_trait_pontus = {
+	modifier = {
+		building_tea_greenhouse_throughput_add					= 0.10
+	}
+}
+INJECT:state_trait_mount_lebanon = {
+	modifier = {
+		building_silk_greenhouse_throughput_add					= 0.15
+	}
+}
 # 09 India
+INJECT:state_trait_western_ghats = {
+	modifier = {
+		building_coffee_greenhouse_throughput_add				= 0.10
+	}
+}
+INJECT:state_trait_himalayan_foothills = {
+	modifier = {
+		building_tea_greenhouse_throughput_add					= 0.25
+	}
+}
 # 10 Sout East Asia
+INJECT:state_trait_indochinese_forest = {
+	modifier = {
+		building_group_bg_logging_throughput_add				= 0.10
+		building_logging_greenhouse_throughput_add				= 0.20
+	}
+}
 # 11 Far East
 INJECT:state_trait_seto_inland_sea = {
 	modifier = {
@@ -266,6 +334,12 @@ INJECT:state_trait_seto_inland_sea = {
 		building_military_shipyard_throughput_add				= 0.20
 		building_port_throughput_add							= 0.20
 		state_building_naval_base_max_level_add					=   30	# 100 total
+	}
+}
+INJECT:state_trait_nara_basin = {
+	modifier = {
+		building_rice_farm_throughput_add						=-0.10
+		building_group_bg_agriculture_throughput_add			= 0.10
 	}
 }
 INJECT:state_trait_golden_horn_bay = {
@@ -280,6 +354,11 @@ INJECT:state_trait_siberian_terrain = {
 	modifier = {
 		building_group_bg_agriculture_throughput_add			=-0.50	# Growing something in the arctic circle is hopeless
 		building_group_bg_plantations_throughput_add			=-0.50	# Growing something in the arctic circle is hopeless
+	}
+}
+INJECT:state_trait_honam_plain = {
+	modifier = {
+		building_group_bg_plantations_throughput_add			= 0.10
 	}
 }
 # 12 Oceania

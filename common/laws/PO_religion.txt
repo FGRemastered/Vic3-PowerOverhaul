@@ -330,6 +330,7 @@ REPLACE:law_state_atheism = {
 	disallowing_laws		= { law_theocracy }
 	modifier = {
 		interest_group_ig_devout_pol_str_mult					=-0.50
+		state_radicals_and_loyalists_from_sol_change_mult		= 0.25	# Added
 		# state_conversion_mult									= 0.25	# Moved to tax
 		state_birth_rate_mult									= 0.05	# Added
 		state_mortality_mult									=-0.05	# Added

@@ -49,4 +49,34 @@
 			scope:actor ?= { has_variable = china_subject_var }
 		}
 	}
+	dynamic_country_name = {
+		name = colonial_admin_north_america
+		adjective = colonial_admin_north_america_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = north_america_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_central_america
+		adjective = colonial_admin_central_america_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = central_america_subject_var }
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_south_america
+		adjective = colonial_admin_south_america_adj
+		use_overlord_prefix = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = south_america_subject_var }
+		}
+	}
 }

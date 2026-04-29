@@ -85,7 +85,7 @@ REPLACE_OR_CREATE:pm_huge_solar_windpark = {				# Advanced
 		}												#		=  -18	=> Stops breaking even at SoL 100
 	}
 }
-# Green Ranches
+# Ranching
 REPLACE_OR_CREATE:pm_power_self_sufficient_ranch = {	# Early wind turbines
 	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"		#TODO: Make new icons
 	unlocking_technologies = { electrical_generation }
@@ -268,7 +268,7 @@ REPLACE_OR_CREATE:pm_early_windpark_subsistence = {
 	unlocking_technologies = { electrical_generation }
 	unlocking_production_methods = {
 		pm_home_workshops_no	# Required for Autark Worshops
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -287,7 +287,7 @@ REPLACE_OR_CREATE:pm_large_windpark_subsistence = {
 	unlocking_technologies = { electrical_capacitors }
 	unlocking_production_methods = {
 		pm_home_workshops_no	# Required for Autark Worshops
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -302,12 +302,12 @@ REPLACE_OR_CREATE:pm_large_windpark_subsistence = {
 		}
 	}												 	#		= +250
 }
-REPLACE_OR_CREATE:pm_solar_windpark_subsistence = {
+REPLACE_OR_CREATE:pm_solar_windpark_subsistence = {		# TODO: Rename or change tech requirement.
 	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"		#TODO: Make new icons
 	unlocking_technologies = { telephone }
 	unlocking_production_methods = {
 		pm_home_workshops_no	# Required for Autark Worshops
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -317,18 +317,19 @@ REPLACE_OR_CREATE:pm_solar_windpark_subsistence = {
 			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=   10	# x-60	= -600
 			goods_input_steel_add				=    4	# x-50	= -200
-			goods_input_glass_add				=    5	# x-40	= -200
+			goods_input_radios_add				=    2.5# x-80	= -200
 			# output goods							 	#		=-1000
 			goods_output_electricity_add		=   50	# x+30	=+1500
 		}
 	}												 	#		= +500
+	required_input_goods = radios
 }
 REPLACE_OR_CREATE:pm_large_solar_windpark_subsistence = {	# Improved
 	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"		#TODO: Make new icons
 	unlocking_technologies = { radio }
 	unlocking_production_methods = {
 		pm_home_workshops_no	# Required for Autark Worshops
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -338,19 +339,19 @@ REPLACE_OR_CREATE:pm_large_solar_windpark_subsistence = {	# Improved
 			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=   20	# x-60	=-1200
 			goods_input_steel_add				=    8	# x-50	= -400
-			goods_input_glass_add				=   10	# x-40	= -400
+			goods_input_radios_add				=    5	# x-80	= -400
 			# output goods							 	#		=-2000
 			goods_output_electricity_add		=  100	# x+30	=+3000
 		}
 	}												 	#		=+1000
-	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-30 } }
+	required_input_goods = radios
 }
 REPLACE_OR_CREATE:pm_huge_solar_windpark_subsistence = {	# Advanced
 	texture = "gfx/interface/icons/production_method_icons/unused/automation5.dds"		#TODO: Make new icons
 	unlocking_technologies = { arc_welding }
 	unlocking_production_methods = {
 		pm_home_workshops_no	# Required for Autark Worshops
-		pm_lathe_home_workshops
+		# pm_lathe_home_workshops
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -360,9 +361,10 @@ REPLACE_OR_CREATE:pm_huge_solar_windpark_subsistence = {	# Advanced
 			# input goods	-	5 engines : 4 steel		|	5 engine : 5 glass	|	1 engine : 5 power
 			goods_input_engines_add				=   30	# x-60	=-1800
 			goods_input_steel_add				=   12	# x-50	= -600
-			goods_input_glass_add				=   15	# x-40	= -600
+			goods_input_radios_add				=    7.5# x-80	= -600
 			# output goods								#		=-3000
 			goods_output_electricity_add		=  150	# x+30	=+4500
 		}
 	}													#		=+1500
+	required_input_goods = radios
 }

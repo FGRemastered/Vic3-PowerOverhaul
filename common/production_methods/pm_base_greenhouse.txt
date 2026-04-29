@@ -1,6 +1,32 @@
-# Plantation default pms
+# Plantation Overrides
+INJECT:default_building_rubber_plantation = {
+	building_modifiers = {
+		workforce_scaled = {
+			# rubber							=   20	  x+40	= +800
+			goods_input_sulfur_add				=    5	# x-50	= -250
+		}												#		= +550
+		level_scaled = {
+			building_employment_laborers_add	=-1000
+			building_employment_farmers_add		=  500
+		}
+	}
+}
+INJECT:automatic_irrigation_building_rubber_plantation = {
+	building_modifiers = {
+		workforce_scaled = {
+			# rubber							=   40	  x+40	=+1600
+			# engines							=    5	  x-60	= -300
+			goods_input_sulfur_add				=   10	# x-50	= -500
+		}												#		= +800
+		level_scaled = {
+			building_employment_laborers_add	= 1000	# 4k - 2k (log carts) - 3k (chainsaws) = -1k
+			building_employment_farmers_add		= -500
+		}
+	}
+}
+# Greenhouse default pms
 # Wine
-REPLACE_OR_CREATE:pm_default_vineyard_plantation = {
+REPLACE_OR_CREATE:pm_default_vineyard_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -12,7 +38,7 @@ REPLACE_OR_CREATE:pm_default_vineyard_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_vineyard_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_vineyard_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -26,7 +52,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_vineyard_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_vineyard_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_vineyard_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -40,7 +66,7 @@ REPLACE_OR_CREATE:pm_fertilization_vineyard_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_vineyard_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_vineyard_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -54,7 +80,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_vineyard_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_vineyard_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_vineyard_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -72,7 +98,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_vineyard_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Coffee
-REPLACE_OR_CREATE:pm_default_coffee_plantation = {
+REPLACE_OR_CREATE:pm_default_coffee_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -84,7 +110,7 @@ REPLACE_OR_CREATE:pm_default_coffee_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_coffee_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_coffee_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -98,7 +124,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_coffee_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_coffee_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_coffee_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -112,7 +138,7 @@ REPLACE_OR_CREATE:pm_fertilization_coffee_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_coffee_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_coffee_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -126,7 +152,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_coffee_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_coffee_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_coffee_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -144,7 +170,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_coffee_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Cotton
-REPLACE_OR_CREATE:pm_default_cotton_plantation = {
+REPLACE_OR_CREATE:pm_default_cotton_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -156,7 +182,7 @@ REPLACE_OR_CREATE:pm_default_cotton_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 5.71
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_cotton_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_cotton_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -170,7 +196,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_cotton_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_cotton_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_cotton_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -184,7 +210,7 @@ REPLACE_OR_CREATE:pm_fertilization_cotton_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_cotton_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_cotton_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -198,7 +224,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_cotton_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_cotton_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_cotton_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -216,7 +242,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_cotton_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Dye
-REPLACE_OR_CREATE:pm_default_dye_plantation = {
+REPLACE_OR_CREATE:pm_default_dye_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -228,7 +254,7 @@ REPLACE_OR_CREATE:pm_default_dye_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_dye_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_dye_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -242,7 +268,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_dye_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_dye_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_dye_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -256,7 +282,7 @@ REPLACE_OR_CREATE:pm_fertilization_dye_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_dye_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_dye_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -270,7 +296,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_dye_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_dye_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_dye_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -288,7 +314,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_dye_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Opium
-REPLACE_OR_CREATE:pm_default_opium_plantation = {
+REPLACE_OR_CREATE:pm_default_opium_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {	
@@ -300,7 +326,7 @@ REPLACE_OR_CREATE:pm_default_opium_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_opium_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_opium_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -314,7 +340,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_opium_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_opium_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_opium_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -328,7 +354,7 @@ REPLACE_OR_CREATE:pm_fertilization_opium_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_opium_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_opium_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -342,7 +368,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_opium_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_opium_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_opium_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -360,7 +386,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_opium_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Tea
-REPLACE_OR_CREATE:pm_default_tea_plantation = {
+REPLACE_OR_CREATE:pm_default_tea_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -373,7 +399,7 @@ REPLACE_OR_CREATE:pm_default_tea_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_tea_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_tea_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -387,7 +413,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_tea_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_tea_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_tea_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -401,7 +427,7 @@ REPLACE_OR_CREATE:pm_fertilization_tea_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_tea_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_tea_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -415,7 +441,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_tea_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_tea_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_tea_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -433,7 +459,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_tea_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Tobacco
-REPLACE_OR_CREATE:pm_default_tobacco_plantation = {
+REPLACE_OR_CREATE:pm_default_tobacco_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -445,7 +471,7 @@ REPLACE_OR_CREATE:pm_default_tobacco_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 7.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_tobacco_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_tobacco_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -459,7 +485,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_tobacco_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_tobacco_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_tobacco_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -473,7 +499,7 @@ REPLACE_OR_CREATE:pm_fertilization_tobacco_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_tobacco_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_tobacco_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -487,7 +513,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_tobacco_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_tobacco_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_tobacco_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -505,7 +531,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_tobacco_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Sugar
-REPLACE_OR_CREATE:pm_default_sugar_plantation = {
+REPLACE_OR_CREATE:pm_default_sugar_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -517,7 +543,7 @@ REPLACE_OR_CREATE:pm_default_sugar_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 6.43
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_sugar_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_sugar_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -531,7 +557,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_sugar_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_sugar_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_sugar_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -545,7 +571,7 @@ REPLACE_OR_CREATE:pm_fertilization_sugar_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_sugar_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_sugar_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -559,7 +585,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_sugar_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL TBD
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_sugar_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_sugar_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -577,7 +603,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_sugar_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Silk
-REPLACE_OR_CREATE:pm_default_silk_plantation = {
+REPLACE_OR_CREATE:pm_default_silk_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -589,7 +615,7 @@ REPLACE_OR_CREATE:pm_default_silk_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 5.71
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_silk_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_silk_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -603,7 +629,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_silk_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL 10.74
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_silk_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_silk_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -617,7 +643,7 @@ REPLACE_OR_CREATE:pm_fertilization_silk_plantation = {
 		}													#		= +150	=> Stops breaking even at SoL 11.92
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_silk_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_silk_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -631,7 +657,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_silk_plantation = {
 		}													#		= +160	=> Stops breaking even at SoL 13.2
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_silk_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_silk_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -649,7 +675,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_silk_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 # Fruit - Banana
-REPLACE_OR_CREATE:pm_default_banana_plantation = {
+REPLACE_OR_CREATE:pm_default_banana_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -661,7 +687,7 @@ REPLACE_OR_CREATE:pm_default_banana_plantation = {
 		}													#		= +120	=> Stops breaking even at SoL 10
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_banana_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_banana_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -675,7 +701,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_banana_plantation = {
 		}													#		= +120	=> Stops breaking even at SoL 18.75
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_banana_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_banana_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -689,7 +715,7 @@ REPLACE_OR_CREATE:pm_fertilization_banana_plantation = {
 		}													#		= +110	=> Stops breaking even at SoL 28 70/110
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_banana_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_banana_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -703,7 +729,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_banana_plantation = {
 		}													#		= +110	=> Stops breaking even at SoL 36 90/110
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_banana_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_banana_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -721,7 +747,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_banana_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 ##############	Wood	###############
-REPLACE_OR_CREATE:pm_default_wood_plantation = {
+REPLACE_OR_CREATE:pm_default_wood_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -734,7 +760,7 @@ REPLACE_OR_CREATE:pm_default_wood_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 8.57...
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_wood_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_wood_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -750,7 +776,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_wood_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 14.64...
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_wood_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_wood_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -766,7 +792,7 @@ REPLACE_OR_CREATE:pm_fertilization_wood_plantation = {
 		}													#		= +130	=> Stops breaking even at SoL 21.15...
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_wood_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_wood_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -783,7 +809,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_wood_plantation = {
 		}													#		= +137.5=> Stops breaking even at SoL 23.63...
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_wood_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_wood_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {
@@ -803,7 +829,7 @@ REPLACE_OR_CREATE:pm_automatic_fertilization_wood_plantation = {
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 5 } }
 }
 ##############	Rubber	###############
-REPLACE_OR_CREATE:pm_default_rubber_plantation = {
+REPLACE_OR_CREATE:pm_default_rubber_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
 	building_modifiers = {
 		workforce_scaled = {
@@ -816,7 +842,7 @@ REPLACE_OR_CREATE:pm_default_rubber_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 17.14
 	}
 }
-REPLACE_OR_CREATE:pm_soil_enriching_farming_rubber_plantation = {
+REPLACE_OR_CREATE:pm_soil_enriching_farming_rubber_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/soil_enriching_farming.dds"
 	unlocking_technologies = { intensive_agriculture }
 	building_modifiers = {
@@ -832,7 +858,7 @@ REPLACE_OR_CREATE:pm_soil_enriching_farming_rubber_plantation = {
 		}													#		= +140	=> Stops breaking even at SoL 31.79
 	}
 }
-REPLACE_OR_CREATE:pm_fertilization_rubber_plantation = {
+REPLACE_OR_CREATE:pm_fertilization_rubber_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
 	unlocking_technologies = { improved_fertilizer }
 	building_modifiers = {
@@ -848,7 +874,7 @@ REPLACE_OR_CREATE:pm_fertilization_rubber_plantation = {
 		}													#		= +130	=> Stops breaking even at SoL 44.23
 	}
 }
-REPLACE_OR_CREATE:pm_chemical_fertilizer_rubber_plantation = {
+REPLACE_OR_CREATE:pm_chemical_fertilizer_rubber_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	unlocking_technologies = { nitrogen_fixation }
 	building_modifiers = {
@@ -865,7 +891,7 @@ REPLACE_OR_CREATE:pm_chemical_fertilizer_rubber_plantation = {
 		}													#		= +137.5=> Stops breaking even at SoL 49.81
 	}
 }
-REPLACE_OR_CREATE:pm_automatic_fertilization_rubber_plantation = {
+REPLACE_OR_CREATE:pm_automatic_fertilization_rubber_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/automatic_irrigation.dds"
 	unlocking_technologies = { mechanized_farming }
 	building_modifiers = {

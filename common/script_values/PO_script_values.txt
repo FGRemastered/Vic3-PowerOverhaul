@@ -14,21 +14,27 @@
 # very_long_modifier_time			= 7300 # 20 years
 # stupidly_long_modifier_time		= 18250 # 50 years
 # never_fire_again_modifier_time	= 73000 # Nevermore
-power_per_greenhouse				=   20	# Change this when changing pm_autark_greenhouse
 power_per_port = {
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_huge_offshore_windpark } }						value		=   200 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_large_offshore_windpark } }						value		=   100 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_offshore_windpark } }								value		=    50 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_early_offshore_windpark } }						value		=    25 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_on_shore_windpark } }								value		=    10 }
-	else	= {																																value		=     0 }	# pm_no_offshore_windpark
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_huge_offshore_windpark } }										value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_large_offshore_windpark } }										value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_offshore_windpark } }											value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_early_offshore_windpark } }										value		=    25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_on_shore_windpark } }											value		=    10 }
+	else	= {																																									value		=     0 }	# pm_no_offshore_windpark
 	# Train Automation
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_modern_port_rail_transport } }					subtract	=    50 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_electric_rail_transport_port } }					subtract	=    10 }
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_modern_port_rail_transport } }									subtract	=    50 }
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_electric_rail_transport_port } }									subtract	=    10 }
 	multiply = {
 		value = 1
 		add = modifier:building_port_throughput_add
 	}
+}
+total_logging_levels = {
+	value	= "root.country_has_building_group_levels(bg_logging)"
+	add		= "root.country_has_building_group_levels(bg_rubber)"
+	add		= "root.country_has_building_type_levels(bt:building_logging_greenhouse)"
+	add		= "root.country_has_building_type_levels(bt:building_rubber_greenhouse)"
+	add		= "root.country_has_building_type_levels(bt:building_banana_greenhouse)"
 }
 state_unemployed_population = {
 	value		= state_population
@@ -38,13 +44,14 @@ max_convoys_required = {
     value		= num_convoys_required
     multiply	= 2
 	subtract	= num_convoys_available
-	min = 0
+	min			= 0
 }
 max_bureaucracy_required = {
     value		= THIS.bureaucracy_usage	# event_target - Needs a scope
     multiply	= 2
 	subtract	= THIS.produced_bureaucracy	# event_target - Needs a scope
-	min = 0
+	round		= yes
+	min			= 0
 }
 tax_capacity_balance = {
 	value		= tax_capacity
@@ -59,6 +66,27 @@ remaining_reserves_limit = {
 	value		= gold_reserves_limit
 	subtract	= gold_reserves
 	add			= ROOT.principal					# event_target - Needs a scope
+}
+cost_per_const = {
+	OWNER.market_capital = {
+		if		= { limit = { is_production_method_active = { building_type = building_construction_sector	production_method = pm_arc_welded_buildings } }							value		=   360 }
+		else_if	= { limit = { is_production_method_active = { building_type = building_construction_sector	production_method = pm_steel_frame_buildings } }						value		=   550 }
+		else_if	= { limit = { is_production_method_active = { building_type = building_construction_sector	production_method = pm_iron_frame_buildings } }							value		=   720 }
+		else_if	= { limit = { is_production_method_active = { building_type = building_construction_sector	production_method = pm_hardwood_frame_buildings } }						value		=   800 }
+		else	= { 																																								value		=  1000 }	# pm_wooden_buildings
+	}
+}
+const_cost_factor = {
+	value	= cost_per_const
+	divide	= 1000
+}
+standard_workforce_ratio = {
+	value	= 0.25	# Default workforce ratio for all pop types except aristocrats (20%) and slaves (50%)
+	add		= modifier:state_working_adult_ratio_add
+}
+slaves_workforce_ratio = {
+	value	= 0.50	# workforce ratio for slaves (50%)
+	add		= modifier:state_working_adult_ratio_add
 }
 peasant_capacity = {	# state scope
 	value	= arable_land
@@ -79,314 +107,674 @@ economy_of_scale_target = {
 	# else_if	= { limit = { has_variable = target_50 }							value	=  50 }
 	min = 0
 }
-infra_per_railroad = {
-	if		= { limit = { b:building_railway		= { has_active_production_method = pm_maglev_trains } }							value		=   200 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_jet_electric_trains } }					value		=   100 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_diesel_electric_trains } }				value		=    80 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_diesel_trains } }							value		=    60 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_electric_trains } }						value		=    50 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_rotary_valve_steam_trains } }				value		=    30 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_steam_trains } }							value		=    25 }
-	else	= {																														value		=    20 }	# pm_early_trains
+infra_per_railway = {
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_maglev_trains } }											value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_jet_electric_trains } }										value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_diesel_electric_trains } }									value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_diesel_trains } }											value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_electric_trains } }											value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_rotary_valve_steam_trains } }								value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_steam_trains } }												value		=    25 }
+	else	= {																																									value		=    20 }	# pm_early_trains
 	# Rails
-	if		= { limit = { b:building_railway		= { has_active_production_method = pm_rail_signals } }							add			=    20 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_regenerative_brakes } }					add			=    10 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_electric_rails } }						add			=    10 }
-	else	= {																														add			=     5 }	# pm_normal_rails
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_rail_signals } }												add			=    25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_regenerative_brakes } }										add			=    10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_electric_rails } }											add			=    10 }
+	else	= {																																									add			=     5 }	# pm_normal_rails
 	# Passengers
-	if		= { limit = { b:building_railway		= { has_active_production_method = pm_wooden_passenger_carriages } }			subtract	=     5 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_steel_passenger_carriages } }				subtract	=    10 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_high_speed_rail } }						subtract	=    20 }
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_wooden_passenger_carriages } }								subtract	=     5 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_steel_passenger_carriages } }								subtract	=    10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_high_speed_rail } }											subtract	=    25 }
 }
-transportation_per_railroad = {
-	if		= { limit = { b:building_railway		= { has_active_production_method = pm_maglev_trains } }							value		=   200 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_jet_electric_trains } }					value		=   100 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_diesel_electric_trains } }				value		=    80 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_diesel_trains } }							value		=    60 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_rotary_valve_steam_trains } }				value		=    30 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_electric_trains } }						value		=    50 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_steam_trains } }							value		=    25 }
-	else	= {																														value		=    20 }	# pm_early_trains
+transportation_per_railway = {
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_maglev_trains } }											value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_jet_electric_trains } }										value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_diesel_electric_trains } }									value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_diesel_trains } }											value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_electric_trains } }											value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_rotary_valve_steam_trains } }								value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_steam_trains } }												value		=    25 }
+	else	= {																																									value		=    20 }	# pm_early_trains
 	# Passengers
-	if		= { limit = { b:building_railway		= { has_active_production_method = pm_wooden_passenger_carriages } }			multiply	=  1.50 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_steel_passenger_carriages } }				multiply	=  2.00 }
-	else_if	= { limit = { b:building_railway		= { has_active_production_method = pm_high_speed_rail } }						multiply	=  3.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_wooden_passenger_carriages } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_steel_passenger_carriages } }								multiply	=  2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_high_speed_rail } }											multiply	=  3.00 }
+}
+transportation_per_building = {
+	if		= { limit = { has_active_production_method = pm_rail_transport }																									value		=     5 }
+	else_if	= { limit = { has_active_production_method = pm_truck_transport }																									value		=     5 }	# 0 but we generally want to switch off this
+	else_if	= { limit = { has_active_production_method = pm_flatbed_carts }																										value		=    10 }
+	else_if	= { limit = { has_active_production_method = pm_flatbed_trucks }																									value		=    10 }	# 0 but we generally want to switch off this
+	else_if	= { limit = { has_active_production_method = pm_tanker_cars }																										value		=    15 }
+}
+transportation_usage_potential_building = {
+	if = {
+		limit = {
+			OR = {
+				has_active_production_method = pm_rail_transport
+				has_active_production_method = pm_flatbed_carts
+				has_active_production_method = pm_tanker_cars
+			}
+		}
+		value		= 1
+		subtract	= occupancy
+		multiply	= level
+		multiply	= transportation_per_building
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_active_production_method = pm_truck_transport
+				has_active_production_method = pm_flatbed_trucks
+			}
+		}
+		value		= level
+		multiply	= transportation_per_building
+	}
 }
 tax_capacity_per_admin = {
-	if		= { limit = { b:building_government_administration = { has_active_production_method = pm_switch_boards } }				value		=    30 }
-	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_vertical_filing_cabinets } }	value		=    15 }
-	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_horizontal_drawer_cabinets } }	value		=    10 }
-	else	= { 																													value		=     5 }	# pm_simple_organization
+	if		= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_switch_boards } }						value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_vertical_filing_cabinets } }				value		=    15 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_horizontal_drawer_cabinets } }			value		=    10 }
+	else	= { 																																								value		=     5 }	# pm_simple_organization
 	# Laws
-	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }												multiply	=  1.25 }
+	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }																							multiply	=  1.25 }
 	multiply = {
 		value = 1
 		add = modifier:building_government_administration_throughput_add
 	}
 }
 bureacracy_per_admin = {
-	if		= { limit = { b:building_government_administration = { has_active_production_method = pm_switch_boards } }				value		=   150 }
-	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_vertical_filing_cabinets } }	value		=    75 }
-	else_if	= { limit = { b:building_government_administration = { has_active_production_method = pm_horizontal_drawer_cabinets } }	value		=    50 }
-	else	= { 																													value		=    30 }	# pm_simple_organization
+	if		= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_switch_boards } }						value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_vertical_filing_cabinets } }				value		=    75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_government_administration	production_method = pm_horizontal_drawer_cabinets } }			value		=    50 }
+	else	= { 																																								value		=    30 }	# pm_simple_organization
 	# Laws
-	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }												multiply	=  1.25 }
+	if		= { limit = { OWNER = { has_law = law_type:law_appointed_bureaucrats } }																							multiply	=  1.25 }
 	multiply = {
 		value = 1
 		add = modifier:building_government_administration_throughput_add
 	}
 }
 power_per_plant = {
-	if		= { limit = { b:building_power_plant	= { has_active_production_method = pm_hydroelectric_plant } }							value		=    25 }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_coal-fired_plant } }								value		=    50 }
-	else_if	= { limit = { b:building_power_plant	= { has_active_production_method = pm_oil-fired_plant } }								value		=    75 }
-	else	= {																																value		=    30 }	# pm_early_power_plant
+	if		= { limit = { is_production_method_active = { building_type = building_power_plant	production_method = pm_hydroelectric_plant } }									value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_power_plant	production_method = pm_coal-fired_plant } }										value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_power_plant	production_method = pm_oil-fired_plant } }										value		=    75 }
+	else	= {																																									value		=    30 }	# pm_early_power_plant
+	multiply = {
+		value = 1
+		add = modifier:building_power_plant_throughput_add
+	}
 }
+# Staple
 convoys_per_port = {
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_modern_port } }									value		=   500 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_industrial_port } }								value		=   250 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_basic_port } }									value		=   100 }
-	else	= { 																															value		=    10 }	# pm_anchorage
-	
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_steam_rail_transport_port } }						add			=   100 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_electric_rail_transport_port } }					add			=   250 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_modern_port_rail_transport } }					add			=  4500 }
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_modern_port } }													value		=   500 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_industrial_port } }												value		=   250 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_basic_port } }													value		=   100 }
+	else	= { 																																								value		=    10 }	# pm_anchorage
+	# Transport
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_steam_rail_transport_port } }									add			=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_electric_rail_transport_port } }									add			=   250 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_modern_port_rail_transport } }									add			=  4500 }
 	multiply = {
 		value = 1
 		add = modifier:building_port_throughput_add
 	}
 }
 merchant_marine_per_level = {
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_modern_port } }									value		=    30 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_industrial_port } }								value		=    20 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_basic_port } }									value		=    15 }
-	else	= { 																															value		=     2 }	# pm_anchorage
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_modern_port } }													value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_industrial_port } }												value		=    20 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_basic_port } }													value		=    15 }
+	else	= { 																																								value		=     2 }	# pm_anchorage
 	# Transport
-	if		= { limit = { b:building_port			= { has_active_production_method = pm_modern_port_rail_transport } }					multiply	=    10 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_electric_rail_transport_port } }					multiply	=     3 }
-	else_if	= { limit = { b:building_port			= { has_active_production_method = pm_steam_rail_transport_port } }						multiply	=     2 }
+	if		= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_modern_port_rail_transport } }									multiply	=    10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_electric_rail_transport_port } }									multiply	=     3 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_port	production_method = pm_steam_rail_transport_port } }									multiply	=     2 }
 	multiply = {
 		value = 1
 		add = modifier:building_port_throughput_add
 	}
 }
 merchant_marine_per_trade_center = {
-	if		= { limit = { b:building_trade_center	= { has_active_production_method = pm_trade_center_trade_quantity_insane } }			value		=     8 }
-	else_if	= { limit = { b:building_trade_center	= { has_active_production_method = pm_trade_center_trade_quantity_very_high } }			value		=     6 }
-	else_if	= { limit = { b:building_trade_center	= { has_active_production_method = pm_trade_center_trade_quantity_high } }				value		=     5 }
-	else_if	= { limit = { b:building_trade_center	= { has_active_production_method = pm_trade_center_trade_quantity_normal } }			value		=     4 }
-	else	= { 																															value		=     1 }	# pm_trade_center_trade_quantity_limited
-}
-engines_per_level = {
-	if		= { limit = { b:building_motor_industry	= { has_active_production_method = pm_jet_electric_engines } }							value		=   350 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_jet_engines } }									value		=   300 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_hybrid_electric_engines } }						value		=   200 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_diesel_engines } }								value		=   150 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_electric_engines } }								value		=   120 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_rotary_valve_engines } }							value		=    90 }
-	else_if	= { limit = { b:building_motor_industry	= { has_active_production_method = pm_watertube_boiler_steam_engines } }				value		=    65 }
-	else	= {																																value		=    50 }	# pm_steam_engines
-	# Automation 
-	if		= { limit = { b:building_motor_industry	= { has_active_production_method = pm_assembly_lines_building_motor_industry } }		multiply	=  1.50 }
-}
-small_arms_per_level = {
-	if		= { limit = { b:building_arms_industry	= { has_active_production_method = pm_machine_pistols } }								value		=   150 }
-	else_if	= { limit = { b:building_arms_industry	= { has_active_production_method = pm_bolt_action_rifles } }							value		=   100 }
-	else_if	= { limit = { b:building_arms_industry	= { has_active_production_method = pm_repeaters } }										value		=    75 }
-	else_if	= { limit = { b:building_arms_industry	= { has_active_production_method = pm_rifles } }										value		=    50 }
-	else	= {																																value		=    30 }	# pm_muskets
-	# Automation 
-	if		= { limit = { b:building_arms_industry	= { has_active_production_method = pm_assembly_lines_arms_industry } }			multiply	=  1.50 }
-}
-artillery_per_level = {
-	if		= { limit = { b:building_artillery_foundry	= { has_active_production_method = pm_recoiled_barrels } }						value		=   150 }
-	else_if	= { limit = { b:building_artillery_foundry	= { has_active_production_method = pm_breech_loaders } }						value		=    75 }
-	else_if	= { limit = { b:building_artillery_foundry	= { has_active_production_method = pm_smoothbores } }							value		=    50 }
-	else	= {																																value		=    30 }	# pm_cannons
-	# Automation 
-	if		= { limit = { b:building_artillery_foundry	= { has_active_production_method = pm_assembly_lines_arms_industry } }	multiply	=  1.50 }
-}
-ammunition_per_level = {
-	if		= { limit = { b:building_munition_plant	= { has_active_production_method = pm_explosive_shells } }							value		=   120 }
-	else	= {																																value		=    50 }	# pm_percussion_caps
-	# Automation 
-	if		= { limit = { b:building_munition_plant	= { has_active_production_method = pm_assembly_lines_munition_plant } }	multiply	=  1.50 }
-}
-aeroplanes_per_level = {
-	if		= { limit = { b:building_automotive_industry	= { has_active_production_method = pm_aeroplane_production } }					value		=    15 }
-}
-tanks_per_level = {
-	if		= { limit = { b:building_automotive_industry	= { has_active_production_method = pm_tank_production } }						value		=    15 }
+	if		= { limit = { is_production_method_active = { building_type = building_trade_center	production_method = pm_trade_center_trade_quantity_insane } }					value		=     8 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_trade_center	production_method = pm_trade_center_trade_quantity_very_high } }				value		=     6 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_trade_center	production_method = pm_trade_center_trade_quantity_high } }						value		=     5 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_trade_center	production_method = pm_trade_center_trade_quantity_normal } }					value		=     4 }
+	else	= { 																																								value		=     1 }	# pm_trade_center_trade_quantity_limited
 }
 paper_per_level = {
-	if		= { limit = { b:building_paper_mill	= { has_active_production_method = pm_continous_bleached_paper } }						value		=   250 }
-	else_if	= { limit = { b:building_paper_mill	= { has_active_production_method = pm_bleached_paper } }								value		=   100 }
-	else_if	= { limit = { b:building_paper_mill	= { has_active_production_method = pm_sulfite_pulping } }								value		=    70 }
-	else	= { 																															value		=    40 }	# pm_pulp_pressing
+	if		= { limit = { is_production_method_active = { building_type = building_paper_mill	production_method = pm_continous_bleached_paper } }								value		=   250 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_paper_mill	production_method = pm_bleached_paper } }										value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_paper_mill	production_method = pm_sulfite_pulping } }										value		=    70 }
+	else	= { 																																								value		=    40 }	# pm_pulp_pressing
 	# Automation
-	if		= { limit = { b:building_paper_mill	= { has_active_production_method = pm_assembly_lines_building_paper_mill } }			multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_paper_mill	production_method = pm_assembly_lines_building_paper_mill } }					multiply	=  1.50 }
 }
 paper_per_admin = {
-	value = b:building_government_administration.level_after_queued_constructions
-	if		= { limit = { OWNER = { has_technology_researched = central_planning } }	value		=    20 }
-	else_if	= { limit = { OWNER = { has_technology_researched = central_archives } }	value		=    20 }
-	else_if	= { limit = { OWNER = { has_technology_researched = centralization } }		value		=    10 }
-	else	= { 																		value		=     0 }
+	# value = b:building_government_administration.level_after_queued_constructions
+	if		= { limit = { OWNER = { has_technology_researched = central_planning } }																							value		=    20 }
+	else_if	= { limit = { OWNER = { has_technology_researched = central_archives } }																							value		=    20 }
+	else_if	= { limit = { OWNER = { has_technology_researched = centralization } }																								value		=    10 }
+	else	= { 																																								value		=     0 }
 }
 groceries_per_level = {
-	if		= { limit = { b:building_food_industry	= { has_active_production_method = pm_baking_powder } }									value		=   150 }
-	else_if	= { limit = { b:building_food_industry	= { has_active_production_method = pm_sweeteners } }									value		=    75 }
-	else	= { 																															value		=    50 }	# pm_bakery
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_baking_powder } }									value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_sweeteners } }										value		=    75 }
+	else	= { 																																								value		=    50 }	# pm_bakery
 	# Canning
-	if		= { limit = { b:building_food_industry	= { has_active_production_method = pm_vacuum_canning } }								add			=   140 }
-	else_if	= { limit = { b:building_food_industry	= { has_active_production_method = pm_cannery_fish } }									add			=    70 }
-	else_if	= { limit = { b:building_food_industry	= { has_active_production_method = pm_cannery } }										add			=    70 }
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_vacuum_canning } }									add			=   140 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_cannery_fish } }										add			=    70 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_cannery } }											add			=    70 }
 	# Brewing
-	if		= { limit = { b:building_food_industry	= { has_active_production_method = pm_patent_stills } }									subtract	=    40 }
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_patent_stills } }									subtract	=    40 }
 	# Automation
-	if		= { limit = { b:building_food_industry	= { has_active_production_method = pm_electricfied_bakery } }							multiply	=  1.25 }
-	else_if	= { limit = { b:building_food_industry	= { has_active_production_method = pm_automated_bakery } }								multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_electricfied_bakery } }								multiply	=  1.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_automated_bakery } }									multiply	=  1.50 }
 }
+clothes_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_electric_sewing_machines } }								value		=   180 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_sewing_machines } }										value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_dye_workshops } }										value		=    65 }
+	else	= { 																																								value		=    45 }	# pm_handsewn_clothes
+	# Luxury
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_elastics_priority } }									subtract	=    35 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_elastics } }												subtract	=    20 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_craftsman_sewing_priority } }							subtract	=    15 }
+	else	= { 																																								subtract	=     0 }	# pm_craftsman_sewing
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_automatic_power_looms } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_mechanized_looms } }										multiply	=  1.25 }
+}
+furniture_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_mechanized_workshops } }									value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_lathe } }												value		=    65 }
+	else	= { 																																								value		=    45 }	# pm_handcrafted_furniture
+	# Luxury
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_precision_tools_priority } }								subtract	=    20 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_precision_tools } }										subtract	=     0 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_luxury_furniture_priority } }							subtract	=    15 }
+	else	= { 																																								subtract	=     0 }	# pm_luxury_furniture
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_assembly_lines_building_furniture_manufactory } }		multiply	=  1.50 }
+}
+# Industrial
 wood_per_level = {
-	if		= { limit = { b:building_logging_camp	= { has_active_production_method = pm_electric_saw_mills } }							value		=   180 }
-	else_if	= { limit = { b:building_logging_camp	= { has_active_production_method = pm_saw_mills } }										value		=    90 }
-	else	= { 																															value		=    30 }	# pm_simple_forestry
+	if		= { limit = { is_production_method_active = { building_type = building_logging_camp	production_method = pm_electric_saw_mills } }									value		=   180 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_camp	production_method = pm_saw_mills } }											value		=    90 }
+	else	= { 																																								value		=    30 }	# pm_simple_forestry
 }
 wood_per_greenhouse_level = {
-	if		= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_automatic_fertilization_wood_plantation } }	value		=   180 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_chemical_fertilizer_wood_plantation } }		value		=   120 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_fertilization_wood_plantation } }				value		=    90 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_soil_enriching_farming_wood_plantation } }	value		=    60 }
-	else	= { 																															value		=    30 }	# pm_default_wood_plantation
+	if		= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_automatic_fertilization_wood_greenhouse } }		value		=   180 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_chemical_fertilizer_wood_greenhouse } }			value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_fertilization_wood_greenhouse } }				value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_soil_enriching_farming_wood_greenhouse } }		value		=    60 }
+	else	= { 																																								value		=    30 }	# pm_default_wood_greenhouse
 	# Automation
-	if		= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_chainsaws } }									multiply	=  2.00 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_steam_powered_winch } }						multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_chainsaws } }									multiply	=  2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_steam_powered_winch } }							multiply	=  1.50 }
 	# Greenhouse
-	if		= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_primitive_greenhouse } }						multiply	=  0.50 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_coal_furnace } }								multiply	=  0.75 }
-	else_if	= { limit = { b:building_logging_greenhouse	= { has_active_production_method = pm_electric_furnace } }							multiply	=  0.75 }
-	else	= { 																															multiply	=  1.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
 }
 fabric_per_level = {
-	if		= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_automatic_fertilization_cotton_plantation } }	value		=   300 }
-	else_if	= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_chemical_fertilizer_cotton_plantation } }		value		=   240 }
-	else_if	= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_fertilization_cotton_plantation } }			value		=   180 }
-	else_if	= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_soil_enriching_farming_cotton_plantation } }	value		=   120 }
-	else	= { 																															value		=    60 }	# pm_default_cotton_plantation
+	if		= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_automatic_fertilization_cotton_greenhouse } }	value		=   300 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_chemical_fertilizer_cotton_greenhouse } }		value		=   240 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_fertilization_cotton_greenhouse } }				value		=   180 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_soil_enriching_farming_cotton_greenhouse } }		value		=   120 }
+	else	= { 																																								value		=    60 }	# pm_default_cotton_greenhouse
 	# Greenhouse
-	if		= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_primitive_greenhouse } }						multiply	=  0.50 }
-	else_if	= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_coal_furnace } }								multiply	=  0.75 }
-	else_if	= { limit = { b:building_cotton_greenhouse	= { has_active_production_method = pm_electric_furnace } }							multiply	=  0.75 }
-	else	= { 																															multiply	=  1.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+glass_per_level = {
+	# Base
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_houseware_plastics } }									value		=   175 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_crystal_glass } }										value		=    70 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_leaded_glass } }											value		=    40 }
+	else	= { 																																								value		=    30 }	# pm_forest_glass
+	# Porcelain
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_ceramics_priority } }									multiply	=  0.75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_bone_china_priority } }									multiply	=  0.75 }
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_electric_bottle_blowers } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_automatic_bottle_blowers } }								multiply	=  1.50 }
+}
+steel_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_electric_arc_process } }									value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_open_hearth_process } }									value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_bessemer_process } }										value		=    90 }
+	else	= { 																																								value		=    65 }	# pm_blister_steel_process
+	# Secondary
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_basic_oxygen_process } }						multiply	=  2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_carbon_capture } }								multiply	=  2.00 }
+	# Automation
+	# if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_assembly_lines_building_steel_mill } }					multiply	=  1.50 }
+	multiply = {
+		value = 1
+		# add = modifier:building_steel_mill_throughput_add
+		add = b:building_steel_mill.modifier:building_throughput_add
+	}
+}
+sulfur_per_steel_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_electric_arc_process } }									value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_open_hearth_process } }									value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_bessemer_process } }										value		=    10 }
+	else	= { 																																								value		=     5 }	# pm_blister_steel_process
+	# Secondary
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_basic_oxygen_process } }						multiply	=  2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_carbon_capture } }								multiply	=  2.00 }
+	# Automation
+	# if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_assembly_lines_building_steel_mill } }					multiply	=  1.50 }
+	multiply = {
+		value = 1
+		# add = modifier:building_steel_mill_throughput_add
+		add = b:building_steel_mill.modifier:building_throughput_add
+	}
+}
+coal_per_steel_level = {
+	value	= 30
+	# Secondary
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_basic_oxygen_process } }						value		=  0 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_secondary_carbon_capture } }								value		=  0 }
+	# else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_hardwood_coking } }										value		=  0 }	# Technically zero, but we want to replace this asap.
+	# else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_charcoal } }												value		=  0 }	# Technically zero, but we want to replace this asap.
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_assembly_lines_building_steel_mill } }					multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_rotary_valve_engine_building_steel_mill } }				add			=  5 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_steel_mill	production_method = pm_watertube_boiler_building_steel_mill } }					add			= 10 }
+}
+coal_per_charcoal_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_machine_coal } }										value		=   125 }	# Was 90
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_combustion_chamber } }								value		=    50 }
+	else	= { 																																								value		=    40 }	# pm_charcoal_kiln
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_assembly_lines_charcoal } }							multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_rotary_valve_engine_charcoal } }						subtract	=    10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_watertube_boiler_charcoal } }						subtract	=     5 }
+	multiply = {
+		value	= 1
+		add		= modifier:building_charcoal_burner_throughput_add
+	}
+}
+sulfur_per_charcoal_level = {	# Warning: Has value 0 if pm_unfiltered is active!
+	if		= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_carbon_capture_charcoal } }							value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_environmental_refining_charcoal } }					value		=    20 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_chemical_refining_charcoal } }						value		=    10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_charcoal_burner	production_method = pm_dust_separation_charcoal } }							value		=     5 }
+	else	= { 																																								value		=     0 }	# pm_unfiltered
+	multiply = {
+		value = 1
+		# add = modifier:building_charcoal_burner_throughput_add
+		add = b:building_charcoal_burner.modifier:building_throughput_add
+	}
+}
+fertilizer_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_chemical_plant	production_method = pm_nitrogen_fixation_electricity } }					value		=   300 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_chemical_plant	production_method = pm_nitrogen_fixation } }								value		=   230 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_chemical_plant	production_method = pm_improved_fertilizer } }								value		=   160 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_chemical_plant	production_method = pm_artificial_fertilizers } }							value		=    90 }
+	else	= { 																																								value		=    45 }	# pm_simple_fertilizers
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_chemical_plant	production_method = pm_assembly_lines_building_chemical_plant } }			multiply	=  1.50 }
+}
+explosives_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_explosives_factory	production_method = pm_brine_electrolysis } }							value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_explosives_factory	production_method = pm_vacuum_evaporation } }							value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_explosives_factory	production_method = pm_ammonia-soda_proces } }							value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_explosives_factory	production_method = pm_leblanc_process } }								value		=    50 }
+	else	= { 																																								value		=    25 }	# pm_early_soda
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_explosives_factory	production_method = pm_assembly_lines_building_chemical_plant } }		multiply	=  1.50 }
 }
 dye_per_level = {
 	# Base
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_double_dye_production } }						value		=   280 }
-	else	= { 																															value		=   140 }	# pm_dye_production
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_double_dye_production } }							value		=   280 }
+	else	= { 																																								value		=   140 }	# pm_dye_production
 	# Rayon
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon_silk_focus } }							multiply	=  0.25 }
-	else_if	= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon } }										multiply	=  0.50 }
-	else_if	= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon_dye_focus } }							multiply	=  0.75 }
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon_silk_focus } }									multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon } }											multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon_dye_focus } }									multiply	=  0.75 }
 	# Automation
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_assembly_lines_building_chemical_plant } }	multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_assembly_lines_building_chemical_plant } }			multiply	=  1.50 }
 }
 silk_per_level = {	# Warning: Has value 0 if pm_no_artificial_fibers is active!
 	# Rayon
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_parallel_rayon } }							value		=    70 }
-	else_if	= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon_silk_focus } }							value		=    35 }
-	else_if	= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon } }										value		=    70 }
-	else_if	= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_rayon_dye_focus } }							value		=   105 }
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_parallel_rayon } }									value		=    70 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon_silk_focus } }									value		=    35 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon } }											value		=    70 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_rayon_dye_focus } }									value		=   105 }
+	else	= {																																									value		=     0 }	# pm_no_artificial_fibers
 	# Base
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_double_dye_production } }						multiply	=  2.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_double_dye_production } }							multiply	=  2.00 }
 	# Automation
-	if		= { limit = { b:building_synthetics_plant	= { has_active_production_method = pm_assembly_lines_building_chemical_plant } }	multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_synthetics_plant	production_method = pm_assembly_lines_building_chemical_plant } }			multiply	=  1.50 }
 }
 dye_per_greenhouse_level = {
-	if		= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_automatic_fertilization_dye_plantation } }		value		=   150 }
-	else_if	= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_chemical_fertilizer_dye_plantation } }			value		=   120 }
-	else_if	= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_fertilization_dye_plantation } }					value		=    90 }
-	else_if	= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_soil_enriching_farming_dye_plantation } }			value		=    60 }
-	else	= { 																															value		=    30 }	# pm_default_dye_plantation
+	if		= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_automatic_fertilization_dye_greenhouse } }			value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_chemical_fertilizer_dye_greenhouse } }				value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_fertilization_dye_greenhouse } }						value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_soil_enriching_farming_dye_greenhouse } }			value		=    60 }
+	else	= { 																																								value		=    30 }	# pm_default_dye_greenhouse
 	# Greenhouse
-	if		= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_primitive_greenhouse } }							multiply	=  0.50 }
-	else_if	= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_coal_furnace } }									multiply	=  0.75 }
-	else_if	= { limit = { b:building_dye_greenhouse	= { has_active_production_method = pm_electric_furnace } }								multiply	=  0.75 }
-	else	= { 																															multiply	=  1.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_primitive_greenhouse } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_coal_furnace } }										multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse	production_method = pm_electric_furnace } }									multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
 }
 silk_per_greenhouse_level = {
-	if		= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_automatic_fertilization_silk_plantation } }	value		=   150 }
-	else_if	= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_chemical_fertilizer_silk_plantation } }		value		=   120 }
-	else_if	= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_fertilization_silk_plantation } }				value		=    90 }
-	else_if	= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_soil_enriching_farming_silk_plantation } }	value		=    60 }
-	else	= { 																															value		=    30 }	# pm_default_silk_plantation
+	if		= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_automatic_fertilization_silk_greenhouse } }			value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_chemical_fertilizer_silk_greenhouse } }				value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_fertilization_silk_greenhouse } }					value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_soil_enriching_farming_silk_greenhouse } }			value		=    60 }
+	else	= { 																																								value		=    30 }	# pm_default_silk_greenhouse
 	# Greenhouse
-	if		= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_primitive_greenhouse } }						multiply	=  0.50 }
-	else_if	= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_coal_furnace } }								multiply	=  0.75 }
-	else_if	= { limit = { b:building_silk_greenhouse	= { has_active_production_method = pm_electric_furnace } }							multiply	=  0.75 }
-	else	= { 																															multiply	=  1.00 }
+	if		= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_primitive_greenhouse } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_coal_furnace } }										multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse	production_method = pm_electric_furnace } }									multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
 	# Sericulture
-	if		= { limit = { OWNER = { has_technology_researched = sericulture } }																multiply	=  1.25 }
+	if		= { limit = { OWNER = { has_technology_researched = sericulture } }																									multiply	=  1.25 }
 }
 tools_per_level = {
-	if		= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_machine_tools } }								value		=   300 }
-	else_if	= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_early_machine_tools } }						value		=   200 }
-	else_if	= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_rubber_grips } }								value		=   125 }
-	else_if	= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_steel } }										value		=   100 }
-	else_if	= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_pig_iron } }									value		=    60 }
-	else_if	= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_hardwood_tools } }							value		=    50 }
-	else	= { 																															value		=    30 }	# pm_crude_tools
+	if		= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_machine_tools } }									value		=   300 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_early_machine_tools } }								value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_rubber_grips } }										value		=   125 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_steel } }											value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_pig_iron } }											value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_hardwood_tools } }									value		=    50 }
+	else	= { 																																								value		=    30 }	# pm_crude_tools
 	# Automation
-	if		= { limit = { b:building_tooling_workshop	= { has_active_production_method = pm_assembly_lines_building_tooling_workshop } }	multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_tooling_workshop	production_method = pm_assembly_lines_building_tooling_workshop } }			multiply	=  1.50 }
 }
-glass_per_level = {
-	if		= { limit = { b:building_glassworks	= { has_active_production_method = pm_houseware_plastics } }								value		=   175 }
-	else_if	= { limit = { b:building_glassworks	= { has_active_production_method = pm_crystal_glass } }										value		=    70 }
-	else_if	= { limit = { b:building_glassworks	= { has_active_production_method = pm_leaded_glass } }										value		=    40 }
-	else	= { 																															value		=    30 }	# pm_forest_glass
+oil_per_synth_level = {
+	# Oil
+	if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_advanced_synth_oil_production } }				value		=   360 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_improved_synth_oil_production } }				value		=   240 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_oil_production } }							value		=   120 }
+	else	= { 																																								value		=    50 }	# pm_coal_gasification
+	# Rubber
+	if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_only } }							multiply	= 0     }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_priority } }						multiply	= 0.333 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_focus } }							multiply	= 0.500 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_production } }						multiply	= 0.667 }
+	else	= {																																									multiply	= 1     }	# pm_no_synth_rubber
+	# Transport
+	# if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_tanker_cars } }	multiply	=  1.50 }	# Used to also increase throughput, but now only decreases employment
+}
+rubber_per_synth_level = {	# Warning: Has value 0 if pm_no_synth_rubber is active!
+	# Rubber
+	if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_only } }							value		=  150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_priority } }						value		=  100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_focus } }							value		=   75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_rubber_production } }						value		=   50 }
+	else	= {																																									value		=    0 }	# pm_no_synth_rubber
+	# Oil
+	if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_advanced_synth_oil_production } }				multiply	= 3.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_improved_synth_oil_production } }				multiply	= 2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_synth_oil_production } }							multiply	= 1.00 }
+	else	= { 																																								multiply	=-0.50 }	# pm_coal_gasification
+	# Transport
+	# if		= { limit = { is_production_method_active = { building_type = building_synthetic_oil_plant	production_method = pm_tanker_cars } }	multiply	=  1.50 }	# Used to also increase throughput, but now only decreases employment
+}
+rubber_per_greenhouse_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_automatic_fertilization_rubber_greenhouse } }	value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_chemical_fertilizer_rubber_greenhouse } }		value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_fertilization_rubber_greenhouse } }				value		=    75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_soil_enriching_farming_rubber_greenhouse } }		value		=    60 }
+	else	= { 																																								value		=    30 }	# pm_default_rubber_greenhouse
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_chainsaws } }									multiply	=  2.00 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_steam_powered_winch } }							multiply	=  1.50 }
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+engines_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_jet_electric_engines } }								value		=   350 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_jet_engines } }										value		=   300 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_hybrid_electric_engines } }							value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_diesel_engines } }									value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_electric_engines } }									value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_rotary_valve_engines } }								value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_watertube_boiler_steam_engines } }					value		=    65 }
+	else	= {																																									value		=    50 }	# pm_steam_engines
+	# Automation 
+	if		= { limit = { is_production_method_active = { building_type = building_motor_industry	production_method = pm_assembly_lines_building_motor_industry } }			multiply	=  1.50 }
+}
+engines_per_railway = {
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_maglev_trains } }											value		=    10 }
+	else	= {																																									value		=     5 }
+	# Passengers
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_high_speed_rail } }											add			=     5 }
+	# Rails
+	if		= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_rail_signals } }												multiply	=  1.10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_railway	production_method = pm_regenerative_brakes } }										multiply	=  1.10 }
+}
+engines_per_power_plant = 5
+# Luxury
+porcelain_per_level = {	# Warning: Has value 0 if pm_disabled_ceramics is active!
 	# Porcelain
-	if		= { limit = { b:building_glassworks	= { has_active_production_method = pm_ceramics_priority } }									multiply	=  0.75 }
-	else_if	= { limit = { b:building_glassworks	= { has_active_production_method = pm_bone_china_priority } }								multiply	=  0.75 }
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_bone_china_priority } }									value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_bone_china } }											value		=    40 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_ceramics_priority } }									value		=    30 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_ceramics } }												value		=    20 }
+	else	= { 																																								value		=     0 }	# pm_disabled_ceramics
+	# Base
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_houseware_plastics } }									multiply	= 2.500 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_crystal_glass } }										multiply	= 1.000 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_leaded_glass } }											multiply	= 0.500 }
+	else	= { 																																								multiply	= 0.375 }	# pm_forest_glass
 	# Automation
-	if		= { limit = { b:building_glassworks	= { has_active_production_method = pm_electric_bottle_blowers } }							multiply	=  1.50 }
-	else_if	= { limit = { b:building_glassworks	= { has_active_production_method = pm_automatic_bottle_blowers } }							multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_electric_bottle_blowers } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_glassworks	production_method = pm_automatic_bottle_blowers } }								multiply	=  1.50 }
 }
-steel_per_level = {
-	if		= { limit = { b:building_steel_mill	= { has_active_production_method = pm_electric_arc_process } }							value		=   150 }
-	else_if	= { limit = { b:building_steel_mill	= { has_active_production_method = pm_open_hearth_process } }							value		=   120 }
-	else_if	= { limit = { b:building_steel_mill	= { has_active_production_method = pm_bessemer_process } }								value		=    90 }
-	else	= { 																															value		=    65 }	# pm_blister_steel_process
-	# Secondary
-	if		= { limit = { b:building_steel_mill	= { has_active_production_method = pm_secondary_basic_oxygen_process } }				multiply	=  2.00 }
-	else_if	= { limit = { b:building_steel_mill	= { has_active_production_method = pm_secondary_carbon_capture } }						multiply	=  2.00 }
-	# Automation
-	if		= { limit = { b:building_steel_mill	= { has_active_production_method = pm_assembly_lines_building_steel_mill } }			multiply	=  1.50 }
+fruit_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_automatic_fertilization_banana_greenhouse } }	value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_chemical_fertilizer_banana_greenhouse } }		value		=   160 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_fertilization_banana_greenhouse } }				value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_soil_enriching_farming_banana_greenhouse } }		value		=    80 }
+	else	= { 																																								value		=    40 }	# pm_default_banana_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
 }
-coal_per_charcoal_level = {
-	if		= { limit = { b:building_charcoal_burner	= { has_active_production_method = pm_machine_coal } }								value		=   300 }
-	else_if	= { limit = { b:building_charcoal_burner	= { has_active_production_method = pm_combustion_chamber } }						value		=    50 }
-	else	= { 																															value		=    40 }	# pm_charcoal_kiln
+liquor_per_level = {
+	# Brewing
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_patent_stills } }									value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_pot_stills } }										value		=    40 }
 	# Automation
-	if		= { limit = { b:building_charcoal_burner	= { has_active_production_method = pm_assembly_lines_charcoal } }					multiply	=  1.50 }
-	else_if	= { limit = { b:building_charcoal_burner	= { has_active_production_method = pm_rotary_valve_engine_charcoal } }				subtract	=    10 }
-	else_if	= { limit = { b:building_charcoal_burner	= { has_active_production_method = pm_watertube_boiler_charcoal } }					subtract	=     5 }
+	if		= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_electricfied_bakery } }								multiply	=  1.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_food_industry	production_method = pm_automated_bakery } }									multiply	=  1.50 }
 }
-fertilizer_per_level = {
-	if		= { limit = { b:building_chemical_plant	= { has_active_production_method = pm_nitrogen_fixation_electricity } }				value		=   300 }
-	else_if	= { limit = { b:building_chemical_plant	= { has_active_production_method = pm_nitrogen_fixation } }							value		=   230 }
-	else_if	= { limit = { b:building_chemical_plant	= { has_active_production_method = pm_improved_fertilizer } }						value		=   160 }
-	else_if	= { limit = { b:building_chemical_plant	= { has_active_production_method = pm_artificial_fertilizers } }					value		=    90 }
-	else	= { 																															value		=    45 }	# pm_simple_fertilizers
-	# Automation
-	if		= { limit = { b:building_chemical_plant	= { has_active_production_method = pm_assembly_lines_building_chemical_plant } }		multiply	=  1.50 }
+wine_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_automatic_fertilization_vineyard_greenhouse } }	value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_chemical_fertilizer_vineyard_greenhouse } }		value		=    96 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_fertilization_vineyard_greenhouse } }			value		=    72 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_soil_enriching_farming_vineyard_greenhouse } }	value		=    48 }
+	else	= { 																																								value		=    24 }	# pm_default_vineyard_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
 }
-explosives_per_level = {
-	if		= { limit = { b:building_explosives_factory	= { has_active_production_method = pm_brine_electrolysis } }						value		=   200 }
-	else_if	= { limit = { b:building_explosives_factory	= { has_active_production_method = pm_vacuum_evaporation } }						value		=   120 }
-	else_if	= { limit = { b:building_explosives_factory	= { has_active_production_method = pm_ammonia-soda_process } }						value		=    80 }
-	else_if	= { limit = { b:building_explosives_factory	= { has_active_production_method = pm_leblanc_process } }							value		=    50 }
-	else	= { 																															value		=    25 }	# pm_early_soda
+tea_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_automatic_fertilization_tea_greenhouse } }			value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_chemical_fertilizer_tea_greenhouse } }				value		=    96 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_fertilization_tea_greenhouse } }						value		=    72 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_soil_enriching_farming_tea_greenhouse } }			value		=    48 }
+	else	= { 																																								value		=    24 }	# pm_default_tea_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_primitive_greenhouse } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_coal_furnace } }										multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse	production_method = pm_electric_furnace } }									multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+coffee_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_automatic_fertilization_coffee_greenhouse } }	value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_chemical_fertilizer_coffee_greenhouse } }		value		=    96 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_fertilization_coffee_greenhouse } }				value		=    72 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_soil_enriching_farming_coffee_greenhouse } }		value		=    48 }
+	else	= { 																																								value		=    24 }	# pm_default_coffee_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+sugar_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_automatic_fertilization_sugar_greenhouse } }			value		=   200 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_chemical_fertilizer_sugar_greenhouse } }				value		=   160 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_fertilization_sugar_greenhouse } }					value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_soil_enriching_farming_sugar_greenhouse } }			value		=    80 }
+	else	= { 																																								value		=    40 }	# pm_default_sugar_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_primitive_greenhouse } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_coal_furnace } }										multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse	production_method = pm_electric_furnace } }									multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+tobacco_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_automatic_fertilization_tobacco_greenhouse } }	value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_chemical_fertilizer_tobacco_greenhouse } }		value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_fertilization_tobacco_greenhouse } }				value		=    90 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_soil_enriching_farming_tobacco_greenhouse } }	value		=    60 }
+	else	= { 																																								value		=    30 }	# pm_default_tobacco_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_primitive_greenhouse } }							multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_coal_furnace } }									multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_electric_furnace } }								multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+opium_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_automatic_fertilization_opium_greenhouse } }			value		=   120 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_chemical_fertilizer_opium_greenhouse } }				value		=    96 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_fertilization_opium_greenhouse } }					value		=    72 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_soil_enriching_farming_opium_greenhouse } }			value		=    48 }
+	else	= { 																																								value		=    24 }	# pm_default_opium_greenhouse
+	# Greenhouse
+	if		= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_primitive_greenhouse } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_coal_furnace } }										multiply	=  0.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse	production_method = pm_electric_furnace } }									multiply	=  0.75 }
+	else	= { 																																								multiply	=  1.00 }
+}
+automobiles_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_automotive_industry	production_method = pm_mass_automobile_production } }					value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_automotive_industry	production_method = pm_mass_electric_automobile_production } }			value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_automotive_industry	production_method = pm_automobile_production } }						value		=    30 }
+	else	= {																																									value		=    25 }	# pm_electric_automobile_production
+	multiply = {
+		value = 1
+		# add = modifier:building_automotive_industry_throughput_add
+		add = b:building_automotive_industry.modifier:building_throughput_add
+	}
+}
+telephones_per_level = {
+	# Telephones
+	if		= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_double_telephones } }							value		=   160 }
+	else	= {																																									value		=    80 }	# pm_telephones
+	# Radios
+	if		= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_double_radios } }								multiply	=  0.25 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_radios } }										multiply	=  0.50 }
+	multiply = {
+		value = 1
+		# add = modifier:building_electrics_industry_throughput_add
+		add = b:building_electrics_industry.modifier:building_throughput_add
+	}
+}
+radios_per_level = {	# Warning: Has value 0 if pm_no_radios is active!
+	# Radios
+	if		= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_double_radios } }								value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_radios } }										value		=    60 }
+	# Telephones
+	if		= { limit = { is_production_method_active = { building_type = building_electrics_industry	production_method = pm_double_telephones } }							multiply	=  2.00 }
+	multiply = {
+		value = 1
+		# add = modifier:building_electrics_industry_throughput_add
+		add = b:building_electrics_industry.modifier:building_throughput_add
+	}
+}
+luxury_clothes_per_level = {
+	# Luxury
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_elastics_priority } }									value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_elastics } }												value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_craftsman_sewing_priority } }							value		=    40 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_craftsman_sewing } }										value		=    20 }
+	else	= { 																																								value		=     0 }	# pm_no_luxury_clothes
+	# Base
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_electric_sewing_machines } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_sewing_machines } }										multiply	=  1.25 }
 	# Automation
-	if		= { limit = { b:building_explosives_factory	= { has_active_production_method = pm_assembly_lines_building_chemical_plant } }	multiply	=  1.50 }
+	if		= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_automatic_power_looms } }								multiply	=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_textile_mill	production_method = pm_mechanized_looms } }										multiply	=  1.25 }
+}
+luxury_furniture_per_level = {
+	# Luxury
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_precision_tools_priority } }								value		=    80 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_precision_tools } }										value		=    60 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_luxury_furniture_priority } }							value		=    40 }
+	else_if	= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_luxury_furniture } }										value		=    20 }
+	else	= { 																																								value		=     0 }	# pm_no_luxuries
+	# Base
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_mechanized_workshops } }									multiply	=  1.50 }
+	# Automation
+	if		= { limit = { is_production_method_active = { building_type = furniture_manufactory	production_method = pm_assembly_lines_building_furniture_manufactory } }		multiply	=  1.50 }
+}
+fine_art_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_art_academy	production_method = pm_film_art } }												value		=    50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_art_academy	production_method = pm_photographic_art } }										value		=    20 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_art_academy	production_method = pm_realist_art } }											value		=    10 }
+	else	= {																																									value		=     5 }	# pm_traditional_art
+	multiply = {
+		value = 1
+		# add = modifier:building_art_academy_throughput_add
+		add = b:building_art_academy.modifier:building_throughput_add
+	}
+}
+fine_art_per_uni = {
+	if		= { limit = { is_production_method_active = { building_type = building_university	production_method = pm_analytical_philosophy_department } }						value		=  1.50 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_university	production_method = pm_philosophy_department } }								value		=  0.75 }
+	else	= {																																									value		=  0.00 }	# pm_scholastic_education
+}
+# Military
+small_arms_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_arms_industry	production_method = pm_machine_pistols } }									value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_arms_industry	production_method = pm_bolt_action_rifles } }								value		=   100 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_arms_industry	production_method = pm_repeaters } }										value		=    75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_arms_industry	production_method = pm_rifles } }											value		=    50 }
+	else	= {																																									value		=    30 }	# pm_muskets
+	# Automation 
+	if		= { limit = { is_production_method_active = { building_type = building_arms_industry	production_method = pm_assembly_lines_arms_industry } }						multiply	=  1.50 }
+}
+artillery_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_artillery_foundry	production_method = pm_recoiled_barrels } }								value		=   150 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_artillery_foundry	production_method = pm_breech_loaders } }								value		=    75 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_artillery_foundry	production_method = pm_smoothbores } }									value		=    50 }
+	else	= {																																									value		=    30 }	# pm_cannons
+	# Automation 
+	if		= { limit = { is_production_method_active = { building_type = building_artillery_foundry	production_method = pm_assembly_lines_arms_industry } }					multiply	=  1.50 }
+}
+ammunition_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_munition_plant	production_method = pm_explosive_shells } }									value		=   120 }
+	else	= {																																									value		=    50 }	# pm_percussion_caps
+	# Automation 
+	if		= { limit = { is_production_method_active = { building_type = building_munition_plant	production_method = pm_assembly_lines_munition_plant } }					multiply	=  1.50 }
+}
+aeroplanes_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_automotive_industry	production_method = pm_aeroplane_production } }							value		=    15 }
+	else	= {																																									value		=     0 }
+}
+tanks_per_level = {
+	if		= { limit = { is_production_method_active = { building_type = building_automotive_industry	production_method = pm_tank_production } }								value		=    15 }
+	else	= {																																									value		=     0 }
 }
 wood_per_const = {
 	if		= { limit = { OWNER = { has_technology_researched = arc_welding } }				value		=     0 }
@@ -420,6 +808,601 @@ explosives_per_const = {
 	if		= { limit = { OWNER = { has_technology_researched = arc_welding } }				value		=    20 }
 	else_if	= { limit = { OWNER = { has_technology_researched = steel_frame_buildings } }	value		=    10 }
 	else	= { 																			value		=     0 }
+}
+infrastructure_usage_low				= 1
+infrastructure_usage_medium				= 2
+infrastructure_usage_high				= 3
+infrastructure_usage_very_high			= 4
+queued_infrastructure_usage_industry	= {
+	value = 0
+	if = {
+		limit = { any_scope_building = { is_building_type = building_food_industry is_under_construction = yes } }
+		add = {
+			value		= b:building_food_industry.level_after_queued_constructions
+			subtract	= b:building_food_industry.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_textile_mill is_under_construction = yes } }
+		add = {
+			value		= b:building_textile_mill.level_after_queued_constructions
+			subtract	= b:building_textile_mill.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_furniture_manufactory is_under_construction = yes } }
+		add = {
+			value		= b:building_furniture_manufactory.level_after_queued_constructions
+			subtract	= b:building_furniture_manufactory.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_glassworks is_under_construction = yes } }
+		add = {
+			value		= b:building_glassworks.level_after_queued_constructions
+			subtract	= b:building_glassworks.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_tooling_workshop is_under_construction = yes } }
+		add = {
+			value		= b:building_tooling_workshop.level_after_queued_constructions
+			subtract	= b:building_tooling_workshop.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_paper_mill is_under_construction = yes } }
+		add = {
+			value		= b:building_paper_mill.level_after_queued_constructions
+			subtract	= b:building_paper_mill.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_charcoal_burner is_under_construction = yes } }
+		add = {
+			value		= b:building_charcoal_burner.level_after_queued_constructions
+			subtract	= b:building_charcoal_burner.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_chemical_plant is_under_construction = yes } }
+		add = {
+			value		= b:building_chemical_plant.level_after_queued_constructions
+			subtract	= b:building_chemical_plant.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_explosives_factory is_under_construction = yes } }
+		add = {
+			value		= b:building_explosives_factory.level_after_queued_constructions
+			subtract	= b:building_explosives_factory.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_steel_mill is_under_construction = yes } }
+		add = {
+			value		= b:building_steel_mill.level_after_queued_constructions
+			subtract	= b:building_steel_mill.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_motor_industry is_under_construction = yes } }
+		add = {
+			value		= b:building_motor_industry.level_after_queued_constructions
+			subtract	= b:building_motor_industry.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_automotive_industry is_under_construction = yes } }
+		add = {
+			value		= b:building_automotive_industry.level_after_queued_constructions
+			subtract	= b:building_automotive_industry.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_synthetics_plant is_under_construction = yes } }
+		add = {
+			value		= b:building_synthetics_plant.level_after_queued_constructions
+			subtract	= b:building_synthetics_plant.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_synthetic_oil_plant is_under_construction = yes } }
+		add = {
+			value		= b:building_synthetic_oil_plant.level_after_queued_constructions
+			subtract	= b:building_synthetic_oil_plant.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_electrics_industry is_under_construction = yes } }
+		add = {
+			value		= b:building_electrics_industry.level_after_queued_constructions
+			subtract	= b:building_electrics_industry.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_art_academy is_under_construction = yes } }
+		add = {
+			value		= b:building_art_academy.level_after_queued_constructions
+			subtract	= b:building_art_academy.level
+			multiply	= infrastructure_usage_low
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_shipyard is_under_construction = yes } }
+		add = {
+			value		= b:building_shipyard.level_after_queued_constructions
+			subtract	= b:building_shipyard.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_military_shipyard is_under_construction = yes } }
+		add = {
+			value		= b:building_military_shipyard.level_after_queued_constructions
+			subtract	= b:building_military_shipyard.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_arms_industry is_under_construction = yes } }
+		add = {
+			value		= b:building_arms_industry.level_after_queued_constructions
+			subtract	= b:building_arms_industry.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_artillery_foundry is_under_construction = yes } }
+		add = {
+			value		= b:building_artillery_foundry.level_after_queued_constructions
+			subtract	= b:building_artillery_foundry.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_munition_plant is_under_construction = yes } }
+		add = {
+			value		= b:building_munition_plant.level_after_queued_constructions
+			subtract	= b:building_munition_plant.level
+			multiply	= infrastructure_usage_high
+		}
+	}
+}
+queued_infrastructure_usage_extraction	= {
+	value = 0
+	if = {
+		limit = { any_scope_building = { is_building_type = building_coal_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_coal_mine.level_after_queued_constructions
+			subtract	= b:building_coal_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_iron_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_iron_mine.level_after_queued_constructions
+			subtract	= b:building_iron_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_lead_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_lead_mine.level_after_queued_constructions
+			subtract	= b:building_lead_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_sulfur_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_sulfur_mine.level_after_queued_constructions
+			subtract	= b:building_sulfur_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_gold_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_gold_mine.level_after_queued_constructions
+			subtract	= b:building_gold_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_oil_rig is_under_construction = yes } }
+		add = {
+			value		= b:building_oil_rig.level_after_queued_constructions
+			subtract	= b:building_oil_rig.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_coal_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_coal_mine.level_after_queued_constructions
+			subtract	= b:building_infres_coal_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_iron_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_iron_mine.level_after_queued_constructions
+			subtract	= b:building_infres_iron_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_lead_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_lead_mine.level_after_queued_constructions
+			subtract	= b:building_infres_lead_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_sulfur_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_sulfur_mine.level_after_queued_constructions
+			subtract	= b:building_infres_sulfur_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_gold_mine is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_gold_mine.level_after_queued_constructions
+			subtract	= b:building_infres_gold_mine.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_infres_oil_rig is_under_construction = yes } }
+		add = {
+			value		= b:building_infres_oil_rig.level_after_queued_constructions
+			subtract	= b:building_infres_oil_rig.level
+			multiply	= infrastructure_usage_medium
+		}
+	}
+}
+queued_infrastructure_usage_greenhouses	= {
+	value = 0
+	if = {
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_autarky_greenhouse.level_after_queued_constructions
+			subtract	= b:building_autarky_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_autarky_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_autarky_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_autarky_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_autarky_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_vineyard_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_vineyard_greenhouse.level_after_queued_constructions
+			subtract	= b:building_vineyard_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_vineyard_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_coffee_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_coffee_greenhouse.level_after_queued_constructions
+			subtract	= b:building_coffee_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_coffee_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_coffee_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_coffee_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_coffee_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_tea_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_tea_greenhouse.level_after_queued_constructions
+			subtract	= b:building_tea_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_tea_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_tea_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_tea_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_tea_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_sugar_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_sugar_greenhouse.level_after_queued_constructions
+			subtract	= b:building_sugar_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_sugar_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_sugar_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_sugar_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_sugar_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_banana_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_banana_greenhouse.level_after_queued_constructions
+			subtract	= b:building_banana_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_banana_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_banana_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_banana_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_banana_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_opium_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_opium_greenhouse.level_after_queued_constructions
+			subtract	= b:building_opium_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_opium_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_opium_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_opium_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_opium_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_tobacco_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_tobacco_greenhouse.level_after_queued_constructions
+			subtract	= b:building_tobacco_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_tobacco_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_tobacco_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_tobacco_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_tobacco_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_cotton_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_cotton_greenhouse.level_after_queued_constructions
+			subtract	= b:building_cotton_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_cotton_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_cotton_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_cotton_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_cotton_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_dye_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_dye_greenhouse.level_after_queued_constructions
+			subtract	= b:building_dye_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_dye_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_dye_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_dye_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_dye_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_silk_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_silk_greenhouse.level_after_queued_constructions
+			subtract	= b:building_silk_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_silk_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_logging_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_logging_greenhouse.level_after_queued_constructions
+			subtract	= b:building_logging_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_logging_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_logging_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_logging_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_logging_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_rubber_greenhouse is_under_construction = yes } }
+		add = {
+			value		= b:building_rubber_greenhouse.level_after_queued_constructions
+			subtract	= b:building_rubber_greenhouse.level
+			if = {
+				limit = { is_production_method_active = { building_type = building_rubber_greenhouse production_method = pm_primitive_greenhouse } }
+				multiply	= infrastructure_usage_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_production_method_active = { building_type = building_rubber_greenhouse production_method = pm_electric_heat_exchanger }
+						is_production_method_active = { building_type = building_rubber_greenhouse production_method = pm_autark_greenhouse }
+						is_production_method_active = { building_type = building_rubber_greenhouse production_method = pm_oil_furnace }
+					}
+				}
+				multiply	= infrastructure_usage_high
+			}
+			else = {		# pm_coal_furnace pm_electric_furnace
+				multiply	= infrastructure_usage_medium
+			}
+		}
+	}
+}
+queued_infrastructure_usage = {
+	value	= 0
+	add		= queued_infrastructure_usage_industry
+	add		= queued_infrastructure_usage_extraction
+	add		= queued_infrastructure_usage_greenhouses
 }
 # Refunds
 autarky_refund = {
@@ -482,9 +1465,9 @@ agro_refund = {
 plant_refund = {
 	value = 0
 	if = {
-		limit = { has_building = building_vineyard_plantation }
+		limit = { has_building = building_vineyard }
 		add = {
-			value = b:building_vineyard_plantation.level
+			value = b:building_vineyard.level
 			multiply = construction_cost_low
 		}
 	}
@@ -674,6 +1657,17 @@ rubber_refund = {
 	}
 	multiply = 1000	# 1k/point
 }
+pp_refund = {
+	value = 0
+	if = {
+		limit = { has_building = building_power_plant }
+		add = {
+			value = b:building_power_plant.level
+			multiply = construction_cost_medium
+		}
+	}
+	multiply = 1000	# 1k/point
+}
 ind_refund = {
 	value = 0
 	if = {
@@ -838,11 +1832,7 @@ missing_trade = {
 	multiply	=-1
 	round		= yes
 	if = {
-		limit = {
-			trigger_if = { limit = { market.OWNER ?= OWNER } NOT = { THIS ?= OWNER.market_capital } }
-			trigger_else = { NOT = { THIS ?= OWNER.capital } }
-			is_treaty_port = no
-		}
+		limit = { trigger_invalid_trade_center = yes }
 		value = 0
 	}
 	else_if = {
@@ -857,19 +1847,37 @@ queued_admin_levels = {
 	value		= b:building_government_administration.level_after_queued_constructions
 	subtract	= b:building_government_administration.level
 }
+total_queued_admin_levels = {
+	value	= queued_admin_levels
+	add		= var:missing_admins
+}
 missing_admins_tax = {
 	value		= tax_capacity_balance
 	multiply	=-1
 	add			= tax_capacity_per_admin
 	subtract	= 1							# add tax_capacity_per_admin - 1 to make division round up
 	divide		= tax_capacity_per_admin
+	min			= 0
 }
-missing_admins_bur = {
+missing_admins_tax_bur = {	# How much bur the admins queued up for tax provide
+	value		= total_queued_admin_levels
+	multiply	= bureacracy_per_admin
+}
+missing_admins_bur = {	# How much bureaucracy we need to fulfill demand
 	value		= OWNER.max_bureaucracy_required
-	multiply	=-1
 	add			= bureacracy_per_admin
 	subtract	= 1						# add bureacracy_per_admin - 1 to make division round up
 	divide		= bureacracy_per_admin
+}
+missing_bur_admins = {	# How many admin buildings we need to fulfill bureaucracy demand
+	value = missing_admins_bur
+	subtract = missing_admins_tax_bur
+	if = {
+		limit = { b:building_government_administration = { is_under_construction = yes } }
+		subtract = queued_admin_levels
+	}
+	round = yes
+	min = 0
 }
 # Goods
 merchant_marine_production_delta = {	# production - (consumption + export)
@@ -881,28 +1889,45 @@ queued_merchant_marine = {
 	subtract	= b:building_port.level
 	multiply	= merchant_marine_per_level
 }
+queued_convoys = {
+	value		= b:building_port.level_after_queued_constructions
+	subtract	= b:building_port.level
+	multiply	= convoys_per_port
+}
 queued_merchant_marine_trade_centers = {
 	value		= b:building_trade_center.level_after_queued_constructions
 	subtract	= b:building_trade_center.level
 	multiply	= merchant_marine_per_trade_center
 }
-missing_port_convoys = {
+missing_convoys = {
 	value	= max_convoys_required
-	if = { limit = { NOT = { THIS ?= market.OWNER } } add = market.OWNER.max_convoys_required }
-	if		= { limit = { market_capital	= { is_coastal = yes } }											divide		= market_capital.convoys_per_port }
-	else_if	= { limit = { capital			= { is_coastal = yes } }											divide		= capital.convoys_per_port }
+	every_scope_state = {
+		limit = { any_scope_building = { is_building_type = building_port } }
+		subtract = queued_convoys
+	}
+	round		= yes
+	min			= 0
+}
+missing_port_convoys = {
+	value	= missing_convoys
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }														add = market.OWNER.max_convoys_required }
+	if		= { limit = { market_capital	?= { is_coastal = yes } THIS ?= market.OWNER }						divide		= market_capital.convoys_per_port }
+	else_if	= { limit = { capital			?= { is_coastal = yes } }											divide		= capital.convoys_per_port }
 	else_if	= { limit = { any_scope_state	= { is_coastal = yes save_temporary_scope_as = coastal_state } }	divide		= scope:coastal_state.convoys_per_port }
 	else	= { 																								value		= 0 }
-	round = yes
+	round		= yes
+	min			= 0
 }
 missing_port_merchant_marine = {
 	value		= var:merchant_marine_delta
 	multiply	=-1
-	if		= { limit = { market_capital	= { is_coastal = yes } }											divide		= market_capital.merchant_marine_per_level }
-	else_if	= { limit = { capital			= { is_coastal = yes } }											divide		= capital.merchant_marine_per_level }
+	every_scope_state = { limit = { any_scope_building = { is_building_type = building_port } }					subtract	= queued_merchant_marine }
+	if		= { limit = { market_capital	?= { is_coastal = yes } THIS ?= market.OWNER }						divide		= market_capital.merchant_marine_per_level }
+	else_if	= { limit = { capital			?= { is_coastal = yes } }											divide		= capital.merchant_marine_per_level }
 	else_if	= { limit = { any_scope_state	= { is_coastal = yes save_temporary_scope_as = coastal_state } }	divide		= scope:coastal_state.merchant_marine_per_level }
 	else	= { 																								value		= 0 }
 	round		= yes
+	min			= 0
 }
 missing_port = {
 	value	= missing_port_convoys
@@ -918,25 +1943,149 @@ queued_railway_levels = {
 	value		= b:building_railway.level_after_queued_constructions
 	subtract	= b:building_railway.level
 }
+total_queued_railway_levels = {
+	value	= queued_railway_levels
+	add		= var:missing_railways
+}
+queued_power_plant_levels = {
+	value		= b:building_power_plant.level_after_queued_constructions
+	subtract	= b:building_power_plant.level
+}
 missing_railways_infra = {
 	value		= state_infrastructure_balance
 	if = {
-		limit = { OWNER = { has_technology_researched = paved_roads } }
+		limit = { trigger_owner_wants_immigration = yes }
 		subtract = define:NGraphics|ROUTE_PAVED_ROAD_MIN_INFRASTRUCTURE
 	}
+	subtract	= queued_infrastructure_usage
 	multiply	=-1
-	add			= infra_per_railroad
-	subtract	= 0.5					# add infra_per_railroad - 0.5 to ensure ceiling at divison
-	divide		= infra_per_railroad
+	add			= infra_per_railway
+	subtract	= 0.5					# add infra_per_railway - 0.5 to ensure ceiling at divison
+	divide		= infra_per_railway
 	round		= yes
 	min			= 0
 }
 missing_railways_transport = {
 	value		= var:transportation_delta
 	multiply	=-1
-	add			= transportation_per_railroad
-	subtract	= 0.5								# add transportation_per_railroad - 0.5 to ensure ceiling at divison
-	divide		= transportation_per_railroad
+	add			= transportation_per_railway
+	subtract	= 0.5								# add transportation_per_railway - 0.5 to ensure ceiling at divison
+	divide		= transportation_per_railway
+	round		= yes
+	min			= 0
+}
+missing_railways = {
+	value		= missing_railways_infra
+	if = {
+		limit = { var:transportation_delta < 0 }
+		add = {
+			value		= missing_railways_transport
+			subtract	= missing_railways_infra
+			min			= 0
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_railway occupancy < 0.95 level > 0 } }
+		subtract = {	# Level * (1 - Occupancy)
+			value		= 1
+			subtract	= b:building_railway.occupancy
+			multiply	= b:building_railway.level
+		}
+	}
+	if = {
+		limit = { b:building_railway = { is_under_construction = yes } }
+		subtract = queued_railway_levels
+	}
+	round = yes
+	min = 0
+	if = { limit = { var:must_destroy_railway = yes } min = 1 }	# Every state needs a railway
+}
+missing_powerplants = {
+	value = {
+		value = var:electricity_delta
+		multiply = -1
+		add = power_per_plant
+		subtract = 0.5					# add power_per_plant - 0.5 to ensure ceiling at divison
+		divide = power_per_plant
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_power_plant occupancy < 0.95 level > 0 } }
+		subtract = {	# Level * (1 - Occupancy)
+			value		= 1
+			subtract	= b:building_power_plant.occupancy
+			multiply	= b:building_power_plant.level
+		}
+	}
+	if = {
+		limit = {
+			trigger_power_plant_allowed = no
+			# any_scope_building = { is_building_type = building_power_plant is_subsidized = no }
+		}
+		value = 0
+	}
+	# if = {	# Moved to script value queued_electricity
+		# limit = { b:building_power_plant = { is_under_construction = yes } }
+		# subtract = {
+			# value		= b:building_power_plant.level_after_queued_constructions
+			# subtract	= b:building_power_plant.level
+		# }
+	# }
+	round = yes
+	min = 0
+	if = {	# Every state needs a building_power_plant
+		limit = {
+			var:must_destroy_powerplant = yes
+			trigger_power_plant_allowed = yes
+		}
+		min = 1
+	}
+}
+missing_autarky_greenhouse_electricity_state = {
+	value = {
+		value = var:electricity_delta
+		multiply = -1
+		add = power_per_autark_greenhouse
+		subtract = 0.5					# add power_per_autark_greenhouse - 0.5 to ensure ceiling at divison
+		divide = power_per_autark_greenhouse
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse occupancy < 0.95 level > 0 } }
+		subtract = {	# Level * (1 - Occupancy)
+			value		= 1
+			subtract	= b:building_autarky_greenhouse.occupancy
+			multiply	= b:building_autarky_greenhouse.level
+		}
+	}
+	# if = {	# Moved to script value queued_electricity
+		# limit = { b:building_autarky_greenhouse = { is_under_construction = yes } }
+		# subtract = {
+			# value		= b:building_autarky_greenhouse.level_after_queued_constructions
+			# subtract	= b:building_autarky_greenhouse.level
+		# }
+	# }
+	round = yes
+	min = 0
+	if = { limit = { var:must_destroy_autarky_greenhouse = yes } min = 1 }	# Every state needs a building_autarky_greenhouse
+}
+missing_powerplants_country = {
+	value = 0
+	every_scope_state = {
+		add	= missing_powerplants
+	}
+}
+missing_autarky_greenhouse_electricity = {	# country_scope
+	value		= var:electricity_delta
+	multiply	=-1
+	if = {
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse occupancy < 0.95 level > 0 } }
+		subtract = {	# Level * (1 - Occupancy)
+			value		= 1
+			subtract	= b:building_autarky_greenhouse.occupancy
+			multiply	= b:building_autarky_greenhouse.level
+		}
+	}
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.power_per_autark_greenhouse }
+	else	= {												divide		= market_capital.power_per_autark_greenhouse }
 	round		= yes
 	min			= 0
 }
@@ -949,12 +2098,159 @@ queued_groceries = {
 	subtract	= b:building_food_industry.level
 	multiply	= groceries_per_level
 }
-missing_food_industry = {
+missing_food_industry_groceries = {
 	value		= var:groceries_delta
 	multiply	=-1
-	divide		= market_capital.groceries_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.groceries_per_level }
+	else	= {												divide		= market_capital.groceries_per_level }
 	round		= yes
 	min			= 0
+}
+liquor_production_delta = {	# production - (consumption + export)
+	value		= market.mg:liquor.market_goods_production
+	subtract	= market.mg:liquor.market_goods_buy_orders	# market_goods_consumption
+}
+queued_liquor = {
+	value		= b:building_food_industry.level_after_queued_constructions
+	subtract	= b:building_food_industry.level
+	multiply	= liquor_per_level
+}
+missing_food_industry_liquor = {
+	value		= var:liquor_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.liquor_per_level }
+	else	= {												divide		= market_capital.liquor_per_level }
+	round		= yes
+	min			= 0
+}
+missing_food_industry = {
+	value		= missing_food_industry_groceries
+	add			= {
+		value	= missing_food_industry_liquor
+		subtract= missing_food_industry_groceries
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+clothes_production_delta = {	# production - (consumption + export)
+	value		= market.mg:clothes.market_goods_production
+	subtract	= market.mg:clothes.market_goods_buy_orders	# market_goods_consumption
+}
+queued_clothes = {
+	value		= b:building_textile_mill.level_after_queued_constructions
+	subtract	= b:building_textile_mill.level
+	multiply	= clothes_per_level
+}
+missing_textile_mill_clothes = {
+	value		= var:clothes_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.clothes_per_level }
+	else	= {												divide		= market_capital.clothes_per_level }
+	round		= yes
+	min			= 0
+}
+luxury_clothes_production_delta = {	# production - (consumption + export)
+	value		= market.mg:luxury_clothes.market_goods_production
+	subtract	= market.mg:luxury_clothes.market_goods_buy_orders	# market_goods_consumption
+}
+queued_luxury_clothes = {
+	value		= b:building_textile_mill.level_after_queued_constructions
+	subtract	= b:building_textile_mill.level
+	multiply	= luxury_clothes_per_level
+}
+missing_textile_mill_luxury_clothes = {
+	value		= var:luxury_clothes_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.luxury_clothes_per_level }
+	else	= {												divide		= market_capital.luxury_clothes_per_level }
+	round		= yes
+	min			= 0
+}
+missing_textile_mill = {
+	value		= missing_textile_mill_clothes
+	add = {
+		value	= missing_textile_mill_luxury_clothes
+		subtract= missing_textile_mill_clothes
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+furniture_production_delta = {	# production - (consumption + export)
+	value		= market.mg:furniture.market_goods_production
+	subtract	= market.mg:furniture.market_goods_buy_orders	# market_goods_consumption
+}
+queued_furniture = {
+	value		= b:building_furniture_manufactory.level_after_queued_constructions
+	subtract	= b:building_furniture_manufactory.level
+	multiply	= furniture_per_level
+}
+missing_furniture_manufactory_furniture = {
+	value		= var:furniture_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.furniture_per_level }
+	else	= {												divide		= market_capital.furniture_per_level }
+	round		= yes
+	min			= 0
+}
+luxury_furniture_production_delta = {	# production - (consumption + export)
+	value		= market.mg:luxury_furniture.market_goods_production
+	subtract	= market.mg:luxury_furniture.market_goods_buy_orders	# market_goods_consumption
+}
+queued_luxury_furniture = {
+	value		= b:building_furniture_manufactory.level_after_queued_constructions
+	subtract	= b:building_furniture_manufactory.level
+	multiply	= luxury_furniture_per_level
+}
+missing_furniture_manufactory_luxury_furniture = {
+	value		= var:luxury_furniture_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.luxury_furniture_per_level }
+	else	= {												divide		= market_capital.luxury_furniture_per_level }
+	round		= yes
+	min			= 0
+}
+missing_furniture_manufactory = {
+	value		= missing_furniture_manufactory_furniture
+	add = {
+		value	= missing_furniture_manufactory_luxury_furniture
+		subtract= missing_furniture_manufactory_furniture
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+paper_production_delta = {	# production - (consumption + export)
+	value		= market.mg:paper.market_goods_production
+	subtract	= market.mg:paper.market_goods_buy_orders	# market_goods_consumption
+}
+queued_paper = {
+	value		= b:building_paper_mill.level_after_queued_constructions
+	subtract	= b:building_paper_mill.level
+	multiply	= paper_per_level
+}
+missing_paper_mill = {
+	value		= var:paper_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.paper_per_level }
+	else	= {												divide		= market_capital.paper_per_level }
+	round		= yes
+	min			= 0
+}
+queued_admin_paper = {
+	value		= queued_admin_levels
+	if = {
+		limit = { has_variable = missing_admins }
+		min		= var:missing_admins
+	}
+	multiply	= paper_per_admin
+}
+paper_per_uni	= 5
+queued_uni_paper = {
+	value		= b:building_university.level_after_queued_constructions
+	subtract	= b:building_university.level
+	multiply	= paper_per_uni
 }
 wood_production_delta = {	# production - (consumption + export)
 	value		= market.mg:wood.market_goods_production
@@ -973,7 +2269,8 @@ queued_wood_greenhouse = {
 missing_logging_greenhouse = {
 	value		= var:wood_delta
 	multiply	=-1
-	divide		= market_capital.wood_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.wood_per_greenhouse_level }
+	else	= {												divide		= market_capital.wood_per_greenhouse_level }
 	round		= yes
 	min			= 0
 }
@@ -989,7 +2286,8 @@ queued_fabric = {
 missing_cotton_greenhouse = {
 	value		= var:fabric_delta
 	multiply	=-1
-	divide		= market_capital.fabric_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.fabric_per_level }
+	else	= {												divide		= market_capital.fabric_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1005,7 +2303,8 @@ queued_tools = {
 missing_tooling_workshops = {
 	value		= var:tools_delta
 	multiply	=-1
-	divide		= market_capital.tools_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.tools_per_level }
+	else	= {												divide		= market_capital.tools_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1018,10 +2317,27 @@ queued_glass = {
 	subtract	= b:building_glassworks.level
 	multiply	= glass_per_level
 }
-missing_glassworks = {
+missing_glassworks_glass = {		# Glass
 	value		= var:glass_delta
 	multiply	=-1
-	divide		= market_capital.glass_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.glass_per_level }
+	else	= {												divide		= market_capital.glass_per_level }
+	round		= yes	# Required since we calculate them seperately
+	min			= 0		# Required since we calculate them seperately
+}
+missing_glassworks_porcelain = {	# Porcelain
+	value		= var:porcelain_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.porcelain_per_level }
+	else	= {												divide		= market_capital.porcelain_per_level }
+}
+missing_glassworks = {
+	value		= missing_glassworks_glass
+	add = {
+		value	= missing_glassworks_porcelain
+		subtract= missing_glassworks_glass
+		min		= 0
+	}
 	round		= yes
 	min			= 0
 }
@@ -1034,10 +2350,16 @@ queued_steel = {
 	subtract	= b:building_steel_mill.level
 	multiply	= steel_per_level
 }
+queued_steel_coal = {
+	value		= b:building_steel_mill.level_after_queued_constructions
+	subtract	= b:building_steel_mill.level
+	multiply	= coal_per_steel_level
+}
 missing_steel_mills = {
 	value		= var:steel_delta
 	multiply	=-1
-	divide		= market_capital.steel_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.steel_per_level }
+	else	= {												divide		= market_capital.steel_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1050,12 +2372,76 @@ queued_coal = {
 	subtract	= b:building_charcoal_burner.level
 	multiply	= coal_per_charcoal_level
 }
-missing_charcoal_burner = {
+missing_charcoal_burner_coal = {
 	value		= var:coal_delta
 	multiply	=-1
-	divide		= market_capital.coal_per_charcoal_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.coal_per_charcoal_level }
+	else	= {												divide		= market_capital.coal_per_charcoal_level }
 	round		= yes
 	min			= 0
+}
+sulfur_production_delta = {	# production - (consumption + export)
+	value		= market.mg:sulfur.market_goods_production
+	subtract	= market.mg:sulfur.market_goods_buy_orders	# market_goods_consumption
+}
+queued_sulfur_charcoal = {
+	value		= b:building_charcoal_burner.level_after_queued_constructions
+	subtract	= b:building_charcoal_burner.level
+	multiply	= sulfur_per_charcoal_level
+}
+queued_sulfur_steel = {
+	value		= b:building_steel_mill.level_after_queued_constructions
+	subtract	= b:building_steel_mill.level
+	multiply	= sulfur_per_steel_level
+}
+queued_sulfur = {
+	value		= queued_sulfur_charcoal
+	add			= {
+		value	= queued_sulfur_steel
+		subtract= queued_sulfur_charcoal
+		min		= 0
+	}
+}
+missing_charcoal_burner_sulfur = {
+	value		= var:sulfur_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.sulfur_per_charcoal_level }
+	else	= {												divide		= market_capital.sulfur_per_charcoal_level }
+	round		= yes
+	min			= 0
+}
+missing_charcoal_burner = {
+	value		= missing_charcoal_burner_coal
+	add			= {
+		value	= missing_charcoal_burner_sulfur
+		subtract= missing_charcoal_burner_coal
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+queued_infrastructure_coal = {
+	value		= 0
+	add = {
+		value = queued_railway_levels
+		if = {
+			limit = { is_production_method_active = { building_type = building_railway	production_method = pm_rotary_valve_steam_trains } }
+			multiply = 5	# Change this when changing pm_rotary_valve_steam_trains
+		}
+		else_if = {
+			limit = { is_production_method_active = { building_type = building_railway	production_method = pm_steam_trains } }
+			multiply = 5	# Change this when changing pm_steam_trains
+		}
+		else = { multiply = 0 }
+	}
+	add = {
+		value = queued_power_plant_levels
+		if = {
+			limit = { is_production_method_active = { building_type = building_power_plant	production_method = pm_coal-fired_plant } }
+			multiply = 25	# Change this when changing pm_coal-fired_plant
+		}
+		else = { multiply = 0 }
+	}
 }
 fertilizer_production_delta = {	# production - (consumption + export)
 	value		= market.mg:fertilizer.market_goods_production
@@ -1069,7 +2455,8 @@ queued_fertilizer = {
 missing_chemical_plants = {
 	value		= var:fertilizer_delta
 	multiply	=-1
-	divide		= market_capital.fertilizer_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.fertilizer_per_level }
+	else	= {												divide		= market_capital.fertilizer_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1085,7 +2472,141 @@ queued_explosives = {
 missing_explosives_factories = {
 	value		= var:explosives_delta
 	multiply	=-1
-	divide		= market_capital.explosives_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.explosives_per_level }
+	else	= {												divide		= market_capital.explosives_per_level }
+	round		= yes
+	min			= 0
+}
+dye_production_delta = {	# production - (consumption + export)
+	value		= market.mg:dye.market_goods_production
+	subtract	= market.mg:dye.market_goods_buy_orders	# market_goods_consumption
+}
+queued_synth_dye = {
+	value		= b:building_synthetics_plant.level_after_queued_constructions
+	subtract	= b:building_synthetics_plant.level
+	multiply	= dye_per_level
+}
+queued_natural_dye = {
+	value		= b:building_dye_greenhouse.level_after_queued_constructions
+	subtract	= b:building_dye_greenhouse.level
+	multiply	= dye_per_greenhouse_level
+}
+natural_dye_production = {
+	value		= b:building_dye_greenhouse.level
+	multiply	= b:building_dye_greenhouse.occupancy
+	multiply	= dye_per_greenhouse_level
+	round		= yes
+	min			= 0
+}
+missing_dye_greenhouse = {
+	value		= var:dye_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.dye_per_greenhouse_level }
+	else	= {												divide		= market_capital.dye_per_greenhouse_level }
+	round		= yes
+	min			= 0
+}
+missing_synthetics_plant_dye = {
+	value		= var:dye_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.dye_per_level }
+	else	= {												divide		= market_capital.dye_per_level }
+}
+silk_production_delta = {	# production - (consumption + export)
+	value		= market.mg:silk.market_goods_production
+	subtract	= market.mg:silk.market_goods_buy_orders	# market_goods_consumption
+}
+queued_synth_silk = {
+	value		= b:building_synthetics_plant.level_after_queued_constructions
+	subtract	= b:building_synthetics_plant.level
+	multiply	= silk_per_level
+}
+queued_natural_silk = {
+	value		= b:building_silk_greenhouse.level_after_queued_constructions
+	subtract	= b:building_silk_greenhouse.level
+	multiply	= silk_per_greenhouse_level
+}
+natural_silk_production = {
+	value		= b:building_silk_greenhouse.level
+	multiply	= b:building_silk_greenhouse.occupancy
+	multiply	= silk_per_greenhouse_level
+	round		= yes
+	min			= 0
+}
+missing_silk_greenhouse = {
+	value		= var:silk_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.silk_per_greenhouse_level }
+	else	= {												divide		= market_capital.silk_per_greenhouse_level }
+	round		= yes
+	min			= 0
+}
+missing_synthetics_plant_silk = {
+	value		= var:silk_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.silk_per_level }
+	else	= {												divide		= market_capital.silk_per_level }
+}
+missing_synthetics_plant = {
+	value		= missing_synthetics_plant_dye
+	if = {
+		limit = {
+			trigger_has_prestige_silk_company = no
+			has_technology_researched = art_silk
+		}
+		add = {
+			value	= missing_synthetics_plant_silk
+			subtract= missing_synthetics_plant_dye
+			min		= 0
+		}
+	}
+	round		= yes
+	min			= 0
+}
+oil_production_delta = {	# production - (consumption + export)
+	value		= market.mg:oil.market_goods_production
+	subtract	= market.mg:oil.market_goods_buy_orders	# market_goods_consumption
+}
+queued_oil = {
+	value		= b:building_synthetic_oil_plant.level_after_queued_constructions
+	subtract	= b:building_synthetic_oil_plant.level
+	multiply	= oil_per_synth_level
+}
+missing_synthetic_oil_plant = {
+	value		= var:oil_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.oil_per_synth_level }
+	else	= {												divide		= market_capital.oil_per_synth_level }
+	round		= yes
+	min			= 0
+}
+rubber_production_delta = {	# production - (consumption + export)
+	value		= market.mg:rubber.market_goods_production
+	subtract	= market.mg:rubber.market_goods_buy_orders	# market_goods_consumption
+}
+queued_synth_rubber = {
+	value		= b:building_synthetic_oil_plant.level_after_queued_constructions
+	subtract	= b:building_synthetic_oil_plant.level
+	multiply	= rubber_per_synth_level
+}
+queued_natural_rubber = {
+	value		= b:building_rubber_greenhouse.level_after_queued_constructions
+	subtract	= b:building_rubber_greenhouse.level
+	multiply	= rubber_per_greenhouse_level
+}
+missing_rubber_greenhouse = {
+	value		= var:rubber_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.rubber_per_greenhouse_level }
+	else	= {												divide		= market_capital.rubber_per_greenhouse_level }
+	round		= yes
+	min			= 0
+}
+missing_synthetic_oil_plant_rubber = {
+	value		= var:rubber_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.rubber_per_synth_level }
+	else	= {												divide		= market_capital.rubber_per_synth_level }
 	round		= yes
 	min			= 0
 }
@@ -1101,9 +2622,286 @@ queued_engines = {
 missing_motor_industry = {
 	value		= var:engines_delta
 	multiply	=-1
-	divide		= market_capital.engines_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.engines_per_level }
+	else	= {												divide		= market_capital.engines_per_level }
 	round		= yes
 	min			= 0
+}
+queued_railway_engines = {
+	value		= total_queued_railway_levels	# queued_railway_levels
+	multiply	= engines_per_railway
+}
+queued_power_plant_engines = {
+	value		= queued_power_plant_levels
+	multiply	= engines_per_power_plant	# 5
+}
+queued_infrastructure_engines = {
+	value		= queued_railway_engines
+	add			= {
+		value	= queued_power_plant_engines
+		subtract= queued_railway_engines
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+porcelain_production_delta = {	# production - (consumption + export)
+	value		= market.mg:porcelain.market_goods_production
+	subtract	= market.mg:porcelain.market_goods_buy_orders	# market_goods_consumption
+}
+queued_porcelain = {
+	value		= b:building_glassworks.level_after_queued_constructions
+	subtract	= b:building_glassworks.level
+	multiply	= porcelain_per_level
+}
+fruit_production_delta = {	# production - (consumption + export)
+	value		= market.mg:fruit.market_goods_production
+	subtract	= market.mg:fruit.market_goods_buy_orders	# market_goods_consumption
+}
+queued_fruit = {
+	value		= b:building_banana_greenhouse.level_after_queued_constructions
+	subtract	= b:building_banana_greenhouse.level
+	multiply	= fruit_per_level
+}
+missing_banana_greenhouse = {
+	value		= var:fruit_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.fruit_per_level }
+	else	= {												divide		= market_capital.fruit_per_level }
+	round		= yes
+	min			= 0
+}
+wine_production_delta = {	# production - (consumption + export)
+	value		= market.mg:wine.market_goods_production
+	subtract	= market.mg:wine.market_goods_buy_orders	# market_goods_consumption
+}
+queued_wine = {
+	value		= b:building_vineyard_greenhouse.level_after_queued_constructions
+	subtract	= b:building_vineyard_greenhouse.level
+	multiply	= wine_per_level
+}
+missing_vineyard_greenhouse = {
+	value		= var:wine_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.wine_per_level }
+	else	= {												divide		= market_capital.wine_per_level }
+	round		= yes
+	min			= 0
+}
+tea_production_delta = {	# production - (consumption + export)
+	value		= market.mg:tea.market_goods_production
+	subtract	= market.mg:tea.market_goods_buy_orders	# market_goods_consumption
+}
+queued_tea = {
+	value		= b:building_tea_greenhouse.level_after_queued_constructions
+	subtract	= b:building_tea_greenhouse.level
+	multiply	= tea_per_level
+}
+missing_tea_greenhouse = {
+	value		= var:tea_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.tea_per_level }
+	else	= {												divide		= market_capital.tea_per_level }
+	round		= yes
+	min			= 0
+}
+coffee_production_delta = {	# production - (consumption + export)
+	value		= market.mg:coffee.market_goods_production
+	subtract	= market.mg:coffee.market_goods_buy_orders	# market_goods_consumption
+}
+queued_coffee = {
+	value		= b:building_coffee_greenhouse.level_after_queued_constructions
+	subtract	= b:building_coffee_greenhouse.level
+	multiply	= coffee_per_level
+}
+missing_coffee_greenhouse = {
+	value		= var:coffee_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.coffee_per_level }
+	else	= {												divide		= market_capital.coffee_per_level }
+	round		= yes
+	min			= 0
+}
+sugar_production_delta = {	# production - (consumption + export)
+	value		= market.mg:sugar.market_goods_production
+	subtract	= market.mg:sugar.market_goods_buy_orders	# market_goods_consumption
+}
+queued_sugar = {
+	value		= b:building_sugar_greenhouse.level_after_queued_constructions
+	subtract	= b:building_sugar_greenhouse.level
+	multiply	= sugar_per_level
+}
+missing_sugar_greenhouse = {
+	value		= var:sugar_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.sugar_per_level }
+	else	= {												divide		= market_capital.sugar_per_level }
+	round		= yes
+	min			= 0
+}
+tobacco_production_delta = {	# production - (consumption + export)
+	value		= market.mg:tobacco.market_goods_production
+	subtract	= market.mg:tobacco.market_goods_buy_orders	# market_goods_consumption
+}
+queued_tobacco = {
+	value		= b:building_tobacco_greenhouse.level_after_queued_constructions
+	subtract	= b:building_tobacco_greenhouse.level
+	multiply	= tobacco_per_level
+}
+missing_tobacco_greenhouse = {
+	value		= var:tobacco_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.tobacco_per_level }
+	else	= {												divide		= market_capital.tobacco_per_level }
+	round		= yes
+	min			= 0
+}
+opium_production_delta = {	# production - (consumption + export)
+	value		= market.mg:opium.market_goods_production
+	subtract	= market.mg:opium.market_goods_buy_orders	# market_goods_consumption
+}
+queued_opium = {
+	value		= b:building_opium_greenhouse.level_after_queued_constructions
+	subtract	= b:building_opium_greenhouse.level
+	multiply	= opium_per_level
+}
+missing_opium_greenhouse = {
+	value		= var:opium_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.opium_per_level }
+	else	= {												divide		= market_capital.opium_per_level }
+	round		= yes
+	min			= 0
+}
+automobiles_production_delta = {	# production - (consumption + export)
+	value		= market.mg:automobiles.market_goods_production
+	subtract	= market.mg:automobiles.market_goods_buy_orders	# market_goods_consumption
+}
+queued_automobiles = {
+	value		= b:building_automotive_industry.level_after_queued_constructions
+	subtract	= b:building_automotive_industry.level
+	multiply	= automobiles_per_level
+}
+missing_automotive_industry_automobiles = {
+	value		= var:automobiles_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.automobiles_per_level }
+	else	= {												divide		= market_capital.automobiles_per_level }
+	round		= yes
+	min			= 0
+}
+aeroplanes_production_delta = {	# production - (consumption + export)
+	value		= market.mg:aeroplanes.market_goods_production
+	subtract	= market.mg:aeroplanes.market_goods_buy_orders	# market_goods_consumption
+}
+queued_aeroplanes = {
+	value		= b:building_automotive_industry.level_after_queued_constructions
+	subtract	= b:building_automotive_industry.level
+	multiply	= aeroplanes_per_level
+}
+missing_automotive_industry_aeroplanes = {
+	value		= var:aeroplanes_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.aeroplanes_per_level }
+	else	= {												divide		= market_capital.aeroplanes_per_level }
+	round		= yes
+	min			= 0
+}
+tanks_production_delta = {	# production - (consumption + export)
+	value		= market.mg:tanks.market_goods_production
+	subtract	= market.mg:tanks.market_goods_buy_orders	# market_goods_consumption
+}
+queued_tanks = {
+	value		= b:building_automotive_industry.level_after_queued_constructions
+	subtract	= b:building_automotive_industry.level
+	multiply	= tanks_per_level
+}
+missing_automotive_industry_tanks = {
+	value		= var:tanks_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.tanks_per_level }
+	else	= {												divide		= market_capital.tanks_per_level }
+	round		= yes
+	min			= 0
+}
+missing_automotive_industry = {	# TODO: Check the logic
+	value		= missing_automotive_industry_automobiles
+	if = {
+		limit = { exists = var:aeroplanes_delta }
+		min		= missing_automotive_industry_aeroplanes
+	}
+	if = {
+		limit = { exists = var:tanks_delta }
+		min		= missing_automotive_industry_tanks
+	}
+	round		= yes
+	min			= 0
+}
+telephones_production_delta = {	# production - (consumption + export)
+	value		= market.mg:telephones.market_goods_production
+	subtract	= market.mg:telephones.market_goods_buy_orders	# market_goods_consumption
+}
+queued_telephones = {
+	value		= b:building_electrics_industry.level_after_queued_constructions
+	subtract	= b:building_electrics_industry.level
+	multiply	= telephones_per_level
+}
+missing_electrics_industry_telephones = {
+	value		= var:telephones_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.telephones_per_level }
+	else	= {												divide		= market_capital.telephones_per_level }
+	round		= yes
+	min			= 0
+}
+radios_production_delta = {	# production - (consumption + export)
+	value		= market.mg:radios.market_goods_production
+	subtract	= market.mg:radios.market_goods_buy_orders	# market_goods_consumption
+}
+queued_radios = {
+	value		= b:building_electrics_industry.level_after_queued_constructions
+	subtract	= b:building_electrics_industry.level
+	multiply	= radios_per_level
+}
+missing_electrics_industry_radios = {
+	value		= var:radios_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.radios_per_level }
+	else	= {												divide		= market_capital.radios_per_level }
+	round		= yes
+	min			= 0
+}
+missing_electrics_industry = {
+	value		= missing_electrics_industry_telephones
+	add			= {
+		value	= missing_electrics_industry_radios
+		subtract= missing_electrics_industry_telephones
+		min		= 0
+	}
+	round		= yes
+	min			= 0
+}
+fine_art_production_delta = {	# production - (consumption + export)
+	value		= market.mg:fine_art.market_goods_production
+	subtract	= market.mg:fine_art.market_goods_buy_orders	# market_goods_consumption
+}
+queued_fine_art = {
+	value		= b:building_art_academy.level_after_queued_constructions
+	subtract	= b:building_art_academy.level
+	multiply	= fine_art_per_level
+}
+missing_art_academy = {
+	value		= var:fine_art_delta
+	multiply	=-1
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.fine_art_per_level }
+	else	= {												divide		= market_capital.fine_art_per_level }
+	round		= yes
+	min			= 0
+}
+queued_uni_fine_art = {
+	value		= b:building_university.level_after_queued_constructions
+	subtract	= b:building_university.level
+	multiply	= fine_art_per_uni
 }
 small_arms_production_delta = {	# production - (consumption + export)
 	value		= market.mg:small_arms.market_goods_production
@@ -1117,7 +2915,8 @@ queued_small_arms = {
 missing_arms_industry = {
 	value		= var:small_arms_delta
 	multiply	=-1
-	divide		= market_capital.small_arms_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.small_arms_per_level }
+	else	= {												divide		= market_capital.small_arms_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1133,7 +2932,8 @@ queued_artillery = {
 missing_artillery_foundries = {
 	value		= var:artillery_delta
 	multiply	=-1
-	divide		= market_capital.artillery_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.artillery_per_level }
+	else	= {												divide		= market_capital.artillery_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1149,7 +2949,8 @@ queued_ammunition = {
 missing_munition_plant = {
 	value		= var:ammunition_delta
 	multiply	=-1
-	divide		= market_capital.ammunition_per_level
+	if		= { limit = { NOT = { THIS ?= market.OWNER } }	divide		= capital.ammunition_per_level }
+	else	= {												divide		= market_capital.ammunition_per_level }
 	round		= yes
 	min			= 0
 }
@@ -1179,6 +2980,10 @@ queued_construction_tools = {
 		limit = { has_variable = const_to_seed }
 		min		= var:const_to_seed
 	}
+	multiply	= tools_per_const
+}
+potential_construction_tools = {
+	value		= b:building_construction_sector.level	# We only look at level here since it is always run in tandem with queued_construction_tools
 	multiply	= tools_per_const
 }
 queued_construction_glass = {
@@ -1217,110 +3022,160 @@ transportation_from_free_arable_land = {
 	value		= free_arable_land
 	multiply	= transportation_per_arable_land
 }
-queued_green_electricity = {
+power_per_autark_greenhouse				=   20	# Change this when changing pm_autark_greenhouse
+power_per_heat_exchanger_greenhouse		=   -2	# Change this when changing pm_electric_heat_exchanger
+power_per_electric_furnace_greenhouse	=   -5	# Change this when changing pm_electric_furnace
+queued_electricity = {
 	value = 0
 	if = {
-		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_power_plant is_under_construction = yes } }
+		add = {
+			value		= b:building_power_plant.level_after_queued_constructions
+			subtract	= b:building_power_plant.level
+			multiply	= power_per_plant
+		}
+	}
+	if = {
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_autarky_greenhouse.level_after_queued_constructions
 			subtract	= b:building_autarky_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_vineyard_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_vineyard_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_vineyard_greenhouse.level_after_queued_constructions
 			subtract	= b:building_vineyard_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_vineyard_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_coffee_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_coffee_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_coffee_greenhouse.level_after_queued_constructions
 			subtract	= b:building_coffee_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_coffee_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_cotton_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_cotton_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_cotton_greenhouse.level_after_queued_constructions
 			subtract	= b:building_cotton_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_cotton_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_dye_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_dye_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_dye_greenhouse.level_after_queued_constructions
 			subtract	= b:building_dye_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_dye_greenhouse		production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse		production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_dye_greenhouse		production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_opium_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_opium_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_opium_greenhouse.level_after_queued_constructions
 			subtract	= b:building_opium_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_opium_greenhouse		production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse		production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_opium_greenhouse		production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_tea_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_tea_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_tea_greenhouse.level_after_queued_constructions
 			subtract	= b:building_tea_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_tea_greenhouse		production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse		production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_tea_greenhouse		production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_tobacco_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_tobacco_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_tobacco_greenhouse.level_after_queued_constructions
 			subtract	= b:building_tobacco_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_tobacco_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_sugar_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_sugar_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_sugar_greenhouse.level_after_queued_constructions
 			subtract	= b:building_sugar_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse		production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse		production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_sugar_greenhouse		production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_banana_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_banana_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_banana_greenhouse.level_after_queued_constructions
 			subtract	= b:building_banana_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_banana_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_silk_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_silk_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_silk_greenhouse.level_after_queued_constructions
 			subtract	= b:building_silk_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_silk_greenhouse		production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse		production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_silk_greenhouse		production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_logging_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_logging_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_logging_greenhouse.level_after_queued_constructions
 			subtract	= b:building_logging_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_logging_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
-		limit = { any_scope_building = { is_building_type = building_rubber_greenhouse has_active_production_method = pm_autark_greenhouse is_under_construction = yes } }
+		limit = { any_scope_building = { is_building_type = building_rubber_greenhouse is_under_construction = yes } }
 		add = {
 			value		= b:building_rubber_greenhouse.level_after_queued_constructions
 			subtract	= b:building_rubber_greenhouse.level
-			multiply	= power_per_greenhouse
+			if		= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_autark_greenhouse } }		multiply		= power_per_autark_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_electric_heat_exchanger } }	multiply		= power_per_heat_exchanger_greenhouse }
+			else_if	= { limit = { is_production_method_active = { building_type = building_rubber_greenhouse	production_method = pm_electric_furnace } }			multiply		= power_per_electric_furnace_greenhouse }
+			else	= { 																																			multiply		= 0 }
 		}
 	}
 	if = {
@@ -1333,192 +3188,132 @@ queued_green_electricity = {
 	}
 }
 peasant_capacity_subsistence_farm = {
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_auto_fertilized_subsistence_farms				} }	value		= 50 }
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_chem_fertilized_subsistence_farms				} }	value		= 40 }
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_fertilized_subsistence_farms					} }	value		= 30 }
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_enriched_subsistence_farms					} }	value		= 20 }
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_default_subsistence_farms				} }	value		= 10 }
-	if		= { limit = { b:building_subsistence_farms				= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_auto_fertilized_subsistence_farm } }							value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_chem_fertilized_subsistence_farm } }							value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_fertilized_subsistence_farm } }								value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_enriched_subsistence_farm } }								value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_default_subsistence_farm } }									value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_farm	production_method = pm_tools_disabled_subsistence } }								value		= 10 }
 	divide = 2	# Half-size
 }
-peasant_capacity_subsistence_orchards = {
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_auto_fertilized_subsistence_orchards			} }	value		= 50 }
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_chem_fertilized_subsistence_orchards			} }	value		= 40 }
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_fertilized_subsistence_orchards				} }	value		= 30 }
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_enriched_subsistence_orchards					} }	value		= 20 }
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_default_subsistence_orchards			} }	value		= 10 }
-	if		= { limit = { b:building_subsistence_orchards			= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
+peasant_capacity_subsistence_orchard = {
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_auto_fertilized_subsistence_orchard } }					value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_chem_fertilized_subsistence_orchard } }					value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_fertilized_subsistence_orchard } }						value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_enriched_subsistence_orchard } }							value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_default_subsistence_orchard } }							value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_orchard	production_method = pm_tools_disabled_subsistence } }							value		= 10 }
 	divide = 2	# Half-size
 }
-peasant_capacity_subsistence_pastures = {
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_auto_fertilized_subsistence_pastures			} }	value		= 50 }
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_chem_fertilized_subsistence_pastures			} }	value		= 40 }
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_fertilized_subsistence_pastures				} }	value		= 30 }
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_enriched_subsistence_pastures					} }	value		= 20 }
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_default_subsistence_pastures			} }	value		= 10 }
-	if		= { limit = { b:building_subsistence_pastures			= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
+peasant_capacity_subsistence_pasture = {
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_auto_fertilized_subsistence_pasture } }					value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_chem_fertilized_subsistence_pasture } }					value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_fertilized_subsistence_pasture } }						value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_enriched_subsistence_pasture } }							value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_default_subsistence_pasture } }							value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_pasture	production_method = pm_tools_disabled_subsistence } }							value		= 10 }
 	divide = 2	# Half-size
 }
 peasant_capacity_subsistence_fishing = {
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_auto_fertilized_subsistence_fishing_villages	} }	value		= 50 }
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_chem_fertilized_subsistence_fishing_villages	} }	value		= 40 }
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_fertilized_subsistence_fishing_villages		} }	value		= 30 }
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_enriched_subsistence_fishing_villages			} }	value		= 20 }
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_default_subsistence_fishing_villages	} }	value		= 10 }
-	if		= { limit = { b:building_subsistence_fishing_villages	= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_auto_fertilized_subsistence_fishing_village } }	value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_chem_fertilized_subsistence_fishing_village } }	value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_fertilized_subsistence_fishing_village } }		value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_enriched_subsistence_fishing_village } }			value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_default_subsistence_fishing_village } }			value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_fishing_village	production_method = pm_tools_disabled_subsistence } }					value		= 10 }
 	divide = 2	# Half-size
 }
 peasant_capacity_rice = {
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_auto_fertilized_subsistence_rice_paddies		} }	value		= 50 }
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_chem_fertilized_subsistence_rice_paddies		} }	value		= 40 }
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_fertilized_subsistence_rice_paddies			} }	value		= 30 }
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_enriched_subsistence_rice_paddies				} }	value		= 20 }
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_default_subsistence_rice_paddies		} }	value		= 10 }
-	if		= { limit = { b:building_subsistence_rice_paddies		= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_auto_fertilized_subsistence_rice_farm } }			value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_chem_fertilized_subsistence_rice_farm } }			value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_fertilized_subsistence_rice_farm } }					value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_enriched_subsistence_rice_farm } }					value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_default_subsistence_rice_farm } }					value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_subsistence_rice_farm	production_method = pm_tools_disabled_subsistence } }						value		= 10 }
 }
 peasant_capacity_autarky_farm = {
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_auto_fertilized_autarky_farm					} }	value		= 50 }
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_chem_fertilized_autarky_farm					} }	value		= 40 }
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_fertilized_autarky_farm						} }	value		= 30 }
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_enriched_autarky_farm							} }	value		= 20 }
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_default_autarky_farm					} }	value		= 10 }
-	if		= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
-	else_if	= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_tools_subsistence								} }	value		=  9 }
-	else_if	= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_steam_threshers_subsistence					} }	value		=  7 }
-	else_if	= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_tractors_subsistence							} }	value		=  4 }
-	else_if	= { limit = { b:building_autarky_farm					= { has_active_production_method = pm_modern_tractors_subsistence					} }	value		=  1 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_auto_fertilized_autarky_farm } }									value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_chem_fertilized_autarky_farm } }									value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_fertilized_autarky_farm } }										value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_enriched_autarky_farm } }										value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_default_autarky_farm } }											value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_tools_disabled_subsistence } }									value		= 10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_tools_subsistence } }											value		=  9 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_steam_threshers_subsistence } }									value		=  7 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_tractors_subsistence } }											value		=  4 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_farm	production_method = pm_modern_tractors_subsistence } }									value		=  1 }
 }
 peasant_capacity_autarky_greenhouse = {
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_auto_fertilized_autarky_farm					} }	value		= 50 }
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_chem_fertilized_autarky_farm					} }	value		= 40 }
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_fertilized_autarky_farm						} }	value		= 30 }
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_enriched_autarky_farm							} }	value		= 20 }
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_default_autarky_farm					} }	value		= 10 }
-	if		= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_tools_disabled_subsistence					} }	value		= 10 }
-	else_if	= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_tools_subsistence								} }	value		=  9 }
-	else_if	= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_steam_threshers_subsistence					} }	value		=  7 }
-	else_if	= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_tractors_subsistence							} }	value		=  4 }
-	else_if	= { limit = { b:building_autarky_greenhouse				= { has_active_production_method = pm_modern_tractors_subsistence					} }	value		=  1 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_auto_fertilized_autarky_farm } }							value		= 50 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_chem_fertilized_autarky_farm } }							value		= 40 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_fertilized_autarky_farm } }								value		= 30 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_enriched_autarky_farm } }								value		= 20 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_default_autarky_farm } }									value		= 10 }
+	if		= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_tools_disabled_subsistence } }							value		= 10 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_tools_subsistence } }									value		=  9 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_steam_threshers_subsistence } }							value		=  7 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_tractors_subsistence } }									value		=  4 }
+	else_if	= { limit = { is_production_method_active = { building_type = building_autarky_greenhouse	production_method = pm_modern_tractors_subsistence } }							value		=  1 }
 }
 peasant_vacancy = {	# Calculates the amount of peasants a subsistence or autarky building can hold. In thousands
 	value = 0
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_subsistence_farms
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_subsistence_farm trigger_subsistence_building_uses_tools = no } }
 		add = {
-			value = b:building_subsistence_farms.level
+			value = b:building_subsistence_farm.level
 			multiply = peasant_capacity_subsistence_farm
 			multiply = {
 				value = 1
-				subtract = b:building_subsistence_farms.occupancy
+				subtract = b:building_subsistence_farm.occupancy
 			}
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_subsistence_orchards
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_subsistence_orchard trigger_subsistence_building_uses_tools = no } }
 		add = {
-			value = b:building_subsistence_orchards.level
-			multiply = peasant_capacity_subsistence_orchards
+			value = b:building_subsistence_orchard.level
+			multiply = peasant_capacity_subsistence_orchard
 			multiply = {
 				value = 1
-				subtract = b:building_subsistence_orchards.occupancy
+				subtract = b:building_subsistence_orchard.occupancy
 			}
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_subsistence_pastures
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_subsistence_pasture trigger_subsistence_building_uses_tools = no } }
 		add = {
-			value = b:building_subsistence_pastures.level
-			multiply = peasant_capacity_subsistence_pastures
+			value = b:building_subsistence_pasture.level
+			multiply = peasant_capacity_subsistence_pasture
 			multiply = {
 				value = 1
-				subtract = b:building_subsistence_pastures.occupancy
+				subtract = b:building_subsistence_pasture.occupancy
 			}
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_subsistence_fishing_villages
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_subsistence_fishing_village trigger_subsistence_building_uses_tools = no } }
 		add = {
-			value = b:building_subsistence_fishing_villages.level
+			value = b:building_subsistence_fishing_village.level
 			multiply = peasant_capacity_subsistence_fishing
 			multiply = {
 				value = 1
-				subtract = b:building_subsistence_fishing_villages.occupancy
+				subtract = b:building_subsistence_fishing_village.occupancy
 			}
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_subsistence_rice_paddies
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_subsistence_rice_farm trigger_subsistence_building_uses_tools = no } }
 		add = {
-			value = b:building_subsistence_rice_paddies.level
+			value = b:building_subsistence_rice_farm.level
 			multiply = peasant_capacity_rice
 			multiply = {
 				value = 1
-				subtract = b:building_subsistence_rice_paddies.occupancy
+				subtract = b:building_subsistence_rice_farm.occupancy
 			}
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_autarky_farm
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_autarky_farm } }	# trigger_subsistence_building_uses_tools = no
 		add = {
 			value = b:building_autarky_farm.level
 			multiply = peasant_capacity_autarky_farm
@@ -1529,17 +3324,7 @@ peasant_vacancy = {	# Calculates the amount of peasants a subsistence or autarky
 		}
 	}
 	if = {
-		limit = {
-			any_scope_building = {
-				is_building_type = building_autarky_greenhouse
-				NOR = {
-					has_active_production_method = pm_tools_subsistence
-					has_active_production_method = pm_steam_threshers_subsistence
-					has_active_production_method = pm_tractors_subsistence
-					has_active_production_method = pm_modern_tractors_subsistence
-				}
-			}
-		}
+		limit = { any_scope_building = { is_building_type = building_autarky_greenhouse } }	# trigger_subsistence_building_uses_tools = no
 		add = {
 			value = b:building_autarky_greenhouse.level
 			multiply = peasant_capacity_autarky_greenhouse
@@ -1550,13 +3335,10 @@ peasant_vacancy = {	# Calculates the amount of peasants a subsistence or autarky
 		}
 	}
 	if = {
-		limit = { any_scope_pop = { is_employed = no total_size > 1000 } }
+		limit = { state_unemployed_population >= 5000 }
 		subtract = {
 			value		= state_unemployed_population
-			divide = {
-				value	= 0.25	# Default workforce ratio for all pop types except aristocrats (20%) and slaves (50%)
-				add		= modifier:state_working_adult_ratio_add
-			}
+			divide		= standard_workforce_ratio
 			round_to	= 1000
 			divide		= 1000
 		}
@@ -1566,27 +3348,28 @@ peasant_vacancy = {	# Calculates the amount of peasants a subsistence or autarky
 peasant_pop_size = {
 	value		= peasant_vacancy
 	multiply	= 1000
-	divide = {
-		value	= 0.25	# Default workforce ratio for all pop types except aristocrats (20%) and slaves (50%)
-		add		= modifier:state_working_adult_ratio_add
-	}
+	divide		= standard_workforce_ratio
 	round_to	= 1000
 }
 slaves_pop_size = {
 	value		= peasant_vacancy
 	multiply	= 1000
-	divide = {
-		value	= 0.50	# workforce ratio for slaves (50%)
-		add		= modifier:state_working_adult_ratio_add
-	}
+	divide		= slaves_workforce_ratio
 	round_to	= 1000
 }
-pop_acceptance_muliplier_shared_language = {
-	value		=-100
-	add			= modifier:country_acceptance_no_shared_heritage_trait_add
-	add			= modifier:country_acceptance_shared_language_trait_add
+peasant_education_access = {
+	value	= modifier:state_education_access_add
+	add		= modifier:state_peasants_education_access_add
 }
-pop_acceptance_muliplier_no_shared_heritage = {
+pop_acceptance_multiplier_shared_language = {
+	value = {
+		value		= modifier:country_acceptance_primary_culture_add
+		multiply	=-1
+	}
+	add				= modifier:country_acceptance_no_shared_heritage_trait_add
+	add				= modifier:country_acceptance_shared_language_trait_add
+}
+pop_acceptance_multiplier_no_shared_heritage = {
 	value		= modifier:country_acceptance_no_shared_heritage_trait_add
 	subtract	= modifier:country_acceptance_shared_heritage_trait_group_add
 }
@@ -1599,4 +3382,25 @@ tax_to_autarky_ratio = {
 	else = {
 		divide	= peasant_capacity_autarky_farm
 	}
+}
+population_target_conscription = {
+	value		= 0
+	if = {
+		limit = { modifier:state_conscription_rate_add > 0 }	# Spain has some multipliers that reduce it to zero
+		subtract	= state_population
+		add			= {
+			value		= modifier:state_building_conscription_center_max_level_add
+			multiply	= 1000														# per Battalion
+			divide		= modifier:state_conscription_rate_add
+			if = {
+				limit = { modifier:state_conscription_rate_mult > 0 }
+				divide	= modifier:state_conscription_rate_mult
+			}
+		}
+	}
+}
+soldiers_pop_size = {
+	value		= population_target_conscription
+	divide		= standard_workforce_ratio
+	round_to	= 1000
 }

@@ -1,4 +1,14 @@
 ﻿INJECT:DEFAULT = {
+	flag_definition = {
+		coa = colonial_senegal
+		allow_overlord_canton = yes
+		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = senegal_subject_var NOR = { THIS ?= c:LIB was_formed_from = LIB } }
+		}
+	}
 	### Added
 	flag_definition = {
 		coa = DEI_voc
@@ -11,7 +21,8 @@
 		}
 	}
 	flag_definition = {
-		coa = colonial_indochina
+		coa = DAI_subject	# colonial_indochina
+		coa_with_overlord_canton = DAI_subject
 		allow_overlord_canton = yes
 		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
 		priority = 100
@@ -70,13 +81,45 @@
 			scope:actor ?= { has_variable = china_subject_var }
 		}
 	}
+	flag_definition = {	# TODO: Double-check in-game
+		coa = USA
+		subject_canton = sub_USA_canton_star
+		coa_with_overlord_canton = USA
+		overlord_canton_scale = { @usa_canton_width @usa_canton_height }
+		allow_overlord_canton = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = north_america_subject_var }
+		}
+	}
+	flag_definition = {	# TODO: Double-check in-game
+		coa = UCA
+		coa_with_overlord_canton = UCA_subject
+		allow_overlord_canton = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = central_america_subject_var }
+		}
+	}
+	flag_definition = {	# TODO: Double-check in-game
+		coa = BRZ
+		coa_with_overlord_canton = BRZ_subject
+		allow_overlord_canton = yes
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_variable = south_america_subject_var }
+		}
+	}
 	### Added
 }
 INJECT:GER = { # Germany
 	flag_definition = {
 		coa = GER
 		subject_canton = GER
-		priority = 1000	# Changed - Increased
+		priority = 10000	# Changed - Increased
 		trigger = {
 			exists = scope:actor
 			scope:actor ?= {

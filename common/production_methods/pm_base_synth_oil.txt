@@ -138,12 +138,12 @@ REPLACE_OR_CREATE:pm_synth_rubber_production = {
 	unlocking_technologies = { plastics }	# Requires advanced Oil processing knowledge
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_rubber_add			=  50
+			goods_output_rubber_add			=   50	# x+40	= +2000
 		}
 		unscaled = {
-			goods_output_oil_mult			=-0.333
-			goods_output_sulfur_mult		=-0.333
-		}
+			goods_output_oil_mult			=-0.333	# x+40	= -1600
+			goods_output_sulfur_mult		=-0.333	# x+50	=  -100
+		}											#		=  +300
 	}
 	ai_value = 1000
 }
@@ -152,12 +152,12 @@ REPLACE_OR_CREATE:pm_synth_rubber_focus = {
 	unlocking_technologies = { plastics }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_rubber_add			=  75
+			goods_output_rubber_add			=   75	# x+40	= +3000
 		}
 		unscaled = {
-			goods_output_oil_mult			=-0.50
-			goods_output_sulfur_mult		=-0.50
-		}
+			goods_output_oil_mult			=-0.50	# x+40	= -2400
+			goods_output_sulfur_mult		=-0.50	# x+50	=  -300
+		}											#		=  +300
 	}
 	ai_value = 1000
 }
@@ -166,12 +166,12 @@ REPLACE_OR_CREATE:pm_synth_rubber_priority = {
 	unlocking_technologies = { plastics }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_rubber_add			= 100
+			goods_output_rubber_add			=  100	# x+40	= +4000
 		}
 		unscaled = {
-			goods_output_oil_mult			=-0.667
-			goods_output_sulfur_mult		=-0.667
-		}
+			goods_output_oil_mult			=-0.667	# x+40	= -3200
+			goods_output_sulfur_mult		=-0.667	# x+50	=  -200
+		}											#		=  +600
 	}
 	ai_value = 1000
 }
@@ -180,12 +180,12 @@ REPLACE_OR_CREATE:pm_synth_rubber_only = {
 	unlocking_technologies = { plastics }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_rubber_add			= 150
+			goods_output_rubber_add			=  150	# x+40	= +6000
 		}
 		unscaled = {
-			goods_output_oil_mult			=-1.00
-			goods_output_sulfur_mult		=-1.00
-		}
+			goods_output_oil_mult			=-1.00	# x+40	= -4800
+			goods_output_sulfur_mult		=-1.00	# x+50	= -1200
+		}											#		= 0
 	}
 	ai_value = 0
 }

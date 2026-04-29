@@ -1,6 +1,7 @@
 ################	Charcoal	##################
 REPLACE_OR_CREATE:pm_no_charcoal = {
 	texture = "gfx/interface/icons/production_method_icons/no_hardwood_selection.dds"
+	required_input_goods = coal
 }
 REPLACE_OR_CREATE:pm_charcoal = {	# This doesn't break even. Only activate this when you don't have coal.
 	texture = "gfx/interface/icons/production_method_icons/hardwood_selection.dds"
@@ -14,8 +15,8 @@ REPLACE_OR_CREATE:pm_charcoal = {	# This doesn't break even. Only activate this 
 		}
 		unscaled = {
 			goods_input_coal_mult				=-1.333	# x+30	=  900
-		}												#		=  300
-	}													#				=> Stops breaking even at SoL 10
+		}												#		=  300	=> Stops breaking even at SoL 10
+	}
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 20 } }	# very smelly
 }
 REPLACE_OR_CREATE:pm_hardwood_coking = {	# This doesn't break even. Only activate this when you don't have coal.
@@ -41,20 +42,24 @@ REPLACE_OR_CREATE:pm_secondary_basic_oxygen_process = { # Linz-Donawitz
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_oil_add					=  30	# x-40	=-1200
+			goods_input_oil_add					=   30	# x-40	=-1200
+			goods_input_services_add			=    5	# x-30	= -150
 		}
 		level_scaled = {
-			building_employment_engineers_add	=-500	# x+0.6	=  300
-			building_employment_academics_add	= 250	# x-0.8	= -200
-		}
+			building_employment_engineers_add	= -250	# x-.06	=  +15
+			building_employment_academics_add	=  250	# x-.08	=  -20
+			building_employment_shopkeepers_add	= -500	# x-.06	=  +30
+		}												#		=  +25	=> Stops breaking even at SoL > 100 => Never stops breaking even
 		unscaled = {
-			goods_input_coal_mult				=-1.0	# x+30	=  900
-			goods_input_iron_mult				= 0.5	# x-40	=-2000
-			goods_output_steel_mult				= 1.0	# x+50	= 7500
-			goods_output_sulfur_mult			= 1.0	# x+50	=  250
+			goods_input_coal_mult				=-1.00	# x+30	=  900
+			goods_input_iron_mult				= 0.50	# x-40	=-2000
+			goods_input_transportation_mult		= 1.00	# x-30	= -600
+			goods_output_steel_mult				= 1.00	# x+50	= 7500
+			goods_output_sulfur_mult			= 1.00	# x+50	=  250
 		}
-	}													#		= 5350
+	}													#		=+4700
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 15 } }	# not as smelly
+	required_input_goods = services
 	ai_value = 10000
 }
 REPLACE_OR_CREATE:pm_secondary_carbon_capture = { # Future tech - Sidegrade to Linz-Donawitz-Process
@@ -62,20 +67,24 @@ REPLACE_OR_CREATE:pm_secondary_carbon_capture = { # Future tech - Sidegrade to L
 	unlocking_technologies = { arc_welding }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_electricity_add			=  75	# x-30	=-2250	# 125
+			goods_input_electricity_add			=   75	# x-30	=-2250	# 125
+			goods_input_services_add			=    5	# x-30	= -150
 		}
 		level_scaled = {
-			building_employment_engineers_add	=-500	# x+3	= 1500 /50 * 15 =  450
-			building_employment_academics_add	= 250	# x-4	=-1000 /50 * 15 = -300
-		}												#		= +500			= +150
+			building_employment_engineers_add	= -500	# x-.06	=  +30
+			building_employment_academics_add	=  250	# x-.08	=  -20
+			building_employment_shopkeepers_add	= -500	# x-.06	=  +30
+		}												#		=  +40	=> Stops breaking even at SoL 91 1/4 => Effectively Never stops breaking even
 		unscaled = {
-			goods_input_coal_mult				=-1.0	# x+30	=  900
-			goods_input_iron_mult				= 0.5	# x-40	=-2000
-			goods_output_steel_mult				= 1.0	# x+50	= 7500
-			goods_output_sulfur_mult			= 1.0	# x+50	=  250
+			goods_input_coal_mult				=-1.00	# x+30	=  900
+			goods_input_iron_mult				= 0.50	# x-40	=-2000
+			goods_input_transportation_mult		= 1.00	# x-30	= -600
+			goods_output_steel_mult				= 1.00	# x+50	= 7500
+			goods_output_sulfur_mult			= 1.00	# x+50	=  250
 		}
-	}													#		= 6440 			= 2250	# Intentionally half as good as Linz-Donawitz - Now slightly better
+	}													#		=+3650	# 2150	# Intentionally half as good as Linz-Donawitz - Now slightly better
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-75 } }	# very not smelly
+	required_input_goods = services
 	required_input_goods = electricity
 	ai_value = 10000
 }
@@ -86,6 +95,10 @@ REPLACE_OR_CREATE:pm_secondary_biofuel = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_liquor_add				=   40	# x-30	=-1200	# 175 grain
+			goods_input_services_add			=    5	# x-30	= -150
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add	= -500	# x-.06	=  +30	=> Always stops breaking even at SoL 5, because services input doesn't scale
 		}
 		unscaled = {
 			goods_input_glass_mult				=-0.50	# Effectively irrelevant
@@ -93,6 +106,7 @@ REPLACE_OR_CREATE:pm_secondary_biofuel = {
 		}
 	}													#		=    0	x1-3
 	ai_value = 2000
+	required_input_goods = services
 }
 REPLACE_OR_CREATE:pm_secondary_carbon_capture_oil = { # Future tech
 	texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis_secondary.dds"
@@ -102,13 +116,18 @@ REPLACE_OR_CREATE:pm_secondary_carbon_capture_oil = { # Future tech
 			# input goods
 			goods_input_liquor_add				=   40	# x-30	=-1200
 			goods_input_electricity_add			=   80	# x-30	=-2400	# 60	# Realistic would be ~200000 per unit, but this is more reasonable.
+			goods_input_services_add			=    5	# x-30	= -150
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add	= -500	# x-.06	=  +30	=> Always stops breaking even at SoL 5, because services input doesn't scale
 		}
 		unscaled = {
 			goods_input_coal_mult				=-1.00	# x+30	= 2400
 			goods_output_oil_mult				= 0.25	# x+40	= 1200
 		}
-	}													#		=    0
+	}													#		=    0	x1-3
 	state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-90 } }	# very not smelly
+	required_input_goods = services
 	required_input_goods = electricity
 	ai_value = 1000
 }

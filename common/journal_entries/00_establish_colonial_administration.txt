@@ -1,4 +1,4 @@
-﻿REPLACE:je_colonial_administration = {
+﻿REPLACE_OR_CREATE:je_colonial_administration = {
 	icon = "gfx/interface/icons/invention_icons/colonization.dds"
 	group = je_group_foreign_affairs
 	is_shown_when_inactive = {
@@ -50,13 +50,35 @@
 					}
 				}
 			}
+			AND = {	# TODO: Rewrite
+				is_not_in_geographic_region = geographic_region_americas
+				NOR = {	# Canada
+					THIS ?= c:GBR
+					was_formed_from = GBR
+				}
+				# any_state = {
+					# is_in_geographic_region = geographic_region_americas
+					# OWNER ?= {
+						# OR = {
+							# THIS ?= ROOT
+							# AND = {
+								# is_subject_of = ROOT
+								# country_is_colonial_or_company = no
+								# NOT = { is_country_type = recognised }
+							# }
+						# }
+					# }
+				# }
+			}
 		}
 	}
 	possible = {
 		has_technology_researched = civilizing_mission
-		NOT = { is_country_type = colonial }
+		country_is_colonial_or_company = no
 	}
-	# immediate = {}
+	immediate = {
+		effect_historical_colony_vars = yes
+	}
 	# Establish Colonial Administration
 	scripted_button = je_colonial_administration_button_senegal
 	scripted_button = je_colonial_administration_button_niger
@@ -69,6 +91,9 @@
 	scripted_button = je_colonial_administration_button_arabic
 	scripted_button = je_colonial_administration_button_india
 	scripted_button = je_colonial_administration_button_china
+	scripted_button = je_colonial_administration_button_north_america
+	scripted_button = je_colonial_administration_button_central_america
+	scripted_button = je_colonial_administration_button_south_america
 	# Expand Colonial Administration
 	scripted_button = je_colonial_administration_button_expand_senegal
 	scripted_button = je_colonial_administration_button_expand_niger
@@ -81,6 +106,9 @@
 	scripted_button = je_colonial_administration_button_expand_arabic
 	scripted_button = je_colonial_administration_button_expand_india
 	scripted_button = je_colonial_administration_button_expand_china
+	scripted_button = je_colonial_administration_button_expand_north_america
+	scripted_button = je_colonial_administration_button_expand_central_america
+	scripted_button = je_colonial_administration_button_expand_south_america
 	weight = 100
 	should_be_pinned_by_default = yes
 }

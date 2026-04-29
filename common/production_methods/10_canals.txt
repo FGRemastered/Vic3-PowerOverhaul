@@ -1,6 +1,6 @@
 ﻿# Canals
 # Mode of Operation
-REPLACE:pm_canal = {
+REPLACE_OR_CREATE:pm_canal = {
 	texture = "gfx/interface/icons/production_method_icons/canals.dds"
 	building_modifiers = {
 		workforce_scaled = {

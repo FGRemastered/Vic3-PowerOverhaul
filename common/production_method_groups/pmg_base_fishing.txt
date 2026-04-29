@@ -14,6 +14,6 @@ REPLACE_OR_CREATE:pmg_base_building_whaling_station = {
 		pm_simple_whaling
 		pm_wooden_whaling_ships
 		pm_steam_whaling_ships
-		pm_electic_whaling_ships
+		pm_electric_whaling_ships
 	}
 }

@@ -1,5 +1,5 @@
 ﻿# Art and former tech JEs
-REPLACE:je_romanticism = {
+REPLACE_OR_CREATE:je_romanticism = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -29,7 +29,7 @@ REPLACE:je_romanticism = {
 	fail = { has_technology_researched = realism }
 	timeout = 3650
 }
-REPLACE:je_realism = {
+REPLACE_OR_CREATE:je_realism = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -58,7 +58,7 @@ REPLACE:je_realism = {
 	}
 	timeout = 3650
 }
-REPLACE:je_camera = {
+REPLACE_OR_CREATE:je_camera = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -94,7 +94,7 @@ REPLACE:je_camera = {
 	invalid = { has_technology_researched = film }
 	timeout = 3650
 }
-REPLACE:je_film = {
+REPLACE_OR_CREATE:je_film = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_technology
 	is_shown_when_inactive = {
@@ -127,4 +127,10 @@ REPLACE:je_film = {
 		trigger_event = { id = camera_film_pm_events.2 }
 	}
 	timeout = 3650
+}
+INJECT:je_negotiate_buildings = {
+	on_complete = { ROOT = { if = { limit = { has_modifier = private_construction_contracts } remove_modifier = private_construction_contracts } } }
+}
+INJECT:je_negotiate_building_group = {
+	on_complete = { ROOT = { if = { limit = { has_modifier = private_construction_contracts } remove_modifier = private_construction_contracts } } }
 }

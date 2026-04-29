@@ -29,6 +29,7 @@ REPLACE_OR_CREATE:pmg_harvesting_process_simple = {
 	production_methods = {
 		pm_tools_disabled
 		pm_tools
+		pm_steam_threshers
 	}
 }
 REPLACE_OR_CREATE:pmg_harvesting_process_tractors = {

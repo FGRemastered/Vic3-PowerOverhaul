@@ -1,4 +1,4 @@
-﻿REPLACE:je_donghak_movement = {
+﻿REPLACE_OR_CREATE:je_donghak_movement = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 	group = je_group_historical_content

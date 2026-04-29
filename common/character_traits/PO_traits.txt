@@ -1,0 +1,25 @@
+﻿INJECT:engineer = {
+	command_modifier = {
+		# Land Units
+		unit_combat_unit_type_mechanized_infantry_offense_mult	= 0.10
+		unit_combat_unit_type_mechanized_infantry_defense_mult	= 0.10
+		unit_combat_unit_type_heavy_tank_offense_mult			= 0.10
+		unit_combat_unit_type_heavy_tank_defense_mult			= 0.10
+		unit_combat_unit_type_light_tanks_offense_mult			= 0.10
+		unit_combat_unit_type_light_tanks_defense_mult			= 0.10
+		# Naval Units
+		unit_combat_unit_type_dreadnought_offense_mult			= 0.10
+		unit_combat_unit_type_dreadnought_defense_mult			= 0.10
+		unit_combat_unit_type_battleship_offense_mult			= 0.10
+		unit_combat_unit_type_battleship_defense_mult			= 0.10
+		unit_combat_unit_type_submarine_offense_mult			= 0.10
+		unit_combat_unit_type_submarine_defense_mult			= 0.10
+		unit_combat_unit_type_carrier_offense_mult				= 0.10
+		unit_combat_unit_type_carrier_defense_mult				= 0.10
+	}
+}
+INJECT:special_character_german_unifier_ruler = {
+	country_modifier = {
+		state_loyalism_increases_full_acceptance_mult			= 0.10
+	}
+}

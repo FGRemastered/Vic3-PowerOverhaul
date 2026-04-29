@@ -4,17 +4,19 @@
 # Pottery
 REPLACE_OR_CREATE:pm_primitive_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
-	replacement_if_valid = pm_electric_heat_exchanger
+	replacement_if_valid = pm_electric_furnace
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add				=    4		# x-20	=  -80	# Fuel
-			goods_input_hardwood_add			=    2		# x-40	=  -80	# Frame
-			goods_input_fabric_add				=    2.5	# x-20	=  -50	# Roof
+			goods_input_wood_add				=    2.50	# x-20	=  -50	# Fuel
+			goods_input_hardwood_add			=    2.50	# x-40	= -100	# Frame
+			goods_input_fabric_add				=    2.50	# x-20	=  -50	# Roof
+			goods_input_tools_add				=    0.25	# x-40	=  -10	# Furnace
 			goods_input_fertilizer_add			=    5		# x-30	= -150
 		}											 		#		= -360 => Reduces the target SoL of workers to 3
 		unscaled = {
-			building_throughput_add				=-0.50
+			building_throughput_add				=-0.75
+			goods_output_rubber_mult			=-0.50	# .75		# Rubber is particularly hard to grow in the wrong climate
 			# goods_output_fertilizer_mult		=-0.50
 			# goods_output_grain_mult				=-0.50
 			# goods_output_fish_mult				=-0.50
@@ -29,13 +31,15 @@ REPLACE_OR_CREATE:pm_primitive_greenhouse = {
 			# goods_output_tea_mult				=-0.50
 			# goods_output_tobacco_mult			=-0.50
 			# goods_output_silk_mult				=-0.50
-			goods_output_rubber_mult			=-0.50	# .75		# Rubber is particularly hard to grow in the wrong climate
 			# goods_output_wood_mult				=-0.50
 			# goods_output_hardwood_mult			=-0.50
 		}
 	}
-	state_modifiers = { workforce_scaled = { state_pollution_generation_add	= 1 } }
-	ai_value = 500
+	state_modifiers = {
+		workforce_scaled	= { state_pollution_generation_add	= 1 }
+		level_scaled		= { state_infrastructure_add		= 1 }	# Effectively just a plantation
+	}
+	ai_value = 250
 }
 REPLACE_OR_CREATE:pm_coal_furnace = {
 	texture = "gfx/interface/icons/production_method_icons/coal_fired_plant.dds"
@@ -44,14 +48,16 @@ REPLACE_OR_CREATE:pm_coal_furnace = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_coal_add				=    5		# x-30	= -150	# Fuel
-			goods_input_glass_add				=    2.25	# x-40	=  -90	# Roof
-			goods_input_porcelain_add			=    1.3	# x-70	=  -90	# Pottery - Rounded
-			goods_input_steel_add				=    0.4	# x-50	=  -20	# Furnace
-			goods_input_fertilizer_add			=    5		# x-30	= -150
+			goods_input_coal_add				=    3		# x-30	=  -90	# Fuel
+			goods_input_merchant_marine_add		=    1.2	# x-50	=  -60	# Cooling
+			goods_input_glass_add				=    3.00	# x-40	= -120	# Roof
+			goods_input_porcelain_add			=    0.85	# x-70	=  -60	# Pottery - Rounded
+			goods_input_tools_add				=    0.50	# x-40	=  -20	# Furnace
+			goods_input_fertilizer_add			=    5.00	# x-30	= -150
 		}											 		#		= -500	=> Reduces the target SoL of workers to 3.75
 		unscaled = {
-			building_throughput_add				=-0.25
+			building_throughput_add				=-0.50
+			goods_output_rubber_mult			=-0.50		# Rubber is particularly hard to grow in the wrong climate
 			# goods_output_fertilizer_mult		=-0.125
 			# goods_output_grain_mult				=-0.125
 			# goods_output_fish_mult				=-0.125
@@ -66,17 +72,14 @@ REPLACE_OR_CREATE:pm_coal_furnace = {
 			# goods_output_tea_mult				=-0.125
 			# goods_output_tobacco_mult			=-0.125
 			# goods_output_silk_mult				=-0.125
-			goods_output_rubber_mult			=-0.50		# Rubber is particularly hard to grow in the wrong climate
 			# goods_output_wood_mult				=-0.125
 			# goods_output_hardwood_mult			=-0.125
-			goods_input_transportation_mult		= 0.50
 		}
 	}
 	state_modifiers = {
 		workforce_scaled	= { state_pollution_generation_add	= 5 }
-		level_scaled		= { state_infrastructure_add		=-1 }
 	}
-	ai_value = 750
+	ai_value = 500
 }
 REPLACE_OR_CREATE:pm_electric_furnace = {
 	texture = "gfx/interface/icons/production_method_icons/unused/lightbulbs.dds"
@@ -85,23 +88,24 @@ REPLACE_OR_CREATE:pm_electric_furnace = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_electricity_add			=    5		# x-30	= -150
-			goods_input_glass_add				=    3		# x-40	= -120
-			goods_input_porcelain_add			=    0.85	# x-70	=  -60
-			goods_input_steel_add				=    0.4	# x-50	=  -20
+			goods_input_electricity_add			=    3		# x-30	=  -90	# Fuel
+			goods_input_merchant_marine_add		=    1.2	# x-50	=  -60	# Cooling
+			goods_input_glass_add				=    3		# x-40	= -120	# Roof
+			goods_input_porcelain_add			=    0.85	# x-70	=  -60	# Pottery - Rounded
+			goods_input_tools_add				=    0.50	# x-40	=  -20	# Furnace
 			goods_input_fertilizer_add			=    5		# x-30	= -150
 		}											 		#		= -500	=> Reduces the target SoL of workers to 5
 		unscaled = {
 			building_throughput_add				=-0.25
 			goods_output_rubber_mult			=-0.50		# Rubber is particularly hard to grow in the wrong climate
-			goods_input_transportation_mult		= 0.50
+			# goods_input_transportation_mult		= 0.50
 		}
 	}
-	state_modifiers = {
-		level_scaled		= { state_infrastructure_add		=-1 }
-	}
+	# state_modifiers = {
+		# level_scaled		= { state_infrastructure_add		=-1 }
+	# }
 	required_input_goods = electricity
-	ai_value = 1000
+	ai_value = 750
 }
 REPLACE_OR_CREATE:pm_electric_heat_exchanger = {
 	texture = "gfx/interface/icons/production_method_icons/condensing_engine_pump.dds"
@@ -109,6 +113,8 @@ REPLACE_OR_CREATE:pm_electric_heat_exchanger = {
 	unlocking_production_methods = {
 		pm_rail_transport
 		pm_truck_transport
+		pm_flatbed_carts
+		pm_flatbed_trucks
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -142,15 +148,15 @@ REPLACE_OR_CREATE:pm_electric_heat_exchanger = {
 			# goods_output_rubber_mult			= 0.10		# Pasteurization makes Rubber plantations at all possible
 			# goods_output_wood_mult				= 0.10
 			# goods_output_hardwood_mult			= 0.10
-			goods_input_transportation_mult		= 1.50
+			goods_input_transportation_mult		= 1.00
 		}
 	}
 	state_modifiers = {
 		workforce_scaled	= { state_pollution_generation_add	= 5 }	# Toxic Refrigerant
-		level_scaled		= { state_infrastructure_add		=-3 }
+		level_scaled		= { state_infrastructure_add		=-1 }
 	}
 	required_input_goods = electricity
-	ai_value = 1500
+	ai_value = 1000
 }
 REPLACE_OR_CREATE:pm_autark_greenhouse = {
 	texture = "gfx/interface/icons/production_method_icons/electric_engines.dds"
@@ -158,6 +164,8 @@ REPLACE_OR_CREATE:pm_autark_greenhouse = {
 	unlocking_production_methods = {
 		pm_rail_transport
 		pm_truck_transport
+		pm_flatbed_carts
+		pm_flatbed_trucks
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -165,7 +173,8 @@ REPLACE_OR_CREATE:pm_autark_greenhouse = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_engines_add				=    5		# x-60	= -300
+			goods_input_engines_add				=    1		# x-60	=  -60
+			goods_input_tools_add				=    6		# x-40	= -240	# To balance the more realistic engines demand, but still not to be OP.
 			goods_input_radios_add				=    1		# x-80	=  -80
 			goods_input_glass_add				=    7		# x-40	= -280
 			goods_input_porcelain_add			=    2		# x-70	= -140
@@ -195,7 +204,8 @@ REPLACE_OR_CREATE:pm_autark_greenhouse = {
 		}
 	}
 	state_modifiers = {
-		level_scaled		= { state_infrastructure_add		=-3 }
+		workforce_scaled	= { state_pollution_generation_add	=-5 }	# Plants eat literal tons of CO2
+		level_scaled		= { state_infrastructure_add		=-1 }
 	}
 	# state_modifiers = { workforce_scaled = { state_pollution_generation_add	=-5 } }	# The plants suck out the pollution
 	required_input_goods = radios
@@ -207,6 +217,8 @@ REPLACE_OR_CREATE:pm_oil_furnace = {
 	unlocking_production_methods = {
 		pm_rail_transport
 		pm_truck_transport
+		pm_flatbed_carts
+		pm_flatbed_trucks
 		pm_mechanized_home_workshops
 		pm_electric_home_workshops
 		pm_autark_home_workshops
@@ -244,7 +256,7 @@ REPLACE_OR_CREATE:pm_oil_furnace = {
 	}
 	state_modifiers = {
 		workforce_scaled	= { state_pollution_generation_add	= 5 }
-		level_scaled		= { state_infrastructure_add		=-2 }
+		level_scaled		= { state_infrastructure_add		=-1 }
 	}
-	ai_value = 1500
+	ai_value = 1000
 }

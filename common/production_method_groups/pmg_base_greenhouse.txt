@@ -1,0 +1,137 @@
+
+# REPLACE_OR_CREATE:pmg_base_building_logging_camp = {
+	# texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	# production_methods = {
+		# pm_simple_forestry
+		# pm_saw_mills
+		# pm_electric_saw_mills
+	# }
+# }
+# REPLACE_OR_CREATE:pmg_hardwood = {
+	# texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	# production_methods = {
+		# pm_no_hardwood
+		# pm_hardwood
+		# pm_increased_hardwood
+	# }
+# }
+REPLACE_OR_CREATE:pmg_base_building_vineyard_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_vineyard_greenhouse
+		pm_soil_enriching_farming_vineyard_greenhouse
+		pm_fertilization_vineyard_greenhouse
+		pm_chemical_fertilizer_vineyard_greenhouse
+		pm_automatic_fertilization_vineyard_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_coffee_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_coffee_greenhouse
+		pm_soil_enriching_farming_coffee_greenhouse
+		pm_fertilization_coffee_greenhouse
+		pm_chemical_fertilizer_coffee_greenhouse
+		pm_automatic_fertilization_coffee_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_cotton_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_cotton_greenhouse
+		pm_soil_enriching_farming_cotton_greenhouse
+		pm_fertilization_cotton_greenhouse
+		pm_chemical_fertilizer_cotton_greenhouse
+		pm_automatic_fertilization_cotton_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_dye_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_dye_greenhouse
+		pm_soil_enriching_farming_dye_greenhouse
+		pm_fertilization_dye_greenhouse
+		pm_chemical_fertilizer_dye_greenhouse
+		pm_automatic_fertilization_dye_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_opium_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_opium_greenhouse
+		pm_soil_enriching_farming_opium_greenhouse
+		pm_fertilization_opium_greenhouse
+		pm_chemical_fertilizer_opium_greenhouse
+		pm_automatic_fertilization_opium_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_tea_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_tea_greenhouse
+		pm_soil_enriching_farming_tea_greenhouse
+		pm_fertilization_tea_greenhouse
+		pm_chemical_fertilizer_tea_greenhouse
+		pm_automatic_fertilization_tea_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_tobacco_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_tobacco_greenhouse
+		pm_soil_enriching_farming_tobacco_greenhouse
+		pm_fertilization_tobacco_greenhouse
+		pm_chemical_fertilizer_tobacco_greenhouse
+		pm_automatic_fertilization_tobacco_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_sugar_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_sugar_greenhouse
+		pm_soil_enriching_farming_sugar_greenhouse
+		pm_fertilization_sugar_greenhouse
+		pm_chemical_fertilizer_sugar_greenhouse
+		pm_automatic_fertilization_sugar_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_banana_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_banana_greenhouse
+		pm_soil_enriching_farming_banana_greenhouse
+		pm_fertilization_banana_greenhouse
+		pm_chemical_fertilizer_banana_greenhouse
+		pm_automatic_fertilization_banana_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_silk_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_silk_greenhouse
+		pm_soil_enriching_farming_silk_greenhouse
+		pm_fertilization_silk_greenhouse
+		pm_chemical_fertilizer_silk_greenhouse
+		pm_automatic_fertilization_silk_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_wood_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_wood_greenhouse
+		pm_soil_enriching_farming_wood_greenhouse
+		pm_fertilization_wood_greenhouse
+		pm_chemical_fertilizer_wood_greenhouse
+		pm_automatic_fertilization_wood_greenhouse
+	}
+}
+REPLACE_OR_CREATE:pmg_base_building_rubber_greenhouse = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_default_rubber_greenhouse
+		pm_soil_enriching_farming_rubber_greenhouse
+		pm_fertilization_rubber_greenhouse
+		pm_chemical_fertilizer_rubber_greenhouse
+		pm_automatic_fertilization_rubber_greenhouse
+	}
+}

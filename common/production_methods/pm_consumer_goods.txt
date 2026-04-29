@@ -264,11 +264,12 @@ REPLACE_OR_CREATE:pm_craftsman_sewing_priority = {
 			goods_output_clothes_add			=  -15	# x+30	= -450
 			goods_output_luxury_clothes_add		=   40	# x+60	=+2400
 		}												#		= +650
-		# unscaled = {
+		unscaled = {
+			goods_input_dye_mult				= 0.25
 			# building_employment_laborers_mult	= 1.00
 			# building_employment_machinists_mult	= 1.00
 			# building_employment_engineers_mult	= 1.00
-		# }
+		}
 	}
 }
 REPLACE_OR_CREATE:pm_elastics = {
@@ -284,11 +285,12 @@ REPLACE_OR_CREATE:pm_elastics = {
 			goods_output_clothes_add			=  -20	# x+30	= -600
 			goods_output_luxury_clothes_add		=   60	# x+60	=+3600
 		}												#		= +900
-		# unscaled = {
+		unscaled = {
+			goods_input_dye_mult				= 0.50
 			# building_employment_laborers_mult	= 0.50
 			# building_employment_machinists_mult	= 0.50
 			# building_employment_engineers_mult	= 0.50
-		# }
+		}
 	}
 	required_input_goods = silk
 	required_input_goods = rubber
@@ -306,11 +308,12 @@ REPLACE_OR_CREATE:pm_elastics_priority = {
 			goods_output_clothes_add			=  -35	# x+30	=-1050
 			goods_output_luxury_clothes_add		=   80	# x+60	=+4800
 		}												#		= +900
-		# unscaled = {
+		unscaled = {
+			goods_input_dye_mult				= 1.00
 			# building_employment_laborers_mult	= 1.00
 			# building_employment_machinists_mult	= 1.00
 			# building_employment_engineers_mult	= 1.00
-		# }
+		}
 	}
 	required_input_goods = silk
 	required_input_goods = rubber

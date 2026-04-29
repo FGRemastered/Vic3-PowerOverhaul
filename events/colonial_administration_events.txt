@@ -59,12 +59,7 @@ colonial_administration_events.1 = {
 				name = resource_extraction_charter_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists ?= {
-				if = {
-					limit = { has_ideology = ideology:ideology_laissez_faire }
-					effect_colonialist_industrialists = yes
-				}
-			}
+			ig:ig_industrialists ?= { effect_colonialist_industrialists = yes }
 		}
 		every_interest_group = {
 			limit = {
@@ -124,12 +119,7 @@ colonial_administration_events.1 = {
 				name = religious_missions_colonial_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists ?= {
-				if = {
-					limit = { has_ideology = ideology:ideology_laissez_faire }
-					effect_colonialist_industrialists = yes
-				}
-			}
+			ig:ig_industrialists ?= { effect_colonialist_industrialists = yes }
 		}
 		every_interest_group = {
 			limit = {
@@ -234,12 +224,7 @@ colonial_administration_events.1 = {
 				name = resource_extraction_colony_modifier
 				days = very_long_modifier_time
 			}
-			ig:ig_industrialists ?= {
-				if = {
-					limit = { has_ideology = ideology:ideology_laissez_faire }
-					effect_colonialist_industrialists = yes
-				}
-			}
+			ig:ig_industrialists ?= { effect_colonialist_industrialists = yes }
 		}
 		every_interest_group = {
 			limit = {
@@ -286,12 +271,7 @@ colonial_administration_events.1 = {
 		scope:newly_formed_colonial_nation_scope = {
 			activate_law = law_type:law_extraction_economy
 			set_strategy = ai_strategy_colonial_extraction
-			ig:ig_industrialists = {
-				if = {
-					limit = { has_ideology = ideology:ideology_laissez_faire }
-					effect_colonialist_industrialists = yes
-				}
-			}
+			ig:ig_industrialists ?= { effect_colonialist_industrialists = yes }
 		}
 	}
 }
@@ -310,15 +290,7 @@ colonial_administration_events.2 = {
 	trigger = {
 		is_subject = no
 		NOT = { has_variable = colonial_collapse_var }
-		trigger_colonial_variable = yes
-		# OR = {
-			# has_variable = senegal_subject_var
-			# has_variable = niger_subject_var
-			# has_variable = ethiopia_subject_var
-			# has_variable = zanj_subject_var
-			# has_variable = southern_africa_subject_var
-			# has_variable = congo_subject_var
-		# }
+		trigger_colonial_country = yes
 	}
 	immediate = {
 		set_variable = colonial_collapse_var

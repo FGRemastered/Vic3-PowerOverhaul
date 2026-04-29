@@ -1,7 +1,7 @@
 ﻿
 INJECT:law_local_police = {
 	institution_modifier = {
-		country_authority_add	=   75
+		country_authority_add				=   75
 	}
 	ai_enact_weight_modifier = {
 		if = { limit = { has_technology_researched = law_enforcement }			subtract	= 750 } # Don't bother with local police if you can go for the real deal.
@@ -9,11 +9,19 @@ INJECT:law_local_police = {
 }
 INJECT:law_dedicated_police = {
 	institution_modifier = {
-		country_authority_add	=   50
+		country_authority_add				=   50
+		country_revolution_progress_mult	=-0.05	# Added - Half of Home Affairs
+		country_secession_progress_mult		=-0.05	# Added - Half of Home Affairs
 	}
 }
 INJECT:law_militarized_police = {
+	modifier = {
+		country_institution_cost_institution_police_mult	= 0.50
+	}
 	institution_modifier = {
-		country_authority_add	=  100
+		country_authority_add				=  100
+		state_turmoil_effects_mult			=-0.05	# Same as local police, but up to x5
+		country_revolution_progress_mult	=-0.05	# Added - Half of Home Affairs
+		country_secession_progress_mult		=-0.05	# Added - Half of Home Affairs
 	}
 }

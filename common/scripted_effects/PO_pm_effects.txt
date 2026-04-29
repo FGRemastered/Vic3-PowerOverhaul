@@ -1,9 +1,36 @@
-﻿# This file is fucked. Proceed with caution.
-effect_activate_pm_for_building = {
-	every_scope_state = {
+﻿# Effects that change en masse. Moved here to reduce clutter in the main file.
+effect_activate_pm_for_building_state = {
+	if = {
 		limit = { any_scope_building = { is_building_type = $building$								NOT = { has_active_production_method = $pm$ } } }
 		activate_production_method = { building_type = $building$									production_method = $pm$ }
 	}
+}
+effect_activate_pm_for_building = {
+	# show_as_tooltip = {
+		# if = {
+			# limit = { THIS ?= market.OWNER }
+			# market_capital = {
+				# if = {
+					# limit = { any_scope_building = { is_building_type = $building$								NOT = { has_active_production_method = $pm$ } } }
+					# activate_production_method = { building_type = $building$									production_method = $pm$ }
+				# }
+			# }
+		# }
+		# else = {
+			# capital = {
+				# if = {
+					# limit = { any_scope_building = { is_building_type = $building$								NOT = { has_active_production_method = $pm$ } } }
+					# activate_production_method = { building_type = $building$									production_method = $pm$ }
+				# }
+			# }
+		# }
+	# }
+	# hidden_effect = {
+		every_scope_state = {
+			limit = { any_scope_building = { is_building_type = $building$								NOT = { has_active_production_method = $pm$ } } }
+			activate_production_method = { building_type = $building$									production_method = $pm$ }
+		}
+	# }
 }
 effect_reset_automation_switch = {
 	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_automation_disabled }
@@ -43,7 +70,7 @@ effect_watertube_boiler_switch = {
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_watertube_boiler_charcoal }
 }
 effect_rotary_valve_engine_switch = {
-	hidden_effect = { effect_reset_automation_switch = yes }
+	hidden_effect = { effect_watertube_boiler_switch = yes }
 	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_rotary_valve_engine_building_furniture_manufactory }
 	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_rotary_valve_engine_building_tooling_workshop }
 	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_rotary_valve_engine_building_paper_mill }
@@ -62,7 +89,10 @@ effect_rotary_valve_engine_switch = {
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_rotary_valve_engine_charcoal }
 }
 effect_assembly_lines_switch = {
-	hidden_effect = { effect_reset_automation_switch = yes }	
+	hidden_effect = {
+		effect_rotary_valve_engine_switch	= yes
+		effect_reset_automation_switch		= yes
+	}
 	effect_activate_pm_for_building = { building = building_furniture_manufactory					pm = pm_assembly_lines_building_furniture_manufactory }
 	effect_activate_pm_for_building = { building = building_tooling_workshop						pm = pm_assembly_lines_building_tooling_workshop }
 	effect_activate_pm_for_building = { building = building_paper_mill								pm = pm_assembly_lines_building_paper_mill }
@@ -80,6 +110,26 @@ effect_assembly_lines_switch = {
 	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_assembly_lines_shipyards }
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_assembly_lines_charcoal }
 }
+effect_reset_resource_automation = {
+	# Steam Donkey
+	effect_activate_pm_for_building = { building = building_coal_mine								pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_infres_coal_mine						pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_iron_mine								pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_infres_iron_mine						pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_lead_mine								pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_infres_lead_mine						pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_sulfur_mine								pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_infres_sulfur_mine						pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_gold_mine								pm = pm_no_steam_automation }
+	effect_activate_pm_for_building = { building = building_infres_gold_mine						pm = pm_no_steam_automation }
+	# Misc Resources
+	effect_activate_pm_for_building = { building = building_logging_camp							pm = pm_no_equipment }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_no_equipment }
+	# effect_activate_pm_for_building = { building = building_rubber_plantation						pm = pm_no_equipment }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_no_equipment }
+	# effect_activate_pm_for_building = { building = building_banana_plantation						pm = pm_no_equipment }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_no_equipment }
+}
 effect_reset_transport_switch = {
 	# Infrastructure
 	effect_activate_pm_for_building = { building = building_port									pm = pm_road_carts }
@@ -90,7 +140,7 @@ effect_reset_transport_switch = {
 	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_road_carts }
-	effect_activate_pm_for_building = { building = building_synthetic_oil_plant					pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_synthetic_oil_plant						pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_road_carts }
@@ -120,7 +170,7 @@ effect_reset_transport_switch = {
 	effect_activate_pm_for_building = { building = building_infres_fishing_wharf					pm = pm_unrefrigerated }
 	effect_activate_pm_for_building = { building = building_infres_whaling_station					pm = pm_unrefrigerated }
 	# Plantations
-	effect_activate_pm_for_building = { building = building_vineyard_plantation						pm = pm_road_carts }
+	effect_activate_pm_for_building = { building = building_vineyard								pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_coffee_plantation						pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_cotton_plantation						pm = pm_road_carts }
 	effect_activate_pm_for_building = { building = building_dye_plantation							pm = pm_road_carts }
@@ -145,30 +195,114 @@ effect_reset_transport_switch = {
 	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_road_carts }
 	# Urban Center
 	effect_activate_pm_for_building = { building = building_urban_center							pm = pm_no_public_transport }
-	# Steam Donkey
-	effect_activate_pm_for_building = { building = building_coal_mine								pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_infres_coal_mine						pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_iron_mine								pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_infres_iron_mine						pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_lead_mine								pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_infres_lead_mine						pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_sulfur_mine								pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_infres_sulfur_mine						pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_gold_mine								pm = pm_no_steam_automation }
-	effect_activate_pm_for_building = { building = building_infres_gold_mine						pm = pm_no_steam_automation }
-	# Misc Resources
-	effect_activate_pm_for_building = { building = building_logging_camp							pm = pm_no_equipment }
-	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_no_equipment }
-	effect_activate_pm_for_building = { building = building_rubber_plantation						pm = pm_no_equipment }
-	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_no_equipment }
-	effect_activate_pm_for_building = { building = building_banana_plantation						pm = pm_no_equipment }
-	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_no_equipment }
+	effect_reset_resource_automation = yes
+}
+effect_home_workshops_switch = {
+	switch = {	# Home Workshops
+		trigger = has_technology_researched
+		electrical_capacitors	= {
+			# Electric
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_autarky_farm			NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_autarky_farm				production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_autarky_greenhouse		NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_farm		NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_subsistence_farm			production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_orchard	NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_subsistence_orchard			production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_pasture	NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_subsistence_pasture			production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_fishing_village	NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_subsistence_fishing_village			production_method = pm_electric_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_rice_farm	NOT = { has_active_production_method = pm_electric_home_workshops } trigger_green_pm_active = no } }
+				activate_production_method = { building_type = building_subsistence_rice_farm		production_method = pm_electric_home_workshops }
+			}
+			# Autark
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_autarky_farm			NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_autarky_farm				production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_autarky_greenhouse		NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_autarky_greenhouse			production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_farm		NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_subsistence_farm			production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_orchard	NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_subsistence_orchard			production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_pasture	NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_subsistence_pasture			production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_fishing_village	NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_subsistence_fishing_village			production_method = pm_autark_home_workshops }
+			}
+			every_scope_state = {
+				limit = { any_scope_building = { is_building_type = building_subsistence_rice_farm	NOT = { has_active_production_method = pm_autark_home_workshops } trigger_green_pm_active = yes } }
+				activate_production_method = { building_type = building_subsistence_rice_farm		production_method = pm_autark_home_workshops }
+			}
+		}
+		mechanized_workshops	= {
+			if = {
+				limit = { has_technology_researched = steel_railway_cars }
+				effect_activate_pm_for_building = { building = building_autarky_farm					pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_autarky_greenhouse				pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_farm				pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_orchard				pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_pasture				pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_fishing_village		pm = pm_mechanized_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_rice_farm			pm = pm_mechanized_home_workshops }
+			}
+			else	= {
+				effect_activate_pm_for_building = { building = building_autarky_farm					pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_autarky_greenhouse				pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_farm				pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_orchard				pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_pasture				pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_fishing_village		pm = pm_lathe_home_workshops }
+				effect_activate_pm_for_building = { building = building_subsistence_rice_farm			pm = pm_lathe_home_workshops }
+			}
+		}
+		lathe	= {
+			effect_activate_pm_for_building = { building = building_autarky_farm						pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_autarky_greenhouse					pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_subsistence_farm					pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_subsistence_orchard					pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_subsistence_pasture					pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_subsistence_fishing_village			pm = pm_lathe_home_workshops }
+			effect_activate_pm_for_building = { building = building_subsistence_rice_farm				pm = pm_lathe_home_workshops }
+		}
+	}
 }
 effect_transport_switch = {
 	if = {	# Only steel_railway_cars
 		limit = { has_technology_researched = steel_railway_cars }
+		effect_passenger_type_switch = yes
 		effect_activate_pm_for_building = { building = building_construction_sector					pm = pm_rail_transport_construction }
 		effect_activate_pm_for_building = { building = building_power_plant							pm = pm_rail_transport_power_plant }
+	}
+	switch = {	# Manor Houses
+		trigger = has_technology_researched
+		dough_rollers			= { effect_activate_pm_for_building = { building = building_manor_house	pm = pm_manor_house_electrified } }
+		mechanized_workshops	= { effect_activate_pm_for_building = { building = building_manor_house	pm = pm_manor_house_mechanized } }
 	}
 	if = {	# Glassworks
 		limit = { has_technology_researched = automatic_bottle_blowers }
@@ -188,22 +322,24 @@ effect_transport_switch = {
 	switch = {	# log carts and tanker cars
 		trigger = has_technology_researched
 		steel_railway_cars	= {
-			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_log_carts }
-			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_log_carts }
-			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_log_carts }
-			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_log_carts }
+			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_flatbed_carts }
+			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_flatbed_carts }
+			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_flatbed_carts }
+			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_flatbed_carts }
+			effect_activate_pm_for_building = { building = building_steel_mill						pm = pm_flatbed_carts }
 			effect_activate_pm_for_building = { building = building_oil_rig							pm = pm_tanker_cars }
 			effect_activate_pm_for_building = { building = building_infres_oil_rig					pm = pm_tanker_cars }
-			effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_tanker_cars }
+			effect_activate_pm_for_building = { building = building_synthetic_oil_plant				pm = pm_tanker_cars }
 		}
 		railways	= {
 			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_rail_transport }
+			effect_activate_pm_for_building = { building = building_steel_mill						pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_oil_rig							pm = pm_rail_transport }
 			effect_activate_pm_for_building = { building = building_infres_oil_rig					pm = pm_rail_transport }
-			effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_rail_transport }
+			effect_activate_pm_for_building = { building = building_synthetic_oil_plant				pm = pm_rail_transport }
 		}
 	}
 	switch = {	# Food Industry
@@ -215,9 +351,29 @@ effect_transport_switch = {
 	}
 	switch = {	# Urban Center
 		trigger = has_technology_researched
-		elevator			= { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_subways } }
-		electric_railway	= { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_motor_carriages } }
-		combustion_engine	= { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_motor_carriages } }
+		elevator			= {
+			if = {
+				limit = { has_technology_researched = electric_railway }
+				effect_activate_pm_for_building = { building = building_urban_center		pm = pm_subways }
+			}
+			else = {
+				effect_activate_pm_for_building = { building = building_urban_center		pm = pm_public_trams }
+			}
+		}
+		electric_railway	= {
+			if = {
+				limit = { market.mg:automobiles.market_goods_sell_orders > 100 }	# Breaks the tooltip, but does work.
+				effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_motor_carriages }
+			}
+			else = { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_trams } }
+		}
+		combustion_engine	= {
+			if = {
+				limit = { market.mg:automobiles.market_goods_sell_orders > 100 }	# Breaks the tooltip, but does work.
+				effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_motor_carriages }
+			}
+			else = { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_trams } }
+		}
 		railways			= { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_public_trams } }
 		# fallback			= { effect_activate_pm_for_building = { building = building_urban_center	pm = pm_no_public_transport } }
 	}
@@ -245,58 +401,12 @@ effect_transport_switch = {
 			effect_activate_pm_for_building = { building = building_infres_whaling_station			pm = pm_refrigerated_storage_building_fishing_wharf }
 		}
 	}
-	switch = {	# Mines
-		trigger = has_technology_researched
-		elevator	= {
-			effect_activate_pm_for_building = { building = building_coal_mine						pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_infres_coal_mine				pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_iron_mine						pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_infres_iron_mine				pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_lead_mine						pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_infres_lead_mine				pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_sulfur_mine						pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_infres_sulfur_mine				pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_gold_mine						pm = pm_powered_lift_mine }
-			effect_activate_pm_for_building = { building = building_infres_gold_mine				pm = pm_powered_lift_mine }
-		}
-		steam_donkey	= {
-			effect_activate_pm_for_building = { building = building_coal_mine						pm = pm_steam_donkey_building_coal_mine }
-			effect_activate_pm_for_building = { building = building_infres_coal_mine				pm = pm_steam_donkey_building_coal_mine }
-			effect_activate_pm_for_building = { building = building_iron_mine						pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_infres_iron_mine				pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_lead_mine						pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_infres_lead_mine				pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_sulfur_mine						pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_infres_sulfur_mine				pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_gold_mine						pm = pm_steam_donkey_mine }
-			effect_activate_pm_for_building = { building = building_infres_gold_mine				pm = pm_steam_donkey_mine }
-		}
-	}
-	switch = {	# Logging Equipment
-		trigger = has_technology_researched
-		combustion_engine	= {
-			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_chainsaws }
-			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_chainsaws }
-			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_chainsaws }
-			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_chainsaws }
-			effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_chainsaws }
-			effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_chainsaws }
-		}
-		steam_donkey	= {
-			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_steam_powered_winch }
-			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_steam_powered_winch }
-			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_steam_powered_winch }
-			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_steam_powered_winch }
-			effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_steam_powered_winch }
-			effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_steam_powered_winch }
-		}
-	}
+	effect_home_workshops_switch = yes
 	# Industry
 	effect_activate_pm_for_building = { building = building_charcoal_burner							pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_chemical_plant							pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_explosives_factory						pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_synthetics_plant						pm = pm_rail_transport }
-	effect_activate_pm_for_building = { building = building_steel_mill								pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_shipyard								pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_military_shipyard						pm = pm_rail_transport }
 	# Mines
@@ -312,7 +422,7 @@ effect_transport_switch = {
 	effect_activate_pm_for_building = { building = building_infres_sulfur_mine						pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_infres_gold_mine						pm = pm_rail_transport }
 	# Plantations
-	effect_activate_pm_for_building = { building = building_vineyard_plantation						pm = pm_rail_transport }
+	effect_activate_pm_for_building = { building = building_vineyard								pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_coffee_plantation						pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_cotton_plantation						pm = pm_rail_transport }
 	effect_activate_pm_for_building = { building = building_dye_plantation							pm = pm_rail_transport }
@@ -341,7 +451,7 @@ effect_tools_switch = {
 		# effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_tools_disabled }
 		# effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_tools_disabled }
 		# effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_tools_disabled }
-		# effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_tools_disabled }
+		# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_tools_disabled }
 		# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_tools_disabled }
 		# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_tools_disabled }
 		# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_tools_disabled }
@@ -372,7 +482,64 @@ effect_tools_switch = {
 			# }
 		# }
 	}
+	switch = {	# Mines
+		trigger = has_technology_researched
+		elevator	= {
+			if = {
+				limit = { market.mg:automobiles.market_goods_sell_orders >= "root.country_has_building_group_levels(bg_mining)" }	# Breaks the tooltip, but does work.
+				effect_activate_pm_for_building = { building = building_coal_mine						pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_infres_coal_mine				pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_iron_mine						pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_infres_iron_mine				pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_lead_mine						pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_infres_lead_mine				pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_sulfur_mine						pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_infres_sulfur_mine				pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_gold_mine						pm = pm_powered_lift_mine }
+				effect_activate_pm_for_building = { building = building_infres_gold_mine				pm = pm_powered_lift_mine }
+			}
+		}
+		steam_donkey	= {
+			effect_activate_pm_for_building = { building = building_coal_mine						pm = pm_steam_donkey_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_infres_coal_mine				pm = pm_steam_donkey_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine						pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_infres_iron_mine				pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine						pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_infres_lead_mine				pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine						pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_infres_sulfur_mine				pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine						pm = pm_steam_donkey_mine }
+			effect_activate_pm_for_building = { building = building_infres_gold_mine				pm = pm_steam_donkey_mine }
+		}
+	}
+	switch = {	# Logging Equipment
+		trigger = has_technology_researched
+		combustion_engine	= {
+			if = {
+				limit = { market.mg:automobiles.market_goods_sell_orders > 100 }	# total_logging_levels
+				effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_chainsaws }
+				effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_chainsaws }
+				effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_chainsaws }
+				effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_chainsaws }
+				# effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_chainsaws }
+				effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_chainsaws }
+			}
+		}
+		steam_donkey	= {
+			effect_activate_pm_for_building = { building = building_logging_camp					pm = pm_steam_powered_winch }
+			effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_steam_powered_winch }
+			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_steam_powered_winch }
+			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_steam_powered_winch }
+			# effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_steam_powered_winch }
+			effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_steam_powered_winch }
+		}
+	}
 	if = {
+		limit = { has_technology_researched = threshing_machine }
+		effect_activate_pm_for_building = { building = building_silk_plantation							pm = pm_steam_threshers }
+		effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_steam_threshers }
+	}
+	else_if = {
 		limit = { has_technology_researched = manufacturies }
 		effect_activate_pm_for_building = { building = building_silk_plantation							pm = pm_tools }
 		effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_tools }
@@ -385,14 +552,14 @@ effect_tools_switch = {
 			effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_modern_tractors }
 			effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_modern_tractors }
 			effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_modern_tractors }
-			effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_modern_tractors }
+			# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_modern_tractors }
 			# Greenhouses
 			effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_modern_tractors }
 			effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_modern_tractors }
@@ -417,14 +584,14 @@ effect_tools_switch = {
 			effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_tractors }
 			effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_tractors }
 			effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_tractors }
-			effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_tractors }
+			# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_tractors }
 			# Greenhouses
 			effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_tractors }
 			effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_tractors }
@@ -449,14 +616,14 @@ effect_tools_switch = {
 			effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_steam_threshers }
 			effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_steam_threshers }
 			effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_steam_threshers }
-			effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_steam_threshers }
+			# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_steam_threshers }
 			# Greenhouses
 			effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_steam_threshers }
 			effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_steam_threshers }
@@ -481,14 +648,14 @@ effect_tools_switch = {
 			effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_tools }
 			effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_tools }
 			effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_tools }
-			effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_tools }
+			# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_tools }
 			# Greenhouses
 			effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_tools }
 			effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_tools }
@@ -509,178 +676,515 @@ effect_tools_switch = {
 		}
 	}
 }
-effect_fertilizer_switch = {
-	hidden_effect = {
-		if = {
-			limit = { has_technology_researched = intensive_agriculture }
-			effect_activate_pm_for_building = { building = building_autarky_farm					pm = pm_enriched_autarky_farm }
-			effect_activate_pm_for_building = { building = building_autarky_greenhouse				pm = pm_enriched_autarky_farm }
-			effect_activate_pm_for_building = { building = building_subsistence_farms				pm = pm_enriched_subsistence_farms }
-			effect_activate_pm_for_building = { building = building_subsistence_orchards			pm = pm_enriched_subsistence_orchards }
-			effect_activate_pm_for_building = { building = building_subsistence_pastures			pm = pm_enriched_subsistence_pastures }
-			effect_activate_pm_for_building = { building = building_subsistence_fishing_villages	pm = pm_enriched_subsistence_fishing_villages }
-			effect_activate_pm_for_building = { building = building_subsistence_rice_paddies		pm = pm_enriched_subsistence_rice_paddies }
-			effect_activate_pm_for_building = { building = building_rye_farm						pm = pm_soil_enriching_farming }
-			effect_activate_pm_for_building = { building = building_wheat_farm						pm = pm_soil_enriching_farming }
-			effect_activate_pm_for_building = { building = building_rice_farm						pm = pm_soil_enriching_farming_rice_farm }
-			effect_activate_pm_for_building = { building = building_maize_farm						pm = pm_soil_enriching_farming }
-			effect_activate_pm_for_building = { building = building_millet_farm						pm = pm_soil_enriching_farming }
-			effect_activate_pm_for_building = { building = building_vineyard_plantation				pm = pm_soil_enriching_farming_vineyard_plantation }
-			effect_activate_pm_for_building = { building = building_coffee_plantation				pm = pm_soil_enriching_farming_coffee_plantation }
-			effect_activate_pm_for_building = { building = building_cotton_plantation				pm = pm_soil_enriching_farming_cotton_plantation }
-			effect_activate_pm_for_building = { building = building_dye_plantation					pm = pm_soil_enriching_farming_dye_plantation }
-			effect_activate_pm_for_building = { building = building_opium_plantation				pm = pm_soil_enriching_farming_opium_plantation }
-			effect_activate_pm_for_building = { building = building_tea_plantation					pm = pm_soil_enriching_farming_tea_plantation }
-			effect_activate_pm_for_building = { building = building_tobacco_plantation				pm = pm_soil_enriching_farming_tobacco_plantation }
-			effect_activate_pm_for_building = { building = building_sugar_plantation				pm = pm_soil_enriching_farming_sugar_plantation }
-			effect_activate_pm_for_building = { building = building_silk_plantation					pm = pm_soil_enriching_farming_silk_plantation }
-			effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_soil_enriching_farming_banana_plantation }
-			effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_soil_enriching_farming_rubber_plantation }
-			# Greenhouses
-			effect_activate_pm_for_building = { building = building_vineyard_greenhouse				pm = pm_soil_enriching_farming_vineyard_plantation }
-			effect_activate_pm_for_building = { building = building_coffee_greenhouse				pm = pm_soil_enriching_farming_coffee_plantation }
-			effect_activate_pm_for_building = { building = building_cotton_greenhouse				pm = pm_soil_enriching_farming_cotton_plantation }
-			effect_activate_pm_for_building = { building = building_dye_greenhouse					pm = pm_soil_enriching_farming_dye_plantation }
-			effect_activate_pm_for_building = { building = building_opium_greenhouse				pm = pm_soil_enriching_farming_opium_plantation }
-			effect_activate_pm_for_building = { building = building_tea_greenhouse					pm = pm_soil_enriching_farming_tea_plantation }
-			effect_activate_pm_for_building = { building = building_tobacco_greenhouse				pm = pm_soil_enriching_farming_tobacco_plantation }
-			effect_activate_pm_for_building = { building = building_sugar_greenhouse				pm = pm_soil_enriching_farming_sugar_plantation }
-			effect_activate_pm_for_building = { building = building_silk_greenhouse					pm = pm_soil_enriching_farming_silk_plantation }
-			effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_soil_enriching_farming_banana_plantation }
-			effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_soil_enriching_farming_rubber_plantation }
-		}	
+effect_fertilizer_1 = {
+	if = {
+		limit = { has_technology_researched = intensive_agriculture }
+		effect_activate_pm_for_building = { building = building_autarky_farm					pm = pm_enriched_autarky_farm }
+		effect_activate_pm_for_building = { building = building_autarky_greenhouse				pm = pm_enriched_autarky_farm }
+		effect_activate_pm_for_building = { building = building_subsistence_farm				pm = pm_enriched_subsistence_farm }
+		effect_activate_pm_for_building = { building = building_subsistence_orchard				pm = pm_enriched_subsistence_orchard }
+		effect_activate_pm_for_building = { building = building_subsistence_pasture				pm = pm_enriched_subsistence_pasture }
+		effect_activate_pm_for_building = { building = building_subsistence_fishing_village		pm = pm_enriched_subsistence_fishing_village }
+		effect_activate_pm_for_building = { building = building_subsistence_rice_farm			pm = pm_enriched_subsistence_rice_farm }
+		effect_activate_pm_for_building = { building = building_rye_farm						pm = pm_soil_enriching_farming }
+		effect_activate_pm_for_building = { building = building_wheat_farm						pm = pm_soil_enriching_farming }
+		effect_activate_pm_for_building = { building = building_rice_farm						pm = pm_soil_enriching_farming_rice_farm }
+		effect_activate_pm_for_building = { building = building_maize_farm						pm = pm_soil_enriching_farming }
+		effect_activate_pm_for_building = { building = building_millet_farm						pm = pm_soil_enriching_farming }
+		# effect_activate_pm_for_building = { building = building_vineyard						pm = pm_soil_enriching_farming_vineyard_plantation }
+		# effect_activate_pm_for_building = { building = building_coffee_plantation				pm = pm_soil_enriching_farming_coffee_plantation }
+		# effect_activate_pm_for_building = { building = building_cotton_plantation				pm = pm_soil_enriching_farming_cotton_plantation }
+		# effect_activate_pm_for_building = { building = building_dye_plantation					pm = pm_soil_enriching_farming_dye_plantation }
+		# effect_activate_pm_for_building = { building = building_opium_plantation				pm = pm_soil_enriching_farming_opium_plantation }
+		# effect_activate_pm_for_building = { building = building_tea_plantation					pm = pm_soil_enriching_farming_tea_plantation }
+		# effect_activate_pm_for_building = { building = building_tobacco_plantation				pm = pm_soil_enriching_farming_tobacco_plantation }
+		# effect_activate_pm_for_building = { building = building_sugar_plantation				pm = pm_soil_enriching_farming_sugar_plantation }
+		# effect_activate_pm_for_building = { building = building_silk_plantation					pm = pm_soil_enriching_farming_silk_plantation }
+		# effect_activate_pm_for_building = { building = building_banana_plantation				pm = pm_soil_enriching_farming_banana_plantation }
+		# effect_activate_pm_for_building = { building = building_rubber_plantation				pm = pm_soil_enriching_farming_rubber_plantation }
+		# Greenhouses
+		effect_activate_pm_for_building = { building = building_vineyard_greenhouse				pm = pm_soil_enriching_farming_vineyard_greenhouse }
+		effect_activate_pm_for_building = { building = building_coffee_greenhouse				pm = pm_soil_enriching_farming_coffee_greenhouse }
+		effect_activate_pm_for_building = { building = building_cotton_greenhouse				pm = pm_soil_enriching_farming_cotton_greenhouse }
+		effect_activate_pm_for_building = { building = building_dye_greenhouse					pm = pm_soil_enriching_farming_dye_greenhouse }
+		effect_activate_pm_for_building = { building = building_opium_greenhouse				pm = pm_soil_enriching_farming_opium_greenhouse }
+		effect_activate_pm_for_building = { building = building_tea_greenhouse					pm = pm_soil_enriching_farming_tea_greenhouse }
+		effect_activate_pm_for_building = { building = building_tobacco_greenhouse				pm = pm_soil_enriching_farming_tobacco_greenhouse }
+		effect_activate_pm_for_building = { building = building_sugar_greenhouse				pm = pm_soil_enriching_farming_sugar_greenhouse }
+		effect_activate_pm_for_building = { building = building_silk_greenhouse					pm = pm_soil_enriching_farming_silk_greenhouse }
+		effect_activate_pm_for_building = { building = building_banana_greenhouse				pm = pm_soil_enriching_farming_banana_greenhouse }
+		effect_activate_pm_for_building = { building = building_logging_greenhouse				pm = pm_soil_enriching_farming_wood_greenhouse }
+		effect_activate_pm_for_building = { building = building_rubber_greenhouse				pm = pm_soil_enriching_farming_rubber_greenhouse }
 	}
+}
+effect_fertilizer_2 = {
 	if = {
 		limit = { has_technology_researched = improved_fertilizer }
 		effect_activate_pm_for_building = { building = building_autarky_farm						pm = pm_fertilized_autarky_farm }
 		effect_activate_pm_for_building = { building = building_autarky_greenhouse					pm = pm_fertilized_autarky_farm }
-		effect_activate_pm_for_building = { building = building_subsistence_farms					pm = pm_fertilized_subsistence_farms }
-		effect_activate_pm_for_building = { building = building_subsistence_orchards				pm = pm_fertilized_subsistence_orchards }
-		effect_activate_pm_for_building = { building = building_subsistence_pastures				pm = pm_fertilized_subsistence_pastures }
-		effect_activate_pm_for_building = { building = building_subsistence_fishing_villages		pm = pm_fertilized_subsistence_fishing_villages }
-		effect_activate_pm_for_building = { building = building_subsistence_rice_paddies			pm = pm_fertilized_subsistence_rice_paddies }
+		effect_activate_pm_for_building = { building = building_subsistence_farm					pm = pm_fertilized_subsistence_farm }
+		effect_activate_pm_for_building = { building = building_subsistence_orchard					pm = pm_fertilized_subsistence_orchard }
+		effect_activate_pm_for_building = { building = building_subsistence_pasture					pm = pm_fertilized_subsistence_pasture }
+		effect_activate_pm_for_building = { building = building_subsistence_fishing_village			pm = pm_fertilized_subsistence_fishing_village }
+		effect_activate_pm_for_building = { building = building_subsistence_rice_farm				pm = pm_fertilized_subsistence_rice_farm }
 		effect_activate_pm_for_building = { building = building_rye_farm							pm = pm_fertilization }
 		effect_activate_pm_for_building = { building = building_wheat_farm							pm = pm_fertilization }
 		effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_fertilization_rice_farm }
 		effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_fertilization }
 		effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_fertilization }
-		effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_fertilization_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_fertilization_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_fertilization_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_fertilization_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_fertilization_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_fertilization_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_fertilization_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_fertilization_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_fertilization_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_fertilization_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_fertilization_rubber_plantation }
+		# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_fertilization_vineyard_plantation }
+		# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_fertilization_coffee_plantation }
+		# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_fertilization_cotton_plantation }
+		# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_fertilization_dye_plantation }
+		# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_fertilization_opium_plantation }
+		# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_fertilization_tea_plantation }
+		# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_fertilization_tobacco_plantation }
+		# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_fertilization_sugar_plantation }
+		# effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_fertilization_silk_plantation }
+		# effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_fertilization_banana_plantation }
+		# effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_fertilization_rubber_plantation }
 		# Greenhouses
-		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_fertilization_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_fertilization_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_fertilization_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_fertilization_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_fertilization_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_fertilization_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_fertilization_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_fertilization_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_fertilization_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_fertilization_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_fertilization_rubber_plantation }
+		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_fertilization_vineyard_greenhouse }
+		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_fertilization_coffee_greenhouse }
+		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_fertilization_cotton_greenhouse }
+		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_fertilization_dye_greenhouse }
+		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_fertilization_opium_greenhouse }
+		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_fertilization_tea_greenhouse }
+		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_fertilization_tobacco_greenhouse }
+		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_fertilization_sugar_greenhouse }
+		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_fertilization_silk_greenhouse }
+		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_fertilization_banana_greenhouse }
+		effect_activate_pm_for_building = { building = building_logging_greenhouse					pm = pm_fertilization_wood_greenhouse }
+		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_fertilization_rubber_greenhouse }
 	}
+}
+effect_fertilizer_3 = {
 	if = {
 		limit = { has_technology_researched = nitrogen_fixation }
 		effect_activate_pm_for_building = { building = building_autarky_farm						pm = pm_chem_fertilized_autarky_farm }
 		effect_activate_pm_for_building = { building = building_autarky_greenhouse					pm = pm_chem_fertilized_autarky_farm }
-		effect_activate_pm_for_building = { building = building_subsistence_farms					pm = pm_chem_fertilized_subsistence_farms }
-		effect_activate_pm_for_building = { building = building_subsistence_orchards				pm = pm_chem_fertilized_subsistence_orchards }
-		effect_activate_pm_for_building = { building = building_subsistence_pastures				pm = pm_chem_fertilized_subsistence_pastures }
-		effect_activate_pm_for_building = { building = building_subsistence_fishing_villages		pm = pm_chem_fertilized_subsistence_fishing_villages }
-		effect_activate_pm_for_building = { building = building_subsistence_rice_paddies			pm = pm_chem_fertilized_subsistence_rice_paddies }
+		effect_activate_pm_for_building = { building = building_subsistence_farm					pm = pm_chem_fertilized_subsistence_farm }
+		effect_activate_pm_for_building = { building = building_subsistence_orchard					pm = pm_chem_fertilized_subsistence_orchard }
+		effect_activate_pm_for_building = { building = building_subsistence_pasture					pm = pm_chem_fertilized_subsistence_pasture }
+		effect_activate_pm_for_building = { building = building_subsistence_fishing_village			pm = pm_chem_fertilized_subsistence_fishing_village }
+		effect_activate_pm_for_building = { building = building_subsistence_rice_farm				pm = pm_chem_fertilized_subsistence_rice_farm }
 		effect_activate_pm_for_building = { building = building_rye_farm							pm = pm_chemical_fertilizer }
 		effect_activate_pm_for_building = { building = building_wheat_farm							pm = pm_chemical_fertilizer }
 		effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_chemical_fertilizer_rice_farm }
 		effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_chemical_fertilizer }
 		effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_chemical_fertilizer }
-		effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_chemical_fertilizer_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_chemical_fertilizer_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_chemical_fertilizer_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_chemical_fertilizer_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_chemical_fertilizer_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_chemical_fertilizer_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_chemical_fertilizer_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_chemical_fertilizer_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_chemical_fertilizer_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_chemical_fertilizer_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_chemical_fertilizer_rubber_plantation }
+		# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_chemical_fertilizer_vineyard_plantation }
+		# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_chemical_fertilizer_coffee_plantation }
+		# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_chemical_fertilizer_cotton_plantation }
+		# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_chemical_fertilizer_dye_plantation }
+		# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_chemical_fertilizer_opium_plantation }
+		# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_chemical_fertilizer_tea_plantation }
+		# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_chemical_fertilizer_tobacco_plantation }
+		# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_chemical_fertilizer_sugar_plantation }
+		# effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_chemical_fertilizer_silk_plantation }
+		# effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_chemical_fertilizer_banana_plantation }
+		# effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_chemical_fertilizer_rubber_plantation }
 		# Greenhouses
-		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_chemical_fertilizer_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_chemical_fertilizer_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_chemical_fertilizer_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_chemical_fertilizer_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_chemical_fertilizer_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_chemical_fertilizer_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_chemical_fertilizer_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_chemical_fertilizer_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_chemical_fertilizer_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_chemical_fertilizer_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_chemical_fertilizer_rubber_plantation }
+		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_chemical_fertilizer_vineyard_greenhouse }
+		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_chemical_fertilizer_coffee_greenhouse }
+		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_chemical_fertilizer_cotton_greenhouse }
+		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_chemical_fertilizer_dye_greenhouse }
+		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_chemical_fertilizer_opium_greenhouse }
+		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_chemical_fertilizer_tea_greenhouse }
+		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_chemical_fertilizer_tobacco_greenhouse }
+		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_chemical_fertilizer_sugar_greenhouse }
+		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_chemical_fertilizer_silk_greenhouse }
+		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_chemical_fertilizer_banana_greenhouse }
+		effect_activate_pm_for_building = { building = building_logging_greenhouse					pm = pm_chemical_fertilizer_wood_greenhouse }
+		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_chemical_fertilizer_rubber_greenhouse }
 	}
+}
+effect_fertilizer_4 = {
 	if = {
 		limit = { has_technology_researched = mechanized_farming }
 		effect_activate_pm_for_building = { building = building_autarky_farm						pm = pm_auto_fertilized_autarky_farm }
 		effect_activate_pm_for_building = { building = building_autarky_greenhouse					pm = pm_auto_fertilized_autarky_farm }
-		effect_activate_pm_for_building = { building = building_subsistence_farms					pm = pm_auto_fertilized_subsistence_farms }
-		effect_activate_pm_for_building = { building = building_subsistence_orchards				pm = pm_auto_fertilized_subsistence_orchards }
-		effect_activate_pm_for_building = { building = building_subsistence_pastures				pm = pm_auto_fertilized_subsistence_pastures }
-		effect_activate_pm_for_building = { building = building_subsistence_fishing_villages		pm = pm_auto_fertilized_subsistence_fishing_villages }
-		effect_activate_pm_for_building = { building = building_subsistence_rice_paddies			pm = pm_auto_fertilized_subsistence_rice_paddies }
+		effect_activate_pm_for_building = { building = building_subsistence_farm					pm = pm_auto_fertilized_subsistence_farm }
+		effect_activate_pm_for_building = { building = building_subsistence_orchard					pm = pm_auto_fertilized_subsistence_orchard }
+		effect_activate_pm_for_building = { building = building_subsistence_pasture					pm = pm_auto_fertilized_subsistence_pasture }
+		effect_activate_pm_for_building = { building = building_subsistence_fishing_village			pm = pm_auto_fertilized_subsistence_fishing_village }
+		effect_activate_pm_for_building = { building = building_subsistence_rice_farm				pm = pm_auto_fertilized_subsistence_rice_farm }
 		effect_activate_pm_for_building = { building = building_rye_farm							pm = pm_automatic_fertilization }
 		effect_activate_pm_for_building = { building = building_wheat_farm							pm = pm_automatic_fertilization }
 		effect_activate_pm_for_building = { building = building_rice_farm							pm = pm_automatic_fertilization_rice_farm }
 		effect_activate_pm_for_building = { building = building_maize_farm							pm = pm_automatic_fertilization }
 		effect_activate_pm_for_building = { building = building_millet_farm							pm = pm_automatic_fertilization }
-		effect_activate_pm_for_building = { building = building_vineyard_plantation					pm = pm_automatic_fertilization_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_automatic_fertilization_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_automatic_fertilization_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_automatic_fertilization_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_automatic_fertilization_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_automatic_fertilization_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_automatic_fertilization_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_automatic_fertilization_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_automatic_fertilization_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_automatic_fertilization_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_automatic_fertilization_rubber_plantation }
+		# effect_activate_pm_for_building = { building = building_vineyard							pm = pm_automatic_fertilization_vineyard_plantation }
+		# effect_activate_pm_for_building = { building = building_coffee_plantation					pm = pm_automatic_fertilization_coffee_plantation }
+		# effect_activate_pm_for_building = { building = building_cotton_plantation					pm = pm_automatic_fertilization_cotton_plantation }
+		# effect_activate_pm_for_building = { building = building_dye_plantation						pm = pm_automatic_fertilization_dye_plantation }
+		# effect_activate_pm_for_building = { building = building_opium_plantation					pm = pm_automatic_fertilization_opium_plantation }
+		# effect_activate_pm_for_building = { building = building_tea_plantation						pm = pm_automatic_fertilization_tea_plantation }
+		# effect_activate_pm_for_building = { building = building_tobacco_plantation					pm = pm_automatic_fertilization_tobacco_plantation }
+		# effect_activate_pm_for_building = { building = building_sugar_plantation					pm = pm_automatic_fertilization_sugar_plantation }
+		# effect_activate_pm_for_building = { building = building_silk_plantation						pm = pm_automatic_fertilization_silk_plantation }
+		# effect_activate_pm_for_building = { building = building_banana_plantation					pm = pm_automatic_fertilization_banana_plantation }
+		# effect_activate_pm_for_building = { building = building_rubber_plantation					pm = pm_automatic_fertilization_rubber_plantation }
 		# Greenhouses
-		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_automatic_fertilization_vineyard_plantation }
-		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_automatic_fertilization_coffee_plantation }
-		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_automatic_fertilization_cotton_plantation }
-		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_automatic_fertilization_dye_plantation }
-		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_automatic_fertilization_opium_plantation }
-		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_automatic_fertilization_tea_plantation }
-		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_automatic_fertilization_tobacco_plantation }
-		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_automatic_fertilization_sugar_plantation }
-		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_automatic_fertilization_silk_plantation }
-		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_automatic_fertilization_banana_plantation }
-		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_automatic_fertilization_rubber_plantation }
+		effect_activate_pm_for_building = { building = building_vineyard_greenhouse					pm = pm_automatic_fertilization_vineyard_greenhouse }
+		effect_activate_pm_for_building = { building = building_coffee_greenhouse					pm = pm_automatic_fertilization_coffee_greenhouse }
+		effect_activate_pm_for_building = { building = building_cotton_greenhouse					pm = pm_automatic_fertilization_cotton_greenhouse }
+		effect_activate_pm_for_building = { building = building_dye_greenhouse						pm = pm_automatic_fertilization_dye_greenhouse }
+		effect_activate_pm_for_building = { building = building_opium_greenhouse					pm = pm_automatic_fertilization_opium_greenhouse }
+		effect_activate_pm_for_building = { building = building_tea_greenhouse						pm = pm_automatic_fertilization_tea_greenhouse }
+		effect_activate_pm_for_building = { building = building_tobacco_greenhouse					pm = pm_automatic_fertilization_tobacco_greenhouse }
+		effect_activate_pm_for_building = { building = building_sugar_greenhouse					pm = pm_automatic_fertilization_sugar_greenhouse }
+		effect_activate_pm_for_building = { building = building_silk_greenhouse						pm = pm_automatic_fertilization_silk_greenhouse }
+		effect_activate_pm_for_building = { building = building_banana_greenhouse					pm = pm_automatic_fertilization_banana_greenhouse }
+		effect_activate_pm_for_building = { building = building_logging_greenhouse					pm = pm_automatic_fertilization_wood_greenhouse }
+		effect_activate_pm_for_building = { building = building_rubber_greenhouse					pm = pm_automatic_fertilization_rubber_greenhouse }
+	}
+}
+effect_fertilizer_switch = {
+	if = {
+		limit = { trigger_forbidden_heavy_industry = no }
+		switch = {
+			trigger = has_technology_researched
+			arc_welding = {
+				effect_activate_pm_for_building = { building = building_chemical_plant				pm = pm_nitrogen_fixation_electricity }
+			}
+			nitrogen_fixation = {
+				effect_activate_pm_for_building = { building = building_chemical_plant				pm = pm_nitrogen_fixation }
+			}
+			improved_fertilizer = {
+				effect_activate_pm_for_building = { building = building_chemical_plant				pm = pm_improved_fertilizer }
+			}
+			intensive_agriculture = {
+				effect_activate_pm_for_building = { building = building_chemical_plant				pm = pm_artificial_fertilizers }
+			}
+		}
+		switch = {
+			trigger = has_technology_researched
+			chemical_warfare = {
+				effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_advanced_synth_oil_production }
+			}
+			nitrogen_fixation = {
+				effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_improved_synth_oil_production }
+			}
+			electrical_generation = {
+				effect_activate_pm_for_building = { building = building_synthetic_oil_plant			pm = pm_synth_oil_production }
+			}
+		}
+		if = {
+			limit = { has_technology_researched = nitrogen_fixation }
+			effect_activate_pm_for_building = { building = building_synthetics_plant				pm = pm_double_dye_production }
+		}
+	}
+	hidden_effect = { effect_fertilizer_1 = yes }
+	if = {
+		limit = { NOT = { has_technology_researched = improved_fertilizer } }
+		show_as_tooltip = { effect_fertilizer_1 = yes }
+	}
+	effect_fertilizer_2 = yes
+	effect_fertilizer_3 = yes
+	effect_fertilizer_4 = yes
+}
+effect_mining_pumps_switch = {
+	effect_engine_type_switch = yes
+	switch = {
+		trigger = has_technology_researched
+		radio = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_electric_pump_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_electric_pump_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_electric_pump_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_electric_pump_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_electric_pump_building_gold_mine }
+		}
+		compression_ignition = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_diesel_pump_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_diesel_pump_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_diesel_pump_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_diesel_pump_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_diesel_pump_building_gold_mine }
+		}
+		rotary_valve_engine = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_rotary_valve_pump_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_rotary_valve_pump_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_rotary_valve_pump_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_rotary_valve_pump_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_rotary_valve_pump_building_gold_mine }
+		}
+		watertube_boiler = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_condensing_engine_pump_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_condensing_engine_pump_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_condensing_engine_pump_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_condensing_engine_pump_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_condensing_engine_pump_building_gold_mine }
+		}
+		atmospheric_engine = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_atmospheric_engine_pump_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_atmospheric_engine_pump_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_atmospheric_engine_pump_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_atmospheric_engine_pump_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_atmospheric_engine_pump_building_gold_mine }
+		}
+		fallback = {
+			effect_activate_pm_for_building = { building = building_coal_mine	pm = pm_picks_and_shovels_building_coal_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine	pm = pm_picks_and_shovels_building_iron_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine	pm = pm_picks_and_shovels_building_lead_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine	pm = pm_picks_and_shovels_building_sulfur_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine	pm = pm_picks_and_shovels_building_gold_mine }
+		}
+	}
+	switch = {
+		trigger = has_technology_researched
+		radio = {
+			effect_activate_pm_for_building = { building = building_oil_rig	pm = pm_electric_derricks }
+		}
+		combustion_engine = {
+			effect_activate_pm_for_building = { building = building_oil_rig	pm = pm_combustion_derricks }
+		}
+	}
+	switch = {
+		trigger = has_technology_researched
+		radio = {
+			effect_activate_pm_for_building = { building = building_fishing_wharf	pm = pm_electric_fishing_boats }
+			effect_activate_pm_for_building = { building = building_whaling_station	pm = pm_electric_whaling_ships }
+		}
+		ironclad_tech = {
+			effect_activate_pm_for_building = { building = building_fishing_wharf	pm = pm_steam_trawlers }
+			effect_activate_pm_for_building = { building = building_whaling_station	pm = pm_steam_whaling_ships }
+		}
+		navigation = {	# Not required for the pm, but for the input.
+			effect_activate_pm_for_building = { building = building_fishing_wharf	pm = pm_fishing_trawlers }
+			effect_activate_pm_for_building = { building = building_whaling_station	pm = pm_wooden_whaling_ships }
+		}
 	}
 }
 effect_dynamite_switch = {	# country_scope
-	if = {
-		limit = { has_technology_researched = dynamite }
-		effect_activate_pm_for_building = { building = building_coal_mine							pm = pm_dynamite_building_mine }
-		effect_activate_pm_for_building = { building = building_iron_mine							pm = pm_dynamite_building_mine }
-		effect_activate_pm_for_building = { building = building_lead_mine							pm = pm_dynamite_building_mine }
-		effect_activate_pm_for_building = { building = building_sulfur_mine							pm = pm_dynamite_building_mine }
-		effect_activate_pm_for_building = { building = building_gold_mine							pm = pm_dynamite_building_gold_mine }
+	switch = {
+		trigger = has_technology_researched
+		dynamite = {
+			effect_activate_pm_for_building = { building = building_coal_mine							pm = pm_dynamite_building_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine							pm = pm_dynamite_building_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine							pm = pm_dynamite_building_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine							pm = pm_dynamite_building_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine							pm = pm_dynamite_building_gold_mine }
+			effect_activate_pm_for_building = { building = building_munition_plant						pm = pm_explosive_shells }
+		}
+		nitroglycerin = {
+			effect_activate_pm_for_building = { building = building_coal_mine							pm = pm_nitroglycerin_building_mine }
+			effect_activate_pm_for_building = { building = building_iron_mine							pm = pm_nitroglycerin_building_mine }
+			effect_activate_pm_for_building = { building = building_lead_mine							pm = pm_nitroglycerin_building_mine }
+			effect_activate_pm_for_building = { building = building_sulfur_mine							pm = pm_nitroglycerin_building_mine }
+			effect_activate_pm_for_building = { building = building_gold_mine							pm = pm_nitroglycerin_building_gold_mine }
+		}
 	}
-	else_if = {
-		limit = { has_technology_researched = nitroglycerin }
-		effect_activate_pm_for_building = { building = building_coal_mine							pm = pm_nitroglycerin_building_mine }
-		effect_activate_pm_for_building = { building = building_iron_mine							pm = pm_nitroglycerin_building_mine }
-		effect_activate_pm_for_building = { building = building_lead_mine							pm = pm_nitroglycerin_building_mine }
-		effect_activate_pm_for_building = { building = building_sulfur_mine							pm = pm_nitroglycerin_building_mine }
-		effect_activate_pm_for_building = { building = building_gold_mine							pm = pm_nitroglycerin_building_gold_mine }
+	if = {
+		limit = { trigger_forbidden_heavy_industry = no }
+		switch = {
+			trigger = has_technology_researched
+			electrical_capacitors = {
+				effect_activate_pm_for_building = { building = building_explosives_factory				pm = pm_brine_electrolysis }
+			}
+			dynamite = {
+				effect_activate_pm_for_building = { building = building_explosives_factory				pm = pm_vacuum_evaporation }
+			}
+			nitroglycerin = {
+				effect_activate_pm_for_building = { building = building_explosives_factory				pm = pm_ammonia-soda_process }
+			}
+			intensive_agriculture = {
+				effect_activate_pm_for_building = { building = building_explosives_factory				pm = pm_leblanc_process }
+			}
+		}
+	}
+}
+effect_primitive_greenhouses = {
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_primitive_greenhouse }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_primitive_greenhouse }
+}
+effect_coal_heating_greenhouses = {
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_coal_furnace }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_coal_furnace }
+}
+effect_electric_heating_greenhouses = {
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_electric_furnace }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_electric_furnace }
+}
+effect_heat_exchanger_greenhouses = {
+	# every_scope_state = {
+		# limit = { is_production_method_active = { building = building_autarky_greenhouse production_method = pm_autark_greenhouse } }
+		# effect_activate_pm_for_building_state = { building = building_autarky_greenhouse			pm = pm_electric_heat_exchanger }
+		# effect_activate_pm_for_building_state = { building = building_autarky_greenhouse			pm = pm_autark_home_workshops }
+		# switch = {
+			# trigger = has_technology_researched
+			# mechanized_farming		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_auto_fertilized_autarky_farm } }
+			# nitrogen_fixation		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_chem_fertilized_autarky_farm } }
+			# improved_fertilizer		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_fertilized_autarky_farm } }
+			# intensive_agriculture	= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_enriched_autarky_farm } }
+		# }
+	# }
+	# else = {
+		effect_activate_pm_for_building = { building = building_autarky_greenhouse					pm = pm_electric_heat_exchanger }
+	# }
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_electric_heat_exchanger }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_electric_heat_exchanger }
+}
+effect_autark_greenhouses = {
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_autark_home_workshops }
+	switch = {
+		trigger = has_technology_researched
+		mechanized_farming		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_auto_fertilized_autarky_farm } }
+		nitrogen_fixation		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_chem_fertilized_autarky_farm } }
+		improved_fertilizer		= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_fertilized_autarky_farm } }
+		intensive_agriculture	= { effect_activate_pm_for_building = { building = building_autarky_greenhouse	pm = pm_enriched_autarky_farm } }
+	}
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_autark_greenhouse }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_autark_greenhouse }
+}
+effect_oil_heated_greenhouses = {
+	effect_activate_pm_for_building = { building = building_autarky_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_vineyard_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_coffee_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_cotton_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_dye_greenhouse							pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_silk_greenhouse							pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_opium_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_tea_greenhouse							pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_tobacco_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_sugar_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_banana_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_logging_greenhouse						pm = pm_oil_furnace }
+	effect_activate_pm_for_building = { building = building_rubber_greenhouse						pm = pm_oil_furnace }
+}
+effect_greenhouse_switch = {
+	switch = {
+		trigger = has_technology_researched
+		radio					= { effect_autark_greenhouses			= yes }
+		pasteurization			= { effect_heat_exchanger_greenhouses	= yes }
+		electrical_generation	= { effect_electric_heating_greenhouses	= yes }
+		mechanical_tools		= { effect_coal_heating_greenhouses		= yes }
+	}
+}
+effect_engine_type_switch = {
+	switch = {
+		trigger = has_technology_researched
+		flash_freezing			= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_jet_electric_engines } }
+		oil_turbine				= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_jet_engines } }
+		arc_welding				= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_hybrid_electric_engines } }
+		compression_ignition	= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_diesel_engines } }
+		electric_railway		= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_electric_engines } }
+		rotary_valve_engine		= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_rotary_valve_engines } }
+		watertube_boiler		= { effect_activate_pm_for_building = { building = building_motor_industry	pm = pm_watertube_boiler_steam_engines } }
+	}
+}
+effect_train_type_switch = {
+	switch = {
+		trigger = has_technology_researched
+		flash_freezing			= { effect_activate_pm_for_building = { building = building_railway		pm = pm_maglev_trains } }
+		oil_turbine				= { effect_activate_pm_for_building = { building = building_railway		pm = pm_jet_electric_trains } }
+		arc_welding				= { effect_activate_pm_for_building = { building = building_railway		pm = pm_diesel_electric_trains } }
+		compression_ignition	= { effect_activate_pm_for_building = { building = building_railway		pm = pm_diesel_trains } }
+		electric_railway		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_electric_trains } }
+		rotary_valve_engine		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_rotary_valve_steam_trains } }
+		watertube_boiler		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_steam_trains } }
+	}
+}
+effect_passenger_type_switch = {
+	switch = {
+		trigger = has_technology_researched
+		elevator				= {
+			if = {
+				limit = { has_technology_researched = electric_railway }
+				effect_activate_pm_for_building = { building = building_railway		pm = pm_high_speed_rail }
+			}
+			else = {
+				effect_activate_pm_for_building = { building = building_railway		pm = pm_steel_passenger_carriages }
+			}
+		}
+		steel_railway_cars		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_steel_passenger_carriages } }
+		fallback				= { effect_activate_pm_for_building = { building = building_railway		pm = pm_wooden_passenger_carriages } }
+	}
+}
+effect_rail_type_switch = {
+	switch = {
+		trigger = has_technology_researched
+		central_planning		= {
+			if = {
+				limit = { any_country = { has_technology_researched = telephone } }
+				effect_activate_pm_for_building = { building = building_railway		pm = pm_rail_signals } }
+			else = {
+				effect_activate_pm_for_building = { building = building_railway		pm = pm_regenerative_brakes }
+			}
+		}
+		electric_railway		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_regenerative_brakes } }
+		electric_telegraph		= { effect_activate_pm_for_building = { building = building_railway		pm = pm_electric_rails } }
+	}
+}
+effect_admin_switch = {
+	switch = {
+		trigger = has_technology_researched
+		central_planning		= {
+			if = {
+				# limit = { any_country = { has_technology_researched = telephone } }
+				limit = { any_market = { mg:telephones.market_goods_sell_orders > 100 } }
+				effect_activate_pm_for_building = { building = building_government_administration		pm = pm_switch_boards } }
+			else = {
+				effect_activate_pm_for_building = { building = building_government_administration		pm = pm_vertical_filing_cabinets }
+			}
+		}
+		central_archives		= { effect_activate_pm_for_building = { building = building_government_administration		pm = pm_vertical_filing_cabinets } }
+		centralization			= { effect_activate_pm_for_building = { building = building_government_administration		pm = pm_horizontal_drawer_cabinets } }
+		fallback				= { effect_activate_pm_for_building = { building = building_government_administration		pm = pm_simple_organization } }
 	}
 }
 # effect_green_power_switch = {

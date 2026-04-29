@@ -77,28 +77,27 @@ REPLACE_OR_CREATE:pm_film_art = {
 REPLACE_OR_CREATE:pm_traditional_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	disallowing_laws = { law_cooperative_ownership }
+	building_modifiers = {
+		level_scaled		= { building_employment_shopkeepers_add			=  250 }	# x-.06	=   -15
+	}
 }
 REPLACE_OR_CREATE:pm_bourgeoisie_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 	unlocking_technologies = { stock_exchange }
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
+	disallowing_laws = { law_command_economy law_cooperative_ownership }
 	building_modifiers = {
-		level_scaled		= { building_employment_shopkeepers_add			=  250 }	# x-.06	=   -15
-		unscaled			= { building_throughput_add						= 0.25 }
-	}
+		workforce_scaled	= { goods_input_services_add					= 2.50 }	# x-30	=   -75
+		unscaled			= { building_throughput_add						= 0.25 }	#		= x1.25
+	}																					#		=   -93.75
 	ai_value = 5000
+	required_input_goods = services
 }
 REPLACE_OR_CREATE:pm_independent_artists = {
 	texture = "gfx/interface/icons/production_method_icons/independent_artists.dds"
-	disallowing_laws = {
-		law_traditionalism
-		law_command_economy
-	}
+	disallowing_laws = { law_traditionalism law_guild_system law_command_economy }
 	unlocking_technologies = { realism }
 	building_modifiers = {
+		workforce_scaled	= { goods_input_services_add					= 2.50 }	# x-30	=   -75
 		level_scaled		= { building_employment_academics_add			=  250 }	# x-.08	=   -20
 		unscaled			= { building_throughput_add						= 0.50 }
 	}

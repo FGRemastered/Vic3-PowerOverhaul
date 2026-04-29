@@ -66,7 +66,8 @@ REPLACE_OR_CREATE:pm_nitrogen_fixation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fabric_add				=   30	# x-20	=  -600
+			goods_input_fabric_add				=   10	# x-20	=  -200
+			goods_input_hardwood_add			=   10	# x-40	=  -400
 			goods_input_sulfur_add				=   40	# x-50	= -2000
 			goods_input_oil_add					=   35	# x-40	= -1400
 			# output goods
@@ -88,7 +89,8 @@ REPLACE_OR_CREATE:pm_nitrogen_fixation_electricity = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_fabric_add				=   30	# x-20	=  -600
+			goods_input_fabric_add				=   10	# x-20	=  -200
+			goods_input_hardwood_add			=   10	# x-40	=  -400
 			goods_input_sulfur_add				=   75	# x-50	= -3750
 			goods_input_electricity_add			=   30	# x-30	=  -900
 			# output goods

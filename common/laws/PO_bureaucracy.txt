@@ -6,8 +6,11 @@ INJECT:law_appointed_bureaucrats = {
 }
 INJECT:law_elected_bureaucrats = {
 	unlocking_technologies = { democracy }
-	disallowing_laws = {	# Why though?
-		law_autocracy 
-		law_oligarchy
+	modifier = {
+		country_clerks_pol_str_mult			= 0.25	# Added
 	}
+	# disallowing_laws = {	# Iberia has elections through amendments - No idea why they made it oligarchy instead of landed voting though.
+		# law_autocracy 
+		# law_oligarchy
+	# }
 }

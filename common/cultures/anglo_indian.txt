@@ -5,7 +5,7 @@
 	language = language_anglophone
 	traditions = { }
 	# traits = { south_asian_heritage indo_aryan_language dravidian anglophone }
-	obsessions = { tea }
+	obsessions = { tea fruit }
 	male_common_first_names = {
 		Aakash Abbakka Abd_al-Quddus Abd_al-Rahman Abdallah Abdul_Akbar Abdullah Adithya Afzal Ahmad Ahmed Ajanbahu Akbar Akram Akshay Alauddin Alif Alivardi Aliya Alluri
 		Amar Amir Amjad Amoghavarasha Amratlal Anagarika Anand Anku Anupam Ashoka Ashtravakra Asvaghosa Atal Atta Awaz Ayilyam Ayyub Azad Aziz

@@ -30,8 +30,8 @@ REPLACE_OR_CREATE:law_traditionalism = {
 		state_engineers_investment_pool_efficiency_mult				=-0.50	# Added
 		state_academics_investment_pool_efficiency_mult				=-0.50	# Added
 		state_officers_investment_pool_efficiency_mult				=-0.50	# Added
+		state_institution_impact_add								= 0.25	# Added - Useful for countries with large populations
 		state_bureaucracy_population_base_cost_factor_mult			=-0.25
-		country_government_dividends_reinvestment_add				=-0.25	# Decreased - Moved to taxes
 		state_tax_capacity_mult										=-0.25
 		country_private_construction_allocation_mult				= 0.25
 		building_nationalization_cost_mult							= 1.00
@@ -41,6 +41,21 @@ REPLACE_OR_CREATE:law_traditionalism = {
 		building_self_investment_chance_add							= 0.25
 		building_group_bg_manufacturing_allowed_collectivization_add= 0.20	# Added
 		country_disable_nationalization_without_compensation_bool	= yes
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_will_do = { always = no }	# AI should never switch back to traditionalism
 	ai_enact_weight_modifier = {	# Petitions
@@ -62,10 +77,24 @@ REPLACE_OR_CREATE:law_agrarianism = {
 		state_capitalists_investment_pool_efficiency_mult			=-0.25
 		country_private_construction_allocation_mult				= 0.50
 		building_nationalization_investment_return_add				= 0.50
-		# country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.30
 		country_free_charters_add									= 1
 		country_disable_nationalization_without_compensation_bool	= yes
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_will_do = {
 		OR = {
@@ -119,12 +148,27 @@ REPLACE_OR_CREATE:law_interventionism = {
 		country_disable_nationalization_without_compensation_bool	= yes
 		country_private_construction_allocation_mult				= 0.50
 		building_nationalization_investment_return_add				= 0.50
-		country_government_dividends_reinvestment_add				= 0.00	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.25
 		country_free_charters_add									= 1
 		building_nationalization_radicals_mult						=-0.10	# Added
 		country_loan_interest_rate_mult								=-0.05	# Added
 		country_authority_mult										= 0.10	# Added
+		state_bureaucrats_investment_pool_efficiency_mult			= 0.25	# Added
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
@@ -188,7 +232,6 @@ REPLACE_OR_CREATE:law_laissez_faire = {
 		state_academics_investment_pool_efficiency_mult				= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult				= 0.25	# Added
 		country_private_construction_allocation_mult				= 0.75
-		country_government_dividends_reinvestment_add				= 0.50	# Decreased - Moved to taxes
 		# country_max_companies_add									= 1
 		building_nationalization_cost_mult							= 3.00	# Added
 		building_nationalization_investment_return_add				= 1.00	# Added
@@ -198,6 +241,22 @@ REPLACE_OR_CREATE:law_laissez_faire = {
 		country_force_privatization_bool							= yes
 		country_forbid_monopoly_bool								= yes
 		country_free_charters_add									= 2
+		country_government_dividends_efficiency_add					=-0.25	# Added
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.95
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.75
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -246,7 +305,6 @@ REPLACE_OR_CREATE:law_cooperative_ownership = {
 		state_academics_investment_pool_efficiency_mult							= 0.25	# Added
 		state_officers_investment_pool_efficiency_mult							= 0.25	# Added
 		country_private_construction_allocation_mult							= 0.35
-		country_government_dividends_reinvestment_add							= 0.50	# Decreased - Moved to taxes
 		building_company_worker_dividends_add									= 0.75
 		building_group_bg_manufacturing_allowed_collectivization_add			= 1.00
 		building_group_bg_extraction_allowed_collectivization_add				= 1.00
@@ -256,6 +314,21 @@ REPLACE_OR_CREATE:law_cooperative_ownership = {
 		country_authority_mult													= 0.10	# Added
 		country_free_charters_add												= 1
 		country_foreign_collectivization_bool									= no	# Disabled
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.95
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.75
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.50
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_enact_weight_modifier = { # Petitions
 		value = 0
@@ -292,7 +365,7 @@ REPLACE_OR_CREATE:law_command_economy = {
 		state_bureaucrats_investment_pool_efficiency_mult			= 0.25
 		country_authority_mult										= 0.25
 		# country_bureaucrats_pol_str_mult							= 0.25	# Moved to law_collectivized_agriculture 
-		country_government_dividends_reinvestment_add				=-0.50	# Decreased - Moved to taxes
+		# country_government_dividends_reinvestment_add				=-0.50	# Decreased - Moved to taxes
 		building_nationalization_cost_mult							=-0.50
 		building_nationalization_radicals_mult						=-0.75
 		country_government_dividends_efficiency_add					= 0.40
@@ -301,6 +374,21 @@ REPLACE_OR_CREATE:law_command_economy = {
 		country_private_construction_allocation_mult				= 0.10
 		country_disable_non_company_privatization_bool				= yes
 		country_free_charters_add									= 1
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_will_do = {
 		OR = {
@@ -357,12 +445,27 @@ REPLACE_OR_CREATE:law_industry_banned = {
 		country_production_tech_research_speed_mult					=-0.25
 		country_production_tech_spread_mult							=-0.25
 		building_nationalization_investment_return_add				= 0.50
-		country_government_dividends_reinvestment_add				=-0.25	# Decreased - Moved to taxes
+		# country_government_dividends_reinvestment_add				=-0.25	# Decreased - Moved to taxes
 		country_government_dividends_efficiency_add					= 0.30
 		country_economic_dependence_on_overlord_add					=-0.50
 		state_peasants_education_access_add							=-0.10
 		country_disable_nationalization_without_compensation_bool	= yes
 		country_free_charters_add									= 1
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_will_do = {	# Changed
 		exists = ruler
@@ -418,6 +521,21 @@ REPLACE_OR_CREATE:law_extraction_economy = {
 		country_disable_nationalization_without_compensation_bool	= yes
 		country_economic_dependence_on_overlord_add					= 0.50
 		country_force_privatization_bool							= yes	# Added
+	}
+	tax_modifier_very_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_low = {
+		country_government_dividends_reinvestment_add				= 0.25
+	}
+	tax_modifier_medium = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_high = {
+		country_government_dividends_reinvestment_add				= 0.00
+	}
+	tax_modifier_very_high = {
+		country_government_dividends_reinvestment_add				= 0.00
 	}
 	ai_will_do = {	# Added
 		is_subject = yes

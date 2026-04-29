@@ -1,0 +1,288 @@
+﻿REPLACE_OR_CREATE:je_spa_economic_regeneration_modernise_agriculture = {
+	icon = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+	group = je_group_spa_economic_regeneration
+	scripted_button = je_spa_economic_regeneration_cheat_button
+	possible = {}
+	immediate = {
+		set_variable = {
+			name = je_spa_economic_regeneration_modernise_agriculture_timer_var
+			value = 0
+		}
+	}
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = { scope:journal_entry = { NOT = { has_variable = je_spa_economic_regeneration_creative_accounting_var } } }
+				if = {
+					limit = {
+						any_scope_building = {
+							filter = {
+								is_building_group = bg_staple_crops
+								state = { state_region = { is_homeland = cu:spanish } }
+							}
+							OR = {
+								has_active_production_method = pm_fertilization
+								has_active_production_method = pm_fertilized_autarky_farm
+								hidden_trigger = { has_active_production_method = pm_fertilization_building_rice_farm }
+							}
+							percent >= 0.8
+						}
+						any_scope_building = {
+							filter = {
+								is_building_group = bg_staple_crops
+								state = { state_region = { is_homeland = cu:spanish } }
+							}
+							OR = {
+								has_active_production_method = pm_steam_threshers
+								has_active_production_method = pm_steam_threshers_subsistence
+								hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+							}
+							percent >= 0.8
+						}
+					}
+					change_variable = { name = je_spa_economic_regeneration_modernise_agriculture_timer_var add = 1 }
+				}
+				else = {
+					set_variable = { name = je_spa_economic_regeneration_modernise_agriculture_timer_var value = 0 }
+				}
+			}
+			else_if = {
+				limit = { scope:journal_entry = { has_variable = je_spa_economic_regeneration_creative_accounting_var } }
+				if = {
+					limit = {
+						any_scope_building = {
+							filter = {
+								is_building_group = bg_staple_crops
+								state = { state_region = { is_homeland = cu:spanish } }
+							}
+							OR = {
+								has_active_production_method = pm_fertilization
+								has_active_production_method = pm_fertilized_autarky_farm
+								hidden_trigger = { has_active_production_method = pm_fertilization_building_rice_farm }
+							}
+							percent >= 0.4
+						}
+						any_scope_building = {
+							filter = {
+								is_building_group = bg_staple_crops
+								state = { state_region = { is_homeland = cu:spanish } }
+							}
+							OR = {
+								has_active_production_method = pm_steam_threshers
+								has_active_production_method = pm_steam_threshers_subsistence
+								hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+							}
+							percent >= 0.4
+						}
+					}
+					change_variable = { name = je_spa_economic_regeneration_modernise_agriculture_timer_var add = 1 }
+				}
+				else = {
+					set_variable = { name = je_spa_economic_regeneration_modernise_agriculture_timer_var value = 0 }
+				}
+			}
+		}
+	}
+	complete = {
+		trigger_if = {
+			limit = { scope:journal_entry = { NOT = { has_variable = je_spa_economic_regeneration_creative_accounting_var } } }
+			custom_tooltip = {
+				text = je_spa_economic_regeneration_modernise_agriculture_tt_1
+				var:je_spa_economic_regeneration_modernise_agriculture_timer_var >= 24
+			}
+			any_scope_building = {
+				filter = {
+					is_building_group = bg_staple_crops
+					state = { state_region = { is_homeland = cu:spanish } }
+				}
+				OR = {
+					has_active_production_method = pm_fertilization
+					has_active_production_method = pm_fertilized_autarky_farm
+					hidden_trigger = { has_active_production_method = pm_fertilization_building_rice_farm }
+				}
+				percent >= 0.8
+			}
+			any_scope_building = {
+				filter = {
+					is_building_group = bg_staple_crops
+					state = { state_region = { is_homeland = cu:spanish } }
+				}
+				OR = {
+					has_active_production_method = pm_steam_threshers
+					has_active_production_method = pm_steam_threshers_subsistence
+					hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+				}
+				percent >= 0.8
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				scope:journal_entry = {
+					has_variable = je_spa_economic_regeneration_creative_accounting_var
+				}
+			}
+			custom_tooltip = {
+				text = je_spa_economic_regeneration_modernise_agriculture_tt_2
+				var:je_spa_economic_regeneration_modernise_agriculture_timer_var >= 12
+			}
+			any_scope_building = {
+				filter = {
+					is_building_group = bg_staple_crops
+					state = { state_region = { is_homeland = cu:spanish } }
+				}
+				OR = {
+					has_active_production_method = pm_fertilization
+					has_active_production_method = pm_fertilized_autarky_farm
+					hidden_trigger = { has_active_production_method = pm_fertilization_building_rice_farm }
+				}
+				percent >= 0.4
+			}
+			any_scope_building = {
+				filter = {
+					is_building_group = bg_staple_crops
+					state = { state_region = { is_homeland = cu:spanish } }
+				}
+				OR = {
+					has_active_production_method = pm_steam_threshers
+					has_active_production_method = pm_steam_threshers_subsistence
+					hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+				}
+				percent >= 0.4
+			}
+		}
+	}
+	on_complete = {
+		change_variable = {
+			name = spa_economic_regeneration_var
+			add = 1
+		}
+		if = {
+			limit = { scope:journal_entry = { NOT = { has_variable = je_spa_economic_regeneration_creative_accounting_var } } }
+			show_as_tooltip = {
+				custom_tooltip = { text = every_state_following_requirements_tt }
+				ordered_scope_state = {
+					order_by = gdp
+					position = 0
+					check_range_bounds = no
+					add_modifier = {
+						name = modifier_population_boom
+						days = long_modifier_time
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						any_scope_building = {
+							OR = {
+								has_active_production_method = pm_steam_threshers
+								has_active_production_method = pm_steam_threshers_subsistence
+								hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+							}
+						}
+						state_region = { is_homeland = cu:spanish }
+					}
+					add_modifier = {
+						name = modifier_population_boom
+						days = long_modifier_time
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:journal_entry = { has_variable = je_spa_economic_regeneration_creative_accounting_var } }
+			show_as_tooltip = {
+				custom_tooltip = { text = every_state_following_requirements_tt }
+				ordered_scope_state = {
+					order_by = gdp
+					position = 0
+					check_range_bounds = no
+					add_modifier = {
+						name = modifier_population_boom
+						days = long_modifier_time
+					}
+				}
+			}
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						any_scope_building = {
+							OR = {
+								has_active_production_method = pm_steam_threshers
+								has_active_production_method = pm_steam_threshers_subsistence
+								hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+							}
+						}
+						state_region = { is_homeland = cu:spanish }
+					}
+					add_modifier = {
+						name = modifier_population_boom
+						days = normal_modifier_time
+						multiplier = 0.5
+					}
+				}
+			}
+		}
+	}
+	fail = { OR = { NOT = { has_journal_entry = je_spa_economic_regeneration_master } } }
+	on_fail = {
+		add_modifier = {
+			name = modifier_falling_birthrates
+			days = normal_modifier_time
+		}
+	}
+	weight = 100
+	should_be_pinned_by_default = yes
+}
+REPLACE_OR_CREATE:je_portugal_regeneration_agriculture = {
+	icon = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+	group = je_group_historical_content
+	complete = {
+		has_technology_researched = improved_fertilizer
+		has_technology_researched = threshing_machine
+		OR = {
+			has_law = law_type:law_homesteading
+			has_law = law_type:law_commercialized_agriculture
+		}
+		any_scope_building = {
+			filter = {
+				is_building_group = bg_staple_crops
+				state = { is_incorporated = yes }
+			}
+			OR = {
+				has_active_production_method = pm_fertilization
+				has_active_production_method = pm_fertilized_autarky_farm
+				hidden_trigger = { has_active_production_method = pm_fertilization_building_rice_farm }
+			}
+			percent >= 0.5
+		}
+		any_scope_building = {
+			filter = {
+				is_building_group = bg_staple_crops
+				state = { is_incorporated = yes }
+			}
+			OR = {
+				has_active_production_method = pm_steam_threshers
+				has_active_production_method = pm_steam_threshers_subsistence
+				hidden_trigger = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+			}
+			percent >= 0.5
+		}
+	}
+	on_complete = {
+		set_variable = je_portugal_regeneration_agriculture_complete
+		trigger_event = { id = portugal_regeneration.4 }
+	}
+	event_outcome_completed_desc = { first_valid = { triggered_desc = { desc = event_effects_portugal_regeneration.4_tt } } }
+    fail = {
+		OR = {
+			custom_tooltip = {
+				text = no_coups_tt
+				has_variable = recent_coup_or_revolution_var
+			}
+			in_default = yes
+		}
+    }
+	weight = 6000
+    should_be_pinned_by_default = yes
+}

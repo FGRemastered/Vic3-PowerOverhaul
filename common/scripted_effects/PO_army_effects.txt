@@ -14,7 +14,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_heavy_tank			state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_light_tanks			state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = nco_training }
@@ -26,7 +27,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = defense_in_depth }
@@ -38,7 +40,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = trench_works }
@@ -50,7 +53,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = breech_loading_artillery }
@@ -62,7 +66,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = general_staff }
@@ -74,7 +79,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = napoleonic_warfare }
@@ -86,7 +92,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -101,7 +108,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_cuirassiers			state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -116,7 +124,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =   5 }
 					combat_unit = { type = unit_type:combat_unit_type_dragoons				state_region = capital.state_region	count =  20 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = standing_army }
@@ -127,7 +136,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_irregular_infantry	state_region = capital.state_region	count =  25 }
 					combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region	count =  25 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			else = {
 				create_military_formation = {
@@ -136,7 +146,8 @@ effect_capital_army = {
 					type = army
 					combat_unit = { type = unit_type:combat_unit_type_irregular_infantry	state_region = capital.state_region	count =  50 }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 		}
 		law_type:law_professional_army = {
@@ -150,7 +161,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_heavy_tank			state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_light_tanks			state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = nco_training }
@@ -162,7 +174,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = defense_in_depth }
@@ -174,7 +187,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = trench_works }
@@ -186,7 +200,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = breech_loading_artillery }
@@ -198,7 +213,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = general_staff }
@@ -210,7 +226,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = napoleonic_warfare }
@@ -222,7 +239,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -237,7 +255,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_cuirassiers			state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -252,7 +271,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =  10 }
 					combat_unit = { type = unit_type:combat_unit_type_dragoons				state_region = capital.state_region	count =  40 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = standing_army }
@@ -272,7 +292,8 @@ effect_capital_army = {
 					type = army
 					combat_unit = { type = unit_type:combat_unit_type_irregular_infantry	state_region = capital.state_region	count = 100 }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 		}
 		law_type:law_mass_conscription = {
@@ -286,7 +307,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_heavy_tank			state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_light_tanks			state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = nco_training }
@@ -298,7 +320,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = defense_in_depth }
@@ -310,7 +333,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_siege_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = trench_works }
@@ -322,7 +346,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = breech_loading_artillery }
@@ -334,7 +359,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_shrapnel_artillery	state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = general_staff }
@@ -346,7 +372,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = napoleonic_warfare }
@@ -358,7 +385,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_mobile_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_lancers				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -373,7 +401,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_cuirassiers			state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = {
@@ -388,7 +417,8 @@ effect_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region	count =  20 }
 					combat_unit = { type = unit_type:combat_unit_type_dragoons				state_region = capital.state_region	count =  80 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 			else_if = {
 				limit = { has_technology_researched = standing_army }
@@ -408,7 +438,8 @@ effect_capital_army = {
 					type = army
 					combat_unit = { type = unit_type:combat_unit_type_irregular_infantry	state_region = capital.state_region	count = 200 }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 		}
 		law_type:law_national_militia = {
@@ -580,7 +611,8 @@ effect_CHI_capital_army = {
 				combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region		count =   5 }
 				combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region		count =  20 }
 			}
-			custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			effect_handle_cost = { cost = 5.0 debtor = OWNER }
 		}
 		else_if = {
 			limit = { has_law = law_type:law_professional_army }
@@ -592,7 +624,8 @@ effect_CHI_capital_army = {
 				combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region		count =  10 }
 				combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region		count =  40 }
 			}
-			custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			effect_handle_cost = { cost = 10.0 debtor = OWNER }
 		}
 		else_if = {
 			limit = { has_law = law_type:law_mass_conscription }
@@ -604,7 +637,8 @@ effect_CHI_capital_army = {
 				combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region		count =  20 }
 				combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region		count =  80 }
 			}
-			custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 		}
 	}
 }
@@ -623,7 +657,8 @@ effect_qingdao_garrison = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = s:STATE_SHANDONG			count =  25 }
 				}
 			}
-			custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			effect_handle_cost = { cost = 5.0 debtor = OWNER }
 		}
 		law_type:law_professional_army = {
 			custom_tooltip = {
@@ -637,7 +672,8 @@ effect_qingdao_garrison = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = s:STATE_SHANDONG			count =  50 }
 				}
 			}
-			custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			effect_handle_cost = { cost = 10.0 debtor = OWNER }
 		}
 		law_type:law_national_militia = {
 			custom_tooltip = {
@@ -669,7 +705,8 @@ effect_qingdao_garrison = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = s:STATE_SHANDONG			count = 100	service_type = conscript }
 				}
 			}
-			custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+			effect_handle_cost = { cost = 20.0 debtor = OWNER }
 		}
 	}
 }
@@ -1255,7 +1292,8 @@ effect_USA_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region				count =  10	service_type = conscript }
 					combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region				count =  40	service_type = conscript }
 				}
-				custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_5M ROOT = { change_variable = { name = loans_var add = 5.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 5.0 debtor = OWNER }
 			}
 			law_type:law_professional_army = {
 				create_military_formation = {
@@ -1270,7 +1308,8 @@ effect_USA_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region				count =  20	service_type = conscript }
 					combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region				count =  80	service_type = conscript }
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 			law_type:law_national_militia = {
 				create_military_formation = {
@@ -1300,7 +1339,8 @@ effect_USA_capital_army = {
 					combat_unit = { type = unit_type:combat_unit_type_cannon_artillery		state_region = capital.state_region				count = 100	service_type = conscript }
 					combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = capital.state_region				count = 400	service_type = conscript }
 				}
-				custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_20M ROOT = { change_variable = { name = loans_var add = 20.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 20.0 debtor = OWNER }
 			}
 		}
 	}
@@ -1531,7 +1571,8 @@ effect_dixie_army = {
 						combat_unit = { type = unit_type:combat_unit_type_hussars				state_region = s:STATE_TEXAS				count =  40	service_type = conscript }
 					}
 				}
-				custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				# custom_tooltip = { text = cost_10M ROOT = { change_variable = { name = loans_var add = 10.0 } } }	# Every building costs 100 points x 1k/point in Millions
+				effect_handle_cost = { cost = 10.0 debtor = OWNER }
 			}
 		}
 		law_type:law_mass_conscription = {

@@ -1,5 +1,5 @@
 ﻿############ BARRACKS
-REPLACE:building_barrack = {
+REPLACE_OR_CREATE:building_barrack = {
 	aliases = { building_barracks }
 	building_group = bg_army
 	recruits_combat_units = yes
@@ -13,7 +13,7 @@ REPLACE:building_barrack = {
 	required_construction = construction_cost_very_low
 	slaves_role = soldiers	# New
 }
-REPLACE:building_conscription_center = {
+REPLACE_OR_CREATE:building_conscription_center = {
 	building_group = bg_conscription
 	buildable = no
 	expandable = no
@@ -28,7 +28,7 @@ REPLACE:building_conscription_center = {
 	production_method_groups = { pmg_training_conscription }
 	slaves_role = soldiers	# New
 }
-REPLACE:building_naval_base = {
+REPLACE_OR_CREATE:building_naval_base = {
 	building_group = bg_navy
 	recruits_combat_units = yes
 	city_type = port

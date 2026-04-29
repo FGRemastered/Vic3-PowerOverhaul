@@ -1,88 +1,122 @@
 INJECT:ig_trait_be_fruitful_and_multiply = {						# DV
 	modifier = {
-		state_birth_rate_mult								= 0.05
+		state_birth_rate_mult										= 0.05
 	}
 }
 INJECT:ig_trait_treasury_bonds = {									# PB
 	modifier = {
-		country_gold_reserve_limit_mult						= 0.25
-		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
-		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
-		state_tax_waste_add									=-0.025	# Added
-		country_government_dividends_waste_add				=-0.025	# Added
+		country_gold_reserve_limit_mult								= 0.25
+		state_farmers_investment_pool_contribution_add				= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add			= 0.05	# Added	- On par with capitalists
+		state_tax_waste_add											=-0.025	# Added
+		country_government_dividends_waste_add						=-0.025	# Added
 	}
 }
 INJECT:ig_trait_old_lady_of_threadneedle_street = {					# PB
 	modifier = {
-		country_loan_interest_rate_mult						=-0.15
-		country_gold_reserve_limit_mult						= 0.375
-		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
-		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
-		state_tax_waste_add									=-0.025	# Added
-		country_government_dividends_waste_add				=-0.025	# Added
+		country_loan_interest_rate_mult								=-0.15
+		country_gold_reserve_limit_mult								= 0.375
+		state_farmers_investment_pool_contribution_add				= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add			= 0.05	# Added	- On par with capitalists
+		state_tax_waste_add											=-0.025	# Added
+		country_government_dividends_waste_add						=-0.025	# Added
 	}
 }
 INJECT:ig_trait_junkerdom = {										# LO
 	modifier = {
-		state_aristocrats_investment_pool_contribution_add	= 0.10	# On-par with capitalists
-		state_aristocrats_investment_pool_efficiency_mult	= 0.20
-		country_prestige_from_army_power_projection_mult	= 0.10
+		state_aristocrats_investment_pool_contribution_add			= 0.10	# On-par with capitalists
+		state_aristocrats_investment_pool_efficiency_mult			= 0.20
+		country_prestige_from_army_power_projection_mult			= 0.10
 	}
 }
 INJECT:ig_trait_biedermanner = {									# PB
 	modifier = {
-		country_loan_interest_rate_mult						=-0.05	# Added back
-		state_farmers_investment_pool_contribution_add		= 0.05	# Added	- On par with aristocrats
-		state_shopkeepers_investment_pool_contribution_add	= 0.05	# Added	- On par with capitalists
-		state_tax_waste_add									=-0.05	# Added
-		country_government_dividends_waste_add				=-0.05	# Added
+		country_loan_interest_rate_mult								=-0.05	# Added back
+		state_farmers_investment_pool_contribution_add				= 0.05	# Added	- On par with aristocrats
+		state_shopkeepers_investment_pool_contribution_add			= 0.05	# Added	- On par with capitalists
+		state_tax_waste_add											=-0.05	# Added
+		country_government_dividends_waste_add						=-0.05	# Added
 	}
 }
 INJECT:ig_trait_xenophobia = {										# PB
 	modifier = {
-		state_migration_pull_mult							=-0.25	# Added - Counters Intelligentsia
-		country_qualification_growth_violent_hostility_mult	=-0.20	# Added
-		country_qualification_growth_cultural_erasure_mult	=-0.15	# Added
-		country_qualification_growth_open_prejudice_mult	=-0.10	# Added
+		state_migration_pull_mult									=-0.25	# Added - Counters Intelligentsia
+		country_qualification_growth_violent_hostility_mult			=-0.20	# Added
+		country_qualification_growth_cultural_erasure_mult			=-0.15	# Added
+		country_qualification_growth_open_prejudice_mult			=-0.10	# Added
 	}
 }
 INJECT:ig_trait_work_to_rule = {									# TU
 	modifier = {
-		building_group_bg_manufacturing_throughput_add		=-0.10	# Added
-		building_group_bg_service_throughput_add			=-0.10	# Added
+		building_group_bg_manufacturing_throughput_add				=-0.10	# Added
+		building_group_bg_extraction_throughput_add					=-0.10	# Added
+		building_group_bg_service_throughput_add					=-0.10	# Added
+	}
+}
+INJECT:ig_trait_industrial_organizers = {							# TU
+	modifier = {
+		building_group_bg_extraction_throughput_add					= 0.10	# Added
+		building_group_bg_service_throughput_add					= 0.10	# Added
 	}
 }
 INJECT:ig_trait_social_criticism = {								# INT
 	modifier = {
-		state_tax_waste_add									= 0.10	# Added
-		country_government_dividends_waste_add				= 0.10	# Added
-		building_group_bg_arts_tax_mult						=-0.10	# Added
+		state_tax_waste_add											= 0.10	# Added
+		country_government_dividends_waste_add						= 0.10	# Added
+		building_group_bg_arts_tax_mult								=-0.10	# Added
 	}
 }
 INJECT:ig_trait_tax_avoidance = {	 								# IND
 	modifier = {
-		building_group_bg_financial_districts_tax_mult		=-0.10
+		building_group_bg_financial_districts_tax_mult				=-0.10
+		building_group_bg_company_headquarter_tax_mult				=-0.10
+		building_group_bg_company_regional_headquarter_tax_mult		=-0.10
+	}
+}
+INJECT:ig_trait_zaibatsu_withdrawal = {								# IND
+	modifier = {
+		building_group_bg_financial_districts_tax_mult				=-0.10
+		building_group_bg_company_headquarter_tax_mult				=-0.10
+		building_group_bg_company_regional_headquarter_tax_mult		=-0.10
 	}
 }
 INJECT:ig_trait_zaibatsu_cooperation = {							# IND
 	modifier = {
-		building_group_bg_financial_districts_tax_mult		= 0.10
+		building_group_bg_financial_districts_tax_mult				= 0.10
+		building_group_bg_company_headquarter_tax_mult				= 0.10
+		building_group_bg_company_regional_headquarter_tax_mult		= 0.10
 	}
 }
 INJECT:ig_trait_kommerskollegium = {	 							# IND
 	modifier = {
-		building_group_bg_financial_districts_tax_mult		= 0.10
+		building_group_bg_financial_districts_tax_mult				= 0.10
 	}
 }
 INJECT:ig_trait_noble_privileges = {								 # LO
 	modifier = {
-		building_group_bg_manor_houses_tax_mult				=-0.10	# Added - Technically reduces effective tax by 19%/36%
+		building_group_bg_manor_houses_tax_mult						=-0.10	# Added - Technically reduces effective tax by 19%/36%
+		# building_group_bg_company_headquarter_tax_mult			=-0.05	# Added - Some companies have aristocrats as owners
+		# building_group_bg_company_regional_headquarter_tax_mult	=-0.05	# Added - Some companies have aristocrats as owners
+	}
+}
+INJECT:ig_trait_bad_boyars = {										 # LO
+	modifier = {
+		building_group_bg_manor_houses_tax_mult						=-0.10	# Added - Technically reduces effective tax by 19%/36%
+		# building_group_bg_company_headquarter_tax_mult			=-0.05	# Added - Some companies have aristocrats as owners
+		# building_group_bg_company_regional_headquarter_tax_mult	=-0.05	# Added - Some companies have aristocrats as owners
+	}
+}
+INJECT:ig_trait_summon_no_zamindars = {								# LO
+	modifier = {
+		building_group_bg_manor_houses_tax_mult						=-0.10	# Added - Technically reduces effective tax by 19%/36%
+		# building_group_bg_company_headquarter_tax_mult			=-0.05	# Added - Some companies have aristocrats as owners
+		# building_group_bg_company_regional_headquarter_tax_mult	=-0.05	# Added - Some companies have aristocrats as owners
 	}
 }
 INJECT:ig_trait_latifundios = {										# LO
 	modifier = {
-		building_group_bg_manor_houses_tax_mult				= 0.10	# Added - Technically increases effective tax by 21%/44%
-		building_group_bg_ranching_tax_mult					= 0.10	# Added - Left out for some reason
+		building_group_bg_manor_houses_tax_mult						= 0.10	# Added - Technically increases effective tax by 21%/44%
+		building_group_bg_ranching_tax_mult							= 0.10	# Added - Left out for some reason
 	}
 }
 # Prussia doesn't have unique army traits, which is frankly unacceptable.
@@ -90,29 +124,32 @@ REPLACE_OR_CREATE:ig_army_with_a_state = {							# AF
 	icon = "gfx/interface/icons/ig_trait_icons/patriotic_fervor.dds"
 	min_approval = loyal
 	modifier = {
-		unit_offense_mult									= 0.15
-		unit_defense_mult									= 0.15
-		building_group_bg_military_throughput_add			= 0.15
+		unit_offense_mult											= 0.10
+		unit_defense_mult											= 0.10
+		unit_army_offense_mult										= 0.05
+		unit_army_defense_mult										= 0.05
+		building_group_bg_military_throughput_add					= 0.15
 	}
 }
 REPLACE_OR_CREATE:ig_prussian_military_admin = {					# AF
 	icon = "gfx/interface/icons/ig_trait_icons/veteran_consultation.dds"
 	min_approval = happy
 	modifier = {
-		country_military_tech_research_speed_mult			= 0.15
-		country_military_goods_cost_mult					=-0.10
-		building_arms_industry_throughput_add				= 0.10
-		building_artillery_foundry_throughput_add			= 0.10
-		building_munition_plant_throughput_add				= 0.10
+		country_military_tech_research_speed_mult					= 0.15
+		country_military_goods_cost_mult							=-0.10
+		building_arms_industry_throughput_add						= 0.10
+		building_artillery_foundry_throughput_add					= 0.10
+		building_munition_plant_throughput_add						= 0.10
 	}
 }
 REPLACE_OR_CREATE:ig_backbone_disrespected = {						# AF
 	icon = "gfx/interface/icons/ig_trait_icons/materiel_waste.dds"
 	max_approval = unhappy
 	modifier = {
-		state_radicals_from_political_movements_mult		= 0.15
-		country_revolution_progress_mult					= 0.15
-		country_secession_progress_mult						= 0.15
-		state_turmoil_effects_mult							= 0.15
+		state_radicals_from_political_movements_mult				= 0.15
+		country_revolution_progress_mult							= 0.15
+		state_mortality_turmoil_mult								= 0.10
+		state_turmoil_effects_mult									= 0.15
+		state_non_homeland_mortality_mult							= 0.10	# Xenophobia
 	}
 }

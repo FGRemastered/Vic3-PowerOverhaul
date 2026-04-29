@@ -1,4 +1,4 @@
-# Basic Companies
+﻿# Basic Companies
 INJECT:company_basic_food = {
 	building_types = {
 		building_autarky_farm
@@ -22,6 +22,7 @@ INJECT:company_basic_textiles = {
 	extension_building_types = {
 		building_cotton_greenhouse
 		building_silk_greenhouse
+		building_synthetics_plant
 	}
 	prosperity_modifier = {
 		country_free_charters_add						= 1
@@ -31,135 +32,147 @@ INJECT:company_basic_weapons = {
 	possible_prestige_goods = {
 		prestige_good_generic_artillery		# Added
 	}
+	building_types = {						# Added as default, to leave space for automotive industry
+		building_munition_plant
+	}
 }
-REPLACE:company_basic_colonial_plantations_1 = {
-	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
-	category = aristocrat_owned
-	flavored_company = no
-	uses_dynamic_naming = yes
-	dynamic_company_type_names = {
-		"dynamic_company_type_company"
-		"dynamic_company_type_consortium"
-		"dynamic_company_type_society"
-		"dynamic_company_type_fellowship"
-	}
-	building_types = {
-		building_opium_plantation
-		building_tea_plantation
-		building_opium_greenhouse
-		building_tea_greenhouse
-	}
+INJECT:company_basic_electrics = {
 	extension_building_types = {
-		building_tobacco_plantation
-		building_tobacco_greenhouse
-	}
-	possible_prestige_goods = {
-		prestige_good_generic_opium
-	}
-	prestige_goods_trigger = {
-		custom_tooltip = {
-			text = je_prestige_goods_opium_complete_tt
-			has_variable = prestige_good_generic_opium_var
-		}
-	}
-	possible = {
-		any_scope_state = {
-			any_scope_building = {
-				OR = {
-					is_building_type = building_opium_plantation
-					is_building_type = building_tea_plantation
-					is_building_type = building_opium_greenhouse
-					is_building_type = building_tea_greenhouse
-				}
-				level >= 5
-			}
-		}
+		building_power_plant
 	}
 	prosperity_modifier = {
-		state_radicals_from_political_movements_mult = -0.05
-	}
-	ai_will_do = {
-		any_scope_state = {
-			any_scope_building = {
-				OR = {
-					is_building_type = building_opium_plantation
-					is_building_type = building_tea_plantation
-					is_building_type = building_opium_greenhouse
-					is_building_type = building_tea_greenhouse
-				}
-				level >= 3
-			}
-		}
+		building_power_plant_throughput_add	=-0.10	# Removed
+		goods_output_electricity_mult		= 0.10	# Added
 	}
 }
-REPLACE:company_basic_colonial_plantations_2 = {
-	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
-	category = aristocrat_owned
-	flavored_company = no
-	uses_dynamic_naming = yes
-	dynamic_company_type_names = {
-		"dynamic_company_type_company"
-		"dynamic_company_type_consortium"
-		"dynamic_company_type_society"
-		"dynamic_company_type_fellowship"
-	}
-	building_types = {
-		building_coffee_plantation
-		building_sugar_plantation
-		building_tobacco_plantation
-		building_coffee_greenhouse
-		building_sugar_greenhouse
-		building_tobacco_greenhouse
-	}
-	extension_building_types = {
-		building_tea_plantation
-		building_tea_greenhouse
-	}
-	possible_prestige_goods = {
-		prestige_good_generic_coffee
-	}
-	prestige_goods_trigger = {
-		custom_tooltip = {
-			text = je_prestige_goods_coffee_complete_tt
-			has_variable = prestige_good_generic_coffee_var
-		}
-	}
-	possible = {
-		any_scope_state = {
-			any_scope_building = {
-				OR = {
-					is_building_type = building_coffee_plantation
-					is_building_type = building_sugar_plantation
-					is_building_type = building_tobacco_plantation
-					is_building_type = building_coffee_greenhouse
-					is_building_type = building_sugar_greenhouse
-					is_building_type = building_tobacco_greenhouse
-				}
-				level >= 5
-			}
-		}
-	}
-	prosperity_modifier = {
-		state_colony_growth_speed_mult = 0.1
-	}
-	ai_will_do = {
-		any_scope_state = {
-			any_scope_building = {
-				OR = {
-					is_building_type = building_coffee_plantation
-					is_building_type = building_sugar_plantation
-					is_building_type = building_tobacco_plantation
-					is_building_type = building_coffee_greenhouse
-					is_building_type = building_sugar_greenhouse
-					is_building_type = building_tobacco_greenhouse
-				}
-				level >= 3
-			}
-		}
-	}
-}
+# REPLACE:company_basic_colonial_plantations_1 = {
+	# icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	# background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	# category = aristocrat_owned
+	# flavored_company = no
+	# uses_dynamic_naming = yes
+	# dynamic_company_type_names = {
+		# "dynamic_company_type_company"
+		# "dynamic_company_type_consortium"
+		# "dynamic_company_type_society"
+		# "dynamic_company_type_fellowship"
+	# }
+	# building_types = {
+		# building_opium_plantation
+		# building_tea_plantation
+		# building_opium_greenhouse
+		# building_tea_greenhouse
+	# }
+	# extension_building_types = {
+		# building_tobacco_plantation
+		# building_tobacco_greenhouse
+	# }
+	# possible_prestige_goods = {
+		# prestige_good_generic_opium
+	# }
+	# prestige_goods_trigger = {
+		# custom_tooltip = {
+			# text = je_prestige_goods_opium_complete_tt
+			# has_variable = prestige_good_generic_opium_var
+		# }
+	# }
+	# possible = {
+		# any_scope_state = {
+			# any_scope_building = {
+				# OR = {
+					# is_building_type = building_opium_plantation
+					# is_building_type = building_tea_plantation
+					# is_building_type = building_opium_greenhouse
+					# is_building_type = building_tea_greenhouse
+				# }
+				# level >= 5
+			# }
+		# }
+	# }
+	# prosperity_modifier = {
+		# state_radicals_from_political_movements_mult = -0.05
+	# }
+	# ai_will_do = {
+		# any_scope_state = {
+			# any_scope_building = {
+				# OR = {
+					# is_building_type = building_opium_plantation
+					# is_building_type = building_tea_plantation
+					# is_building_type = building_opium_greenhouse
+					# is_building_type = building_tea_greenhouse
+				# }
+				# level >= 3
+			# }
+		# }
+	# }
+# }
+# REPLACE:company_basic_colonial_plantations_2 = {
+	# icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
+	# background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	# category = aristocrat_owned
+	# flavored_company = no
+	# uses_dynamic_naming = yes
+	# dynamic_company_type_names = {
+		# "dynamic_company_type_company"
+		# "dynamic_company_type_consortium"
+		# "dynamic_company_type_society"
+		# "dynamic_company_type_fellowship"
+	# }
+	# building_types = {
+		# building_coffee_plantation
+		# building_sugar_plantation
+		# building_tobacco_plantation
+		# building_coffee_greenhouse
+		# building_sugar_greenhouse
+		# building_tobacco_greenhouse
+	# }
+	# extension_building_types = {
+		# building_tea_plantation
+		# building_tea_greenhouse
+	# }
+	# possible_prestige_goods = {
+		# prestige_good_generic_coffee
+	# }
+	# prestige_goods_trigger = {
+		# custom_tooltip = {
+			# text = je_prestige_goods_coffee_complete_tt
+			# has_variable = prestige_good_generic_coffee_var
+		# }
+	# }
+	# possible = {
+		# any_scope_state = {
+			# any_scope_building = {
+				# OR = {
+					# is_building_type = building_coffee_plantation
+					# is_building_type = building_sugar_plantation
+					# is_building_type = building_tobacco_plantation
+					# is_building_type = building_coffee_greenhouse
+					# is_building_type = building_sugar_greenhouse
+					# is_building_type = building_tobacco_greenhouse
+				# }
+				# level >= 5
+			# }
+		# }
+	# }
+	# prosperity_modifier = {
+		# state_colony_growth_speed_mult = 0.1
+	# }
+	# ai_will_do = {
+		# any_scope_state = {
+			# any_scope_building = {
+				# OR = {
+					# is_building_type = building_coffee_plantation
+					# is_building_type = building_sugar_plantation
+					# is_building_type = building_tobacco_plantation
+					# is_building_type = building_coffee_greenhouse
+					# is_building_type = building_sugar_greenhouse
+					# is_building_type = building_tobacco_greenhouse
+				# }
+				# level >= 3
+			# }
+		# }
+	# }
+# }
 INJECT:company_basic_fishing = {
 	building_types = {
 		building_infres_fishing_wharf
@@ -177,8 +190,12 @@ REPLACE_OR_CREATE:company_sovereign_resource_fund = {
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
 	category = bureaucrat_owned
 	building_types = {
+		# Industry
 		building_tooling_workshop
 		building_steel_mill
+		building_explosives_factory
+		building_charcoal_burner
+		# Extraction
 		building_gold_mine
 		building_rubber_plantation
 		building_oil_rig
@@ -209,6 +226,9 @@ REPLACE_OR_CREATE:company_sovereign_resource_fund = {
 	possible_prestige_goods = {
 		prestige_good_generic_steel
 		prestige_good_generic_tools
+		prestige_good_generic_explosives
+		prestige_good_generic_fish
+		prestige_good_generic_meat
 	}
 	# prestige_goods_trigger = {
 		# This trigger is executed in Company scope and checks if the company can produce prestige goods
@@ -223,27 +243,104 @@ REPLACE_OR_CREATE:company_sovereign_resource_fund = {
 			level >= 5
 		}
 	}
-	can_establish_in = {
-		is_capital = yes	# trigger_capital_or_market_capital would also work, but we want to separate the admin and the economy side to make sure the capital stays the state with the highest admin level.
-	}
+	can_establish_in = { is_capital = yes }	# trigger_capital_or_market_capital would also work, but we want to separate the admin and the economy side to make sure the capital stays the state with the highest admin level.
 	prosperity_modifier = {
 		country_max_companies_add									= 1
 		country_free_charters_add									= 5
-		country_bureaucracy_investment_cost_factor_mult				=-0.10
-		building_group_bg_extraction_throughput_add					= 0.25
+		country_bureaucracy_investment_cost_factor_mult				=-0.05
+		building_group_bg_extraction_throughput_add					= 0.05	# Too strong.
 		building_group_bg_extraction_tax_mult						= 0.25
 		building_steel_mill_throughput_add							= 0.25
-		building_chemical_plant_throughput_add						= 0.25
+		building_explosives_factory_throughput_add					= 0.25
+		building_charcoal_burner_throughput_add						= 0.25
 		country_minting_mult										= 0.25
 		state_loyalists_from_political_movements_mult				= 0.10
 		state_colony_growth_speed_mult								= 0.10
 	}
 	ai_will_do = { trigger_ai_will_do_sovereign_resource_fund = yes }
 	ai_construction_targets = {
-		building_steel_mill		= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
+		building_steel_mill			= { level = 5 state_trigger = { is_capital = yes } }
 		building_tooling_workshop	= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
+		building_explosives_factory	= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
 	}
 	ai_weight = { value = 2 }	# Higher than normal weight
+}
+REPLACE_OR_CREATE:company_sovereign_growth_fund = {
+	icon = "gfx/interface/icons/company_icons/company_basic_agriculture.dds"	# Unused version
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	category = bureaucrat_owned
+	flavored_company = yes
+	building_types = {
+		building_chemical_plant
+		# Greenhouses
+		building_vineyard_greenhouse
+		building_coffee_greenhouse
+		building_tea_greenhouse
+		building_sugar_greenhouse
+		building_banana_greenhouse
+		building_opium_greenhouse
+		building_tobacco_greenhouse
+		building_cotton_greenhouse
+		building_dye_greenhouse
+		building_silk_greenhouse
+		building_logging_greenhouse
+		building_rubber_greenhouse
+	}
+	extension_building_types = {
+		# Agriculture
+		building_autarky_greenhouse
+	}
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+		prestige_good_havana_sugar
+		prestige_good_generic_coffee
+		prestige_good_generic_opium
+		prestige_good_sea_island_cotton
+	}
+	# prestige_goods_trigger = {
+		# This trigger is executed in Company scope and checks if the company can produce prestige goods
+	# }
+	possible = {
+		has_technology_researched = stock_exchange
+		has_technology_researched = intensive_agriculture
+		has_technology_researched = mechanical_tools
+		NOR = {
+			is_banning_goods	= g:opium
+			is_banning_goods	= g:tobacco
+		}
+		any_scope_building = {
+			OR = {
+				is_building_group = bg_greenhouses
+				is_building_type = building_chemical_plant
+			}
+			level >= 5
+		}
+	}
+	can_establish_in = { is_capital = yes }	# trigger_capital_or_market_capital would also work, but we want to separate the admin and the economy side to make sure the capital stays the state with the highest admin level.
+	prosperity_modifier = {
+		country_max_companies_add									= 1
+		country_free_charters_add									= 3
+		country_bureaucracy_investment_cost_factor_mult				=-0.05
+		building_group_bg_greenhouses_throughput_add				= 0.05	# Too strong.
+		building_group_bg_greenhouses_tax_mult						= 0.25
+		building_chemical_plant_throughput_add						= 0.25
+		state_radicals_from_political_movements_mult				=-0.10
+		state_colony_growth_speed_mult								= 0.10
+	}
+	ai_will_do = { trigger_ai_will_do_sovereign_growth_fund = yes }
+	ai_construction_targets = {
+		building_chemical_plant		= { level = 5 state_trigger = { is_capital = yes } }
+		building_coffee_greenhouse	= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
+		building_opium_greenhouse	= { level = 5 state_trigger = { trigger_capital_or_market_capital = yes } }
+	}
+	ai_weight = { value = 0 }	# Zero for now
+}
+INJECT:company_siemens_and_halske = {
+	prosperity_modifier = {
+		building_power_plant_throughput_add							=-0.15	# Removed
+		goods_output_transportation_mult							= 0.15	# Added
+		goods_output_electricity_mult								= 0.15	# Added
+	}
 }
 # Preußische Staatseisenbahnen
 INJECT:company_prussian_state_railways = {
@@ -251,6 +348,8 @@ INJECT:company_prussian_state_railways = {
 		building_port
 		building_power_plant
 		building_motor_industry
+		building_suez_canal
+		building_panama_canal
 	}
 	extension_building_types = {
 		building_automotive_industry
@@ -271,6 +370,12 @@ INJECT:company_prussian_state_railways = {
 		goods_output_merchant_marine_mult							= 0.10
 	}
 	ai_weight = { add = 2 }	# Very high to ensure ai picks this
+}
+# F. Schichau, Maschinen- und Lokomotivfabrik, Schiffswerft und Eisengießerei GmbH
+INJECT:company_schichau = {
+	ai_weight = {
+		if = { limit = { has_company = company_type:company_prussian_state_railways } value = 0 }
+	}
 }
 # Friedrich Krupp AG
 INJECT:company_krupp = {
@@ -390,6 +495,7 @@ REPLACE_OR_CREATE:company_edeka = {
 	category = shopkeeper_owned
 	flavored_company = yes
 	building_types = {
+		building_trade_center
 		# Industry
 		building_food_industry
 		building_textile_mill
@@ -399,18 +505,18 @@ REPLACE_OR_CREATE:company_edeka = {
 		building_autarky_farm
 		building_autarky_greenhouse
 		# Greenhouses
-		building_sugar_greenhouse
-		building_vineyard_greenhouse
-		building_coffee_greenhouse
-		building_tea_greenhouse
-		building_opium_greenhouse
-		building_tobacco_greenhouse
-		building_banana_greenhouse
+		# building_sugar_greenhouse
+		# building_vineyard_greenhouse
+		# building_coffee_greenhouse
+		# building_tea_greenhouse
+		# building_opium_greenhouse
+		# building_tobacco_greenhouse
+		# building_banana_greenhouse
 	}
 	extension_building_types = {
-		building_cotton_greenhouse
-		building_dye_greenhouse
-		building_silk_greenhouse
+		# building_cotton_greenhouse
+		# building_dye_greenhouse
+		# building_silk_greenhouse
 	}
 	possible_prestige_goods = {
 		prestige_good_generic_clothes
@@ -431,23 +537,7 @@ REPLACE_OR_CREATE:company_edeka = {
 			}
 		}
 	}
-	possible = {
-		has_technology_researched = corporate_charters
-		OR = {
-			any_scope_state = {
-				state_region = s:STATE_BRANDENBURG
-				is_incorporated = yes
-				any_scope_building = {
-					is_building_type = building_food_industry
-					level >= 5
-				}
-			}
-			trigger_if = {
-				limit = { is_not_in_geographic_region = geographic_region_europe }
-				any_overlord_or_above = { country_has_primary_culture = cu:north_german }
-			}
-		}
-	}
+	possible = { trigger_german_edeka_possible = yes }
 	replaces_company = company_basic_food
 	can_establish_in = { state_region = s:STATE_BRANDENBURG }
 	prosperity_modifier = {
@@ -464,10 +554,8 @@ REPLACE_OR_CREATE:company_edeka = {
 		}
 	}
 	ai_construction_targets = {
-		building_food_industry = {
-			level = 5
-			state_trigger = { state_region = s:STATE_BRANDENBURG }
-		}
+		building_trade_center	= { state_trigger = { state_region = s:STATE_BRANDENBURG } level = 5 }
+		building_food_industry	= { state_trigger = { state_region = s:STATE_BRANDENBURG } level = 5 }
 	}
 	ai_weight = { value = 5 }	# Very high to ensure ai picks this
 }
@@ -537,6 +625,7 @@ TRY_REPLACE:company_great_indian_railway = {
 	building_types = {  
 		building_railway
 		building_motor_industry			# Added
+		# building_power_plant			# Would make other company obsolete
 	}
 	extension_building_types = {
 		building_iron_mine
@@ -674,6 +763,12 @@ REPLACE:company_east_india_company = {
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
+INJECT:company_kablin = {
+	building_types = { building_logging_greenhouse }
+}
+INJECT:company_bombay_burmah_trading_corporation = {
+	building_types = { building_logging_greenhouse }
+}
 # United Fruit Company
 REPLACE:company_united_fruit = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/american_united_fruit_co.dds"
@@ -761,7 +856,7 @@ REPLACE:company_united_fruit = {
 					state_is_in_central_america = yes
 					state_is_in_south_america = yes
 				}
-				has_potential_resource = bg_banana_plantations
+				has_potential_resource = building_banana_plantation
 			}
 			any_subject_or_below = {
 				any_scope_state = {
@@ -769,7 +864,7 @@ REPLACE:company_united_fruit = {
 						state_is_in_central_america = yes
 						state_is_in_south_america = yes
 					}
-					has_potential_resource = bg_banana_plantations
+					has_potential_resource = building_banana_plantation
 				}
 			}
 		}
@@ -1017,7 +1112,7 @@ REPLACE:company_hanyang_arsenal = {
 	ai_construction_targets = {
 		building_explosives_factory		= { level = 5 state_trigger = { state_region = s:STATE_EASTERN_HUBEI } }
 		building_arms_industry			= { level = 5 state_trigger = { THIS ?= OWNER.market_capital } }
-		building_artillery_foundry	= { level = 5 state_trigger = { THIS ?= OWNER.market_capital } }
+		building_artillery_foundry		= { level = 5 state_trigger = { THIS ?= OWNER.market_capital } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -1032,6 +1127,7 @@ REPLACE:company_jingdezhen = {
 	}
 	extension_building_types = {
 		building_lead_mine
+		building_synthetics_plant	# Added
 	}
 	potential = { has_interest_marker_in_region = region_south_china }
 	possible_prestige_goods = {
@@ -1200,7 +1296,7 @@ REPLACE:company_vodka_monopoly = {
 	building_types = {  
 		building_food_industry
 		building_autarky_farm
-		building_vineyard_plantation
+		building_vineyard
 		building_vineyard_greenhouse
 	}
 	extension_building_types = {
@@ -1423,7 +1519,7 @@ REPLACE:company_cgv = {
 	flavored_company = yes
 	preferred_headquarters = { STATE_CHAMPAGNE }
 	building_types = {
-		building_vineyard_plantation
+		building_vineyard
 		building_vineyard_greenhouse
 	}
 	extension_building_types = {
@@ -1444,14 +1540,14 @@ REPLACE:company_cgv = {
 			state_region = s:STATE_CHAMPAGNE
 			is_incorporated = yes
 			any_scope_building = {
-				OR = { is_building_type = building_vineyard_plantation is_building_type = building_vineyard_greenhouse }
+				OR = { is_building_type = building_vineyard is_building_type = building_vineyard_greenhouse }
 				level >= 5
 			}
 		}
 	}
 	prosperity_modifier = {
 		country_prestige_mult = 0.15
-		building_vineyard_plantation_throughput_add = 0.10
+		building_vineyard_throughput_add = 0.10
 		building_vineyard_greenhouse_throughput_add = 0.10
 	}
 	ai_will_do = {
@@ -1462,8 +1558,8 @@ REPLACE:company_cgv = {
 		}
 	}
 	ai_construction_targets = {
-		building_vineyard_plantation = { level = 5 state_trigger = { state_region = s:STATE_CHAMPAGNE } }
-		building_vineyard_greenhouse = { level = 5 state_trigger = { state_region = s:STATE_CHAMPAGNE } }
+		building_vineyard				= { level = 5 state_trigger = { state_region = s:STATE_CHAMPAGNE } }
+		building_vineyard_greenhouse	= { level = 5 state_trigger = { state_region = s:STATE_CHAMPAGNE } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -1561,6 +1657,60 @@ REPLACE:company_maple_and_co = {
 	}
 	ai_construction_targets = {
 		building_furniture_manufactory = { level = 5 state_trigger = { state_region = s:STATE_HOME_COUNTIES } }
+	}
+	ai_weight = { value = 3 }	# Higher base value for flavored companies
+}
+REPLACE:company_armstrong_whitworth = {	# prestige_good_armstrong_ships
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/gb_armstrong_whitworth.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	flavored_company = yes
+	preferred_headquarters = { STATE_HOME_COUNTIES }	# STATE_YORKSHIRE
+	building_types = {
+		building_shipyard
+		building_military_shipyard
+		building_motor_industry
+		building_munition_plant
+	}
+	possible_prestige_goods = { prestige_good_armstrong_ships prestige_good_clyde_built_liners }
+	extension_building_types = { building_automotive_industry }
+	potential = { has_interest_marker_in_region = region_england }
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_HOME_COUNTIES
+			}
+		}
+	}
+	possible = {
+		has_technology_researched = ironclad_tech
+		has_technology_researched = gantry_cranes
+		any_scope_state = {
+			state_region = s:STATE_HOME_COUNTIES
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_shipyard
+					is_building_type = building_military_shipyard
+				}
+				level >= 5
+			}
+		}
+	}
+	prosperity_modifier = {
+		unit_combat_unit_type_carrier_offense_mult	= 0.15
+		unit_navy_defense_mult						= 0.10
+	}
+	ai_will_do = {
+		has_technology_researched = ironclad_tech
+		has_technology_researched = gantry_cranes
+		any_scope_state = {
+			state_region = s:STATE_HOME_COUNTIES
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_shipyard			= { level = 5 state_trigger = { state_region = s:STATE_HOME_COUNTIES } }
+		building_military_shipyard	= { level = 5 state_trigger = { state_region = s:STATE_HOME_COUNTIES } }
 	}
 	ai_weight = { value = 3 }	# Higher base value for flavored companies
 }
@@ -1736,4 +1886,14 @@ REPLACE:company_panama_company = {
 		# building_trade_center	= { level = 5 state_trigger = { state_region = s:STATE_PANAMA } }
 	}
 	ai_weight = { value = 10 }	# Free money!
+}
+INJECT:company_basic_motors = {
+	extension_building_types = {
+		building_synthetic_oil_plant
+	}
+}
+INJECT:company_ford_motor = {	# Not sure if that makes sense for them, but Firestone isn't in the game.
+	extension_building_types = {
+		building_synthetic_oil_plant
+	}
 }

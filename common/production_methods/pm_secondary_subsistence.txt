@@ -4,24 +4,25 @@ REPLACE_OR_CREATE:pm_home_workshops_no = {
 	unlocking_laws = { law_collectivized_agriculture }
 	building_modifiers = {
 		level_scaled = {
-			building_employment_farmers_add		=  500
+			building_employment_farmers_add				=  500
 		}
 		unscaled = {
-			goods_output_groceries_mult			=-1.00
-			goods_output_liquor_mult			=-1.00
-			goods_output_fabric_mult			= 0.50
-			goods_output_wood_mult				= 0.50
-			goods_output_hardwood_mult			= 0.50
-			goods_output_grain_mult				= 0.50
-			goods_output_fish_mult				= 0.50
-			goods_output_fruit_mult				= 0.50
-			goods_output_meat_mult				= 0.50
-			goods_output_fertilizer_mult		= 0.50
-			goods_output_services_mult			=-0.50
+			goods_output_groceries_mult					=-1.00
+			goods_output_liquor_mult					=-1.00
+			goods_output_fabric_mult					= 0.50
+			goods_output_wood_mult						= 0.50
+			goods_output_hardwood_mult					= 0.50
+			goods_output_grain_mult						= 0.50
+			goods_output_fish_mult						= 0.50
+			goods_output_fruit_mult						= 0.50
+			goods_output_meat_mult						= 0.50
+			goods_output_fertilizer_mult				= 0.50
+			goods_output_services_mult					=-0.50
+			building_farmers_job_attractiveness_mult	= 0.25
 		}
 	}
 }
-REPLACE_OR_CREATE:pm_home_workshops = {
+REPLACE_OR_CREATE:pm_home_workshops = {	# TODO: Move Groceries here from base pm
 	texture = "gfx/interface/icons/production_method_icons/home_workshops.dds"
 	disallowing_laws = { law_collectivized_agriculture }
 	unlocking_production_methods = {
@@ -33,13 +34,14 @@ REPLACE_OR_CREATE:pm_home_workshops = {
 	replacement_if_valid = pm_mechanized_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_clothes_add			= 0.50	# x+30	= +15
-			goods_output_furniture_add			= 0.50	# x+30	= +15
-		}												#		= +30
+			goods_output_clothes_add					= 0.50	# x+30	= +15
+			goods_output_furniture_add					= 0.50	# x+30	= +15
+			# goods_output_meat_add						= 0						pm_open_air_stockyards = 10 (included in base pm)
+		}														#		= +30
 		unscaled = {
-			goods_output_groceries_mult			=-1.00
-			goods_output_liquor_mult			=-0.50
-			goods_output_hardwood_mult			=-1.00
+			goods_output_groceries_mult					=-1.00
+			goods_output_liquor_mult					=-0.50
+			goods_output_hardwood_mult					=-1.00
 		}
 	}
 	ai_value = 0
@@ -51,25 +53,27 @@ REPLACE_OR_CREATE:pm_lathe_home_workshops = {
 	replacement_if_valid = pm_electric_home_workshops
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add				= 1.00	# x-40	= -40
-			goods_output_clothes_add			= 0.75	# x+30	= +22.5
-			goods_output_furniture_add			= 0.75	# x+30	= +22.5
-			goods_output_glass_add				= 0.75	# x+40	= +30
-			goods_output_paper_add				= 0.50	# x+30	= +15
-			goods_output_coal_add				= 1.00	# x+30	= +30
-		}												#		= +80
+			goods_input_tools_add						=  3.00	# x-40	=-120
+			goods_output_clothes_add					=  0.75	# x+30	= +22.5
+			goods_output_furniture_add					=  0.75	# x+30	= +22.5
+			goods_output_glass_add						=  0.75	# x+40	= +30
+			goods_output_paper_add						=  0.50	# x+30	= +15
+			goods_output_coal_add						=  1.00	# x+30	= +30
+			goods_output_oil_add						=  1.00	# x+40	= +40
+			goods_output_meat_add						= 15.00	# x+30	=+450	# pm_butchering_tools = 15
+		}														#		=+490
 		level_scaled = {
-			building_employment_farmers_add		=  500
+			building_employment_farmers_add				=  500
 		}
 		unscaled = {
-			goods_output_fertilizer_mult		= 0.50
-			goods_output_grain_mult				=-0.50
-			goods_output_fish_mult				=-0.50
-			goods_output_fruit_mult				=-0.50
-			goods_output_meat_mult				=-0.50
-			goods_output_sugar_mult				=-0.50
-			goods_output_groceries_mult			=-0.50
-			goods_output_liquor_mult			=-0.50
+			goods_output_fertilizer_mult				= 0.50
+			goods_output_grain_mult						=-0.25
+			goods_output_fish_mult						=-0.25
+			goods_output_fruit_mult						=-0.25
+			goods_output_sugar_mult						=-0.25
+			goods_output_groceries_mult					=-0.75
+			goods_output_liquor_mult					=-0.50
+			building_farmers_job_attractiveness_mult	= 0.25
 		}
 	}
 	ai_value = 10000
@@ -80,30 +84,33 @@ REPLACE_OR_CREATE:pm_mechanized_home_workshops = {
 	disallowing_laws = { law_collectivized_agriculture }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add				= 1.00	# x-40	= -40
-			goods_input_transportation_add		= 5.00	# x-30	=-150
-			goods_output_clothes_add			= 1.00	# x+30	= +30
-			goods_output_furniture_add			= 1.00	# x+30	= +30
-			goods_output_glass_add				= 1.50	# x+40	= +60
-			goods_output_paper_add				= 1.00	# x+30	= +30
-			goods_output_coal_add				= 3.00	# x+30	= +90
-			goods_output_oil_add				= 1.00	# x+40	= +40
-		}												#		= +90
+			goods_input_tools_add						= 10.00	# x-40	= -400
+			goods_input_transportation_add				=  5.00	# x-30	= -150
+			goods_output_clothes_add					=  1.00	# x+30	=  +30
+			goods_output_furniture_add					=  1.00	# x+30	=  +30
+			goods_output_glass_add						=  1.50	# x+40	=  +60
+			goods_output_paper_add						=  1.00	# x+30	=  +30
+			goods_output_coal_add						=  3.00	# x+30	=  +90
+			goods_output_oil_add						=  3.00	# x+40	= +120
+			goods_output_meat_add						= 30.00	# x+30	= +900	# pm_slaughterhouses = 25 | pm_mechanized_slaughtering = 35 => 45
+		}														#		= +710
 		level_scaled = {
-			building_employment_machinists_add	=  250
-			building_employment_farmers_add		=  250
+			building_employment_machinists_add			=  250
+			building_employment_farmers_add				=  250
 		}
 		unscaled = {
-			goods_output_fertilizer_mult		= 1.00
-			goods_output_grain_mult				=-0.50
-			# goods_output_fish_mult				=-0.25
-			# goods_output_fruit_mult				=-0.25
-			goods_output_meat_mult				= 1.00
-			# goods_output_sugar_mult				=-0.25
-			goods_output_fabric_mult			= 0.50
-			goods_output_wood_mult				= 0.50
-			goods_output_hardwood_mult			= 0.50
-			goods_output_services_mult			= 0.50
+			goods_output_fertilizer_mult				= 1.00
+			goods_output_grain_mult						=-0.50
+			# goods_output_fish_mult						=-0.25
+			# goods_output_fruit_mult						=-0.25
+			# goods_output_sugar_mult						=-0.25
+			# goods_output_groceries_mult					=-0.50
+			goods_output_fabric_mult					= 0.50
+			goods_output_wood_mult						= 0.50
+			goods_output_hardwood_mult					= 0.50
+			goods_output_services_mult					= 0.50
+			building_machinists_job_attractiveness_mult	= 0.25
+			building_farmers_job_attractiveness_mult	= 0.25
 		}
 	}
 	ai_value = 50000
@@ -116,28 +123,32 @@ REPLACE_OR_CREATE:pm_electric_home_workshops = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				= 1.00	# x-40	= -40
-			goods_input_transportation_add		= 5.00	# x-30	=-150
-			goods_input_electricity_add			= 5.00	# x-30	=-150
-			goods_output_glass_add				= 3.00	# x+40	=+120
-			goods_output_paper_add				= 2.00	# x+30	= +60
-			goods_output_coal_add				= 5.00	# x+30	=+150
-			goods_output_oil_add				= 2.50	# x+40	=+100
-		}												#		= +90
+			goods_input_tools_add						= 15.00	# x-40	= -600
+			goods_input_transportation_add				=  5.00	# x-30	= -150
+			goods_input_electricity_add					=  5.00	# x-30	= -150
+			goods_output_glass_add						=  3.00	# x+40	= +120
+			goods_output_paper_add						=  2.00	# x+30	=  +60
+			goods_output_coal_add						=  5.00	# x+30	= +150
+			goods_output_oil_add						=  5.00	# x+40	= +200
+			goods_output_meat_add						= 90.00	# x+30	=+2700	# pm_electrocution_slaughtering = 90
+		}														#		=+2330
 		level_scaled = {
-			building_employment_machinists_add	=  250
-			building_employment_engineers_add	=  200
-			building_employment_farmers_add		=   50
+			building_employment_machinists_add			=  250
+			building_employment_engineers_add			=  200
+			building_employment_farmers_add				=   50
 		}
 		unscaled = {
-			goods_output_fertilizer_mult		= 2.00
-			goods_output_fish_mult				= 1.00
-			goods_output_meat_mult				= 2.00
-			goods_output_liquor_mult			= 2.00
-			goods_output_fabric_mult			= 1.00
-			goods_output_wood_mult				= 1.00
-			goods_output_hardwood_mult			= 1.00
-			goods_output_services_mult			= 1.00
+			goods_output_fertilizer_mult				= 2.00
+			goods_output_fish_mult						= 1.00
+			# goods_output_meat_mult						= 2.00
+			goods_output_liquor_mult					= 2.00
+			goods_output_fabric_mult					= 1.00
+			goods_output_wood_mult						= 1.00
+			goods_output_hardwood_mult					= 1.00
+			goods_output_services_mult					= 1.00
+			building_machinists_job_attractiveness_mult	= 0.25
+			building_engineers_job_attractiveness_mult	= 0.25
+			building_farmers_job_attractiveness_mult	= 0.25
 		}
 	}
 	ai_value = 100000
@@ -159,28 +170,32 @@ REPLACE_OR_CREATE:pm_autark_home_workshops = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tools_add				= 1.00	# x-40	= -40
-			goods_input_transportation_add		= 5.00	# x-30	=-150
-			goods_output_electricity_add		=-5.00	# x+30	=-150
-			goods_output_glass_add				= 3.00	# x+40	=+120
-			goods_output_paper_add				= 2.00	# x+30	= +60
-			goods_output_coal_add				= 5.00	# x+30	=+150
-			goods_output_oil_add				= 2.50	# x+40	=+100
-		}												#		= +90
+			goods_input_tools_add						= 15.00	# x-40	= -600
+			goods_input_transportation_add				=  5.00	# x-30	= -150
+			goods_output_electricity_add				= -5.00	# x+30	= -150
+			goods_output_glass_add						=  3.00	# x+40	= +120
+			goods_output_paper_add						=  2.00	# x+30	=  +60
+			goods_output_coal_add						=  5.00	# x+30	= +150
+			goods_output_oil_add						=  5.00	# x+40	= +200
+			goods_output_meat_add						= 90.00	# x+30	=+2700	# pm_electrocution_slaughtering = 90
+		}														#		=+2330
 		level_scaled = {
-			building_employment_machinists_add	=  250
-			building_employment_engineers_add	=  200
-			building_employment_farmers_add		=   50
+			building_employment_machinists_add			=  250
+			building_employment_engineers_add			=  200
+			building_employment_farmers_add				=   50
 		}
 		unscaled = {
-			goods_output_fertilizer_mult		= 2.00
-			goods_output_fish_mult				= 1.00
-			goods_output_meat_mult				= 2.00
-			goods_output_liquor_mult			= 2.00
-			goods_output_fabric_mult			= 1.00
-			goods_output_wood_mult				= 1.00
-			goods_output_hardwood_mult			= 1.00
-			goods_output_services_mult			= 1.00
+			goods_output_fertilizer_mult				= 2.00
+			goods_output_fish_mult						= 1.00
+			# goods_output_meat_mult						= 2.00
+			goods_output_liquor_mult					= 2.00
+			goods_output_fabric_mult					= 1.00
+			goods_output_wood_mult						= 1.00
+			goods_output_hardwood_mult					= 1.00
+			goods_output_services_mult					= 1.00
+			building_machinists_job_attractiveness_mult	= 0.25
+			building_engineers_job_attractiveness_mult	= 0.25
+			building_farmers_job_attractiveness_mult	= 0.25
 		}
 	}
 	ai_value = 100000

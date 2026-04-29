@@ -112,7 +112,8 @@ REPLACE:mobilization_option_truck_transport = {
 	unit_modifier = {
 		military_formation_movement_speed_mult				= 0.30
 		military_formation_mobilization_speed_mult			= 0.40
-		character_battle_condition_broken_supply_line_mult	=-0.50
+		character_battle_condition_broken_supply_line_mult	=-0.50	# Added
+		character_battle_condition_exhausted_mult			=-0.50	# Added
 		military_formation_attrition_risk_mult				=-0.20	# Added
 	}
 	ai_weight = { value = 3 }
@@ -141,7 +142,7 @@ REPLACE:mobilization_option_rail_transport = {
 	unit_modifier = {
 		military_formation_movement_speed_mult				= 0.40
 		military_formation_mobilization_speed_mult			= 0.60
-		character_battle_condition_broken_supply_line_mult	=-0.50
+		character_battle_condition_broken_supply_line_mult	=-0.50	# Added
 		character_battle_condition_charted_terrain_mult		= 0.50	# Added
 		military_formation_attrition_risk_mult				=-0.10	# Added
 	}
